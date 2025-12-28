@@ -14,6 +14,45 @@ let dayCyclePaused = false;
 let currentPhase = 'day'; // 'day', 'sunset', 'night', 'sunrise'
 let cycleProgress = 0; // 0 à 120 secondes (2 minutes)
 let sandStormInterval = null;
+let sandStormTimeouts = []; // Pour stocker tous les timeouts des tempêtes de sable
+
+// Fonction de nettoyage complète pour tous les thèmes
+function cleanupAllThemes() {
+    // Nettoyer tous les conteneurs d'animations
+    snowflakesContainer.innerHTML = '';
+    starsContainer.innerHTML = '';
+    sandContainer.innerHTML = '';
+    
+    // Arrêter le cycle Markarane
+    if (dayCycleInterval) {
+        clearInterval(dayCycleInterval);
+        dayCycleInterval = null;
+    }
+    
+    // Arrêter toutes les tempêtes de sable
+    if (sandStormInterval) {
+        clearTimeout(sandStormInterval);
+        sandStormInterval = null;
+    }
+    
+    // Nettoyer tous les timeouts de tempête de sable
+    sandStormTimeouts.forEach(timeout => clearTimeout(timeout));
+    sandStormTimeouts = [];
+    
+    // Réinitialiser les variables Markarane
+    dayCyclePaused = false;
+    cycleProgress = 0;
+    currentPhase = 'day';
+    
+    // Retirer toutes les classes de phase de body
+    body.classList.remove('sunset', 'night', 'sunrise');
+    
+    // Réinitialiser le style et la position du soleil
+    sun.style.transform = 'scale(1)';
+    sun.style.filter = 'brightness(1)';
+    sunContainer.style.left = '50%';
+    sunContainer.style.top = '80px';
+}
 
 // Fonction pour créer des flocons de neige (Windress)
 function createSnowflakes() {
@@ -87,6 +126,9 @@ themeTabs.forEach(tab => {
     tab.addEventListener('click', function() {
         const theme = this.dataset.theme;
         
+        // NETTOYER COMPLÈTEMENT tous les thèmes précédents
+        cleanupAllThemes();
+        
         // Retirer la classe active de tous les onglets
         themeTabs.forEach(t => t.classList.remove('active'));
         
@@ -119,9 +161,6 @@ themeTabs.forEach(tab => {
             }, 1500);
             
         } else if (theme === 'markarane') {
-            // Arrêter les anciens cycles et tempêtes
-            stopMarkaraneCycle();
-            
             playTransitionAnimation('sand');
             setTimeout(() => {
                 body.classList.add('theme-markarane');
@@ -130,8 +169,7 @@ themeTabs.forEach(tab => {
             }, 1500);
             
         } else if (theme === 'base') {
-            snowflakesContainer.innerHTML = '';
-            stopMarkaraneCycle();
+            // Le thème de base est déjà nettoyé, rien à faire
         }
     });
 });
@@ -152,7 +190,7 @@ function createNightStars() {
     
     for (let i = 0; i < numberOfStars; i++) {
         const star = document.createElement('div');
-        star.className = 'star';
+        star.className = 'night-star';
         star.style.left = Math.random() * 100 + '%';
         star.style.top = Math.random() * 60 + '%'; // Seulement dans la partie haute
         star.style.animationDelay = Math.random() * 3 + 's';
@@ -228,22 +266,6 @@ function startMarkaraneCycle() {
     dayCycleInterval = setInterval(updateDayCycle, 100);
 }
 
-// Arrêter le cycle jour/nuit
-function stopMarkaraneCycle() {
-    if (dayCycleInterval) {
-        clearInterval(dayCycleInterval);
-        dayCycleInterval = null;
-    }
-    if (sandStormInterval) {
-        clearInterval(sandStormInterval);
-        sandStormInterval = null;
-    }
-    sandContainer.innerHTML = '';
-    starsContainer.innerHTML = '';
-    dayCyclePaused = false;
-    cycleProgress = 0;
-}
-
 // Créer une tempête de sable
 function createSandStorm(direction = 'right', duration = 2000) {
     sandContainer.innerHTML = '';
@@ -291,18 +313,21 @@ function startSandStorm() {
         // Pattern 1: droite -> pause -> droite
         () => {
             createSandStorm('right', 2000);
-            setTimeout(() => createSandStorm('right', 2000), 4000);
+            const t1 = setTimeout(() => createSandStorm('right', 2000), 4000);
+            sandStormTimeouts.push(t1);
         },
         // Pattern 2: gauche -> pause -> gauche -> pause -> gauche
         () => {
             createSandStorm('left', 2000);
-            setTimeout(() => createSandStorm('left', 2000), 4000);
-            setTimeout(() => createSandStorm('left', 2000), 8000);
+            const t1 = setTimeout(() => createSandStorm('left', 2000), 4000);
+            const t2 = setTimeout(() => createSandStorm('left', 2000), 8000);
+            sandStormTimeouts.push(t1, t2);
         },
         // Pattern 3: droite -> pause -> gauche
         () => {
             createSandStorm('right', 2000);
-            setTimeout(() => createSandStorm('left', 2000), 4000);
+            const t1 = setTimeout(() => createSandStorm('left', 2000), 4000);
+            sandStormTimeouts.push(t1);
         },
         // Pattern 4: gauche seul
         () => {
@@ -311,8 +336,9 @@ function startSandStorm() {
         // Pattern 5: droite -> droite -> droite
         () => {
             createSandStorm('right', 1800);
-            setTimeout(() => createSandStorm('right', 1800), 3000);
-            setTimeout(() => createSandStorm('right', 1800), 6000);
+            const t1 = setTimeout(() => createSandStorm('right', 1800), 3000);
+            const t2 = setTimeout(() => createSandStorm('right', 1800), 6000);
+            sandStormTimeouts.push(t1, t2);
         },
         // Pattern 6: pause longue (rien)
         () => {
@@ -327,10 +353,12 @@ function startSandStorm() {
         // Prochain pattern dans 8-15 secondes
         const nextDelay = 8000 + Math.random() * 7000;
         sandStormInterval = setTimeout(triggerRandomPattern, nextDelay);
+        sandStormTimeouts.push(sandStormInterval);
     }
     
     // Démarrer le premier pattern après 2 secondes
-    setTimeout(triggerRandomPattern, 2000);
+    const initialTimeout = setTimeout(triggerRandomPattern, 2000);
+    sandStormTimeouts.push(initialTimeout);
 }
 
 // Gestion du clic sur le soleil pour bloquer le cycle

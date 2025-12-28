@@ -339,7 +339,7 @@ body {
     pointer-events: none;
     z-index: 5;
     opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 0.3s ease;
 }
 
 body.theme-windress .snowflakes-container {
@@ -421,36 +421,6 @@ body.theme-arzass .snowflakes-container {
     50% {
         opacity: 1;
         transform: scale(1.2) rotate(180deg);
-    }
-}
-
-/* Feuilles pour Markarane */
-body.theme-markarane .snowflakes-container {
-    opacity: 1;
-}
-
-.leaf {
-    position: absolute;
-    top: -10px;
-    color: #5a8f5a;
-    font-size: 1.5em;
-    opacity: 0.8;
-    animation: leafFall linear infinite;
-}
-
-@keyframes leafFall {
-    0% {
-        top: -10%;
-        opacity: 0.8;
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(180deg) translateX(30px);
-    }
-    100% {
-        top: 110%;
-        opacity: 0.3;
-        transform: rotate(360deg) translateX(-30px);
     }
 }
 
@@ -662,7 +632,7 @@ body.theme-markarane .nav-item::before {
     pointer-events: none;
     z-index: 100;
     transform: translateX(-50%);
-    transition: all 0.1s linear;
+    transition: left 0.1s linear, top 0.1s linear, opacity 0.3s ease;
     opacity: 0;
 }
 
@@ -703,24 +673,24 @@ body.theme-markarane.night .sun {
     pointer-events: none;
     z-index: 4;
     opacity: 0;
-    transition: opacity 2s ease;
+    transition: opacity 0.3s ease;
 }
 
 body.theme-markarane.night .stars-container {
     opacity: 1;
 }
 
-.star {
+.night-star {
     position: absolute;
     width: 2px;
     height: 2px;
     background: white;
     border-radius: 50%;
     box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
-    animation: twinkle 3s ease-in-out infinite;
+    animation: nightTwinkle 3s ease-in-out infinite;
 }
 
-@keyframes twinkle {
+@keyframes nightTwinkle {
     0%, 100% {
         opacity: 0.3;
     }
@@ -739,6 +709,7 @@ body.theme-markarane.night .stars-container {
     pointer-events: none;
     z-index: 6;
     opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 body.theme-markarane .sand-container {
