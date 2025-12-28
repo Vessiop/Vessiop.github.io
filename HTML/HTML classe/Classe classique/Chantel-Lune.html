@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chantelune - Termion</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Chante-Lune.CSS">
+    <link rel="stylesheet" href="style-chantelune.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
 </head>
 <body>
@@ -343,11 +343,11 @@
                 scales: {
                     r: {
                         min: 0,
-                        max: 14, // -4 à +10 = 14 niveaux
+                        max: 10, // -4 à +6 = 10 niveaux
                         ticks: {
                             stepSize: 2,
                             callback: function(value) {
-                                // Convertir les valeurs affichées (-4 à +10)
+                                // Convertir les valeurs affichées (-4 à +6)
                                 return value - 4;
                             },
                             color: '#4a5a8a',
