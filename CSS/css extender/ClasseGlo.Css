@@ -1,0 +1,445 @@
+:root {
+    --parchment: #f4e9d8;
+    --parchment-dark: #d4c4a8;
+    --ink: #2c2416;
+    --gold: #c9a961;
+    --gold-dark: #9d7d3a;
+    --burgundy: #6b2737;
+    --forest: #3a5a40;
+    --religious: #4a5a8a;
+    --special: #8a4a6a;
+    --dlc: #6a5a3a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background-color: var(--parchment);
+    color: var(--ink);
+    min-height: 100vh;
+    position: relative;
+    line-height: 1.7;
+}
+
+/* Texture de parchemin */
+.parchment-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(44, 36, 22, 0.015) 2px,
+            rgba(44, 36, 22, 0.015) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Bouton retour */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid var(--gold);
+    color: var(--burgundy);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.back-button:hover {
+    background: var(--gold);
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+}
+
+.header {
+    text-align: center;
+    padding: 80px 20px 40px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 2px solid var(--gold);
+    background: linear-gradient(to bottom, var(--parchment) 0%, rgba(201, 169, 97, 0.05) 100%);
+}
+
+.ornament {
+    font-size: 2.5rem;
+    color: var(--gold);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+}
+
+.ornament-left {
+    left: 20px;
+}
+
+.ornament-right {
+    right: 20px;
+}
+
+.title-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: var(--burgundy);
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px rgba(201, 169, 97, 0.3);
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3rem;
+    color: var(--gold-dark);
+    font-style: italic;
+    letter-spacing: 2px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Sections de classes */
+.class-section {
+    margin-bottom: 80px;
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--burgundy);
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.section-title.religious {
+    color: var(--religious);
+}
+
+.section-title.religious::after {
+    background: linear-gradient(to right, transparent, var(--religious), transparent);
+}
+
+.section-title.special {
+    color: var(--special);
+}
+
+.section-title.special::after {
+    background: linear-gradient(to right, transparent, var(--special), transparent);
+}
+
+.section-title.dlc {
+    color: var(--dlc);
+}
+
+.section-title.dlc::after {
+    background: linear-gradient(to right, transparent, var(--dlc), transparent);
+}
+
+/* Grille de classes */
+.class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Cartes de classes */
+.class-card {
+    background: linear-gradient(135deg, #fff 0%, var(--parchment-dark) 100%);
+    border: 2px solid var(--gold);
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: cardAppear 0.5s ease-out backwards;
+}
+
+/* Animation en cascade */
+.class-card:nth-child(1) { animation-delay: 0.05s; }
+.class-card:nth-child(2) { animation-delay: 0.1s; }
+.class-card:nth-child(3) { animation-delay: 0.15s; }
+.class-card:nth-child(4) { animation-delay: 0.2s; }
+.class-card:nth-child(5) { animation-delay: 0.25s; }
+.class-card:nth-child(6) { animation-delay: 0.3s; }
+.class-card:nth-child(7) { animation-delay: 0.35s; }
+.class-card:nth-child(8) { animation-delay: 0.4s; }
+.class-card:nth-child(9) { animation-delay: 0.45s; }
+.class-card:nth-child(10) { animation-delay: 0.5s; }
+.class-card:nth-child(11) { animation-delay: 0.55s; }
+.class-card:nth-child(12) { animation-delay: 0.6s; }
+.class-card:nth-child(13) { animation-delay: 0.65s; }
+.class-card:nth-child(14) { animation-delay: 0.7s; }
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.class-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.class-card:hover::before {
+    left: 100%;
+}
+
+.class-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(44, 36, 22, 0.2);
+    border-color: var(--gold-dark);
+}
+
+.class-card.religious {
+    border-color: var(--religious);
+}
+
+.class-card.religious:hover {
+    border-color: var(--religious);
+    box-shadow: 0 12px 30px rgba(74, 90, 138, 0.3);
+}
+
+.class-card.special {
+    border-color: var(--special);
+}
+
+.class-card.special:hover {
+    border-color: var(--special);
+    box-shadow: 0 12px 30px rgba(138, 74, 106, 0.3);
+}
+
+.class-card.dlc {
+    border-color: var(--dlc);
+}
+
+.class-card.dlc:hover {
+    border-color: var(--dlc);
+    box-shadow: 0 12px 30px rgba(106, 90, 58, 0.3);
+}
+
+.class-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.class-card:hover .class-icon {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.class-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--burgundy);
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.class-card.religious h3 {
+    color: var(--religious);
+}
+
+.class-card.special h3 {
+    color: var(--special);
+}
+
+.class-card.dlc h3 {
+    color: var(--dlc);
+}
+
+.footer {
+    text-align: center;
+    padding: 40px 20px 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.divider {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0 auto 20px;
+}
+
+.footer p {
+    font-size: 0.95rem;
+    color: var(--gold-dark);
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .class-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .ornament {
+        font-size: 1.8rem;
+    }
+
+    .ornament-left {
+        left: 10px;
+    }
+
+    .ornament-right {
+        right: 10px;
+    }
+
+    .back-button {
+        top: 10px;
+        left: 10px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    .header {
+        padding: 60px 20px 30px;
+    }
+
+    .container {
+        padding: 40px 15px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .class-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+
+    .class-card {
+        padding: 25px 15px;
+    }
+
+    .class-icon {
+        font-size: 2.5rem;
+    }
+
+    .class-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .class-section {
+        margin-bottom: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .class-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
