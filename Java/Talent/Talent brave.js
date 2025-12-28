@@ -1,6 +1,5 @@
 // Données complètes des talents brave
 const talents = [
-    // ========== OFFENSIF - Maîtrise et Techniques d'Armes ==========
     {
         nom: "A deux mains",
         condition: "Avoir une maîtrise d'une arme de guerre (2 mains) en Avancé",
@@ -145,8 +144,6 @@ const talents = [
         sousCategorie: "Maîtrise et Techniques d'Armes",
         cout: "3"
     },
-
-    // ========== OFFENSIF - Effets Spéciaux, Critiques et Conditions ==========
     {
         nom: "Âmes sœur de bataille",
         condition: "Classe Valkyrie/Skaldar",
@@ -299,8 +296,6 @@ const talents = [
         sousCategorie: "Effets Spéciaux, Critiques et Conditions",
         cout: "2"
     },
-
-    // ========== OFFENSIF - Combinaisons Sournoises et Enchaînements ==========
     {
         nom: "Assaut Pirate",
         condition: "Classe Pirate + maîtrise Avancée du sabre",
@@ -445,8 +440,6 @@ const talents = [
         sousCategorie: "Combinaisons Sournoises et Enchaînements",
         cout: "2"
     },
-
-    // ========== DÉFENSIF - Réduction et Résistance aux Dégâts ==========
     {
         nom: "Adversité des ténèbres",
         condition: "Classe Acolyte des ténèbres",
@@ -583,8 +576,6 @@ const talents = [
         sousCategorie: "Réduction et Résistance aux Dégâts",
         cout: "2"
     },
-
-    // ========== DÉFENSIF - Contres, Postures et Défense Active ==========
     {
         nom: "Maître du bâton",
         condition: "Maîtrise mineure bâton de combat + Maîtrise mineure art des postures",
@@ -648,12 +639,7 @@ const talents = [
         categorie: "Défensif",
         sousCategorie: "Contres, Postures et Défense Active",
         cout: "2"
-    }
-];
-
-// Note: Ceci est la partie 1 des talents. Le fichier sera complété avec les catégories Réaction/Mobilité, Magie et Autre dans un second fichier
-
-// ========== DÉFENSIF - Réactions, Adaptations et Résilience ==========
+    },
     {
         nom: "Accro à la douleur",
         condition: "Talent combat de corps OU classe Combattant/Moine",
@@ -742,8 +728,6 @@ const talents = [
         sousCategorie: "Réactions, Adaptations et Résilience",
         cout: "2"
     },
-
-    // ========== RÉACTION/MOBILITÉ - Esquives et Réactions Instantanées ==========
     {
         nom: "Chien Fou",
         condition: "Talent Agilité Avancé + Réactivité ≥45",
@@ -848,8 +832,6 @@ const talents = [
         sousCategorie: "Esquives et Réactions Instantanées",
         cout: "2"
     },
-
-    // ========== RÉACTION/MOBILITÉ - Déplacements Stratégiques et Mobilité ==========
     {
         nom: "Célérité Férale",
         condition: "Classe Sauvage OU race Bestial + talent Coureur émérite",
@@ -922,8 +904,6 @@ const talents = [
         sousCategorie: "Déplacements Stratégiques et Mobilité",
         cout: "2"
     },
-
-    // ========== RÉACTION/MOBILITÉ - Bonus de Réactivité, Initiative et Conditions de Combat ==========
     {
         nom: "Adrénaline",
         condition: "Aucune",
@@ -1004,6 +984,11 @@ function initTable() {
     const totalCount = document.getElementById('totalCount');
     const talentCount = document.getElementById('talentCount');
     
+    if (!tbody || !totalCount || !talentCount) {
+        console.error('Éléments du DOM non trouvés');
+        return;
+    }
+    
     totalCount.textContent = talents.length;
     talentCount.textContent = talents.length;
     
@@ -1015,16 +1000,21 @@ function renderTalents(talentsToShow) {
     const noResults = document.getElementById('noResults');
     const talentCount = document.getElementById('talentCount');
     
-    tbody.innerHTML = '';
-    
-    if (talentsToShow.length === 0) {
-        noResults.style.display = 'block';
-        talentCount.textContent = '0';
+    if (!tbody) {
+        console.error('Tableau non trouvé');
         return;
     }
     
-    noResults.style.display = 'none';
-    talentCount.textContent = talentsToShow.length;
+    tbody.innerHTML = '';
+    
+    if (talentsToShow.length === 0) {
+        if (noResults) noResults.style.display = 'block';
+        if (talentCount) talentCount.textContent = '0';
+        return;
+    }
+    
+    if (noResults) noResults.style.display = 'none';
+    if (talentCount) talentCount.textContent = talentsToShow.length;
     
     talentsToShow.forEach(talent => {
         const row = document.createElement('tr');
@@ -1049,7 +1039,14 @@ function renderTalents(talentsToShow) {
 }
 
 function searchTalents() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const searchInput = document.getElementById('searchInput');
+    
+    if (!searchInput) {
+        console.error('Champ de recherche non trouvé');
+        return;
+    }
+    
+    const searchTerm = searchInput.value.toLowerCase();
     
     const filtered = talents.filter(talent => {
         return talent.nom.toLowerCase().includes(searchTerm) ||
@@ -1067,10 +1064,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const clearBtn = document.getElementById('clearSearch');
     
-    searchInput.addEventListener('input', searchTalents);
+    if (searchInput) {
+        searchInput.addEventListener('input', searchTalents);
+    }
     
-    clearBtn.addEventListener('click', () => {
-        searchInput.value = '';
-        searchTalents();
-    });
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (searchInput) {
+                searchInput.value = '';
+                searchTalents();
+            }
+        });
+    }
 });
