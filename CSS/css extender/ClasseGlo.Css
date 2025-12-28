@@ -236,6 +236,9 @@ body {
     position: relative;
     overflow: hidden;
     animation: cardAppear 0.5s ease-out backwards;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 /* Animation en cascade */
