@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Termion - Univers Medieval Fantasy</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/css Base/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="parchment-overlay"></div>
+    
+    <!-- Système d'onglets de sélection - TOUT EN HAUT -->
+    <nav class="theme-tabs">
+        <button class="theme-tab active" data-theme="base">Base</button>
+        <button class="theme-tab" data-theme="windress">Windress</button>
+        <button class="theme-tab" data-theme="pylorianne">Pylorianne</button>
+        <button class="theme-tab" data-theme="arzass">Arzass</button>
+        <button class="theme-tab" data-theme="markarane">Markarane</button>
+    </nav>
     
     <header class="header">
         <div class="ornament ornament-left">⚜</div>
@@ -18,15 +27,6 @@
         </div>
         <div class="ornament ornament-right">⚜</div>
     </header>
-
-    <!-- Système d'onglets -->
-    <nav class="theme-tabs">
-        <button class="theme-tab active" data-theme="base">Base</button>
-        <button class="theme-tab" data-theme="windress">Windress</button>
-        <button class="theme-tab" data-theme="pylorianne">Pylorianne</button>
-        <button class="theme-tab" data-theme="arzass">Arzass</button>
-        <button class="theme-tab" data-theme="markarane">Markarane</button>
-    </nav>
 
     <main class="container">
         <nav class="navigation">
@@ -99,6 +99,6 @@
     <!-- Conteneur pour les grains de sable (Markarane) -->
     <div class="sand-container"></div>
 
-    <script src="Java/saisonW.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

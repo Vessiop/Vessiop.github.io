@@ -88,43 +88,49 @@ body {
     transition: background-color 0.8s ease, color 0.8s ease;
 }
 
-/* Système d'onglets de thème */
+/* Système d'onglets de thème - TOUT EN HAUT */
 .theme-tabs {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.3);
-    border-bottom: 2px solid var(--gold);
-    position: relative;
-    z-index: 10;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    background: linear-gradient(to bottom, rgba(44, 36, 22, 0.05) 0%, rgba(201, 169, 97, 0.1) 100%);
+    border-bottom: 3px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
     flex-wrap: wrap;
+    backdrop-filter: blur(8px);
 }
 
 .theme-tab {
     font-family: 'Cinzel', serif;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    padding: 12px 25px;
-    background: transparent;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.6);
     border: 2px solid var(--gold);
     color: var(--burgundy);
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border-radius: 0;
 }
 
 .theme-tab:hover {
     background: var(--gold);
     color: white;
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(44, 36, 22, 0.2);
 }
 
 .theme-tab.active {
     background: var(--burgundy);
     color: white;
     border-color: var(--burgundy);
+    box-shadow: 0 4px 12px rgba(107, 39, 55, 0.4);
 }
 
 /* Texture de parchemin subtile */
@@ -729,6 +735,16 @@ body.theme-markarane .sand-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
+    
+    .theme-tabs {
+        gap: 8px;
+        padding: 12px 15px;
+    }
+    
+    .theme-tab {
+        font-size: 0.85rem;
+        padding: 8px 15px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -756,6 +772,17 @@ body.theme-markarane .sand-container {
     .navigation {
         grid-template-columns: 1fr;
         gap: 15px;
+    }
+    
+    .theme-tabs {
+        gap: 6px;
+        padding: 10px;
+    }
+    
+    .theme-tab {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+        letter-spacing: 0.5px;
     }
 
     .container {
