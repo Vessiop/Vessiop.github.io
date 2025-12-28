@@ -8,7 +8,7 @@
     --forest: #3a5a40;
 }
 
-/* Variables pour le thème Windress */
+/* Variables pour le thème Windress (Hiver/Neige) */
 body.theme-windress {
     --parchment: #e8f4f8;
     --parchment-dark: #c8d8e4;
@@ -17,6 +17,59 @@ body.theme-windress {
     --gold-dark: #4a7ba3;
     --burgundy: #2d4a5e;
     --forest: #3a5a6a;
+}
+
+/* Variables pour le thème Pylorianne (Feu/Lave) */
+body.theme-pylorianne {
+    --parchment: #ffe8d6;
+    --parchment-dark: #e8c4a8;
+    --ink: #4a1f0f;
+    --gold: #ff6b35;
+    --gold-dark: #cc5529;
+    --burgundy: #8b2e16;
+    --forest: #6a3820;
+}
+
+/* Variables pour le thème Arzass (Nocturne/Mystique) */
+body.theme-arzass {
+    --parchment: #1a1625;
+    --parchment-dark: #2a2438;
+    --ink: #e8e4f3;
+    --gold: #9d7bd8;
+    --gold-dark: #7859b3;
+    --burgundy: #b794f6;
+    --forest: #4a3f5c;
+}
+
+/* Variables pour le thème Markarane (Désert - Jour) */
+body.theme-markarane {
+    --parchment: #f4e4c1;
+    --parchment-dark: #e8d4a8;
+    --ink: #4a3a1a;
+    --gold: #d4a154;
+    --gold-dark: #b8853a;
+    --burgundy: #8b5a2b;
+    --forest: #6b4a2a;
+    transition: all 1.5s ease;
+}
+
+/* Markarane - Coucher du soleil */
+body.theme-markarane.sunset {
+    --parchment: #f4c4a1;
+    --parchment-dark: #e8b498;
+    --ink: #3a2a1a;
+    --gold: #e89154;
+    --burgundy: #a84a2b;
+}
+
+/* Markarane - Nuit */
+body.theme-markarane.night {
+    --parchment: #1a2433;
+    --parchment-dark: #2a3443;
+    --ink: #c8d4e4;
+    --gold: #4a6a94;
+    --gold-dark: #3a5a84;
+    --burgundy: #5a7a9a;
 }
 
 * {
@@ -314,6 +367,93 @@ body.theme-windress .snowflakes-container {
     }
 }
 
+/* Braises pour Pylorianne */
+body.theme-pylorianne .snowflakes-container {
+    opacity: 1;
+}
+
+.ember {
+    position: absolute;
+    bottom: -10px;
+    color: #ff6b35;
+    font-size: 1em;
+    opacity: 0.9;
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.8);
+    animation: rise linear infinite;
+}
+
+@keyframes rise {
+    0% {
+        bottom: -10%;
+        opacity: 0.9;
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+    100% {
+        bottom: 110%;
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+/* Étoiles pour Arzass */
+body.theme-arzass .snowflakes-container {
+    opacity: 1;
+}
+
+.star {
+    position: absolute;
+    top: -10px;
+    color: #b794f6;
+    font-size: 1em;
+    opacity: 0;
+    text-shadow: 0 0 10px rgba(183, 148, 246, 0.9);
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(180deg);
+    }
+}
+
+/* Feuilles pour Markarane */
+body.theme-markarane .snowflakes-container {
+    opacity: 1;
+}
+
+.leaf {
+    position: absolute;
+    top: -10px;
+    color: #5a8f5a;
+    font-size: 1.5em;
+    opacity: 0.8;
+    animation: leafFall linear infinite;
+}
+
+@keyframes leafFall {
+    0% {
+        top: -10%;
+        opacity: 0.8;
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg) translateX(30px);
+    }
+    100% {
+        top: 110%;
+        opacity: 0.3;
+        transform: rotate(360deg) translateX(-30px);
+    }
+}
+
 /* Overlay de tempête de neige */
 .storm-overlay {
     position: fixed;
@@ -348,6 +488,21 @@ body.theme-windress .snowflakes-container {
     }
 }
 
+/* Overlay de feu pour Pylorianne */
+.storm-overlay.fire {
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.9) 0%, rgba(255, 140, 60, 0.95) 100%);
+}
+
+/* Overlay nocturne pour Arzass */
+.storm-overlay.night {
+    background: radial-gradient(circle, rgba(26, 22, 37, 0.95) 0%, rgba(42, 36, 56, 0.98) 100%);
+}
+
+/* Overlay de sable pour Markarane */
+.storm-overlay.sand {
+    background: radial-gradient(circle, rgba(212, 161, 84, 0.85) 0%, rgba(184, 133, 58, 0.9) 100%);
+}
+
 /* Neige sur les cases en thème Windress */
 body.theme-windress .nav-item::after {
     content: '';
@@ -372,6 +527,230 @@ body.theme-windress .nav-item:nth-child(odd)::after {
 
 body.theme-windress .nav-item:nth-child(3n)::after {
     height: 12px;
+}
+
+/* Lueur de feu sur les cases en thème Pylorianne */
+body.theme-pylorianne .nav-item {
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+}
+
+body.theme-pylorianne .nav-item:hover {
+    box-shadow: 0 0 25px rgba(255, 107, 53, 0.6);
+}
+
+body.theme-pylorianne .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to right, transparent, rgba(255, 107, 53, 0.7), transparent);
+    opacity: 1;
+    animation: flicker 2s ease-in-out infinite;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Lueur mystique sur les cases en thème Arzass */
+body.theme-arzass .nav-item {
+    box-shadow: 0 0 20px rgba(183, 148, 246, 0.4);
+    border-color: var(--gold);
+}
+
+body.theme-arzass .nav-item:hover {
+    box-shadow: 0 0 30px rgba(183, 148, 246, 0.7);
+}
+
+body.theme-arzass .nav-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(183, 148, 246, 0.1), rgba(157, 123, 216, 0.2));
+    opacity: 1;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Effet naturel sur les cases en thème Markarane */
+body.theme-markarane .nav-item {
+    box-shadow: 0 5px 15px rgba(90, 143, 90, 0.3);
+}
+
+body.theme-markarane .nav-item:hover {
+    box-shadow: 0 8px 20px rgba(90, 143, 90, 0.5);
+}
+
+/* Dunes de sable sous les cases Markarane */
+body.theme-markarane .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, 
+        rgba(212, 161, 84, 0.8) 0%, 
+        rgba(184, 133, 58, 0.6) 50%, 
+        transparent 100%);
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    opacity: 1;
+    filter: blur(1px);
+}
+
+body.theme-markarane .nav-item:nth-child(odd)::after {
+    height: 25px;
+}
+
+body.theme-markarane .nav-item:nth-child(3n)::after {
+    height: 15px;
+}
+
+/* Grains de sable tombant sous les cases */
+body.theme-markarane .nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 20%;
+    width: 60%;
+    height: 30px;
+    background-image: 
+        radial-gradient(circle, rgba(212, 161, 84, 0.3) 1px, transparent 1px),
+        radial-gradient(circle, rgba(184, 133, 58, 0.2) 1px, transparent 1px);
+    background-size: 10px 10px, 15px 15px;
+    background-position: 0 0, 5px 5px;
+    opacity: 0;
+    animation: sandFalling 3s ease-in-out infinite;
+}
+
+@keyframes sandFalling {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateY(10px);
+    }
+}
+
+/* Conteneur du soleil */
+.sun-container {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    pointer-events: none;
+    z-index: 100;
+    transform: translateX(-50%);
+    transition: all 0.1s linear;
+    opacity: 0;
+}
+
+body.theme-markarane .sun-container {
+    opacity: 1;
+}
+
+.sun {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ffeb3b 0%, #ff9800 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 235, 59, 0.8),
+                0 0 60px rgba(255, 235, 59, 0.5);
+    cursor: pointer;
+    pointer-events: all;
+    transition: box-shadow 0.3s ease;
+}
+
+.sun:hover {
+    box-shadow: 0 0 40px rgba(255, 235, 59, 1),
+                0 0 80px rgba(255, 235, 59, 0.7);
+}
+
+body.theme-markarane.night .sun {
+    background: radial-gradient(circle, #e8e8ff 0%, #c8c8e8 100%);
+    box-shadow: 0 0 30px rgba(232, 232, 255, 0.6),
+                0 0 60px rgba(232, 232, 255, 0.3);
+}
+
+/* Conteneur des étoiles */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+body.theme-markarane.night .stars-container {
+    opacity: 1;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Conteneur des grains de sable */
+.sand-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 6;
+    opacity: 0;
+}
+
+body.theme-markarane .sand-container {
+    opacity: 1;
+}
+
+.sand-grain {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(212, 161, 84, 0.6);
+    border-radius: 50%;
 }
 
 @media (max-width: 1024px) {
