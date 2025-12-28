@@ -3,92 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau d'Inventaire</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/css Base/style.css">
+    <title>Termion - Univers Medieval Fantasy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>⚔️ Inventaire RPG ⚔️</h1>
-        
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Catégorie</th>
-                        <th>Nom</th>
-                        <th>Rareté</th>
-                        <th>Stats / Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="clickable-row" onclick="window.location.href='HTML/Arme.html'">
-                        <td><span class="category-icon">⚔️</span> Arme</td>
-                        <td>
-                            <div class="item-name">Épée de Lumière</div>
-                            <div class="item-description">Lame forgée dans les étoiles</div>
-                        </td>
-                        <td><span class="rarity legendary">Légendaire</span></td>
-                        <td>
-                            <span class="stat">⚡ ATK +150</span>
-                            <span class="stat">✨ Magie +50</span>
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td><span class="category-icon">🎯</span> Talent</td>
-                        <td>
-                            <div class="item-name">Maître d'Armes</div>
-                            <div class="item-description">Expertise dans toutes les armes</div>
-                        </td>
-                        <td><span class="rarity epic">Épique</span></td>
-                        <td>
-                            <span class="stat">🎯 Précision +30%</span>
-                            <span class="stat">💪 Force +25</span>
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td><span class="category-icon">📦</span> Objet</td>
-                        <td>
-                            <div class="item-name">Potion de Mana</div>
-                            <div class="item-description">Restaure l'énergie magique</div>
-                        </td>
-                        <td><span class="rarity rare">Rare</span></td>
-                        <td>
-                            <span class="stat">💙 Mana +200</span>
-                            <span class="stat">⏱️ Cooldown: 30s</span>
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td><span class="category-icon">😎</span> Beaugosse</td>
-                        <td>
-                            <div class="item-name">Cape Élégante</div>
-                            <div class="item-description">Style +1000, charisme maximal</div>
-                        </td>
-                        <td><span class="rarity epic">Épique</span></td>
-                        <td>
-                            <span class="stat">✨ Charisme +100</span>
-                            <span class="stat">🎭 Style +75</span>
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td><span class="category-icon">🚽</span> Toilet</td>
-                        <td>
-                            <div class="item-name">Toilette Dorée</div>
-                            <div class="item-description">Le luxe à son paroxysme</div>
-                        </td>
-                        <td><span class="rarity legendary">Légendaire</span></td>
-                        <td>
-                            <span class="stat">👑 Prestige +500</span>
-                            <span class="stat">💎 Valeur Infinie</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="parchment-overlay"></div>
+    
+    <header class="header">
+        <div class="ornament ornament-left">⚜</div>
+        <div class="title-container">
+            <h1 class="main-title">Termion</h1>
+            <p class="subtitle">Un monde de légendes anciennes</p>
         </div>
-    </div>
+        <div class="ornament ornament-right">⚜</div>
+    </header>
+
+    <main class="container">
+        <nav class="navigation">
+            <a href="histoire.html" class="nav-item">
+                <div class="nav-icon">📜</div>
+                <span class="nav-text">Histoire</span>
+            </a>
+
+            <a href="savoir.html" class="nav-item">
+                <div class="nav-icon">📚</div>
+                <span class="nav-text">Savoir</span>
+            </a>
+
+            <a href="systeme.html" class="nav-item">
+                <div class="nav-icon">⚙️</div>
+                <span class="nav-text">Système de jeux</span>
+            </a>
+
+            <a href="race.html" class="nav-item">
+                <div class="nav-icon">👥</div>
+                <span class="nav-text">Race</span>
+            </a>
+
+            <a href="classe.html" class="nav-item">
+                <div class="nav-icon">⚔️</div>
+                <span class="nav-text">Classe</span>
+            </a>
+
+            <a href="metier.html" class="nav-item">
+                <div class="nav-icon">🔨</div>
+                <span class="nav-text">Métier</span>
+            </a>
+
+            <a href="faction.html" class="nav-item">
+                <div class="nav-icon">🏰</div>
+                <span class="nav-text">Faction</span>
+            </a>
+
+            <a href="talent.html" class="nav-item">
+                <div class="nav-icon">✨</div>
+                <span class="nav-text">Talent</span>
+            </a>
+
+            <a href="boutique.html" class="nav-item">
+                <div class="nav-icon">🛡️</div>
+                <span class="nav-text">Boutique d'équipement</span>
+            </a>
+        </nav>
+
+        <div class="welcome-text">
+            <p>Bienvenue dans l'univers de <strong>Termion</strong>, un royaume où la magie et l'acier forgent le destin des peuples.</p>
+            <p>Explorez les différentes sections pour découvrir les secrets de ce monde ancestral.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
 </body>
 </html>
