@@ -6,17 +6,18 @@
     <title>Chantelune - Termion</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Chante-Lune.CSS">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
 </head>
 <body>
     <div class="parchment-overlay"></div>
     
     <!-- Bouton retour -->
-    <a href="../../../index.html" class="back-button">← Retour aux classes</a>
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
     
     <!-- En-tête avec image et citation -->
     <header class="hero-section">
         <div class="hero-image">
-            <img src="chantelune.png" alt="Chantelune">
+            <img src="../../../Image/Chante-Lune.jpg" alt="Chantelune">
         </div>
         <div class="hero-content">
             <h1 class="class-title">✨ Chantelune</h1>
@@ -81,6 +82,13 @@
                         <span>Puissance : 1</span>
                         <span>Métier : 1</span>
                         <span>Sang-Froid : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -292,5 +300,93 @@
         <div class="divider"></div>
         <p>© 2024 Termion - Tous droits réservés</p>
     </footer>
+
+    <script>
+        // Création du graphique radar des caractéristiques
+        const ctx = document.getElementById('statsChart').getContext('2d');
+        
+        // Données de Chantelune (échelle de -4 à +10)
+        const statsData = {
+            FOR: -3,
+            CST: -3,
+            DEX: 3,
+            INT: 1,
+            SAG: 3,
+            PER: 1,
+            CHA: 5
+        };
+
+        // Convertir les valeurs pour le graphique (ajouter 4 pour que 0 soit au centre)
+        const convertedData = Object.values(statsData).map(val => val + 4);
+
+        const statsChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
+                datasets: [{
+                    label: 'Caractéristiques',
+                    data: convertedData,
+                    backgroundColor: 'rgba(74, 90, 138, 0.2)',
+                    borderColor: 'rgba(74, 90, 138, 0.8)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(74, 90, 138, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(74, 90, 138, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 14, // -4 à +10 = 14 niveaux
+                        ticks: {
+                            stepSize: 2,
+                            callback: function(value) {
+                                // Convertir les valeurs affichées (-4 à +10)
+                                return value - 4;
+                            },
+                            color: '#4a5a8a',
+                            font: {
+                                size: 11,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(74, 90, 138, 0.2)'
+                        },
+                        angleLines: {
+                            color: 'rgba(74, 90, 138, 0.2)'
+                        },
+                        pointLabels: {
+                            color: '#4a5a8a',
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: "'Cinzel', serif"
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const actualValue = context.parsed.r - 4;
+                                return context.label + ': ' + (actualValue >= 0 ? '+' : '') + actualValue;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
