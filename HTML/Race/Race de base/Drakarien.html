@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drakarien - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Race/Cataloguerace.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../Race/Catalogue.html" class="back-button">← Retour aux races</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/rACE/Drakarien.png" alt="Drakarien">
+        </div>
+        <div class="hero-content">
+            <h1 class="race-title">🐉 Drakarien</h1>
+            <p class="race-subtitle">Enfants de Dragon</p>
+            <div class="race-info">
+                <span class="info-item">⏳ Durée de vie : ~1000 ans</span>
+                <span class="info-item">📏 Taille : 1m80 - 2m40</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📖 Description</h2>
+            <div class="content-box">
+                <p>Surnommés les <strong>Enfants de Dragon</strong>, les Drakariens incarnent la mémoire vivante de la magie primordiale. Héritiers lointains de lignées draconiques anciennes, ils portent dans leur sang un fragment de la majesté et de la puissance élémentaire des grands dragons mythiques.</p>
+                
+                <p>Leur corps massif et élancé est recouvert d'écailles épaisses, évolutives avec l'âge, parfois cristallisées chez les plus anciens. Leur queue reptilienne, leur visage orné de protubérances osseuses et leur aura naturelle suffisent à les distinguer dans n'importe quel rassemblement.</p>
+                
+                <p>La couleur de leurs écailles trahit leur élément de naissance : bleu pour l'air, rouge incandescent pour le feu, vert foncé pour la terre, nacré pour l'eau, etc. Mais leur pouvoir ne s'arrête pas là : les Drakariens peuvent naturellement maîtriser plusieurs natures élémentaires, là où les autres races peinent à en contrôler une seule.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>🔮 Transformation sacrée :</strong> À partir de 700 ans, certains Drakariens connaissent une transformation sacrée : ils renaissent en dragons véritables, abandonnant leur forme humanoïde pour devenir des entités de magie pure. Ce phénomène, rare et vénéré, est considéré comme un événement mystique par les érudits et les religieux.</p>
+                </div>
+
+                <p>Dans les sociétés interplanaires, les Drakariens sont vus comme des figures de sagesse, de puissance et de légende, respectés, parfois craints, et souvent adulés. Ils ne revendiquent pas leur supériorité : elle s'impose naturellement par leur simple présence.</p>
+            </div>
+        </section>
+
+        <!-- Présence -->
+        <section class="section">
+            <h2 class="section-title">🌍 Présence actuelle</h2>
+            <div class="presence-box">
+                <p>Une race <strong>peu commune</strong> dans la majorité des plans. Pas extrêmement rare, mais nettement moins fréquente que les races classiques.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques raciales de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>📈 Bonus de caractéristiques</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +2</span>
+                        <span class="stat-item neutral">DEX : 0</span>
+                        <span class="stat-item positive">CST : +2</span>
+                        <span class="stat-item positive">INT : +2</span>
+                        <span class="stat-item positive">SAG : +2</span>
+                        <span class="stat-item negative">PER : −1</span>
+                        <span class="stat-item positive highlight">CHA : +2</span>
+                        <span class="stat-item special">RM : +8</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Affinités -->
+        <section class="section">
+            <h2 class="section-title">✨ Affinités élémentaires et magiques</h2>
+            <div class="affinity-box">
+                <p class="affinity-highlight">Les Drakariens possèdent la <strong>plus grande affinité élémentaire connue</strong>.</p>
+                <p>Ils peuvent naturellement maîtriser <strong>2 à 3 sources élémentaires</strong>, voire davantage avec l'expérience. Leur magie est d'une densité exceptionnelle, héritée directement des dragons ancestraux.</p>
+            </div>
+        </section>
+
+        <!-- Langues -->
+        <section class="section">
+            <h2 class="section-title">🗣️ Langues et dialectes</h2>
+            <div class="language-grid">
+                <div class="language-card">
+                    <h3>Drahark</h3>
+                    <p>Langue drakarienne issue des langues anciennes draconiques. Bien que n'en conservant qu'une parcelle, elle permet aux Drakariens de communiquer avec tous les êtres liés aux dragons.</p>
+                </div>
+                <div class="language-card">
+                    <h3>Commun</h3>
+                    <p>Maîtrisé très tôt, afin de faciliter leur apprentissage et accès au savoir global.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences et talents -->
+        <section class="section">
+            <h2 class="section-title">🛠️ Compétences et talents de départ</h2>
+            
+            <div class="talents-list">
+                <div class="talent-card">
+                    <h3>🛡️ Écailles d'Ancien Dragon</h3>
+                    <p><strong>+3 en Défense physique</strong> ; +1 supplémentaire tous les 5 niveaux.</p>
+                </div>
+
+                <div class="talent-card">
+                    <h3>🌊 Résistances élémentaires</h3>
+                    <p><strong>25% de résistance</strong> aux éléments liés à ses Sources élémentaires.</p>
+                </div>
+
+                <div class="talent-card">
+                    <h3>📚 Mémoire linguistique draconique</h3>
+                    <p><strong>+2 en Langues</strong>, +25% de PA lors de l'apprentissage linguistique, +10 aux jets d'apprentissage.</p>
+                </div>
+
+                <div class="talent-card">
+                    <h3>⚡ Source élémentaire draconique</h3>
+                    <p>Peut lancer <strong>2 jets supplémentaires</strong> pour déterminer des sources élémentaires. (Si une source est tirée deux fois, elle est perdue.)</p>
+                </div>
+
+                <div class="talent-card">
+                    <h3>🔥 Souffle élémentaire inné</h3>
+                    <p><strong>1 utilisation/jour</strong>. +1 utilisation tous les 8 niveaux. Les types de souffles varient selon les sources.</p>
+                </div>
+
+                <div class="talent-card">
+                    <h3>👑 Fierté des Ancêtres Dragons</h3>
+                    <p><strong>+2 en Sang-Froid</strong>.</p>
+                </div>
+
+                <div class="talent-card warning">
+                    <h3>⚠️ Héritage instable</h3>
+                    <p>Tire <strong>2 faiblesses non élémentaires aléatoires</strong> (−30% de résistance chacune).</p>
+                </div>
+
+                <div class="talent-card warning">
+                    <h3>🐲 Sang de Supériorité Draconique</h3>
+                    <p><strong>−2 en Sang-Froid</strong> face aux dragons. Ces jets sont lancés en <strong>désavantage</strong> hors transformation draconique.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Particularités sociales -->
+        <section class="section">
+            <h2 class="section-title">🏛️ Particularités sociales et historiques</h2>
+            <div class="social-box">
+                <p>Les Drakariens incarnent l'héritage draconique dans sa forme la plus noble. Leur simple présence suffit à imposer le respect ou la peur, et leur pouvoir est souvent synonyme de sagesse ou d'autorité. On les retrouve souvent dans les hautes sphères politiques, magiques ou militaires, et leur avis est écouté dans les plus grandes assemblées interplanaires.</p>
+                
+                <div class="social-highlight">
+                    <p><strong>⚔️ Prestige et jalousie :</strong> Cependant, leur prestige attire aussi la jalousie. Leur longévité, leur pouvoir inné et leur héritage les placent au-dessus des conflits mortels, mais aussi au cœur des intrigues.</p>
+                    <p>Certains les admirent. D'autres veulent les surpasser. Et quelques-uns… veulent simplement voir tomber les fils des anciens dragons.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <!-- Script pour le graphique -->
+    <script>
+        const ctx = document.getElementById('statsChart').getContext('2d');
+        
+        // Données de Drakarien
+        const statsData = {
+            FOR: 2,
+            CST: 2,
+            DEX: 0,
+            INT: 2,
+            SAG: 2,
+            PER: -1,
+            CHA: 2
+        };
+
+        // Convertir pour le graphique (base 4, donc +4 pour centrer)
+        const convertedData = Object.values(statsData).map(val => val + 4);
+
+        const statsChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
+                datasets: [{
+                    label: 'Bonus raciaux',
+                    data: convertedData,
+                    backgroundColor: 'rgba(220, 38, 38, 0.2)',
+                    borderColor: 'rgba(220, 38, 38, 0.8)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(220, 38, 38, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(220, 38, 38, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 8,
+                        ticks: {
+                            stepSize: 2,
+                            callback: function(value) {
+                                return value - 4;
+                            },
+                            color: '#991b1b',
+                            font: {
+                                size: 11,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(220, 38, 38, 0.2)'
+                        },
+                        angleLines: {
+                            color: 'rgba(220, 38, 38, 0.2)'
+                        },
+                        pointLabels: {
+                            color: '#991b1b',
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: "'Cinzel', serif"
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const actualValue = context.parsed.r - 4;
+                                return context.label + ': ' + (actualValue >= 0 ? '+' : '') + actualValue;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
