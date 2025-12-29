@@ -376,6 +376,58 @@ body {
     font-style: italic;
 }
 
+/* Colonnes triables */
+.sortable {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    transition: background 0.2s ease;
+}
+
+.sortable:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sort-icon {
+    display: inline-block;
+    margin-left: 5px;
+    opacity: 0.5;
+    font-size: 0.8rem;
+}
+
+.sortable.active .sort-icon {
+    opacity: 1;
+}
+
+.sortable.asc .sort-icon::before {
+    content: '▲';
+    opacity: 1;
+}
+
+.sortable.desc .sort-icon::before {
+    content: '▼';
+    opacity: 1;
+}
+
+.sortable.asc .sort-icon,
+.sortable.desc .sort-icon {
+    display: none;
+}
+
+.sortable.asc .sort-icon::before,
+.sortable.desc .sort-icon::before {
+    display: inline;
+}
+
+/* Surlignage de recherche */
+.highlight {
+    background-color: #ffeb3b;
+    color: #000;
+    font-weight: 600;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
 /* Footer */
 .footer {
     text-align: center;

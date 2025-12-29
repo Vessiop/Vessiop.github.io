@@ -978,6 +978,14 @@ const talents = [
     }
 ];
 
+// Variables globales pour le tri
+let currentSort = {
+    column: null,
+    direction: null
+};
+
+let currentSearchTerm = '';
+
 // Fonctions de gestion du tableau
 function initTable() {
     const tbody = document.getElementById('talentsBody');
@@ -993,6 +1001,94 @@ function initTable() {
     talentCount.textContent = talents.length;
     
     renderTalents(talents);
+    setupSortListeners();
+}
+
+// Configuration des écouteurs de tri
+function setupSortListeners() {
+    const sortableHeaders = document.querySelectorAll('.sortable');
+    
+    sortableHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const column = header.dataset.sort;
+            sortTable(column);
+        });
+    });
+}
+
+// Fonction de tri
+function sortTable(column) {
+    // Déterminer la direction du tri
+    if (currentSort.column === column) {
+        // Même colonne : inverser la direction
+        if (currentSort.direction === 'asc') {
+            currentSort.direction = 'desc';
+        } else if (currentSort.direction === 'desc') {
+            currentSort.direction = null;
+            currentSort.column = null;
+        } else {
+            currentSort.direction = 'asc';
+        }
+    } else {
+        // Nouvelle colonne : tri ascendant
+        currentSort.column = column;
+        currentSort.direction = 'asc';
+    }
+    
+    // Mettre à jour les indicateurs visuels
+    updateSortIndicators();
+    
+    // Appliquer le tri
+    let sortedTalents = [...talents];
+    
+    if (currentSort.direction) {
+        sortedTalents.sort((a, b) => {
+            let aVal = a[column];
+            let bVal = b[column];
+            
+            // Pour le coût, convertir en nombre
+            if (column === 'cout') {
+                aVal = parseInt(aVal);
+                bVal = parseInt(bVal);
+            }
+            
+            if (aVal < bVal) return currentSort.direction === 'asc' ? -1 : 1;
+            if (aVal > bVal) return currentSort.direction === 'asc' ? 1 : -1;
+            return 0;
+        });
+    }
+    
+    // Filtrer si recherche active
+    if (currentSearchTerm) {
+        sortedTalents = sortedTalents.filter(talent => {
+            return talent.nom.toLowerCase().includes(currentSearchTerm) ||
+                   talent.effet.toLowerCase().includes(currentSearchTerm) ||
+                   talent.condition.toLowerCase().includes(currentSearchTerm);
+        });
+    }
+    
+    renderTalents(sortedTalents);
+}
+
+// Mettre à jour les indicateurs visuels de tri
+function updateSortIndicators() {
+    const sortableHeaders = document.querySelectorAll('.sortable');
+    
+    sortableHeaders.forEach(header => {
+        header.classList.remove('active', 'asc', 'desc');
+        
+        if (header.dataset.sort === currentSort.column && currentSort.direction) {
+            header.classList.add('active', currentSort.direction);
+        }
+    });
+}
+
+// Fonction pour surligner le texte
+function highlightText(text, searchTerm) {
+    if (!searchTerm) return text;
+    
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    return text.replace(regex, '<span class="highlight">$1</span>');
 }
 
 function renderTalents(talentsToShow) {
@@ -1025,10 +1121,15 @@ function renderTalents(talentsToShow) {
         else if (talent.categorie === 'Réaction/Mobilité') catClass = 'cat-reaction';
         else if (talent.categorie === 'Magie') catClass = 'cat-magie';
         
+        // Appliquer le surlignage si recherche active
+        const nomHighlighted = highlightText(talent.nom, currentSearchTerm);
+        const conditionHighlighted = highlightText(talent.condition, currentSearchTerm);
+        const effetHighlighted = highlightText(talent.effet, currentSearchTerm);
+        
         row.innerHTML = `
-            <td data-label="Nom"><span class="talent-nom">${talent.nom}</span></td>
-            <td data-label="Condition"><span class="talent-condition">${talent.condition}</span></td>
-            <td data-label="Effet"><span class="talent-effet">${talent.effet}</span></td>
+            <td data-label="Nom"><span class="talent-nom">${nomHighlighted}</span></td>
+            <td data-label="Condition"><span class="talent-condition">${conditionHighlighted}</span></td>
+            <td data-label="Effet"><span class="talent-effet">${effetHighlighted}</span></td>
             <td data-label="Catégorie"><span class="talent-categorie ${catClass}">${talent.categorie}</span></td>
             <td data-label="Sous-catégorie"><span class="talent-sous-categorie">${talent.sousCategorie}</span></td>
             <td data-label="Coût"><span class="talent-cout">${talent.cout}</span></td>
@@ -1046,15 +1147,10 @@ function searchTalents() {
         return;
     }
     
-    const searchTerm = searchInput.value.toLowerCase();
+    currentSearchTerm = searchInput.value.toLowerCase();
     
-    const filtered = talents.filter(talent => {
-        return talent.nom.toLowerCase().includes(searchTerm) ||
-               talent.effet.toLowerCase().includes(searchTerm) ||
-               talent.condition.toLowerCase().includes(searchTerm);
-    });
-    
-    renderTalents(filtered);
+    // Appliquer le tri actuel si présent
+    sortTable(currentSort.column || '');
 }
 
 // Event listeners
@@ -1072,6 +1168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearBtn.addEventListener('click', () => {
             if (searchInput) {
                 searchInput.value = '';
+                currentSearchTerm = '';
                 searchTalents();
             }
         });

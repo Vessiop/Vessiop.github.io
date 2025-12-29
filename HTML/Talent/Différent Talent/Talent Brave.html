@@ -11,7 +11,7 @@
     <div class="parchment-overlay"></div>
     
     <!-- Bouton retour -->
-    <a href="../../Talent/Type de talent proposer.html" class="back-button">← Retour aux talents</a>
+    <a href="../../../HTML/Talent/Type de talent proposer.html" class="back-button">← Retour aux talents</a>
     
     <header class="header">
         <div class="ornament ornament-left">⚔️</div>
@@ -40,12 +40,20 @@
             <table id="talentsTable" class="talents-table">
                 <thead>
                     <tr>
-                        <th class="col-nom">Nom</th>
+                        <th class="col-nom sortable" data-sort="nom">
+                            Nom <span class="sort-icon">⇅</span>
+                        </th>
                         <th class="col-condition">Condition</th>
                         <th class="col-effet">Effet</th>
-                        <th class="col-categorie">Catégorie</th>
-                        <th class="col-sous-categorie">Sous-catégorie</th>
-                        <th class="col-cout">Coût</th>
+                        <th class="col-categorie sortable" data-sort="categorie">
+                            Catégorie <span class="sort-icon">⇅</span>
+                        </th>
+                        <th class="col-sous-categorie sortable" data-sort="sousCategorie">
+                            Sous-catégorie <span class="sort-icon">⇅</span>
+                        </th>
+                        <th class="col-cout sortable" data-sort="cout">
+                            Coût (point de talent) <span class="sort-icon">⇅</span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody id="talentsBody">
