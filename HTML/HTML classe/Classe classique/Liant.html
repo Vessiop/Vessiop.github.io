@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liant - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Liant.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Liant.jpg" alt="Liant">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🐾 Liant</h1>
+            <p class="class-quote">« Un duo agit comme une seule volonté : une coordination vive, naturelle, impossible à imiter sans avoir vécu le lien. »</p>
+            <p class="class-type">🧭 Physique + Lié animal — tacticien naturel, contrôle via compagnon</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Présentation</h2>
+            <div class="content-box">
+                <p>Le Liant n'est pas un dompteur au sens brutal du terme : c'est un tisseur de résonances, quelqu'un dont la présence suffit à apaiser, guider et faire naître la confiance chez le vivant. Là où d'autres imposent leur volonté, le Liant écoute d'abord — les postures, les souffles, les signes infimes — puis répond avec une intention claire que l'animal comprend sans mots.</p>
+                
+                <p>Son pouvoir vient d'un lien rare, presque instinctif, qui se construit par paliers et transforme un simple compagnon en allié véritable, capable d'évoluer autant que son maître. Sur les routes, dans les ruines, ou au cœur des terres hostiles, on reconnaît un Liant à sa manière de marcher : jamais vraiment seul, toujours accompagné d'un silence partagé.</p>
+                
+                <p>Certains disent que ce n'est pas de la magie, mais une seconde langue oubliée du monde, que seuls quelques élus savent encore parler. Et quand le danger surgit, le duo agit comme une seule volonté : une coordination vive, naturelle, impossible à imiter sans avoir vécu le lien.</p>
+                
+                <div class="highlight-box">
+    <p><strong>🎯 Style de combat :</strong> Coordination tactique avec compagnon • Contrôle du terrain via duo • Synergie naturelle et instinctive</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d8</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −1</span>
+                        <span class="stat-item negative">CST : −1</span>
+                        <span class="stat-item positive">DEX : +1</span>
+                        <span class="stat-item neutral">INT : 0</span>
+                        <span class="stat-item positive">SAG : +2</span>
+                        <span class="stat-item positive">PER : +2</span>
+                        <span class="stat-item positive highlight">CHA : +4</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 25 + 2d6</li>
+                        <li><strong>REA :</strong> 0</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Instinct : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Social : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Métier : 2</span>
+                        <span>Sang-Froid : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents de classe</h2>
+            
+            <div class="talents-grid">
+                <div class="talent-card">
+                    <h3>1️⃣ Affinité Primale Primaire</h3>
+                    <p>Certaines personnes naissent marquées par une affinité rare : une capacité innée à entrer en résonance avec les créatures animales, peu importe leur espèce, leur origine ou le milieu où elles vivent. Ce n'est pas une simple "compréhension" du comportement animal — c'est un lien naturel, vivant, qui s'installe et s'échange presque spontanément entre le porteur du don et l'animal.</p>
+                    <p class="talent-effect">Grâce à cette résonance, le personnage peut entamer une progression de lien avec un compagnon : chaque palier atteint renforce la relation et peut octroyer des bonus (statistiques, talents, aptitudes) au compagnon — et parfois des effets spécifiques dépendant du duo formé ou du rôle de l'allié.</p>
+                </div>
+
+                <div class="talent-card">
+                    <h3>2️⃣ Ami des Bêtes (mineur)</h3>
+                    <p>Établit un lien instinctif avec les animaux, favorisant la confiance et la communication non verbale. Ce talent aide à calmer une créature, comprendre son comportement ou éviter une confrontation. Il est précieux pour les rôdeurs, soigneurs ou dompteurs.</p>
+                    <p class="talent-effect"><strong>Effet :</strong> Offre la compétence Communication animale +2 (Charisme)</p>
+                </div>
+
+                <div class="talent-card">
+                    <h3>3️⃣ Dresseur Expérimenté (mineur)</h3>
+                    <p>Permet de former, diriger et canaliser un animal par des gestes, des ordres ou des récompenses. Ce talent améliore la fiabilité des familiers ou montures. Il est indispensable aux rôdeurs, dompteurs ou mages à compagnons.</p>
+                    <p class="talent-effect"><strong>Effet :</strong> Offre la compétence Dressage +2 (Charisme)</p>
+                </div>
+
+                <div class="talent-card">
+                    <h3>4️⃣ Commandement Instinctif</h3>
+                    <p>Le lanceur peut utiliser ses points de réaction pour donner un Ordre de dressage à un animal qu'il contrôle (hors invocation / matérialisation), à la place de dépenser un PA (point d'action).</p>
+                </div>
+
+                <div class="talent-card">
+                    <h3>5️⃣ Maîtrise mineure de l'Accord de Dressage</h3>
+                    <p>Grâce au lien développé avec son compagnon, certains ordres émis par le lanceur portent une résonance particulière. Cette énergie s'accorde naturellement à l'animal dressé, provoquant une forme de symbiose qui stimule son instinct et éveille une part de son potentiel latent.</p>
+                    <p class="talent-effect"><strong>Effet :</strong> Offre la compétence Ordre de dressage +2 (Sagesse)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Départs animaliers -->
+        <section class="section">
+            <h2 class="section-title">🐾 Départs animaliers (au choix)</h2>
+            
+            <div class="departs-container">
+                <div class="depart-card">
+                    <h3>A) Compagnon de Longue Route</h3>
+                    <p class="depart-intro">Vous n'avez pas trouvé votre compagnon dans un marais maudit ou au sommet d'une montagne interdite. Vous l'avez eu depuis longtemps — assez pour que le temps devienne autre chose qu'un souvenir : une fondation. Votre duo n'est peut-être pas le plus impressionnant au premier regard. Ni le plus violent, ni le plus rare. Mais votre lien est solide, fiable, forgé dans la routine comme dans les mauvaises passes.</p>
+                    <div class="depart-effects">
+                        <h4>Effets :</h4>
+                        <ul>
+                            <li><strong>Seconde Chance (animalier) :</strong> Une fois par session, lorsque votre compagnon rate un jet, vous pouvez lui accorder une relance. Vous gardez le meilleur résultat.</li>
+                            <li><strong>Départ Accordé (compagnon) :</strong> Votre compagnon commence directement au niveau 3 de lien avec vous. Une fois par session, vous pouvez relancer un jet de lien que vous venez d'effectuer. Vous conservez le nouveau résultat (même s'il est moins bon).</li>
+                            <li><strong>Amitié de Route :</strong> Lorsque vous apprivoisez un nouveau compagnon, le compagnon commence automatiquement avec 1 niveau de lien avec vous.</li>
+                        </ul>
+                        <p class="depart-bonus"><strong>Bonus :</strong> +3 Charisme</p>
+                    </div>
+                </div>
+
+                <div class="depart-card">
+                    <h3>B) Sillage des Hurons Gris</h3>
+                    <p class="depart-intro">À une période de votre vie, vous avez marché aux côtés des Hurons Gris : parfois en simple aide, parfois au cœur des traques, et parfois face au danger, là où l'on apprend vite ou l'on disparaît. Était-ce de la chance, ou le fruit de vos efforts ? Difficile à dire. Mais une chose est sûre : ces expéditions vous ont façonné comme un apprenti chasseur, en vous transmettant les bases de la survie, de la lecture du terrain et de la chasse méthodique.</p>
+                    <div class="depart-effects">
+                        <h4>Effets :</h4>
+                        <ul>
+                            <li><strong>Leçons de Terrain (Connaissances Modéré) :</strong> Art de la survie, Domaine de la chasse, Bestiaire animal.</li>
+                            <li><strong>Maîtrise d'arme à distance :</strong> une arme au choix.</li>
+                            <li><strong>Maître du Pistage (mineur) :</strong> Compétence Pistage +2.</li>
+                            <li><strong>Accès de catégorie :</strong> Draconoïde (Petit / Moyen).</li>
+                        </ul>
+                        <p class="depart-bonus"><strong>Bonus :</strong> +3 Perception</p>
+                    </div>
+                </div>
+
+                <div class="depart-card">
+                    <h3>C) Frontière Indomptée</h3>
+                    <p class="depart-intro">Il existe, sur chaque plan, des régions que l'on évite même sur les cartes : des terres délaissées où la nature règne sans frein. La faune y est imprévisible, des créatures rôdent dans l'ombre, et les caprices du climat suffisent à briser un voyageur mal préparé. Pourtant, vous avez choisi d'y aller. Non par folie — mais pour y chercher l'exception : la perle rare, le compagnon que personne d'autre n'oserait approcher.</p>
+                    <div class="depart-effects">
+                        <h4>Effets :</h4>
+                        <ul>
+                            <li><strong>Instinct Endurci :</strong> 1×/session, face à une créature animale, Avantage sur un jet de Résistance contre intimidation/peur. Contre un être monstrueux, seulement si déjà affronté auparavant (ou danger comparable).</li>
+                            <li><strong>Accès :</strong> Faune des Confins : liens possibles avec animaux des Terres Sauvages.</li>
+                            <li><strong>Amitié des Confins (lien) :</strong> minimum 1 point de progression lors de création/progression de lien (sauf échec critique).</li>
+                        </ul>
+                        <p class="depart-bonus"><strong>Bonus :</strong> +3 Constitution</p>
+                    </div>
+                </div>
+
+                <div class="depart-card">
+                    <h3>D) Appel des Montures Oubliées</h3>
+                    <p class="depart-intro">Combattant dans l'âme et passionné de récits anciens, vous avez passé des heures à tourner les pages de chroniques, de bestiaires, de mythes et de légendes. Vous y avez suivi les traces de créatures disparues, féroces ou grandioses, dont le passage a marqué le monde et laissé des cicatrices dans l'histoire. Un jour, l'idée a cessé d'être un simple rêve : si le destin vous mettait face à l'une de ces montures d'un autre âge… vous seriez prêt.</p>
+                    <div class="depart-effects">
+                        <h4>Effets :</h4>
+                        <ul>
+                            <li><strong>Maîtrise d'arme d'hast (mineur) :</strong> lance/hallebarde/etc.</li>
+                            <li><strong>Conduite de monture (mineur) :</strong> Compétence de trait spécifique Conduite de monture (Métier) +1.</li>
+                            <li><strong>Connaissances Modéré :</strong> Mythes & Légendes ; Créatures d'un ancien temps.</li>
+                            <li><strong>Choix (1) :</strong>
+                                <ul>
+                                    <li>Montée Éclair : si pas en mauvaise posture, monter sans PA ni point de réaction. 1×/session, une attaque depuis la monture avec Avantage.</li>
+                                    <li>Affinité des Âges (animalier) : -2 difficulté sur jets pour créer un lien avec un animal d'un ancien temps / hors norme.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="depart-bonus"><strong>Bonus :</strong> +2 Dextérité et Force</p>
+                    </div>
+                </div>
+
+                <div class="depart-card">
+                    <h3>E) Sillage des Arcaniums</h3>
+                    <p class="depart-intro">Depuis longtemps, vous vous intéressez aux entités élémentaires — ces présences brutes et anciennes dont on dit qu'elles ont participé à façonner le monde. Vous avez dévoré des écrits, comparé des bestiaires, étudié les variantes et les comportements décrits par les mages, puis cherché à vérifier par vous-même. Que ce soit lors d'un passage dans un Arcanium (tour d'étude) ou directement sur le terrain, dans leur habitat, vous avez observé, pris des notes, appris à reconnaître leurs signes.</p>
+                    <div class="depart-effects">
+                        <h4>Effets :</h4>
+                        <ul>
+                            <li><strong>Éveil magique :</strong> base PM à 1d12 (si inférieur) + magie accessible. À l'obtention : 2 dés de gain de PM. (Ne donne pas le départ des mages.)</li>
+                            <li><strong>Connaissances Modéré :</strong> Bestiaire des créatures élémentaires ; Mythes & Légendes.</li>
+                            <li><strong>Accès de catégorie :</strong> Élémentaire (Petit / Moyen).</li>
+                            <li><strong>Choix (1) :</strong>
+                                <ul>
+                                    <li>Accord des Éléments (familier) : 1×/session, Avantage sur jet de communication ou création de lien avec une entité élémentaire.</li>
+                                    <li>Convergence de Source (familier) : si compagnon élémentaire même nature que ta Source, +3 sur jets pour réussir un sort élémentaire, jusqu'à un niveau équivalent au niveau de lien créé. Compétence : Magie du Lien Élémentaire (+X).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="depart-bonus"><strong>Bonus :</strong> +2 Intelligence et Sagesse</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances de base</h2>
+            <div class="knowledge-grid">
+                <div class="knowledge-card">
+                    <h3>Connaissances de l'Accord de Dressage (Modéré)</h3>
+                    <p>Tu comprends les principes qui rendent un ordre "clair" et efficace : timing, posture, intention, récompense et cohérence. Tu sais aussi adapter tes ordres au tempérament de l'animal pour renforcer la symbiose au lieu de le braquer.</p>
+                </div>
+
+                <div class="knowledge-card">
+                    <h3>Connaissance du domaine Bestiaire Animal (Moyen)</h3>
+                    <p>Tu possèdes une culture solide des espèces animales courantes : habitats, régimes, comportements, cycles, territorialité et signaux d'alerte. Cette connaissance te permet d'anticiper les réactions d'une créature et d'éviter les erreurs qui déclenchent une confrontation.</p>
+                </div>
+
+                <div class="knowledge-card">
+                    <h3>Connaissance d'un Type de bestiaire animal X (Modéré)</h3>
+                    <p>Tu es spécialisé dans une grande catégorie d'animaux (ex : prédateurs, oiseaux, reptiles, aquatiques, insectoïdes, etc.). Tu connais leurs instincts dominants, leurs modes de déplacement et leurs points de stress, ce qui te donne un avantage pour approcher, calmer ou créer un lien avec ce type précis.</p>
+                </div>
+
+                <div class="knowledge-card">
+                    <h3>Connaissance de la santé animale (Modéré)</h3>
+                    <p>Tu sais repérer rapidement les signes de douleur, fatigue, infection, faim, déshydratation ou stress chez un compagnon. Tu peux appliquer les premiers soins de base et surtout éviter les situations qui aggravent une blessure ou brisent le lien.</p>
+                </div>
+
+                <div class="knowledge-card">
+                    <h3>Connaissance du domaine de la survie (Mineur)</h3>
+                    <p>Tu maîtrises les fondamentaux pour voyager avec un compagnon : trouver de l'eau, sécuriser un campement, gérer la nourriture et limiter les risques du terrain. Tu sais aussi lire les dangers simples (météo, traces, zones hostiles) et adapter ton trajet pour rester en sécurité.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement de départ -->
+        <section class="section">
+            <h2 class="section-title">📦 Équipement de départ</h2>
+            <div class="equipment-box">
+                <ul class="equipment-list">
+                    <li>🛡️ Armure</li>
+                    <li>📣 Sifflet de rappel</li>
+                    <li>🧪 1 potion d'endurance</li>
+                    <li>❤️ 1 potion de vie</li>
+                    <li>🍞 2 rations supplémentaires + 1 gourde de voyage</li>
+                    <li>📖 Livre de bestiaire animalier (catégorie au choix)</li>
+                    <li>🎣 Appât animalier d'une catégorie d'animal basique</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🧩 Compétences</h2>
+            
+            <div class="competences-container">
+                <div class="competence-category">
+                    <h3>🎯 Compétences de caractéristiques</h3>
+                    <div class="competence-grid">
+                        <div class="competence-item">
+                            <h4>Communication animale (Charisme)</h4>
+                            <p>Capacité à transmettre une intention claire à une créature par la voix, les gestes, la posture et le rythme. Sert à calmer, guider, obtenir un arrêt, un rappel ou éviter une escalade.</p>
+                        </div>
+
+                        <div class="competence-item">
+                            <h4>Dressage (Charisme)</h4>
+                            <p>Art de former un animal par routines, récompenses et limites cohérentes, sans casser son instinct. Permet d'installer des comportements fiables et d'améliorer l'obéissance sur la durée.</p>
+                        </div>
+
+                        <div class="competence-item">
+                            <h4>Ordre de dressage (Sagesse)</h4>
+                            <p>Donner un ordre au bon moment, avec le bon ton et la bonne intention, en tenant compte de l'état émotionnel du compagnon. Sert surtout en situation de stress (combat, foule, peur) pour que l'ordre "passe" réellement.</p>
+                        </div>
+
+                        <div class="competence-item">
+                            <h4>Présence rassurante (Charisme/Sagesse)</h4>
+                            <p>Capacité à apaiser une créature ou un groupe par calme, assurance et contrôle émotionnel. Utile pour réduire la panique, désamorcer une tension et stabiliser un compagnon agité.</p>
+                        </div>
+
+                        <div class="competence-item">
+                            <h4>Observation environnementale (Perception)</h4>
+                            <p>Lire l'environnement en mobilisant les sens : repérer dangers, traces, territoires, passages et indices subtils. Sert à anticiper une menace, trouver une piste ou choisir un chemin sûr pour le duo.</p>
+                        </div>
+
+                        <div class="competence-item">
+                            <h4>Arme X (Force de combat ou Dextérité)</h4>
+                            <p>Maîtrise pratique d'une arme spécifique, selon qu'elle repose sur la puissance (FOR) ou la précision (DEX). Sert à frapper efficacement, garder le contrôle du geste et utiliser l'arme dans ton style (pression, défense, ouverture).</p>
+                        </div>
+
+                        <div class="competence-item">
+                            <h4>Analyse corporelle (Perception)</h4>
+                            <p>Repérer sur un corps vivant les signes visibles : fatigue, douleur, blessure, stress, boiterie, respiration anormale, posture de menace. Permet d'évaluer rapidement l'état d'un compagnon ou d'un adversaire avant d'agir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🔧 Compétences de traits spécifiques</h3>
+                    <div class="competence-grid">
+                        <div class="competence-item">
+                            <h4>Conduite de monture (Métier)</h4>
+                            <p>Savoir monter, diriger et stabiliser une monture en mouvement, même sur terrain difficile ou sous pression. Inclut le contrôle de l'allure, des virages, des freinages et l'apaisement de la monture.</p>
+                        </div>
+
+                        <div class="competence-item">
+                            <h4>Premier soin (Métier)</h4>
+                            <p>Réaliser les gestes de base pour stabiliser une blessure : nettoyer, bander, stopper un saignement, immobiliser, prévenir l'infection. Sert à éviter l'aggravation en attendant de vrais soins.</p>
+                        </div>
+
+                        <div class="competence-item">
+                            <h4>Soin animalier (Métier)</h4>
+                            <p>Appliquer des soins adaptés aux bêtes : nettoyage de plaies, soins des pattes, retrait de parasites, gestion de fatigue et hydratation. Sert aussi à traiter sans stresser l'animal et à préserver le lien.</p>
+                        </div>
+
+                        <div class="competence-item">
+                            <h4>Savoir animalier (Savoir)</h4>
+                            <p>Connaissances générales sur la faune : comportements, habitats, régimes, cycles, territorialité et risques. Permet d'identifier une espèce, anticiper ses réactions et choisir la bonne approche pour créer un lien.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <!-- Script pour le graphique -->
+    <script>
+        const ctx = document.getElementById('statsChart').getContext('2d');
+        const statsChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
+                datasets: [{
+                    label: 'Bonus/Malus',
+                    data: [-1, -1, 1, 0, 2, 2, 4],
+                    backgroundColor: 'rgba(76, 175, 80, 0.2)',
+                    borderColor: 'rgba(76, 175, 80, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(76, 175, 80, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(76, 175, 80, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(139, 69, 19, 0.2)'
+                        },
+                        grid: {
+                            color: 'rgba(139, 69, 19, 0.2)'
+                        },
+                        pointLabels: {
+                            color: '#8B4513',
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: "'Cinzel', serif"
+                            }
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            min: -4,
+                            max: 6,
+                            stepSize: 2,
+                            color: '#8B4513',
+                            backdropColor: 'transparent',
+                            callback: function(value) {
+                                return value - 4;
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + (context.parsed.r - 4);
+                            }
+                        }
+                    }
+                },
+                maintainAspectRatio: true,
+                responsive: true
+            }
+        });
+    </script>
+</body>
+</html>
