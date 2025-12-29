@@ -1,0 +1,368 @@
+:root {
+    --parchment: #f4e9d8;
+    --parchment-dark: #d4c4a8;
+    --ink: #2c2416;
+    --gold: #c9a961;
+    --gold-dark: #9d7d3a;
+    --burgundy: #6b2737;
+    --royal-blue: #1e3a8a;
+    --steel-blue: #2563eb;
+    --banner-red: #991b1b;
+    --banner-gold: #d97706;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background-color: var(--parchment);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.7;
+}
+
+/* Texture de parchemin */
+.parchment-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(44, 36, 22, 0.015) 2px,
+            rgba(44, 36, 22, 0.015) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Bouton retour */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--steel-blue);
+    color: var(--royal-blue);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.back-button:hover {
+    background: var(--steel-blue);
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.header {
+    text-align: center;
+    padding: 80px 20px 40px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 2px solid var(--steel-blue);
+    background: linear-gradient(to bottom, var(--parchment) 0%, rgba(37, 99, 235, 0.05) 100%);
+}
+
+.ornament {
+    font-size: 2.5rem;
+    color: var(--banner-gold);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+}
+
+.ornament-left {
+    left: 20px;
+}
+
+.ornament-right {
+    right: 20px;
+}
+
+.title-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: var(--royal-blue);
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px rgba(37, 99, 235, 0.3);
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3rem;
+    color: var(--banner-red);
+    font-style: italic;
+    letter-spacing: 2px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Section */
+.faction-section {
+    margin-bottom: 60px;
+}
+
+/* Grille des factions */
+.faction-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.faction-card {
+    background: linear-gradient(135deg, #fff 0%, var(--parchment-dark) 100%);
+    border: 3px solid var(--steel-blue);
+    padding: 30px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.6s ease-out;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+    border-radius: 8px;
+    min-height: 160px;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.faction-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.faction-card:hover::before {
+    left: 100%;
+}
+
+.faction-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(30, 58, 138, 0.3);
+    border-color: var(--banner-gold);
+}
+
+.faction-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    filter: grayscale(20%);
+    transition: all 0.3s ease;
+}
+
+.faction-card:hover .faction-icon {
+    filter: grayscale(0%);
+    transform: scale(1.15) rotate(5deg);
+}
+
+.faction-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--royal-blue);
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+/* Animation en cascade pour les cartes */
+.faction-card:nth-child(1) { animation-delay: 0.05s; }
+.faction-card:nth-child(2) { animation-delay: 0.1s; }
+.faction-card:nth-child(3) { animation-delay: 0.15s; }
+.faction-card:nth-child(4) { animation-delay: 0.2s; }
+.faction-card:nth-child(5) { animation-delay: 0.25s; }
+.faction-card:nth-child(6) { animation-delay: 0.3s; }
+.faction-card:nth-child(7) { animation-delay: 0.35s; }
+.faction-card:nth-child(8) { animation-delay: 0.4s; }
+.faction-card:nth-child(9) { animation-delay: 0.45s; }
+.faction-card:nth-child(10) { animation-delay: 0.5s; }
+.faction-card:nth-child(11) { animation-delay: 0.55s; }
+.faction-card:nth-child(12) { animation-delay: 0.6s; }
+.faction-card:nth-child(13) { animation-delay: 0.65s; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.divider {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--steel-blue), transparent);
+    margin: 0 auto 20px;
+}
+
+.footer p {
+    font-size: 0.95rem;
+    color: var(--gold-dark);
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .faction-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .faction-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        top: 10px;
+        left: 10px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    .header {
+        padding: 70px 20px 30px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .ornament {
+        font-size: 1.8rem;
+    }
+
+    .ornament-left {
+        left: 10px;
+    }
+
+    .ornament-right {
+        right: 10px;
+    }
+
+    .faction-card {
+        padding: 25px 15px;
+        min-height: 150px;
+    }
+
+    .faction-icon {
+        font-size: 3rem;
+    }
+
+    .faction-card h3 {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .faction-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .faction-card {
+        padding: 20px 10px;
+        min-height: 140px;
+    }
+
+    .faction-icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .faction-card h3 {
+        font-size: 1.05rem;
+    }
+}

@@ -1,0 +1,428 @@
+:root {
+    --parchment: #f4e9d8;
+    --parchment-dark: #d4c4a8;
+    --ink: #2c2416;
+    --gold: #c9a961;
+    --gold-dark: #9d7d3a;
+    --burgundy: #6b2737;
+    --emerald: #2ecc71;
+    --forest: #27ae60;
+    --mystic-blue: #3498db;
+    --dark-purple: #4a148c;
+    --blood-red: #8b0000;
+    --shadow-gray: #2c2c2c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background-color: var(--parchment);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.7;
+}
+
+/* Texture de parchemin */
+.parchment-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(44, 36, 22, 0.015) 2px,
+            rgba(44, 36, 22, 0.015) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Bouton retour */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--emerald);
+    color: var(--forest);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.back-button:hover {
+    background: var(--emerald);
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+}
+
+.header {
+    text-align: center;
+    padding: 80px 20px 40px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 2px solid var(--emerald);
+    background: linear-gradient(to bottom, var(--parchment) 0%, rgba(46, 204, 113, 0.05) 100%);
+}
+
+.ornament {
+    font-size: 2.5rem;
+    color: var(--emerald);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+}
+
+.ornament-left {
+    left: 20px;
+}
+
+.ornament-right {
+    right: 20px;
+}
+
+.title-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: var(--forest);
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px rgba(46, 204, 113, 0.3);
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3rem;
+    color: var(--mystic-blue);
+    font-style: italic;
+    letter-spacing: 2px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Sections */
+.race-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--emerald);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.section-title.cursed {
+    color: var(--dark-purple);
+    border-bottom-color: var(--blood-red);
+}
+
+/* Grille des races */
+.race-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.race-card {
+    background: linear-gradient(135deg, #fff 0%, var(--parchment-dark) 100%);
+    border: 3px solid var(--emerald);
+    padding: 30px 15px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.6s ease-out;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
+    border-radius: 8px;
+    min-height: 140px;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.race-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(46, 204, 113, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.race-card:hover::before {
+    left: 100%;
+}
+
+.race-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(39, 174, 96, 0.3);
+    border-color: var(--forest);
+}
+
+/* Style pour les races maudites */
+.race-card.cursed {
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    border-color: var(--blood-red);
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+}
+
+.race-card.cursed::before {
+    background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.4), transparent);
+}
+
+.race-card.cursed:hover {
+    box-shadow: 0 12px 35px rgba(139, 0, 0, 0.5);
+    border-color: var(--dark-purple);
+}
+
+.race-card.cursed h3 {
+    color: #d32f2f;
+}
+
+.race-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    filter: grayscale(20%);
+    transition: all 0.3s ease;
+}
+
+.race-card:hover .race-icon {
+    filter: grayscale(0%);
+    transform: scale(1.15) rotate(5deg);
+}
+
+.race-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--forest);
+    letter-spacing: 1px;
+}
+
+/* Animation en cascade pour les cartes */
+.race-card:nth-child(1) { animation-delay: 0.05s; }
+.race-card:nth-child(2) { animation-delay: 0.1s; }
+.race-card:nth-child(3) { animation-delay: 0.15s; }
+.race-card:nth-child(4) { animation-delay: 0.2s; }
+.race-card:nth-child(5) { animation-delay: 0.25s; }
+.race-card:nth-child(6) { animation-delay: 0.3s; }
+.race-card:nth-child(7) { animation-delay: 0.35s; }
+.race-card:nth-child(8) { animation-delay: 0.4s; }
+.race-card:nth-child(9) { animation-delay: 0.45s; }
+.race-card:nth-child(10) { animation-delay: 0.5s; }
+.race-card:nth-child(11) { animation-delay: 0.55s; }
+.race-card:nth-child(12) { animation-delay: 0.6s; }
+.race-card:nth-child(13) { animation-delay: 0.65s; }
+.race-card:nth-child(14) { animation-delay: 0.7s; }
+.race-card:nth-child(15) { animation-delay: 0.75s; }
+.race-card:nth-child(16) { animation-delay: 0.8s; }
+.race-card:nth-child(17) { animation-delay: 0.85s; }
+.race-card:nth-child(18) { animation-delay: 0.9s; }
+.race-card:nth-child(19) { animation-delay: 0.95s; }
+.race-card:nth-child(20) { animation-delay: 1s; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.divider {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--emerald), transparent);
+    margin: 0 auto 20px;
+}
+
+.footer p {
+    font-size: 0.95rem;
+    color: var(--gold-dark);
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+    .race-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .race-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .race-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        top: 10px;
+        left: 10px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    .header {
+        padding: 70px 20px 30px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .ornament {
+        font-size: 1.8rem;
+    }
+
+    .ornament-left {
+        left: 10px;
+    }
+
+    .ornament-right {
+        right: 10px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .race-card {
+        padding: 25px 12px;
+        min-height: 130px;
+    }
+
+    .race-icon {
+        font-size: 3rem;
+    }
+
+    .race-card h3 {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .race-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .race-card {
+        padding: 20px 10px;
+        min-height: 120px;
+    }
+
+    .race-icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .race-card h3 {
+        font-size: 1.05rem;
+    }
+}
