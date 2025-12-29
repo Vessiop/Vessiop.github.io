@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mage - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Mage.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Mage.jpg" alt="Mage">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🔮 Mage</h1>
+            <p class="class-quote">« La magie n'est pas un art. C'est une science. Et comme toute science, elle obéit à ceux qui la comprennent. »</p>
+            <p class="class-type">🧭 Érudit arcanique — maîtrise de la magie pure et élémentaire</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description / Présentation</h2>
+            <div class="content-box">
+                <p>Le Mage est l'érudit par excellence. Plongeant dans les arcanes anciennes, il maîtrise l'art de manipuler la magie pure et d'en comprendre les mécanismes, loin des pratiques instinctives ou des traditions chamaniques. Là où d'autres "ressentent" la magie, le Mage la dissèque, l'étudie et la reproduit avec discipline et méthode, en observant les sources, les flux, et les lois qui régissent les filaments du monde.</p>
+                
+                <p>Sa véritable force vient de sa capacité à analyser puis moduler ses sorts selon la situation, rendant sa magie aussi précise que dévastatrice. Stratège du champ de bataille ou pilier de soutien, il anticipe, s'adapte, et façonne les affrontements à son avantage — non par instinct, mais par compréhension.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>⚔️ Armes de prédilection :</strong> Aucune — utilise des catalyseurs magiques</p>
+                    <p><strong>🛡️ Armures de prédilection :</strong> Tuniques, robes enchantées, artefacts</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d12</li>
+                        <li><strong>PM :</strong> 1d18</li>
+                        <li><strong>PE :</strong> 1d10</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −4</span>
+                        <span class="stat-item negative">CST : −3</span>
+                        <span class="stat-item neutral">DEX : 0</span>
+                        <span class="stat-item positive highlight">INT : +6</span>
+                        <span class="stat-item positive">SAG : +4</span>
+                        <span class="stat-item neutral">PER : 0</span>
+                        <span class="stat-item neutral">CHA : 0</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 30 + 3d6</li>
+                        <li><strong>REA :</strong> 0</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Savoir : 2</span>
+                        <span>Social : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Métier : 1</span>
+                        <span>Sang-Froid : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents de classe</h2>
+            
+            <div class="talent-card">
+                <h3>🜁 Maîtrise mineure du Cœur Arcanique</h3>
+                <p>Magie pure (la Maîtrise du Cœur est une faculté enseignée dans la difficulté, et tous les mages ne la possèdent pas). Le Cœur Arcanique permet d'utiliser la magie pure même si elle n'est pas ta source naturelle : tu apprends à concentrer tes filaments et à les convertir en énergie neutre.</p>
+                <p><strong>➡️ Effet :</strong> Offre la compétence Magie pure +2 (Intelligence)</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>🜂 Maîtrise mineure de Magie élémentaire</h3>
+                <p>Maîtrise liée à sa source élémentaire (une seule maîtrise, même en cas de double source). Cette maîtrise permet de manipuler efficacement l'élément choisi et d'en exploiter toutes les propriétés tactiques.</p>
+                <p><strong>➡️ Effet :</strong> Offre la compétence Magie élémentaire X +2 (Intelligence)</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>✨ Faveur magique</h3>
+                <p>Le lanceur choisit sa source élémentaire de base (feu, eau, vent, terre, foudre, glace, etc.). Si son cœur est suffisamment solide, il peut tenter la Roue des Éléments : il obtient une relance supplémentaire et conserve le résultat qui lui convient le mieux (notamment pour viser une meilleure Rareté).</p>
+            </div>
+        </section>
+
+        <!-- Parcours du Mage -->
+        <section class="section">
+            <h2 class="section-title">🧩 Parcours du Mage</h2>
+            <p class="intro-text">Un mage peut venir d'horizons très différents : membre d'un Arcanium, formé dans une institution magique, ou simple initié ayant appris auprès d'un Maître. Selon cette origine, sa base de savoir et sa manière de pratiquer la magie varient.</p>
+            
+            <div class="filiere-grid">
+                <div class="filiere-card">
+                    <h3>• Parcours solitaire</h3>
+                    <p class="filiere-desc">Ayant parcouru le monde pour découvrir et apprendre la magie sans instruction académique, tu es devenu autodidacte, capable de déceler et de comprendre les arts magiques par toi-même.</p>
+                    <ul>
+                        <li><strong>Talent d'entraînement :</strong> Par sa formation en solitaire, il possède déjà une amélioration sur 2 de ses sorts de base.</li>
+                        <li><strong>Autodidacte magique :</strong> Une fois par jour, le lanceur obtient un bonus de (5 × Mod INT)% (minimum 5%) sur les gains de PA lors de l'obtention d'un nouveau sort.</li>
+                        <li><strong>Bonus :</strong> Possibilité d'obtenir 1 point de talent supplémentaire.</li>
+                    </ul>
+                </div>
+
+                <div class="filiere-card">
+                    <h3>• Parcours d'étudiant magique</h3>
+                    <p class="filiere-desc">Tu as été formé dans un Arcanium (Tour de mage), ou au sein d'une école / institution dédiée à l'apprentissage des bases magiques. Cette voie t'a donné une base théorique et pratique solide.</p>
+                    <p><strong>Le lanceur choisit un seul style magique de base parmi :</strong></p>
+                    <ul>
+                        <li><strong>École de la Modulation :</strong> Affûte la capacité à ajuster en temps réel la portée, l'intensité et les effets d'un sort. (Modulation Magique +2 + connaissance en Mineur)</li>
+                        <li><strong>École de la Matérialisation :</strong> Donne forme tangible à l'énergie magique. (Matérialisation Magique +2 + connaissance en Mineur)</li>
+                        <li><strong>École des Barrières :</strong> Spécialise dans l'édification de boucliers protecteurs. (Barrière Magique +2 + connaissance en Mineur)</li>
+                        <li><strong>École de l'Enchantement :</strong> Imprègne objets ou êtres vivants de propriétés magiques. (Enchantement Magique +2 + connaissance en Mineur)</li>
+                        <li><strong>École de la Guérison :</strong> Restauration du corps et de l'esprit. (Guérison Magique +2 + connaissance en Mineur)</li>
+                        <li><strong>École de l'Insufflation :</strong> Transmet l'énergie magique dans un objet ou une créature. (Insufflation Magique +2 + connaissance en Mineur)</li>
+                        <li><strong>École de l'Illusion :</strong> Manipule la perception sensorielle et l'émotion. (Illusion Magique +2 + connaissance en Mineur)</li>
+                    </ul>
+                </div>
+
+                <div class="filiere-card">
+                    <h3>• Voie du Magister sombre</h3>
+                    <p class="filiere-desc">En arpentant les voies obscures du Magister, cette voie des arcanes permet, au prix d'un sacrifice, d'obtenir la maîtrise d'un « cœur sombre ». Cette voie est répugnante aux yeux des Pères, qui l'associent aux Sorciers maudits.</p>
+                    <ul>
+                        <li><strong>Maîtrise au choix :</strong> « Magie Occulte » OU « Magie nécromantique maudite ».</li>
+                        <li><strong>Dégénérescence maudite :</strong> Obtient la Dégénérescence maudite liée à la magie choisie.</li>
+                        <li><strong>Classe secondaire :</strong> Possibilité d'obtenir « Nécromancien » ou « Occultiste ».</li>
+                        <li><strong>Connaissance :</strong> Connaissance liée au choix effectué au niveau Mineur.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine magique <span class="level">(Moyen)</span></h4>
+                    <p>Compréhension générale d'un domaine/école de magie (principes, limites, usages). Permet d'identifier un effet typique, de reconnaître une signature de sort, et d'adapter ses choix face à une magie connue.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance des théories magiques <span class="level">(Modéré)</span></h4>
+                    <p>Maîtrise des bases académiques : filaments, sources, stabilisation, schémas d'incantation, risques de surtension et règles de canalisation. Sert à analyser un phénomène magique et à réussir des études/recherches.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance de la magie élémentaire X <span class="level">(Modéré)</span></h4>
+                    <p>Savoir spécifique lié à un élément choisi (Feu, Eau, Vent, etc.) : propriétés, réactions, formes courantes, faiblesses et usages tactiques.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine du Cœur Arcanique <span class="level">(Modéré)</span></h4>
+                    <p>Discipline traitant de la concentration et conversion des filaments en magie pure : exercices, contrôle, dérives, rituels de stabilisation.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des objets magiques <span class="level">(Modéré)</span></h4>
+                    <p>Savoir sur catalyseurs, artefacts, sceaux et talismans : identification, charges, entretien, risques et contrecoups.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎒 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">👘</span>
+                    <div>
+                        <h4>Robe de Mage</h4>
+                        <p>Robe de Mage de base</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔮</span>
+                    <div>
+                        <h4>Catalyseur</h4>
+                        <p>Catalyseur de base pour canaliser la magie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🧪</span>
+                    <div>
+                        <h4>Potions</h4>
+                        <p>3 potions de magie + 1 potion de vie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">✨</span>
+                    <div>
+                        <h4>Réduction objet magique</h4>
+                        <p>20% de réduction sur un objet magique Commun (10% sur Non commun)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">📦</span>
+                    <div>
+                        <h4>Bonus selon parcours</h4>
+                        <p><strong>Solitaire :</strong> objet non magique (-30%)<br>
+                        <strong>Étudiant :</strong> Emblème de mage confirmé<br>
+                        <strong>Magister :</strong> catalyseur maudit (-20%)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences liées aux caractéristiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Magie élémentaire X (Intelligence)</strong> — Lancer, façonner et optimiser les sorts liés à l'élément choisi</li>
+                        <li><strong>Magie pure (Intelligence)</strong> — Maîtrise de l'énergie neutre non élémentaire</li>
+                        <li><strong>Analyse magique (Intelligence)</strong> — Identifie sorts, auras, catalyseurs et phénomènes arcaniques</li>
+                        <li><strong>Modulation magique (Intelligence)</strong> — Ajuste un sort en temps réel (portée, intensité, forme, maintien)</li>
+                        <li><strong>Présence magique (Charisme)</strong> — Déploiement perceptible de l'énergie du lanceur pour impressionner ou intimider</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>💠 Compétences de styles magiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Matérialisation Magique (Intelligence)</strong> — Donner forme tangible à l'énergie magique</li>
+                        <li><strong>Barrière Magique (Intelligence)</strong> — Édification de boucliers protecteurs</li>
+                        <li><strong>Enchantement Magique (Intelligence)</strong> — Imprégnation d'objets ou êtres vivants</li>
+                        <li><strong>Guérison Magique (Intelligence)</strong> — Restauration du corps et de l'esprit</li>
+                        <li><strong>Insufflation Magique (Intelligence)</strong> — Transmission d'énergie magique</li>
+                        <li><strong>Illusion Magique (Intelligence)</strong> — Manipulation de la perception sensorielle</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Création du graphique radar des caractéristiques
+        const ctx = document.getElementById('statsChart').getContext('2d');
+        
+        // Données de Mage (échelle de -4 à +6)
+        const statsData = {
+            FOR: -4,
+            CST: -3,
+            DEX: 0,
+            INT: 6,
+            SAG: 4,
+            PER: 0,
+            CHA: 0
+        };
+
+        // Convertir les valeurs pour le graphique (ajouter 4 pour que 0 soit au centre)
+        const convertedData = Object.values(statsData).map(val => val + 4);
+
+        const statsChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
+                datasets: [{
+                    label: 'Caractéristiques',
+                    data: convertedData,
+                    backgroundColor: 'rgba(138, 43, 226, 0.2)',
+                    borderColor: 'rgba(138, 43, 226, 0.8)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(138, 43, 226, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(138, 43, 226, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 10, // -4 à +6 = 10 niveaux
+                        ticks: {
+                            stepSize: 2,
+                            callback: function(value) {
+                                // Convertir les valeurs affichées (-4 à +6)
+                                return value - 4;
+                            },
+                            color: '#6a1b9a',
+                            font: {
+                                size: 11,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(138, 43, 226, 0.2)'
+                        },
+                        angleLines: {
+                            color: 'rgba(138, 43, 226, 0.2)'
+                        },
+                        pointLabels: {
+                            color: '#6a1b9a',
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: "'Cinzel', serif"
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const actualValue = context.parsed.r - 4;
+                                return context.label + ': ' + (actualValue >= 0 ? '+' : '') + actualValue;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
