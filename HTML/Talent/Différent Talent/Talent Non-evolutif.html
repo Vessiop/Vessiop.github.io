@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talents Non Évolutifs - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Talent CSS.css/Type de talent CSS/Talent non evolutif.css">
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../Talent/Type de talent proposer.html" class="back-button">← Retour aux talents</a>
+    
+    <header class="header">
+        <div class="ornament ornament-left">✨</div>
+        <div class="title-container">
+            <h1 class="main-title">Talents Non Évolutifs</h1>
+            <p class="subtitle">Capacités permanentes et bonus de caractéristiques</p>
+        </div>
+        <div class="ornament ornament-right">✨</div>
+    </header>
+
+    <main class="container">
+        <!-- Barre de recherche -->
+        <div class="search-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="🔍 Rechercher un talent par nom ou effet...">
+                <button id="clearSearch" class="clear-btn">✕</button>
+            </div>
+            
+            <div class="results-count">
+                <span id="talentCount">0</span> talents affichés sur <span id="totalCount">0</span>
+            </div>
+        </div>
+
+        <!-- Premier tableau -->
+        <div class="table-section">
+            <div class="table-wrapper">
+                <table id="talentsTable1" class="talents-table">
+                    <thead>
+                        <tr>
+                            <th class="col-nom sortable" data-sort="nom" data-table="1">
+                                Nom <span class="sort-icon">⇅</span>
+                            </th>
+                            <th class="col-effet">Effet</th>
+                            <th class="col-cout sortable" data-sort="cout" data-table="1">
+                                Coût (point de talent) <span class="sort-icon">⇅</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="talentsBody1">
+                        <!-- Les talents seront insérés ici par JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Second tableau -->
+        <div class="table-section">
+            <div class="table-wrapper">
+                <table id="talentsTable2" class="talents-table">
+                    <thead>
+                        <tr>
+                            <th class="col-nom sortable" data-sort="nom" data-table="2">
+                                Nom <span class="sort-icon">⇅</span>
+                            </th>
+                            <th class="col-effet">Effet</th>
+                            <th class="col-cout sortable" data-sort="cout" data-table="2">
+                                Coût (point de talent) <span class="sort-icon">⇅</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="talentsBody2">
+                        <!-- Les talents seront insérés ici par JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Talent/Talent non evolutif.js"></script>
+</body>
+</html>
