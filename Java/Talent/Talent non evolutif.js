@@ -1,5 +1,5 @@
-// Données du premier tableau
-const talentsTable1 = [
+// Tous les talents non évolutifs dans un seul tableau
+const allTalents = [
     {
         nom: "Vif",
         effet: "Offre un +6 en Réactivité",
@@ -54,11 +54,7 @@ const talentsTable1 = [
         nom: "Petit Buveur",
         effet: "Permet de tenir plus longtemps sans boire (double le temps avant d'avoir obligatoirement besoin de boire)",
         cout: 2
-    }
-];
-
-// Données du second tableau
-const talentsTable2 = [
+    },
     {
         nom: "Coureur émérite",
         effet: "Offre un bonus de +5 en Mouvement",
@@ -116,135 +112,164 @@ const talentsTable2 = [
     }
 ];
 
-// État de tri pour chaque tableau
-let currentSort = {
-    table1: { column: null, direction: null },
-    table2: { column: null, direction: null }
-};
+// Variables globales
+let talents = [...allTalents]; // Copie du tableau pour pouvoir trier
+let currentSort = { column: null, direction: null };
+let searchTerm = '';
 
-let currentSearchTerm = '';
-
-// Fonction d'initialisation
-function init() {
-    renderTable(talentsTable1, 'talentsBody1', 1);
-    renderTable(talentsTable2, 'talentsBody2', 2);
+// Initialisation
+document.addEventListener('DOMContentLoaded', () => {
+    renderTable();
     updateCounts();
     attachEventListeners();
-}
+});
 
-// Rendu d'un tableau
-function renderTable(talents, bodyId, tableNum) {
-    const tbody = document.getElementById(bodyId);
+// Rendu du tableau
+function renderTable() {
+    const tbody = document.getElementById('talentsBody');
+    const noResults = document.getElementById('noResults');
     tbody.innerHTML = '';
     
+    let visibleCount = 0;
+    
     talents.forEach(talent => {
+        // Filtrage par recherche
+        const matchesSearch = searchTerm === '' || 
+            talent.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            talent.effet.toLowerCase().includes(searchTerm.toLowerCase());
+        
+        if (!matchesSearch) {
+            return; // Skip cette ligne
+        }
+        
+        visibleCount++;
+        
         const row = document.createElement('tr');
         
+        // Colonne Nom
         const nomCell = document.createElement('td');
         nomCell.className = 'col-nom';
-        nomCell.innerHTML = highlightText(talent.nom, currentSearchTerm);
+        nomCell.setAttribute('data-label', 'Nom');
+        const nomSpan = document.createElement('span');
+        nomSpan.className = 'talent-nom';
+        nomSpan.innerHTML = highlightText(talent.nom, searchTerm);
+        nomCell.appendChild(nomSpan);
         
+        // Colonne Effet
         const effetCell = document.createElement('td');
         effetCell.className = 'col-effet';
-        effetCell.innerHTML = highlightText(talent.effet, currentSearchTerm);
+        effetCell.setAttribute('data-label', 'Effet');
+        const effetSpan = document.createElement('span');
+        effetSpan.className = 'talent-effet';
+        effetSpan.innerHTML = highlightText(talent.effet, searchTerm);
+        effetCell.appendChild(effetSpan);
         
+        // Colonne Coût
         const coutCell = document.createElement('td');
         coutCell.className = 'col-cout';
-        coutCell.textContent = talent.cout + ' point' + (talent.cout > 1 ? 's' : '');
+        coutCell.setAttribute('data-label', 'Coût');
+        const coutSpan = document.createElement('span');
+        coutSpan.className = 'talent-cout';
+        coutSpan.textContent = talent.cout + ' point' + (talent.cout > 1 ? 's' : '');
+        coutCell.appendChild(coutSpan);
         
         row.appendChild(nomCell);
         row.appendChild(effetCell);
         row.appendChild(coutCell);
         
-        // Filtre de recherche
-        if (currentSearchTerm) {
-            const searchLower = currentSearchTerm.toLowerCase();
-            const matchNom = talent.nom.toLowerCase().includes(searchLower);
-            const matchEffet = talent.effet.toLowerCase().includes(searchLower);
-            
-            if (!matchNom && !matchEffet) {
-                row.classList.add('hidden');
-            }
-        }
-        
         tbody.appendChild(row);
     });
+    
+    // Afficher/masquer le message "aucun résultat"
+    if (visibleCount === 0) {
+        noResults.style.display = 'block';
+    } else {
+        noResults.style.display = 'none';
+    }
+    
+    updateCounts();
 }
 
-// Highlighting de texte
-function highlightText(text, searchTerm) {
-    if (!searchTerm) return text;
+// Highlighting du texte recherché
+function highlightText(text, term) {
+    if (!term) return text;
     
-    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    const regex = new RegExp(`(${escapeRegex(term)})`, 'gi');
     return text.replace(regex, '<span class="highlight">$1</span>');
 }
 
-// Tri d'un tableau
-function sortTable(column, tableNum) {
-    const talents = tableNum === 1 ? talentsTable1 : talentsTable2;
-    const sortState = currentSort[`table${tableNum}`];
+// Échapper les caractères spéciaux pour regex
+function escapeRegex(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Mise à jour des compteurs
+function updateCounts() {
+    const tbody = document.getElementById('talentsBody');
+    const visibleRows = tbody.querySelectorAll('tr').length;
     
-    // Déterminer la nouvelle direction
-    if (sortState.column === column) {
-        if (sortState.direction === 'asc') {
-            sortState.direction = 'desc';
-        } else if (sortState.direction === 'desc') {
-            sortState.direction = null;
-            sortState.column = null;
-        } else {
-            sortState.direction = 'asc';
+    document.getElementById('talentCount').textContent = visibleRows;
+    document.getElementById('totalCount').textContent = allTalents.length;
+}
+
+// Tri du tableau
+function sortTable(column) {
+    const headers = document.querySelectorAll('.sortable');
+    
+    // Si on clique sur la même colonne
+    if (currentSort.column === column) {
+        if (currentSort.direction === 'asc') {
+            currentSort.direction = 'desc';
+        } else if (currentSort.direction === 'desc') {
+            // Retour à l'ordre original
+            currentSort.column = null;
+            currentSort.direction = null;
+            talents = [...allTalents];
+            updateSortIndicators();
+            renderTable();
+            return;
         }
     } else {
-        sortState.column = column;
-        sortState.direction = 'asc';
+        // Nouvelle colonne
+        currentSort.column = column;
+        currentSort.direction = 'asc';
     }
     
     // Effectuer le tri
-    if (sortState.direction) {
-        talents.sort((a, b) => {
-            let valA, valB;
-            
-            if (column === 'nom') {
-                valA = a.nom.toLowerCase();
-                valB = b.nom.toLowerCase();
-            } else if (column === 'cout') {
-                valA = a.cout;
-                valB = b.cout;
-            }
-            
-            if (sortState.direction === 'asc') {
-                return valA > valB ? 1 : valA < valB ? -1 : 0;
-            } else {
-                return valA < valB ? 1 : valA > valB ? -1 : 0;
-            }
-        });
-    } else {
-        // Rétablir l'ordre original (on ne le fait pas, on garde l'ordre actuel)
-        // Pour rétablir l'ordre original, il faudrait sauvegarder l'index initial
-    }
+    talents.sort((a, b) => {
+        let valueA, valueB;
+        
+        if (column === 'nom') {
+            valueA = a.nom.toLowerCase();
+            valueB = b.nom.toLowerCase();
+        } else if (column === 'cout') {
+            valueA = a.cout;
+            valueB = b.cout;
+        }
+        
+        let comparison = 0;
+        if (valueA > valueB) comparison = 1;
+        if (valueA < valueB) comparison = -1;
+        
+        return currentSort.direction === 'asc' ? comparison : -comparison;
+    });
     
-    // Re-render le tableau
-    const bodyId = `talentsBody${tableNum}`;
-    renderTable(talents, bodyId, tableNum);
-    
-    // Mettre à jour les indicateurs visuels
-    updateSortIndicators(tableNum);
+    updateSortIndicators();
+    renderTable();
 }
 
 // Mise à jour des indicateurs de tri
-function updateSortIndicators(tableNum) {
-    const table = document.getElementById(`talentsTable${tableNum}`);
-    const headers = table.querySelectorAll('th.sortable');
-    const sortState = currentSort[`table${tableNum}`];
+function updateSortIndicators() {
+    const headers = document.querySelectorAll('.sortable');
     
     headers.forEach(header => {
-        const column = header.dataset.sort;
+        const column = header.getAttribute('data-sort');
         header.classList.remove('sorted-asc', 'sorted-desc');
         
-        if (column === sortState.column) {
-            if (sortState.direction === 'asc') {
+        if (column === currentSort.column) {
+            if (currentSort.direction === 'asc') {
                 header.classList.add('sorted-asc');
-            } else if (sortState.direction === 'desc') {
+            } else if (currentSort.direction === 'desc') {
                 header.classList.add('sorted-desc');
             }
         }
@@ -253,59 +278,30 @@ function updateSortIndicators(tableNum) {
 
 // Recherche
 function handleSearch() {
-    const searchInput = document.getElementById('searchInput');
-    currentSearchTerm = searchInput.value.trim();
-    
-    renderTable(talentsTable1, 'talentsBody1', 1);
-    renderTable(talentsTable2, 'talentsBody2', 2);
-    updateCounts();
+    searchTerm = document.getElementById('searchInput').value.trim();
+    renderTable();
 }
 
-// Mise à jour des compteurs
-function updateCounts() {
-    const table1Rows = document.querySelectorAll('#talentsTable1 tbody tr:not(.hidden)');
-    const table2Rows = document.querySelectorAll('#talentsTable2 tbody tr:not(.hidden)');
-    const visibleCount = table1Rows.length + table2Rows.length;
-    const totalCount = talentsTable1.length + talentsTable2.length;
-    
-    document.getElementById('talentCount').textContent = visibleCount;
-    document.getElementById('totalCount').textContent = totalCount;
+// Effacer la recherche
+function clearSearch() {
+    document.getElementById('searchInput').value = '';
+    searchTerm = '';
+    renderTable();
 }
 
 // Attacher les événements
 function attachEventListeners() {
     // Recherche
-    const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('input', handleSearch);
+    document.getElementById('searchInput').addEventListener('input', handleSearch);
     
     // Bouton clear
-    const clearBtn = document.getElementById('clearSearch');
-    clearBtn.addEventListener('click', () => {
-        searchInput.value = '';
-        currentSearchTerm = '';
-        handleSearch();
-    });
+    document.getElementById('clearSearch').addEventListener('click', clearSearch);
     
-    // Tri - Tableau 1
-    const table1Headers = document.querySelectorAll('#talentsTable1 th.sortable');
-    table1Headers.forEach(header => {
+    // Tri
+    document.querySelectorAll('.sortable').forEach(header => {
         header.addEventListener('click', () => {
-            const column = header.dataset.sort;
-            const tableNum = parseInt(header.dataset.table);
-            sortTable(column, tableNum);
-        });
-    });
-    
-    // Tri - Tableau 2
-    const table2Headers = document.querySelectorAll('#talentsTable2 th.sortable');
-    table2Headers.forEach(header => {
-        header.addEventListener('click', () => {
-            const column = header.dataset.sort;
-            const tableNum = parseInt(header.dataset.table);
-            sortTable(column, tableNum);
+            const column = header.getAttribute('data-sort');
+            sortTable(column);
         });
     });
 }
-
-// Lancement au chargement de la page
-document.addEventListener('DOMContentLoaded', init);
