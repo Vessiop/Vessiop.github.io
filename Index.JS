@@ -1,19 +1,23 @@
 // ========================================
 // SYSTÈME D'ANIMATIONS TERMION
-// Version Premium - Zéro Emoji
+// Version Premium - Effets Météo Extrêmes
 // ========================================
 
 // ========================================
-// WINDRESS - FLOCONS DESSINÉS
+// WINDRESS - BLIZZARD AVEC POUDREUSE
 // ========================================
 class SnowflakeSystem {
     constructor() {
         this.canvas = null;
         this.ctx = null;
         this.snowflakes = [];
-        this.maxSnowflakes = 60;
+        this.snowDust = [];
+        this.maxSnowflakes = 80;
+        this.maxSnowDust = 150;
         this.animationId = null;
         this.isActive = false;
+        this.windStrength = 0;
+        this.windDirection = 0;
     }
 
     init() {
@@ -40,8 +44,14 @@ class SnowflakeSystem {
         this.resize();
         window.addEventListener("resize", () => this.resize());
         
+        // Flocons principaux
         for (let i = 0; i < this.maxSnowflakes; i++) {
             this.snowflakes.push(new Snowflake(this.canvas.width, this.canvas.height));
+        }
+        
+        // Poudreuse (petites particules)
+        for (let i = 0; i < this.maxSnowDust; i++) {
+            this.snowDust.push(new SnowDust(this.canvas.width, this.canvas.height));
         }
     }
 
@@ -75,10 +85,21 @@ class SnowflakeSystem {
         if (!this.isActive) return;
         this.animationId = requestAnimationFrame(() => this.animate());
         
+        // Vent variable pour effet blizzard
+        this.windStrength = Math.sin(Date.now() * 0.0005) * 2 + 1;
+        this.windDirection = Math.cos(Date.now() * 0.0003) * 0.5;
+        
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
+        // Dessiner poudreuse d'abord (arrière-plan)
+        this.snowDust.forEach(dust => {
+            dust.update(this.canvas.width, this.canvas.height, this.windStrength, this.windDirection);
+            dust.draw(this.ctx);
+        });
+        
+        // Dessiner flocons principaux
         this.snowflakes.forEach(flake => {
-            flake.update(this.canvas.width, this.canvas.height);
+            flake.update(this.canvas.width, this.canvas.height, this.windStrength, this.windDirection);
             flake.draw(this.ctx);
         });
     }
@@ -93,19 +114,19 @@ class Snowflake {
         this.x = Math.random() * canvasWidth;
         this.y = -20;
         this.size = Math.random() * 4 + 2;
-        this.speedY = Math.random() * 1 + 0.5;
+        this.speedY = Math.random() * 1.5 + 0.5;
         this.speedX = (Math.random() - 0.5) * 0.5;
         this.rotation = Math.random() * Math.PI * 2;
         this.rotationSpeed = (Math.random() - 0.5) * 0.02;
         this.opacity = Math.random() * 0.6 + 0.4;
     }
 
-    update(canvasWidth, canvasHeight) {
+    update(canvasWidth, canvasHeight, windStrength, windDirection) {
         this.y += this.speedY;
-        this.x += this.speedX;
+        this.x += this.speedX + windStrength + windDirection;
         this.rotation += this.rotationSpeed;
         
-        if (this.y > canvasHeight + 20) {
+        if (this.y > canvasHeight + 20 || this.x < -50 || this.x > canvasWidth + 50) {
             this.reset(canvasWidth, canvasHeight);
         }
     }
@@ -143,6 +164,44 @@ class Snowflake {
             ctx.restore();
         }
         
+        ctx.restore();
+    }
+}
+
+// Poudreuse de neige (petites particules)
+class SnowDust {
+    constructor(canvasWidth, canvasHeight) {
+        this.reset(canvasWidth, canvasHeight);
+    }
+
+    reset(canvasWidth, canvasHeight) {
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
+        this.size = Math.random() * 1.5 + 0.3;
+        this.speedY = Math.random() * 0.8 + 0.2;
+        this.speedX = Math.random() * 1.5;
+        this.opacity = Math.random() * 0.3 + 0.1;
+    }
+
+    update(canvasWidth, canvasHeight, windStrength, windDirection) {
+        this.y += this.speedY;
+        this.x += this.speedX + windStrength * 1.5 + windDirection * 2;
+        
+        if (this.y > canvasHeight + 10 || this.x < -20 || this.x > canvasWidth + 20) {
+            this.x = Math.random() * canvasWidth;
+            this.y = -10;
+        }
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.shadowBlur = 4;
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.6)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
         ctx.restore();
     }
 }
@@ -524,25 +583,28 @@ class MysticStar {
 }
 
 // ========================================
-// MARKARANE - DÉSERT
+// MARKARANE - TEMPÊTE DE SABLE
 // ========================================
-class DesertSystem {
+class SandstormSystem {
     constructor() {
         this.canvas = null;
         this.ctx = null;
-        this.sands = [];
-        this.nightStars = [];
-        this.maxSands = 40;
-        this.maxNightStars = 100;
+        this.sandWaves = [];
+        this.sandParticles = [];
+        this.largeSand = [];
+        this.maxWaves = 8;
+        this.maxParticles = 200;
+        this.maxLargeSand = 60;
         this.animationId = null;
         this.isActive = false;
+        this.stormIntensity = 0;
     }
 
     init() {
         if (this.canvas) return;
 
         this.canvas = document.createElement("canvas");
-        this.canvas.id = "desert-canvas";
+        this.canvas.id = "sandstorm-canvas";
         
         Object.assign(this.canvas.style, {
             position: "fixed",
@@ -553,7 +615,7 @@ class DesertSystem {
             zIndex: "3",
             pointerEvents: "none",
             opacity: "0",
-            transition: "opacity 0.8s ease"
+            transition: "opacity 1s ease"
         });
         
         document.body.appendChild(this.canvas);
@@ -562,12 +624,19 @@ class DesertSystem {
         this.resize();
         window.addEventListener("resize", () => this.resize());
         
-        for (let i = 0; i < this.maxSands; i++) {
-            this.sands.push(new SandGrain(this.canvas.width, this.canvas.height));
+        // Vagues de sable (arrière-plan)
+        for (let i = 0; i < this.maxWaves; i++) {
+            this.sandWaves.push(new SandWave(this.canvas.width, this.canvas.height, i));
         }
         
-        for (let i = 0; i < this.maxNightStars; i++) {
-            this.nightStars.push(new NightStar(this.canvas.width, this.canvas.height));
+        // Petites particules (nombreuses)
+        for (let i = 0; i < this.maxParticles; i++) {
+            this.sandParticles.push(new SandParticle(this.canvas.width, this.canvas.height));
+        }
+        
+        // Gros grains de sable
+        for (let i = 0; i < this.maxLargeSand; i++) {
+            this.largeSand.push(new LargeSandGrain(this.canvas.width, this.canvas.height));
         }
     }
 
@@ -601,49 +670,91 @@ class DesertSystem {
         if (!this.isActive) return;
         this.animationId = requestAnimationFrame(() => this.animate());
         
+        // Intensité variable de la tempête
+        this.stormIntensity = Math.sin(Date.now() * 0.0004) * 0.3 + 0.7;
+        
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
-        // Dessiner étoiles nocturnes si mode nuit
-        const isNight = document.body.classList.contains('night');
-        if (isNight) {
-            this.nightStars.forEach(star => {
-                star.update();
-                star.draw(this.ctx);
-            });
-        }
+        // Dessiner vagues de sable (arrière-plan)
+        this.sandWaves.forEach(wave => {
+            wave.update(this.stormIntensity);
+            wave.draw(this.ctx);
+        });
         
-        // Dessiner sable
-        this.sands.forEach(sand => {
-            sand.update(this.canvas.width, this.canvas.height);
+        // Dessiner petites particules
+        this.sandParticles.forEach(particle => {
+            particle.update(this.canvas.width, this.canvas.height, this.stormIntensity);
+            particle.draw(this.ctx);
+        });
+        
+        // Dessiner gros grains
+        this.largeSand.forEach(sand => {
+            sand.update(this.canvas.width, this.canvas.height, this.stormIntensity);
             sand.draw(this.ctx);
         });
     }
 }
 
-class SandGrain {
-    constructor(w, h) {
-        this.reset(w, h);
+// Vagues de sable (effet de brume)
+class SandWave {
+    constructor(canvasWidth, canvasHeight, index) {
+        this.width = canvasWidth;
+        this.height = canvasHeight;
+        this.y = (index / 8) * canvasHeight;
+        this.offset = Math.random() * 1000;
+        this.speed = 0.3 + index * 0.05;
+        this.opacity = 0.03 + index * 0.01;
     }
-    reset(w, h) {
-        this.x = Math.random() * w;
-        this.y = Math.random() * h;
-        this.size = Math.random() * 2 + 1;
-        this.speedY = Math.random() * 0.4 + 0.1;
-        this.speedX = Math.random() * 0.3;
-        this.opacity = Math.random() * 0.3 + 0.2;
+
+    update(intensity) {
+        this.offset += this.speed * intensity;
     }
-    update(w, h) {
-        this.y += this.speedY;
-        this.x += this.speedX;
-        if (this.y > h + 10) {
-            this.y = -10;
-            this.x = Math.random() * w;
-        }
-    }
+
     draw(ctx) {
         ctx.save();
         ctx.globalAlpha = this.opacity;
-        ctx.fillStyle = 'rgba(212, 161, 84, 0.7)';
+        
+        const gradient = ctx.createLinearGradient(0, this.y, this.width, this.y);
+        gradient.addColorStop(0, 'rgba(212, 161, 84, 0)');
+        gradient.addColorStop(0.5, 'rgba(212, 161, 84, 0.8)');
+        gradient.addColorStop(1, 'rgba(212, 161, 84, 0)');
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, this.y, this.width, 80);
+        
+        ctx.restore();
+    }
+}
+
+// Petites particules de sable (nombreuses)
+class SandParticle {
+    constructor(canvasWidth, canvasHeight) {
+        this.reset(canvasWidth, canvasHeight);
+    }
+
+    reset(canvasWidth, canvasHeight) {
+        this.x = Math.random() * canvasWidth - 100;
+        this.y = Math.random() * canvasHeight;
+        this.size = Math.random() * 1.2 + 0.3;
+        this.speedX = Math.random() * 4 + 2;
+        this.speedY = (Math.random() - 0.5) * 0.8;
+        this.opacity = Math.random() * 0.4 + 0.2;
+    }
+
+    update(canvasWidth, canvasHeight, intensity) {
+        this.x += this.speedX * intensity;
+        this.y += this.speedY;
+        
+        if (this.x > canvasWidth + 100) {
+            this.x = -100;
+            this.y = Math.random() * canvasHeight;
+        }
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = 'rgba(212, 161, 84, 0.8)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -651,27 +762,52 @@ class SandGrain {
     }
 }
 
-class NightStar {
-    constructor(w, h) {
-        this.x = Math.random() * w;
-        this.y = Math.random() * (h * 0.6);
-        this.size = Math.random() * 1.5 + 0.5;
-        this.pulsePhase = Math.random() * Math.PI * 2;
-        this.pulseSpeed = Math.random() * 0.02 + 0.01;
+// Gros grains de sable
+class LargeSandGrain {
+    constructor(canvasWidth, canvasHeight) {
+        this.reset(canvasWidth, canvasHeight);
     }
-    update() {
-        this.pulsePhase += this.pulseSpeed;
+
+    reset(canvasWidth, canvasHeight) {
+        this.x = Math.random() * canvasWidth - 150;
+        this.y = Math.random() * canvasHeight;
+        this.size = Math.random() * 3 + 1.5;
+        this.speedX = Math.random() * 6 + 3;
+        this.speedY = (Math.random() - 0.5) * 1.5;
+        this.opacity = Math.random() * 0.5 + 0.3;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.1;
     }
+
+    update(canvasWidth, canvasHeight, intensity) {
+        this.x += this.speedX * intensity * 1.3;
+        this.y += this.speedY;
+        this.rotation += this.rotationSpeed;
+        
+        if (this.x > canvasWidth + 150) {
+            this.x = -150;
+            this.y = Math.random() * canvasHeight;
+        }
+    }
+
     draw(ctx) {
-        const pulse = Math.sin(this.pulsePhase) * 0.5 + 0.5;
         ctx.save();
-        ctx.globalAlpha = pulse * 0.8 + 0.2;
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = 'rgba(184, 133, 58, 0.9)';
         ctx.shadowBlur = 3;
-        ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
+        ctx.shadowColor = 'rgba(212, 161, 84, 0.5)';
+        
+        // Grain irrégulier
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.moveTo(-this.size, 0);
+        ctx.lineTo(0, -this.size * 0.8);
+        ctx.lineTo(this.size, 0);
+        ctx.lineTo(0, this.size * 0.8);
+        ctx.closePath();
         ctx.fill();
+        
         ctx.restore();
     }
 }
@@ -682,12 +818,12 @@ class NightStar {
 const snowflakeSystem = new SnowflakeSystem();
 const volcanicSystem = new VolcanicSystem();
 const starSystem = new StarSystem();
-const desertSystem = new DesertSystem();
+const sandstormSystem = new SandstormSystem();
 
 window.snowflakeSystem = snowflakeSystem;
 window.volcanicSystem = volcanicSystem;
 window.starSystem = starSystem;
-window.desertSystem = desertSystem;
+window.sandstormSystem = sandstormSystem;
 
 // ========================================
 // SYSTÈME DE THÈMES
@@ -695,21 +831,16 @@ window.desertSystem = desertSystem;
 document.addEventListener('DOMContentLoaded', function() {
     const tabs = document.querySelectorAll('.theme-tab');
     const body = document.body;
-    const sun = document.getElementById('sun');
     let currentTheme = 'base';
-    let isDragging = false;
-    let sunFollowEnabled = false;
-    let dayPhase = 'day'; // 'day', 'sunset', 'night'
 
     function changeTheme(themeName) {
         // Arrêter ancien
         snowflakeSystem.stop();
         volcanicSystem.stop();
         starSystem.stop();
-        desertSystem.stop();
+        sandstormSystem.stop();
         
         body.className = body.className.replace(/theme-\w+/g, '').trim();
-        body.classList.remove('sunset', 'night');
         
         if (themeName !== 'base') {
             body.classList.add(`theme-${themeName}`);
@@ -731,8 +862,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (themeName === 'arzass') {
             starSystem.start();
         } else if (themeName === 'markarane') {
-            desertSystem.start();
-            dayPhase = 'day';
+            sandstormSystem.start();
         }
         
         currentTheme = themeName;
@@ -745,67 +875,11 @@ document.addEventListener('DOMContentLoaded', function() {
             changeTheme(this.dataset.theme);
         });
     });
-
-    // Soleil Markarane - Cycle jour/nuit
-    if (sun) {
-        sun.addEventListener('click', function() {
-            if (isDragging || currentTheme !== 'markarane') return;
-            
-            if (dayPhase === 'day') {
-                dayPhase = 'sunset';
-                body.classList.add('sunset');
-            } else if (dayPhase === 'sunset') {
-                dayPhase = 'night';
-                body.classList.remove('sunset');
-                body.classList.add('night');
-            } else {
-                dayPhase = 'day';
-                body.classList.remove('night');
-            }
-        });
-
-        // Drag & drop du soleil
-        sun.addEventListener('mousedown', startDrag);
-        sun.addEventListener('touchstart', startDrag);
-        
-        function startDrag(e) {
-            if (currentTheme !== 'markarane') return;
-            isDragging = true;
-            sunFollowEnabled = true;
-            e.preventDefault();
-        }
-        
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('touchmove', drag);
-        
-        function drag(e) {
-            if (!sunFollowEnabled) return;
-            
-            const x = e.clientX || (e.touches && e.touches[0].clientX);
-            const y = e.clientY || (e.touches && e.touches[0].clientY);
-            
-            if (x && y) {
-                const sunContainer = document.querySelector('.sun-container');
-                if (sunContainer) {
-                    sunContainer.style.left = x + 'px';
-                    sunContainer.style.top = y + 'px';
-                    sunContainer.style.transform = 'translate(-50%, -50%)';
-                }
-            }
-        }
-        
-        document.addEventListener('mouseup', stopDrag);
-        document.addEventListener('touchend', stopDrag);
-        
-        function stopDrag() {
-            setTimeout(() => { isDragging = false; }, 100);
-        }
-    }
     
     // Charger le thème sauvegardé
     const savedTheme = localStorage.getItem('termion-theme') || 'base';
     changeTheme(savedTheme);
     
     console.log('✨ Termion animation system ready!');
-    console.log('🎨 Premium animations - Zero emoji');
+    console.log('🌪️ Weather effects: Blizzard & Sandstorm');
 });

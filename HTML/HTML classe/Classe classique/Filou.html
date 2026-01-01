@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filou - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Filou.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Filou.jpg" alt="Filou">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🗡️ Filou</h1>
+            <p class="class-quote">« La différence entre un voleur et un héros ? Le premier ne prévient pas quand il frappe. »</p>
+            <p class="class-type">🧭 Physique agile & sournois — infiltration, discrétion, attaque ciblée</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description / Présentation</h2>
+            <div class="content-box">
+                <p>Le Filou appartient aux marges : ruelles étroites, toits humides, tavernes bruyantes et portes verrouillées. Il n'est ni un assassin mystique ni un guerrier d'arène ; son art repose sur l'opportunisme, la lecture du terrain et la précision du geste. Là où d'autres imposent la force, lui impose le moment : une ouverture, un angle mort, un souffle de distraction — et la lame trouve sa place.</p>
+                
+                <p>Spécialiste de l'infiltration, du vol discret et des manœuvres sournoises, il excelle quand la situation devient confuse : s'approcher sans être vu, frapper au point faible, disparaître avant la riposte, ou retourner une scène sociale par un rôle crédible. Son efficacité vient d'un mélange de Dextérité, de Perception et d'intelligence pratique : il observe, anticipe, puis agit vite, sans bruit, souvent avec une longueur d'avance.</p>
+                
+                <p>Dans le monde criminel, le Filou survit grâce à ses réseaux et à ses codes. Il parle le dialecte du milieu, reconnaît les pièges, comprend les filières et sait à qui s'adresser — surtout quand l'Aube Rouge étend son influence. Qu'il soit Pilleur des Salles Fortes, Main de la Ruée, Rôdeur de Convoi ou Charlatan des Pavés, chaque voie façonne son style : l'art du coffre, la rue et la foule, la route et l'embuscade, ou la manipulation et le mensonge. Mais la philosophie reste la même : frapper juste, prendre ce qui doit l'être, et quitter l'ombre avant qu'elle ne se referme.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d8</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −1</span>
+                        <span class="stat-item negative">CST : −1</span>
+                        <span class="stat-item positive highlight">DEX : +3</span>
+                        <span class="stat-item positive">INT : +1</span>
+                        <span class="stat-item negative">SAG : −1</span>
+                        <span class="stat-item positive">PER : +2</span>
+                        <span class="stat-item negative">CHA : −1</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 20 + 1d6</li>
+                        <li><strong>REA :</strong> +4</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Social : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Métier : 2</span>
+                        <span>Sang-Froid : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents de classe</h2>
+            
+            <div class="talent-card">
+                <h3>Furtivité Silencieuse (mineure)</h3>
+                <p>Diminue le bruit généré par les déplacements et améliore la capacité à se dissimuler dans l'environnement. Ce talent est indispensable pour les voleurs, éclaireurs ou espions souhaitant éviter les confrontations. Il permet d'agir dans l'ombre, de surprendre un ennemi ou de fuir sans laisser de trace. Idéal aussi pour écouter sans être repéré.</p>
+                <div class="highlight-box">
+                    <p><strong>Offre la compétence :</strong> Furtivité +2 (Dextérité)</p>
+                </div>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise des attaques sournoises</h3>
+                <p>Permet d'effectuer des attaques sournoises, infligeant les dégâts associés à la sournoiserie. Les dégâts de sournoiserie, en plus d'appliquer l'effet sournoiserie sur l'armure (attention : armure), s'additionnent avec les dégâts dits de base de sournoiserie.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Affaires criminelles</h3>
+                <p>Via les Affaires criminelles, le lanceur obtient lors de la création de fiche la section « Objet criminel ». Le lanceur obtient aussi le talent :</p>
+                <div class="highlight-box">
+                    <h4>Dialecte criminel</h4>
+                    <p>Offre un bonus de <strong>+2</strong> sur les jets de Social lors des premières rencontres avec des criminels (étant dans le domaine criminel).</p>
+                </div>
+            </div>
+
+            <div class="talent-card">
+                <h3>Pas léger</h3>
+                <p>Vous apprenez à poser le pied comme un fantôme : transfert de poids contrôlé, respiration calée, micro-pauses qui étouffent le bruit et la trace. Idéal pour approches, contournements et retraits dans des environnements sensibles.</p>
+                <div class="highlight-box">
+                    <p><strong>Trait spécifique :</strong> Pas silencieux +1 (Finesse).</p>
+                    <p><strong>Amélioration :</strong> (2 points de talent) pour passer à Pas silencieux, augmentant la compétence de trait spécifique de +2.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Origines criminelles -->
+        <section class="section">
+            <h2 class="section-title">🧾 Origine criminelle (1 au choix)</h2>
+            <p class="intro-text">Choisis une origine qui définit ton style et ta spécialité dans le monde criminel :</p>
+            
+            <div class="origin-grid">
+                <!-- Origine 1 -->
+                <div class="origin-card">
+                    <h3>🔓 Pilleur des Salles Fortes</h3>
+                    <p>Il ne s'agit pas de ramasser ce qui traîne : l'objectif, c'est l'inaccessible. Manoirs silencieux, coffres scellés, salles fortes et mécanismes conçus pour décourager les meilleurs — voilà le terrain de jeu. Tout repose sur la préparation, le calme, et la beauté d'un plan exécuté sans bruit. Un vol réussi n'est pas une chance : c'est une pièce parfaitement jouée.</p>
+                    
+                    <h4>Offre :</h4>
+                    
+                    <div class="subsection">
+                        <h4>Maître du Crochetage (mineur)</h4>
+                        <p>Permet de manipuler des serrures mécaniques avec précision et discrétion. Ce talent augmente la vitesse d'exécution, réduit le risque de déclenchement d'alarmes ou de pièges, et ouvre des opportunités discrètes. Il est vital pour les cambrioleurs, espions ou infiltrateurs agissant dans l'ombre.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Crochetage +1 (Finesse/Métier)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Doigts de l'Échappatoire</h4>
+                        <p>1 fois par scène et par serrure : le Filou peut effectuer un second jet de crochetage pour tenter d'atteindre la marge de réussite attendue. Ce second jet est un jet Base Finesse ou Métier (si ce n'est pas l'un, c'est l'autre).</p>
+                        <p><strong>Difficulté :</strong> 20 − Mod DEX (arrondi au pair inférieur).</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <p><strong>Bonus de caractéristiques :</strong> +3 DEX et +1 INT ou PER, +1 en Finesse ou Métier (au choix)</p>
+                    </div>
+                </div>
+
+                <!-- Origine 2 -->
+                <div class="origin-card">
+                    <h3>👥 Main de la Ruée</h3>
+                    <p>La chute n'était pas prévue. Un manque, un faux pas, un moment trop long au mauvais endroit… et la limite a été franchie. Depuis, l'instinct s'est aiguisé : survivre, se fondre dans la foule, éviter que les murs se referment. Le vol n'est pas forcément un plaisir — mais les mains apprennent vite quand la nécessité serre la gorge.</p>
+                    
+                    <h4>Offre :</h4>
+                    
+                    <div class="subsection">
+                        <h4>Maître du Pickpocket (mineur)</h4>
+                        <p>Développe la capacité à dérober des objets discrets sur des cibles, sans éveiller les soupçons. Ce talent repose sur l'observation, le bon timing et un geste précis. Il est essentiel pour les voleurs de rue, illusionnistes ou agents en mission. Très utile dans les foules ou les rencontres sociales.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Vol discret +1 (Finesse)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Œil du Butin</h4>
+                        <p>D'un simple regard, grâce à l'habitude et l'instinct, le Filou identifie qui possède le plus de richesse, quels objets ont de la valeur, et quelles cibles sont trop risquées à dépouiller. Quand il doit faire un jet d'analyse lié à l'équipement / la richesse / la valeur / la dangerosité d'une cible, il effectue ce jet en <strong>Avantage</strong>.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <p><strong>Bonus de caractéristiques :</strong> +2 PER et +2 DEX, +1 en Finesse ou Instinct (au choix)</p>
+                    </div>
+                </div>
+
+                <!-- Origine 3 -->
+                <div class="origin-card">
+                    <h3>🏹 Rôdeur de Convoi</h3>
+                    <p>La loi n'est pas un mur, c'est une frontière. Sur la route, les convois ont des failles, les escortes des réflexes prévisibles, et chaque virage peut devenir une souricière. Ici, on gagne par pression, timing, nombre, et fuite organisée. Brigand pour certains… méthode de survie pour d'autres.</p>
+                    
+                    <h4>Offre :</h4>
+                    
+                    <div class="subsection">
+                        <h4>Observateur de terrain (mineur)</h4>
+                        <p>Affûte la capacité à analyser rapidement l'environnement immédiat. Ce talent permet de repérer les irrégularités du sol, les zones à risque ou les points d'avantage stratégique, que ce soit en nature sauvage ou en zone urbaine. Très utile pour anticiper les embuscades, trouver un bon couvert ou détecter des traces subtiles.</p>
+                        <p><strong>Offre la compétence :</strong> Observation environnementale +2 (Perception)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Sens des Mauvais Endroits</h4>
+                        <p>Quand le Filou prépare une embuscade, il obtient <strong>+5 à l'Initiative</strong>. S'il est pris en embuscade, il peut relancer une seule fois son jet d'Initiative.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <p><strong>Bonus de caractéristiques :</strong> +2 PER et +2 en FOR ou DEX, +1 en Puissance ou Résilience ou Instinct (au choix)</p>
+                    </div>
+                </div>
+
+                <!-- Origine 4 -->
+                <div class="origin-card">
+                    <h3>🎭 Charlatan des Pavés</h3>
+                    <p>L'or ne se prend pas toujours : il se fait offrir. Une histoire crédible, une urgence bien jouée, un sourire placé au bon moment — et la cible coopère sans même comprendre. Les gens se lisent vite : peur, besoin, orgueil, solitude. La lame est une option… la confiance, elle, est une arme.</p>
+                    
+                    <h4>Offre :</h4>
+                    
+                    <div class="subsection">
+                        <h4>Maître du Bluff (mineur)</h4>
+                        <p>Augmente la capacité à feindre la vérité ou simuler un comportement crédible dans une situation de pression. Ce talent est utilisé pour désamorcer des conflits, tromper des gardes ou manipuler une scène. Très utile en infiltration, jeu de rôle ou manipulation stratégique.</p>
+                        <p><strong>Offre la compétence :</strong> Bluff +2 (Charisme)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Langue de Velours</h4>
+                        <p>Lorsque le Filou doit faire un jet de Bluff / Mensonge (jet social), il obtient un bonus égal au niveau de maîtrise de la maîtrise choisie :</p>
+                        <ul>
+                            <li>Mineur = +1</li>
+                            <li>Moyen = +2</li>
+                            <li>Majeur = +3</li>
+                            <li>Expert = +4</li>
+                            <li>Maître = +5</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <p><strong>Bonus de caractéristiques :</strong> +3 CHA et +1 INT ou SAG, +1 en Sang-froid ou Social ou Finesse (au choix)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--shadow); font-size: 1.5rem; margin: 30px 0 20px;">Connaissances de base</h3>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine criminel <span class="level">(Moyen)</span></h4>
+                    <p>Cette connaissance couvre les usages du milieu : codes de conduite, hiérarchies implicites, règles de territoire et manières de « faire affaire » sans attirer l'attention. Elle inclut les pratiques courantes (recel, racket, contrebande, vols organisés, contrats d'assassinat), ainsi que les signaux d'un piège ou d'une trahison. Elle permet aussi de lire une scène criminelle et d'en déduire les méthodes employées.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du Domaine de l'Aube Rouge <span class="level">(Modéré)</span></h4>
+                    <p>Familiarité avec l'Aube Rouge en tant qu'organisation tentaculaire fonctionnant par cellules, fédérant bandits, voleurs, mages maudits, cultistes et pilleurs de ruines. Sont connus : ses principes de refuge, ses ressources (planques, passeurs, informations) et la discipline minimale imposée pour éviter l'effondrement interne. Cette connaissance aide à identifier ses signatures, comprendre ses intérêts et négocier sans déclencher les mécanismes de représailles.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance des réseaux criminels <span class="level">(Mineur)</span></h4>
+                    <p>Repérage des relais discrets : receleurs, indicateurs, passeurs, tavernes sûres, messageries codées et points de rendez-vous anonymes. Les circuits de circulation de l'or, des objets volés et des informations sont compris dans leurs grandes lignes, sans nécessairement connaître tous les acteurs. Utile pour trouver « où chercher » et « qui contacter » quand une approche légale est impossible.</p>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--shadow); font-size: 1.5rem; margin: 40px 0 20px;">Connaissances selon la voie choisie</h3>
+            
+            <div class="origin-grid" style="margin-top: 30px;">
+                <!-- Pilleur des Salles Fortes -->
+                <div class="origin-card">
+                    <h3>🔓 Pilleur des Salles Fortes</h3>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine de la serrurerie et des systèmes de sécurité <span class="level">(Modéré)</span></h4>
+                        <p>Maîtrise des principes de verrouillage : serrures mécaniques, mécanismes internes, coffres et systèmes de fermeture complexes. Reconnaissance des protections annexes (alarmes, déclencheurs, pièges simples) et des erreurs de conception fréquentes. Utile pour évaluer rapidement la difficulté d'un accès et choisir la bonne approche.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine architectural <span class="level">(Modéré)</span></h4>
+                        <p>Lecture d'un bâtiment comme un plan vivant : circulation des domestiques, accès secondaires, points morts, structures cachées et passages techniques. Identification des endroits « logiques » où se trouvent coffres, salles fortes, archives ou zones restreintes. Permet de prévoir les routes de fuite et les goulots d'étranglement avant même d'entrer.</p>
+                    </div>
+                </div>
+
+                <!-- Main de la Ruée -->
+                <div class="origin-card">
+                    <h3>👥 Main de la Ruée</h3>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance de la Guilde des voleurs <span class="level">(Modéré)</span></h4>
+                        <p>Connaissance des codes, signes, rites et méthodes d'une guilde organisée : hiérarchie, territoires, règles de partage et sanctions. Compréhension des façons d'entrer en contact, de négocier un service ou d'éviter de marcher sur les plates-bandes d'un membre influent. Sert à repérer les opérations « marquées » et les pièges sociaux du milieu.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine de la rue <span class="level">(Modéré)</span></h4>
+                        <p>Familiarité avec la logique urbaine : foules, marchés, ruelles, horaires, lieux sûrs, rumeurs et comportements typiques des quartiers. Lecture rapide des opportunités et des dangers (patrouilles, témoins, zones surveillées), avec une capacité à se fondre dans le décor. Utile pour survivre, disparaître et agir sans attirer l'attention.</p>
+                    </div>
+                </div>
+                <!-- Rôdeur de Convoi -->
+                <div class="origin-card">
+                    <h3>🏹 Rôdeur de Convoi</h3>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine du banditisme <span class="level">(Modéré)</span></h4>
+                        <p>Compréhension des méthodes d'attaque de route : embuscades, feintes, intimidation, prise d'otages et fuite coordonnée. Connaissance des schémas classiques d'escorte, des réactions habituelles des gardes et des erreurs fréquentes des convois. Permet d'anticiper la violence et de choisir le moment où frapper — ou éviter le piège.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance des clans de bandits / criminels <span class="level">(Modéré)</span></h4>
+                        <p>Identification des groupes connus, de leurs styles, de leurs territoires et de leurs réputations : ceux qui négocient, ceux qui massacrent, ceux qui rançonnent. Compréhension des alliances, rivalités et « règles » locales qui déterminent qui contrôle une route ou une frontière. Utile pour savoir à qui l'on a affaire avant qu'il ne soit trop tard.</p>
+                    </div>
+                </div>
+
+                <!-- Charlatan des Pavés -->
+                <div class="origin-card">
+                    <h3>🎭 Charlatan des Pavés</h3>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine de l'art de la psychologie <span class="level">(Modéré)</span></h4>
+                        <p>Lecture des motivations humaines : peur, orgueil, besoin, solitude, cupidité — et repérage des failles exploitables en quelques échanges. Capacité à adapter un discours, un ton et une posture pour inspirer confiance ou pression, selon la cible. Utile pour manipuler sans violence et obtenir des informations, des accès ou de l'or par la parole.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>+1 connaissance au choix <span class="level">(Mineure)</span></h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement de départ -->
+        <section class="section">
+            <h2 class="section-title">📦 Équipement de départ</h2>
+            
+            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--shadow); font-size: 1.3rem; margin-bottom: 20px;">Équipement commun</h3>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure légère</h4>
+                        <p>Protection discrète adaptée à la mobilité</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💰</span>
+                    <div>
+                        <h4>x3 Bourses vides</h4>
+                        <p>30 pièces max chacune</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>1 Potion de vie</h4>
+                        <p>Soin d'urgence</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--shadow); font-size: 1.3rem; margin: 40px 0 20px;">Selon la voie choisie</h3>
+            
+            <div class="origin-grid">
+                <!-- Équipement Pilleur -->
+                <div class="origin-card">
+                    <h3>🔓 Pilleur des Salles Fortes</h3>
+                    <div class="equipment-grid">
+                        <div class="equipment-item">
+                            <span class="icon">🔧</span>
+                            <div>
+                                <h4>Kit de crochetage fin basique</h4>
+                                <p>10 crochets pour serrures simples + tensionneurs. Ensemble discret conçu pour les mécanismes courants : rapide à sortir, facile à ranger, idéal pour travailler en silence.</p>
+                            </div>
+                        </div>
+
+                        <div class="equipment-item">
+                            <span class="icon">🪞</span>
+                            <div>
+                                <h4>Miroir d'angle</h4>
+                                <p>Permet d'observer derrière une porte, un couloir ou un recoin sans exposer le corps : parfait pour éviter pièges et gardes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Équipement Main de la Ruée -->
+                <div class="origin-card">
+                    <h3>👥 Main de la Ruée</h3>
+                    <div class="equipment-grid">
+                        <div class="equipment-item">
+                            <span class="icon">🧤</span>
+                            <div>
+                                <h4>Gants de voleur</h4>
+                                <p>Gants fins qui améliorent la prise et masquent les traces, tout en laissant la main assez souple pour les gestes précis.</p>
+                            </div>
+                        </div>
+
+                        <div class="equipment-item">
+                            <span class="icon">🧣</span>
+                            <div>
+                                <h4>Capuche de voyage / foulard</h4>
+                                <p>Désavantage aux jets d'identification visuelle, sauf si le visage est totalement visible. Casse la silhouette et brouille les repères : utile pour disparaître dans une foule ou ressortir d'une ruelle « comme quelqu'un d'autre ».</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Équipement Rôdeur -->
+                <div class="origin-card">
+                    <h3>🏹 Rôdeur de Convoi</h3>
+                    <div class="equipment-grid">
+                        <div class="equipment-item">
+                            <span class="icon">🪢</span>
+                            <div>
+                                <h4>Corde robuste (20 m)</h4>
+                                <p>Sert autant à escalader qu'à attacher, tirer, sécuriser un butin ou préparer une fuite propre en terrain ouvert.</p>
+                            </div>
+                        </div>
+
+                        <div class="equipment-item">
+                            <span class="icon">⚔️</span>
+                            <div>
+                                <h4>Réduction sur arme achetée</h4>
+                                <p>Grâce aux filières et aux habitudes du terrain, l'arme de départ se paie moins cher : bon plan, bon contact, ou récupération « légale ».</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Équipement Charlatan -->
+                <div class="origin-card">
+                    <h3>🎭 Charlatan des Pavés</h3>
+                    <div class="equipment-grid">
+                        <div class="equipment-item">
+                            <span class="icon">🎲</span>
+                            <div>
+                                <h4>Objet de jeu au choix</h4>
+                                <p>Cartes, dés, gobelets… Sert à distraire, attirer, escroquer ou simplement créer une scène crédible quand il faut gagner du temps.</p>
+                            </div>
+                        </div>
+
+                        <div class="equipment-item">
+                            <span class="icon">🎭</span>
+                            <div>
+                                <h4>Accessoire au choix</h4>
+                                <p>Moustache factice, perruque, lunettes, cachet, etc. Un détail suffit souvent à changer une identité : l'accessoire permet de passer pour un autre ou de rendre une histoire plus solide.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Arme au choix (FOR/DEX)</strong> — Spécialisation dans une arme précise ; le bonus s'applique aux attaques, parades et usages techniques avec cette arme. La caractéristique utilisée dépend du style (puissant = FOR, précis/léger = DEX).</li>
+                        <li><strong>Furtivité (DEX)</strong> — Permet de se déplacer, se cacher et agir sans être repéré. Sert aussi pour approcher une cible, fuir discrètement ou se positionner pour une attaque sournoise.</li>
+                        <li><strong>Analyse corporelle (PER)</strong> — Sert à lire l'état physique visible d'une cible : fatigue, blessures, posture, tremblements, intoxication. Utile pour repérer un point faible ou détecter un mensonge « par le corps ».</li>
+                        <li><strong>Détection de pièges (PER)</strong> — Permet de repérer fils, plaques, irrégularités, mécanismes cachés ou déclencheurs suspects. Utilisée avant d'ouvrir une porte, un coffre ou d'entrer dans une zone risquée.</li>
+                        <li><strong>Lecture de scène (PER/INT)</strong> — Analyse d'un lieu pour comprendre ce qui s'y est passé : traces, objets déplacés, entrée forcée, lutte, fuite. Peut aussi servir à anticiper un danger ou reconstruire un itinéraire.</li>
+                        <li><strong>Jeu d'acteur (CHA)</strong> — Capacité à incarner un rôle crédible : ton, posture, émotion, accent, comportement social. Sert à infiltrer, tromper une autorité ou maintenir un mensonge vivant.</li>
+                        <li><strong>Intimidation (CHA)</strong> — Imposer le doute, la peur ou l'hésitation par présence, ton et attitude. Peut obtenir une information, calmer une opposition ou faire reculer sans combat.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>💠 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Vol discret (Finesse)</strong> — Dérober ou glisser un objet sans attirer l'attention, en profitant d'un angle mort ou d'une distraction. Sert aussi à fouiller une poche ou récupérer un objet sur une table en pleine scène sociale.</li>
+                        <li><strong>Savoir criminel (Savoir)</strong> — Connaissance des codes du milieu : règles tacites, filières, pratiques et risques habituels. Sert à reconnaître un piège, comprendre une menace ou négocier « comme quelqu'un du domaine ».</li>
+                        <li><strong>Marchandage (Social)</strong> — Négocier un prix, un service ou un accord en jouant sur le ton, la pression douce ou l'opportunité. Utile autant pour acheter que pour vendre ou obtenir un arrangement discret.</li>
+                        <li><strong>Lecture sociale hiérarchique (Social/Instinct)</strong> — Identifier rapidement qui commande, qui suit, qui ment, et qui peut céder. Sert à choisir le bon interlocuteur et éviter de provoquer la mauvaise personne.</li>
+                        <li><strong>Sabotage (Métier/Finesse/Puissance)</strong> — Endommager ou truquer un objet/structure de manière volontaire (bloquer une serrure, casser une roue, fausser un mécanisme). Peut être discret (Finesse), technique (Métier) ou violent (Puissance) selon l'approche.</li>
+                        <li><strong>Pas léger (Finesse)</strong> — Déplacement silencieux par contrôle du poids, de la respiration et des appuis. Réduit les traces, évite les grincements et aide à traverser des zones sensibles.</li>
+                        <li><strong>Bluff sous pression (Sang-froid)</strong> — Maintenir un mensonge lorsque la tension monte : interrogatoire, menace, regard insistant, autorité. Sert à ne pas se contredire et à garder une voix et des gestes stables.</li>
+                        <li><strong>Escalade (Finesse)</strong> — Grimper vite et proprement (murs, cordes, corniches) avec un minimum de bruit et de pertes de temps. Utile pour infiltration, fuite et accès à des routes impossibles.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Réseau & Réputation -->
+        <section class="section">
+            <h2 class="section-title">🔻 Particularité : Réseau & Réputation</h2>
+            
+            <div class="reputation-box">
+                <p>Au cours de sa vie, le personnage s'est construit un petit réseau dans le milieu. À la création, il peut représenter ce réseau par une réputation auprès d'organisations de son choix (factions, guildes, groupes criminels, etc.), obtenue grâce à des ventes récurrentes, services rendus, missions effectuées, relations, dettes ou faveurs.</p>
+                
+                <h3>✅ Répartition des points</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0;">▸ Le personnage dispose de <strong>20 points de réputation</strong> à répartir.</li>
+                    <li style="padding: 8px 0;">▸ Ces points peuvent être répartis sur jusqu'à <strong>3 organisations maximum</strong>.</li>
+                    <li style="padding: 8px 0;">▸ Les points doivent être dépensés par <strong>tranches de 5</strong> (+5 / +10 / +15 / +20).</li>
+                    <li style="padding: 8px 0;">▸ Il n'est pas obligé d'utiliser tous les points : un départ plus discret est possible.</li>
+                </ul>
+                
+                <h3>⚖️ Conséquence automatique</h3>
+                <div class="highlight-box">
+                    <p>Chaque gain de réputation dans un réseau « criminel » entraîne un effet inverse auprès des forces de l'ordre locales :</p>
+                    <p><strong>Pour chaque +X réputation gagnée dans une organisation, le personnage obtient −X réputation auprès de la Police / forces de l'ordre</strong> (ou de l'autorité dominante de la zone).</p>
+                    <p style="margin-top: 15px;"><strong>Exemple :</strong> Si le personnage place +10 de réputation dans l'Aube Rouge, il reçoit automatiquement −10 de réputation auprès des forces de l'ordre.</p>
+                </div>
+                
+                <h3>🎁 Bonus si aucun point n'est dépensé</h3>
+                <div class="highlight-box">
+                    <p>Si le personnage choisit de ne dépenser aucun de ces points de réputation, il gagne <strong>+1 point de talent supplémentaire</strong> à la création.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Création du graphique radar des caractéristiques
+        const ctx = document.getElementById('statsChart').getContext('2d');
+        
+        // Données du Filou (échelle de -4 à +6)
+        const statsData = {
+            FOR: -1,
+            CST: -1,
+            DEX: 3,
+            INT: 1,
+            SAG: -1,
+            PER: 2,
+            CHA: -1
+        };
+
+        // Convertir les valeurs pour le graphique (ajouter 4 pour que 0 soit au centre)
+        const convertedData = Object.values(statsData).map(val => val + 4);
+
+        const statsChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
+                datasets: [{
+                    label: 'Caractéristiques',
+                    data: convertedData,
+                    backgroundColor: 'rgba(74, 58, 90, 0.2)',
+                    borderColor: 'rgba(74, 58, 90, 0.8)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(74, 58, 90, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(74, 58, 90, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 10, // -4 à +6 = 10 niveaux
+                        ticks: {
+                            stepSize: 2,
+                            callback: function(value) {
+                                // Convertir les valeurs affichées (-4 à +6)
+                                return value - 4;
+                            },
+                            color: '#4a3a5a',
+                            font: {
+                                size: 11,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(74, 58, 90, 0.2)'
+                        },
+                        angleLines: {
+                            color: 'rgba(74, 58, 90, 0.2)'
+                        },
+                        pointLabels: {
+                            color: '#4a3a5a',
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: "'Cinzel', serif"
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const actualValue = context.parsed.r - 4;
+                                return context.label + ': ' + (actualValue >= 0 ? '+' : '') + actualValue;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

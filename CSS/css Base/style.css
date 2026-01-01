@@ -44,35 +44,15 @@ body.theme-arzass {
     --forest: #4a3f5c;
 }
 
-/* Variables pour le thème Markarane (Désert - Jour) */
+/* Variables pour le thème Markarane (Désert - Tempête de sable) */
 body.theme-markarane {
-    --parchment: #f4e4c1;
-    --parchment-dark: #e8d4a8;
-    --ink: #4a3a1a;
-    --gold: #d4a154;
-    --gold-dark: #b8853a;
-    --burgundy: #8b5a2b;
-    --forest: #6b4a2a;
-    transition: all 1.5s ease;
-}
-
-/* Markarane - Coucher du soleil */
-body.theme-markarane.sunset {
-    --parchment: #f4c4a1;
-    --parchment-dark: #e8b498;
+    --parchment: #d4a154;
+    --parchment-dark: #b8853a;
     --ink: #3a2a1a;
-    --gold: #e89154;
-    --burgundy: #a84a2b;
-}
-
-/* Markarane - Nuit */
-body.theme-markarane.night {
-    --parchment: #1a2433;
-    --parchment-dark: #2a3443;
-    --ink: #c8d4e4;
-    --gold: #4a6a94;
-    --gold-dark: #3a5a84;
-    --burgundy: #5a7a9a;
+    --gold: #c9a961;
+    --gold-dark: #8b5a2b;
+    --burgundy: #6b4a2a;
+    --forest: #5a3a1a;
 }
 
 /* ========================================
@@ -434,13 +414,13 @@ body.theme-arzass .nav-item::after {
     }
 }
 
-/* Dunes de sable - Markarane */
+/* Effet sable - Markarane */
 body.theme-markarane .nav-item {
-    box-shadow: 0 5px 15px rgba(90, 143, 90, 0.3);
+    box-shadow: 0 5px 15px rgba(212, 161, 84, 0.4);
 }
 
 body.theme-markarane .nav-item:hover {
-    box-shadow: 0 8px 20px rgba(90, 143, 90, 0.5);
+    box-shadow: 0 8px 20px rgba(212, 161, 84, 0.6);
 }
 
 body.theme-markarane .nav-item::after {
@@ -451,12 +431,12 @@ body.theme-markarane .nav-item::after {
     width: 100%;
     height: 20px;
     background: linear-gradient(to bottom, 
-        rgba(212, 161, 84, 0.8) 0%, 
-        rgba(184, 133, 58, 0.6) 50%, 
+        rgba(212, 161, 84, 0.6) 0%, 
+        rgba(184, 133, 58, 0.4) 50%, 
         transparent 100%);
     border-radius: 0 0 50% 50% / 0 0 100% 100%;
     opacity: 1;
-    filter: blur(1px);
+    filter: blur(2px);
 }
 
 body.theme-markarane .nav-item:nth-child(odd)::after {
@@ -465,49 +445,6 @@ body.theme-markarane .nav-item:nth-child(odd)::after {
 
 body.theme-markarane .nav-item:nth-child(3n)::after {
     height: 15px;
-}
-
-/* ========================================
-   SOLEIL - MARKARANE
-   ======================================== */
-.sun-container {
-    position: fixed;
-    top: 80px;
-    left: 50%;
-    width: 80px;
-    height: 80px;
-    pointer-events: none;
-    z-index: 100;
-    transform: translateX(-50%);
-    transition: left 0.1s linear, top 0.1s linear, opacity 0.3s ease;
-    opacity: 0;
-}
-
-body.theme-markarane .sun-container {
-    opacity: 1;
-}
-
-.sun {
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, #ffeb3b 0%, #ff9800 100%);
-    border-radius: 50%;
-    box-shadow: 0 0 30px rgba(255, 235, 59, 0.8),
-                0 0 60px rgba(255, 235, 59, 0.5);
-    cursor: pointer;
-    pointer-events: all;
-    transition: box-shadow 0.3s ease;
-}
-
-.sun:hover {
-    box-shadow: 0 0 40px rgba(255, 235, 59, 1),
-                0 0 80px rgba(255, 235, 59, 0.7);
-}
-
-body.theme-markarane.night .sun {
-    background: radial-gradient(circle, #e8e8ff 0%, #c8c8e8 100%);
-    box-shadow: 0 0 30px rgba(232, 232, 255, 0.6),
-                0 0 60px rgba(232, 232, 255, 0.3);
 }
 
 /* ========================================

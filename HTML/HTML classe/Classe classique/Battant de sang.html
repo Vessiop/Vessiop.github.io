@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battant de sang - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Battant de sang.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/bATTANT de sang.jpg" alt="Battant de sang">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">⚔️ Battant de sang</h1>
+            <p class="class-quote">« Je ne combats pas pour gagner. Je combats parce que c'est tout ce que je suis. »</p>
+            <p class="class-type">🧭 Combattant brut — mêlée, assaut direct, style sauvage</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description / Présentation</h2>
+            <div class="content-box">
+                <p>La fièvre, d'ordinaire, n'est qu'une hausse de température : une défense du corps contre ce qui l'attaque de l'intérieur. Mais chez certains… elle ne reste pas enfermée sous la peau. Elle déborde, se projette au-dehors, presque palpable — comme si l'organisme lui-même imposait au monde sa volonté de tenir, de survivre, de vaincre.</p>
+                
+                <p>Ces êtres proches de la nature possèdent une force prodigieuse. Leur chair paraît bénie, façonnée pour encaisser, frapper et avancer là où d'autres s'effondrent. Ils parcourent les terres pour des raisons très différentes : l'amour du combat pour certains, la quête d'un sens pour d'autres, ou la recherche obstinée d'une réponse qu'ils ne savent même pas formuler.</p>
+                
+                <p>Ils traquent, chassent, s'adaptent — comme des bêtes, mais pas sans conscience. Leur intensité intérieure les entraîne dans un élan de bataille irrésistible, et cette intensité peut devenir une dépendance : une flamme qui nourrit autant qu'elle consume. C'est là tout le danger : à force de s'y abandonner, ils risquent de devenir méconnaissables, prisonniers d'un désir qui les dépasse.</p>
+
+                <p>On les retrouve le plus souvent parmi les tribus, les clans anciens et les peuples reculés. Ils semblent entretenir une communion instinctive avec l'essence du monde, comme s'ils percevaient son rythme profond — et qu'ils s'y accordaient pour puiser leur puissance. Ce sont des forces de la nature : des guerriers dont l'arrivée sur un champ de bataille peut, à elle seule, faire basculer un conflit.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Et pourtant, l'origine de cette anomalie reste incertaine.</strong> Certains érudits chuchotent une hypothèse plus sombre : ces êtres porteraient en eux la trace d'un lien oublié avec un ailleurs — un monde instable, chaotique — comme si une graine étrangère avait pris racine dans leur sang, et en avait fait quelque chose… d'autre.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d16</li>
+                        <li><strong>PM :</strong> 1d8</li>
+                        <li><strong>PE :</strong> 1d16</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive highlight">FOR : +6</span>
+                        <span class="stat-item positive">CST : +2</span>
+                        <span class="stat-item positive">DEX : +2</span>
+                        <span class="stat-item negative">INT : −3</span>
+                        <span class="stat-item negative">SAG : −2</span>
+                        <span class="stat-item positive">PER : +1</span>
+                        <span class="stat-item negative">CHA : −1</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 20 + 3d6</li>
+                        <li><strong>REA :</strong> +6</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 2</span>
+                        <span>Instinct : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Social : 1</span>
+                        <span>Puissance : 3</span>
+                        <span>Métier : 1</span>
+                        <span>Sang-Froid : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents de classe</h2>
+            
+            <div class="talent-card">
+                <h3>Maîtrise mineure d'une arme de corps-à-corps au choix</h3>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure — Tempête Intérieure</h3>
+                <p>Cette tempête, cette ferveur qui envahit le corps du porteur, est une énergie qui s'accumule au fil des affrontements. Il la sent monter, vibrer, brûler sous la peau — et, par habitude autant que par discipline, il apprend à la contenir, à la calmer, à la guider.</p>
+                
+                <h4>Effet de progression :</h4>
+                <p>À chaque amélioration de cette maîtrise, le porteur gagne <strong>+1 au maximum de Ferveur</strong>.</p>
+                
+                <h4>Choix de palier :</h4>
+                <p>Toutes les 2 améliorations, le porteur choisit l'un des effets suivants :</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Départ incandescent :</strong> au début de chaque affrontement, tu gagnes +1 Ferveur. Si tu reprends ce choix une seconde fois : tu commences à +2 Ferveur à la place.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <p><strong>Économie de réflexes :</strong> 1 fois par tour, lorsque tu devrais dépenser 1 Point de Réaction, tu peux à la place dépenser 2 points de Ferveur. Si tu reprends ce choix une seconde fois : ce coût passe à 1 point de Ferveur.</p>
+                </div>
+                
+                <p style="font-style: italic; margin-top: 15px;">(Ces bonus se rajouteront au passif.)</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Vigueur Anormale du Vivant</h3>
+                <p>Il y a, dans certains corps, une force qui ne vient pas seulement de l'entraînement. Quelque chose de primal, de dense, comme si la nature elle-même avait laissé une marque — une traction invisible dans les muscles, une solidité qui refuse de céder tant qu'il reste du souffle.</p>
+                <div class="highlight-box">
+                    <p><strong>Effet :</strong> Tant que tu possèdes au moins 20 % de tes PE, tu effectues tous tes jets de Puissance avec Avantage.</p>
+                </div>
+            </div>
+
+            <div class="talent-card">
+                <h3>Marqué par la Ferveur d'Outre-Limite</h3>
+                <p>Il existe une ferveur qui ne ressemble à aucune autre : anormale, étrangère, comme si elle venait d'un endroit où le monde ne respire pas pareil. Nul ne sait vraiment l'expliquer — ni son origine, ni la manière dont elle s'accroche à un être vivant. Ceux qui en sont porteurs changent, subtilement : traits plus tirés, regard plus dur, sens plus affûtés, et surtout… une signature magique étrange, presque dérangeante, qui semble vibrer sous la peau.</p>
+                <div class="highlight-box">
+                    <p><strong>Effet :</strong> le porteur gagne +10 % de résistance contre la magie des Abysses.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passif -->
+        <section class="section">
+            <h2 class="section-title">🔥 Passif — Rythme de Ferveur</h2>
+            <div class="passif-box">
+                <p>Tant que tu es <strong>Engagé au corps-à-corps</strong>, tu entres dans un rythme de combat.</p>
+                <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                    <li style="padding: 8px 0;">▸ <strong>+1 Ferveur</strong> (max 3) à la fin de ton tour si tu as touché une attaque simple au CàC ou si tu as subi des dégâts au CàC pendant le round (max +1 par tour).</li>
+                    <li style="padding: 8px 0;">▸ Si, pendant un tour complet, tu n'as ni touché ni subi, et que tu n'es pas resté Engagé, tu perds <strong>–1 Ferveur</strong>.</li>
+                </ul>
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <p><strong>Bonus :</strong> À Ferveur 1+, tu peux utiliser Acharnement (selon ses règles).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🌡️ La nature de la fièvre — Origines (1 au choix)</h2>
+            <p class="intro-text">Choisis une origine qui définit la source et la nature de ta ferveur intérieure :</p>
+            
+            <div class="origin-grid">
+                <!-- Origine 1 -->
+                <div class="origin-card">
+                    <h3>⚔️ Amoureux de l'affrontement</h3>
+                    <p>Tu as accueilli ce don comme on accueille une évidence. Avec le temps, il s'est fondu en toi, jusqu'à devenir une part de ton souffle, une seconde nature. Tu parcours le monde à la recherche d'épreuves, non par cruauté, mais pour cette sensation unique : l'instant où deux volontés se heurtent et où tout devient limpide. Victoire ou défaite comptent peu. Ce que tu poursuis, c'est la clarté brutale du duel, la comparaison des forces, la vérité nue de l'affrontement. Pour toi, rien n'est plus réel que le combat.</p>
+                    
+                    <h4>Cela offre :</h4>
+                    <div class="subsection">
+                        <p><strong>• +2 au maximum de points</strong> sur ton passif Rythme de la Ferveur.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <p><strong>• Amélioration d'un cran</strong> d'une maîtrise d'arme au choix (uniquement au niveau 1, et seulement jusqu'au rang mineur).</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent — Combativité</h4>
+                        <p>Tant que tu es à ton maximum de Ferveur, tu peux l'activer X fois par combat.</p>
+                        <p>Lorsqu'il est activé, ta prochaine attaque est effectuée avec Avantage.</p>
+                        <p><strong>X = la moitié de ton maximum de Ferveur</strong> (arrondie au supérieur).</p>
+                    </div>
+                </div>
+                <!-- Origine 2 -->
+                <div class="origin-card">
+                    <h3>🏔️ Né des terres indomptées</h3>
+                    <p>Tu viens de contrées où la loi n'est pas écrite dans les livres, mais dans les traces au sol, les hurlements au loin et les regards qui évaluent. Là-bas, les bêtes et les monstres ne sont pas des légendes : ils partagent la même terre, la même faim, le même froid. Tu n'as pas appris à "vivre confortablement" — tu as appris à tenir, à lire le danger avant qu'il n'arrive, à avancer quand tout pousse à reculer.</p>
+                    
+                    <p>Ton combat est marqué par la nature : appuis bas, mouvements courts, attaques franches. Tu empruntes aux animaux leurs postures, leur impulsion, leur façon de bondir ou de briser. Et quand l'arme ne suffit plus, ton corps prend le relais — poings, coudes, pieds, tout devient outil. On te dira "sauvage" comme une insulte facile… mais ce mot n'est souvent qu'un cliché posé sur ceux qui vivent loin des villes, même si ta rudesse trahit parfois le lieu d'où tu viens.</p>
+                    
+                    <h4>Cela offre :</h4>
+                    
+                    <div class="subsection">
+                        <h4>Talent — Style de combat indompté</h4>
+                        <p>Tu adoptes un style bestial, fait d'assauts bruts et d'impacts lourds. Tu sais déclencher des charges soudaines qui peuvent mettre l'adversaire en difficulté.</p>
+                        <p><strong>Effet :</strong> tu peux dépenser tes points de Ferveur pour activer l'un des effets suivants :</p>
+                        <p><strong>Furie bestiale :</strong> en dépensant 1 point de Ferveur, tu obtiens Avantage sur ton jet d'attaque.</p>
+                        <p>Si tu réutilises cet effet une seconde fois dans le même tour, tu obtiens de nouveau l'Avantage sur ton attaque, mais tu subis ensuite un Désavantage sur la prochaine attaque dirigée contre toi.</p>
+                        <p><strong>Utilisation :</strong> X fois par combat, avec X = la moitié de ton maximum de Ferveur (arrondie au supérieur).</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Maîtrise mineure — Art des Postures de Combat</h4>
+                        <p>Tu travailles l'ancrage, la répartition du poids et la transition entre les gardes. Chaque posture soutient la suivante, te permettant de passer de la défense à l'offensive sans rupture. Résultat : plus de stabilité, meilleure portée utile, puissance mieux transmise.</p>
+                        <p><strong>Compétence obtenue :</strong> Postures de combat +2</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Sens entraîné (au choix)</h4>
+                        <p>Choisis un sens (vue, ouïe, odorat, etc.). Tu obtiens la compétence associée à ce sens à <strong>+5 N.A.</strong> (non améliorable).</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Instinct sauvage</h4>
+                        <p>1 fois par session, tu peux effectuer ton jet d'Instinct avec Avantage.</p>
+                    </div>
+                    
+                    <div class="subsection" style="border-left-color: var(--blood-light);">
+                        <h4>Langage brut (Malus)</h4>
+                        <p>Ayant grandi loin des codes urbains, tu n'as pas toujours les bons réflexes en société. Les manières, les sous-entendus et la diplomatie peuvent t'échapper… ou t'agacer au mauvais moment.</p>
+                        <p>Selon la situation, le MJ peut appliquer 1 fois par session (ou 1 fois par scène) un Désavantage sur un jet social du personnage.</p>
+                    </div>
+                </div>
+
+                <!-- Origine 3 -->
+                <div class="origin-card">
+                    <h3>✨ Voie du mysticisme</h3>
+                    <p>Au fil de ton voyage, tu as fini par chercher autre chose que la victoire ou la survie. Tu as appris à écouter. Le silence des plaines, le souffle des forêts, la patience de la glace… Tu as essayé de comprendre cette énergie en toi, de la guider, de la calmer, de lui donner un sens. Au début, rien ne venait : seulement des tentatives maladroites, des échecs répétés, et cette impression d'être "à côté".</p>
+                    
+                    <p>Puis les mois sont devenus des années. Et sans que tu t'en rendes compte, quelque chose s'est ouvert. Pas une maîtrise totale de cette force intérieure — mais une porte. Un chemin inattendu vers un potentiel plus profond, plus subtil, presque spirituel… peut-être même magique, là où tu ne pensais pas pouvoir aller.</p>
+                    
+                    <h4>Cela offre :</h4>
+                    
+                    <div class="subsection">
+                        <h4>Talent — Éveil magique</h4>
+                        <p>Tu déverrouilles ton potentiel magique :</p>
+                        <ul>
+                            <li>Ta base de PM passe à <strong>1d12</strong> (si elle était inférieure).</li>
+                            <li>La magie devient accessible.</li>
+                            <li>Lors de l'obtention de ce talent, tu peux lancer <strong>2 dés de Gain de PM</strong>.</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>Choix de départ (1 au choix)</h4>
+                    
+                    <div class="subsection">
+                        <h4>A) Départ chamanique — Voie du Chaman</h4>
+                        <p>Tu t'orientes vers une magie qui ne "crée" pas, mais réveille : une force empruntée au milieu naturel. Tu apprends à lire les tensions d'un lieu, à écouter ses esprits, à rééquilibrer ce qui a été perturbé. Ici, tu n'imposes pas ta volonté : tu accompagnes le monde.</p>
+                        <p><strong>Obtention de la maîtrise mineure :</strong> Magie environnementale</p>
+                        <p>La magie environnementale puise dans la nature même : pierres, eaux, vents, sous-bois, rivages. Plus le lieu est vivant, plus cette magie répond.</p>
+                        <p><strong>Compétence :</strong> Magie environnementale +2</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>B) Départ arcanique — Voie du Mage</h4>
+                        <p>Tu suis un chemin plus "académique", plus structuré : tu acceptes l'arcane comme une discipline. Tu éveilles une seule source élémentaire et tu apprends à la faire circuler proprement dans ton corps.</p>
+                        <p><strong>Choisis une source élémentaire :</strong> tu obtiens une seule maîtrise magique liée à cette source, au rang mineur.</p>
+                        <p><strong>Compétence :</strong> Magie élémentaire (source choisie) +2</p>
+                        
+                        <p style="margin-top: 15px;"><strong>Corps né des Arcanes :</strong></p>
+                        <p>Tu gagnes +10 % de résistance magique contre :</p>
+                        <ul>
+                            <li>la magie liée à ta source élémentaire,</li>
+                            <li>la corruption,</li>
+                            <li>la végétation,</li>
+                            <li>le nécrotique.</li>
+                        </ul>
+                        
+                        <p style="margin-top: 15px;"><strong>Impulsion arcanique :</strong></p>
+                        <p>1 fois par tour, tu peux consommer 1 point de Ferveur pour lancer un jet de sort maîtrisé (lié uniquement à tes maîtrises magiques) avec Avantage.</p>
+                        <p style="font-style: italic;">(Ne s'applique pas aux sorts provenant directement d'objets.)</p>
+                    </div>
+                </div>
+                <!-- Origine 4 : Enfant du Chaos -->
+                <div class="origin-card" style="border-color: var(--blood); background: linear-gradient(135deg, rgba(139, 30, 30, 0.05), rgba(255, 255, 255, 0.7));">
+                    <h3>💀 Enfant du Chaos</h3>
+                    <p>Certaines anciennes théories, portées par des clans venus de plans lointains, affirment que les porteurs de la Ferveur sont des "enfants illégitimes du chaos". Leur lien à l'outre-monde serait trouble : quand ils libèrent leur énergie, l'émanation semble obscure, presque contre-nature. Selon ces croyances, une puissance enfouie sommeille en eux — appelée l'Appel du Néant — une force terrifiante qui peut se déployer, tordre la Ferveur… et la corrompre jusqu'à la transformer en quelque chose d'autre.</p>
+                    
+                    <h4>Cela offre :</h4>
+                    
+                    <div class="subsection" style="border-color: var(--blood);">
+                        <h4>Talent — Corps forgé par les abysses</h4>
+                        <p>Une énergie étrangère, infime, presque invisible, traverse parfois ton corps — comme une poussière d'outre-monde. Elle ne devrait pas suffire à changer un être… et pourtant, elle nourrit quelque chose en toi : une résonance obscure qui s'accroche à ta chair déjà hors norme.</p>
+                        <p>Lorsque ton intensité intérieure atteint son sommet, tu peux libérer cette résonance et provoquer un état rare : une surcharge d'énergie sombre qui électrise tes veines, durcit tes nerfs, et décuple ta présence au combat. Ce pouvoir est violent, efficace… mais il brûle tes ressources comme un feu noir.</p>
+                    </div>
+                    
+                    <div class="subsection" style="border-color: var(--blood);">
+                        <h4>Talent — Déferlement des Abysses</h4>
+                        <p><strong>Condition :</strong> activable uniquement lorsque tes points d'énergie de classe sont au maximum.</p>
+                        
+                        <p>Quand tu actives ce talent, une énergie obscure se dégage de toi : tes veines se dessinent, animées d'un éclat électrique bleu sombre, et ton corps entre en résonance avec l'Abîme.</p>
+                        
+                        <p style="margin-top: 15px;"><strong>Effet :</strong></p>
+                        <p>Tant que l'état est actif, tous tes jets suivants sont effectués avec Avantage :</p>
+                        <ul>
+                            <li>jets d'attaque au corps (si tu en as),</li>
+                            <li>jets de maîtrise d'arme,</li>
+                            <li>jets de maîtrise magique.</li>
+                        </ul>
+                        
+                        <p style="margin-top: 15px;"><strong>Coût (brûlure d'énergie) :</strong></p>
+                        <ul>
+                            <li>À chaque tour où tu restes dans cet état, tu perds 2d8 PM/PE (selon ta ressource utilisée).</li>
+                            <li>À chaque tour suivant, le coût augmente de +2d8 cumulatif.<br>(Ex. : tour 1 = 2d8 ; tour 2 = 4d8 ; tour 3 = 6d8, etc.)</li>
+                        </ul>
+                        
+                        <p style="margin-top: 15px;"><strong>Fin de l'effet :</strong></p>
+                        <p>L'état prend fin si :</p>
+                        <ul>
+                            <li>tu n'as plus de PM ou de PE, ou</li>
+                            <li>tu n'as plus ton maximum de points d'énergie de classe (tu n'es plus "au sommet").</li>
+                        </ul>
+                        
+                        <p style="margin-top: 15px;"><strong>Sortie volontaire :</strong></p>
+                        <p>Pour t'extirper de cet état avant la fin, tu dois réussir un jet de Sagesse (DD fixé par le MJ / selon tes règles).</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Maîtrise mineure — Abîme intérieur</h4>
+                        <p>Le porteur s'entraîne à canaliser, contenir et parfois réprimer l'énergie de l'Abîme qui circule en lui. Ce n'est pas une domination totale, mais une discipline : apprendre à laisser passer juste assez… sans se laisser déborder.</p>
+                        <p><strong>Offre la compétence :</strong> Canalisation de l'Abîme +2</p>
+                    </div>
+                    
+                    <h4>Au choix (1)</h4>
+                    
+                    <div class="subsection">
+                        <h4>Option 1 : Traînée de l'Abîme</h4>
+                        <p><strong>Coût d'obtention :</strong> 3 points de talent (si le talent n'est pas pris).</p>
+                        <p>Quand l'Abîme s'insinue dans ton corps et accroche ton âme, il ne reste plus une simple influence : il devient une présence. À chaque mouvement, une vague sombre suit tes frappes, comme une traîne d'encre vivante.</p>
+                        <p><strong>Effet :</strong></p>
+                        <ul>
+                            <li>Tant que ce talent est activé, chaque attaque physique de corps à corps avec une arme inflige +1d6 dégâts magiques d'Abîme (en plus des dégâts normaux).</li>
+                            <li>Cette puissance augmente tous les 5 niveaux du porteur (selon ta progression).</li>
+                        </ul>
+                        <p><strong>Contrecoup :</strong> tant que l'effet est actif, tu consommes 2 × tranche de puissance en PE/PM par tour, en plus du coût normal éventuel.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Option 2 : Chair des Abysses</h4>
+                        <p><strong>Coût d'obtention :</strong> 3 points de talent (si le talent n'est pas pris).</p>
+                        <p>Ton corps rejette une partie des flux magiques ordinaires : l'Abîme perturbe la circulation et "tord" l'énergie qui n'est pas de son ordre.</p>
+                        <p><strong>Effet :</strong></p>
+                        <ul>
+                            <li>1 fois par tour, en consommant 2 points de ta jauge (ton énergie de classe), tu imposes un Désavantage aux jets de dégâts magiques effectués par toi…</li>
+                            <li><strong>Exception :</strong> cela ne s'applique pas aux dégâts Lumière / Ténèbres / Abîme.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Option 3 : Saut dans le Déferlement des Abysses</h4>
+                        <p><strong>Coût d'obtention :</strong> 3 points de talent (si le talent n'est pas pris).</p>
+                        <p>Tu peux forcer l'ouverture. Pas progressivement — d'un coup. Comme si tu arrachais la porte intérieure pour laisser passer la marée noire.</p>
+                        <p><strong>Effet :</strong></p>
+                        <ul>
+                            <li>À tout moment, tu peux payer 1 Dé de Destin ou 2 points d'Avantage pour :
+                                <ul style="margin-top: 10px;">
+                                    <li>te mettre immédiatement à ton maximum de jauge d'énergie de classe, et</li>
+                                    <li>entrer directement dans l'état de Déferlement des Abysses.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Limite :</strong> 1 fois par session.</li>
+                            <li><strong>Contrecoup :</strong> la consommation de l'état commence dès le 2e tour (au lieu du timing normal).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances acquises</h2>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Clans <span class="level">(Modéré)</span></h4>
+                    <p>Tu connais les structures de pouvoir des clans : chefs, anciens, serments, dettes et règles d'honneur. Tu sais reconnaître les codes implicites (accueil, défi, réparation) et éviter les offenses qui déclenchent une vendetta. Tu identifies aussi les signes d'appartenance (marques, couleurs, totems, rituels).</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la Tempête Intérieure <span class="level">(Modéré)</span></h4>
+                    <p>Tu comprends comment l'intensité monte au fil d'un affrontement : souffle, adrénaline, concentration et rythme du corps. Tu sais repérer les signes d'excès (perte de contrôle, tremblements, vision tunnel) et les méthodes pour stabiliser (ancrage, respiration, gestes répétitifs). Cela te permet d'analyser et d'affiner ta gestion de cette énergie en combat.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine Tribal <span class="level">(Modéré)</span></h4>
+                    <p>Tu maîtrises les usages des peuples reculés : rites de passage, traditions, tabous, relation à la nature et à la meute. Tu sais comment se présenter, négocier, offrir, et prouver ta valeur sans provoquer inutilement. Tu connais aussi les chants, symboles et pratiques de camp qui soudent un groupe.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la Survie <span class="level">(Modéré)</span></h4>
+                    <p>Tu sais tenir dans des conditions difficiles : trouver un abri, gérer le froid/la faim, allumer un feu, purifier de l'eau et planifier une marche. Tu repères les dangers naturels (terrain traître, météo, faune) et les signes annonciateurs de problèmes. Tu connais les réflexes de base pour survivre et garder un groupe en état.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance des Armes (au choix) <span class="level">(Modéré)</span></h4>
+                    <p>Choisis une famille d'armes : tu en connais les principes d'usage, les forces/faiblesses et les erreurs courantes. Tu sais comment t'entraîner efficacement, entretenir l'arme et adapter ton style à un adversaire (armure, portée, posture). Tu peux aussi reconnaître la qualité d'une arme et les traces d'un style de combat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align: center; font-size: 1.2rem; margin: 0;">
+                    <strong>+1 arme au choix (Maîtriser)</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎒 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Arme au choix</h4>
+                        <p>Une arme de corps-à-corps de ton choix</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure de base</h4>
+                        <p>Protection standard adaptée au combat</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>Potions de vie</h4>
+                        <p>2 potions de vie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💙</span>
+                    <div>
+                        <h4>Potion de magie</h4>
+                        <p>1 potion de magie</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 30px;">
+                <h4 style="margin-bottom: 10px;">Si le départ des Abysses est choisi :</h4>
+                <p><strong>Collier du Précepteur des Abysses</strong></p>
+                <p>Le collier offre une annulation, durant un combat, une fois par jour : annuler le coût de brûlure d'énergie en mode Déferlement des Abysses.</p>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Robustesse (Constitution)</strong> — Ta capacité à encaisser et tenir dans la durée : fatigue, froid, coups répétés, effort prolongé. Sert aussi à rester debout quand le corps devrait céder.</li>
+                        <li><strong>Arme au choix (Force / Dextérité)</strong> — Représente ta maîtrise pratique d'une arme précise, soit par la puissance (FOR) soit par la précision et le timing (DEX). Permet d'optimiser tes frappes et d'éviter les erreurs de maniement.</li>
+                        <li><strong>Réactif (Réactivité)</strong> — Ta vitesse de réponse face au danger immédiat : esquive réflexe, parade instinctive, repositionnement instantané. Plus tu es réactif, plus tu "réponds" avant que le coup ne fasse mal.</li>
+                        <li><strong>Vigilance (Perception)</strong> — Ton attention constante à l'environnement : mouvements suspects, bruits, traces, pièges ou présence cachée. Sert à éviter d'être surpris et à repérer une opportunité avant les autres.</li>
+                        <li><strong>Intimidation (Charisme)</strong> — Ta capacité à imposer un malaise ou une peur par ta voix, ton regard et ton assurance. Sert à faire hésiter, reculer, céder ou parler quelqu'un sans forcément menacer directement.</li>
+                        <li><strong>Présence imposante (Charisme)</strong> — Ce n'est pas ce que tu dis, c'est ce que tu dégages : stature, calme, autorité naturelle. Utile pour stabiliser un groupe, couper court à une tension ou obtenir le respect sans discussion.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>💠 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Résistance aux toxines (Résilience)</strong> — Ta capacité à supporter poisons, maladies, alcool, fumées ou nourriture douteuse sans t'effondrer. Réduit les effets et aide à tenir malgré l'infection ou l'intoxication.</li>
+                        <li><strong>Récupération de blessure (Résilience)</strong> — Tu récupères mieux après une blessure : tu cicatrises, tu reprends ton souffle, tu continues malgré la douleur. Sert à limiter les séquelles et à revenir fonctionnel plus vite.</li>
+                        <li><strong>Force de la nature (Puissance)</strong> — Ta faculté à imposer un résultat brut au monde : briser, soulever, arracher, pousser. C'est la compétence "ouvrir la voie" quand aucune finesse ne suffit.</li>
+                        <li><strong>Dégagement de force (Puissance)</strong> — Tu sais te libérer par la force : rompre une prise, repousser un obstacle, dégager un allié ou te sortir d'une entrave. Utile quand la situation devient physique et serrée.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Tu sens le danger avant de le comprendre : un silence anormal, une présence, une embuscade, une décision qui "sent mauvais". Sert à réagir juste à temps, même sans preuve claire.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Création du graphique radar des caractéristiques
+        const ctx = document.getElementById('statsChart').getContext('2d');
+        
+        // Données du Battant de sang (échelle de -4 à +10)
+        const statsData = {
+            FOR: 6,
+            CST: 2,
+            DEX: 2,
+            INT: -3,
+            SAG: -2,
+            PER: 1,
+            CHA: -1
+        };
+
+        // Convertir les valeurs pour le graphique (ajouter 4 pour que 0 soit au centre)
+        const convertedData = Object.values(statsData).map(val => val + 4);
+
+        const statsChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
+                datasets: [{
+                    label: 'Caractéristiques',
+                    data: convertedData,
+                    backgroundColor: 'rgba(139, 30, 30, 0.2)',
+                    borderColor: 'rgba(139, 30, 30, 0.8)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(139, 30, 30, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(139, 30, 30, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 10, // -4 à +6 = 10 niveaux
+                        ticks: {
+                            stepSize: 2,
+                            callback: function(value) {
+                                // Convertir les valeurs affichées (-4 à +10)
+                                return value - 4;
+                            },
+                            color: '#8b1e1e',
+                            font: {
+                                size: 11,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(139, 30, 30, 0.2)'
+                        },
+                        angleLines: {
+                            color: 'rgba(139, 30, 30, 0.2)'
+                        },
+                        pointLabels: {
+                            color: '#8b1e1e',
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: "'Cinzel', serif"
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const actualValue = context.parsed.r - 4;
+                                return context.label + ': ' + (actualValue >= 0 ? '+' : '') + actualValue;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
