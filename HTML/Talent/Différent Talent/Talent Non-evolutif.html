@@ -11,7 +11,7 @@
     <div class="parchment-overlay"></div>
     
     <!-- Bouton retour -->
-    <a href="../../Talent/Type de talent proposer.html" class="back-button">← Retour aux talents</a>
+    <a href="../Type de talent proposer.html" class="back-button">← Retour aux talents</a>
     
     <header class="header">
         <div class="ornament ornament-left">✨</div>
@@ -23,11 +23,21 @@
     </header>
 
     <main class="container">
-        <!-- Barre de recherche -->
+        <!-- Barre de recherche et contrôles -->
         <div class="search-section">
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="🔍 Rechercher un talent par nom ou effet...">
                 <button id="clearSearch" class="clear-btn">✕</button>
+            </div>
+            
+            <!-- Contrôles de sélection -->
+            <div class="selection-controls">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="selectionModeToggle">
+                    <span class="checkmark"></span>
+                    <span class="label-text">Activer le mode sélection</span>
+                </label>
+                <button id="resetSelection" class="reset-btn">🔄 Réinitialiser</button>
             </div>
             
             <div class="results-count">
@@ -59,6 +69,39 @@
         <div id="noResults" class="no-results" style="display: none;">
             <p>🔍 Aucun talent trouvé</p>
             <p class="no-results-hint">Essayez de modifier votre recherche</p>
+        </div>
+
+        <!-- Tableau récapitulatif (apparaît en mode sélection) -->
+        <div id="recapSection" class="recap-section" style="display: none;">
+            <div class="recap-header">
+                <h2>📋 Talents Sélectionnés</h2>
+                <button id="resetSelectionRecap" class="reset-btn-small">🔄 Réinitialiser</button>
+            </div>
+            
+            <div class="recap-table-wrapper">
+                <table class="recap-table">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Effet</th>
+                            <th>Coût</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recapBody">
+                        <!-- Les talents sélectionnés apparaîtront ici -->
+                    </tbody>
+                </table>
+                
+                <div id="emptyRecap" class="empty-recap">
+                    <p>Aucun talent sélectionné</p>
+                    <p class="hint">Cliquez sur les lignes du tableau pour sélectionner des talents</p>
+                </div>
+            </div>
+            
+            <div class="recap-total">
+                <span class="total-label">Total des points de talent :</span>
+                <span id="totalPoints" class="total-points">0</span>
+            </div>
         </div>
     </main>
 

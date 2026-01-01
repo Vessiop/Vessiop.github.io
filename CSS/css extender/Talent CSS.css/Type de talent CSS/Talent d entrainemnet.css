@@ -5,8 +5,6 @@
     --gold: #c9a961;
     --gold-dark: #9d7d3a;
     --burgundy: #6b2737;
-    --selected: rgba(201, 169, 97, 0.3);
-    --selected-hover: rgba(201, 169, 97, 0.45);
 }
 
 * {
@@ -95,7 +93,7 @@ body {
 }
 
 .title-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -119,7 +117,7 @@ body {
 }
 
 .container {
-    max-width: 1600px;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 40px 20px 80px;
     position: relative;
@@ -173,82 +171,6 @@ body {
 .clear-btn:hover {
     background: #8b3547;
     transform: scale(1.05);
-}
-
-/* Contrôles de sélection */
-.selection-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-    padding: 15px;
-    background: rgba(201, 169, 97, 0.1);
-    border-radius: 8px;
-    border: 1px solid var(--gold);
-}
-
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    user-select: none;
-    font-family: 'Cinzel', serif;
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-.checkbox-container input[type="checkbox"] {
-    display: none;
-}
-
-.checkmark {
-    width: 24px;
-    height: 24px;
-    border: 2px solid var(--burgundy);
-    border-radius: 4px;
-    background: white;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.checkbox-container input[type="checkbox"]:checked + .checkmark {
-    background: var(--burgundy);
-    border-color: var(--burgundy);
-}
-
-.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
-    content: '✓';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.label-text {
-    color: var(--burgundy);
-}
-
-.reset-btn {
-    padding: 10px 20px;
-    background: var(--gold-dark);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.reset-btn:hover {
-    background: var(--burgundy);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(107, 39, 55, 0.3);
 }
 
 .results-count {
@@ -319,25 +241,6 @@ body {
     background: rgba(201, 169, 97, 0.15);
 }
 
-/* Ligne sélectionnable */
-.talents-table tbody tr.selectable {
-    cursor: pointer;
-}
-
-.talents-table tbody tr.selectable:hover {
-    background: rgba(201, 169, 97, 0.2) !important;
-}
-
-/* Ligne sélectionnée */
-.talents-table tbody tr.selected {
-    background: var(--selected) !important;
-    border-left: 4px solid var(--burgundy);
-}
-
-.talents-table tbody tr.selected:hover {
-    background: var(--selected-hover) !important;
-}
-
 .talents-table tbody tr.hidden {
     display: none;
 }
@@ -351,17 +254,22 @@ body {
 
 .col-nom {
     width: 20%;
-    min-width: 180px;
+    min-width: 200px;
 }
 
 .col-effet {
-    width: 60%;
+    width: 45%;
     min-width: 400px;
 }
 
-.col-cout {
+.col-categorie {
     width: 20%;
-    min-width: 150px;
+    min-width: 180px;
+}
+
+.col-cout {
+    width: 15%;
+    min-width: 120px;
     text-align: center;
 }
 
@@ -377,172 +285,63 @@ body {
     line-height: 1.7;
 }
 
+.talent-competence {
+    display: block;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: rgba(201, 169, 97, 0.15);
+    border-left: 3px solid var(--gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--gold-dark);
+}
+
+.talent-categorie {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+}
+
+.cat-armes {
+    background: rgba(180, 50, 50, 0.15);
+    color: #b43232;
+    border: 1px solid #b43232;
+}
+
+.cat-technique {
+    background: rgba(50, 100, 180, 0.15);
+    color: #3264b4;
+    border: 1px solid #3264b4;
+}
+
+.cat-classique {
+    background: rgba(180, 140, 50, 0.15);
+    color: #b48c32;
+    border: 1px solid #b48c32;
+}
+
+.cat-magie {
+    background: rgba(130, 50, 180, 0.15);
+    color: #8232b4;
+    border: 1px solid #8232b4;
+}
+
+.cat-style {
+    background: rgba(50, 150, 100, 0.15);
+    color: #329664;
+    border: 1px solid #329664;
+}
+
 .talent-cout {
     font-family: 'Cinzel', serif;
     font-weight: 700;
     font-size: 1.1rem;
     color: var(--burgundy);
     text-align: center;
-}
-
-/* Tableau récapitulatif */
-.recap-section {
-    margin-top: 40px;
-    background: rgba(255, 255, 255, 0.8);
-    border: 3px solid var(--burgundy);
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 8px 30px rgba(107, 39, 55, 0.2);
-    animation: slideIn 0.4s ease-out;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.recap-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid var(--gold);
-}
-
-.recap-header h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
-    color: var(--burgundy);
-    letter-spacing: 2px;
-}
-
-.reset-btn-small {
-    padding: 8px 16px;
-    background: var(--gold-dark);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.reset-btn-small:hover {
-    background: var(--burgundy);
-    transform: scale(1.05);
-}
-
-.recap-table-wrapper {
-    margin-bottom: 20px;
-}
-
-.recap-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-}
-
-.recap-table thead {
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-    color: white;
-}
-
-.recap-table th {
-    padding: 12px;
-    text-align: left;
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-
-.recap-table tbody tr {
-    border-bottom: 1px solid #e0d5c0;
-    transition: all 0.2s ease;
-}
-
-.recap-table tbody tr:hover {
-    background: rgba(201, 169, 97, 0.15);
-}
-
-.recap-table td {
-    padding: 12px;
-    font-size: 0.95rem;
-}
-
-.recap-table .recap-nom {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    color: var(--burgundy);
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.recap-table .recap-nom:hover {
-    color: #8b3547;
-    text-decoration: underline;
-}
-
-.recap-table .recap-cout {
-    text-align: center;
-    font-weight: 700;
-    color: var(--gold-dark);
-}
-
-.empty-recap {
-    text-align: center;
-    padding: 40px 20px;
-    color: var(--gold-dark);
-}
-
-.empty-recap p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.empty-recap .hint {
-    font-size: 1rem;
-    font-style: italic;
-    color: #8b7355;
-}
-
-.recap-total {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px;
-    padding: 20px;
-    background: linear-gradient(135deg, rgba(201, 169, 97, 0.2), rgba(107, 39, 55, 0.1));
-    border-radius: 8px;
-    border: 2px solid var(--gold);
-}
-
-.total-label {
-    font-family: 'Cinzel', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--burgundy);
-}
-
-.total-points {
-    font-family: 'Cinzel', serif;
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--burgundy);
-    background: white;
-    padding: 10px 25px;
-    border-radius: 8px;
-    border: 3px solid var(--burgundy);
-    box-shadow: 0 4px 12px rgba(107, 39, 55, 0.2);
 }
 
 .no-results {
@@ -628,7 +427,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .container {
         padding: 30px 15px 60px;
@@ -678,11 +476,6 @@ body {
         flex-direction: column;
     }
 
-    .selection-controls {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
     #searchInput {
         font-size: 1rem;
         padding: 12px 15px;
@@ -705,11 +498,6 @@ body {
         background: white;
     }
 
-    .talents-table tbody tr.selected {
-        border: 3px solid var(--burgundy);
-        background: var(--selected) !important;
-    }
-
     .talents-table td {
         display: block;
         padding: 8px 0;
@@ -728,46 +516,65 @@ body {
     .talent-cout {
         text-align: left;
     }
+}
 
-    .recap-header {
-        flex-direction: column;
-        gap: 15px;
-        align-items: stretch;
-    }
+/* Classes spécifiques pour talents d'entraînement */
+.cat-savoir {
+    background: rgba(50, 150, 200, 0.15);
+    color: #3296c8;
+    border: 1px solid #3296c8;
+}
 
-    .recap-table thead {
-        display: none;
-    }
+.cat-lecture {
+    background: rgba(100, 80, 150, 0.15);
+    color: #645096;
+    border: 1px solid #645096;
+}
 
-    .recap-table tbody tr {
-        display: block;
-        margin-bottom: 15px;
-        border: 2px solid var(--gold);
-        border-radius: 8px;
-        padding: 12px;
-    }
+.cat-cognitive {
+    background: rgba(200, 100, 50, 0.15);
+    color: #c86432;
+    border: 1px solid #c86432;
+}
 
-    .recap-table td {
-        display: block;
-        padding: 6px 0;
-    }
+.cat-langues {
+    background: rgba(150, 50, 150, 0.15);
+    color: #963296;
+    border: 1px solid #963296;
+}
 
-    .recap-table td::before {
-        content: attr(data-label);
-        font-family: 'Cinzel', serif;
-        font-weight: 700;
-        color: var(--burgundy);
-        display: block;
-        margin-bottom: 3px;
-        font-size: 0.85rem;
-    }
+.cat-physique {
+    background: rgba(180, 50, 50, 0.15);
+    color: #b43232;
+    border: 1px solid #b43232;
+}
 
-    .recap-total {
-        flex-direction: column;
-        text-align: center;
-    }
+.cat-martial {
+    background: rgba(150, 0, 0, 0.15);
+    color: #960000;
+    border: 1px solid #960000;
+}
 
-    .total-points {
-        font-size: 1.8rem;
-    }
+.cat-resistance {
+    background: rgba(100, 100, 100, 0.15);
+    color: #646464;
+    border: 1px solid #646464;
+}
+
+.cat-magie-sorts {
+    background: rgba(130, 50, 180, 0.15);
+    color: #8232b4;
+    border: 1px solid #8232b4;
+}
+
+.cat-magie-canal {
+    background: rgba(100, 80, 180, 0.15);
+    color: #6450b4;
+    border: 1px solid #6450b4;
+}
+
+.cat-magie-edu {
+    background: rgba(150, 100, 200, 0.15);
+    color: #9664c8;
+    border: 1px solid #9664c8;
 }

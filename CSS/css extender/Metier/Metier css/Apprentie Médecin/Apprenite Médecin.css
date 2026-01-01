@@ -1,0 +1,832 @@
+:root {
+    --parchment: #f4e9d8;
+    --parchment-dark: #d4c4a8;
+    --ink: #2c2416;
+    --gold: #c9a961;
+    --gold-dark: #9d7d3a;
+    --burgundy: #6b2737;
+    
+    /* Thème médical */
+    --medical-red: #dc2626;
+    --medical-green: #16a34a;
+    --medical-blue: #2563eb;
+    --medical-white: #f8f9fa;
+    --hygiene-blue: #0ea5e9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background-color: var(--parchment);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.7;
+}
+
+.parchment-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(44, 36, 22, 0.015) 2px,
+            rgba(44, 36, 22, 0.015) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--medical-red);
+    color: var(--medical-red);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.back-button:hover {
+    background: var(--medical-red);
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 100px 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(to bottom, 
+        rgba(22, 163, 74, 0.05) 0%, 
+        transparent 100%);
+}
+
+.hero-image {
+    flex: 0 0 400px;
+    animation: fadeInLeft 1s ease-out;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(22, 163, 74, 0.1));
+    border-radius: 16px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 
+        0 10px 40px rgba(220, 38, 38, 0.3),
+        0 0 0 4px var(--medical-red),
+        0 0 0 8px rgba(220, 38, 38, 0.2);
+    border: 4px solid white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        0 15px 50px rgba(220, 38, 38, 0.4),
+        0 0 0 4px var(--medical-green),
+        0 0 0 8px rgba(22, 163, 74, 0.3);
+}
+
+.hero-content {
+    flex: 1;
+    animation: fadeInRight 1s ease-out;
+}
+
+.metier-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--medical-red);
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 0px rgba(22, 163, 74, 0.2);
+}
+
+.metier-quote {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--medical-green);
+    margin-bottom: 15px;
+    font-family: 'Crimson Text', serif;
+}
+
+.metier-type {
+    font-size: 1.1rem;
+    color: var(--gold-dark);
+    font-weight: 600;
+    padding: 10px 20px;
+    background: rgba(22, 163, 74, 0.1);
+    border-left: 4px solid var(--medical-green);
+    border-radius: 4px;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.section {
+    margin-bottom: 60px;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--medical-red);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--medical-green);
+    letter-spacing: 2px;
+}
+
+.section-intro {
+    font-size: 1.1rem;
+    color: var(--gold-dark);
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.content-box {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-left: 4px solid var(--medical-red);
+    border-radius: 8px;
+}
+
+.content-box p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.content-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* Mission hebdomadaire */
+.mission-box.weekly {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(22, 163, 74, 0.1));
+    padding: 30px;
+    border: 3px solid var(--medical-red);
+    border-radius: 12px;
+}
+
+.mission-box h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: var(--medical-red);
+    margin-bottom: 20px;
+}
+
+.mission-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+}
+
+.mission-content li {
+    padding: 10px 0 10px 30px;
+    position: relative;
+}
+
+.mission-content li::before {
+    content: '⚕️';
+    position: absolute;
+    left: 0;
+}
+
+.mission-footer {
+    display: flex;
+    gap: 30px;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+}
+
+.difficulty {
+    color: var(--medical-blue);
+    font-weight: 700;
+}
+
+.reward {
+    color: var(--medical-green);
+    font-weight: 700;
+}
+
+.invalid {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(220, 38, 38, 0.1);
+    border-left: 4px solid var(--medical-red);
+    border-radius: 4px;
+    color: var(--medical-red);
+}
+
+/* Missions spéciales */
+.missions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 25px;
+}
+
+.mission-card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border: 2px solid var(--medical-green);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(22, 163, 74, 0.2);
+    border-color: var(--medical-red);
+}
+
+.mission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--medical-green);
+}
+
+.mission-header h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: var(--medical-red);
+}
+
+.mission-count {
+    background: var(--medical-green);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.mission-card p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.difficulty-note {
+    font-size: 0.9rem;
+    color: var(--medical-blue);
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.mission-rewards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(22, 163, 74, 0.05);
+    border-radius: 6px;
+}
+
+.xpm {
+    font-weight: 700;
+    color: var(--medical-green);
+    font-size: 1.1rem;
+}
+
+.bonus {
+    font-size: 0.9rem;
+    color: var(--gold-dark);
+    font-style: italic;
+}
+
+/* Gameplay */
+.gameplay-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 25px;
+}
+
+.gameplay-box {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 25px;
+    border-left: 4px solid var(--medical-blue);
+    border-radius: 8px;
+}
+
+.gameplay-box.highlight {
+    border-left-color: var(--medical-red);
+    background: rgba(220, 38, 38, 0.05);
+}
+
+.gameplay-box h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--medical-red);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.gameplay-box ul, .gameplay-box ol {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.gameplay-box li {
+    margin-bottom: 8px;
+}
+
+.bonus-note {
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(22, 163, 74, 0.1);
+    border-left: 3px solid var(--medical-green);
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.sub-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--medical-green);
+    border-radius: 6px;
+}
+
+.sub-box h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--medical-green);
+    margin-bottom: 10px;
+}
+
+.example {
+    margin-top: 10px;
+    font-style: italic;
+    color: var(--gold-dark);
+}
+
+/* Stats */
+.stats-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+}
+
+.stats-column {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 25px;
+    border-radius: 8px;
+    border: 2px solid var(--medical-green);
+}
+
+.stats-column h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--medical-red);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.stat-item {
+    display: grid;
+    grid-template-columns: 100px 60px 1fr;
+    gap: 15px;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: rgba(22, 163, 74, 0.05);
+    border-radius: 6px;
+}
+
+.stat-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.stat-value.positive {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var(--medical-green);
+}
+
+.stat-desc {
+    font-size: 0.95rem;
+    color: var(--gold-dark);
+    font-style: italic;
+}
+
+.option-note {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(37, 99, 235, 0.1);
+    border-left: 4px solid var(--medical-blue);
+    border-radius: 4px;
+    font-style: italic;
+}
+
+/* Connaissances */
+.connaissances-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.connaissance-card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-left: 4px solid var(--medical-green);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.connaissance-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(22, 163, 74, 0.15);
+}
+
+.connaissance-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--medical-red);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.rank {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.rank.moyen {
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--medical-blue);
+    border: 1px solid var(--medical-blue);
+}
+
+.rank.modere {
+    background: rgba(22, 163, 74, 0.15);
+    color: var(--medical-green);
+    border: 1px solid var(--medical-green);
+}
+
+/* Capacité fétiche */
+.capacity-box {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(22, 163, 74, 0.1));
+    padding: 30px;
+    border: 3px solid var(--medical-red);
+    border-radius: 12px;
+}
+
+.capacity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--medical-green);
+}
+
+.capacity-header h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: var(--medical-red);
+}
+
+.capacity-cost {
+    display: flex;
+    gap: 15px;
+}
+
+.cost-pe {
+    background: var(--medical-green);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.cost-use {
+    background: var(--medical-blue);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.capacity-trigger {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+}
+
+.capacity-effects {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.effect {
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 1.05rem;
+}
+
+.effect.success {
+    background: rgba(22, 163, 74, 0.15);
+    border-left: 4px solid var(--medical-green);
+}
+
+.effect.failure {
+    background: rgba(220, 38, 38, 0.15);
+    border-left: 4px solid var(--medical-red);
+}
+
+/* Talents */
+.talents-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.talent-card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border-left: 5px solid var(--medical-green);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.talent-card:hover {
+    box-shadow: 0 6px 20px rgba(22, 163, 74, 0.15);
+    transform: translateX(5px);
+}
+
+.talent-card.evolu {
+    border-left-color: var(--medical-red);
+}
+
+.talent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.talent-header h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--medical-red);
+    font-size: 1.3rem;
+}
+
+.talent-type {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.talent-type.non-evo {
+    background: rgba(22, 163, 74, 0.15);
+    color: var(--medical-green);
+    border: 1px solid var(--medical-green);
+}
+
+.talent-type.evo {
+    background: rgba(220, 38, 38, 0.15);
+    color: var(--medical-red);
+    border: 1px solid var(--medical-red);
+}
+
+.talent-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.level {
+    padding: 12px;
+    background: rgba(22, 163, 74, 0.05);
+    border-left: 3px solid var(--medical-green);
+    border-radius: 4px;
+}
+
+/* Objets */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.item-card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border: 2px solid var(--hygiene-blue);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.2);
+}
+
+.item-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--medical-red);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.item-charges {
+    display: inline-block;
+    background: var(--hygiene-blue);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.item-desc {
+    font-size: 0.95rem;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+}
+
+.item-effect {
+    padding: 10px;
+    background: rgba(14, 165, 233, 0.1);
+    border-left: 3px solid var(--hygiene-blue);
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.divider {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--medical-red), transparent);
+    margin: 0 auto 20px;
+}
+
+.footer p {
+    font-size: 0.95rem;
+    color: var(--gold-dark);
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 30px 40px;
+    }
+
+    .hero-image {
+        flex: 0 0 auto;
+        max-width: 350px;
+    }
+
+    .missions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gameplay-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        top: 10px;
+        left: 10px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    .hero-section {
+        padding: 70px 20px 30px;
+    }
+
+    .hero-image {
+        max-width: 280px;
+    }
+
+    .metier-title {
+        font-size: 2.2rem;
+    }
+
+    .metier-quote {
+        font-size: 1.1rem;
+    }
+
+    .container {
+        padding: 30px 20px 60px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .missions-grid,
+    .connaissances-grid,
+    .items-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .capacity-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .capacity-cost {
+        justify-content: center;
+    }
+}

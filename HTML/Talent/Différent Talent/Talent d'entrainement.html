@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talents d'Entraînement - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Talent CSS.css/Type de talent CSS/Talent d entrainemnet.css">
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../Type de talent proposer.html" class="back-button">← Retour aux talents</a>
+    
+    <header class="header">
+        <div class="ornament ornament-left">📚</div>
+        <div class="title-container">
+            <h1 class="main-title">Talents d'Entraînement</h1>
+            <p class="subtitle">Optimisation de l'apprentissage et de la progression</p>
+        </div>
+        <div class="ornament ornament-right">📚</div>
+    </header>
+
+    <main class="container">
+        <!-- Barre de recherche -->
+        <div class="search-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="🔍 Rechercher un talent par nom, effet ou catégorie...">
+                <button id="clearSearch" class="clear-btn">✕</button>
+            </div>
+            
+            <div class="results-count">
+                <span id="talentCount">0</span> talents affichés sur <span id="totalCount">0</span>
+            </div>
+        </div>
+
+        <!-- Tableau des talents -->
+        <div class="table-wrapper">
+            <table id="talentsTable" class="talents-table">
+                <thead>
+                    <tr>
+                        <th class="col-nom sortable" data-sort="nom">
+                            Nom <span class="sort-icon">⇅</span>
+                        </th>
+                        <th class="col-effet">Effet</th>
+                        <th class="col-categorie sortable" data-sort="categorie">
+                            Catégorie <span class="sort-icon">⇅</span>
+                        </th>
+                        <th class="col-cout sortable" data-sort="cout">
+                            Coût <span class="sort-icon">⇅</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="talentsBody">
+                    <!-- Les talents seront insérés ici par JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Message si aucun résultat -->
+        <div id="noResults" class="no-results" style="display: none;">
+            <p>🔍 Aucun talent trouvé</p>
+            <p class="no-results-hint">Essayez de modifier votre recherche</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Talent/talent d entrainement.js"></script>
+</body>
+</html>

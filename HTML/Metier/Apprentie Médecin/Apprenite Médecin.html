@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprenti·e Médecin - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Metier/Metier css/Apprentie Médecin/Apprenite Médecin.css">
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../Metier/Catalogue metier.html" class="back-button">← Retour aux métiers</a>
+    
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Métier/aPPRENTIE MEDECINf.jpg" alt="Apprenti Médecin">
+        </div>
+        <div class="hero-content">
+            <h1 class="metier-title">⚕️ Apprenti·e Médecin</h1>
+            <p class="metier-quote">« Soigneur de l'ombre et gardien des seuils »</p>
+            <p class="metier-type">🏥 Guérison • Diagnostic • Stabilisation</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description du métier</h2>
+            <div class="content-box">
+                <p>Soigneur de l'ombre et gardien des seuils, l'Apprenti·e Médecin panse, stabilise et conseille. Entre herboristerie, chirurgie de campagne et hygiène rigoureuse, il/elle lit les signes du corps, interprète les fièvres, pose bandages et attelles, administre décoctions et saignées mesurées.</p>
+                
+                <p>En caravane comme en hospice, son rôle est de gagner du temps : empêcher qu'une blessure ne tourne, qu'un poison ne gagne, qu'une épidémie ne se propage. Sur le terrain, c'est l'art de diagnostiquer vite et d'agir juste avec peu de moyens — puis, au calme, de réparer proprement.</p>
+            </div>
+        </section>
+
+        <!-- Mission hebdomadaire -->
+        <section class="section">
+            <h2 class="section-title">📅 Mission de métier — Hebdomadaire</h2>
+            <div class="mission-box weekly">
+                <h3>« Garde & pansements »</h3>
+                <div class="mission-content">
+                    <p><strong>But (au choix) :</strong></p>
+                    <ul>
+                        <li>Stabiliser au moins 2 patients blessés/malades : réussir un Diagnostic (PER ou Savoir) puis des Soins manuels (Métier) atteignant le Seuil de Stabilisation (SS) fixé par le MJ, ou</li>
+                        <li>Clore un dossier de soins : produire une Notice médicale brève (constat, protocole appliqué, évolution) validée par le MJ.</li>
+                    </ul>
+                    <div class="mission-footer">
+                        <span class="difficulty">📊 Difficulté : Standard</span>
+                        <span class="reward">🌟 Récompense : +6 XPM</span>
+                    </div>
+                    <p class="invalid"><strong>⚠️ Invalide si :</strong> soins incomplets, rechute immédiate par défaut d'hygiène/consignes, ou protocole ignoré.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Missions spéciales -->
+        <section class="section">
+            <h2 class="section-title">⭐ Missions spéciales</h2>
+            <p class="section-intro">Inscris-en 3 sur ta fiche</p>
+            
+            <div class="missions-grid">
+                <!-- Mission 1 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>🚨 Triage de crise</h3>
+                        <span class="mission-count">2 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Prioriser 3 cas en surcharge (ordre pertinent + stabilisation des 2 plus graves : atteindre leurs SS).</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+9 XPM</span>
+                        <span class="bonus">Bonus 24h : Avantage sur 1 jet de Diagnostic en contexte de foule/désordre</span>
+                    </div>
+                </div>
+
+                <!-- Mission 2 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>🩹 Suture propre</h3>
+                        <span class="mission-count">3 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Refermer 2 plaies ouvertes sans infection (contrôle MJ au lendemain/fin de scène).</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+8 XPM</span>
+                    </div>
+                </div>
+
+                <!-- Mission 3 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>💉 Antidote d'urgence</h3>
+                        <span class="mission-count">2 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Identifier un toxique (Diagnostic basé Savoir) puis administrer le contre-traitement (herboristerie/trousse) ; réussite d'un jet de Soins.</p>
+                    <p class="difficulty-note">📊 Difficulté : standard → complexe si toxique rare</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+10 XPM</span>
+                        <span class="bonus">+1 dose d'antitoxine (consommable)</span>
+                    </div>
+                </div>
+
+                <!-- Mission 4 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>🦠 Veille épidémique</h3>
+                        <span class="mission-count">1 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Empêcher une propagation : protocoles d'hygiène, isolement minimal, briefing aux proches.</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+12 XPM</span>
+                        <span class="bonus">Pendant 7 jours : −1 difficulté aux jets liés à l'hygiène/isolement</span>
+                    </div>
+                </div>
+
+                <!-- Mission 5 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>🦴 Attelle & mobilité</h3>
+                        <span class="mission-count">2 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Poser 2 attelles efficaces permettant à chaque patient de se déplacer sans aggraver la blessure (MR ≥ +3 sur Soins).</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+8 XPM</span>
+                    </div>
+                </div>
+
+                <!-- Mission 6 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>🌡️ Chambre des fièvres</h3>
+                        <span class="mission-count">2 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Réduire la fièvre de 2 patients par soins continus (2 sessions chacun : hydratation, refroidissement, infusion ; 2 réussites de Soins/patient).</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+9 XPM</span>
+                    </div>
+                </div>
+
+                <!-- Mission 7 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>🗺️ Consultation itinérante</h3>
+                        <span class="mission-count">1 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Soigner 3 civils en lieux distincts (village / route / camp), dont ≥1 cas respiratoire et ≥1 traumatique (Diagnostic + Soins réussis).</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+12 XPM</span>
+                        <span class="bonus">Contact local (apothicaire ou herboriste)</span>
+                    </div>
+                </div>
+
+                <!-- Mission 8 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>🔪 Chirurgie de campagne</h3>
+                        <span class="mission-count">1 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Extraire un corps étranger (flèche/éclat) sans séquelle majeure : Diagnostic (Savoir) pour trajectoire puis Soins (Métier) atteignant SS fixé par le MJ.</p>
+                    <p class="difficulty-note">📊 Difficulté : complexe</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+12 XPM</span>
+                        <span class="bonus">Bonus 24h : −1 difficulté à un jet de Soins</span>
+                    </div>
+                </div>
+
+                <!-- Mission 9 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>🌙 Garde de nuit</h3>
+                        <span class="mission-count">2 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Tenir 2 sessions de surveillance sans incident : anticiper 1 complication (Diagnostic) et la neutraliser (Soins).</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+8 XPM</span>
+                    </div>
+                </div>
+
+                <!-- Mission 10 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>🌿 Herboristerie ciblée</h3>
+                        <span class="mission-count">2 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Récolter 3 plantes médicinales pertinentes (Diagnostic milieu + Savoir) et en tirer 2 préparations utiles (cataplasme/infusion/teinture, Soins ou Savoir selon table).</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+9 XPM</span>
+                        <span class="bonus">+2 consommables herbo</span>
+                    </div>
+                </div>
+
+                <!-- Mission 11 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>💓 Réanimation de terrain</h3>
+                        <span class="mission-count">1 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Reprendre une détresse vitale (arrêt respiratoire/choc sévère) : chaîne Diagnostic → Stabilisation jusqu'à SS dans un timing imposé par le MJ.</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+12 XPM</span>
+                        <span class="bonus">Bonus 24h : Avantage sur 1 jet de Stabilisation</span>
+                    </div>
+                </div>
+
+                <!-- Mission 12 -->
+                <div class="mission-card">
+                    <div class="mission-header">
+                        <h3>⚔️ Hygiène sous le feu</h3>
+                        <span class="mission-count">2 fois</span>
+                    </div>
+                    <p><strong>Objectif :</strong> Effectuer 1 acte de soin en zone hostile (combat/évacuation) sans contaminer le patient (masques/gants/tissus ; MR ≥ +2 + contrôle MJ).</p>
+                    <div class="mission-rewards">
+                        <span class="xpm">+9 XPM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Système de gameplay -->
+        <section class="section">
+            <h2 class="section-title">🎮 Système de gameplay</h2>
+            
+            <div class="gameplay-grid">
+                <div class="gameplay-box">
+                    <h3>🔍 Diagnostic (repérage & évaluation)</h3>
+                    <p>Pour identifier l'état d'un patient (blessures, symptômes, signes vitaux) :</p>
+                    <ul>
+                        <li><strong>PER</strong> quand l'examen est clinique/visuel (saignement, déformation, respiration, pupilles)</li>
+                        <li><strong>Savoir</strong> quand il faut interpréter des signes non visibles (toxidrome, infection, origine de fièvre, poison)</li>
+                    </ul>
+                    <p class="bonus-note">✨ Réussite : peut accorder +1 marge au prochain jet de Soins sur ce patient</p>
+                </div>
+
+                <div class="gameplay-box">
+                    <h3>🩹 Soins manuels (traiter & refermer)</h3>
+                    <p>Pour panser, suturer, immobiliser, comprimer, réchauffer : jet de <strong>Métier</strong>.</p>
+                    <p>Un médecin dans l'équipe réduit les malus, écourte la convalescence et améliore les récupérations par protocoles adaptés.</p>
+                </div>
+
+                <div class="gameplay-box">
+                    <h3>⚔️ Conflit & immobilisation</h3>
+                    <p>En urgence, soigner immobilise la cible pendant l'action (durée au MJ). Le positionnement et la couverture alliée comptent.</p>
+                </div>
+
+                <div class="gameplay-box highlight">
+                    <h3>🚨 Stabilisation (urgence)</h3>
+                    <p>Quand un patient « part » (hémorragie, inconscience, détresse) :</p>
+                    <ol>
+                        <li>Le MJ fixe un <strong>Seuil de Stabilisation (SS)</strong></li>
+                        <li>Tu fais des jets de Soins (Métier) et cumules tes marges de réussite tour après tour</li>
+                        <li><strong>Objectif :</strong> atteindre cumulativement le SS pour stabiliser (arrêt de la dégradation, reprise ventilatoire/circulatoire minimale, douleur contenue)</li>
+                        <li>Si inconscient, tentative de réveil possible dès SS atteint (modulateurs selon lésions/altérations)</li>
+                    </ol>
+                    
+                    <div class="sub-box">
+                        <h4>💚 Récupération ponctuelle pendant la stabilisation</h4>
+                        <p>À chaque réussite, le patient regagne immédiatement un % de ses PV max égal à la marge obtenue, cumulativement, jusqu'à stabilisation.</p>
+                        <p class="example">📝 Ex. : marges +3, +3, −1 → total +5 ⇒ +5 % PV max récupérés ; si SS atteint, patient stabilisé.</p>
+                    </div>
+                </div>
+
+                <div class="gameplay-box">
+                    <h3>🤝 Aide & coopération</h3>
+                    <p><strong>Assistant</strong> (allié adjacent, mains libres) : offre +1 marge au prochain jet de Soins si son jet d'Assistance (Instinct ou Métier, DD standard) réussit.</p>
+                    <p><strong>Matériel</strong> (trousse, attelles, antiseptiques) : consommer 1 charge peut annuler 1 malus de condition ou ajouter +1 marge (au MJ de cadrer).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gains de caractéristique -->
+        <section class="section">
+            <h2 class="section-title">📈 Gain de Caractéristique et traits spécifiques</h2>
+            <div class="stats-box">
+                <div class="stats-column">
+                    <h3>💪 Caractéristiques</h3>
+                    <div class="stat-item">
+                        <span class="stat-name">SAG</span>
+                        <span class="stat-value positive">+2</span>
+                        <span class="stat-desc">Jugement, calme, priorisation</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-name">DEX</span>
+                        <span class="stat-value positive">+1</span>
+                        <span class="stat-desc">Précision du geste</span>
+                    </div>
+                </div>
+                
+                <div class="stats-column">
+                    <h3>✨ Traits spécifiques</h3>
+                    <div class="stat-item">
+                        <span class="stat-name">Savoir</span>
+                        <span class="stat-value positive">+1</span>
+                        <span class="stat-desc">Diagnostic, pharmacopée</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-name">Métier</span>
+                        <span class="stat-value positive">+1</span>
+                        <span class="stat-desc">Soins pratiques</span>
+                    </div>
+                </div>
+            </div>
+            <p class="option-note">💡 Option de table : remplacer les deux +1 par un +2 Savoir</p>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances acquises</h2>
+            <div class="connaissances-grid">
+                <div class="connaissance-card">
+                    <h3>Anatomie & physiologie</h3>
+                    <span class="rank moyen">Moyen</span>
+                    <p>Organes, systèmes vitaux, signes d'alarme ; priorisation des gestes.</p>
+                </div>
+                
+                <div class="connaissance-card">
+                    <h3>Pharmacopée & herboristerie</h3>
+                    <span class="rank modere">Modéré</span>
+                    <p>Décoctions/cataplasmes/teintures, dosages, interactions.</p>
+                </div>
+                
+                <div class="connaissance-card">
+                    <h3>Pathologies & symptômes</h3>
+                    <span class="rank modere">Modéré</span>
+                    <p>Fièvres, infections, fractures, intoxications, parasitoses ; diagnostics différentiels.</p>
+                </div>
+                
+                <div class="connaissance-card">
+                    <h3>Premiers secours</h3>
+                    <span class="rank modere">Modéré</span>
+                    <p>Contrôle d'hémorragie, choc, immobilisation, désobstruction, triage.</p>
+                </div>
+                
+                <div class="connaissance-card">
+                    <h3>Domaine médical</h3>
+                    <span class="rank moyen">Moyen</span>
+                    <p>Hygiène, isolement, vecteurs, protocoles et tenue de registre.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capacité fétiche -->
+        <section class="section">
+            <h2 class="section-title">⚡ Capacité fétiche</h2>
+            <div class="capacity-box">
+                <div class="capacity-header">
+                    <h3>💎 Focus d'Urgence</h3>
+                    <div class="capacity-cost">
+                        <span class="cost-pe">20 PE</span>
+                        <span class="cost-use">1×/session</span>
+                    </div>
+                </div>
+                <p class="capacity-trigger">Sous forte pression (combat, compte à rebours, milieu hostile), fais un jet de Sang-Froid (DD 6–20).</p>
+                <div class="capacity-effects">
+                    <div class="effect success">
+                        <strong>✅ Réussite :</strong> Pour chaque +3 de marge, gagne Avantage sur 1 futur jet de Soins pendant la scène.
+                    </div>
+                    <div class="effect failure">
+                        <strong>❌ Échec :</strong> Aucun effet.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de métier -->
+        <section class="section">
+            <h2 class="section-title">🎯 Talents de métier</h2>
+            <div class="talents-list">
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <h3>Fondamentaux de Secourisme</h3>
+                        <span class="talent-type non-evo">Non évolutif</span>
+                    </div>
+                    <p>Tu gagnes <strong>Premier secours +1</strong> et <strong>Soin manuel +1</strong> (traits spécifiques).</p>
+                </div>
+
+                <div class="talent-card evolu">
+                    <div class="talent-header">
+                        <h3>Protocole de Stabilisation</h3>
+                        <span class="talent-type evo">Lv 1 → 3 évolutif</span>
+                    </div>
+                    <div class="talent-levels">
+                        <div class="level">
+                            <strong>Lv 1.</strong> 1×/scène en stabilisation, convertir un échec non critique en stabilisation neutre (0 progrès, pas d'aggravation).
+                        </div>
+                        <div class="level">
+                            <strong>Lv 2.</strong> Booster une stabilisation difficile : +2 au jet en dépensant 10 × X PE, avec X = nombre de tranches de 20 % de PV manquants (arrondi sup.).
+                        </div>
+                        <div class="level">
+                            <strong>Lv 3.</strong> 1×/scène, annule un échec critique en stabilisation neutre ; le coût du Lv 2 devient 6 × X PE.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <h3>Aiguille & Attelle</h3>
+                        <span class="talent-type non-evo">Non évolutif</span>
+                    </div>
+                    <p>Sur MR ≥ +3 lors d'un bandage/attelle/suture, le patient gagne Avantage à son prochain test de Résilience lié à cette blessure.</p>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <h3>Trousse Méthodique</h3>
+                        <span class="talent-type non-evo">Non évolutif</span>
+                    </div>
+                    <p>Si tu as un nécessaire de soins, 1×/session tu ne consommes que la moitié des consommables requis mais la difficulté de l'action augmente de +2.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objets de métier -->
+        <section class="section">
+            <h2 class="section-title">🎒 Objets de métier</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <h3>🧰 Trousse médicale de campagne</h3>
+                    <p class="item-desc">Bandages stériles (10/10), aiguilles & fil, pinces, bistouri, attelles, garrot, seringue rudimentaire, alcool/antiseptique, onguent.</p>
+                    <p class="item-effect"><strong>Effet :</strong> Pas de pénalité d'outillage ; 1×/session, −1 difficulté sur un jet de Soins en dépensant 1 charge.</p>
+                </div>
+
+                <div class="item-card">
+                    <h3>🌿 Sac d'herboristerie</h3>
+                    <p class="item-charges">8/8 charges</p>
+                    <p class="item-desc">Plantes usuelles (camphre, saule, thym, millefeuille), mortier & pilon.</p>
+                    <p class="item-effect"><strong>Effet :</strong> 1 charge → +1 marge sur une réussite ou annule un malus « douleur ».</p>
+                </div>
+
+                <div class="item-card">
+                    <h3>💉 Antitoxines simples</h3>
+                    <p class="item-charges">3/3 doses</p>
+                    <p class="item-effect"><strong>Effet :</strong> 1 dose → Avantage au test contre poison ou −1 difficulté au soin du poison.</p>
+                </div>
+
+                <div class="item-card">
+                    <h3>🧴 Baumes & cataplasmes</h3>
+                    <p class="item-charges">6/6 charges</p>
+                    <p class="item-effect"><strong>Effet :</strong> Sur réussite de Soins, +1 marge supplémentaire ou retire 1 niveau de fièvre.</p>
+                </div>
+
+                <div class="item-card">
+                    <h3>🕯️ Lampe propre & écrans</h3>
+                    <p class="item-effect"><strong>Effet :</strong> Annule un malus de lumière en intérieur pendant les soins.</p>
+                </div>
+
+                <div class="item-card">
+                    <h3>🛏️ Brancard pliant / sangle d'extraction</h3>
+                    <p class="item-effect"><strong>Effet :</strong> Transport sans aggravation ; le premier jet de Soins après transport n'a pas le malus de déplacement.</p>
+                </div>
+
+                <div class="item-card">
+                    <h3>🧤 Masque, gants & tissus stériles</h3>
+                    <p class="item-charges">5/5 charges</p>
+                    <p class="item-effect"><strong>Effet :</strong> Annule le premier malus d'hygiène de la session ; si non utilisé, +1 au prochain Diagnostic en milieu à risque.</p>
+                </div>
+
+                <div class="item-card">
+                    <h3>📔 Carnet de cas & recettes</h3>
+                    <p class="item-effect"><strong>Effet :</strong> 1×/jour, relance un jet de Savoir (garde le meilleur) si le cas rappelle un antécédent consigné.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+</body>
+</html>
