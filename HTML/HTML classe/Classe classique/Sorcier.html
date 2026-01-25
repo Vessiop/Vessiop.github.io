@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorcier Maudit - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Sorcier.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/sORCIER.png" alt="Sorcier Maudit">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">☠️ Sorcier Maudit</h1>
+            <p class="class-quote">« Ce pouvoir n'a pas de prix. Ou plutôt si… et je le paierai en entier. »</p>
+            <p class="class-type">🌑 Lanceur de sorts maudits • magie impure • corruption • puissance interdite</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Présentation</h2>
+            <div class="content-box">
+                <p>Les Sorciers Maudits forment une caste de personnes qui ont touché à l'interdit — souvent au prix de leur santé, de leur équilibre… ou de leur âme. À force de feuilleter des manuscrits scellés et des grimoires proscrits, ils ont appris à façonner une énergie impure et corruptrice : la Magie Maudite, nature radicalement opposée à la magie pure. Cette voie offre un potentiel que les magies dites "normales" peinent à égaler : relever les morts, tordre l'essence vitale, manipuler les âmes, altérer des lois que d'autres n'osent même pas approcher. Mais ce pouvoir n'est jamais gratuit.</p>
+                
+                <p>Dans l'imaginaire collectif, cette caste est généralement mal vue — parfois traquée, et dans les cas les plus graves, chassée sans pitié. La raison est simple : nombre de cultes et de criminels ont utilisé ces arts sans vergogne, laissant derrière eux des horreurs qui ont forgé la peur et la haine. Pourtant, ce jugement n'est pas universel : dans certains cercles — académies, institutions magiques, ordres spécialisés — l'opinion varie, oscillant entre méfiance, tolérance pragmatique, et intérêt froid pour un pouvoir que personne ne veut admettre… mais que beaucoup redoutent de laisser hors de contrôle.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Ressources de base</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d12</li>
+                        <li><strong>PM :</strong> <span class="highlight-stat">1d16</span></li>
+                        <li><strong>PE :</strong> 1d10</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Caractéristiques</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −4</span>
+                        <span class="stat-item negative">CST : −1</span>
+                        <span class="stat-item positive">DEX : +1</span>
+                        <span class="stat-item positive highlight">INT : +4</span>
+                        <span class="stat-item positive">SAG : +2</span>
+                        <span class="stat-item neutral">PER : 0</span>
+                        <span class="stat-item negative">CHA : −2</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> <span class="highlight-stat">25 + 2d8</span></li>
+                        <li><strong>REA :</strong> +0</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 2</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de base -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents de base</h2>
+            
+            <div class="talent-card">
+                <h3>Maîtrise des arts magiques maudits</h3>
+                <p>Cette maîtrise représente le premier pas sur la voie des arts interdits : magie touchant à l'âme, à la mort (nécromancie), aux arts occultes et aux autres pratiques proscrites. Le lanceur apprend à saisir les filaments magiques du monde pour les tordre et les corrompre, créant une énergie impure que la magie "conventionnelle" ne peut pas reproduire.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Émanations Impies</h3>
+                <p>La Magie Maudite laisse une trace profonde dans le lanceur. Son flux magique se teinte d'une énergie sombre, sinistre, qui altère les filaments magiques qu'il manipule. À partir de ce talent, la magie qu'il projette n'est jamais totalement "neutre" : elle porte en elle une résonance maudite et corrompue.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Dégénérescence Maudite</h3>
+                <p>Le lien prolongé avec la Magie Maudite n'affecte pas seulement l'âme : il finit par s'insinuer dans le corps lui-même. Mal contrôlée, cette énergie agit comme un parasite naissant : elle ponctionne peu à peu l'énergie vitale du lanceur et commence à remodeler son corps à l'image de la magie qu'il utilise.</p>
+            </div>
+        </section>
+
+        <!-- Voies -->
+        <section class="section">
+            <h2 class="section-title">🧭 Le Chemin Occulte</h2>
+            <p class="intro-text">Votre personnage n'est pas comme les autres. Son origine peut varier : un utilisateur de magie en quête d'une nouvelle forme de puissance, un érudit tombé sur un ouvrage capable de lui faire basculer l'esprit vers des arts impies, ou encore un survivant marqué par un contact interdit. Mais quel que soit son point de départ, ce chemin a toujours le même centre : l'engagement dans l'une de ces voies.</p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Voie pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="voie-grid">
+                <!-- Voie de la Nécromancie -->
+                <div class="voie-card necro">
+                    <h3>☠️ Voie de la Nécromancie</h3>
+                    <p class="voie-description">La Voie de la Nécromancie est l'art de traiter la mort comme une matière exploitable. Le Sorcier Maudit y apprend à manipuler les restes, les os, les nerfs fantômes et les souvenirs de chair afin d'en tirer force, serviteurs ou malédictions. Ce n'est pas seulement "relever un mort" : c'est comprendre ce qui persiste après la fin, puis l'arracher à son repos pour en faire un outil.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise mineure — Nécromancie Maudite</h5>
+                            <p>La Nécromancie Maudite est une magie impure et obscure, capable d'extirper la vie des vivants et d'accorder un second souffle aux morts. Cette nature nécrotique corrompt les filaments magiques pour produire des arts interdits : relever des corps, matérialiser plus aisément des entités humanoïdes, et manipuler l'essence vitale comme si la mort elle-même était un outil.</p>
+                            <p><strong>→</strong> Offre la compétence : Magie nécromantique +2.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Marqué par l'Écho Mortuaire</h5>
+                            <p>Touché par une grâce mortuaire non purifiée, le lanceur développe une affinité instinctive avec les arts de la Nécromancie Maudite.</p>
+                            <p><strong>Effets :</strong></p>
+                            <ul>
+                                <li>Détection d'énergie maudite (N.A) +5</li>
+                                <li>Résistance à la magie nécromantique (SAG) (N.A) +5</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Toucher la grâce de la Nécrotombe</h5>
+                            <p>Bonus de caractéristique de combat : <strong>INT +2</strong> et transforme le malus de <strong>CST −1 en +3</strong> (soit +4 total).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voie de la Démonologie -->
+                <div class="voie-card demon">
+                    <h3>🔥 Voie de la Démonologie (Voie occulte)</h3>
+                    <p class="voie-description">La Voie de la Démonologie repose sur un principe simple : certaines puissances ne se prient pas — elles se négocient… ou se trompent. Le Sorcier Maudit y manipule des entités infernales, des noms scellés, des clauses, des contrats et des rituels d'appel pour obtenir des capacités que la magie classique refuse d'offrir. Mais cette voie n'est jamais "gratuite".</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise mineure — Magie Occulte</h5>
+                            <p>La Magie Occulte est née des restes et des fragments de la magie démoniaque issue du Plan Infernal. Au fil des siècles, certains ont réduit cette force à une parcelle utilisable, l'ont enfermée dans des formes plus stables, et en ont tiré un nouveau style : l'Occulte.</p>
+                            <p><strong>→</strong> Offre la compétence : Magie occulte +2.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Initiation aux Sceaux Infernaux</h5>
+                            <p>Tu as découvert, consulté et feuilleté des recueils interdits décrivant l'un des Courants Occultes.</p>
+                            
+                            <p><strong>Pactes disponibles :</strong></p>
+                            <ul>
+                                <li><strong>Pacte des bêtes démoniaques</strong> — Lien avec les Bêtes + Faim du Pacte (récupération de PV)</li>
+                                <li><strong>Pacte du corps d'ébène</strong> — Lien avec Ossifères Déchus + Os du Tourment (réduction de dégâts)</li>
+                                <li><strong>Pacte de la puissance démoniaque</strong> — Lien avec Para-Démons + Impulsion para-démoniaque (Avantage)</li>
+                                <li><strong>Pacte du miasme</strong> — Lien du Miasme + Présage d'Horreur (Désavantage ennemi)</li>
+                                <li><strong>Pacte du sang ancien</strong> — Lien des Sur-Sangs + Peau de Sur-Sang (réduit Saignement)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Toucher par la grâce Occulte</h5>
+                            <p>Bonus de caractéristique de combat : <strong>INT +2</strong> et transforme le malus de <strong>CHA −2 en +3</strong> (soit +5 total).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voie du Spiritisme -->
+                <div class="voie-card spirit">
+                    <h3>🕯️ Voie du Spiritisme</h3>
+                    <p class="voie-description">La Voie du Spiritisme n'est pas centrée sur la chair, mais sur ce qui demeure lorsque la chair s'arrête : l'écho, la mémoire, le fragment d'âme, la présence. Le Sorcier Maudit y développe une écoute du monde invisible : dialoguer avec des esprits, lire les traces laissées dans un lieu, apaiser ou contraindre une entité errante. Contrairement à la nécromancie brute, cette voie peut être plus subtile — parfois même respectueuse — mais elle reste dangereuse.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise mineure — Nécropsie Spirituelle</h5>
+                            <p>Cette magie ne manipule pas la chair, mais l'âme elle-même : elle peut en lire les cicatrices, en forcer les failles, en dégrader la substance, l'amplifier, ou l'implanter dans un corps inerte comme on fixerait une flamme dans une lanterne. Là où la nécromancie joue avec les corps, la Nécropsie Spirituelle dissèque l'essence invisible des êtres.</p>
+                            <p><strong>→</strong> Offre la compétence : Nécropsie Spirituelle +2.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Vision spirituelle</h5>
+                            <p>Le lanceur est capable de percevoir les énergies et les entités spirituelles, même lorsqu'elles tentent de se dissimuler. Si une présence est cachée par un camouflage magique, le lanceur peut effectuer un jet de Sagesse (Perception magique) afin de détecter la dissimulation.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Toucher par la grâce — Nécropsie Spirituelle</h5>
+                            <p>Bonus de caractéristique de combat : <strong>INT +1</strong> et <strong>SAG +3</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voie des Abysses -->
+                <div class="voie-card abyss">
+                    <h3>🕳️ Voie des Abysses (Style psionique)</h3>
+                    <p class="voie-description">La Voie des Abysses est une magie mentale née d'un vide ancien : elle attaque l'esprit comme on attaque une structure, en créant des fissures, des déséquilibres et des failles exploitables. Le Sorcier Maudit y apprend la lecture d'intention, la pression psychique, l'intrusion, la confusion et, pour les plus avancés, la domination — non pas par charisme, mais par écrasement silencieux de la volonté.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise mineure — Abysses : Fêlure Psionique</h5>
+                            <p>Les Abysses sont une magie corruptrice et impie, irrationnelle, capricieuse. La Fêlure est une psionique sombre qui attaque l'esprit, fissure la volonté, et s'infiltre à travers les petites failles des défenses naturelles. Cette énergie filandreuse ne force pas toujours la porte : elle se glisse là où l'âme est déjà fragile.</p>
+                            <p><strong>→</strong> Offre la compétence : Magie psionique +2.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Toucher par la grâce — Abysses</h5>
+                            <p>Bonus de caractéristique de combat : <strong>INT +3</strong> et offre un bonus de <strong>1d6 + Mod INT de RM supplémentaire</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <h3 class="subsection-title">Connaissances de base</h3>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine magique <span class="level">(Modéré)</span></h4>
+                    <p>Cette connaissance couvre le vaste domaine des institutions magiques : écoles, castes, traditions et grands concepts théoriques de la magie.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la Magie Maudite <span class="level">(Moyen)</span></h4>
+                    <p>Cette connaissance englobe le concept global du "maudit" : son histoire, les figures qui le pratiquent, ses usages, ses tabous et les principaux types de malédictions.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance de la Magie Maudite <span class="level">(Modéré)</span></h4>
+                    <p>Savoir technique sur la façon dont la Magie maudite corrompt et détourne les filaments magiques pour en faire une énergie impie, instable mais à très haut potentiel.</p>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">📌 Connaissances selon la voie choisie</h3>
+            
+            <div class="voie-grid" style="margin-top: 30px;">
+                <!-- Connaissances Nécromancie -->
+                <div class="voie-card necro">
+                    <h3>☠️ Voie de la Nécromancie</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine de la nécromancie <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les grands principes de la nécromancie : ce qu'elle manipule, ce qu'elle contourne, et ce qu'elle profane parfois.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de la magie nécromantique maudite <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais la variante impure de la nécromancie : celle qui corrompt les filaments magiques pour produire des effets plus brutaux, instables ou interdits.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du bestiaire nécromantique <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les grandes familles de créatures liées à la mort : morts-vivants, revenants, assemblages, entités de tombe.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Démonologie -->
+                <div class="voie-card demon">
+                    <h3>🔥 Voie Occulte</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine du monde occulte <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les bases du monde occulte : cultes, rites, symboles, codes cachés, et manières de fonctionner des sociétés clandestines.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de la magie occulte <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les règles et logiques de la magie occulte : une magie issue de fragments infernaux, stabilisée pour être utilisable par des mortels.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du bestiaire infernal <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les créatures du registre infernal : leurs catégories, leurs comportements, et leurs manières d'influencer le monde mortel.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du Plan Infernal <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les bases du Plan Infernal : hiérarchies, territoires, lois implicites, et types de courants qui s'y affrontent.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Spiritisme -->
+                <div class="voie-card spirit">
+                    <h3>🕯️ Voie Spirituelle</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine spirituel <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les notions de base liées aux esprits : présences, échos, lieux chargés, ancres, et manifestations invisibles.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de la magie spirituelle <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les principes de la magie spirituelle "classique" : perception des âmes, interaction avec les présences, apaisement.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de la magie de Nécropsie Spirituelle <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais la variante impie qui ne se contente pas de parler aux esprits : elle les dissèque, les force, et les "recompose" comme une matière.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Abysses -->
+                <div class="voie-card abyss">
+                    <h3>🕳️ Voie des Abysses</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine des Abysses <span class="level">(Mineur)</span></h4>
+                        <p>Tu connais les bases des Abysses : une influence ancienne, corruptrice, instable, et difficile à classer comme une magie normale.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du bestiaire des Abysses : entités psioniques <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les entités abyssales orientées psionique : celles qui chassent l'esprit, déforment la perception, ou s'alimentent de peur, doute, obsession.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de la magie de la Fêlure psionique <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais le style de la Fêlure : une psionique sombre qui ne force pas seulement la porte, mais se glisse dans les failles déjà présentes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">📦 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🔮</span>
+                    <div>
+                        <h4>Catalyseur maudit au choix</h4>
+                        <p>Un objet servant de focus pour ta magie corrompue</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🧙</span>
+                    <div>
+                        <h4>Robe ou Armure du Sorcier Maudit</h4>
+                        <p>Robe : 10% résistance Magie maudite + 10% autre type<br>
+                        Armure légère : protection physique + 10% résistance Magie maudite</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔵</span>
+                    <div>
+                        <h4>2 potions de magie</h4>
+                        <p>Restaure les points de magie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>1 potion de vie</h4>
+                        <p>Soin d'urgence</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Magie maudite (INT)</strong> — Maîtrise de la magie maudite pour lancer des sorts en limitant la surcharge du corps.</li>
+                        <li><strong>Canalisation de l'Essence corrompue (SAG)</strong> — Contrôle du flux d'Essence Maudite dans le corps et le catalyseur.</li>
+                        <li><strong>Résistance mentale obscure (RM)</strong> — Résister à la folie, aux influences corrompues, aux intrusions mentales.</li>
+                        <li><strong>Analyse magique (INT)</strong> — Identifier, étudier et interpréter les objets magiques ou phénomènes arcaniques.</li>
+                        <li><strong>Présence maudite (CHA)</strong> — Aura sombre et dérangeante qui influence l'atmosphère autour du personnage.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧠 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Savoir maudit (Savoir)</strong> — Connaissances sur l'histoire, les pratiques, les cultes et les traditions liés au domaine maudit.</li>
+                        <li><strong>Savoir du bestiaire maudit (Savoir)</strong> — Connaissances sur les créatures corrompues : origines, comportements, faiblesses.</li>
+                        <li><strong>Résilience de la dégénérescence maudite (Résilience)</strong> — Encaisser les effets de la dégénérescence maudite sans s'effondrer.</li>
+                        <li><strong>Self-control face au maudit (Sang-froid)</strong> — Garder son calme en présence de phénomènes maudits ou d'horreurs occultes.</li>
+                        <li><strong>Négociation maudite (Social)</strong> — Traiter avec des cultistes, des entités obscures ou des porteurs d'artefacts maudits.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/Sorcier.js"></script>
+</body>
+</html>
