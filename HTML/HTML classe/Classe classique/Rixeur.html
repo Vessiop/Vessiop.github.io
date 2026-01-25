@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rixeur - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Rixeur.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/rIXEUR.png" alt="Rixeur">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🥊 Rixeur</h1>
+            <p class="class-quote">« J'ai pas d'école. J'ai le contact… et je sais quoi en faire. »</p>
+            <p class="class-type">💥 Combattant de rue • rixe • pression • tempo du corps</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description / Présentation</h2>
+            <div class="content-box">
+                <p>Le Rixeur est un combattant forgé par l'expérience brute : ruelles, docks, arrière-salles, chantiers, arènes clandestines — des lieux où la théorie ne sert à rien si tu tombes au premier échange. Contrairement aux moines et aux arts martiaux codifiés, il ne suit aucun dogme : il construit un style instinctif, sale quand il faut, et surtout réel.</p>
+                
+                <p>Sa force tient dans un principe simple : le tempo du corps. Une fois engagé, le Rixeur lit la posture, casse le rythme, colle la pression et répond plus vite que l'adversaire ne se réorganise. Il frappe au poing, au pied, au coude, au genou, à la tête — et il utilise le décor comme une extension de sa violence : coin de table, mur, gravier, bouteille, manche… tout ce qui peut faire basculer l'échange.</p>
+                
+                <p>Le Rixeur n'est pas un "beau" combattant : c'est un survivant de mêlée. Il sait encaisser, tenir, et rendre coup pour coup jusqu'à ce que l'autre cède. Et si une ouverture existe… il la prend.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Armes de prédilection :</strong> corps (poings/pieds) • objets improvisés • arme simple au choix</p>
+                    <p><strong>Armure de prédilection :</strong> légère / tenue de rue renforcée</p>
+                    <p><strong>Style de combat :</strong> rixe, pression, opportunisme, duel au contact, réactivité</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <p><strong>🧭 Type de classe :</strong> Physique brut & nerveux — mêlée de contact, rixe urbaine, contre-rythme et pression continue</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d8</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +2</span>
+                        <span class="stat-item positive">CST : +1</span>
+                        <span class="stat-item positive">DEX : +1</span>
+                        <span class="stat-item negative">INT : −3</span>
+                        <span class="stat-item negative">SAG : −1</span>
+                        <span class="stat-item positive">PER : +1</span>
+                        <span class="stat-item negative">CHA : −1</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 20 + 1d6</li>
+                        <li><strong>REA :</strong> <span class="highlight-stat">+6</span></li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 2</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 2</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents</h2>
+            
+            <div class="talent-card">
+                <h3>Maîtrise du style de combat de corps : Base Poing ou Pied</h3>
+                <p>Le combattant perfectionne un art de frappe brut et optimisé, basé sur l'entretien du corps, le mouvement, l'équilibre et la répétition. Il ne suit pas une école codifiée : il forge une efficacité réelle, utile en combat serré.</p>
+                <p><strong>Offre la compétence :</strong> Coup de poing +2 et Coup de pied +2 (selon le choix).</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Rixe au Contact</h3>
+                <p>Quand le combattant est engagé avec une cible, il devient plus dangereux : son corps suit l'échange sans réfléchir, il "lit" le rythme et répond plus vite.</p>
+                <p><strong>Effet :</strong> +10 en Réactivité tant que vous êtes engagé avec une cible. Le lanceur obtient la compétence « Réactivité de Rixe » N.A +10.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Corps d'acier</h3>
+                <p>Obtient les talents « Poing de Fer » et « Pied de Fer » : conditionnement osseux et musculaire (phalanges, tibia, talon) pour délivrer des impacts denses sans se blesser.</p>
+                <p><strong>Effet :</strong> +1 au calcul de base des dégâts de corps à corps physiques pour ce membre.</p>
+                <p><strong>Améliorations (2 pts chacune) :</strong> chaque palier ajoute +1 (progression indicative : Fer → Acier → Ébonite).</p>
+            </div>
+        </section>
+
+        <!-- Milieux de vie -->
+        <section class="section">
+            <h2 class="section-title">🌑 Milieux de vie</h2>
+            <p class="intro-text">Ton parcours forge ton style. Choisis le milieu qui t'a fait ce que tu es aujourd'hui.</p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur un Milieu de vie pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="milieu-grid">
+                <!-- Enfant des Rues -->
+                <div class="milieu-card rues">
+                    <h3>🌆 Enfant des Rues</h3>
+                    <p class="milieu-description">Tu as grandi dans l'ombre des ruelles, là où la faim apprend plus vite que les maîtres. Voler, courir, frapper, encaisser… ce n'était pas un "style", c'était une condition de survie. Tes coups sont sales, efficaces, sans fierté inutile : tu frappes pour rester debout, et tu sais disparaître quand il le faut.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Récompenses</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise des attaques sournoises</h5>
+                            <p>Permet d'effectuer des attaques sournoises, infligeant les dégâts associés à la sournoiserie. Les dégâts de sournoiserie s'additionnent avec les dégâts dits de base de sournoiserie.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise mineure — Style de Combat de la Fouine</h5>
+                            <p>Un style sale et opportuniste, sans noblesse ni règles fixes. La Fouine ne cherche pas la beauté du geste : elle cherche l'ouverture. Elle frappe là où ça fait mal, profite du moindre déséquilibre, fait glisser, accroche, vise les blessures et casse le rythme adverse.</p>
+                            <p><strong>➡️</strong> Offre la compétence : Coup de Fouine +2.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques</h4>
+                        <p><strong>PER +2</strong> et <strong>DEX +1</strong></p>
+                    </div>
+                </div>
+
+                <!-- Gladiateur Clandestin -->
+                <div class="milieu-card gladiateur">
+                    <h3>⚔️ Gladiateur Clandestin</h3>
+                    <p class="milieu-description">Tu as été forgé dans des arènes illégales : cages, sous-sols, docks, salles fermées où le sang fait office de monnaie. Là-bas, on t'a appris à tenir le spectacle autant que le combat : rester debout, montrer la rage, sentir le public, gérer la peur. Tu sais aussi manier certaines armes "d'arène" quand le show l'exige… mais ton vrai art, c'est le corps.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Récompenses</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise d'arme au choix</h5>
+                            <p>Obtient un talent de Maîtrise d'arme au choix et obtient +1 classe d'arme liée à l'arme choisie.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Éclat du Fer (ou) Rage en Infériorité</h5>
+                            <p><strong>Éclat du Fer :</strong> Lors d'une prestation martiale, si l'arme a été utilisée correctement, le lanceur peut effectuer ses jets liés à la prestation en utilisant la compétence d'arme employée.</p>
+                            <p><strong>OU</strong></p>
+                            <p><strong>Rage en Infériorité :</strong> Lorsque le lanceur se retrouve en infériorité numérique, il peut 1 fois par combat effectuer un jet d'attaque avec une maîtrise d'arme maîtrisée en Avantage.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques</h4>
+                        <p><strong>CST +2</strong> et <strong>CHA +1</strong></p>
+                    </div>
+                </div>
+
+                <!-- Guerrier du Corps -->
+                <div class="milieu-card guerrier">
+                    <h3>💪 Guerrier du Corps</h3>
+                    <p class="milieu-description">Contrairement au simple bagarreur, tu as cherché une forme de discipline — pas une école ancienne, mais un code de guerre personnel. Ton corps est une arme entière : souffle, appuis, transitions, verrouillages, impacts courts. Tu ne cherches pas le style "artistique", mais la maîtrise : faire du corps une extension parfaite de ta volonté.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Récompenses</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Garde Vivant</h5>
+                            <p>Tant que tu es engagé au corps, tu obtiens un bonus léger sur tes jets de résistance aux projections, saisies / déséquilibres.</p>
+                            <p><strong>➡️</strong> Obtient la compétence : Robustesse N.A +5.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Reprise d'Impact</h5>
+                            <p>Le lanceur peut relancer un jet d'attaque de corps qu'il a raté, 1 fois par combat.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques</h4>
+                        <p><strong>FOR ou DEX +2</strong> et <strong>CST +1</strong></p>
+                    </div>
+                </div>
+
+                <!-- Casseur à Gages -->
+                <div class="milieu-card casseur">
+                    <h3>🔪 Casseur à Gages</h3>
+                    <p class="milieu-description">Tu as travaillé pour des gens que la loi ne regarde pas : collectes, intimidations, conflits de gangs, "petites besognes" qui deviennent vite sales. On t'appelait quand il fallait régler une situation sans poser de questions. Tu connais les codes de l'ombre : territoires, dettes, menaces, loyautés fragiles. Arme ou poings, peu importe — tant que l'objectif est atteint.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Récompenses</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Affaires criminelles</h5>
+                            <p>Le lanceur obtient lors de la création de fiche la section « Objet criminel ».</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Dialecte criminel</h5>
+                            <p>Offre un bonus de +2 sur les jets de Social lors des premières rencontres avec des criminels.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Frappe Traîtresse</h5>
+                            <p>Lorsque le lanceur attaque une cible déjà engagée avec une autre entité, il peut 1 fois par combat activer ce talent pour porter un coup opportuniste qui affaiblit la résistance physique de l'adversaire.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques</h4>
+                        <p><strong>CHA +2</strong> et <strong>DEX ou FOR +1</strong></p>
+                    </div>
+                </div>
+
+                <!-- Rixeur des Terres Vives -->
+                <div class="milieu-card terres">
+                    <h3>🌿 Rixeur des Terres Vives</h3>
+                    <p class="milieu-description">Dans certains lieux où la Nature est un plan vivant, on enseigne une vérité brutale : la magie n'est pas séparée du corps. Elle peut devenir une extension du mouvement, un souffle qui pousse, un élan qui frappe, une traction qui arrache. Tu n'as pas appris des sorts complexes : tu as appris à harmoniser geste et élément. Un coup peut porter une propulsion de vent, un pas peut devenir impulsion de terre, une esquive peut laisser un frisson de glace.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Récompenses</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Éveil magique</h5>
+                            <p>Déverrouille le potentiel magique : la base PM passe à 1d12 (si elle était inférieure) et la magie devient accessible. Lors de l'obtention du talent, le personnage peut lancer 2 dés de Gain de PM.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise mineure — Art de l'Écoulement Élémentaire</h5>
+                            <p>Dans le Plan Naturel, certains guerriers apprennent à approcher la magie non comme un "sort", mais comme une circulation. L'Écoulement Élémentaire est un art ancien : faire passer l'essence magique à travers le corps, les appuis, le souffle, jusqu'à ce qu'elle devienne un prolongement instinctif du mouvement. Chaque frappe, chaque pas, chaque rotation peut alors porter une impulsion élémentaire.</p>
+                            <p><strong>➡️</strong> Offre la compétence : Écoulement Élémentaire +2.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques</h4>
+                        <p><strong>SAG +4</strong> et <strong>DEX +1</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <h3 class="subsection-title">Connaissances de base</h3>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la rue</h4>
+                    <p>Tu connais la vie urbaine "réelle" : les quartiers, les habitudes, les dangers, les raccourcis, et les signaux qui annoncent une embrouille. Tu sais comment parler sans te faire repérer, où traîner sans te faire plumer, et comment éviter de tomber dans un piège social ou territorial.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine criminel</h4>
+                    <p>Tu comprends les codes du monde illégal : hiérarchies, planques, dettes, menaces, et manières de négocier sans déclencher une escalade. Tu sais reconnaître une arnaque classique, une transaction douteuse, ou une situation où quelqu'un cherche à te "marquer" ou t'utiliser.</p>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">📌 Selon le milieu de vie</h3>
+            
+            <div class="milieu-grid" style="margin-top: 30px;">
+                <!-- Connaissances Enfant des Rues -->
+                <div class="milieu-card rues">
+                    <h3>🌆 Enfant des Rues</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine des réseaux criminels <span class="level">(Modéré)</span></h4>
+                        <p>Tu sais comment les réseaux se structurent : informateurs, receleurs, passeurs, guetteurs, collecteurs et intermédiaires. Tu comprends comment l'information circule, comment on protège une planque, et comment une rumeur peut devenir une condamnation.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de la Guilde des Bas-fonds <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais l'existence de guildes souterraines : leurs signes, leurs règles internes, leurs territoires et leurs méthodes. Tu sais comment obtenir un contact, demander une faveur, ou éviter une faute qui te mettrait sur liste noire.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Gladiateur -->
+                <div class="milieu-card gladiateur">
+                    <h3>⚔️ Gladiateur Clandestin</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine clandestin <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais la logistique de l'illégal : lieux discrets, accès, codes, sécurités, corruption, et façons de faire disparaître une activité sans laisser de traces.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du Spectacle & de la Foule <span class="level">(Modéré)</span></h4>
+                        <p>Tu sais lire un public : tension, excitation, peur, hostilité, impatience. Tu comprends comment le rythme, l'attitude et la mise en scène influencent les réactions.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Guerrier -->
+                <div class="milieu-card guerrier">
+                    <h3>💪 Guerrier du Corps</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine des arts martiaux de corps <span class="level">(Modéré)</span></h4>
+                        <p>Même si tu n'es pas "moine", tu connais les grands principes du combat corporel : distance, appuis, timing, respiration, et contrôle de l'échange.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance des postures de combat <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les postures qui tiennent et celles qui trahissent : répartition du poids, angles de garde, stabilité des appuis et transitions.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Casseur -->
+                <div class="milieu-card casseur">
+                    <h3>🔪 Casseur à Gages</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance des organisations criminelles <span class="level">(Modéré)</span></h4>
+                        <p>Tu sais comment fonctionnent les structures du crime : cellules, chefs, exécutants, protections, territoires et modes de financement.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de l'Aube Rouge <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais l'Aube Rouge comme un réseau tentaculaire servant de refuge à des groupes très divers : bandits, mages maudits, cultistes, pilleurs et voleurs.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Terres Vives -->
+                <div class="milieu-card terres">
+                    <h3>🌿 Rixeur des Terres Vives</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine des arts de l'Écoulement Élémentaire <span class="level">(Modéré)</span></h4>
+                        <p>Tu comprends la logique de cet art : faire circuler l'essence élémentaire à travers le corps pour la propulser par le mouvement, sans incantation complexe.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine du Plan d'Yggdrasil <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les grandes réalités d'Yggdrasil : ses îles flottantes, sa magie pure omniprésente, et les particularités physiques de ses habitants adaptés au déplacement aérien.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎁 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure de base légère</h4>
+                        <p>Protection minimale pour garder ta mobilité</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Arme au choix</h4>
+                        <p>Une arme simple adaptée au combat de rue</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>1 potion de vie</h4>
+                        <p>Soin d'urgence pour tenir debout</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💪</span>
+                    <div>
+                        <h4>1 potion d'endurance</h4>
+                        <p>Restaure l'énergie en combat prolongé</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Coup de poing (FOR/DEX)</strong> — Capacité à frapper efficacement avec les poings (placement, timing, puissance).</li>
+                        <li><strong>Coup de pied (FOR/DEX)</strong> — Maîtrise des frappes de jambe (distance, trajectoire, équilibre, impact).</li>
+                        <li><strong>Arme X (FOR/DEX)</strong> — Maîtrise pratique d'une arme choisie, en force ou en précision.</li>
+                        <li><strong>Saisie (CST)</strong> — Capacité à agripper, maintenir, serrer et tenir une cible au contact malgré la résistance.</li>
+                        <li><strong>Esquive (DEX)</strong> — Éviter un coup par un déplacement court, une torsion ou un décalage au bon timing.</li>
+                        <li><strong>Réactivité (REA)</strong> — Vitesse de réponse en danger immédiat : contre, repositionnement, interruption.</li>
+                        <li><strong>Analyse de combat (FOR/PER)</strong> — Lire le combat en direct : rythme, portée, angles et habitudes d'un adversaire.</li>
+                        <li><strong>Robustesse (CST)</strong> — Tenir malgré fatigue, douleur, effort prolongé et coups répétés.</li>
+                        <li><strong>Blocage de corps (CST)</strong> — Encaisser ou réduire l'impact en "cassant" le coup avec le corps.</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Repérer les détails utiles du terrain pour se battre intelligemment.</li>
+                        <li><strong>Provocation (CHA)</strong> — Pousser l'adversaire à réagir mal : s'énerver, attaquer trop tôt, perdre sa garde.</li>
+                        <li><strong>Flair de combat (FOR/PER)</strong> — Sentir une ouverture sans réfléchir : garde qui tombe, souffle coupé, appui fragile.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>💠 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sentir qu'un coup, une embuscade ou un piège arrive avant de l'avoir prouvé.</li>
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Rester fonctionnel malgré une douleur vive ou une blessure handicapante.</li>
+                        <li><strong>Impact brutal (Puissance)</strong> — Mettre tout ton corps derrière une frappe pour casser la garde ou faire reculer.</li>
+                        <li><strong>Pas léger (Finesse)</strong> — Se déplacer avec moins de bruit et plus de contrôle, même en zone serrée.</li>
+                        <li><strong>Agilité de mouvement (Finesse)</strong> — Bouger proprement : pivots, changements d'angle, appuis sûrs.</li>
+                        <li><strong>Savoir des bas-fonds (Savoir)</strong> — Comprendre les codes, habitudes et dangers du monde souterrain urbain.</li>
+                        <li><strong>Récupération physique (Résilience)</strong> — Reprendre ton souffle et ta stabilité plus vite après un échange violent.</li>
+                        <li><strong>Dialecte de la rue (Social)</strong> — Parler comme les gens du bitume : ton, expressions, sous-entendus et respect implicite.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/Rixeur.js"></script>
+</body>
+</html>

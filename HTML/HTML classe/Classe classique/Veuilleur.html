@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veilleur - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Veuilleur.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Veilleur.png" alt="Veilleur">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🛡️ Veilleur</h1>
+            <p class="class-quote">« La discipline n'est pas une chaîne. C'est la seule chose qui reste debout quand tout s'effondre. »</p>
+            <p class="class-type">🧭 Combattant paramilitaire • polyvalent • protection & contrôle • discipline</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description / Présentation</h2>
+            <div class="content-box">
+                <p>Le Veilleur est une force d'exception formée par une Citadelle de l'Égide. Ce n'est pas un simple soldat : il est entraîné pour intervenir quand les menaces dépassent la garde, la milice ou l'armée locale. Sa formation vise la fiabilité sous pression : tenir une ligne, protéger, traquer ou neutraliser selon la doctrine de sa Citadelle. À terme, certains reçoivent le Marquage du Dogma, un rite exigeant qui ancre la discipline jusque dans la chair.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>⚔️ Style de combat :</strong> protection • intervention • discipline • combat en armure</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d16</li>
+                        <li><strong>PM :</strong> 1d8</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +2</span>
+                        <span class="stat-item positive highlight">CST : +3</span>
+                        <span class="stat-item positive">DEX : +1</span>
+                        <span class="stat-item negative">INT : −2</span>
+                        <span class="stat-item positive">SAG : +1</span>
+                        <span class="stat-item positive">PER : +1</span>
+                        <span class="stat-item negative">CHA : −1</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 25 + 2d6</li>
+                        <li><strong>REA :</strong> +5</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🌟 Talents de classe</h2>
+            
+            <div class="talent-card">
+                <h3>Discipline de Veille</h3>
+                <p>Tu obtiens Avantage sur les jets visant à rester opérationnel sous pression (tenir une position, ne pas paniquer, agir malgré douleur/stress), à l'appréciation du MJ.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maître d'armure de Veilleur</h3>
+                <p>Tu sais te déplacer et combattre en armure de service sans subir les pénalités d'un porteur novice (bruit, gêne, appuis, fatigue), selon les règles de ton système.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de l'art du bouclier</h3>
+                <p>Tu sais utiliser un bouclier en situation réelle : couverture d'un allié, angles, protection en mouvement et tenue de ligne.</p>
+            </div>
+        </section>
+        <!-- Citadelles -->
+        <section class="section">
+            <h2 class="section-title">🎓 Choix de sa Citadelle</h2>
+            <p class="intro-text">Quand tu deviens Veilleur, tu es formé dans une Citadelle. Chaque Citadelle transmet un Dogma, une méthode, une spécialisation, et une manière d'exister sur le terrain.</p>
+            
+            <div class="citadel-grid">
+                <!-- Citadelle 1: Égide Écarlate -->
+                <div class="citadel-card scarlet">
+                    <h3>🔴 Citadelle du Serment de l'Égide Écarlate</h3>
+                    <p>Ici, on forme des Veilleurs faits pour tenir les rues et protéger le peuple quand l'ordre vacille. La formation insiste sur la discipline, la maîtrise de soi et l'intervention "propre" : contenir avant de tuer, sécuriser avant de frapper. On apprend à gérer les foules, les bandits, les crises civiles, et à rester lucide au milieu des innocents. Un Veilleur écarlate devient un rempart vivant : visible, assumé, difficile à briser.</p>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus & Malus de caractéristiques</h4>
+                        <p><strong>Bonus (+6) :</strong> CST +2 • CHA +2 • PER +2</p>
+                        <p><strong>Malus (−4) :</strong> DEX −2 • INT −2</p>
+                        <p><strong>🧠 Bonus de Trait spécifique :</strong> Social +2</p>
+                    </div>
+                    
+                    <h4>🎁 Récompense — Choix (choisis 1 talent de formation)</h4>
+                    
+                    <div class="subsection">
+                        <h4>Geste de l'Égide Écarlate</h4>
+                        <p>Une fois par tour, tu peux dépenser directement 1 Point de Réaction (PR) pour effectuer une intervention protectrice (te placer, couvrir un allié, bloquer un passage, protéger un civil, etc.), sans effectuer de jet de Réactivité.</p>
+                        <p><strong>➡️</strong> L'action reste une intervention (pas une attaque), mais elle se déclenche immédiatement dès que tu le décides.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Rempart du Cœur</h4>
+                        <p>Tu peux activer ta classe d'arme sur un jet défensif en utilisant ton bouclier comme support de maîtrise.</p>
+                        <p><strong>➡️</strong> Même si la résistance du bouclier n'est pas comptabilisée (contournement, angle mort, effet spécial, etc.), tu peux quand même appliquer l'effet de classe d'arme pour renforcer la défense ou réduire l'impact selon ses règles.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Autorité Écarlate</h4>
+                        <p>Tu obtiens Avantage sur les jets de discussion basés sur Social ou Charisme, tant qu'il ne s'agit pas d'une action contraignante pour le civil et qu'il n'y a pas d'opposition directe (pas d'intimidation forcée, pas de conflit ouvert, pas de négociation "bras de fer").</p>
+                    </div>
+                </div>
+
+                <!-- Citadelle 2: Crocs Cendrés -->
+                <div class="citadel-card ash">
+                    <h3>🌫️ Citadelle des Crocs Cendrés</h3>
+                    <p>La Citadelle des Crocs Cendrés forge des traqueurs capables de suivre l'anormal jusqu'au bout du monde. On y apprend l'endurance, l'observation, la lecture des traces et le silence, jusqu'à ce que la chasse devienne une seconde nature. Leur formation pousse à la patience froide : attendre, comprendre, puis frapper au moment juste. Ils ne cherchent pas la gloire : seulement la certitude que la proie ne se relèvera pas.</p>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus & Malus de caractéristiques</h4>
+                        <p><strong>Bonus (+6) :</strong> PER +3 • DEX +2 • SAG +1</p>
+                        <p><strong>Malus (−4) :</strong> CHA −2 • FOR −1 • INT −1</p>
+                        <p><strong>🧠 Bonus de Trait spécifique :</strong> Instinct +2</p>
+                    </div>
+                    
+                    <h4>🎁 Récompense — Choix (choisis 1 talent de formation)</h4>
+                    
+                    <div class="subsection">
+                        <h4>Maître du Pistage (mineur)</h4>
+                        <p>Permet de lire les empreintes, signes de passage ou perturbations dans l'environnement. Ce talent est utilisé pour suivre des traces humaines, animales ou magiques. Très utile en traque, chasse ou investigation. Il permet aussi d'éviter les embuscades ou retrouver une cible perdue.</p>
+                        <p><strong>Compétence :</strong> Pistage +2 (Perception)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Vigilance des Cendres</h4>
+                        <p>Tes sens ont été aiguisés au-delà de la norme par la traque et "l'après-passage".</p>
+                        <p><strong>➡️</strong> Tu obtiens Avantage sur tous tes jets basés sur le trait Instinct.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Œil du Croc Boréal</h4>
+                        <p>Quand tu affrontes un adversaire en milieu naturel (tout environnement non urbain), ton instinct guide tes déplacements au bon moment.</p>
+                        <p><strong>➡️</strong> Tu gagnes un bonus de MD égal au double de ta valeur d'Instinct.</p>
+                        <p><strong>Effet défensif :</strong> Quand tu subis une attaque hors attaque de zone, si la marge de réussite de l'attaque adverse est inférieure ou égale à ta MD, alors l'attaque ne te touche pas : tu l'évites par un mouvement instinctif.</p>
+                        <p><strong>⚠️</strong> Ce mouvement n'est pas considéré comme une esquive ou une parade mécaniquement (c'est une réaction "gratuite" RP intégrée à l'effet).</p>
+                    </div>
+                </div>
+
+                <!-- Citadelle 3: Sceau du Lion -->
+                <div class="citadel-card lion">
+                    <h3>🦁 Citadelle du Sceau du Lion</h3>
+                    <p>Cette Citadelle forme des Veilleurs de guerre, spécialisés contre des ennemis intelligents : factions, clans armés, armées organisées. On y enseigne la tactique, la coordination, le contrôle du terrain et la discipline de formation. Un Veilleur du Lion apprend que la force doit être tenue comme un ordre : ni panique, ni rage, seulement l'exécution maîtrisée. Leur but est de gagner sans laisser le chaos gagner avec eux.</p>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus & Malus de caractéristiques</h4>
+                        <p><strong>Bonus (+6) :</strong> INT +2 • CHA +2 • CST +2</p>
+                        <p><strong>Malus (−4) :</strong> DEX −2 • PER −1 • SAG −1</p>
+                        <p><strong>🧠 Bonus de Trait spécifique :</strong> Sang-froid +2</p>
+                    </div>
+                    
+                    <h4>⚠️ Récompense obligatoire — Malédiction du Lion Noir</h4>
+                    
+                    <div class="subsection" style="border-color: #3a3a3a; background: rgba(58, 58, 58, 0.05);">
+                        <h4>Orgueil du Lion Noir</h4>
+                        <p>Quand ta rage réprimée cède (provocation directe, allié gravement blessé, ligne rompue ou humiliation), tu peux 1 fois par session libérer le Lion Noir jusqu'à la fin de ton prochain tour. (Il peut aussi arriver que le Lion se réveille de lui-même via un jet de Sang-froid.)</p>
+                        <p><strong>➡️</strong> Pendant cet état, tu gagnes Avantage sur tes actions offensives (attaques, prises, intimidation en combat), mais tu subis Désavantage sur toute tentative de repli / désengagement et tu ne peux pas choisir d'action "prudente" tant qu'un ennemi est à portée.</p>
+                    </div>
+                    
+                    <h4>🎁 Récompense — Choix (choisis 1 talent de formation)</h4>
+                    
+                    <div class="subsection">
+                        <h4>Pression du Lion Noir</h4>
+                        <p>Au prix de 1 PR, tu peux effectuer un jet de Charisme pour libérer une présence oppressante qui appesantit l'air. Choisis une cible engagée : elle doit faire un jet de Sang-froid dont la difficulté est égale à (Mod CHA + dizaine de ta marge de réussite).</p>
+                        <p><strong>Échec :</strong> la cible est déstabilisée et subit Désavantage sur sa prochaine action contre toi.</p>
+                        <p><strong>Réussite :</strong> la cible résiste, mais son jet de Sang-froid est effectué en Désavantage (la pression est éprouvante même si elle tient bon).</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Prestance du Lion d'Armure</h4>
+                        <p>Tant que tu portes l'Armure du Lion, tous tes jets de Charisme liés à la présence intimidante / pression martiale sont effectués avec Avantage.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Regard du Sceau</h4>
+                        <p>Tu obtiens la compétence Analyse du Lion : N.A +10, utilisée pour repérer les faiblesses, estimer les résistances, et comprendre les réflexes ou défenses "légendaires" d'un adversaire (tactique, créature, champion, etc.). Ce n'est pas de la magie : c'est une lecture froide du combat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Continuation Citadelles -->
+        <section class="section" style="margin-top: -40px;">
+            <div class="citadel-grid">
+                <!-- Citadelle 4: Sang d'Argent -->
+                <div class="citadel-card silver">
+                    <h3>⚪ Citadelle du Sang d'Argent</h3>
+                    <p>Le Sang d'Argent entraîne ses Veilleurs à affronter la corruption bestiale : lycanthropes, infectés, créatures déformées par le maudit. La formation enseigne à contenir, isoler, purifier si possible… et abattre sans trembler si la bête a gagné. On y apprend aussi la compassion disciplinée : reconnaître une victime sans oublier le danger. Sortir de cette Citadelle, c'est porter la peur des autres et la garder sous contrôle.</p>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus & Malus de caractéristiques</h4>
+                        <p><strong>Bonus (+6) :</strong> CST +3 • SAG +2 • PER +1</p>
+                        <p><strong>Malus (−4) :</strong> CHA −2 • DEX −1 • INT −1</p>
+                        <p><strong>🧠 Bonus de Trait spécifique :</strong> Résilience +2</p>
+                    </div>
+                    
+                    <h4>🎁 Récompenses</h4>
+                    
+                    <div class="subsection">
+                        <h4>Atout — Argent de Veille</h4>
+                        <p>Le Veilleur obtient Avantage sur tous les jets de Résistance Mentale (RM) et sur toute résistance contre une magie maudite.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent — Symbiose du Fleuve</h4>
+                        <p>Ayant été marqué par le Fleuve du Firmament, le sang du Veilleur entre en résonance avec les armes d'argent. Lorsqu'il manie une arme d'argent, celle-ci révèle pleinement sa puissance entre ses mains, comme si elle reconnaissait sa nature et cessait de "résister" à son porteur.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Résistances</h4>
+                        <p>Le Veilleur obtient 10% de résistance à :</p>
+                        <ul>
+                            <li>La magie de sang</li>
+                            <li>Les toxines</li>
+                            <li>La nécromancie maudite</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Citadelle 5: Lame Funeste -->
+                <div class="citadel-card doom">
+                    <h3>⚫ Citadelle de la Lame Funeste</h3>
+                    <p>Ici, on apprend à combattre le maudit avec ses propres armes, mais sous une contrainte totale. La formation est dure, parfois brisante : contrôle mental, rituels, limites strictes, et sanctions immédiates en cas de dérive. Un Veilleur de la Lame Funeste n'est pas "plus fort", il est plus surveillé — y compris par ses propres frères. On les appelle quand il n'existe plus de solution propre.</p>
+                    
+                    <h4>🎁 Récompenses</h4>
+                    
+                    <div class="subsection">
+                        <h4>Éveil magique</h4>
+                        <p>Déverrouille le potentiel magique : la base PM passe à 1d12 (si elle était inférieure) et la magie devient accessible. Lors de l'obtention du talent, le personnage peut lancer 2 dés de Gain de PM.</p>
+                    </div>
+                    
+                    <h4>Choix de voie (lié au Dogma)</h4>
+                    <p>Le Veilleur obtient la possibilité de suivre une voie dédiée à la lutte contre le maudit.</p>
+                    
+                    <div class="subsection" style="margin-top: 25px; border-color: #8b1e1e;">
+                        <h4>▶️ Voie de la Réformation des Morts</h4>
+                        
+                        <h4 style="margin-top: 20px;">📊 Bonus & Malus de caractéristiques (Voie)</h4>
+                        <p><strong>Bonus (+6) :</strong> INT +4 • CST +2</p>
+                        <p><strong>Malus (−4) :</strong> CHA −2 • SAG −1 • PER −1</p>
+                        <p><strong>🧠 Bonus de Trait spécifique (Voie) :</strong> Savoir +2</p>
+                        
+                        <h4 style="margin-top: 20px;">Récompense de voie</h4>
+                        <p>Obtient la maîtrise de la <strong>magie nécromantique maudite</strong>, ainsi que la <strong>Dégénérescence Nécrotique</strong>.</p>
+                    </div>
+                    
+                    <div class="subsection" style="margin-top: 25px; border-color: #b0b0b0;">
+                        <h4>▶️ Voie Mortuaire</h4>
+                        
+                        <h4 style="margin-top: 20px;">📊 Bonus & Malus de caractéristiques (Voie)</h4>
+                        <p><strong>Bonus (+6) :</strong> SAG +4 • CST +2</p>
+                        <p><strong>Malus (−4) :</strong> CHA −2 • INT −1 • DEX −1</p>
+                        <p><strong>🧠 Bonus de Trait spécifique (Voie) :</strong> Sang-froid +2</p>
+                        
+                        <h4 style="margin-top: 20px;">Récompenses de voie</h4>
+                        <p><strong>« Maîtrise mineure de la magie sacrée : Funéurgie d'Ivoire »</strong></p>
+                        <p>La Funéurgie d'Ivoire est une magie religieuse, héritée des anciens cultes de la Mort Blanche. Elle se distingue de la nécromancie profane : au lieu de manipuler les morts, elle impose le repos, purifie les cadavres, et trace des sceaux d'ivoire pour contenir ou dissiper la profanation.</p>
+                        
+                        <p style="margin-top: 15px;"><strong>« Touché par la Grâce de la Mère Mort Blanche »</strong></p>
+                        <p>Béni par la Mère Mort Blanche, le lanceur a assimilé une part de son énergie sacrée. Cette grâce lui permet d'exercer la Funéurgie d'Ivoire : une nécromancie pure et cendreuse, née de la foi, qui canalise la magie nécrotique mortuaire sans corruption.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <h3 class="subsection-title">Connaissances de base</h3>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Veilleurs <span class="level">(Moyen)</span></h4>
+                    <p>Tu connais l'Égide, ses règles communes, ses protocoles d'intervention et la logique des Dogma. Tu sais comment un Veilleur agit en crise : sécuriser, contenir, rapporter, puis frapper si nécessaire. Cette connaissance te permet aussi de reconnaître les usages, insignes et comportements typiques d'un autre Veilleur.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la Citadelle choisie <span class="level">(Moyen)</span></h4>
+                    <p>Tu connais l'histoire, les valeurs, la doctrine et les méthodes de ta Citadelle. Tu sais comment ses Veilleurs pensent, parlent, s'entraînent et quelles priorités priment dans leur Dogma. Cela t'aide à agir "dans la bonne ligne" et à éviter les fautes de doctrine.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance de l'art de combat de la Citadelle choisie <span class="level">(Modéré)</span></h4>
+                    <p>Tu as appris le style de combat propre à ta Citadelle : postures, rythme, manœuvres, réflexes de terrain. Tu sais quand défendre, quand pousser, comment te placer et comment coopérer avec d'autres Veilleurs du même Dogma. C'est une connaissance pratique, faite pour survivre.</p>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">📌 Selon le choix d'appartenance à la Citadelle</h3>
+            
+            <div class="citadel-grid" style="margin-top: 30px;">
+                <!-- Connaissances Égide Écarlate -->
+                <div class="citadel-card scarlet">
+                    <h3>🔴 Citadelle du Serment de l'Égide Écarlate</h3>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine des Forces de l'ordre <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les techniques de maintien de l'ordre : contrôle de foule, sécurisation de zone, arrestation, escorte et protection de civils. Tu sais intervenir sans déclencher une panique ou une escalade inutile. Cela inclut les procédures "propres" quand la situation est tendue.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine des Lois et autorités <span class="level">(Modéré)</span></h4>
+                        <p>Tu sais qui commande, qui juge, et quelles règles locales peuvent te soutenir ou te bloquer. Tu connais les bases des juridictions : cité libre, province, clergé, milice, seigneurie. Cette connaissance évite les bavures politiques et te permet d'agir efficacement sans provoquer de crise.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine criminel <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les structures du banditisme : rackets, trafics, codes de gang, planques, informateurs. Tu sais reconnaître les signes d'un territoire sous contrôle criminel et comment remonter une piste sans te faire manipuler. Utile pour frapper une organisation plutôt que courir derrière ses symptômes.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Crocs Cendrés -->
+                <div class="citadel-card ash">
+                    <h3>🌫️ Citadelle des Crocs Cendrés</h3>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine des Terres sauvages <span class="level">(Modéré)</span></h4>
+                        <p>Tu sais survivre et te déplacer loin des routes : gestion des ressources, campement sûr, météo, itinéraires. Tu connais les erreurs qui tuent en extérieur (froid, fatigue, terrain piégé) et comment les anticiper. Cette connaissance rend la traque possible sur plusieurs jours.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine du bestiaire des Monstres <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les grandes catégories de monstres, leurs comportements typiques, et les signes avant-coureurs de présence. Tu sais quelles erreurs éviter (bruit, feu, odeurs, seuils, appâts) et quelles faiblesses sont fréquentes. C'est un savoir de chasseur : pratique, pas académique.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du bestiaire animal <span class="level">(Modéré)</span></h4>
+                        <p>Tu sais lire les animaux : pistes, habitudes, zones de chasse, réactions de fuite ou d'agressivité. Tu peux reconnaître un comportement anormal (bête déplacée, silence soudain, migration cassée) qui signale un danger. Cela sert autant à se nourrir qu'à repérer l'ombre derrière la forêt.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Sceau du Lion -->
+                <div class="citadel-card lion">
+                    <h3>🦁 Citadelle du Sceau du Lion</h3>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance des techniques de tactique de guerre <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les manœuvres simples mais vitales : verrouillage, flanc, retraite contrôlée, percée, couverture d'un allié. Tu sais coordonner des actions en petit groupe pour gagner sans chaos. Cette connaissance transforme un affrontement en manœuvre.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine de l'art de la guerre <span class="level">(Modéré)</span></h4>
+                        <p>Tu comprends la logique d'un conflit : moral, terrain, tempo, objectifs, sacrifices nécessaires. Tu sais quand il faut tenir, quand il faut plier, et quand il faut casser la chaîne adverse. C'est une vision globale qui évite les victoires "trop chères".</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine militaire <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais l'organisation des forces armées : grades, logistique, ravitaillement, discipline, camps, règles de patrouille. Tu sais lire une armée : repérer une préparation d'embuscade, une stratégie, un dispositif. Utile contre des ennemis organisés et pas juste dangereux.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Sang d'Argent -->
+                <div class="citadel-card silver">
+                    <h3>⚪ Citadelle du Sang d'Argent</h3>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance des mythes et légendes <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les récits qui entourent les corruptions, les malédictions et les créatures "qui reviennent". Même si tout n'est pas vrai, tu sais quels mythes cachent souvent une réalité utile : signes, tabous, protections, erreurs à ne pas commettre. C'est un savoir populaire devenu outil de terrain.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance de l'histoire de Cœur d'Argent <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais l'origine, les grandes chasses, les drames et les serments de la Citadelle du Sang d'Argent. Tu sais pourquoi leurs méthodes sont dures, et d'où vient leur réputation. Cette connaissance donne du sens à la discipline : ce n'est pas une cruauté, c'est une leçon apprise dans le sang.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine du bestiaire maudit <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les créatures corrompues : infectés, lycanthropes, mutations, bêtes déformées par le maudit. Tu sais reconnaître les stades de corruption, les risques de propagation, et les réflexes : contenir, isoler, purifier si possible, abattre sinon. C'est une connaissance faite pour éviter que "la bête" ne devienne une épidémie.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Lame Funeste -->
+                <div class="citadel-card doom">
+                    <h3>⚫ Citadelle de la Lame Funeste</h3>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance du domaine de la magie maudite <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les principes et dangers de la magie maudite : contamination, dérive, pactes, malédictions, marques sur l'esprit. Tu sais reconnaître les signes d'un lieu souillé ou d'un rituel actif. Cette connaissance sert surtout à éviter les erreurs irréversibles.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance de la magie nécromantique maudite <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les bases de la nécromancie profane : animation, liens d'âme, profanation, stabilisation instable, risques d'escalade. Tu sais identifier un mort "tenu", une invocation mal fixée, ou une zone saturée de nécrotique. C'est un savoir de contrôle : comprendre avant de briser.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissance de la magie sacrée — Funéurgie d'Ivoire <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais la Funéurgie d'Ivoire, héritée des anciens cultes de la Mort Blanche. Elle ne manipule pas les morts : elle impose le repos, purifie les cadavres, et trace des sceaux d'ivoire pour contenir ou dissiper la profanation. Cette connaissance te permet de reconnaître un rite funéraire valide, une profanation, ou un "reste" qui doit être scellé.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align: center; font-size: 1.2rem; margin: 0;">
+                    <strong>+1 maîtrise dans une arme au choix</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎒 Équipement offert par la classe</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>1 arme martiale au choix</h4>
+                        <p>Arme de corps-à-corps adaptée au combat de Veilleur</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure de Veille</h4>
+                        <p>Armure lourde ou intermédiaire selon ton système, marquée de l'insigne de ta Citadelle</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>1 potion de vie</h4>
+                        <p>Soin d'urgence pour tenir la ligne</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💪</span>
+                    <div>
+                        <h4>1 potion d'endurance</h4>
+                        <p>Restaure l'énergie en situation critique</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🏛️</span>
+                    <div>
+                        <h4>Emblème de la Citadelle choisie</h4>
+                        <p>Insigne officiel marquant ton appartenance et ton Dogma</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 30px;">
+                <p><strong>➡️ Obtient accès à la boutique de sa Citadelle</strong>, liée à son Dogma.</p>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Arme au choix (FOR ou DEX)</strong> — Représente ta maîtrise d'une arme choisie (épée, hache, lance, dague, arc, etc.). Sert à toucher proprement, gérer la portée, le rythme, et appliquer le style de combat du Veilleur selon l'arme.</li>
+                        <li><strong>Robustesse (CST)</strong> — Capacité à tenir sous les coups, la fatigue et les efforts prolongés sans s'écrouler. Sert aussi à encaisser les chocs, continuer malgré la douleur et garder une posture stable en mêlée.</li>
+                        <li><strong>Intimidation (CHA)</strong> — Imposer une pression par la présence, la voix ou la posture pour faire hésiter, reculer ou céder. Utile en interrogatoire, face à des bandits, ou pour briser une volonté sans frapper.</li>
+                        <li><strong>Discernement (SAG)</strong> — Lire une situation avec justesse : comprendre ce qui est important, ce qui est faux, et ce qui cache un danger. Sert à éviter les décisions stupides sous stress et à sentir quand "quelque chose cloche".</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Repérer les détails utiles du terrain : sorties, angles morts, traces récentes, positions dangereuses, indices. Sert autant en enquête qu'en combat pour prendre l'avantage avant l'action.</li>
+                        <li><strong>Autorité de Veilleur (CHA)</strong> — Faire respecter l'insigne et la fonction : ordonner, stabiliser une situation, imposer une ligne claire. Utile pour mobiliser des civils, coordonner des alliés, ou calmer une foule par simple présence.</li>
+                        <li><strong>Réactif (REA)</strong> — Ta capacité à répondre vite à un danger immédiat : esquive réflexe, déplacement d'urgence, riposte ou protection instantanée. Sert surtout quand tout se joue sur un timing court, avant même de réfléchir.</li>
+                        <li><strong>Apaisement civil (CHA)</strong> — Calmer des personnes paniquées, choquées ou agressives sans les humilier ni les pousser à la violence. Sert à désamorcer une crise, obtenir une coopération ou éviter une émeute.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Continuer malgré une blessure, un choc ou une souffrance intense sans perdre ton efficacité. Sert à ne pas lâcher une action critique quand ton corps veut s'arrêter.</li>
+                        <li><strong>Résistance aux contaminations légères (Résilience)</strong> — Réduire l'impact de miasmes, poussières, toxines faibles ou air malsain lors d'une exploration ou d'un combat. Sert à tenir plus longtemps avant que le corps ne cède ou que l'état s'aggrave.</li>
+                        <li><strong>Agilité de mouvement (Finesse)</strong> — Se déplacer avec contrôle : pas silencieux, appuis sûrs, mouvements précis en espace étroit ou instable. Utile pour se repositionner sans bruit, passer un obstacle ou éviter de déclencher un piège.</li>
+                        <li><strong>Domination physique (Puissance)</strong> — Imposer ton corps en mêlée : pousser, plaquer, maintenir, renverser ou briser une prise. Sert à contrôler un adversaire dangereux sans forcément le tuer.</li>
+                        <li><strong>Résistance à la peur (Sang-froid)</strong> — Garder la tête froide face à l'horreur, l'effroi, la présence anormale ou une menace écrasante. Sert à agir correctement quand d'autres paniquent ou fuient.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sentir un piège, une embuscade ou une menace avant d'en avoir la preuve. Sert à choisir le bon pas, t'arrêter au bon moment, ou te décaler juste avant l'impact.</li>
+                        <li><strong>Apaiser (Social)</strong> — Désamorcer une tension par les mots, le ton et la lecture de l'autre, même en situation tendue. Utile pour éviter un combat inutile, faire redescendre la colère ou obtenir une information.</li>
+                        <li><strong>Réparation de terrain (basique) (Métier)</strong> — Réparer ou rafistoler rapidement une arme, une armure, une sangle, une roue ou un outil avec peu de moyens. Sert à éviter une panne critique en mission et à rester opérationnel.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Création du graphique radar des caractéristiques
+        const ctx = document.getElementById('statsChart').getContext('2d');
+        
+        // Données du Veilleur (échelle de -4 à +6)
+        const statsData = {
+            FOR: 2,
+            CST: 3,
+            DEX: 1,
+            INT: -2,
+            SAG: 1,
+            PER: 1,
+            CHA: -1
+        };
+
+        // Convertir les valeurs pour le graphique (ajouter 4 pour que 0 soit au centre)
+        const convertedData = Object.values(statsData).map(val => val + 4);
+
+        const statsChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
+                datasets: [{
+                    label: 'Caractéristiques',
+                    data: convertedData,
+                    backgroundColor: 'rgba(58, 74, 90, 0.2)',
+                    borderColor: 'rgba(58, 74, 90, 0.8)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(58, 74, 90, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(58, 74, 90, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 10, // -4 à +6 = 10 niveaux
+                        ticks: {
+                            stepSize: 2,
+                            callback: function(value) {
+                                // Convertir les valeurs affichées (-4 à +6)
+                                return value - 4;
+                            },
+                            color: '#3a4a5a',
+                            font: {
+                                size: 11,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(58, 74, 90, 0.2)'
+                        },
+                        angleLines: {
+                            color: 'rgba(58, 74, 90, 0.2)'
+                        },
+                        pointLabels: {
+                            color: '#3a4a5a',
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: "'Cinzel', serif"
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const actualValue = context.parsed.r - 4;
+                                return context.label + ': ' + (actualValue >= 0 ? '+' : '') + actualValue;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

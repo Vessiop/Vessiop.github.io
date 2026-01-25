@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initié des Chemins - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Moine.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/mOINE.png" alt="Initié des Chemins">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🧘 Initié des Chemins</h1>
+            <p class="class-quote">« En chaque pas, un choix. En chaque souffle, une vérité. Et dans chaque geste… une voie. »</p>
+            <p class="class-type">🌸 Moine • art de vie • discipline • souffle intérieur</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description / Présentation</h2>
+            <div class="content-box">
+                <p>L'Initié des Chemins n'est pas seulement un combattant : c'est un pratiquant d'art de vie. Là où d'autres apprennent à vaincre, lui apprend à se régler. Il forge le corps par la discipline, aiguise l'esprit par la contemplation, et cultive une présence intérieure capable de résister aux troubles, aux influences et aux forces qui cherchent à déformer la volonté.</p>
+                
+                <p>Son art vient d'un principe simple : tout être possède un souffle, une énergie intime — parfois silencieuse, parfois indomptable — que l'on peut apprendre à écouter, canaliser et orienter. L'Initié ne "lance" pas sa puissance comme un sort : il la fait circuler, il la stabilise, il la sculpte au fil des jours. Sa force se construit dans la répétition, la sobriété, l'endurance… et dans le choix d'un Dogme.</p>
+                
+                <p>Car l'Initié marche selon un Chemin spirituel : une école de pensée qui n'est pas forcément un lieu, mais une direction de vie. Certains cherchent la communion du vivant, d'autres la perfection du corps, d'autres encore l'écoute de l'invisible. Et quelques-uns, plus rares, suivent des voies sombres où la faim d'énergie met l'humanité à l'épreuve.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Armes de prédilection :</strong> le corps, bâtons de combat</p>
+                    <p><strong>Armures de prédilection :</strong> vêtements traditionnels (bonus avec armures de moine)</p>
+                    <p><strong>Type de classe :</strong> combattant martial / mixte corps–esprit</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d10</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +1</span>
+                        <span class="stat-item positive highlight">CST : +3</span>
+                        <span class="stat-item negative">DEX : −1</span>
+                        <span class="stat-item negative">INT : −3</span>
+                        <span class="stat-item positive highlight">SAG : +3</span>
+                        <span class="stat-item positive">PER : +1</span>
+                        <span class="stat-item negative">CHA : −2</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> <span class="highlight-stat">25 + 3d6</span></li>
+                        <li><strong>REA :</strong> +4</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents</h2>
+            
+            <div class="talent-card">
+                <h3>Âme Trempée, Chair Indomptable</h3>
+                <p>En parcourant le monde à la recherche de ta voie, tu as forgé ton âme autant que ton corps. Ta discipline a réveillé une puissance physique rare, capable de briser ce que l'on croyait incassable — et d'exécuter des mouvements qu'un humanoïde "ordinaire" ne pourrait reproduire qu'au prix d'un effort extrême.</p>
+                <p><strong>Effets :</strong></p>
+                <ul>
+                    <li>Tu déverrouilles ton potentiel de dégâts de corps : retire la division de la statistique "Mod de Force" dans la base des dégâts de corps (poings/pieds, etc.).</li>
+                    <li>Tu peux réaliser des mouvements physiques hors norme (sauts, appuis, contorsions, changements d'axe, accélérations).</li>
+                </ul>
+            </div>
+
+            <div class="talent-card">
+                <h3>Éveil du Sanctuaire Intérieur (Mineur)</h3>
+                <p>Le lanceur acquiert la faculté de percevoir, canaliser et maîtriser une énergie particulière, aussi pure que l'énergie environnante qu'il apprend à influencer par la sagesse. Cette compréhension intime révèle au lanceur l'existence du Souffle Intérieur, une force subtile qu'il peut guider avec précision.</p>
+                <p><strong>➡️</strong> Le lanceur obtient la compétence Manipulation du Souffle à +2 (Sagesse).</p>
+            </div>
+        </section>
+
+        <!-- Chemins spirituels -->
+        <section class="section">
+            <h2 class="section-title">🛤️ Chemin spirituel</h2>
+            <p class="intro-text">« Ermite par nature, vous vous êtes volontairement éloigné des sociétés conventionnelles pendant un temps afin de comprendre, renforcer et affiner votre lien spirituel. Au fil d'un voyage contemplatif, vous avez traversé des terres de tous horizons, observé des modes de vie opposés, rencontré des personnes guidées par des dogmes très différents. De ces expériences est née une certitude : la vôtre. Le personnage a ainsi pu définir le Dogme de vie spirituel qu'il souhaite suivre. »</p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur un Chemin spirituel pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="chemin-grid">
+                <!-- Chemin de la Vie -->
+                <div class="chemin-card vie">
+                    <h3>🌿 Chemin de la Vie</h3>
+                    <p class="chemin-description">Un chemin vertueux, enraciné dans le respect du vivant et la proximité des terres sauvages. Celui qui le suit apprend à écouter les rythmes du monde, à comprendre ce qui pousse, ce qui meurt, ce qui revient. Ce n'est pas une domination de la nature, mais une communion patiente : un lien de partage, nourri par les longues marches, les veilles, les saisons traversées.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Bonus obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Style de souffle : Régulation vivifiante</h5>
+                            <p>Un style précis et soigné, spécialisé dans la circulation naturelle de l'énergie vitale. Le pratiquant apprend à réguler le flux en lui-même ou chez autrui, en le redirigeant vers sa source d'origine. Les effets ne sont pas miraculeux, mais ils peuvent provoquer des réactions étonnantes du corps : récupération accélérée, relâchement de tensions, meilleure stabilité interne. Cet art est souvent surnommé l'Art médical du Souffle.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Bonne vitalité</h5>
+                            <p>+1 sur le résultat des dés de gain de PV lors des montées de niveau.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>SAG +3</strong></p>
+                        <p><strong>+1 Résilience</strong> et <strong>+1 Social</strong></p>
+                    </div>
+                </div>
+
+                <!-- Chemin du Pilier -->
+                <div class="chemin-card pilier">
+                    <h3>🪨 Chemin du Pilier</h3>
+                    <p class="chemin-description">Un chemin académique et rigoureux, fondé sur la méthode, la répétition et le perfectionnement. Il ne promet pas de miracle : il promet un sommet que l'on conquiert par la discipline. Le corps y devient une œuvre en construction, sculptée par l'effort, l'entraînement et la maîtrise d'un style propre. Chaque étape vise à renforcer ce qui existe déjà, jusqu'à atteindre un niveau personnel d'excellence.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Bonus obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Style de souffle : Forge du Corps</h5>
+                            <p>L'énergie émise par les êtres vivants se dissipe sans cesse dans l'environnement. Les disciples de ce style ont une conviction simple : pourquoi laisser cette force se perdre, alors qu'elle peut servir à forger l'être ? Ce Souffle est orienté avant tout vers le renforcement du corps. Il durcit la chair et l'ancrage interne jusqu'à rendre le pratiquant robuste face aux chocs physiques comme aux pressions magiques.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Endurant</h5>
+                            <p>+1 sur le résultat des dés de gain de PE lors des montées de niveau.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>FOR ou DEX +2</strong>, et <strong>+1 dans l'autre</strong></p>
+                        <p><strong>+1 Résilience</strong> et <strong>+1 Puissance ou Finesse</strong></p>
+                    </div>
+                </div>
+
+                <!-- Chemin de l'Âme -->
+                <div class="chemin-card ame">
+                    <h3>🕯️ Chemin de l'Âme</h3>
+                    <p class="chemin-description">Un chemin de compréhension spirituelle, tourné vers la symbiose avec les forces profondes des plans : esprits anciens, présences naturelles, mémoires élémentaires, formes de vie primordiales qui régissent le monde sans se montrer. Celui qui marche sur cette voie apprend à percevoir ce qui échappe aux mots, à entendre ce qui n'est pas dit, à reconnaître les signes et les vérités cachées.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Bonus obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Style de souffle : Repos Intérieur</h5>
+                            <p>Un style plus spirituel, fondé sur la connexion intime entre le corps, l'âme et l'énergie qui fait du lanceur… le lanceur. Le pratiquant apprend à manipuler le Souffle pour renforcer le mental, en imprégnant sa source intérieure d'énergie spirituelle. Avec suffisamment de concentration, cette discipline peut aussi produire des actions qui dépassent le simple corps : elles touchent le spiritisme de la cible.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Âme tranquille</h5>
+                            <p>Le lanceur obtient Avantage sur tous ses jets de Résistance mentale tant qu'il possède plus de 50 % de ses PV.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>SAG +3</strong></p>
+                        <p><strong>+1 Sang-froid</strong> et <strong>+1 Instinct</strong></p>
+                    </div>
+                </div>
+
+                <!-- Chemin de la Dévoration -->
+                <div class="chemin-card devoration">
+                    <h3>🌑 Chemin de la Dévoration</h3>
+                    <p class="chemin-description">Un chemin sombre, où la recherche de puissance absorptive ne connaît pas de fin. Ce n'est pas nécessairement une voie malveillante : elle demeure spirituelle dans son principe. Mais elle révèle et amplifie les instincts les plus bruts de ceux qui la suivent. On y lutte constamment contre l'ivresse de l'énergie prise, contre la faim intérieure qui pousse à toujours plus. Les disciples de cette voie avancent sur une ligne fragile, oscillant entre maîtrise et appétit.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Bonus obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Style de souffle interdit : Serpent Silencieux</h5>
+                            <p>Un art ancien et interdit, autrefois maîtrisé par un culte obscur qui se répandait à travers les plans pour affronter, voler et dérober l'esprit vital des individus — comme s'ils les dévoraient. Traqués pendant des siècles, leurs détenteurs furent chassés jusqu'à la disparition presque totale de la discipline. Pourtant, depuis peu, le nombre de pratiquants remonte : lentement, mais sûrement. Le Serpent Silencieux dégage une puissance inquiétante, qui semble grandir à chaque utilisation.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Chemin obscur</h5>
+                            <p>Obtient la possibilité d'obtenir la voie du Serpent Silencieux ainsi que leur art.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>DEX +3</strong></p>
+                        <p><strong>+1 Finesse</strong> et <strong>+1 Instinct</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <h3 class="subsection-title">Connaissances communes</h3>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des écoles des Chemins spirituels (art de vie) <span class="level">(Moyen)</span></h4>
+                    <p>Tu connais les grands courants, leurs dogmes, leurs règles implicites et la façon dont ils se transmettent (maîtres, disciples, serments, rites). Tu sais reconnaître les signes d'appartenance, les comportements typiques et les valeurs prônées par chaque voie.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Styles de Souffle <span class="level">(Modéré)</span></h4>
+                    <p>Tu connais les bases des styles de Souffle : leurs principes, leurs objectifs, et ce qu'ils cherchent à "corriger" dans le corps ou l'esprit. Tu sais différencier un style orienté soin, renforcement, repos intérieur ou absorption.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la Survie <span class="level">(Modéré)</span></h4>
+                    <p>Tu maîtrises les fondamentaux de la survie : trouver de l'eau, un abri, éviter les erreurs qui coûtent cher, et se déplacer sans se perdre. Tu sais lire un terrain et adapter tes décisions au climat et aux saisons.</p>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">📌 Selon le choix du chemin spirituel</h3>
+            
+            <div class="chemin-grid" style="margin-top: 30px;">
+                <!-- Connaissances Vie -->
+                <div class="chemin-card vie">
+                    <h3>🌿 Chemin de la Vie</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du style de souffle : Régulation vivifiante <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les principes de régulation de l'énergie vitale : comment la faire circuler sans la brusquer, comment apaiser une surcharge ou réveiller une fatigue. Tu sais reconnaître les signes d'un flux déséquilibré.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance en herboristerie de base <span class="level">(Modéré)</span></h4>
+                        <p>Tu sais identifier des plantes utiles et dangereuses, et distinguer ce qui soigne de ce qui intoxique. Tu connais des préparations simples : infusions, cataplasmes, compresses, mélanges de terrain.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Pilier -->
+                <div class="chemin-card pilier">
+                    <h3>🪨 Chemin du Pilier</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du style de souffle : Forge de Corps <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les fondations de la Forge : ancrage, durcissement interne, respiration de renforcement, et discipline physique progressive. Tu sais comment ce style "trempe" le corps face aux chocs.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine des armes d'école des Chemins spirituels <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les armes traditionnellement associées aux écoles : leurs usages, leur symbolique et les styles qu'elles accompagnent (bâton, arme d'entraînement, lames de pratique, etc.).</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Âme -->
+                <div class="chemin-card ame">
+                    <h3>🕯️ Chemin de l'Âme</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du style de souffle : Repos Intérieur <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les principes du repos intérieur : centrage, stabilité mentale, harmonisation entre corps et âme. Tu sais reconnaître quand un esprit est parasité, épuisé, ou "en tension".</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du domaine spirituel <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les notions de base liées au spirituel : présences, lieux chargés, rites de respect, et signaux d'influence invisible. Tu sais que tout ne doit pas être affronté frontalement.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Dévoration -->
+                <div class="chemin-card devoration">
+                    <h3>🌑 Chemin de la Dévoration</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance du style de souffle : Serpent Silencieux <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais l'existence, les rumeurs et les principes d'un art interdit fondé sur l'absorption et la prédation énergétique. Tu sais que cette pratique peut devenir addictive.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance des mythes et légendes <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les récits anciens : cultes disparus, pactes, héros déchus, lieux maudits, et histoires qui servent d'avertissement. Tu sais que les légendes cachent souvent un noyau utile.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎒 Équipement de base</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">👘</span>
+                    <div>
+                        <h4>Armure légère ou tenue</h4>
+                        <p>Vêtements traditionnels favorisant la mobilité</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🍞</span>
+                    <div>
+                        <h4>2 rations</h4>
+                        <p>Provisions pour le voyage</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💧</span>
+                    <div>
+                        <h4>1 grande gourde</h4>
+                        <p>Eau essentielle pour le voyage spirituel</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🧩 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Méditation (SAG)</strong> — Capacité à calmer l'esprit, stabiliser les émotions et retrouver de la lucidité.</li>
+                        <li><strong>Coup de poing (FOR/DEX)</strong> — Maîtrise des frappes au poing : placement, impact, enchaînements et précision.</li>
+                        <li><strong>Coup de pied (FOR/DEX)</strong> — Maîtrise des frappes au pied : portée, timing, équilibre et puissance transmise.</li>
+                        <li><strong>Blocage de corps (CST)</strong> — Capacité à encaisser et absorber un choc avec le corps (garde, gainage, ancrage).</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Lire rapidement un lieu : détails, dangers, points d'appui, issues, traces récentes.</li>
+                        <li><strong>Lecture émotionnelle (SAG)</strong> — Comprendre l'état intérieur d'une personne à travers ses signes.</li>
+                        <li><strong>Réactif (REA)</strong> — Aptitude à répondre vite à un imprévu : changement de garde, esquive réflexe.</li>
+                        <li><strong>Canalisation de souffle (SAG)</strong> — Capacité à faire circuler ton souffle/énergie de manière stable.</li>
+                        <li><strong>Manipulation du souffle (SAG)</strong> — Aptitude à modeler le souffle pour produire un effet concret.</li>
+                        <li><strong>Partage sans parole (SAG)</strong> — Communiquer par intention, présence et signaux non verbaux.</li>
+                        <li><strong>Analyse corporelle (SAG/PER)</strong> — Lire le corps d'un être : tension musculaire, fatigue, blessure, déséquilibre.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Récupération rapide (Résilience)</strong> — Capacité à revenir vite après un effort intense ou une blessure légère.</li>
+                        <li><strong>Savoir des écoles d'art martial (Savoir)</strong> — Connaissance des styles, lignées, principes et faiblesses typiques des écoles.</li>
+                        <li><strong>Acrobatie (Finesse)</strong> — Maîtrise des mouvements complexes : roulades, sauts, appuis, réceptions.</li>
+                        <li><strong>Agilité de mouvement (Finesse)</strong> — Fluidité et efficacité des déplacements : pivots, pas courts, changements de direction.</li>
+                        <li><strong>Résistance à la peur (Sang-froid)</strong> — Capacité à garder l'esprit stable malgré menace, horreur ou pression.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sens immédiat des menaces : embuscade, piège, intention hostile.</li>
+                        <li><strong>Instinct de bonté (Instinct)</strong> — Tendance naturelle à reconnaître la détresse, l'injustice ou la sincérité chez autrui.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/Moine.js"></script>
+</body>
+</html>

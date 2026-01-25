@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maraudeur - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Maraudeur.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Maraudeur.png" alt="Maraudeur">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🗺️ Maraudeur</h1>
+            <p class="class-quote">« Le mouvement, c'est la vie. Tout le reste, c'est juste attendre de mourir. »</p>
+            <p class="class-type">🌍 Aventurier d'action • mobilité • armes spéciales • tempo du combat</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description / Présentation</h2>
+            <div class="content-box">
+                <p>Le Maraudeur est un aventurier d'action, né des routes sales, des quais bruyants et des hauteurs instables. Il n'est pas défini par un uniforme ou une nation, mais par une chose : le mouvement. Là où d'autres subissent le terrain, lui l'exploite ; là où d'autres attendent, lui déclenche.</p>
+                
+                <p>Sa spécialité n'est pas de gagner par la force brute, mais par le tempo : repérer l'instant juste, se placer avant le choc et offrir à ses alliés l'avantage d'agir en premier. Il sait coordonner sans discours, par signaux, habitudes et réflexes partagés, et il excelle dans les combats courts, les embuscades et les interventions rapides.</p>
+                
+                <p>Selon son horizon, le Maraudeur se forge une Voie : Routes, Flots, ou Hautes-Lignes. Chaque voie change sa manière de survivre et de frapper, mais l'esprit reste le même : avancer, improviser et toujours garder une sortie… ou une ouverture.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>🧭 Type de classe :</strong> Combattant polyvalent / Expert en mobilité et armes spéciales</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d8</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +1</span>
+                        <span class="stat-item positive">CST : +2</span>
+                        <span class="stat-item positive highlight">DEX : +2</span>
+                        <span class="stat-item negative">INT : −3</span>
+                        <span class="stat-item negative">SAG : −2</span>
+                        <span class="stat-item positive">PER : +2</span>
+                        <span class="stat-item neutral">CHA : 0</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 20 + 1d6</li>
+                        <li><strong>REA :</strong> +3</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 2</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 2</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents (base)</h2>
+            
+            <div class="talent-card">
+                <h3>Impulsion du Raid</h3>
+                <p>(1 fois par jour) le lanceur peut s'accorder à lui-même, ou accorder à un allié proche, un Avantage sur son jet d'initiative.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Pilote Instinctif</h3>
+                <p>Tous les jets de conduite/pilotage de véhicules relevant de ses connaissances sont faits en Avantage (bateau, aéronef, véhicule terrestre).</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise d'une arme au choix</h3>
+                <p>Tu maîtrises une arme de ton choix, te permettant de l'utiliser efficacement en combat.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure d'une arme à feu à une main</h3>
+                <p>Tu sais manier les armes à feu légères avec précision et rapidité.</p>
+            </div>
+        </section>
+
+        <!-- Voies -->
+        <section class="section">
+            <h2 class="section-title">🌐 Terre du Maraudeur</h2>
+            <p class="intro-text">Sillonnant les terres, les mers et les cieux, l'expérience du Maraudeur s'étend sur différents horizons. Mais le plus important, c'est le chemin et les choix que le Maraudeur a pu faire.</p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Voie pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="voie-grid">
+                <!-- Voie des Routes -->
+                <div class="voie-card routes">
+                    <h3>🛣️ Voie des Routes</h3>
+                    <p class="voie-description">Le Maraudeur des Routes est un coupe-route tactique : il lit le terrain, se place vite et transforme un fossé, une ruine ou une ruelle en piège parfait. Il excelle à lancer le combat au bon moment, à sécuriser l'embuscade et à faire bouger son équipe comme une petite meute.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Kit des Routes (choisir 1 talent)</h4>
+                        
+                        <div class="kit-option">
+                            <h5>Ronde du Guetteur</h5>
+                            <p>Lorsque le lanceur effectue une patrouille de garde, il obtient un bonus de +10, traduit par l'obtention de la compétence « Ronde du Guetteur » (N.A).</p>
+                        </div>
+                        
+                        <div class="kit-option">
+                            <h5>Camouflage Instinctif</h5>
+                            <p>Lorsque le lanceur réalise une attaque d'embuscade, la cible de son attaque lance son jet de Perception pour éviter l'effet surpris en Désavantage.</p>
+                        </div>
+                        
+                        <div class="kit-option">
+                            <h5>Second Croc</h5>
+                            <p>Lorsque le lanceur attaque un ennemi déjà engagé avec une autre cible, le lanceur est considéré comme 2 entités pour l'effet « encercler » uniquement. (L'effet ne fonctionne pas si tu es celui qui engage.)</p>
+                            <p class="note"><strong>Encercler :</strong> au moins trois ennemis englobent la cible au corps à corps, augmentant la pression. Effet : la cible subit +10 % de dégâts. Pour chaque agresseur supplémentaire (au-delà de trois), +10 % (jusqu'à +30 % max).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent évolutif obtenu</h4>
+                        <p><strong>« Observateur de terrain (mineur) »</strong></p>
+                        <p>Affûte la capacité à analyser rapidement l'environnement immédiat. Ce talent permet de repérer les irrégularités du sol, les zones à risque ou les points d'avantage stratégique, que ce soit en nature sauvage ou en zone urbaine.</p>
+                        <p><strong>→</strong> Obtient la Compétence : Observation environnementale +2 (Perception)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de Voie</h4>
+                        <p><strong>PER +2</strong></p>
+                    </div>
+                </div>
+
+                <!-- Voie des Flots -->
+                <div class="voie-card flots">
+                    <h3>🌊 Voie des Flots</h3>
+                    <p class="voie-description">Le Maraudeur des Flots vit sur le pont, entre embruns et cordages : il sait quand frapper, quand aborder et comment éviter le chaos d'un navire en mouvement. Il donne le tempo à l'équipage, oriente l'ouverture du combat et garde toujours un œil sur les angles morts du quai ou de la proue.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Héritage des Flots (choisir 1 talent)</h4>
+                        
+                        <div class="kit-option">
+                            <h5>Souffle des Courants</h5>
+                            <p>Obtient la compétence de trait spécifique « Natation de mer » à +2 (N.A – Base Métier), et obtient Avantage sur tout jet de natation que le lanceur fera.</p>
+                        </div>
+                        
+                        <div class="kit-option">
+                            <h5>Lecture du Ciel Salé</h5>
+                            <p>Le lanceur obtient la compétence « Analyse météorologique » (Base Perception) à +3. Pour chaque niveau gagné supplémentaire (à partir du niveau modéré) en connaissance météorologique, il peut augmenter cette compétence de +2. Si le lanceur rate un jet d'analyse météorologique, il peut relancer le jet en gardant le nouveau résultat.</p>
+                        </div>
+                        
+                        <div class="kit-option">
+                            <h5>Chef de Pont</h5>
+                            <p>Lorsque le lanceur initie un combat sur un grand véhicule sur eau, il obtient un bonus de +10 en initiative et offre ce bonus à 1 allié proche au choix.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent évolutif obtenu</h4>
+                        <p><strong>« Expertise du Nageur (mineure) »</strong></p>
+                        <p>Améliore la respiration, l'endurance et la rapidité de nage dans divers types d'eaux. Ce talent est utile pour traverser des rivières, plonger sous l'eau ou combattre dans des environnements aquatiques.</p>
+                        <p><strong>→</strong> Offre la compétence de trait spécifique : Nage +1 (Métier)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de Voie</h4>
+                        <p><strong>CST +2</strong></p>
+                    </div>
+                </div>
+
+                <!-- Voie des Hautes-Lignes -->
+                <div class="voie-card hautes">
+                    <h3>🌬️ Voie des Hautes-Lignes</h3>
+                    <p class="voie-description">Le Maraudeur des Hautes-Lignes est un raideur des hauteurs : toits, passerelles, falaises ou aéronefs deviennent son domaine. Il mise sur la réactivité pure, les bonds, les angles imprévus et les signaux rapides pour offrir l'initiative à ses alliés. Quand l'affrontement commence, il est déjà en train de tomber sur la cible.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Kit des Hautes-Lignes (choisir 1 talent)</h4>
+                        
+                        <div class="kit-option">
+                            <h5>Bombardier des Hauteurs</h5>
+                            <p>Lorsque le lanceur réalise une attaque depuis une position en hauteur (plongeon ou attaque à distance) par rapport à sa cible, ou depuis un véhicule aérien (extérieur uniquement), il peut une fois par tour lancer ses dés de dégâts en Avantage.</p>
+                        </div>
+                        
+                        <div class="kit-option">
+                            <h5>Œil Panoramique</h5>
+                            <p>Si le lanceur subit un Désavantage sur un jet de Perception à cause de l'environnement (hors obscurité/obstacles), il peut une fois par scène remplacer ce Désavantage par un malus de -10 à -20. Il obtient la compétence « Œil Panoramique » à +10 (N.A).</p>
+                        </div>
+                        
+                        <div class="kit-option">
+                            <h5>Vol d'Initiative</h5>
+                            <p>(1 fois par combat) tant que le lanceur n'a pas l'effet surpris subi, il peut imposer un changement de tempo à une cible :</p>
+                            <ul>
+                                <li>si la cible est un ennemi, elle relance son jet d'initiative (même en cours de combat) avec un malus égal au Mod de PER du lanceur ;</li>
+                                <li>si l'action est utilisée sur une cible surprise ou prise en embuscade, elle relance ce jet en Désavantage ;</li>
+                                <li>le lanceur peut consommer 1 Dé de Destin ou 2 points d'Avantage pour relancer une seconde fois ce talent.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent évolutif obtenu</h4>
+                        <p><strong>« Escalade Instinctive (mineure) »</strong></p>
+                        <p>Favorise l'adhérence, l'équilibre et la stabilité sur des surfaces verticales, humides ou instables. Ce talent permet de grimper sans équipement, de se maintenir en hauteur ou d'explorer des lieux autrement inaccessibles.</p>
+                        <p><strong>→</strong> Offre la compétence de trait spécifique : Escalade +1 (Finesse)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de Voie</h4>
+                        <p><strong>DEX +2</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <h3 class="subsection-title">Connaissances de base</h3>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine criminel <span class="level">(Modéré)</span></h4>
+                    <p>Tu connais les règles non écrites des milieux illégaux : hiérarchies, territoires, méthodes et codes. Tu sais reconnaître une planque, un guet-apens social ou une "offre" qui sent le piège.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la Piraterie <span class="level">(Moyen)</span></h4>
+                    <p>Tu comprends la culture des maraudeurs : pillage, raids, abordages, survie en groupe et réputation. Tu sais comment un équipage fonctionne, comment se partagent les prises et comment naissent les rivalités.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du marché noir <span class="level">(Modéré)</span></h4>
+                    <p>Tu sais où se négocient les biens interdits, comment se fixent les prix et quelles précautions prendre. Tu reconnais les arnaques classiques et tu sais négocier sans attirer l'attention.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance des bases de la navigation <span class="level">(Modéré)</span></h4>
+                    <p>Tu maîtrises les fondamentaux pour ne pas te perdre : repères, cartes simples, orientation et choix d'itinéraire. Tu sais lire un trajet et anticiper les erreurs qui font perdre du temps ou exposent à une embuscade.</p>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">📌 Connaissances par Voie</h3>
+            
+            <div class="voie-grid" style="margin-top: 30px;">
+                <!-- Connaissances Routes -->
+                <div class="voie-card routes">
+                    <h3>🛣️ Voie des Routes</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de la navigation des véhicules terrestres <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les principes de conduite et de manœuvre sur route ou terrain difficile : virages, freinage, charge et adhérence.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance des bases de mécanique <span class="level">(Modéré)</span></h4>
+                        <p>Tu comprends les réparations simples et le diagnostic rapide : ce qui claque, ce qui fuit, ce qui va lâcher. Tu sais improviser une solution temporaire.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance des véhicules de transport terrestres <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les différents types de transports terrestres, leur capacité, vitesse réelle et points faibles.</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Flots -->
+                <div class="voie-card flots">
+                    <h3>🌊 Voie des Flots</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de la navigation des véhicules marins <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les manœuvres de base en mer ou sur fleuve : cap, dérive, courant, approche d'un quai et gestion du vent.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance des véhicules de transport marins <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les embarcations courantes et leurs usages. Tu sais estimer la capacité, la solidité, la vitesse et le risque en mauvaise mer.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance des mythes et légendes <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les récits, superstitions et histoires transmises par les marins : zones maudites, créatures, signes de malheur, ports "interdits".</p>
+                    </div>
+                </div>
+
+                <!-- Connaissances Hautes-Lignes -->
+                <div class="voie-card hautes">
+                    <h3>🌬️ Voie des Hautes-Lignes</h3>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de la navigation des véhicules aériens <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les principes de pilotage en altitude : vents, altitude, virages, stabilité et sécurité de base.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance de la météorologie <span class="level">(Modéré)</span></h4>
+                        <p>Tu reconnais les signes utiles : vent qui tourne, brouillard qui tombe, pression qui change, tempête qui approche.</p>
+                    </div>
+                    
+                    <div class="knowledge-item">
+                        <h4>Connaissance des véhicules de transport aériens <span class="level">(Modéré)</span></h4>
+                        <p>Tu connais les types d'aéronefs et plateformes, leurs limites et leurs faiblesses. Tu sais estimer la charge, la stabilité et ce qui peut provoquer un crash.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align: center; font-size: 1.2rem; margin: 0;">
+                    <strong>+1 arme au choix</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">📦 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure légère/moyenne</h4>
+                        <p>Protection adaptée à la mobilité du Maraudeur</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Arme choisie</h4>
+                        <p>L'arme que tu as sélectionnée en maîtrise</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>2 potions de vie</h4>
+                        <p>Soins d'urgence pour les situations critiques</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🗺️</span>
+                    <div>
+                        <h4>Carte au choix (de base)</h4>
+                        <p>Une carte de la région ou du territoire</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avantage de création -->
+        <section class="section">
+            <h2 class="section-title">💰 Avantage de création — Prix d'achat réduit (Véhicules)</h2>
+            <div class="content-box">
+                <p>Grâce à son instinct de maraudeur et à ses contacts (réparateurs, contrebandiers, receleurs, capitaines, convoyeurs), le personnage commence avec un accès privilégié aux moyens de transport. Il sait où acheter sans se faire plumer, comment négocier, et surtout comment repérer une bonne affaire sans tomber sur une épave.</p>
+                
+                <div class="highlight-box">
+                    <p>Lors de la création de fiche, il bénéficie donc de :</p>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>-30 %</strong> sur le prix d'un véhicule de transport standard.</li>
+                        <li><strong>-60 %</strong> sur le prix d'un véhicule de transport lié à sa Voie (Routes : terrestre / Flots : nautique / Hautes-Lignes : aérien).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🧩 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Arme de tir X (DEX/FOR)</strong> — Maîtrise d'une arme à distance précise pour viser, gérer la portée et tirer sous pression.</li>
+                        <li><strong>Arme X (FOR/DEX)</strong> — Maîtrise d'une arme de mêlée choisie, soit par puissance brute (FOR), soit par précision et timing (DEX).</li>
+                        <li><strong>Furtivité (DEX)</strong> — Capacité à se déplacer sans bruit, se dissimuler et approcher sans être repéré.</li>
+                        <li><strong>Analyse météorologique (PER)</strong> — Lire les signes du temps et anticiper les changements dangereux.</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Repérer couverts, pièges, traces, sorties et positions avantageuses.</li>
+                        <li><strong>Intimidation (CHA)</strong> — Imposer une pression par la voix, le regard et l'attitude pour faire hésiter ou céder.</li>
+                        <li><strong>Robustesse (CST)</strong> — Tenir malgré fatigue, froid, douleur, effort prolongé ou coups répétés.</li>
+                        <li><strong>Orientation (PER)</strong> — Se repérer rapidement grâce aux indices du terrain et aux repères visuels.</li>
+                        <li><strong>Bluff (CHA)</strong> — Mentir, improviser une couverture crédible et détourner l'attention sans paraître nerveux.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Équilibre (Finesse)</strong> — Rester stable sur surfaces glissantes, étroites ou instables, et éviter les chutes.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sentir qu'un danger approche avant d'en avoir la preuve.</li>
+                        <li><strong>Instinct de mauvais présage (météorologique) (Instinct)</strong> — Ressentir un changement de temps dangereux avant qu'il soit évident.</li>
+                        <li><strong>Escalade (Finesse)</strong> — Grimper avec sécurité, trouver des prises et se maintenir en hauteur.</li>
+                        <li><strong>Natation (Métier)</strong> — Nager en conditions réelles, gérer le souffle et les courants.</li>
+                        <li><strong>Marchandage (Social)</strong> — Négocier un prix, repérer une arnaque et obtenir une meilleure affaire.</li>
+                        <li><strong>Réparation de base (Métier)</strong> — Faire des réparations simples et improviser une solution temporaire.</li>
+                        <li><strong>Cartographie (Métier/Instinct)</strong> — Lire, corriger et tracer une carte simple pour planifier un trajet fiable.</li>
+                        <li><strong>Orientation de transport (Instinct)</strong> — Comprendre instinctivement la meilleure trajectoire pour un véhicule.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/Maraudeur.js"></script>
+</body>
+</html>

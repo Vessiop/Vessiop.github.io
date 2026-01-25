@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerrier - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Guerrier.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/gUERRIER.png" alt="Guerrier">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🛡️ Guerrier</h1>
+            <p class="class-quote">« Il n'existe pas de voie unique vers la maîtrise, seulement la lame qu'on choisit pour la tracer. »</p>
+            <p class="class-type">⚔️ Combattant — Physique pur • mêlée ou distance • polyvalent</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description / Présentation</h2>
+            <div class="content-box">
+                <p>Le Guerrier est le point de départ de toutes les voies martiales. Il ne naît pas avec un style prédéfini, ni avec une doctrine gravée dans le sang : il apprend par la pratique, par l'erreur, par la répétition — et surtout par les choix qu'il fait lorsqu'il doit agir.</p>
+                
+                <p>Contrairement aux combattants spécialisés, le Guerrier n'est pas enfermé dans un rôle. Il peut manier toutes les armes, porter toutes les armures, et s'adapter à presque toutes les situations. Sa force ne vient pas d'un don particulier, mais de sa capacité à construire sa manière de combattre au fil du temps : une arme privilégiée, une posture, un rapport au risque, une façon de tenir la ligne ou de briser un duel.</p>
+                
+                <p>Sur le champ de bataille, le Guerrier est un pilier fonctionnel : il tient, avance, couvre, frappe ou encaisse selon ce que la situation exige. En exploration, il est endurant et vigilant, capable de traverser des environnements hostiles sans dépendre d'un rituel ou d'une préparation complexe. En société, il impose rarement par les mots, mais souvent par la présence : celle de quelqu'un qui a déjà tenu face à la violence et n'en fait pas un spectacle.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>⚔️ Type de classe :</strong> Combattant — Physique pur, orienté mêlée ou distance selon l'orientation du joueur</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d8</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +2</span>
+                        <span class="stat-item positive">CST : +1</span>
+                        <span class="stat-item positive">DEX : +1</span>
+                        <span class="stat-item negative">INT : −2</span>
+                        <span class="stat-item negative">SAG : −2</span>
+                        <span class="stat-item neutral">PER : 0</span>
+                        <span class="stat-item neutral">CHA : 0</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 20 + 1d6</li>
+                        <li><strong>REA :</strong> +3</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 2</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents</h2>
+            
+            <div class="talent-card">
+                <h3>1) Maîtrise mineure d'une arme de base (au choix)</h3>
+                <p>Tu choisis une arme et tu en apprends les fondamentaux : garde, portée, timing, angles de frappe. Cette maîtrise te permet d'utiliser cette arme de manière fiable en combat.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>2) Voie Personnelle</h3>
+                <p>Le personnage obtient la possibilité de choisir 1 Talent Brave.</p>
+                <p>Ce talent peut être évolutif ou non-évolutif, avec un coût maximal de 2 points de talent, en respectant tous les prérequis du talent sélectionné.</p>
+            </div>
+        </section>
+
+        <!-- Vocations -->
+        <section class="section">
+            <h2 class="section-title">🔥 Propre vocation</h2>
+            <p class="intro-text">« Chaque personne possède en son sein son histoire : un parcours de vie qui l'a forgée et a produit la personne qu'elle est… et c'est aussi votre cas. »</p>
+            <p class="intro-text"><strong>Choisis une vocation :</strong></p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une vocation pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="vocation-grid">
+                <!-- Voie du Forgé-Vif -->
+                <div class="vocation-card forge">
+                    <h3>⚔️ Voie du Forgé-Vif</h3>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <ul>
+                            <li>Améliore d'un cran la maîtrise d'arme choisie</li>
+                            <li>Augmente d'un cran la classe d'arme de cette arme</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent : Pic de Puissance Martiale</h4>
+                        <p><strong>Effet :</strong> 1 fois par session, lorsque tu attaques avec une arme dont tu possèdes la maîtrise Avancée, tu peux effectuer le jet de dégâts en Avantage.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Force de combat</strong></p>
+                    </div>
+                </div>
+
+                <!-- Voie du Rempart Mobile -->
+                <div class="vocation-card shield">
+                    <h3>🛡️ Voie du Rempart Mobile</h3>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <p><strong>Maîtrise mineure de l'Art du Bouclier</strong></p>
+                        <p>Tu apprends les fondamentaux du combat au bouclier : placement du bras, lecture des angles, gestion du poids et des impacts, couverture du corps, et coordination avec ta garde. Cette maîtrise représente l'apprentissage de la défense active : absorber, détourner, encaisser et surtout tenir une ligne même sous pression.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent : Garde de Renfort</h4>
+                        <p><strong>Effet :</strong> 1 fois par combat, si tu portes un bouclier, tu peux dépenser 1 Point de Réaction pour renforcer ta garde.</p>
+                        <p>Jusqu'au début de ton prochain tour (donc pendant un tour complet), la valeur de ton SB (Seuil de Bouclier) est doublée.</p>
+                        <p><strong>Rappel (SB) :</strong> le Seuil de Bouclier est la marge de réussite à atteindre pour qu'un adversaire puisse outrepasser la défense du bouclier ; s'il ne l'atteint pas, la défense du bouclier est prise en compte.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Constitution</strong></p>
+                    </div>
+                </div>
+
+                <!-- Voie du Coup Bas Tactique -->
+                <div class="vocation-card rogue">
+                    <h3>🗡️ Voie du Coup Bas Tactique</h3>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <p><strong>Obtient la maîtrise mineure d'une arme courte</strong></p>
+                        <p>Les armes courtes privilégient la vitesse, l'angle et l'opportunisme. Cette maîtrise t'apprend à frapper dans l'espace serré, profiter des ouvertures, et enchaîner sans te déséquilibrer : parfait pour un combat chaotique, une mêlée ou une situation où la précision est plus importante que la portée.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent : Maîtrise des attaques sournoises</h4>
+                        <p><strong>Effet :</strong> Permet d'effectuer des attaques sournoises, infligeant les dégâts associés à la sournoiserie. Les dégâts de sournoiserie, en plus d'appliquer l'effet sournoiserie sur l'armure (attention : armure), s'additionnent avec les dégâts dits de base de sournoiserie.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Dextérité</strong></p>
+                    </div>
+                </div>
+
+                <!-- Voie de l'Éveil Contrôlé -->
+                <div class="vocation-card magic">
+                    <h3>✨ Voie de l'Éveil Contrôlé</h3>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <p><strong>Talent : Éveil magique</strong></p>
+                        <p><strong>Effet :</strong> Déverrouille le potentiel magique : la base PM passe à 1d12 (si elle était inférieure) et la magie devient accessible. Lors de l'obtention du talent, le personnage peut lancer 2 dés de Gain de PM.</p>
+                        <p>(N'obtient pas le départ magique d'un utilisateur magique de base.)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Puis au choix (1) :</h4>
+                        <ul>
+                            <li><strong>Poursuite de l'évolution magique</strong> (augmente la base jet des dés de gain de magie de +2)</li>
+                            <li><strong>OU</strong></li>
+                            <li><strong>Obtient une maîtrise mineure de la magie de sa source élémentaire</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+4 Intelligence</strong> et <strong>+1d6 supplémentaire pour la Résistance Mentale</strong></p>
+                    </div>
+                </div>
+
+                <!-- Voie du Corps-Route -->
+                <div class="vocation-card agile">
+                    <h3>🏃 Voie du Corps-Route</h3>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains - Au choix (1) :</h4>
+                        
+                        <div style="margin-top: 15px;">
+                            <p><strong>Maîtrise mineure de l'Agilité</strong></p>
+                            <p>Développe la fluidité des mouvements et améliore la coordination corporelle dans les déplacements. Permet d'exécuter des gestes rapides, souples ou instinctifs avec plus d'aisance.</p>
+                            <p><strong>Offre :</strong> compétence de trait spécifique Agilité de mouvement +1 (Finesse)</p>
+                        </div>
+                        
+                        <p style="text-align: center; margin: 15px 0;"><strong>OU</strong></p>
+                        
+                        <div>
+                            <p><strong>Maîtrise mineure de l'Acrobatie</strong></p>
+                            <p>Renforce la capacité à effectuer des figures complexes, roulades, sauts et mouvements aériens. Ce talent est essentiel pour traverser des zones difficiles, éviter des pièges ou réaliser des actions spectaculaires.</p>
+                            <p><strong>Offre :</strong> Action acrobatique +2 (Dextérité) et Acrobatie +1 (Finesse)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent : Foulée Déliée</h4>
+                        <p><strong>Effet :</strong> 1 fois par session, lorsque tu dois effectuer une action Base Finesse impliquant un mouvement du corps entier (déplacement précis, passage étroit, équilibre, esquive physique, etc.), tu peux réaliser le jet en Avantage. Ce talent peut aussi être utilisé pour une action / capacité acrobatique.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+2 Dextérité</strong> et <strong>+1 Finesse</strong></p>
+                    </div>
+                </div>
+
+                <!-- Voie de l'Avant-Garde -->
+                <div class="vocation-card stance">
+                    <h3>⚡ Voie de l'Avant-Garde</h3>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <p><strong>Talent : Maîtrise mineure de l'art des postures de combat</strong></p>
+                        <p>Tu travailles l'ancrage, la répartition du poids et la transition entre gardes. Chaque posture soutient la suivante, pour passer de la défense à l'offensive sans latence. Résultat : plus de stabilité, de portée utile et de puissance transmise.</p>
+                        <p><strong>Offre :</strong> compétence Postures de combat +2</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent : Avantgarde</h4>
+                        <p><strong>Effet :</strong> Lorsque le lanceur est dans un état de « Posture de combat », il peut lancer une fois par combat son jet de résistance à l'annulation de la posture ou d'une attaque en Posture (attaque physique de corps à corps uniquement) en Avantage.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+2 Constitution</strong> et <strong>+1 Force de combat ou Dextérité</strong></p>
+                    </div>
+                </div>
+
+                <!-- Voie du Duelliste -->
+                <div class="vocation-card duel">
+                    <h3>⚔️ Voie du Duelliste</h3>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains - Au choix (1) :</h4>
+                        
+                        <div style="margin-top: 15px;">
+                            <p><strong>Maîtrise mineure de l'art de la feinte</strong></p>
+                            <p>Tu affines les tromperies d'épaule, de regard et de cadence pour provoquer une réaction défavorable. La feinte devient un outil pour voler la priorité ou déplacer la garde adverse.</p>
+                            <p><strong>Obtention de compétence :</strong> Feinte technique +2</p>
+                        </div>
+                        
+                        <p style="text-align: center; margin: 15px 0;"><strong>OU</strong></p>
+                        
+                        <div>
+                            <p><strong>Maîtrise mineure de l'art de la riposte</strong></p>
+                            <p>Tu travailles l'enchaînement défense→attaque sur le battement exact qui suit l'impact. L'objectif est de punir l'ouverture sans rompre la garde ni l'équilibre.</p>
+                            <p><strong>Obtention de compétence :</strong> Riposte +2</p>
+                        </div>
+                        
+                        <p style="text-align: center; margin: 15px 0;"><strong>OU</strong></p>
+                        
+                        <div>
+                            <p><strong>Maîtrise mineure de l'art de la parade</strong></p>
+                            <p>Tu affûtes l'alignement de ta garde et la lecture des trajectoires adverses. Le mouvement devient court, précis, avec une économie d'effort qui réduit les ouvertures.</p>
+                            <p><strong>Obtention de compétence :</strong> Parade technique +2</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talent : Initiation au Face-à-Face</h4>
+                        <p><strong>Effet :</strong> le personnage obtient la compétence Réactivité au duel +2 (Base : Réactivité). Tant qu'il est engagé avec une cible, il peut utiliser Réactivité au duel à la place de sa réactivité classique, uniquement dans le cadre de ce face-à-face.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Réactivité</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            <div class="content-box">
+                <p>Le personnage peut choisir <strong>5 connaissances au choix</strong>, toutes au niveau <strong>Modéré</strong>.</p>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align: center; font-size: 1.2rem; margin: 0;">
+                    <strong>+1 classe d'armes au choix</strong>
+                </p>
+                <p style="text-align: center; margin-top: 10px; font-size: 0.95rem;">
+                    (ex. : épée, lance, hache…)
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎁 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Arme au choix</h4>
+                        <p>Une arme martiale adaptée à ton style de combat</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure au choix</h4>
+                        <p>Protection adaptée à ta méthode de combat</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>2 potions de vie</h4>
+                        <p>Soins d'urgence pour les situations critiques</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💪</span>
+                    <div>
+                        <h4>2 potions d'endurance</h4>
+                        <p>Restaure l'énergie en combat prolongé</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🎒</span>
+                    <div>
+                        <h4>1 objet de base au choix</h4>
+                        <p>Ne dépassant pas la tranche de niveau du personnage</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Arme X (FOR ou DEX)</strong> — Maîtrise d'une arme précise pour frapper, parer et garder le contrôle en combat rapproché. La caractéristique dépend de ton style : puissance (FOR) ou précision (DEX).</li>
+                        <li><strong>Arme à tir X (FOR ou DEX)</strong> — Utilisation d'une arme de tir (arc, arbalète, arme à feu selon le monde) pour viser, gérer la distance et tirer sous pression.</li>
+                        <li><strong>Arme de jet X (FOR ou DEX)</strong> — Maniement des armes lancées (couteaux, haches, javelots…) pour toucher vite, proprement et au bon timing.</li>
+                        <li><strong>Réactif (REA)</strong> — Capacité à répondre instantanément à une menace : esquive réflexe, micro-déplacement, parade instinctive.</li>
+                        <li><strong>Analyse de combat (SAG ou PER)</strong> — Lire un affrontement : intentions, rythmes, ouvertures, feintes, priorités et danger immédiat.</li>
+                        <li><strong>Robustesse (CST)</strong> — Endurance physique et capacité à tenir malgré fatigue, douleur, froid, effort prolongé ou coups répétés.</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Repérer ce que le terrain offre ou cache : couverts, pièges simples, traces, angles morts, présence suspecte.</li>
+                        <li><strong>Présence guerrière (CHA)</strong> — Imposer une autorité martiale par la posture, la voix et le regard, sans forcément menacer directement.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sentir qu'un problème approche avant d'en avoir la preuve : embuscade, piège social, intention hostile, silence anormal.</li>
+                        <li><strong>Pas léger (Finesse)</strong> — Se déplacer avec contrôle et discrétion : appuis, transfert de poids, rythme, bruit réduit.</li>
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Encaisser la douleur sans perdre ses moyens : rester lucide, agir proprement malgré la souffrance.</li>
+                        <li><strong>Force de pousser (Puissance)</strong> — Imposer un résultat brut : repousser, dégager, renverser, briser une prise ou ouvrir un passage par la force.</li>
+                        <li><strong>Résistance à la peur (Sang-froid)</strong> — Garder son contrôle face à intimidation, horreur, pression ou menace immédiate.</li>
+                        <li><strong>Résistance aux toxines (Résilience)</strong> — Supporter poisons, fumées, alcool, nourriture douteuse ou infections légères sans s'effondrer.</li>
+                        <li><strong>Résistance au saignement (Résilience)</strong> — Limiter la perte de sang et tenir malgré une plaie ouverte : compression, contrôle, capacité du corps à "tenir".</li>
+                        <li><strong>Agilité de mouvement (Finesse)</strong> — Fluidité corporelle dans les déplacements : équilibre, changements d'appui, passage d'obstacles, esquives physiques propres.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/Guerrier.js"></script>
+</body>
+</html>
