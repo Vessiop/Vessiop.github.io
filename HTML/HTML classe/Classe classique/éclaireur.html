@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éclaireur - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/éclaireur.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/éclaireur.png" alt="Éclaireur">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">✨ Éclaireur</h1>
+            <p class="class-quote">« Là où d'autres avancent au feeling, moi j'avance avec une carte mentale. »</p>
+            <p class="class-type">🎯 Combattant à distance • Mobilité • Précision • Harcèlement tactique</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description</h2>
+            <div class="content-box">
+                <p>L'Éclaireur est une caste reconnue, respectée pour sa rigueur et sa fiabilité : on l'envoie là où l'on n'a pas droit à l'erreur, parce qu'il revient avec du vrai. Dans de nombreuses organisations, il représente la première ligne invisible : celui qui part avant tous les autres, qui marche plus loin, qui observe plus longtemps, et qui récolte le maximum d'informations avant qu'une bataille, une négociation ou une expédition ne commence réellement. Sa réputation est souvent honorable, car il protège les siens en évitant les pièges, en révélant les dangers, et en transformant l'inconnu en terrain lisible.</p>
+                
+                <p>Doué pour les armes à distance, il n'est pas un simple tireur : c'est un lecteur de monde. Il voit les angles, les couverts, les hauteurs, les trajectoires possibles, les traces fraîches, la météo qui tourne, et les détails que la plupart ignorent. Là où d'autres avancent "au feeling", lui avance avec une carte mentale, une logique de déplacement, et une mémoire du terrain presque obsessionnelle. Son tir est propre, patient, calculé — un tir qui n'existe que pour faire basculer une situation au bon moment.</p>
+                
+                <p>Mais l'Éclaireur n'est pas qu'un observateur : c'est un voyageur essentiel, un maillon vital des groupes mobiles et des expéditions. Il sait guider sans bruit, baliser une route, choisir un passage sûr, et mener une équipe à travers des zones hostiles sans se faire remarquer. Certains disent même qu'il est "insaisissable" : sa vitesse de mouvement, sa capacité à se repositionner et à disparaître d'un regard, frôlent le surnaturel — non par magie, mais par maîtrise, endurance et instinct.</p>
+                
+                <p>Selon son parcours, il endosse plusieurs rôles : explorateur, cartographe, guide, pisteur, vigie, parfois même éclaireur de garnison ou d'ombre. Qu'il arpente les forêts, les ruelles, les crêtes ou les terres inconnues, il reste celui qui a le regard à tout : celui qui voit avant, comprend avant, et permet au groupe d'agir juste… avant que le danger ne se referme.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>🧭 Identité de classe :</strong></p>
+                    <p><strong>Style de combat :</strong> tireur à distance (tirs précis / tirs puissants) • repérage des lieux</p>
+                    <p><strong>Type de classe :</strong> Combattant à distance • Mobilité • Précision • Harcèlement tactique</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d8</li>
+                        <li><strong>PE :</strong> <span class="highlight-stat">1d14</span></li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🔢 Bonus & malus de caractéristiques</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −1</span>
+                        <span class="stat-item negative">CST : −1</span>
+                        <span class="stat-item positive highlight">DEX : +4</span>
+                        <span class="stat-item neutral">INT : 0</span>
+                        <span class="stat-item positive">SAG : +1</span>
+                        <span class="stat-item positive highlight">PER : +4</span>
+                        <span class="stat-item negative">CHA : −3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM (Résistance Mentale) :</strong> 20 + 1d6</li>
+                        <li><strong>Réactivité (REA) :</strong> <span class="highlight-stat">+3</span></li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques (base)</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 2</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de base -->
+        <section class="section">
+            <h2 class="section-title">🌟 Talents (niveau 1)</h2>
+            
+            <h3 class="subsection-title">1) Formation de tire (choisir 1 voie)</h3>
+            
+            <div class="formation-grid">
+                <div class="formation-card">
+                    <h4>🏹 Maître Archer</h4>
+                    <p><strong>Gain :</strong> Maîtrise mineure — Arc (au choix : arc court / arc long / arc colossal).</p>
+                    <p><strong>Gain :</strong> Œil de Lynx — confère la compétence Tir Concentré (N.A +10).</p>
+                    <p><strong>Principe :</strong> lors d'un tir, le tireur prend le temps de se placer, d'aligner et de contrôler sa respiration.</p>
+                    <p><strong>Note :</strong> cela implique souvent de consommer une action supplémentaire pour entrer en "Stabilisation" avant d'effectuer le tir.</p>
+                </div>
+
+                <div class="formation-card">
+                    <h4>🏹 Maître Arbalétrier</h4>
+                    <p><strong>Gain :</strong> Maîtrise mineure — Arbalète.</p>
+                    <p><strong>Progression (particularité liée au niveau de maîtrise) :</strong></p>
+                    <ul>
+                        <li><strong>Maîtrise Moyenne :</strong> le lanceur peut dépenser 2 Points de Réaction pour recharger dans le même tour.</li>
+                        <li><strong>Maîtrise Avancée :</strong> la recharge dans le même tour coûte 1 Point de Réaction, uniquement si c'est une arbalète légère.</li>
+                        <li><strong>Maîtrise Majeure :</strong> la règle à 1 Point de Réaction s'applique aussi aux arbalètes lourdes.</li>
+                        <li><strong>Maîtrise Parfaite :</strong> les pourcentages non-magiques liés à la mécanique arbalète + carreaux gagnent +10% (ex : réduction d'armure / perforation) — sauf exceptions prévues par certaines sources.</li>
+                    </ul>
+                    <p><strong>Gain :</strong> Stabilisation de l'Arbalétrier.</p>
+                </div>
+
+                <div class="formation-card">
+                    <h4>🔫 Maître Flibustier</h4>
+                    <p><strong>Gain :</strong> Maîtrise mineure — Arme à feu (au choix : courte / longue).</p>
+                    <p><strong>Gain :</strong> Maître d'Arme à Feu — 1 fois par combat, le lanceur peut activer cet effet :</p>
+                    <p>Sur un jet de tir d'arme à feu, il obtient +Xd3 dégâts bonus (ajoutés aux dégâts du tir).</p>
+                    <p>(X dépend de ta règle de scaling / niveau / maîtrise, selon ton système.)</p>
+                </div>
+            </div>
+
+            <div class="talent-card">
+                <h3>2) Vigilance</h3>
+                <p>Le lanceur obtient la compétence « Vigilance : Offre un bonus de 1d10 sur les jet d'initiative. Une fois par session, pour 10 PE, lorsque le lanceur est pris en embuscade, il peut faire un jet de perception avec avantage pour évité l'état surpris »</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>3) Arpenteur des Limites</h3>
+                <p>Le lanceur gagne +5 à sa vitesse de déplacement de base.</p>
+                <p>Il obtient également la faculté <strong>Échappée de l'Éclaireur :</strong> 1 fois par session, lorsqu'il subit une attaque (physique ou magique), il peut déclencher un réflexe parfait et réduire les dégâts subis de 50%.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>4) Maîtrise mineure de l'Agilité</h3>
+                <p>Améliore la fluidité des mouvements et la coordination dans les déplacements ; soutient les actions d'esquive et les manœuvres rapides. Octroie la compétence de trait : Agilité de mouvement +1 (Finesse).</p>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🎭 Origines de l'expérience de l'Éclaireur (1 au choix)</h2>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="origine-grid">
+                <!-- Éclaireur combatif -->
+                <div class="origine-card combatif">
+                    <h3>⚔️ Éclaireur combatif</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu n'es pas un simple tireur "à distance". Tu as appris que le terrain se referme vite, qu'un couloir, une ruelle ou une forêt dense finissent toujours par te forcer au contact. Alors tu t'es formé comme un éclaireur capable de tenir la mêlée, de dégainer court et de survivre aux engagements rapprochés, sans perdre l'instinct du tir propre. Tu progresses comme un "ranger" pragmatique : tirer quand c'est optimal, trancher quand c'est nécessaire, et rester dangereux dans les deux mondes.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Cela offre :</h4>
+                        
+                        <div class="reward-item">
+                            <p><strong>Maîtrise mineure d'une arme de corps à corps (au choix)</strong> (offre la compétence de l'arme à +2)</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>+1 Classe d'arme</strong> liée à l'arme de CàC choisie</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Trait spécifique :</strong> +1 Puissance ou résilience</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Talent (non évolutif) — Combattant à toute distance</h5>
+                            <p><strong>Effet :</strong> 1 fois par combat, quand tu es Engagé au corps à corps, tu peux effectuer une attaque avec une arme de tir sans subir le malus de tir au contact (ou l'équivalent de "désavantage" si appliqué par le MJ).</p>
+                            <p>Si l'attaque touche, tu peux immédiatement faire un pas de placement de 5 ft (sans provoquer d'opportunité) pour recréer ton angle.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Bonus de caractéristique :</strong> Transforme le -2 en force de combat en +2 et CST +1</p>
+                            <p><strong>Bonus de trait spécifique :</strong> +1 puissance ou résilience ou instinct</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Éclaireur de l'ombre -->
+                <div class="origine-card ombre">
+                    <h3>🌑 Éclaireur de l'ombre</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu as servi là où l'information tue plus sûrement qu'une lame : repérage d'objectifs, surveillance, infiltration, couverture silencieuse. Ton éclaireur ne "scoute" pas : il s'efface, observe et choisit le tir qui compte. Tu sais exploiter les zones mortes, la pluie, le vent, les bruits de foule, et tu reviens avec un rapport propre : angles, rotations, points de fuite, et la minute exacte où frapper.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Cela offre :</h4>
+                        
+                        <div class="reward-item">
+                            <p><strong>Furtivité Silencieuse mineure</strong> (Diminue le bruit généré par les déplacements et améliore la capacité à se dissimuler dans l'environnement. Ce talent est indispensable pour les voleurs, éclaireurs ou espions souhaitant éviter les confrontations. Il permet d'agir dans l'ombre, de surprendre un ennemi ou de fuir sans laisser de trace. Idéal aussi pour écouter sans être repéré.)</p>
+                            <p><strong>→</strong> Offre la compétence Furtivité +2 (DEX)</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Observateur de terrain mineur</strong> (Affûte la capacité à analyser rapidement l'environnement immédiat. Ce talent permet de repérer les irrégularités du sol, les zones à risque ou les points d'avantage stratégique, que ce soit en nature sauvage ou en zone urbaine. Très utile pour anticiper embuscades, trouver un bon couvert ou détecter des traces subtiles.)</p>
+                            <p><strong>→ Offre :</strong> Observation environnementale +2 (PER) (uniquement pour : couverts, angles morts, lignes de vue, positions de tir)</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Trait spécifique :</strong> +1 Finesse ou instinct</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Talent (non évolutif) — Tir Fantôme</h5>
+                            <p><strong>Effet :</strong> 1 fois par combat, si tu attaques depuis Discrétion (ou une position non repérée), tu peux déclarer un Tir Fantôme :</p>
+                            <ul>
+                                <li>ton attaque est faite avec Avantage,</li>
+                                <li>et si elle touche, la cible subit aussi un malus −2 à son prochain test de Perception / Vigilance contre toi jusqu'à la fin du round (tu "casses" sa lecture de ta position).</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Bonus de caractéristique :</strong> DEX +2 et PER +2</p>
+                            <p><strong>Bonus de trait spécifique :</strong> +1 finesse ou sang froid</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Éclaireur forestier -->
+                <div class="origine-card forestier">
+                    <h3>🌲 Éclaireur forestier</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu viens des sentiers où une carte sert surtout à allumer un feu. Ton école, c'est la boue, les racines, les falaises humides, les rivières froides. Tu sais contourner, grimper, passer, et surtout guider : trouver un itinéraire sûr, éviter les zones mortes, faire gagner des heures au groupe. Là où les autres voient "obstacle", toi tu vois "route".</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Cela offre :</h4>
+                        
+                        <div class="reward-item">
+                            <p><strong>Escalade Instinctive mineure</strong> (Favorise l'adhérence, l'équilibre et la stabilité sur des surfaces verticales, humides ou instables. Ce talent permet de grimper sans équipement, de se maintenir en hauteur ou d'explorer des lieux autrement inaccessibles. Il est vital pour les chasseurs, explorateurs ou voleurs de passage. Il réduit les risques de chute ou d'erreurs de prise.)</p>
+                            <p><strong>→</strong> Offre le trait spécifique Escalade +1 (Finesse)</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Survivaliste mineur</strong> (Regroupe les bases essentielles pour survivre en milieu naturel : feu, abri, eau, orientation. Ce talent améliore l'autonomie, la gestion des ressources et la survie en cas de séparation du groupe. Il est vital pour les expéditions, les territoires hostiles ou les zones corrompues. Permet aussi d'enseigner aux autres les gestes de base.)</p>
+                            <p><strong>→ Offre :</strong> Compétence : Survie +2 (Sagesse/Perception) et Trait spécifique : Survivaliste +1 (Instinct/Métier)</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Trait spécifique :</strong> +1 Instinct</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Talent (non évolutif) — Guide des sous-bois</h5>
+                            <p><strong>Effet :</strong> 1 fois par session, tu peux guider ton groupe sur un trajet court (scène / zone) :</p>
+                            <ul>
+                                <li>les alliés gagnent Avantage sur le premier test lié au déplacement/terrain (orientation, discrétion de groupe, franchissement),</li>
+                                <li>et le groupe ignore la première pénalité de terrain difficile rencontrée durant ce trajet (racines, boue, pente, broussailles).</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Bonus de caractéristique :</strong> SAG +3 et PER +2</p>
+                            <p><strong>Bonus de trait spécifique :</strong> +1 finesse ou instinct</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Éclaireur du monde magique -->
+                <div class="origine-card magique">
+                    <h3>✨ Éclaireur du monde magique</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu n'es pas un mage… pas encore. Mais tu as vu assez de phénomènes étranges pour comprendre que certains chemins se lisent aussi dans l'invisible : résidus d'arcane, zones "chargées", endroits où l'air vibre. Tu apprends à baliser avec de petites marques, à sentir les pièges mystiques simples, et à utiliser juste ce qu'il faut de magie pour améliorer ta mission d'éclaireur, pas pour lancer des tempêtes.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Cela offre :</h4>
+                        
+                        <div class="reward-item">
+                            <p><strong>Talent :</strong> Éveil magique (texte conservé)</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Maîtrise mineure — Magie élémentaire (source au choix)</strong> (comme les départs "éveil" qu'on voit sur d'autres classes)</p>
+                            <p><strong>→ Offre :</strong> Magie élémentaire (source) +2</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Trait spécifique :</strong> +1 Savoir</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Talent (non évolutif) — Balisage runique</h5>
+                            <p><strong>Effet :</strong> 1 fois par session, tu peux poser jusqu'à 3 marques (runes discrètes) visibles uniquement par toi (ou par un allié que tu touches lors de la pose).</p>
+                            <p>Elles servent de "points de repère" : tant que vous suivez les marques, le groupe gagne +2 aux tests de Topographie/Cartographie et évite de se perdre sur une erreur mineure (le MJ peut annuler un échec "léger" une fois).</p>
+                            <p>En combat, si tu te bats dans une zone marquée, tu peux 1 fois relancer un test de Perception lié au repérage (pas un jet d'attaque).</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Bonus de caractéristique :</strong> le -1 change a +3 et SAG +2</p>
+                            <p><strong>Bonus de trait spécifique :</strong> +1 savoir</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Éclaireur des montagnes draconoïdes -->
+                <div class="origine-card draconoide">
+                    <h3>🐉 Éclaireur des montagnes draconoïdes</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu as grandi ou servi dans des reliefs où l'horizon est vertical : crêtes, gouffres, vents coupants. Là-bas, un éclaireur doit savoir se battre sur une monture (terre ou vol), garder sa visée malgré la vitesse, et frapper loin, très loin. Tu as été initié aux Arcs Colossaux : des armes immenses, exigeant puissance et stabilité, capables de transpercer une ligne, une cuirasse, ou un monstre qui pense être hors de portée.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Cela offre :</h4>
+                        
+                        <div class="reward-item">
+                            <p><strong>Maîtrise mineure — Arc Colossal</strong> (évolutive)</p>
+                            <p><strong>→ Offre :</strong> Arc Colossal +2 (compétence d'arme)</p>
+                            <p><strong>Règle d'initiation :</strong> tu peux utiliser un Arc Colossal même si la taille/puissance est exigeante, mais tes tirs "puissants" coûtent +2 PE (le temps que ton corps s'y fasse).</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Conduite de monture (mineur) :</strong> Compétence de trait spécifique Conduite de monture (Métier) +1.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Trait spécifique :</strong> +1 Sang-froid (tenir la visée malgré le vide, la peur, la vitesse)</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Talent (non évolutif) — Stabilisation en mouvement</h5>
+                            <p><strong>Effet :</strong> 1 fois par combat, si tu tires depuis une monture en mouvement (ou en déplacement rapide), tu ignores la pénalité principale liée au mouvement pour ce tir.</p>
+                            <p>Si c'est un tir avec Arc Colossal et que tu touches, tu ajoutes en plus +1d6 dégâts (impact "lourd" dû à l'angle et la vitesse).</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Bonus de caractéristique :</strong> le -1 passe en +3 et PER +1 et +1 en constitution</p>
+                            <p><strong>Bonus de trait spécifique :</strong> +1 puissance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milicien Éclaireur -->
+                <div class="origine-card milicien">
+                    <h3>🛡️ Milicien Éclaireur</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu n'as pas appris l'éclaireur "dans la nature", mais dans les rondes, les portes de ville, les murs, les ponts, les routes surveillées et les escortes. Ton travail, c'était d'éviter l'incident avant qu'il n'explose : repérer un mouvement anormal, lire une foule, suivre une silhouette trop pressée, comprendre quand une carriole "sonne faux".</p>
+                        <p>Tu sais te placer comme un soldat : tenir une ligne, couvrir un allié qui se replie, signaler une menace, et rendre un rapport clair. Moins "aventurier", plus discipline et procédure… mais tout aussi utile quand ça tourne mal.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Cela offre :</h4>
+                        
+                        <div class="reward-item">
+                            <p><strong>Maîtrise mineure — arme d'Aste (lance/hallebard/ect...)</strong> (au choix) :</p>
+                            <p><strong>→ Offre</strong> la compétence de l'arme à +2.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Dialecte militaire (texte "doc") :</strong></p>
+                            <p>Offre un bonus de +2 sur les jets de social avec les gardes et autres personnes ayant suivi un entraînement de ce domaine.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Trait spécifique :</strong> +1 Sang-froid ou social</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Talent (non évolutif) — Tir de Couverture Milicien</h5>
+                            <p><strong>Effet :</strong> 1 fois par combat, quand un allié à 30 ft (que tu vois) se désengage / se replie ou traverse un passage exposé, tu peux déclencher un tir de couverture :</p>
+                            <ul>
+                                <li>Tu effectues un tir simple contre un ennemi qui menace ce mouvement.</li>
+                                <li>Ce tir est effectué avec Désavantage (tir réflexe, sans visée parfaite).</li>
+                                <li>Si tu touches : la cible est Déstabilisée jusqu'au début de son prochain tour (elle hésite, se couvre, perd son angle — utile pour sécuriser le repli).</li>
+                            </ul>
+                            <p>(Ça reste dans tes mots-clés de combat : Avantage/Désavantage + état "Déstabilisation".)</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Bonus de caractéristique :</strong> Change le malus de -1 en constitution en +3 et PER +2 et +1 en force de combat</p>
+                            <p><strong>Bonus de trait spécifique :</strong> +1 instinct ou sang froid ou social</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <h3 class="subsection-title">Connaissances (de base)</h3>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Éclaireurs <span class="level">(Moyen)</span></h4>
+                    <p>Tu connais les principes fondamentaux du métier : reconnaissance, observation, cartographie rapide et remontée d'informations. Tu sais quoi regarder en priorité (lignes de vue, couverts, points hauts, routes, zones mortes) et comment organiser un rapport utile. Cette connaissance inclut aussi les routines de déplacement léger, de discrétion de groupe et de sécurisation d'itinéraires. Elle représente "la méthode" de l'éclaireur, pas seulement l'instinct.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la Traque <span class="level">(Modéré)</span></h4>
+                    <p>Lire et suivre des traces : foulées, bris de végétation, poussières, rythme de marche. Dater un passage, estimer un effectif, anticiper trajet et haltes d'une cible. Tu sais aussi repérer les tentatives de camouflage (faux pas, détour volontaire, marche sur pierre). Plus qu'une poursuite, c'est une enquête au sol.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance Balistique <span class="level">(Modéré)</span></h4>
+                    <p>Tu comprends les trajectoires et dérives : chute, vent, angle, pénétration selon le matériau. Tu sais corriger ta visée, choisir la pointe adaptée et exploiter les couverts sans gaspiller de munitions. Cette connaissance te permet d'estimer rapidement une distance "utile" et d'identifier ce qui stoppera ou non un projectile. Elle inclut aussi les erreurs classiques (contre-jour, tir en pente, tir sous rafales).</p>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">🎯 Connaissances bonus via le choix d'origine</h3>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>⚔️ Éclaireur combatif</h4>
+                    <p>Connaissance au choix (Modéré)</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>🌑 Éclaireur de l'ombre</h4>
+                    <p>Connaissance du domaine Criminel (Modéré) + Connaissance des Réseaux Criminels (Modéré)</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>🌲 Éclaireur forestier</h4>
+                    <p>Connaissance du domaine de l'Herboristerie (Modéré) + Connaissance du domaine du Bestiaire Animal (Modéré)</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>✨ Éclaireur du monde magique</h4>
+                    <p>Connaissance du domaine de la Magie (Modéré) + Connaissance de la Magie Élémentaire X (Modéré)</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>🐉 Éclaireur des montagnes draconoïdes</h4>
+                    <p>Connaissance des Mythes & Légendes (Modéré) + Connaissance du Bestiaire Draconoïde (Modéré)</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>🛡️ Milicien Éclaireur</h4>
+                    <p>Connaissance de la Doctrine de Garnison (Modéré) + Connaissance du domaine Militaire (Modéré)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'arme</h2>
+            <div class="content-box">
+                <p>+1 maîtrise dans une arme de tir au choix.</p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎒 Équipement offert par la classe</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🏹</span>
+                    <div>
+                        <h4>1 arme à distance au choix</h4>
+                        <p>Arc, arbalète ou arme à feu selon ta formation</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💥</span>
+                    <div>
+                        <h4>Munitions supplémentaires</h4>
+                        <p>20 flèches/carreaux/munitions supplémentaires (+ compartiment type carquois)<br>
+                        10 munitions pour les armes à feux (non pris en compte des armes à feux magique)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure légère</h4>
+                        <p>Protection tout en gardant la mobilité</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔭</span>
+                    <div>
+                        <h4>Jumelles de bonne facture</h4>
+                        <p>Vision longue distance obtenable (jet de Perception avec avantage)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💚</span>
+                    <div>
+                        <h4>1 potion d'endurance</h4>
+                        <p>Restaure les points d'endurance</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>1 potion de vie</h4>
+                        <p>Soin d'urgence</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">✅ Compétences</h2>
+            
+            <h3 class="subsection-title">Compétences de caractéristique</h3>
+            
+            <div class="competence-list-full">
+                <div class="competence-item">
+                    <h4>Tir à l'arme à distance X (DEX)</h4>
+                    <p>Permet d'attaquer avec l'arme choisie et d'exécuter des tirs précis, rapides ou sous contrainte. Sert aussi à gérer des tirs difficiles (cible mobile, angle, couvert léger) selon le MJ.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Observation environnementale (PER)</h4>
+                    <p>Sert à analyser une zone : relief, couverts, issues, pièges visibles, points hauts, lignes de vue. Très utile pour repérer une embuscade ou choisir une position de tir sûre.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Discrétion (DEX)</h4>
+                    <p>Permet de se déplacer et agir sans se faire repérer (bruit, silhouette, timing). Sert aussi à préparer une approche, une infiltration ou une embuscade.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Esquive (DEX/REA)</h4>
+                    <p>Sert à éviter une attaque par réflexe : pas de côté, roulade, mouvement court. Peut être utilisée pour réduire l'impact d'un coup ou échapper à une zone dangereuse selon tes règles.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Pistage (PER)</h4>
+                    <p>Permet de suivre une cible via empreintes, signes de passage, perturbations du décor, odeurs ou indices indirects. Sert aussi à estimer direction, vitesse et ancienneté d'un passage.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Observation des distances (PER)</h4>
+                    <p>Permet d'évaluer rapidement une portée, une hauteur, un angle ou un écart entre deux points. Utile pour choisir un tir viable, un saut faisable ou une route plus sûre.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Camouflage (DEX)</h4>
+                    <p>Permet de se fondre dans un décor en cassant sa silhouette (végétation, ombres, poussière, couvert). Sert à rester immobile sans être vu ou à masquer un campement/équipement.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Reconstitution de scène (INT)</h4>
+                    <p>Permet d'analyser des indices pour comprendre ce qui s'est passé (ordre des actions, impacts, traces, trajectoires). Sert à repérer incohérences, mensonges matériels ou danger encore présent.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Dissociation de mensonge (SAG)</h4>
+                    <p>Sert à détecter une incohérence ou une intention cachée via ton ressenti, le comportement, les micro-réactions. C'est plus "intuition + jugement" que logique pure.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Présence des ombres (CHA)</h4>
+                    <p>Permet d'imposer une aura discrète mais marquante : intimidation feutrée, assurance froide, pression psychologique. Sert à faire hésiter, calmer une situation ou obtenir un respect sans parler fort.</p>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">Compétences de trait spécifique</h3>
+            
+            <div class="competence-list-full">
+                <div class="competence-item">
+                    <h4>Agilité de mouvement (Finesse)</h4>
+                    <p>Améliore tes déplacements précis : micro-placement, appuis propres, changements de direction. Utile pour se positionner sans perdre l'équilibre ni s'exposer.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Pas silencieux (Finesse)</h4>
+                    <p>Réduit les bruits de marche malgré le terrain ou l'équipement. Sert à approcher une cible, se repositionner ou traverser une zone dangereuse sans alerter.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Instinct du danger (Instinct)</h4>
+                    <p>Te permet de "sentir" une menace avant qu'elle soit évidente (silence anormal, tension, détail qui cloche). Utile pour éviter une embuscade ou réagir juste à temps.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Résistance au froid (Résilience)</h4>
+                    <p>Aide à supporter l'exposition, le gel, l'eau froide et la fatigue liée au climat. Sert à maintenir tes performances et éviter les pénalités de conditions.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Résistance à la chaleur (Résilience)</h4>
+                    <p>Aide à tenir sous soleil, humidité lourde, déshydratation et efforts prolongés. Sert à rester lucide et efficace malgré l'épuisement thermique.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Langage des signes (Métier)</h4>
+                    <p>Permet de communiquer sans parler (consignes, danger, direction, cible). Très utile en infiltration ou en repérage de groupe.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Résistance à l'intimidation (Sang-froid)</h4>
+                    <p>Réduit l'impact des menaces, pressions, et tentatives de domination. Sert à garder un jugement clair et ne pas céder sous contrainte.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Résistance à la peur (Sang-froid)</h4>
+                    <p>Aide à tenir face à l'horreur, aux créatures, au vide, ou au danger imminent. Sert à éviter la panique et agir malgré la peur.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Self contrôle sous pression (Sang-froid)</h4>
+                    <p>Permet de rester stable quand tout part en vrille : stress, douleur, urgence, insultes, chaos. Sert à réussir des actions "propres" au pire moment (tir, fuite, décision).</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/éclaireur.js"></script>
+</body>
+</html>

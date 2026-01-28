@@ -179,6 +179,7 @@ body {
     font-size: 1.1rem;
     color: var(--burgundy);
     font-weight: 600;
+    margin-top: 20px;
 }
 
 .results-count span {
@@ -515,5 +516,159 @@ body {
 
     .talent-cout {
         text-align: left;
+    }
+}
+/* === FILTRES DE CATÉGORIES === */
+.category-filters {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid var(--gold);
+}
+
+.filter-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: var(--burgundy);
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.category-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.category-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.category-checkbox:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(44, 36, 22, 0.1);
+}
+
+.category-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-custom {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--gold-dark);
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.category-checkbox input[type="checkbox"]:checked ~ .checkbox-custom {
+    background: var(--burgundy);
+    border-color: var(--burgundy);
+}
+
+.category-checkbox input[type="checkbox"]:checked ~ .checkbox-custom::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.checkbox-label {
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 15px;
+}
+
+.checkbox-label.cat-armes {
+    background: rgba(180, 50, 50, 0.15);
+    color: #b43232;
+}
+
+.checkbox-label.cat-technique {
+    background: rgba(50, 100, 180, 0.15);
+    color: #3264b4;
+}
+
+.checkbox-label.cat-classique {
+    background: rgba(180, 140, 50, 0.15);
+    color: #b48c32;
+}
+
+.checkbox-label.cat-magie {
+    background: rgba(130, 50, 180, 0.15);
+    color: #8232b4;
+}
+
+.checkbox-label.cat-style {
+    background: rgba(50, 150, 100, 0.15);
+    color: #329664;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background: var(--gold);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.filter-btn:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(157, 125, 58, 0.4);
+}
+
+/* Responsive pour les filtres */
+@media (max-width: 768px) {
+    .category-checkboxes {
+        flex-direction: column;
+    }
+    
+    .category-checkbox {
+        width: 100%;
+    }
+    
+    .filter-actions {
+        flex-direction: column;
+    }
+    
+    .filter-btn {
+        width: 100%;
     }
 }

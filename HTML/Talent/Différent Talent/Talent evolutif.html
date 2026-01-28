@@ -30,6 +30,47 @@
                 <button id="clearSearch" class="clear-btn">✕</button>
             </div>
             
+            <!-- NOUVEAU : Filtres par catégorie -->
+            <div class="category-filters">
+                <h3 class="filter-title">📂 Filtrer par catégorie :</h3>
+                <div class="category-checkboxes">
+                    <label class="category-checkbox">
+                        <input type="checkbox" value="Les Armes" checked>
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-label cat-armes">⚔️ Les Armes</span>
+                    </label>
+                    
+                    <label class="category-checkbox">
+                        <input type="checkbox" value="Technique de combat" checked>
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-label cat-technique">🥋 Technique de combat</span>
+                    </label>
+                    
+                    <label class="category-checkbox">
+                        <input type="checkbox" value="Talent évolutif classique" checked>
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-label cat-classique">⭐ Talent évolutif classique</span>
+                    </label>
+                    
+                    <label class="category-checkbox">
+                        <input type="checkbox" value="Lien magique" checked>
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-label cat-magie">🔮 Lien magique</span>
+                    </label>
+                    
+                    <label class="category-checkbox">
+                        <input type="checkbox" value="Style magique" checked>
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-label cat-style">✨ Style magique</span>
+                    </label>
+                </div>
+                
+                <div class="filter-actions">
+                    <button id="selectAll" class="filter-btn">✓ Tout sélectionner</button>
+                    <button id="deselectAll" class="filter-btn">✕ Tout désélectionner</button>
+                </div>
+            </div>
+            
             <div class="results-count">
                 <span id="talentCount">0</span> talents affichés sur <span id="totalCount">0</span>
             </div>
@@ -61,7 +102,7 @@
         <!-- Message si aucun résultat -->
         <div id="noResults" class="no-results" style="display: none;">
             <p>🔍 Aucun talent trouvé</p>
-            <p class="no-results-hint">Essayez de modifier votre recherche</p>
+            <p class="no-results-hint">Essayez de modifier votre recherche ou vos filtres</p>
         </div>
     </main>
 

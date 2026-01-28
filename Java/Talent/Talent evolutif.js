@@ -716,6 +716,7 @@ allTalents.push(
 let talents = [...allTalents]; // Copie pour pouvoir trier
 let currentSort = { column: null, direction: null };
 let searchTerm = '';
+let selectedCategories = new Set(["Les Armes", "Technique de combat", "Talent évolutif classique", "Lien magique", "Style magique"]);
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
@@ -733,6 +734,11 @@ function renderTable() {
     let visibleCount = 0;
     
     talents.forEach(talent => {
+        // Filtrage par catégorie
+        if (!selectedCategories.has(talent.categorie)) {
+            return; // Skip cette ligne
+        }
+        
         // Filtrage par recherche
         const matchesSearch = searchTerm === '' || 
             talent.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -924,6 +930,38 @@ function clearSearch() {
     renderTable();
 }
 
+// Gestion des checkboxes de catégories
+function handleCategoryChange() {
+    const checkboxes = document.querySelectorAll('.category-checkbox input[type="checkbox"]');
+    selectedCategories.clear();
+    
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            selectedCategories.add(checkbox.value);
+        }
+    });
+    
+    renderTable();
+}
+
+// Sélectionner toutes les catégories
+function selectAllCategories() {
+    const checkboxes = document.querySelectorAll('.category-checkbox input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = true;
+    });
+    handleCategoryChange();
+}
+
+// Désélectionner toutes les catégories
+function deselectAllCategories() {
+    const checkboxes = document.querySelectorAll('.category-checkbox input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+    handleCategoryChange();
+}
+
 // Attacher les événements
 function attachEventListeners() {
     // Recherche
@@ -939,4 +977,13 @@ function attachEventListeners() {
             sortTable(column);
         });
     });
+    
+    // Checkboxes de catégories
+    document.querySelectorAll('.category-checkbox input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', handleCategoryChange);
+    });
+    
+    // Boutons Tout sélectionner / Tout désélectionner
+    document.getElementById('selectAll').addEventListener('click', selectAllCategories);
+    document.getElementById('deselectAll').addEventListener('click', deselectAllCategories);
 }
