@@ -211,6 +211,27 @@ body {
     color: var(--ink);
 }
 
+/* Hint interactif */
+.interactive-hint {
+    background: linear-gradient(135deg, rgba(201, 41, 41, 0.15), rgba(139, 30, 30, 0.15));
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--blood-light);
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: var(--blood-dark);
+    animation: pulse-hint 2s ease-in-out infinite;
+}
+
+@keyframes pulse-hint {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(201, 41, 41, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(201, 41, 41, 0);
+    }
+}
+
 /* Boîte de contenu */
 .content-box {
     background: rgba(255, 255, 255, 0.5);
@@ -238,6 +259,11 @@ body {
 
 .highlight-box p {
     margin: 0;
+    margin-bottom: 10px;
+}
+
+.highlight-box p:last-child {
+    margin-bottom: 0;
 }
 
 /* Grille de statistiques */
@@ -362,6 +388,10 @@ body {
     margin-bottom: 10px;
 }
 
+.talent-card p:last-child {
+    margin-bottom: 0;
+}
+
 .talent-card ul {
     list-style: none;
     padding-left: 0;
@@ -380,6 +410,27 @@ body {
     font-weight: bold;
 }
 
+/* Passif */
+.passif-box {
+    background: linear-gradient(135deg, rgba(139, 30, 30, 0.1), rgba(201, 41, 41, 0.05));
+    padding: 25px;
+    border: 3px solid var(--blood);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.passif-box h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--blood);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.passif-box p {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+}
+
 /* Grille d'origines */
 .origin-grid {
     display: grid;
@@ -392,11 +443,38 @@ body {
     border: 3px solid var(--blood-light);
     border-radius: 10px;
     transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
 }
 
 .origin-card:hover {
     border-color: var(--blood);
     box-shadow: 0 8px 25px rgba(139, 30, 30, 0.2);
+}
+
+.origin-card.selected {
+    border-color: var(--blood);
+    border-width: 4px;
+    box-shadow: 0 8px 40px rgba(139, 30, 30, 0.4), 
+                0 0 0 2px rgba(139, 30, 30, 0.2);
+    background: rgba(139, 30, 30, 0.08);
+}
+
+.origin-card.selected::before {
+    content: '✓ SÉLECTIONNÉ';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--blood);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(139, 30, 30, 0.4);
+    z-index: 10;
 }
 
 .origin-card h3 {
@@ -413,12 +491,41 @@ body {
     font-size: 1.2rem;
 }
 
+.origin-card p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.origin-card p:last-child {
+    margin-bottom: 0;
+}
+
 .origin-card .subsection {
     background: rgba(139, 30, 30, 0.05);
     padding: 20px;
     margin: 15px 0;
     border-radius: 6px;
     border-left: 3px solid var(--blood);
+}
+
+.origin-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+}
+
+.origin-card li {
+    padding: 4px 0 4px 20px;
+    position: relative;
+}
+
+.origin-card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--blood);
+    font-weight: bold;
 }
 
 /* Liste de connaissances */
@@ -572,22 +679,6 @@ body {
 
 .chart-wrapper canvas {
     max-height: 400px;
-}
-
-/* Passif */
-.passif-box {
-    background: linear-gradient(135deg, rgba(139, 30, 30, 0.1), rgba(201, 41, 41, 0.05));
-    padding: 25px;
-    border: 3px solid var(--blood);
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.passif-box h3 {
-    font-family: 'Cinzel', serif;
-    color: var(--blood);
-    margin-bottom: 15px;
-    font-size: 1.3rem;
 }
 
 /* Responsive */

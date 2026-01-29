@@ -12,7 +12,7 @@
     <div class="parchment-overlay"></div>
     
     <!-- Bouton retour -->
-    <a href="../../HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
     
     <!-- En-tête avec image et citation -->
     <header class="hero-section">
@@ -97,6 +97,7 @@
                 </div>
             </div>
         </section>
+        
         <!-- Talents de classe -->
         <section class="section">
             <h2 class="section-title">🎓 Talents de classe</h2>
@@ -163,9 +164,13 @@
             <h2 class="section-title">🌡️ La nature de la fièvre — Origines (1 au choix)</h2>
             <p class="intro-text">Choisis une origine qui définit la source et la nature de ta ferveur intérieure :</p>
             
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Origine pour la sélectionner et voir les informations détaillées !
+            </div>
+            
             <div class="origin-grid">
                 <!-- Origine 1 -->
-                <div class="origin-card">
+                <div class="origin-card amoureux-affrontement">
                     <h3>⚔️ Amoureux de l'affrontement</h3>
                     <p>Tu as accueilli ce don comme on accueille une évidence. Avec le temps, il s'est fondu en toi, jusqu'à devenir une part de ton souffle, une seconde nature. Tu parcours le monde à la recherche d'épreuves, non par cruauté, mais pour cette sensation unique : l'instant où deux volontés se heurtent et où tout devient limpide. Victoire ou défaite comptent peu. Ce que tu poursuis, c'est la clarté brutale du duel, la comparaison des forces, la vérité nue de l'affrontement. Pour toi, rien n'est plus réel que le combat.</p>
                     
@@ -185,8 +190,9 @@
                         <p><strong>X = la moitié de ton maximum de Ferveur</strong> (arrondie au supérieur).</p>
                     </div>
                 </div>
+                
                 <!-- Origine 2 -->
-                <div class="origin-card">
+                <div class="origin-card terres-indomptees">
                     <h3>🏔️ Né des terres indomptées</h3>
                     <p>Tu viens de contrées où la loi n'est pas écrite dans les livres, mais dans les traces au sol, les hurlements au loin et les regards qui évaluent. Là-bas, les bêtes et les monstres ne sont pas des légendes : ils partagent la même terre, la même faim, le même froid. Tu n'as pas appris à "vivre confortablement" — tu as appris à tenir, à lire le danger avant qu'il n'arrive, à avancer quand tout pousse à reculer.</p>
                     
@@ -227,7 +233,7 @@
                 </div>
 
                 <!-- Origine 3 -->
-                <div class="origin-card">
+                <div class="origin-card voie-mysticisme">
                     <h3>✨ Voie du mysticisme</h3>
                     <p>Au fil de ton voyage, tu as fini par chercher autre chose que la victoire ou la survie. Tu as appris à écouter. Le silence des plaines, le souffle des forêts, la patience de la glace… Tu as essayé de comprendre cette énergie en toi, de la guider, de la calmer, de lui donner un sens. Au début, rien ne venait : seulement des tentatives maladroites, des échecs répétés, et cette impression d'être "à côté".</p>
                     
@@ -275,8 +281,9 @@
                         <p style="font-style: italic;">(Ne s'applique pas aux sorts provenant directement d'objets.)</p>
                     </div>
                 </div>
+                
                 <!-- Origine 4 : Enfant du Chaos -->
-                <div class="origin-card" style="border-color: var(--blood); background: linear-gradient(135deg, rgba(139, 30, 30, 0.05), rgba(255, 255, 255, 0.7));">
+                <div class="origin-card enfant-chaos" style="border-color: var(--blood); background: linear-gradient(135deg, rgba(139, 30, 30, 0.05), rgba(255, 255, 255, 0.7));">
                     <h3>💀 Enfant du Chaos</h3>
                     <p>Certaines anciennes théories, portées par des clans venus de plans lointains, affirment que les porteurs de la Ferveur sont des "enfants illégitimes du chaos". Leur lien à l'outre-monde serait trouble : quand ils libèrent leur énergie, l'émanation semble obscure, presque contre-nature. Selon ces croyances, une puissance enfouie sommeille en eux — appelée l'Appel du Néant — une force terrifiante qui peut se déployer, tordre la Ferveur… et la corrompre jusqu'à la transformer en quelque chose d'autre.</p>
                     
@@ -369,6 +376,7 @@
                 </div>
             </div>
         </section>
+        
         <!-- Connaissances -->
         <section class="section">
             <h2 class="section-title">📚 Connaissances acquises</h2>
@@ -492,92 +500,6 @@
         <p>© 2024 Termion - Tous droits réservés</p>
     </footer>
 
-    <script>
-        // Création du graphique radar des caractéristiques
-        const ctx = document.getElementById('statsChart').getContext('2d');
-        
-        // Données du Battant de sang (échelle de -4 à +10)
-        const statsData = {
-            FOR: 6,
-            CST: 2,
-            DEX: 2,
-            INT: -3,
-            SAG: -2,
-            PER: 1,
-            CHA: -1
-        };
-
-        // Convertir les valeurs pour le graphique (ajouter 4 pour que 0 soit au centre)
-        const convertedData = Object.values(statsData).map(val => val + 4);
-
-        const statsChart = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
-                datasets: [{
-                    label: 'Caractéristiques',
-                    data: convertedData,
-                    backgroundColor: 'rgba(139, 30, 30, 0.2)',
-                    borderColor: 'rgba(139, 30, 30, 0.8)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(139, 30, 30, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(139, 30, 30, 1)',
-                    pointRadius: 5,
-                    pointHoverRadius: 7
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    r: {
-                        min: 0,
-                        max: 10, // -4 à +6 = 10 niveaux
-                        ticks: {
-                            stepSize: 2,
-                            callback: function(value) {
-                                // Convertir les valeurs affichées (-4 à +10)
-                                return value - 4;
-                            },
-                            color: '#8b1e1e',
-                            font: {
-                                size: 11,
-                                weight: 'bold'
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(139, 30, 30, 0.2)'
-                        },
-                        angleLines: {
-                            color: 'rgba(139, 30, 30, 0.2)'
-                        },
-                        pointLabels: {
-                            color: '#8b1e1e',
-                            font: {
-                                size: 14,
-                                weight: 'bold',
-                                family: "'Cinzel', serif"
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const actualValue = context.parsed.r - 4;
-                                return context.label + ': ' + (actualValue >= 0 ? '+' : '') + actualValue;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="../../../Java/Classe/Classe classique/Battant de sang.js"></script>
 </body>
 </html>

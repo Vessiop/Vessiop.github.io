@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chasseur - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Chasseur.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Chasseur.png" alt="Chasseur">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🐾 Chasseur</h1>
+            <p class="class-quote">« Les bêtes me parlent. Les monstres me fuient. Et toi... tu ferais mieux de ne pas me suivre. »</p>
+            <p class="class-type">🎯 Discrétion • Embuscade • Pistage • Combat adaptatif</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description / Présentation</h2>
+            <div class="content-box">
+                <p>Le Chasseur n'est pas seulement un survivant : c'est une caste reconnue et recherchée, souvent considérée comme l'une des plus fiables quand il faut retrouver ce que le monde a "avalé". Personnes disparues, fugitifs, caravanes perdues, bêtes devenues dangereuses, créatures inconnues… quand une piste est froide, quand les routes mentent, et quand personne n'ose s'enfoncer plus loin, c'est vers les Chasseurs qu'on se tourne. On les recommande parce qu'ils reviennent avec des réponses : une trace, une direction, un nom, une vérité — parfois une preuve, parfois une proie, parfois un corps.</p>
+                
+                <p>Traqueurs réputés, ils suivent un instinct forgé par la pratique du terrain, pas par des théories. Leur savoir est brut : lecture des empreintes, silence des oiseaux, rythme des vents, odeurs laissées sur une corde, poussière déplacée sur une pierre. Là où d'autres voient un décor, eux lisent un récit. Ils savent que la chasse est une affaire de patience, de méthode et de timing… mais aussi de compréhension de la peur : celle de la proie, et celle que le milieu impose.</p>
+                
+                <p>Chaque Chasseur développe une cible de prédilection et un style qui lui ressemble. Certains sont des pisteurs de bêtes, d'autres des traqueurs d'humains, d'autres encore des chasseurs d'horreurs. Mais tous partagent la même règle : s'adapter à l'environnement pour ne pas être remarqué. Ils choisissent leurs itinéraires, leur équipement, leurs appâts et même leur façon de respirer selon le lieu. Ils imitent les rythmes du terrain, se fondent dans la foule ou dans la forêt, et frappent sans annoncer leur présence — non par magie, mais par discipline, camouflage, pièges, et une compréhension fine des habitudes de leur cible.</p>
+                
+                <p>Pragmatique, le Chasseur ne mise pas sur la puissance brute : il mise sur l'avantage construit. Il prépare, observe, piège, coupe une route, force un détour, fatigue une proie, puis frappe quand elle n'a plus de "bonne option". En mission, il peut être éclaireur, investigateur, exécutant ou extracteur… mais dans tous les cas, il est celui qui transforme l'introuvable en traçable, et la traque en résultat.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>🧭 Identité de classe :</strong></p>
+                    <p><strong>Armes de prédilection :</strong> Dagues, armes de jet, arcs, arbalètes</p>
+                    <p><strong>Armures de prédilection :</strong> Armure légère camouflée</p>
+                    <p><strong>Style de combat :</strong> Discrétion, embuscade, polyvalence distance/corps à corps</p>
+                    <p><strong>Type de classe :</strong> Mixte (dex/intuition/survie) — pistage, pièges, camouflage, combat adaptatif</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Ressources de base</h3>
+                    <ul>
+                        <li><strong>PV :</strong> <span class="highlight-stat">1d14</span></li>
+                        <li><strong>PM :</strong> 1d8</li>
+                        <li><strong>PE :</strong> <span class="highlight-stat">1d14</span></li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus de caractéristiques</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −1</span>
+                        <span class="stat-item neutral">CST : 0</span>
+                        <span class="stat-item positive">DEX : +3</span>
+                        <span class="stat-item negative">INT : −2</span>
+                        <span class="stat-item positive">SAG : +1</span>
+                        <span class="stat-item positive highlight">PER : +4</span>
+                        <span class="stat-item negative">CHA : −3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM (Résistance Mentale) :</strong> 20 + 1d8</li>
+                        <li><strong>Réactivité :</strong> <span class="highlight-stat">+4</span></li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques (base)</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-Froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 2</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 2</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de base -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents (base)</h2>
+            
+            <div class="talent-card">
+                <h3>🐾 Maître du Pistage — mineur</h3>
+                <p>Permet de lire les empreintes, signes de passage ou perturbations dans l'environnement. Ce talent est utilisé pour suivre des traces humaines, animales ou magiques. Très utile en traque, chasse ou investigation. Il permet aussi d'éviter les embuscades ou retrouver une cible perdue (Offre la Compétence Pistage +2).</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>🎯 Maîtrise d'une arme de tir ou arme de jet</h3>
+                
+            </div>
+
+            <div class="talent-card">
+                <h3>🫥 Maître du Camouflage — mineur</h3>
+                <p>Développe la capacité à se fondre dans un décor, que ce soit en milieu naturel ou urbain. Ce talent améliore la dissimulation en terrain hostile, la fuite ou l'observation discrète. Il est vital pour les chasseurs, espions ou éclaireurs. Très utile pour tendre une embuscade ou éviter les conflits. (offre la Compétence : Camouflage +2 (Dextérité))</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>🎯 Spécialisation de Traque (X)</h3>
+                <p>À l'acquisition de ce talent, le lanceur choisit une catégorie de proie :</p>
+                <p><strong>• Animal • Humanoïde • Reptilien • Draconoïde • Monstre • Élémentaire</strong></p>
+                <p>Le lanceur obtient avantage sur les jet de pistage ciblant la catégorie d'entité choisis. Le lanceur peut une fois par session relancer un jet de pistage échouée, en réduisant (si il y a) le bonus de difficulté de -10</p>
+            </div>
+        </section>
+
+        <!-- Terrains de chasse -->
+        <section class="section">
+            <h2 class="section-title">🏞️ Terrain de chasse de prédilection (1 au choix)</h2>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur un Terrain de chasse pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="terrain-grid">
+                <!-- Arpenteur des Terres Hostiles -->
+                <div class="terrain-card terres-hostiles">
+                    <h3>🌿 Arpenteur des Terres Hostiles</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu as appris à vivre là où les autres s'épuisent. Forêt, marais, plateaux ventés, zones froides ou brûlantes : tu sais lire le milieu, anticiper ses pièges naturels et t'adapter sans gaspiller. Ton chasseur ne "survit pas par chance" : il gère ses ressources, choisit ses trajets, rationne intelligemment, et maintient son groupe en état de marcher. Tu n'es pas seulement un traqueur : tu es la raison pour laquelle l'expédition ne meurt pas avant même d'avoir trouvé la proie.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Sens du Biome</h5>
+                            <p>Lorsque tu te trouves en terres sauvages (forêt, marais, plaines, montagnes, etc.), tu effectues avec Avantage tes jets de Perception ou Instinct lorsqu'ils servent à repérer, comprendre, anticiper ou traquer des animaux ou des créatures vivantes propres à ce milieu (présence, comportement, danger, direction).</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Obtient aussi la catégorie « Animal » dans le talent « Spécialisation de Traque »</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Gains</h4>
+                        <div class="reward-item">
+                            <p><strong>Caractéristiques :</strong> +2 en Perception et +2 constitution</p>
+                            <p><strong>Trait spécifique :</strong> +1 instinct ou sang froid</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissances spécifiques</h4>
+                        
+                        <div class="reward-item">
+                            <h5>🐾 Amélioration — Connaissance du bestiaire animal</h5>
+                            <p>Ton savoir sur la faune est plus précis et plus "terrain" : tu lis mieux les signaux faibles (odeurs, griffures, trajectoires). Tu sais anticiper les réactions d'une bête avant qu'elle n'attaque ou ne fuie, et repérer des comportements anormaux (maladie, corruption, territoire stressé). Cette amélioration rend tes décisions plus sûres : contourner, attirer, détourner, ou suivre sans te faire repérer. En pratique, tu "comprends" l'animal plutôt que de seulement l'identifier.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>🔥 Amélioration — Connaissance de l'art de la survie</h5>
+                            <p>Ta survie devient une méthode d'expédition : tu ne fais pas juste "tenir", tu fais durer un groupe. Tu optimises le bivouac, les trajets, l'effort, et tu sais réduire les pertes de ressources (temps, eau, nourriture, chaleur). Cette amélioration te permet d'éviter les pièges naturels avant qu'ils ne deviennent un problème (hypothermie, chaleur, terrain qui épuise). Tu gagnes en fiabilité : ton groupe arrive encore en état de combattre.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artisan des Lisières -->
+                <div class="terrain-card artisan-lisieres">
+                    <h3>🪤 Artisan des Lisières</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu es un patient, un bricoleur, un artisan du terrain. Là où d'autres foncent, toi tu prépares : tu observes les habitudes de passage, tu comprends où la proie s'engagera, et tu construis des pièges efficaces avec presque rien. Cordes, branches, pierres, clous, fosses improvisées… tout devient une arme, tant que le terrain te donne une matière à transformer. Ton style n'est pas de "gagner un duel", mais de faire en sorte que la proie arrive déjà blessée, ralentie, ou paniquée avant même de te voir.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Bricoleur naturel (Base) mineur</h5>
+                            <p>Le lanceur sait improviser avec les moyens du bord en exploitant les ressources du terrain : branches, lianes, feuilles, pierres, cordes rudimentaires ou débris récupérés. Il peut ainsi fabriquer rapidement de petits dispositifs simples (attaches, déclencheurs, entraves légères) et des pièges artisanaux basiques adaptés à l'environnement.</p>
+                            <p><strong>Gain :</strong> confère la compétence de trait spécifique Bricoleur naturel +1.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Mécanique Aiguisée</h5>
+                            <p>Les pièges artisanaux que tu fabriques imposent un +2 de difficulté aux cibles qui tentent d'y résister / s'en libérer (selon la règle du piège). Si ton piège inflige des dégâts, les dégâts infligés gagnent +20% (uniquement pour les pièges que tu as construits toi-même).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Gains</h4>
+                        <div class="reward-item">
+                            <p><strong>Caractéristiques :</strong> +2 Perception et transforme le -1 en INT en +3 en INT</p>
+                            <p><strong>Trait spécifique :</strong> +1 métier</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissances spécifiques</h4>
+                        
+                        <div class="reward-item">
+                            <h5>🛠️ Connaissance du domaine du Bricolage (Modéré)</h5>
+                            <p>Tu sais fabriquer et improviser avec ce que tu as : corde, bois, clous, cuir, pierres, outils simples. Cette connaissance couvre la réparation rapide, l'assemblage solide, et la création d'objets utiles en mission (crochets, attaches, renforts, supports). Elle permet aussi d'exploiter un environnement : récupérer une pièce, détourner un élément, rendre un campement plus discret. C'est la base de l'efficacité "terrain" : faire beaucoup avec peu.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>⚙️ Connaissance du domaine Mécanique (Modéré)</h5>
+                            <p>Tu comprends les systèmes simples : tension, levier, déclencheur, ressort, pression, verrou. Cette connaissance sert à concevoir des pièges plus fiables, à reconnaître un mécanisme caché et à neutraliser des dispositifs rudimentaires. Elle aide aussi à construire des solutions propres : déclenchement contrôlé, sécurité, résistance. Tu ne "bricoles" pas au hasard : tu construis avec logique.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pisteur du Pacte Gris -->
+                <div class="terrain-card pacte-gris">
+                    <h3>🐺 Pisteur du Pacte Gris</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu as suivi la doctrine des Hurons Gris : une chasse disciplinée, méthodique, presque rituelle. Pour toi, pister n'est pas "chercher une trace", c'est reconstruire une histoire : rythme de marche, pauses, état physique, peur, stratégie de fuite. Tu as un savoir hors norme sur la lecture du sol, des vents, des réactions animales et des erreurs typiques des proies intelligentes. Là où d'autres perdent une piste, toi tu la retrouves — parce que tu ne suis pas la trace… tu suis la logique.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <p><strong>Obtient une amélioration d'un cran du talent « Maître du Pistage »</strong></p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Adepte de la chasse gris</h5>
+                            <p>Tant que tu n'es pas pris en embuscade, tu gagnes l'initiative Expertise de Traque : +1d10 sur ton jet d'initiative. Si la créature chassée appartient à ta Spécialisation de Traque (X), alors ton jet d'initiative est effectué avec Avantage.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Obtient aussi la catégorie « Créature mythique » dans le talent « Spécialisation de Traque »</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Gains</h4>
+                        <div class="reward-item">
+                            <p><strong>Caractéristiques :</strong> +2 en Perception et +3 en dextérité</p>
+                            <p><strong>Trait spécifique :</strong> +1 savoir ou instinct</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissances spécifiques</h4>
+                        
+                        <div class="reward-item">
+                            <h5>📜 Connaissance des Mythes & Légendes (Modéré)</h5>
+                            <p>Les légendes ne sont pas juste des histoires : pour toi, ce sont souvent des cartes déguisées. Tu sais reconnaître les récits qui décrivent un lieu dangereux, un comportement de créature, ou une règle implicite transmise par peur. Cette connaissance t'aide à comprendre les tabous, les symboles et les avertissements anciens, et parfois à éviter un piège "culturel" (site interdit, rituel, zone maudite). Elle est précieuse quand les cartes mentent mais que les récits, eux, se répètent.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>🐉 Connaissance du bestiaire mythique (Modéré)</h5>
+                            <p>Tu connais les créatures "hors norme" : celles dont les traces ne ressemblent pas aux bêtes classiques. Cette connaissance te donne des repères sur leurs signatures (territoire, ruses, comportements, signes de présence), et sur ce qui les rend dangereuses. Elle sert à estimer si la proie chasse, piège, observe, ou attire. Et surtout : elle t'apprend les erreurs fatales à éviter face à une entité qui ne joue pas selon les règles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Traqueur de Contrats -->
+                <div class="terrain-card traqueur-contrats">
+                    <h3>🪙 Traqueur de Contrats</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu traques pour ramener, pas seulement pour tuer. Tu as appris à poursuivre des personnes comme des créatures : lire les habitudes, anticiper les itinéraires, comprendre les réseaux, et savoir quand parler plutôt que frapper. Tu connais la valeur d'un vivant, d'un témoignage, d'une capture propre, et tu sais négocier une reddition comme tendre une embuscade. Ton chasseur est un professionnel : efficace, calculateur, et capable de remplir un contrat même quand la proie se cache derrière des lois, des clans, ou des protections.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Profilage de Cible</h5>
+                            <p>Lorsque tu réalises un jet d'analyse lié à une connaissance que tu possèdes (psychologie, habitudes, actes, logique de fuite…) sur une cible de catégorie Humanoïde, ce jet est effectué avec Avantage. Cela s'applique aussi aux analyses utilisées pour anticiper une route, une cache, un comportement pendant une traque.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Obtient aussi la catégorie « Humanoïde » dans le talent « Spécialisation de Traque »</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Gains</h4>
+                        <div class="reward-item">
+                            <p><strong>Caractéristiques :</strong> +2 en Perception et le -2 en charisme devient +3 en charisme</p>
+                            <p><strong>Trait spécifique :</strong> +1 social ou sang froid</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissances spécifiques</h4>
+                        
+                        <div class="reward-item">
+                            <h5>🗡️ Connaissance du domaine du Mercenariat (Modéré)</h5>
+                            <p>Tu connais les réalités du métier : contrats, risques, clauses, réputation, et règles tacites entre professionnels. Cette connaissance aide à évaluer un employeur, repérer un piège juridique ou moral, et comprendre comment une mission dégénère en trahison. Tu sais aussi identifier les signes d'un groupe armé compétent : discipline, matériel, formation. Elle te permet d'agir comme un pro, pas comme un aventurier naïf.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>🧍 Connaissance du domaine de la traque humanoïde (Modéré)</h5>
+                            <p>Traquer un humanoïde, c'est traquer une logique : habitudes, sommeil, peur, mensonge, réseaux, itinéraires. Tu sais lire une scène humaine (porte forcée, fuite précipitée, mensonge dans un récit), et anticiper les choix d'une proie intelligente. Cette connaissance sert autant en ville qu'en nature, car l'humain laisse toujours des traces sociales (contacts, marchés, abris). Elle te donne un avantage clair quand la proie "pense".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Traqueur d'Anomalies -->
+                <div class="terrain-card traqueur-anomalies">
+                    <h3>👹 Traqueur d'Anomalies</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description (expérience / carrière)</h4>
+                        <p>Tu as appris à traquer ce qui ne suit pas les règles du vivant. Créatures maudites, aberrations, entités corrompues, bêtes altérées par des forces inconnues : tu sais repérer les signes anormaux et éviter les erreurs qui tuent les chasseurs ordinaires. Tu comprends les comportements "inhumains", les territoires malsains, les pistes qui mentent, et les zones où le silence est un avertissement. Là où d'autres voient une bête, toi tu vois un danger spécialisé — et tu ajustes ta méthode pour survivre assez longtemps… pour l'abattre.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Réflexe Chasseur d'Horreur</h5>
+                            <p>Lorsque tu affrontes une entité catégorisée Monstre, tu effectues tes jets de Réactivité contre elle avec Avantage.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p><strong>Obtient aussi la catégorie « Monstre » dans le talent « Spécialisation de Traque »</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Gains</h4>
+                        <div class="reward-item">
+                            <p><strong>Caractéristiques :</strong> +2 en perception et +3 en constitution</p>
+                            <p><strong>Trait spécifique :</strong> +1 résilience ou instinct ou puissance</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Connaissances spécifiques</h4>
+                        
+                        <div class="reward-item">
+                            <h5>👁️ Connaissance du domaine des Monstres (Modéré)</h5>
+                            <p>Tu connais les règles du danger "inhumain" : comportements non naturels, signaux avant-coureurs, zones de chasse et réactions étranges. Cette connaissance aide à identifier ce qui n'est pas normal dans une piste (absence de bruit, traces trop propres, animaux qui fuient). Tu sais aussi reconnaître quand une stratégie classique va tuer un chasseur ordinaire. C'est une connaissance de survie spécialisée : comprendre avant de s'approcher.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>🩸 Connaissance du bestiaire des Monstres (Modéré)</h5>
+                            <p>Tu as un catalogue mental des horreurs : silhouettes, signatures de territoire, méthodes d'attaque, habitudes de traque. Cette connaissance permet d'anticiper des capacités probables, d'identifier une faiblesse "logique" (lumière, feu, bruit, eau, sel…) selon ton univers, et de préparer une approche adaptée. Elle t'aide aussi à juger rapidement si la proie est chassable… ou si elle doit être contournée. Avec elle, tu ne combats pas un monstre "au hasard", tu combats un type.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances de base -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <h3 class="subsection-title">✅ Connaissances (de base)</h3>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>🦌 Connaissance du domaine de la Chasse <span class="level">(Moyen)</span></h4>
+                    <p>Maîtriser ce domaine, c'est savoir choisir une proie, comprendre où elle passe et quand elle est vulnérable. Tu connais les méthodes classiques : affût, approche lente, battue, embuscade, et tu sais adapter ta stratégie selon le terrain. Cette connaissance sert autant à nourrir un groupe qu'à éliminer une cible précise avec efficacité. Elle inclut aussi le respect du rythme : attendre, observer, frapper au bon moment.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>👣 Connaissance du domaine du Pistage <span class="level">(Moyen)</span></h4>
+                    <p>Ici, chaque détail est une information : empreintes, végétation cassée, poussières, poils, odeurs ou sol tassé. Tu peux reconstituer un passage, estimer la direction, la vitesse, et parfois l'état (fatigue, blessure, charge). Cette connaissance permet de récupérer une piste perdue, de déceler une ruse et d'anticiper une route logique. Elle transforme une traque en enquête méthodique plutôt qu'en course au hasard.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>🐺 Connaissance du bestiaire animal <span class="level">(Modéré)</span></h4>
+                    <p>Les animaux deviennent pour toi des comportements lisibles, pas des silhouettes imprévisibles. Tu sais reconnaître leurs territoires, leurs habitudes de chasse, leurs réactions à la peur, au bruit, à la faim et aux odeurs humaines. Cette connaissance permet d'éviter les rencontres dangereuses, de repérer des proies faciles ou de comprendre un silence "anormal" dans la forêt. Elle aide aussi à utiliser une bête comme diversion ou comme indice (prédateur proche, migration, danger).</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>🔥 Connaissance de l'art de la survie <span class="level">(Modéré)</span></h4>
+                    <p>Quand il n'y a plus d'abri, plus de route et plus de confort, cette connaissance devient un bouclier. Tu sais trouver de l'eau, improviser un abri, allumer un feu même sous pluie ou vent, et gérer les ressources sans gaspiller. Elle aide un groupe à limiter la fatigue, éviter les erreurs qui tuent (froid, chaleur, déshydratation) et tenir longtemps en territoire hostile. C'est la différence entre "marcher" et durer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🎁 Classe d'arme</h2>
+            <div class="content-box">
+                <p>+1 arme à distance (arc, arbalète, arme de jet…)</p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎒 Objets de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure légère</h4>
+                        <p>Protection adaptée au chasseur mobile</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🏹</span>
+                    <div>
+                        <h4>Arme à distance/arme de jet ou arme de corps à corps</h4>
+                        <p>1 arme à distance et 20 munitions / 10 armes de jet ou arme de CàC</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔪</span>
+                    <div>
+                        <h4>Dague de Dépeçage</h4>
+                        <p>Lame courte et robuste, optimisée pour ouvrir une carcasse, couper le cuir ou travailler les tendons. Elle sert aussi d'arme de secours en combat rapproché. (Ne possède pas les dégâts de sournoiserie)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">📖</span>
+                    <div>
+                        <h4>Livre de bestiaire X de premier volume</h4>
+                        <p>Tranche de niveau du personnage. Offre les informations sur un type de créature, que ça soit un type d'animal (terrestre/marin/volant), de monstre, ou autre catégorie de créature</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>2 potions de vie</h4>
+                        <p>Soins d'urgence</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💚</span>
+                    <div>
+                        <h4>2 potions d'endurance</h4>
+                        <p>Restauration d'endurance</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔧</span>
+                    <div>
+                        <h4>Couteau utilitaire</h4>
+                        <p>Outil polyvalent : tailler du bois, couper de la corde, bricoler un piège, préparer de la nourriture. Moins optimisé pour le combat, mais indispensable au quotidien.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences</h2>
+            
+            <h3 class="subsection-title">Compétences de caractéristique proposées</h3>
+            
+            <div class="competence-list-full">
+                <div class="competence-item">
+                    <h4>Pistage (PER)</h4>
+                    <p>Permet de lire et suivre des traces (animales, humanoïdes ou monstrueuses), en déduisant direction, nombre ou rythme de déplacement. Utilisée pour tous les jets visant à retrouver une piste ou poursuivre une proie.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Furtivité (DEX)</h4>
+                    <p>Représente la capacité à se déplacer sans bruit et à éviter l'attention des sentinelles ou des créatures. Sert pour infiltrations, contournements et approches silencieuses.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Observation environnementale (PER)</h4>
+                    <p>Mesure l'attention portée aux détails : anomalies dans le décor, silhouettes cachées, pièges, mouvements lointains. Utilisée pour repérer menaces, opportunités ou chemins plus sûrs.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Camouflage (DEX)</h4>
+                    <p>Reflète l'art de se fondre dans le décor, en utilisant relief, végétation, ombres ou ruines. Sert à préparer des embuscades ou à rester invisible tant qu'on ne bouge pas ou très peu.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Arme de jet X (DEX/FOR)</h4>
+                    <p>Compétence liée à une famille d'armes de jet (couteaux, javelots, haches légères, etc.). Améliore la précision et la maîtrise de cette catégorie spécifique en combat à distance courte.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Arme de tir X (DEX)</h4>
+                    <p>Compétence liée à une famille d'armes de tir (arc, arbalète, fusil, etc.). Sert à toucher plus facilement à moyenne ou longue distance avec ce type d'arme.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Compréhension animal (SAG)</h4>
+                    <p>Traduit la faculté de lire les intentions et comportements des animaux : peur, agressivité, curiosité, fuite. Utilisée pour apaiser, éloigner ou exploiter la réaction d'une bête.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Réactif (REA)</h4>
+                    <p>Mesure la rapidité de réaction face au danger : esquiver, se mettre à couvert, répondre à une attaque surprise. Sert dans les jets d'Initiative et les réactions instantanées.</p>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">🧠 Compétences de trait spécifique proposées</h3>
+            
+            <div class="competence-list-full">
+                <div class="competence-item">
+                    <h4>Instinct du chasseur (INST)</h4>
+                    <p>Représente le « flair » pour sentir où se trouve la proie, quel chemin elle a pris ou quand frapper. Utilisée pour orienter une traque ou deviner intuitivement le meilleur poste de chasse.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Instinct du danger (INST)</h4>
+                    <p>Permet de pressentir une embuscade, un piège ou une situation qui « sonne faux ». Sert à éviter d'être surpris et à décider de s'arrêter, se cacher ou reculer au bon moment.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Bricoleur de piège naturel (Métier)</h4>
+                    <p>Compétence pour improviser des pièges avec le terrain et les ressources disponibles (branches, pierres, cordes, fosses…). Utilisée pour monter rapidement des dispositifs simples mais efficaces.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Survie en milieu sauvage (Instinct/Résilience)</h4>
+                    <p>Mesure la capacité à tenir physiquement dans des conditions hostiles : climat dur, manque de confort, longues marches. Sert à trouver abri, eau, repos minimal et à limiter la fatigue ou les effets du milieu.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Savoir animal (Savoir)</h4>
+                    <p>Connaissance théorique et pratique des espèces animales : habitudes, territoire, alimentation, réactions typiques. Utilisée pour identifier une créature, prévoir son comportement ou choisir la meilleure approche.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/Chasseur.js"></script>
+</body>
+</html>

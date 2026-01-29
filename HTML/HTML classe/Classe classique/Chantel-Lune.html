@@ -12,7 +12,7 @@
     <div class="parchment-overlay"></div>
     
     <!-- Bouton retour -->
-    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
     
     <!-- En-tête avec image et citation -->
     <header class="hero-section">
@@ -22,7 +22,7 @@
         <div class="hero-content">
             <h1 class="class-title">✨ Chantelune</h1>
             <p class="class-quote">« Je ne lance pas des sorts. Je fais chanter le monde, et la magie suit. »</p>
-            <p class="class-type">🧭 Classe magique de soutien & contrôle — résonance des filaments</p>
+            <p class="class-type">🧭 Classe magique de soutien & contrôle — résonance des filaments, performance, influence sociale et spirituelle</p>
         </div>
     </header>
 
@@ -49,13 +49,13 @@
                     <h3>❤️ Base PV / PM / PE</h3>
                     <ul>
                         <li><strong>PV :</strong> 1d14</li>
-                        <li><strong>PM :</strong> 1d14</li>
+                        <li><strong>PM :</strong> <span class="highlight-stat">1d14</span></li>
                         <li><strong>PE :</strong> 1d14</li>
                     </ul>
                 </div>
 
                 <div class="stat-category">
-                    <h3>📊 Bonus & malus</h3>
+                    <h3>📊 Bonus & malus de caractéristiques</h3>
                     <div class="bonus-grid">
                         <span class="stat-item negative">FOR : −3</span>
                         <span class="stat-item negative">CST : −3</span>
@@ -63,25 +63,25 @@
                         <span class="stat-item positive">INT : +1</span>
                         <span class="stat-item positive">SAG : +3</span>
                         <span class="stat-item positive">PER : +1</span>
-                        <span class="stat-item positive highlight">CHA : +5</span>
+                        <span class="stat-item positive highlight">CHA : +4</span>
                     </div>
                     <ul class="resistance-list">
-                        <li><strong>RM :</strong> 25 + 2d6</li>
-                        <li><strong>REA :</strong> 0</li>
+                        <li><strong>RM (Résistance Mentale) :</strong> <span class="highlight-stat">25 + 2d6</span></li>
+                        <li><strong>Réactivité :</strong> 0</li>
                     </ul>
                 </div>
 
                 <div class="stat-category">
-                    <h3>🧠 Traits spécifiques</h3>
+                    <h3>🧠 Traits spécifiques (base)</h3>
                     <div class="traits-grid">
                         <span>Résilience : 1</span>
-                        <span>Instinct : 1</span>
-                        <span>Finesse : 1</span>
-                        <span>Savoir : 2</span>
-                        <span>Social : 2</span>
-                        <span>Puissance : 1</span>
-                        <span>Métier : 1</span>
                         <span>Sang-Froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 2</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 2</span>
+                        <span>Métier : 1</span>
                     </div>
                 </div>
 
@@ -114,7 +114,7 @@
             </div>
 
             <div class="talent-card">
-                <h3>Maîtrise d'un instrument de prédilection</h3>
+                <h3>Maîtrise d'un instrument de prédilection (au choix)</h3>
                 <p>Le Chantelune choisit un instrument de base (lyre du Nord, flûte, tambour léger, etc.) qui devient son instrument de prédilection. Il en maîtrise l'usage en prestation et comme focus de résonance magique.</p>
             </div>
         </section>
@@ -124,44 +124,139 @@
             <h2 class="section-title">🎓 Choix de filière – Académie de la Chante-Nuit</h2>
             <p class="intro-text">Lors de sa formation, un Chantelune choisit une filière d'approfondissement :</p>
             
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Filière pour la sélectionner et voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
             <div class="filiere-grid">
-                <div class="filiere-card">
+                <!-- Filière 1 : Compositeur musical -->
+                <div class="filiere-card compositeur-musical">
                     <h3>1. Compositeur musical</h3>
-                    <p class="filiere-desc">En suivant la voie de la composition, le personnage s'oriente vers l'écriture et la création de pièces musicales structurées.</p>
-                    <ul>
-                        <li><strong>Talent « Créateur inspiré » :</strong> une fois par session, en composant une bonne mélodie, il peut dépenser 10 PE pour gagner +1 palier de succès critique sur un jet de Métier (Composition musicale).</li>
-                        <li>Gagne +1 à la compétence / trait spécifique « Composition ».</li>
-                    </ul>
+                    
+                    <div class="subsection">
+                        <p>En suivant la voie de la composition, le personnage s'oriente vers l'écriture et la création de pièces musicales structurées.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Talent « Créateur inspiré »</h5>
+                            <p>Une fois par session, en composant une bonne mélodie, il peut dépenser 10 PE pour gagner +1 palier de succès critique sur un jet de Métier (Composition musicale).</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p>Gagne +1 à la compétence / trait spécifique « Composition ».</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Gains</h4>
+                        <div class="reward-item">
+                            <p><strong>Gain de caractéristique :</strong> +2 en charisme et +2 en INT mais -1 en charisme</p>
+                            <p><strong>Gain de trait spécifique :</strong> +1 Métier</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="filiere-card">
+                <!-- Filière 2 : Chanteur émérite -->
+                <div class="filiere-card chanteur-emerite">
                     <h3>2. Chanteur émérite</h3>
-                    <p class="filiere-desc">Le personnage suit la voie du chant et travaille profondément sa voix.</p>
-                    <ul>
-                        <li><strong>Talent « Beau Parleur mineur » :</strong> développe aisance orale, rythme, clarté et persuasion verbale.</li>
-                        <li>Compétence associée : Prestation de chant +2 (Charisme).</li>
-                        <li><strong>Talent « Belle voix » :</strong> une fois par session, peut relancer un jet de chant/prestation musicale raté.</li>
-                    </ul>
+                    
+                    <div class="subsection">
+                        <p>Le personnage suit la voie du chant et travaille profondément sa voix.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Talent « Beau Parleur mineur »</h5>
+                            <p>Développe aisance orale, rythme, clarté et persuasion verbale, utile en discours publics, négociations ou plaidoiries.</p>
+                            <p><strong>Compétence associée :</strong> Prestation de chant +2 (Charisme).</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Talent « Belle voix »</h5>
+                            <p>Une fois par session, s'il rate un jet de chant/prestation musicale utilisant sa voix, il peut relancer ce jet.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Gains</h4>
+                        <div class="reward-item">
+                            <p><strong>Gain de caractéristique :</strong> +2 en Charisme et +3 en sagesse mais -2 en Dextérité</p>
+                            <p><strong>Gain de trait spécifique :</strong> +1 social ou sang froid</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="filiere-card">
+                <!-- Filière 3 : Chantelune de l'Ombre -->
+                <div class="filiere-card chantelune-ombre">
                     <h3>3. Chantelune de l'Ombre</h3>
-                    <p class="filiere-desc">Le personnage s'initie aux sons de l'ombre, à la discrétion et aux déplacements silencieux.</p>
-                    <ul>
-                        <li><strong>Talent « Furtivité silencieuse mineure » :</strong> réduit le bruit des déplacements, améliore la dissimulation.</li>
-                        <li>Compétence associée : Furtivité +2 (Dextérité).</li>
-                        <li>Gagne « Pas léger +1 » comme compétence / trait spécifique.</li>
-                    </ul>
+                    
+                    <div class="subsection">
+                        <p>Le personnage s'initie aux sons de l'ombre, à la discrétion et aux déplacements silencieux.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Talent « Furtivité silencieuse mineure »</h5>
+                            <p>Réduit le bruit des déplacements, améliore la dissimulation et l'écoute sans être repéré.</p>
+                            <p><strong>Compétence associée :</strong> Furtivité +2 (Dextérité).</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p>Gagne « Pas léger +1 » comme compétence de trait spécifique, améliorant ses mouvements discrets et souples.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Gains</h4>
+                        <div class="reward-item">
+                            <p><strong>Gain de caractéristique :</strong> +2 en Dextérité et +3 en perception mais -2 en charisme</p>
+                            <p><strong>Gain de trait spécifique :</strong> +1 finesse ou instinct (au choix)</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="filiere-card">
+                <!-- Filière 4 : Chanteguerre -->
+                <div class="filiere-card chanteguerre">
                     <h3>4. Chanteguerre</h3>
-                    <p class="filiere-desc">Le personnage reçoit une formation de self-défense et apprend à se battre avec ou aux côtés de son instrument.</p>
-                    <p><strong>Choix :</strong></p>
-                    <ul>
-                        <li><strong>Option A :</strong> Maîtrise d'une arme de base au choix (arme conventionnelle).</li>
-                        <li><strong>Option B :</strong> Maîtrise des instruments de guerre (instruments adaptés pouvant servir d'armes, avec malus aux prestations musicales basiques).</li>
-                    </ul>
+                    
+                    <div class="subsection">
+                        <p>Le personnage reçoit une formation de self-défense et apprend à se battre avec ou aux côtés de son instrument. Il choisit :</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Choix A ou B</h4>
+                        
+                        <div class="reward-item">
+                            <h5>1. Maîtrise d'une arme de base au choix</h5>
+                            <p>Gagne un talent de maîtrise d'arme (arme de base conventionnelle).</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>OU 2. Maîtrise des instruments de guerre</h5>
+                            <p>Apprend à manier des instruments de guerre, instruments adaptés/bricolés pouvant servir d'armes.</p>
+                            <p>Moins performants que des armes martiales classiques, mais restent son instrument de prédilection.</p>
+                            <p>En contrepartie de leurs capacités martiales, ils infligent un malus aux jets de Prestation musicale basique.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <p>Dans les deux cas, la filière réduit le coût de l'arme ou de l'arme-instrument, grâce au soutien matériel de l'Académie.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Gains</h4>
+                        <div class="reward-item">
+                            <p><strong>Gain de caractéristique :</strong> transforme le -3 en force de combat et le -3 en constitution en +3 en force de combat et +2 en constitution mais le charisme diminue de -2</p>
+                            <p><strong>Gain de trait spécifique :</strong> +1 résilience ou puissance (au choix)</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -170,17 +265,15 @@
         <section class="section">
             <h2 class="section-title">🎓 Talents supplémentaires</h2>
             
-            <div class="talent-simple-grid">
-                <div class="talent-simple">
-                    <h4>Compositeur mineur</h4>
-                    <p>Le personnage possède les bases de l'art de composer une musique. Il sait analyser une pièce (structure, rythme, motifs) et créer des partitions simples.</p>
-                    <p class="bonus">➡️ Composition musicale +1 (Métier)</p>
-                </div>
+            <div class="talent-card">
+                <h3>Compositeur mineur</h3>
+                <p>Le personnage possède les bases de l'art de composer une musique. Il sait analyser une pièce (structure, rythme, motifs) et créer des partitions simples ou adapter un thème à une scène ou un public.</p>
+                <p><strong>➡️ Offre la compétence de trait spécifique :</strong> Composition musicale +1 (Base : Métier).</p>
+            </div>
 
-                <div class="talent-simple">
-                    <h4>Formation de Chantelune</h4>
-                    <p>Le personnage a appris à prendre en main rapidement la plupart des instruments courants. Aucun malus initial sur les instruments de base non complexes.</p>
-                </div>
+            <div class="talent-card">
+                <h3>Formation de Chantelune</h3>
+                <p>Le personnage a appris à prendre en main rapidement la plupart des instruments courants. Tant qu'il s'agit d'un instrument de base non complexe, il ne subit aucun malus initial lorsqu'il joue pour la première fois de ce type d'instrument.</p>
             </div>
         </section>
 
@@ -191,28 +284,37 @@
             <div class="knowledge-list">
                 <div class="knowledge-item">
                     <h4>Connaissance du domaine de la musique et des arts <span class="level">(Moyen)</span></h4>
-                    <p>Compréhension solide de la musique et des arts (rythme, harmonie, tonalité, chant, danse, poésie, théâtre). Permet d'analyser une œuvre, de percevoir l'intention émotionnelle ou symbolique.</p>
+                    <p>Compréhension solide de la musique et des arts (rythme, harmonie, tonalité, chant, danse, poésie, théâtre). Permet d'analyser une œuvre, de percevoir l'intention émotionnelle ou symbolique et d'adapter son art à une ambiance donnée ou de créer un contraste volontaire.</p>
                 </div>
 
                 <div class="knowledge-item">
                     <h4>Connaissance des Arts de la Chante-Nuit <span class="level">(Modéré)</span></h4>
-                    <p>Histoire, principes et pratiques fondamentales de la Chante-Nuit. Permet d'identifier ce qui est sûr, acceptable ou dangereux.</p>
+                    <p>Histoire, principes et pratiques fondamentales de la Chante-Nuit (révélation des filaments, premiers maîtres, tabous, dérives). Permet d'identifier ce qui est sûr, acceptable ou dangereux, et de dialoguer avec d'autres pratiquants avec un vocabulaire partagé.</p>
                 </div>
 
                 <div class="knowledge-item">
                     <h4>Connaissance des Cultures musicales et instrumentales <span class="level">(Modéré)</span></h4>
-                    <p>Connaît les usages de la musique dans différentes cultures. Aide à éviter les faux pas culturels et à utiliser des références locales.</p>
+                    <p>Connaît les usages de la musique dans différentes cultures (chants de travail, hymnes, rituels, fêtes, deuil). Aide à éviter les faux pas culturels et à utiliser des références locales pour mieux toucher un public.</p>
                 </div>
 
                 <div class="knowledge-item">
                     <h4>Connaissance du domaine des instruments de musique <span class="level">(Modéré)</span></h4>
-                    <p>Maîtrise des grandes familles d'instruments, de leur fonctionnement et de leurs limites. Permet d'identifier la qualité d'un instrument.</p>
+                    <p>Maîtrise des grandes familles d'instruments, de leur fonctionnement et de leurs limites. Permet d'identifier la qualité d'un instrument, d'improviser des réparations simples ou des ajustements.</p>
                 </div>
 
                 <div class="knowledge-item">
                     <h4>Connaissance de la dynamique des foules & psychologie du public <span class="level">(Modéré)</span></h4>
-                    <p>Permet de lire l'atmosphère d'un groupe et de comprendre comment rythme, volume, silence et tonalité influencent l'humeur collective.</p>
+                    <p>Permet de lire l'atmosphère d'un groupe (tension, apathie, hostilité, réceptivité) et de comprendre comment rythme, volume, silence et tonalité influencent l'humeur collective. Sert à utiliser les performances comme outil de gestion émotionnelle.</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme/instrument -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'arme / Classe d'instrument</h2>
+            <div class="content-box">
+                <p><strong>+1 maîtrise dans un instrument de musique de base au choix</strong> (instrument de prédilection).</p>
+                <p>Accès facilité aux talents de maîtrise d'instrument de guerre via la filière Chanteguerre.</p>
             </div>
         </section>
 
@@ -225,7 +327,7 @@
                     <span class="icon">🎻</span>
                     <div>
                         <h4>Instrument de base</h4>
-                        <p>Instrument de prédilection au choix</p>
+                        <p>Au choix, instrument de prédilection</p>
                     </div>
                 </div>
 
@@ -241,7 +343,7 @@
                     <span class="icon">👘</span>
                     <div>
                         <h4>Équipement de Chantelune</h4>
-                        <p>Tenue de voyage solide, équivalent armure légère. Bas en robe de soie enchantée (légère résistance magique). Couleurs bleu sombre et blanc clair, marquée du signe de la demi-lune.</p>
+                        <p>Tenue de voyage solide, équivalent à une armure légère en cuir et laine, avec bas en robe de soie légèrement enchantée, offrant une légère résistance magique. Couleurs bleu sombre et blanc clair, marquées du signe de la demi-lune de la faction.</p>
                     </div>
                 </div>
 
@@ -249,7 +351,7 @@
                     <span class="icon">🌙</span>
                     <div>
                         <h4>Bracelet de Clair de Lune</h4>
-                        <p>Bracelet en alliage d'argent spécial, marquant l'appartenance à la faction</p>
+                        <p>Bracelet en alliage d'argent spécial, marquant l'appartenance à la faction des Chantelunes</p>
                     </div>
                 </div>
 
@@ -260,6 +362,14 @@
                         <p>1 potion de vie + 1 potion de magie</p>
                     </div>
                 </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Bonus Chanteguerre</h4>
+                        <p>Si la filière Chanteguerre a été choisie, obtient une réduction de 25 % sur les instruments de guerre</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -267,30 +377,76 @@
         <section class="section">
             <h2 class="section-title">🎯 Compétences proposées</h2>
             
-            <div class="competences-grid">
-                <div class="competence-category">
-                    <h3>Compétences liées aux caractéristiques</h3>
-                    <ul class="competence-list">
-                        <li><strong>Magie de Chante-Nuit (Sagesse)</strong> — Activer les effets magiques de l'Art de la Chante-Nuit</li>
-                        <li><strong>Prestation instrumentale (Charisme)</strong> — Jouer avec impact émotionnel et présence</li>
-                        <li><strong>Prestation de chant (Charisme)</strong> — Force, justesse et émotion de la voix</li>
-                        <li><strong>Lecture des filaments (Sagesse)</strong> — Percevoir et interpréter les filaments magiques</li>
-                        <li><strong>Analyse psychologique (Sagesse/Perception)</strong> — Lire l'état mental ou émotionnel</li>
-                        <li><strong>Observation de foules (Perception)</strong> — Capter l'ambiance générale d'un groupe</li>
-                        <li><strong>Instrument X (Dextérité)</strong> — Maîtrise technique d'un instrument spécifique</li>
-                    </ul>
+            <h3 class="subsection-title">Compétences liées aux caractéristiques</h3>
+            
+            <div class="competence-list-full">
+                <div class="competence-item">
+                    <h4>Magie de Chante-Nuit (Sagesse)</h4>
+                    <p>Permet d'activer les effets magiques propres à l'Art de la Chante-Nuit en harmonisant les filaments avec la performance. Utilisée pour lancer, modeler ou stabiliser les sorts/résonances liés à cette magie.</p>
                 </div>
 
-                <div class="competence-category">
-                    <h3>💠 Compétences de traits spécifiques</h3>
-                    <ul class="competence-list">
-                        <li><strong>Dialecte X (Social)</strong> — Maîtrise d'un dialecte ou registre social</li>
-                        <li><strong>Entretien d'Instrument (Métier)</strong> — Nettoyer, accorder, réparer</li>
-                        <li><strong>Calme sous les projecteurs (Sang-Froid)</strong> — Garder son calme en public</li>
-                        <li><strong>Savoir psychologique (Savoir)</strong> — Notions de psychologie et comportement</li>
-                        <li><strong>Doigts de Plume (Finesse)</strong> — Précision gestuelle fine</li>
-                        <li><strong>Intuition des filaments (Instinct)</strong> — Sentir les flux magiques anormaux</li>
-                    </ul>
+                <div class="competence-item">
+                    <h4>Prestation instrumentale (Charisme)</h4>
+                    <p>Capacité à jouer de l'instrument avec impact émotionnel et présence. Sert à activer des effets sociaux, narratifs ou magiques basés sur la performance instrumentale.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Prestation de chant (Charisme)</h4>
+                    <p>Mesure la force, la justesse et l'émotion de la voix. Utilisée pour déclencher des effets de soutien, d'influence ou de résonance magique par le chant.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Lecture des filaments (Sagesse)</h4>
+                    <p>Permet de percevoir et d'interpréter l'état des filaments magiques environnants. Sert à détecter anomalies, zones chargées ou flux propices avant d'agir magiquement.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Analyse psychologique (Sagesse/Perception)</h4>
+                    <p>Sert à lire l'état mental ou émotionnel d'un individu et à anticiper réactions, faiblesses, mensonges ou points d'accroche.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Observation de foules (Perception)</h4>
+                    <p>Permet de capter l'ambiance générale d'un groupe ou d'une foule et de savoir quand calmer, enflammer ou orienter une masse de personnes.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Instrument X (Dextérité)</h4>
+                    <p>Représente la maîtrise technique d'un instrument spécifique (lyre, flûte, tambour…). Sert pour les passages difficiles, la vitesse d'exécution et la précision de jeu.</p>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">💠 Compétences de traits spécifiques</h3>
+            
+            <div class="competence-list-full">
+                <div class="competence-item">
+                    <h4>Dialecte X (Social)</h4>
+                    <p>Maîtrise d'un dialecte ou registre social particulier, donnant un bonus lors des interactions avec ses locuteurs (confiance, nuances, négociation).</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Entretien d'Instrument (Métier)</h4>
+                    <p>Permet de nettoyer, accorder, réparer ou ajuster correctement un instrument, évitant les pénalités liées à l'usure et garantissant un son fiable.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Calme sous les projecteurs (Sang-Froid)</h4>
+                    <p>Aide à garder son sang-froid lorsque tous les regards sont tournés vers le Chantelune. Réduit les malus de stress, peur ou trac pendant une prestation.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Savoir psychologique (Savoir)</h4>
+                    <p>Notions de base en psychologie, comportement et mécanismes mentaux. Sert à comprendre schémas de pensée, manipulations possibles ou techniques d'apaisement ciblées.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Doigts de Plume (Finesse)</h4>
+                    <p>Précision gestuelle fine : doigté délicat, écriture soignée, réglages minutieux. Utile pour la composition, l'annotation de partitions et les gestes subtils sur un instrument ou un objet.</p>
+                </div>
+
+                <div class="competence-item">
+                    <h4>Intuition des filaments (Instinct)</h4>
+                    <p>Permet de "sentir" lorsqu'un flux magique est anormal avant toute analyse consciente. Sert d'alerte précoce de danger magique ou de résonance instable.</p>
                 </div>
             </div>
         </section>
@@ -301,92 +457,6 @@
         <p>© 2024 Termion - Tous droits réservés</p>
     </footer>
 
-    <script>
-        // Création du graphique radar des caractéristiques
-        const ctx = document.getElementById('statsChart').getContext('2d');
-        
-        // Données de Chantelune (échelle de -4 à +10)
-        const statsData = {
-            FOR: -3,
-            CST: -3,
-            DEX: 3,
-            INT: 1,
-            SAG: 3,
-            PER: 1,
-            CHA: 5
-        };
-
-        // Convertir les valeurs pour le graphique (ajouter 4 pour que 0 soit au centre)
-        const convertedData = Object.values(statsData).map(val => val + 4);
-
-        const statsChart = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
-                datasets: [{
-                    label: 'Caractéristiques',
-                    data: convertedData,
-                    backgroundColor: 'rgba(74, 90, 138, 0.2)',
-                    borderColor: 'rgba(74, 90, 138, 0.8)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(74, 90, 138, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(74, 90, 138, 1)',
-                    pointRadius: 5,
-                    pointHoverRadius: 7
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    r: {
-                        min: 0,
-                        max: 10, // -4 à +6 = 10 niveaux
-                        ticks: {
-                            stepSize: 2,
-                            callback: function(value) {
-                                // Convertir les valeurs affichées (-4 à +6)
-                                return value - 4;
-                            },
-                            color: '#4a5a8a',
-                            font: {
-                                size: 11,
-                                weight: 'bold'
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(74, 90, 138, 0.2)'
-                        },
-                        angleLines: {
-                            color: 'rgba(74, 90, 138, 0.2)'
-                        },
-                        pointLabels: {
-                            color: '#4a5a8a',
-                            font: {
-                                size: 14,
-                                weight: 'bold',
-                                family: "'Cinzel', serif"
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const actualValue = context.parsed.r - 4;
-                                return context.label + ': ' + (actualValue >= 0 ? '+' : '') + actualValue;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="../../../Java/Classe/Classe classique/Chantelune.js"></script>
 </body>
 </html>

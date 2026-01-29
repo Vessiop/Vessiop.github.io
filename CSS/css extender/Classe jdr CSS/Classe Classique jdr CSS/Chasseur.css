@@ -1,17 +1,18 @@
 :root {
-    --parchment: #f4e9d8;
+    --parchment: #f4e4d8;
     --parchment-dark: #d4c4a8;
-    --ink: #2c2416;
+    --ink: #2c1a16;
     --gold: #c9a961;
     --gold-dark: #9d7d3a;
     --burgundy: #6b2737;
     
-    /* Couleurs Chantelune - palette lunaire */
-    --chantelune: #4a5a8a;
-    --chantelune-light: #6a7aaa;
-    --chantelune-dark: #2a3a5a;
-    --moon: #e8e8ff;
-    --moon-glow: #c8d8ff;
+    /* Couleurs Chasseur - tons nature/chasse */
+    --chasseur: #4a5a3a;
+    --chasseur-light: #6a7a5a;
+    --chasseur-dark: #2a3a1a;
+    --forest: #3a4a2a;
+    --earth: #6a5a4a;
+    --stone: #5a5a5a;
 }
 
 * {
@@ -40,8 +41,8 @@ body {
             0deg,
             transparent,
             transparent 2px,
-            rgba(44, 36, 22, 0.015) 2px,
-            rgba(44, 36, 22, 0.015) 4px
+            rgba(44, 26, 22, 0.015) 2px,
+            rgba(44, 26, 22, 0.015) 4px
         );
     pointer-events: none;
     z-index: 1;
@@ -57,8 +58,8 @@ body {
     left: 20px;
     padding: 12px 20px;
     background: rgba(255, 255, 255, 0.9);
-    border: 2px solid var(--chantelune);
-    color: var(--chantelune);
+    border: 2px solid var(--chasseur);
+    color: var(--chasseur);
     text-decoration: none;
     font-family: 'Cinzel', serif;
     font-weight: 600;
@@ -69,10 +70,10 @@ body {
 }
 
 .back-button:hover {
-    background: var(--chantelune);
+    background: var(--chasseur);
     color: white;
     transform: translateX(-5px);
-    box-shadow: 0 4px 15px rgba(74, 90, 138, 0.4);
+    box-shadow: 0 4px 15px rgba(74, 90, 58, 0.4);
 }
 
 /* Section Hero */
@@ -86,7 +87,7 @@ body {
     position: relative;
     z-index: 2;
     background: linear-gradient(to bottom, 
-        rgba(232, 232, 255, 0.15) 0%, 
+        rgba(74, 90, 58, 0.05) 0%, 
         transparent 100%);
 }
 
@@ -94,7 +95,7 @@ body {
     flex: 0 0 400px;
     animation: fadeInLeft 1s ease-out;
     padding: 10px;
-    background: linear-gradient(135deg, rgba(74, 90, 138, 0.1), rgba(106, 122, 170, 0.1));
+    background: linear-gradient(135deg, rgba(74, 90, 58, 0.1), rgba(106, 122, 90, 0.1));
     border-radius: 16px;
 }
 
@@ -104,9 +105,9 @@ body {
     display: block;
     border-radius: 12px;
     box-shadow: 
-        0 10px 40px rgba(74, 90, 138, 0.4),
-        0 0 0 4px var(--chantelune),
-        0 0 0 8px rgba(74, 90, 138, 0.3);
+        0 10px 40px rgba(74, 90, 58, 0.4),
+        0 0 0 4px var(--chasseur),
+        0 0 0 8px rgba(74, 90, 58, 0.3);
     border: 4px solid white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -114,9 +115,9 @@ body {
 .hero-image img:hover {
     transform: scale(1.02);
     box-shadow: 
-        0 15px 50px rgba(74, 90, 138, 0.5),
-        0 0 0 4px var(--chantelune-light),
-        0 0 0 8px rgba(74, 90, 138, 0.4);
+        0 15px 50px rgba(74, 90, 58, 0.5),
+        0 0 0 4px var(--chasseur-light),
+        0 0 0 8px rgba(74, 90, 58, 0.4);
 }
 
 .hero-content {
@@ -128,24 +129,24 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 3.5rem;
     font-weight: 900;
-    color: var(--chantelune);
+    color: var(--chasseur);
     margin-bottom: 20px;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 0px rgba(232, 232, 255, 0.3);
+    text-shadow: 2px 2px 0px rgba(106, 122, 90, 0.2);
 }
 
 .class-quote {
     font-size: 1.4rem;
     font-style: italic;
-    color: var(--chantelune-light);
+    color: var(--chasseur-light);
     margin-bottom: 25px;
     padding-left: 20px;
-    border-left: 4px solid var(--chantelune);
+    border-left: 4px solid var(--chasseur);
 }
 
 .class-type {
     font-size: 1.1rem;
-    color: var(--gold-dark);
+    color: var(--forest);
     font-weight: 600;
 }
 
@@ -201,17 +202,17 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--chantelune);
+    color: var(--chasseur);
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 3px solid var(--chantelune);
+    border-bottom: 3px solid var(--chasseur);
     letter-spacing: 2px;
 }
 
 .subsection-title {
     font-family: 'Cinzel', serif;
     font-size: 1.5rem;
-    color: var(--chantelune);
+    color: var(--chasseur);
     margin: 40px 0 20px;
 }
 
@@ -222,22 +223,22 @@ body {
 }
 
 .interactive-hint {
-    background: linear-gradient(135deg, rgba(106, 122, 170, 0.15), rgba(74, 90, 138, 0.15));
+    background: linear-gradient(135deg, rgba(106, 122, 90, 0.15), rgba(74, 90, 58, 0.15));
     padding: 15px 20px;
     border-radius: 8px;
-    border-left: 4px solid var(--chantelune-light);
+    border-left: 4px solid var(--chasseur-light);
     margin-bottom: 30px;
     font-size: 1rem;
-    color: var(--chantelune-dark);
+    color: var(--chasseur-dark);
     animation: pulse-hint 2s ease-in-out infinite;
 }
 
 @keyframes pulse-hint {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(106, 122, 170, 0.4);
+        box-shadow: 0 0 0 0 rgba(106, 122, 90, 0.4);
     }
     50% {
-        box-shadow: 0 0 0 8px rgba(106, 122, 170, 0);
+        box-shadow: 0 0 0 8px rgba(106, 122, 90, 0);
     }
 }
 
@@ -245,7 +246,7 @@ body {
 .content-box {
     background: rgba(255, 255, 255, 0.5);
     padding: 30px;
-    border-left: 4px solid var(--chantelune);
+    border-left: 4px solid var(--chasseur);
     border-radius: 8px;
 }
 
@@ -259,10 +260,10 @@ body {
 }
 
 .highlight-box {
-    background: rgba(74, 90, 138, 0.1);
+    background: rgba(74, 90, 58, 0.1);
     padding: 20px;
     border-radius: 6px;
-    border: 2px solid var(--chantelune);
+    border: 2px solid var(--chasseur);
     margin-top: 20px;
 }
 
@@ -286,12 +287,12 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--chantelune-light);
+    border: 2px solid var(--chasseur-light);
 }
 
 .stat-category h3 {
     font-family: 'Cinzel', serif;
-    color: var(--chantelune);
+    color: var(--chasseur);
     margin-bottom: 15px;
     font-size: 1.2rem;
 }
@@ -303,7 +304,7 @@ body {
 
 .stat-category li {
     padding: 8px 0;
-    border-bottom: 1px solid rgba(74, 90, 138, 0.2);
+    border-bottom: 1px solid rgba(74, 90, 58, 0.2);
 }
 
 .stat-category li:last-child {
@@ -338,14 +339,20 @@ body {
     background: rgba(168, 74, 43, 0.1);
 }
 
+.stat-item.neutral {
+    color: #666;
+    border-color: #999;
+    background: rgba(150, 150, 150, 0.08);
+}
+
 .stat-item.highlight {
-    border: 2px solid var(--chantelune);
-    background: rgba(74, 90, 138, 0.15);
+    border: 2px solid var(--chasseur);
+    background: rgba(74, 90, 58, 0.15);
     font-size: 1.1rem;
 }
 
 .highlight-stat {
-    color: var(--chantelune);
+    color: var(--forest);
     font-weight: 700;
 }
 
@@ -361,7 +368,7 @@ body {
 
 .traits-grid span {
     padding: 8px;
-    background: rgba(74, 90, 138, 0.08);
+    background: rgba(74, 90, 58, 0.08);
     border-radius: 4px;
     font-size: 0.95rem;
 }
@@ -371,20 +378,20 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     margin-bottom: 20px;
-    border-left: 5px solid var(--chantelune);
+    border-left: 5px solid var(--chasseur);
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 .talent-card:hover {
     background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 5px 20px rgba(74, 90, 138, 0.15);
+    box-shadow: 0 5px 20px rgba(74, 90, 58, 0.15);
     transform: translateX(5px);
 }
 
 .talent-card h3 {
     font-family: 'Cinzel', serif;
-    color: var(--chantelune);
+    color: var(--chasseur);
     margin-bottom: 12px;
     font-size: 1.3rem;
 }
@@ -399,42 +406,42 @@ body {
     margin-bottom: 0;
 }
 
-/* Grille de filières */
-.filiere-grid {
+/* Grille de terrains de chasse */
+.terrain-grid {
     display: grid;
     gap: 35px;
 }
 
-.filiere-card {
+.terrain-card {
     background: rgba(255, 255, 255, 0.7);
     padding: 30px;
-    border: 3px solid var(--chantelune-light);
+    border: 3px solid var(--chasseur-light);
     border-radius: 12px;
     transition: all 0.3s ease;
     position: relative;
     cursor: pointer;
 }
 
-.filiere-card:hover {
-    border-color: var(--chantelune);
-    box-shadow: 0 8px 30px rgba(74, 90, 138, 0.2);
+.terrain-card:hover {
+    border-color: var(--chasseur);
+    box-shadow: 0 8px 30px rgba(74, 90, 58, 0.2);
     transform: translateY(-2px);
 }
 
-.filiere-card.selected {
-    border-color: var(--chantelune-light);
+.terrain-card.selected {
+    border-color: var(--chasseur-light);
     border-width: 4px;
-    box-shadow: 0 8px 40px rgba(106, 122, 170, 0.4), 
-                0 0 0 2px rgba(106, 122, 170, 0.2);
-    background: rgba(106, 122, 170, 0.08);
+    box-shadow: 0 8px 40px rgba(106, 122, 90, 0.4), 
+                0 0 0 2px rgba(106, 122, 90, 0.2);
+    background: rgba(106, 122, 90, 0.08);
 }
 
-.filiere-card.selected::before {
+.terrain-card.selected::before {
     content: '✓ SÉLECTIONNÉ';
     position: absolute;
     top: 15px;
     right: 15px;
-    background: var(--chantelune-light);
+    background: var(--chasseur-light);
     color: white;
     padding: 5px 12px;
     border-radius: 4px;
@@ -442,66 +449,111 @@ body {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1px;
-    box-shadow: 0 2px 8px rgba(106, 122, 170, 0.4);
+    box-shadow: 0 2px 8px rgba(106, 122, 90, 0.4);
 }
 
-.filiere-card h3 {
+/* Terrains spécifiques */
+.terrain-card.terres-hostiles {
+    border-color: #5a7a4a;
+    background: linear-gradient(135deg, rgba(90, 122, 74, 0.03), rgba(255, 255, 255, 0.7));
+}
+
+.terrain-card.artisan-lisieres {
+    border-color: #6a5a4a;
+    background: linear-gradient(135deg, rgba(106, 90, 74, 0.03), rgba(255, 255, 255, 0.7));
+}
+
+.terrain-card.pacte-gris {
+    border-color: #5a5a6a;
+    background: linear-gradient(135deg, rgba(90, 90, 106, 0.03), rgba(255, 255, 255, 0.7));
+}
+
+.terrain-card.traqueur-contrats {
+    border-color: #7a6a5a;
+    background: linear-gradient(135deg, rgba(122, 106, 90, 0.03), rgba(255, 255, 255, 0.7));
+}
+
+.terrain-card.traqueur-anomalies {
+    border-color: #6a4a4a;
+    background: linear-gradient(135deg, rgba(106, 74, 74, 0.03), rgba(255, 255, 255, 0.7));
+}
+
+.terrain-card h3 {
     font-family: 'Cinzel', serif;
-    color: var(--chantelune);
+    color: var(--chasseur);
     margin-bottom: 15px;
     font-size: 1.7rem;
 }
 
-.filiere-card h4 {
+.terrain-card h4 {
     font-family: 'Cinzel', serif;
-    color: var(--chantelune-light);
+    color: var(--chasseur-light);
     margin: 20px 0 10px;
     font-size: 1.2rem;
 }
 
-.filiere-card h5 {
+.terrain-card h5 {
     font-family: 'Cinzel', serif;
-    color: var(--chantelune);
+    color: var(--chasseur);
     margin: 15px 0 8px;
     font-size: 1.1rem;
 }
 
-.filiere-card .subsection {
-    background: rgba(74, 90, 138, 0.05);
+.terrain-card .subsection {
+    background: rgba(74, 90, 58, 0.05);
     padding: 20px;
     margin: 15px 0;
     border-radius: 6px;
-    border-left: 3px solid var(--chantelune);
+    border-left: 3px solid var(--chasseur);
 }
 
-.filiere-card .subsection p {
+.terrain-card .subsection p {
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 15px;
 }
 
-.filiere-card .subsection p:last-child {
+.terrain-card .subsection p:last-child {
     margin-bottom: 0;
 }
 
-.filiere-card .reward-item {
+.terrain-card .reward-item {
     background: rgba(255, 255, 255, 0.5);
     padding: 15px;
     margin: 12px 0;
     border-radius: 6px;
-    border-left: 2px solid var(--chantelune-light);
+    border-left: 2px solid var(--chasseur-light);
 }
 
-.filiere-card .reward-item h5 {
+.terrain-card .reward-item h5 {
     margin-top: 0;
 }
 
-.filiere-card .reward-item p {
+.terrain-card .reward-item p {
     margin-bottom: 10px;
 }
 
-.filiere-card .reward-item p:last-child {
+.terrain-card .reward-item p:last-child {
     margin-bottom: 0;
+}
+
+.terrain-card .reward-item ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+}
+
+.terrain-card .reward-item li {
+    padding: 4px 0 4px 20px;
+    position: relative;
+}
+
+.terrain-card .reward-item li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--chasseur);
+    font-weight: bold;
 }
 
 /* Liste de connaissances */
@@ -514,13 +566,13 @@ body {
 .knowledge-item {
     background: rgba(255, 255, 255, 0.6);
     padding: 20px;
-    border-left: 4px solid var(--chantelune);
+    border-left: 4px solid var(--chasseur);
     border-radius: 6px;
 }
 
 .knowledge-item h4 {
     font-family: 'Cinzel', serif;
-    color: var(--chantelune);
+    color: var(--chasseur);
     margin-bottom: 10px;
     font-size: 1.1rem;
 }
@@ -549,13 +601,13 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 20px;
     border-radius: 8px;
-    border: 2px solid var(--chantelune-light);
+    border: 2px solid var(--chasseur-light);
     transition: all 0.3s ease;
 }
 
 .equipment-item:hover {
-    border-color: var(--chantelune);
-    box-shadow: 0 5px 15px rgba(74, 90, 138, 0.15);
+    border-color: var(--chasseur);
+    box-shadow: 0 5px 15px rgba(74, 90, 58, 0.15);
 }
 
 .equipment-item .icon {
@@ -565,7 +617,7 @@ body {
 
 .equipment-item h4 {
     font-family: 'Cinzel', serif;
-    color: var(--chantelune);
+    color: var(--chasseur);
     margin-bottom: 5px;
     font-size: 1.1rem;
 }
@@ -585,20 +637,20 @@ body {
 .competence-item {
     background: rgba(255, 255, 255, 0.6);
     padding: 20px;
-    border-left: 4px solid var(--chantelune);
+    border-left: 4px solid var(--chasseur);
     border-radius: 6px;
     transition: all 0.3s ease;
 }
 
 .competence-item:hover {
     background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 5px 20px rgba(74, 90, 138, 0.15);
+    box-shadow: 0 5px 20px rgba(74, 90, 58, 0.15);
     transform: translateX(5px);
 }
 
 .competence-item h4 {
     font-family: 'Cinzel', serif;
-    color: var(--chantelune);
+    color: var(--chasseur);
     margin-bottom: 10px;
     font-size: 1.15rem;
 }
@@ -620,7 +672,7 @@ body {
 .divider {
     width: 200px;
     height: 2px;
-    background: linear-gradient(to right, transparent, var(--chantelune), transparent);
+    background: linear-gradient(to right, transparent, var(--chasseur), transparent);
     margin: 0 auto 20px;
 }
 
@@ -644,7 +696,7 @@ body {
     padding: 20px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 12px;
-    border: 2px solid var(--chantelune);
+    border: 2px solid var(--chasseur);
 }
 
 .chart-wrapper canvas {
@@ -667,13 +719,13 @@ body {
     .class-quote {
         border-left: none;
         padding-left: 0;
-        border-top: 4px solid var(--chantelune);
+        border-top: 4px solid var(--chasseur);
         padding-top: 15px;
     }
 
     .stats-grid,
     .equipment-grid,
-    .filiere-grid {
+    .terrain-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -713,7 +765,7 @@ body {
     .content-box,
     .stat-category,
     .talent-card,
-    .filiere-card {
+    .terrain-card {
         padding: 20px;
     }
 
