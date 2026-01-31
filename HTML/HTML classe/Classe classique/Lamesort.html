@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lame-Sort - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Lamesort.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Lame-Sort.png" alt="Lame-Sort">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🗡️ Lame-Sort</h1>
+            <p class="class-quote">« Sous le sceau, le corps s'incline comme la dune sous la nuit, et l'orgueil se dissout dans le sable. Alors l'esprit boit l'essence universelle, goutte après goutte, comme une eau rare offerte aux élus. »</p>
+            <p class="class-type">⚔️ Enchanteur de mêlée • Utilisateur d'armes magiques • Runelame</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description / Présentation</h2>
+            <div class="content-box">
+                <p>Originaires de Makarane, les Lame-Sorts sont des voyageurs énigmatiques, presque toujours solitaires. Hors de leur plan natal, leur présence reste rare : on parle d'eux comme de silhouettes de passage, dont l'art se devine plus qu'il ne s'explique.</p>
+
+                <p>Lors d'un rite de passation, leur manipulation de l'essence est volontairement scellée : ils ne peuvent pas lancer la magie comme les mages classiques. Pour agir, ils doivent impérativement passer par un catalyseur — arme ou focus — comme si leur pouvoir n'existait qu'au travers d'un support. Mais ce scellement a un prix… et un cadeau : il les a forcés à comprendre la magie autrement, dans sa mécanique profonde. Ils savent comment les filaments se déploient, se déplacent, se convertissent et s'ancrent, comment une essence se "teinte", se stabilise et devient applicable.</p>
+
+                <p>Cette compréhension leur donne une maîtrise supérieure de l'Insufflation et de l'Enchantement, bien au-delà de la moyenne. Et surtout, elle ouvre la porte à leur art propre : la Runelame, où l'essence est synchronisée avec une précision parfaite. Ils peuvent l'insuffler dans un "corps" — eux-mêmes, une arme, un objet — et manipuler plusieurs natures élémentaires comme si leur source était universelle, presque comparable à un don élémentaire naturel.</p>
+
+                <p>Sur le plan makarien, ils forment une caste respectée : des guerriers errants qui parcourent les dunes et les galeries souterraines, affrontant les monstres et rééquilibrant les zones saturées d'impuretés magiques. Leur passage est souvent vu comme bénéfique, car ils purifient, redirigent et apaisent les flux d'essence qui rendent certaines régions dangereuses. Leur prestige ne vient pas seulement du présent : l'histoire de Makarane porte aussi le nom de grands Lame-Sorts qui ont marqué des ères entières.</p>
+
+                <p>Experts en enchantement, même le plus jeune d'entre eux rivalise déjà avec un enchanteur de haut rang. Pourtant, ils ne sont pas que des lanceurs d'effets : ce sont aussi des survivalistes et des combattants, capables de manier les armes avec une polyvalence rare, et de rester mortels même quand la magie ne suffit plus.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>🗡️ Type de classe :</strong> Enchanteur de mêlée / Utilisateur d'armes magiques</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d14</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −2</span>
+                        <span class="stat-item negative">CST : −1</span>
+                        <span class="stat-item positive">DEX : +3</span>
+                        <span class="stat-item positive">INT : +3</span>
+                        <span class="stat-item positive">SAG : +3</span>
+                        <span class="stat-item neutral">PER : 0</span>
+                        <span class="stat-item negative">CHA : −3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 20 + 1d6</li>
+                        <li><strong>REA :</strong> +</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 2</span>
+                        <span>Instinct : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Social : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Métier : 1</span>
+                        <span>Sang-froid : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents</h2>
+            
+            <div class="talent-card">
+                <h3>Ars Runelame des Makariens</h3>
+                <p>Les Lame-sorts héritent d'un art makariens transmis par les clans : une forme d'enchantement bien plus avancée, centrée sur l'insufflation et la résonance de l'essence magique à travers une lame (ou un catalyseur).</p>
+                <p>Ce savoir n'est pas une "magie classique" : sa complexité ferme naturellement l'accès aux formes traditionnelles de sortilèges, mais les effets spécialisés qu'il produit sont nettement supérieurs à la plupart des enchantements standards.</p>
+                <p><strong>Règle clé (in game) :</strong> tout sort/effet du Lame-sort doit être lancé via un Catalyseur (Hors enchantement) : arme-catalyseur (épée, rapière, sabre, etc.) ou catalyseur magique (relique, focus, objet-runique).</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Cœur Universel — Forgerie d'Essence</h3>
+                <p>Grâce à sa compréhension de l'essence arcanique et à son art propre, le Lame-sort éveille le Cœur Universel magique : une pratique de conversion qui transforme l'essence environnante (magie pure, feu, vent, etc.) en une nature fixe choisie, même si cette nature n'est pas liée à sa source élémentaire d'origine.</p>
+                <p>Cette conversion s'ancre ensuite dans son essence : il peut manipuler et "teinter" l'énergie ambiante pour produire une magie stable, utilisable uniquement par catalyseur.</p>
+                <p><strong>Gain :</strong> le personnage obtient 2 maîtrises magiques au choix parmi les éléments classiques non dérivés, avec les restrictions ci-dessous.</p>
+                <p><strong>Restrictions :</strong></p>
+                <ul>
+                    <li>Interdit : Lumière, Ténèbres, Toxines.</li>
+                    <li>Opposé interdit : impossible de choisir l'élément opposé à sa source principale.</li>
+                </ul>
+                <p><strong>Effet de maîtrise :</strong> ces choix donnent la Maîtrise mineure du style magique de Runelame : X (X = nature(s) choisie(s)) en plus de la maîtrise liée à sa source élémentaire.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Socle des Runelames</h3>
+                <p>Ce talent constitue la base du style des Lame-sorts et accorde deux maîtrises mineures :</p>
+                <p><strong>• Maîtrise moyen du style magique d'Enchantement :</strong> confère la capacité d'imprégner des objets ou des êtres vivants de propriétés magiques temporaires ou durables. Elle permet notamment de renforcer armes et armures, d'améliorer certaines capacités physiques, ou d'altérer subtilement le comportement d'un objet.</p>
+                <p>Effet : Compétence Enchantement Magique +4 (de base c'est +2 mais vu le niveau direct « moyen » ça passe à +4).</p>
+                <p><strong>• Maîtrise moyen du style magique d'insufflation Insufflation :</strong> spécialise l'utilisateur dans l'art d'injecter immédiatement de l'énergie magique dans un objet ou une créature, sur une courte durée, avec une intensité supérieure à l'enchantement classique. Plutôt que de graver un effet, l'Insufflation sature la cible d'essence arcanique pour produire une résonance brève mais puissante, facilitant notamment des projections de lames magiques plus nettes et plus conséquentes.</p>
+                <p>Effet : Compétence Insufflation Magique +4 (de base c'est +2 mais vu le niveau direct « moyen » ça passe à +4).</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Résonance du Cœur-Forge</h3>
+                <p>Ce talent reflète la compréhension avancée du Cœur magique par le Lame-sort.</p>
+                <ul>
+                    <li>Il confère 10% de résistance naturelle aux effets issus des maîtrises du style Runelame (celles déjà acquises et celles qui pourront l'être).</li>
+                    <li>De plus, à chaque fois qu'une de ces maîtrises est améliorée d'un cran, la nature magique associée à cette maîtrise voit sa puissance augmenter de 5%.</li>
+                </ul>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure du sabre</h3>
+                <p>Maîtrise de base du sabre, l'arme emblématique des Lame-Sorts makariens.</p>
+            </div>
+        </section>
+
+        <!-- Passif -->
+        <section class="section">
+            <h2 class="section-title">🕵️‍♂️ Passif : Enchanteur Aguerri</h2>
+            <div class="highlight-box">
+                <p>Grâce à sa maîtrise avancée de la magie d'enchantement, le lanceur peut, une fois par tour, dépenser 1 point de Réaction pour lancer un sort d'enchantement sur lui-même uniquement.</p>
+                <p>Au début d'un combat, si le lanceur n'est pas dans l'état « Surpris », il peut dépenser 1 point de Réaction pour commencer le combat avec un sort d'enchantement déjà actif (ce sort ne consomme alors qu'1 point d'Action).</p>
+            </div>
+        </section>
+        <!-- Parcours Makariens -->
+        <section class="section">
+            <h2 class="section-title">🧭 Parcours Makarien (Origines)</h2>
+            <p class="intro-text">« Chaque Lame-Sort possède son histoire : un parcours de vie qui l'a forgé et a produit la personne qu'il est devenu sur les dunes ou sous la surface de Makarane. »</p>
+            <p class="intro-text"><strong>Choisis un parcours :</strong></p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur un Parcours pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="parcours-grid">
+                <!-- Parcours 1: Clan du Désert -->
+                <div class="parcours-card clan-desert" id="clan-desert">
+                    <h3>🌵 Clan du Désert</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description</h4>
+                        <p>Né au sein des clans du désert, tu as grandi avec des traditions qui ne se transmettent qu'à ceux qui prouvent leur valeur. Les anciens t'ont appris à mêler l'acier et l'essence magique comme on apprend à survivre : avec rigueur, patience et secret. Très tôt, tu as touché à l'art de la runelame, gravant les bases d'un style ancestral dans ta mémoire et dans tes gestes. Pour toi, la magie n'est pas une étude : c'est une culture, un héritage et une discipline.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <p><strong>Gain de talent 1 :</strong> Amélioration d'un cran de la maîtrise du style magique d'enchantement ou insufflation.</p>
+                        <p><strong>Gain de talent 2 :</strong> obtient le talent « Écoute des Rémanences : Grâce à sa capacité de canalisation, le lanceur apprend à "lire" l'essence magique ambiante et ses rémanences avec une précision accrue, afin d'en déduire la nature — voire davantage — des résidus magiques présents autour de lui. Effet : tous ses jets de détection magique sont effectués avec Avantage. »</p>
+                        <p><strong>Gain de caractéristique :</strong> +3 en Intelligence et +3 en Dextérité</p>
+                        <p><strong>Gain de point de trait spécifique :</strong> obtient un bonus de +1 Instinct ou Savoir</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Intelligence</strong> et <strong>+3 Dextérité</strong></p>
+                    </div>
+                </div>
+
+                <!-- Parcours 2: Maison Korrina -->
+                <div class="parcours-card maison-korrina" id="maison-korrina">
+                    <h3>🎲 Maison Korrina</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description</h4>
+                        <p>Tu as été trouvé, formé — ou récupéré — par une Maison Korrina, ces "firmes de jeux et de loisirs" du plan makarien qui sourient trop bien pour être honnêtes. Derrière les spectacles et les promesses, tu as découvert les couloirs sombres : dettes, chantages, contrats et agents chargés de faire taire les indiscrets. La Lame-Sort est devenue ton outil : une arme élégante pour les yeux du public, et une technique létale pour les affaires internes. Tu as appris à infiltrer, à disparaître et à frapper sans jamais laisser de preuve.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <p><strong>Gain de talent 1 :</strong> Obtient le talent « Furtivité Silencieuse mineure : Diminue le bruit généré par les déplacements et améliore la capacité à se dissimuler dans l'environnement. Ce talent est indispensable pour les voleurs, éclaireurs ou espions souhaitant éviter les confrontations. Il permet d'agir dans l'ombre, de surprendre un ennemi ou de fuir sans laisser de trace. Idéal aussi pour écouter sans être repéré. Offre la Compétence : Furtivité +2 (Dextérité) ».</p>
+                        <p><strong>Gain de talent 2 :</strong> obtient le talent « Dialecte Criminel : Offre un bonus de +2 sur les jets de Social avec les bandits/malfrats/voyous et du domaine criminel ».</p>
+                        <p><strong>Gain spécial :</strong> Affiliation à une Maison Korrina (obtenant ainsi un bonus de +15 chez la faction « Maison Korrina »).</p>
+                        <p><strong>Gain de caractéristique :</strong> +3 Perception et +3 Dextérité</p>
+                        <p><strong>Gain de point de trait spécifique :</strong> obtient un bonus de +1 Finesse ou Social ou Sang-froid</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Perception</strong> et <strong>+3 Dextérité</strong></p>
+                    </div>
+                </div>
+
+                <!-- Parcours 3: Monde Souterrain -->
+                <div class="parcours-card monde-souterrain" id="monde-souterrain">
+                    <h3>🕳️ Monde Souterrain</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description</h4>
+                        <p>Tu as vécu longtemps sous la surface, là où la lumière est rare et où l'essence magique colle aux parois comme une humidité vivante. Dans ces profondeurs, chaque journée impose une règle simple : s'adapter ou mourir — face aux créatures, aux territoires instables et aux routes qui changent. Ta magie ne s'est pas développée pour briller, mais pour tenir : stable, efficace, sans dépense inutile. Ton style runelame porte encore cette mentalité de survie, dur et précis, forgé dans l'ombre.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <p><strong>Gain de talent 1 :</strong> obtient le talent « sens entraîné au choix : entraîné à affûter ses sens, il a pu développer l'un de ses sens de manière grandiose : offrant la compétence Sens X N.A +5 (X = choix du sens, comme la vue, l'ouïe, l'odorat, le goût et le toucher) ».</p>
+                        <p><strong>Gain de talent 2 :</strong> Obtient le talent « Maîtrise mineure — Forge d'Essence Runelame (Base) : Le Lame-Sort apprend une forme simple de forge magique runelame, destinée à imprégner temporairement des armes et objets non magiques. En brisant des pierres arcaniques brutes (cristaux à énergie très faible, presque inertes), il réduit la matière en poussière puis, via un rituel propre aux Lame-Sorts, il insuffle une nature runelame choisie pour teinter l'objet. L'effet confère une puissance magique limitée mais polyvalente pendant une journée : moins complexe que la forge magique classique, mais idéale pour renforcer rapidement un équipement en mission. »</p>
+                        <p><strong>Gain de caractéristique :</strong> +3 en Sagesse et le -1 en Constitution passe à +3 en Constitution</p>
+                        <p><strong>Gain de point de trait spécifique :</strong> obtient un bonus de +1 Métier ou Sang-froid</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Sagesse</strong> et <strong>+4 Constitution</strong> (le malus de -1 devient +3)</p>
+                    </div>
+                </div>
+
+                <!-- Parcours 4: Guerrier Élémentaire -->
+                <div class="parcours-card guerrier-elementaire" id="guerrier-elementaire">
+                    <h3>⚡ Guerrier Élémentaire</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description</h4>
+                        <p>Tu as parcouru les cryptes anciennes du plan makarien pour déchiffrer des traces d'entités élémentaires oubliées : mythes, sceaux, fragments de rites et noms effacés. Là-bas, tu n'as pas seulement appris l'élément : tu l'as compris, comme une force vivante qui répond à la volonté et au respect. Peu à peu, quelque chose s'est réveillé en toi — une nature enfouie, une affinité primitive. Ton art est ancien, presque rituel : une Lame-Sort qui canalise l'élément comme un serment.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <p><strong>Gain de talent 1 :</strong> obtient une amélioration d'un cran d'une maîtrise du style magique de runelame X (choix en fonction de ce que le lanceur possède) ou obtention d'une nouvelle maîtrise du style magique de runelame X.</p>
+                        <p><strong>Gain de talent 2 :</strong> Accord Élémentaire (Choisis un élément lié à ton éveil. Une fois par scène, tu peux effectuer un jet de Runelame/maîtrise élémentaire avec Avantage quand l'action concerne cet élément (stabiliser, canaliser, contrôler un phénomène).)</p>
+                        <p><strong>Gain de caractéristique :</strong> +3 en Intelligence et le -1 en Constitution passe à +3 en Constitution</p>
+                        <p><strong>Gain de point de trait spécifique :</strong> obtient un bonus de +1 Savoir ou Résilience</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Intelligence</strong> et <strong>+4 Constitution</strong> (le malus de -1 devient +3)</p>
+                    </div>
+                </div>
+
+                <!-- Parcours 5: Champion du Désert -->
+                <div class="parcours-card champion-desert" id="champion-desert">
+                    <h3>🏜️ Combattant Avant l'Art — « Champion du Désert »</h3>
+                    
+                    <div class="subsection">
+                        <h4>Description</h4>
+                        <p>Avant d'apprendre les runes et les raffinements, tu étais déjà un combattant pur sang, né pour traverser les plaines désertiques et y imposer ta loi. Tu as perfectionné la maîtrise de l'arme — corps à corps ou distance — puis tu as appris à y greffer l'enchantement comme on aiguise une lame : pour tuer vite, propre et efficacement. Chez toi, tout est harmonie : le corps, l'arme et la magie qui s'y accroche comme un second souffle. On te nomme parfois Champion du Désert, non par gloire, mais parce que tu as survécu à ce que le désert exige.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <p><strong>Gain de talent 1 :</strong> Amélioration d'un cran d'une maîtrise du sabre ou maîtrise d'une arme makarienne.</p>
+                        <p><strong>Gain de talent 2 :</strong> Obtient le talent « Endurance des Dunes : Habitué aux conditions extrêmes du désert, le lanceur encaisse mieux les agressions climatiques et les variations brutales de température. Effet : tout jet de résistance face à une influence météorologique (sur base Résilience) est effectué avec Avantage. »</p>
+                        <p><strong>Gain de caractéristique :</strong> le -1 de Force de combat passe à +4 en Force de combat (FOR) et +5 en Réactivité</p>
+                        <p><strong>Gain de point de trait spécifique :</strong> obtient un bonus de +1 Puissance ou Résilience</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+6 Force</strong> (le malus de -2 devient +4) et <strong>+5 Réactivité</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <h3 class="subsection-title">Connaissances de base (communes)</h3>
+            <div class="content-box">
+                <p><strong>Connaissance du domaine Runelame (Moyen)</strong></p>
+                <p>Tu maîtrises la théorie et les fondations pratiques de la Runelame : ancrage, résonance et circulation de l'essence à travers un catalyseur. Tu sais distinguer une charge stable d'une charge dangereuse, et reconnaître les erreurs classiques (fuite d'essence, "vibration" instable, rune mal accordée). Cette connaissance te permet aussi d'identifier un style runique makarien et d'en comprendre l'intention générale.</p>
+                
+                <p style="margin-top: 20px;"><strong>Connaissance du domaine du plan Makarien (Intermédiaire)</strong></p>
+                <p>Tu connais Makarane, le Plan du Désert : ses routes caravanières, ses oasis-citadelles, ses bazars et ses règles sociales tournées vers le commerce et la parole donnée. Tu sais qui détient le pouvoir, comment les maisons et guildes influencent les échanges, et pourquoi ce plan est un carrefour de richesse. Tu connais également la dualité du plan : le Domaine du Soleil en surface et Karûn, le monde souterrain, qui nourrit une partie de ses légendes et de ses trésors.</p>
+                
+                <p style="margin-top: 20px;"><strong>Connaissance du style magique de l'enchantement (Moyen)</strong></p>
+                <p>Tu connais les méthodes d'enchantement au-delà du simple "bonus magique" : préparation du support, durée, verrouillage, limites et dérives possibles. Tu sais comment un enchantement se stabilise dans le temps, et comment il s'abîme si le catalyseur est usé ou mal entretenu. Cette connaissance permet aussi de reconnaître un enchantement posé à la hâte, ou au contraire une signature de travail expert.</p>
+                
+                <p style="margin-top: 20px;"><strong>Connaissance du style magique d'insufflation (Moyen)</strong></p>
+                <p>Tu maîtrises les bases avancées de l'Insufflation : injection rapide, saturation, relâchement brutal et intensité contrôlée sur une courte durée. Tu sais comment une insufflation peut décupler une action au bon moment, mais aussi comment elle peut échouer si le support "rejette" l'essence. Tu connais les signes précurseurs d'une surcharge (échauffement, résonance agressive, bruit métallique, micro-fissures).</p>
+            </div>
+            
+            <h3 class="subsection-title">Connaissances selon l'origine</h3>
+            <div class="content-box">
+                <p><strong>🌵 <a href="#clan-desert" class="knowledge-link">Clan du Désert</a></strong></p>
+                <p><strong>Amélioration d'un cran de la connaissance du domaine Runelame</strong> — Ton savoir runelame n'est pas seulement théorique : il est hérité, répété et validé par les anciens. Tu comprends des subtilités que d'autres ignorent : rythmes de charge, micro-ajustements et gestes de stabilisation appris au désert.</p>
+                <p><strong>Connaissance des clans Makariens (Modéré)</strong> — Tu connais les grandes lignes des clans : leur culture, leurs traditions, leurs serments et les secrets qu'ils protègent jalousement. Tu sais repérer les signes d'appartenance et comprendre les tensions entre clans.</p>
+                
+                <p style="margin-top: 20px;"><strong>🎲 <a href="#maison-korrina" class="knowledge-link">Maison Korrina</a></strong></p>
+                <p><strong>Connaissance du domaine du monde criminel (Modéré)</strong> — Tu connais la logique de la pègre : réseaux, planques, guetteurs, dettes et hiérarchies silencieuses. Tu sais comment circule l'information, comment se paie un service, et quelles erreurs font "disparaître" un imprudent.</p>
+                <p><strong>Connaissance des marchés noirs (Modéré)</strong> — Tu connais les marchés noirs et leurs règles : objets falsifiés, essence coupée, reliques volées, contrats illégaux. Tu sais repérer un vendeur douteux, reconnaître une arnaque et identifier un produit dangereux.</p>
+                
+                <p style="margin-top: 20px;"><strong>🕳️ <a href="#monde-souterrain" class="knowledge-link">Monde Souterrain</a></strong></p>
+                <p><strong>Connaissance du domaine des Mondes souterrains (Modéré)</strong> — Tu connais les Mondes souterrains comme un réseau vivant : strates, galeries, routes instables et zones où la densité magique change brutalement. Tu sais que ces mondes ne sont pas un simple "sous-sol", mais des domaines aux lois propres.</p>
+                <p><strong>Connaissance des créatures des profondeurs (Modéré)</strong> — Tu connais les familles de créatures qui vivent sous la surface : prédateurs cavernicoles, bêtes sensibles à l'essence, organismes adaptés à la pénombre. Tu sais lire des traces et anticiper une embuscade naturelle.</p>
+                <p><strong>Connaissance de la Forge d'Essence Runelame (Modéré)</strong> — Tu connais les bases de la forge d'essence runelame : comment préparer une arme non magique, choisir une pierre arcanique brute et éviter les erreurs qui rendent l'imprégnation instable.</p>
+                
+                <p style="margin-top: 20px;"><strong>⚡ <a href="#guerrier-elementaire" class="knowledge-link">Guerrier Élémentaire</a></strong></p>
+                <p><strong>Connaissance des mythes et légendes (Modéré)</strong> — Tu connais les récits anciens : héros, entités, pactes, trahisons et lieux sacrés qui ont structuré la mémoire makarienne. Tu sais distinguer une légende populaire d'un mythe codé.</p>
+                <p><strong>Connaissance des légendes du monde primordial (Modéré)</strong> — Tu connais les traces du Plan originel et ce qu'on en raconte : ères anciennes, influences élémentaires pures, sites archéologiques oubliés et entités d'un autre âge.</p>
+                
+                <p style="margin-top: 20px;"><strong>🏜️ <a href="#champion-desert" class="knowledge-link">Champion du Désert</a></strong></p>
+                <p><strong>Amélioration d'un cran de la connaissance du domaine du plan makarien</strong> — Ton rapport à Makarane est celui d'un praticien : routes, dangers, clients, citadelles et règles du commerce vécues sur le terrain. Tu connais les zones à risque et les points de passage importants.</p>
+                <p><strong>Connaissance du domaine du monde du mercenariat (Modéré)</strong> — Tu connais la vie des mercenaires : contrats, clauses, réputation, rivalités et la façon dont une mission peut être "truquée" dès le départ. Tu sais reconnaître les commanditaires dangereux et les deals mal écrits.</p>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align: center; font-size: 1.2rem; margin: 0;">
+                    <strong>Sabre +1</strong>
+                </p>
+            </div>
+        </section>
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎁 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Équipement de Lame-Sort</h4>
+                        <p>Réduction de 10 % sur un élément subi (au choix) / armure légère + extension magique</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>2 potions de vie</h4>
+                        <p>Soins d'urgence pour les situations critiques</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">✨</span>
+                    <div>
+                        <h4>2 potions de magie</h4>
+                        <p>Restaure les Points de Magie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💪</span>
+                    <div>
+                        <h4>1 potion d'endurance</h4>
+                        <p>Restaure l'énergie en combat prolongé</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🗡️</span>
+                    <div>
+                        <h4>Sabre de base</h4>
+                        <p>L'arme emblématique des Lame-Sorts</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🍞</span>
+                    <div>
+                        <h4>Provisions</h4>
+                        <p>1 ration et une gourde</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">Particularité selon la voie choisie :</h3>
+            <div class="highlight-box">
+                <p><strong>Clan du Désert :</strong> Don du Clan : obtention d'une des reliques des clans Lame-Sort (ça peut être des armes/armures ou objets)</p>
+                <p><strong>Maison Korrina :</strong> Accès au catalogue des objets du Marché noir</p>
+                <p><strong>Monde Souterrain :</strong> Obtient un pack de pierre arcanique brute (bonne qualité) 20/20 slots (offrant, si réussite, une base de dégâts : 10–20 dégâts magiques selon la nature élémentaire insufflée, uniquement sur les armes conventionnelles)</p>
+                <p><strong>Guerrier élémentaire :</strong> Obtention de l'équipement (armure) de Lame-Sort spécial Tempête gratuitement (prenant le slot de l'obtention de l'équipement de Lame-Sort)</p>
+                <p><strong>Champion du Désert :</strong> obtient un sabre de tranche de niveau supérieur (exemple : si le lanceur est niveau 12 lors de la création, il obtiendra un sabre de niveau 20–30 au lieu du 10–20)</p>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Arme X (FOR/DEX)</strong> — Maîtrise d'un type d'arme précis (garde, angles, rythme, efficacité). Sert à frapper correctement en combat et à exploiter ton style d'arme.</li>
+                        <li><strong>Réactif (REA)</strong> — Savoir doser et manipuler des réactifs (poudres, huiles, fioles d'essence) sans erreur ni gaspillage. Utile pour préparer, stabiliser ou improviser des usages liés à la runelame.</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Lire le terrain et repérer ce qui compte : couverts, traces, pièges, irrégularités, angles morts. Sert à anticiper et à se placer intelligemment.</li>
+                        <li><strong>Magie d'enchantement (INT)</strong> — Capacité à poser un enchantement structuré sur un objet ou soi-même via catalyseur. Sert à renforcer, protéger ou modifier durablement un support.</li>
+                        <li><strong>Magie d'insufflation (INT)</strong> — Capacité à injecter une charge d'essence brève mais puissante dans une arme/support. Sert à obtenir un effet explosif au bon moment sans perdre le contrôle.</li>
+                        <li><strong>Analyse magique (INT)</strong> — Comprendre un effet magique : nature, fonctionnement, défauts, danger, origine probable. Sert à identifier, contrer ou exploiter une magie rencontrée.</li>
+                        <li><strong>Perception magique (SAG)</strong> — Ressentir les perturbations, intentions et "présences" d'essence autour de toi. Sert à repérer une aura suspecte, une zone instable ou un sort en cours.</li>
+                        <li><strong>Robustesse (CST)</strong> — Encaisser, tenir malgré le choc, la douleur et l'usure physique. Sert à rester debout et opérationnel dans un combat long ou rude.</li>
+                        <li><strong>Intimidation (CHA)</strong> — Imposer une pression par la présence, la voix et l'attitude. Sert à faire reculer, obtenir une information ou briser une résistance sociale.</li>
+                        <li><strong>Résistance aux influences élémentaires (SAG/RM)</strong> — Tenir face aux effets élémentaires qui altèrent le corps ou l'essence (chaleur mystique, gel surnaturel, pression arcanique).</li>
+                        <li><strong>Présence calme (CHA)</strong> — Rester stable et maîtrisé sous tension, sans laisser la peur te trahir. Sert à garder une posture crédible et éviter les réactions impulsives.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Résistance au poison (Résilience)</strong> — Supporter et limiter les effets d'un poison/venin/toxine physique. Sert à continuer d'agir malgré un affaiblissement progressif.</li>
+                        <li><strong>Résistance à la chaleur (Résilience)</strong> — Endurer chaleur extrême, air brûlant, déshydratation et soleil violent. Essentiel dans le désert ou les environnements arides.</li>
+                        <li><strong>Agilité de mouvement (Finesse)</strong> — Bouger proprement : appuis sûrs, déplacements rapides, changements de direction sans perdre l'équilibre. Sert à se repositionner et traverser des zones difficiles.</li>
+                        <li><strong>Puissance d'arme (Puissance)</strong> — Frapper pour briser : casser une garde, imposer un choc, ouvrir une défense. Sert quand tu veux dominer par l'impact plutôt que la précision.</li>
+                        <li><strong>Nerfs d'acier (Sang-froid)</strong> — Garder la main stable et l'esprit clair quand la pression monte. Sert à agir sans paniquer, même sous menace directe.</li>
+                        <li><strong>Contrôle émotionnel (Sang-froid)</strong> — Contenir peur, colère ou stress pour éviter les décisions impulsives. Sert à rester lucide et ne pas être manipulé.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sentir un risque avant d'avoir une preuve claire (embuscade, piège, intention hostile). Sert à éviter la surprise et choisir le bon réflexe.</li>
+                        <li><strong>Forge magie (Métier)</strong> — Entretenir et préparer la magie sur un support : nettoyer une rune, ajuster une gravure, stabiliser un catalyseur. Sert à garder ton équipement fiable et tes effets propres.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/lamesort.js"></script>
+</body>
+</html>

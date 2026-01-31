@@ -5,12 +5,15 @@
     --gold: #c9a961;
     --gold-dark: #9d7d3a;
     --burgundy: #6b2737;
-    --aegis: #3a4a5a;
-    --aegis-light: #5a6a7a;
-    --aegis-dark: #2a3a4a;
-    --steel: #7a8a9a;
-    --steel-light: #9aaaba;
-    --scarlet: #c92929;
+    
+    /* Couleurs Lame-Sort - palette désertique/runique */
+    --lamesort: #d4a574;
+    --lamesort-light: #e8d4b8;
+    --lamesort-dark: #9b6b3f;
+    --rune: #7a5230;
+    --rune-dark: #4a3820;
+    --sand: #daa520;
+    --sand-dark: #b8860b;
 }
 
 * {
@@ -56,8 +59,8 @@ body {
     left: 20px;
     padding: 12px 20px;
     background: rgba(255, 255, 255, 0.9);
-    border: 2px solid var(--aegis);
-    color: var(--aegis);
+    border: 2px solid var(--lamesort);
+    color: var(--lamesort);
     text-decoration: none;
     font-family: 'Cinzel', serif;
     font-weight: 600;
@@ -68,10 +71,10 @@ body {
 }
 
 .back-button:hover {
-    background: var(--aegis);
+    background: var(--lamesort);
     color: white;
     transform: translateX(-5px);
-    box-shadow: 0 4px 15px rgba(58, 74, 90, 0.4);
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
 }
 
 /* Section Hero */
@@ -85,7 +88,7 @@ body {
     position: relative;
     z-index: 2;
     background: linear-gradient(to bottom, 
-        rgba(122, 138, 154, 0.05) 0%, 
+        rgba(218, 165, 32, 0.05) 0%, 
         transparent 100%);
 }
 
@@ -93,7 +96,7 @@ body {
     flex: 0 0 400px;
     animation: fadeInLeft 1s ease-out;
     padding: 10px;
-    background: linear-gradient(135deg, rgba(58, 74, 90, 0.1), rgba(90, 106, 122, 0.1));
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(218, 165, 32, 0.1));
     border-radius: 16px;
 }
 
@@ -103,9 +106,9 @@ body {
     display: block;
     border-radius: 12px;
     box-shadow: 
-        0 10px 40px rgba(58, 74, 90, 0.4),
-        0 0 0 4px var(--aegis),
-        0 0 0 8px rgba(58, 74, 90, 0.3);
+        0 10px 40px rgba(212, 165, 116, 0.4),
+        0 0 0 4px var(--lamesort),
+        0 0 0 8px rgba(212, 165, 116, 0.3);
     border: 4px solid white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -113,9 +116,9 @@ body {
 .hero-image img:hover {
     transform: scale(1.02);
     box-shadow: 
-        0 15px 50px rgba(58, 74, 90, 0.5),
-        0 0 0 4px var(--aegis-light),
-        0 0 0 8px rgba(58, 74, 90, 0.4);
+        0 15px 50px rgba(212, 165, 116, 0.5),
+        0 0 0 4px var(--lamesort-light),
+        0 0 0 8px rgba(212, 165, 116, 0.4);
 }
 
 .hero-content {
@@ -127,24 +130,24 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 3.5rem;
     font-weight: 900;
-    color: var(--aegis);
+    color: var(--lamesort);
     margin-bottom: 20px;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 0px rgba(122, 138, 154, 0.2);
+    text-shadow: 2px 2px 0px rgba(218, 165, 32, 0.2);
 }
 
 .class-quote {
     font-size: 1.4rem;
     font-style: italic;
-    color: var(--aegis-light);
+    color: var(--lamesort-light);
     margin-bottom: 25px;
     padding-left: 20px;
-    border-left: 4px solid var(--aegis);
+    border-left: 4px solid var(--lamesort);
 }
 
 .class-type {
     font-size: 1.1rem;
-    color: var(--gold-dark);
+    color: var(--sand-dark);
     font-weight: 600;
 }
 
@@ -200,17 +203,17 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--aegis);
+    color: var(--lamesort);
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 3px solid var(--aegis);
+    border-bottom: 3px solid var(--lamesort);
     letter-spacing: 2px;
 }
 
 .subsection-title {
     font-family: 'Cinzel', serif;
     font-size: 1.5rem;
-    color: var(--aegis);
+    color: var(--lamesort);
     margin: 40px 0 20px;
 }
 
@@ -220,24 +223,23 @@ body {
     color: var(--ink);
 }
 
-/* Hint interactif */
 .interactive-hint {
-    background: linear-gradient(135deg, rgba(90, 106, 122, 0.15), rgba(58, 74, 90, 0.15));
+    background: linear-gradient(135deg, rgba(218, 165, 32, 0.15), rgba(212, 165, 116, 0.15));
     padding: 15px 20px;
     border-radius: 8px;
-    border-left: 4px solid var(--aegis-light);
+    border-left: 4px solid var(--sand);
     margin-bottom: 30px;
     font-size: 1rem;
-    color: var(--aegis-dark);
+    color: var(--lamesort-dark);
     animation: pulse-hint 2s ease-in-out infinite;
 }
 
 @keyframes pulse-hint {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(90, 106, 122, 0.4);
+        box-shadow: 0 0 0 0 rgba(218, 165, 32, 0.4);
     }
     50% {
-        box-shadow: 0 0 0 8px rgba(90, 106, 122, 0);
+        box-shadow: 0 0 0 8px rgba(218, 165, 32, 0);
     }
 }
 
@@ -245,7 +247,7 @@ body {
 .content-box {
     background: rgba(255, 255, 255, 0.5);
     padding: 30px;
-    border-left: 4px solid var(--aegis);
+    border-left: 4px solid var(--lamesort);
     border-radius: 8px;
 }
 
@@ -259,20 +261,15 @@ body {
 }
 
 .highlight-box {
-    background: rgba(58, 74, 90, 0.1);
+    background: rgba(212, 165, 116, 0.1);
     padding: 20px;
     border-radius: 6px;
-    border: 2px solid var(--aegis);
+    border: 2px solid var(--lamesort);
     margin-top: 20px;
 }
 
 .highlight-box p {
     margin: 0;
-    margin-bottom: 10px;
-}
-
-.highlight-box p:last-child {
-    margin-bottom: 0;
 }
 
 /* Grille de statistiques */
@@ -286,12 +283,12 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--aegis-light);
+    border: 2px solid var(--lamesort-light);
 }
 
 .stat-category h3 {
     font-family: 'Cinzel', serif;
-    color: var(--aegis);
+    color: var(--lamesort);
     margin-bottom: 15px;
     font-size: 1.2rem;
 }
@@ -303,7 +300,7 @@ body {
 
 .stat-category li {
     padding: 8px 0;
-    border-bottom: 1px solid rgba(58, 74, 90, 0.2);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.2);
 }
 
 .stat-category li:last-child {
@@ -338,9 +335,15 @@ body {
     background: rgba(168, 74, 43, 0.1);
 }
 
+.stat-item.neutral {
+    color: #666;
+    border-color: #999;
+    background: rgba(150, 150, 150, 0.08);
+}
+
 .stat-item.highlight {
-    border: 2px solid var(--aegis);
-    background: rgba(58, 74, 90, 0.15);
+    border: 2px solid var(--lamesort);
+    background: rgba(212, 165, 116, 0.15);
     font-size: 1.1rem;
 }
 
@@ -356,7 +359,7 @@ body {
 
 .traits-grid span {
     padding: 8px;
-    background: rgba(58, 74, 90, 0.08);
+    background: rgba(212, 165, 116, 0.08);
     border-radius: 4px;
     font-size: 0.95rem;
 }
@@ -366,27 +369,27 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     margin-bottom: 20px;
-    border-left: 5px solid var(--aegis);
+    border-left: 5px solid var(--lamesort);
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 .talent-card:hover {
     background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 5px 20px rgba(58, 74, 90, 0.15);
+    box-shadow: 0 5px 20px rgba(212, 165, 116, 0.15);
     transform: translateX(5px);
 }
 
 .talent-card h3 {
     font-family: 'Cinzel', serif;
-    color: var(--aegis);
+    color: var(--lamesort);
     margin-bottom: 12px;
     font-size: 1.3rem;
 }
 
 .talent-card h4 {
     font-family: 'Cinzel', serif;
-    color: var(--aegis-light);
+    color: var(--lamesort-light);
     margin: 15px 0 10px;
     font-size: 1.1rem;
 }
@@ -397,13 +400,10 @@ body {
     margin-bottom: 10px;
 }
 
-.talent-card p:last-child {
-    margin-bottom: 0;
-}
-
 .talent-card ul {
     list-style: none;
     padding-left: 0;
+    margin: 10px 0;
 }
 
 .talent-card li {
@@ -415,44 +415,47 @@ body {
     content: '▸';
     position: absolute;
     left: 0;
-    color: var(--aegis);
+    color: var(--lamesort);
     font-weight: bold;
 }
 
-/* Grille de citadelles */
-.citadel-grid {
+/* Grille de parcours (équivalent vocations) */
+.parcours-grid {
     display: grid;
     gap: 35px;
 }
 
-.citadel-card {
+.parcours-card {
     background: rgba(255, 255, 255, 0.7);
     padding: 30px;
-    border: 3px solid var(--aegis-light);
+    border: 3px solid var(--lamesort-light);
     border-radius: 12px;
     transition: all 0.3s ease;
     position: relative;
     cursor: pointer;
+    scroll-margin-top: 100px; /* Pour le scroll vers les parcours */
 }
 
-.citadel-card:hover {
-    border-color: var(--aegis);
-    box-shadow: 0 8px 30px rgba(58, 74, 90, 0.2);
+.parcours-card:hover {
+    border-color: var(--lamesort);
+    box-shadow: 0 8px 30px rgba(212, 165, 116, 0.2);
     transform: translateY(-2px);
 }
 
-.citadel-card.selected {
+.parcours-card.selected {
+    border-color: var(--sand);
     border-width: 4px;
-    box-shadow: 0 8px 40px rgba(58, 74, 90, 0.4), 
-                0 0 0 2px rgba(58, 74, 90, 0.2);
+    box-shadow: 0 8px 40px rgba(218, 165, 32, 0.4), 
+                0 0 0 2px rgba(218, 165, 32, 0.2);
+    background: rgba(218, 165, 32, 0.08);
 }
 
-.citadel-card.selected::before {
+.parcours-card.selected::before {
     content: '✓ SÉLECTIONNÉ';
     position: absolute;
     top: 15px;
     right: 15px;
-    background: var(--aegis);
+    background: var(--sand);
     color: white;
     padding: 5px 12px;
     border-radius: 4px;
@@ -460,137 +463,63 @@ body {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1px;
-    box-shadow: 0 2px 8px rgba(58, 74, 90, 0.4);
-    z-index: 10;
+    box-shadow: 0 2px 8px rgba(218, 165, 32, 0.4);
 }
 
-/* Citadelles spécifiques */
-.citadel-card.scarlet {
-    border-color: var(--scarlet);
-    background: linear-gradient(135deg, rgba(201, 41, 41, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.citadel-card.scarlet.selected {
-    border-color: var(--scarlet);
-}
-
-.citadel-card.scarlet.selected::before {
-    background: var(--scarlet);
-}
-
-.citadel-card.ash {
-    border-color: #6a6a6a;
-    background: linear-gradient(135deg, rgba(106, 106, 106, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.citadel-card.ash.selected {
-    border-color: #6a6a6a;
-}
-
-.citadel-card.ash.selected::before {
-    background: #6a6a6a;
-}
-
-.citadel-card.lion {
-    border-color: var(--gold);
-    background: linear-gradient(135deg, rgba(201, 169, 97, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.citadel-card.lion.selected {
-    border-color: var(--gold);
-}
-
-.citadel-card.lion.selected::before {
-    background: var(--gold);
-}
-
-.citadel-card.silver {
-    border-color: #b0b0b0;
-    background: linear-gradient(135deg, rgba(176, 176, 176, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.citadel-card.silver.selected {
-    border-color: #b0b0b0;
-}
-
-.citadel-card.silver.selected::before {
-    background: #b0b0b0;
-}
-
-.citadel-card.doom {
-    border-color: #3a3a3a;
-    background: linear-gradient(135deg, rgba(58, 58, 58, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.citadel-card.doom.selected {
-    border-color: #3a3a3a;
-}
-
-.citadel-card.doom.selected::before {
-    background: #3a3a3a;
-}
-
-.citadel-card h3 {
+.parcours-card h3 {
     font-family: 'Cinzel', serif;
-    color: var(--aegis);
+    color: var(--lamesort);
     margin-bottom: 15px;
     font-size: 1.7rem;
 }
 
-.citadel-card h4 {
+.parcours-card h4 {
     font-family: 'Cinzel', serif;
-    color: var(--aegis-light);
+    color: var(--lamesort-light);
     margin: 20px 0 10px;
     font-size: 1.2rem;
 }
 
-.citadel-card .subsection {
-    background: rgba(58, 74, 90, 0.05);
+.parcours-card .subsection {
+    background: rgba(212, 165, 116, 0.05);
     padding: 20px;
     margin: 15px 0;
     border-radius: 6px;
-    border-left: 3px solid var(--aegis);
+    border-left: 3px solid var(--lamesort);
 }
 
-.citadel-card .subsection p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 15px;
+.parcours-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
 }
 
-.citadel-card .subsection p:last-child {
-    margin-bottom: 0;
+.parcours-card li {
+    padding: 6px 0 6px 20px;
+    position: relative;
 }
 
-/* Liste de connaissances */
-.knowledge-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.parcours-card li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--lamesort);
+    font-weight: bold;
 }
 
-.knowledge-item {
-    background: rgba(255, 255, 255, 0.6);
-    padding: 20px;
-    border-left: 4px solid var(--aegis);
-    border-radius: 6px;
-}
-
-.knowledge-item h4 {
-    font-family: 'Cinzel', serif;
-    color: var(--aegis);
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-}
-
-.knowledge-item .level {
-    color: var(--gold-dark);
-    font-size: 0.9rem;
+/* Liens de connaissances */
+.knowledge-link {
+    color: var(--sand-dark);
+    text-decoration: none;
     font-weight: 600;
+    border-bottom: 1px dashed var(--sand);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.knowledge-item p {
-    font-size: 1.05rem;
+.knowledge-link:hover {
+    color: var(--lamesort);
+    border-bottom: 2px solid var(--lamesort);
 }
 
 /* Grille d'équipement */
@@ -607,13 +536,13 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 20px;
     border-radius: 8px;
-    border: 2px solid var(--aegis-light);
+    border: 2px solid var(--lamesort-light);
     transition: all 0.3s ease;
 }
 
 .equipment-item:hover {
-    border-color: var(--aegis);
-    box-shadow: 0 5px 15px rgba(58, 74, 90, 0.15);
+    border-color: var(--lamesort);
+    box-shadow: 0 5px 15px rgba(212, 165, 116, 0.15);
 }
 
 .equipment-item .icon {
@@ -623,7 +552,7 @@ body {
 
 .equipment-item h4 {
     font-family: 'Cinzel', serif;
-    color: var(--aegis);
+    color: var(--lamesort);
     margin-bottom: 5px;
     font-size: 1.1rem;
 }
@@ -633,7 +562,7 @@ body {
     color: var(--ink);
 }
 
-/* Grille de compétences */
+/* Grille de compétences - COMME GUERRIER */
 .competences-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -644,12 +573,12 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--aegis-light);
+    border: 2px solid var(--lamesort-light);
 }
 
 .competence-category h3 {
     font-family: 'Cinzel', serif;
-    color: var(--aegis);
+    color: var(--lamesort);
     margin-bottom: 15px;
     font-size: 1.2rem;
 }
@@ -661,7 +590,7 @@ body {
 
 .competence-list li {
     padding: 10px 0;
-    border-bottom: 1px solid rgba(58, 74, 90, 0.2);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.2);
     font-size: 1.05rem;
 }
 
@@ -670,7 +599,7 @@ body {
 }
 
 .competence-list strong {
-    color: var(--aegis);
+    color: var(--lamesort);
 }
 
 /* Footer */
@@ -684,7 +613,7 @@ body {
 .divider {
     width: 200px;
     height: 2px;
-    background: linear-gradient(to right, transparent, var(--aegis), transparent);
+    background: linear-gradient(to right, transparent, var(--lamesort), transparent);
     margin: 0 auto 20px;
 }
 
@@ -708,7 +637,7 @@ body {
     padding: 20px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 12px;
-    border: 2px solid var(--aegis);
+    border: 2px solid var(--lamesort);
 }
 
 .chart-wrapper canvas {
@@ -731,14 +660,14 @@ body {
     .class-quote {
         border-left: none;
         padding-left: 0;
-        border-top: 4px solid var(--aegis);
+        border-top: 4px solid var(--lamesort);
         padding-top: 15px;
     }
 
     .stats-grid,
     .equipment-grid,
     .competences-grid,
-    .citadel-grid {
+    .parcours-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -778,7 +707,7 @@ body {
     .content-box,
     .stat-category,
     .talent-card,
-    .citadel-card {
+    .parcours-card {
         padding: 20px;
     }
 

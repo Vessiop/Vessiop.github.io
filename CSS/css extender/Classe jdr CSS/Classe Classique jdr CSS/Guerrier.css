@@ -6,14 +6,12 @@
     --gold-dark: #9d7d3a;
     --burgundy: #6b2737;
     
-    /* Couleurs Guerrier - tons bronze/brun/acier */
-    --warrior: #8b5a2b;
-    --warrior-light: #a67c52;
-    --warrior-dark: #6b4423;
-    --bronze: #cd7f32;
-    --bronze-dark: #9d5f22;
-    --steel: #7a8a9a;
-    --steel-light: #9aaaba;
+    /* Couleurs Lame-Sort - palette désertique/runique */
+    --lamesort: #d4a574;
+    --lamesort-light: #e8d4b8;
+    --lamesort-dark: #9b6b3f;
+    --rune: #7a5230;
+    --rune-dark: #4a3820;
 }
 
 * {
@@ -59,8 +57,8 @@ body {
     left: 20px;
     padding: 12px 20px;
     background: rgba(255, 255, 255, 0.9);
-    border: 2px solid var(--warrior);
-    color: var(--warrior);
+    border: 2px solid var(--lamesort);
+    color: var(--lamesort);
     text-decoration: none;
     font-family: 'Cinzel', serif;
     font-weight: 600;
@@ -71,10 +69,10 @@ body {
 }
 
 .back-button:hover {
-    background: var(--warrior);
+    background: var(--lamesort);
     color: white;
     transform: translateX(-5px);
-    box-shadow: 0 4px 15px rgba(139, 90, 43, 0.4);
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
 }
 
 /* Section Hero */
@@ -88,7 +86,7 @@ body {
     position: relative;
     z-index: 2;
     background: linear-gradient(to bottom, 
-        rgba(205, 127, 50, 0.05) 0%, 
+        rgba(212, 165, 116, 0.05) 0%, 
         transparent 100%);
 }
 
@@ -96,7 +94,7 @@ body {
     flex: 0 0 400px;
     animation: fadeInLeft 1s ease-out;
     padding: 10px;
-    background: linear-gradient(135deg, rgba(139, 90, 43, 0.1), rgba(205, 127, 50, 0.1));
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(155, 107, 63, 0.1));
     border-radius: 16px;
 }
 
@@ -106,9 +104,9 @@ body {
     display: block;
     border-radius: 12px;
     box-shadow: 
-        0 10px 40px rgba(139, 90, 43, 0.4),
-        0 0 0 4px var(--warrior),
-        0 0 0 8px rgba(139, 90, 43, 0.3);
+        0 10px 40px rgba(212, 165, 116, 0.4),
+        0 0 0 4px var(--lamesort),
+        0 0 0 8px rgba(212, 165, 116, 0.3);
     border: 4px solid white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -116,9 +114,9 @@ body {
 .hero-image img:hover {
     transform: scale(1.02);
     box-shadow: 
-        0 15px 50px rgba(139, 90, 43, 0.5),
-        0 0 0 4px var(--warrior-light),
-        0 0 0 8px rgba(139, 90, 43, 0.4);
+        0 15px 50px rgba(212, 165, 116, 0.5),
+        0 0 0 4px var(--lamesort-light),
+        0 0 0 8px rgba(212, 165, 116, 0.4);
 }
 
 .hero-content {
@@ -130,24 +128,24 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 3.5rem;
     font-weight: 900;
-    color: var(--warrior);
+    color: var(--lamesort);
     margin-bottom: 20px;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 0px rgba(205, 127, 50, 0.2);
+    text-shadow: 2px 2px 0px rgba(212, 165, 116, 0.2);
 }
 
 .class-quote {
     font-size: 1.4rem;
     font-style: italic;
-    color: var(--warrior-light);
+    color: var(--lamesort-light);
     margin-bottom: 25px;
     padding-left: 20px;
-    border-left: 4px solid var(--warrior);
+    border-left: 4px solid var(--lamesort);
 }
 
 .class-type {
     font-size: 1.1rem;
-    color: var(--bronze-dark);
+    color: var(--rune-dark);
     font-weight: 600;
 }
 
@@ -203,17 +201,17 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--warrior);
+    color: var(--lamesort);
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 3px solid var(--warrior);
+    border-bottom: 3px solid var(--lamesort);
     letter-spacing: 2px;
 }
 
 .subsection-title {
     font-family: 'Cinzel', serif;
     font-size: 1.5rem;
-    color: var(--warrior);
+    color: var(--lamesort);
     margin: 40px 0 20px;
 }
 
@@ -224,22 +222,22 @@ body {
 }
 
 .interactive-hint {
-    background: linear-gradient(135deg, rgba(205, 127, 50, 0.15), rgba(139, 90, 43, 0.15));
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(155, 107, 63, 0.15));
     padding: 15px 20px;
     border-radius: 8px;
-    border-left: 4px solid var(--bronze);
+    border-left: 4px solid var(--rune);
     margin-bottom: 30px;
     font-size: 1rem;
-    color: var(--warrior-dark);
+    color: var(--lamesort-dark);
     animation: pulse-hint 2s ease-in-out infinite;
 }
 
 @keyframes pulse-hint {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(205, 127, 50, 0.4);
+        box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.4);
     }
     50% {
-        box-shadow: 0 0 0 8px rgba(205, 127, 50, 0);
+        box-shadow: 0 0 0 8px rgba(212, 165, 116, 0);
     }
 }
 
@@ -247,7 +245,7 @@ body {
 .content-box {
     background: rgba(255, 255, 255, 0.5);
     padding: 30px;
-    border-left: 4px solid var(--warrior);
+    border-left: 4px solid var(--lamesort);
     border-radius: 8px;
 }
 
@@ -261,10 +259,10 @@ body {
 }
 
 .highlight-box {
-    background: rgba(139, 90, 43, 0.1);
+    background: rgba(212, 165, 116, 0.1);
     padding: 20px;
     border-radius: 6px;
-    border: 2px solid var(--warrior);
+    border: 2px solid var(--lamesort);
     margin-top: 20px;
 }
 
@@ -283,12 +281,12 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--warrior-light);
+    border: 2px solid var(--lamesort-light);
 }
 
 .stat-category h3 {
     font-family: 'Cinzel', serif;
-    color: var(--warrior);
+    color: var(--lamesort);
     margin-bottom: 15px;
     font-size: 1.2rem;
 }
@@ -300,7 +298,7 @@ body {
 
 .stat-category li {
     padding: 8px 0;
-    border-bottom: 1px solid rgba(139, 90, 43, 0.2);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.2);
 }
 
 .stat-category li:last-child {
@@ -342,8 +340,8 @@ body {
 }
 
 .stat-item.highlight {
-    border: 2px solid var(--warrior);
-    background: rgba(139, 90, 43, 0.15);
+    border: 2px solid var(--lamesort);
+    background: rgba(212, 165, 116, 0.15);
     font-size: 1.1rem;
 }
 
@@ -359,7 +357,7 @@ body {
 
 .traits-grid span {
     padding: 8px;
-    background: rgba(139, 90, 43, 0.08);
+    background: rgba(212, 165, 116, 0.08);
     border-radius: 4px;
     font-size: 0.95rem;
 }
@@ -369,27 +367,27 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     margin-bottom: 20px;
-    border-left: 5px solid var(--warrior);
+    border-left: 5px solid var(--lamesort);
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 .talent-card:hover {
     background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 5px 20px rgba(139, 90, 43, 0.15);
+    box-shadow: 0 5px 20px rgba(212, 165, 116, 0.15);
     transform: translateX(5px);
 }
 
 .talent-card h3 {
     font-family: 'Cinzel', serif;
-    color: var(--warrior);
+    color: var(--lamesort);
     margin-bottom: 12px;
     font-size: 1.3rem;
 }
 
 .talent-card h4 {
     font-family: 'Cinzel', serif;
-    color: var(--warrior-light);
+    color: var(--lamesort-light);
     margin: 15px 0 10px;
     font-size: 1.1rem;
 }
@@ -400,41 +398,41 @@ body {
     margin-bottom: 10px;
 }
 
-/* Grille de vocations */
-.vocation-grid {
+/* Grille de parcours */
+.parcours-grid {
     display: grid;
     gap: 35px;
 }
 
-.vocation-card {
+.parcours-card {
     background: rgba(255, 255, 255, 0.7);
     padding: 30px;
-    border: 3px solid var(--warrior-light);
+    border: 3px solid var(--lamesort-light);
     border-radius: 12px;
     transition: all 0.3s ease;
     position: relative;
 }
 
-.vocation-card:hover {
-    border-color: var(--warrior);
-    box-shadow: 0 8px 30px rgba(139, 90, 43, 0.2);
+.parcours-card:hover {
+    border-color: var(--lamesort);
+    box-shadow: 0 8px 30px rgba(212, 165, 116, 0.2);
     transform: translateY(-2px);
 }
 
-.vocation-card.selected {
-    border-color: var(--bronze);
+.parcours-card.selected {
+    border-color: var(--rune);
     border-width: 4px;
-    box-shadow: 0 8px 40px rgba(205, 127, 50, 0.4), 
-                0 0 0 2px rgba(205, 127, 50, 0.2);
-    background: rgba(205, 127, 50, 0.08);
+    box-shadow: 0 8px 40px rgba(122, 82, 48, 0.4), 
+                0 0 0 2px rgba(122, 82, 48, 0.2);
+    background: rgba(122, 82, 48, 0.08);
 }
 
-.vocation-card.selected::before {
+.parcours-card.selected::before {
     content: '✓ SÉLECTIONNÉ';
     position: absolute;
     top: 15px;
     right: 15px;
-    background: var(--bronze);
+    background: var(--rune);
     color: white;
     padding: 5px 12px;
     border-radius: 4px;
@@ -442,83 +440,73 @@ body {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1px;
-    box-shadow: 0 2px 8px rgba(205, 127, 50, 0.4);
+    box-shadow: 0 2px 8px rgba(122, 82, 48, 0.4);
 }
 
-/* Vocations spécifiques */
-.vocation-card.forge {
-    border-color: #c94d29;
-    background: linear-gradient(135deg, rgba(201, 77, 41, 0.03), rgba(255, 255, 255, 0.7));
+/* Parcours spécifiques */
+.parcours-card.clan-desert {
+    border-color: #c9a961;
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.03), rgba(255, 255, 255, 0.7));
 }
 
-.vocation-card.shield {
-    border-color: #5a7a8a;
-    background: linear-gradient(135deg, rgba(90, 122, 138, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.vocation-card.rogue {
-    border-color: #4a4a4a;
-    background: linear-gradient(135deg, rgba(74, 74, 74, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.vocation-card.magic {
+.parcours-card.maison-korrina {
     border-color: #7a5ac9;
     background: linear-gradient(135deg, rgba(122, 90, 201, 0.03), rgba(255, 255, 255, 0.7));
 }
 
-.vocation-card.agile {
+.parcours-card.monde-souterrain {
+    border-color: #4a4a4a;
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.03), rgba(255, 255, 255, 0.7));
+}
+
+.parcours-card.guerrier-elementaire {
     border-color: #29c97a;
     background: linear-gradient(135deg, rgba(41, 201, 122, 0.03), rgba(255, 255, 255, 0.7));
 }
 
-.vocation-card.stance {
-    border-color: var(--bronze);
-    background: linear-gradient(135deg, rgba(205, 127, 50, 0.03), rgba(255, 255, 255, 0.7));
+.parcours-card.champion-desert {
+    border-color: #c94d29;
+    background: linear-gradient(135deg, rgba(201, 77, 41, 0.03), rgba(255, 255, 255, 0.7));
 }
 
-.vocation-card.duel {
-    border-color: var(--gold);
-    background: linear-gradient(135deg, rgba(201, 169, 97, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.vocation-card h3 {
+.parcours-card h3 {
     font-family: 'Cinzel', serif;
-    color: var(--warrior);
+    color: var(--lamesort);
     margin-bottom: 15px;
     font-size: 1.7rem;
 }
 
-.vocation-card h4 {
+.parcours-card h4 {
     font-family: 'Cinzel', serif;
-    color: var(--warrior-light);
+    color: var(--lamesort-light);
     margin: 20px 0 10px;
     font-size: 1.2rem;
 }
 
-.vocation-card .subsection {
-    background: rgba(139, 90, 43, 0.05);
+.parcours-card .subsection {
+    background: rgba(212, 165, 116, 0.05);
     padding: 20px;
     margin: 15px 0;
     border-radius: 6px;
-    border-left: 3px solid var(--warrior);
+    border-left: 3px solid var(--lamesort);
 }
 
-.vocation-card ul {
+.parcours-card ul {
     list-style: none;
     padding-left: 0;
     margin: 10px 0;
 }
 
-.vocation-card li {
+.parcours-card li {
     padding: 6px 0 6px 20px;
     position: relative;
 }
 
-.vocation-card li::before {
+.parcours-card li::before {
     content: '▸';
     position: absolute;
     left: 0;
-    color: var(--warrior);
+    color: var(--lamesort);
     font-weight: bold;
 }
 
@@ -536,13 +524,13 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 20px;
     border-radius: 8px;
-    border: 2px solid var(--warrior-light);
+    border: 2px solid var(--lamesort-light);
     transition: all 0.3s ease;
 }
 
 .equipment-item:hover {
-    border-color: var(--warrior);
-    box-shadow: 0 5px 15px rgba(139, 90, 43, 0.15);
+    border-color: var(--lamesort);
+    box-shadow: 0 5px 15px rgba(212, 165, 116, 0.15);
 }
 
 .equipment-item .icon {
@@ -552,7 +540,7 @@ body {
 
 .equipment-item h4 {
     font-family: 'Cinzel', serif;
-    color: var(--warrior);
+    color: var(--lamesort);
     margin-bottom: 5px;
     font-size: 1.1rem;
 }
@@ -573,12 +561,12 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--warrior-light);
+    border: 2px solid var(--lamesort-light);
 }
 
 .competence-category h3 {
     font-family: 'Cinzel', serif;
-    color: var(--warrior);
+    color: var(--lamesort);
     margin-bottom: 15px;
     font-size: 1.2rem;
 }
@@ -590,7 +578,7 @@ body {
 
 .competence-list li {
     padding: 10px 0;
-    border-bottom: 1px solid rgba(139, 90, 43, 0.2);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.2);
     font-size: 1.05rem;
 }
 
@@ -599,7 +587,7 @@ body {
 }
 
 .competence-list strong {
-    color: var(--warrior);
+    color: var(--lamesort);
 }
 
 /* Footer */
@@ -613,7 +601,7 @@ body {
 .divider {
     width: 200px;
     height: 2px;
-    background: linear-gradient(to right, transparent, var(--warrior), transparent);
+    background: linear-gradient(to right, transparent, var(--lamesort), transparent);
     margin: 0 auto 20px;
 }
 
@@ -637,7 +625,7 @@ body {
     padding: 20px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 12px;
-    border: 2px solid var(--warrior);
+    border: 2px solid var(--lamesort);
 }
 
 .chart-wrapper canvas {
@@ -660,14 +648,14 @@ body {
     .class-quote {
         border-left: none;
         padding-left: 0;
-        border-top: 4px solid var(--warrior);
+        border-top: 4px solid var(--lamesort);
         padding-top: 15px;
     }
 
     .stats-grid,
     .equipment-grid,
     .competences-grid,
-    .vocation-grid {
+    .parcours-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -707,7 +695,7 @@ body {
     .content-box,
     .stat-category,
     .talent-card,
-    .vocation-card {
+    .parcours-card {
         padding: 20px;
     }
 
