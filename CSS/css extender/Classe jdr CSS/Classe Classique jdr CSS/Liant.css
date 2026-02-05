@@ -1,15 +1,19 @@
 :root {
-    --parchment: #f4e9d8;
+    --parchment: #f4e4d8;
     --parchment-dark: #d4c4a8;
-    --ink: #2c2416;
+    --ink: #2c1a16;
     --gold: #c9a961;
     --gold-dark: #9d7d3a;
     --burgundy: #6b2737;
-    --liant-green: #4CAF50;
-    --forest-green: #2E7D32;
-    --leaf-green: #7CB342;
-    --earth-brown: #8B4513;
-    --warm-brown: #A0522D;
+    
+    /* Couleurs Liant - palette forestière */
+    --liant: #4CAF50;
+    --liant-light: #7CB342;
+    --liant-dark: #2E7D32;
+    --forest: #388E3C;
+    --leaf: #8BC34A;
+    --earth: #8B4513;
+    --earth-light: #A0522D;
 }
 
 * {
@@ -24,6 +28,7 @@ body {
     color: var(--ink);
     min-height: 100vh;
     line-height: 1.7;
+    overflow-x: hidden;
 }
 
 /* Texture de parchemin */
@@ -38,11 +43,48 @@ body {
             0deg,
             transparent,
             transparent 2px,
-            rgba(44, 36, 22, 0.015) 2px,
-            rgba(44, 36, 22, 0.015) 4px
+            rgba(44, 26, 22, 0.015) 2px,
+            rgba(44, 26, 22, 0.015) 4px
         );
     pointer-events: none;
     z-index: 1;
+}
+
+/* Animation de feuilles qui tombent (légère) */
+@keyframes leaf-fall {
+    0% {
+        transform: translateY(-10px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(100vh) translateX(30px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+.parchment-overlay::before,
+.parchment-overlay::after {
+    content: '🍃';
+    position: absolute;
+    font-size: 20px;
+    opacity: 0;
+    animation: leaf-fall 15s infinite ease-in;
+}
+
+.parchment-overlay::before {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.parchment-overlay::after {
+    left: 70%;
+    animation-delay: 7s;
 }
 
 /* Bouton retour */
@@ -55,8 +97,8 @@ body {
     left: 20px;
     padding: 12px 20px;
     background: rgba(255, 255, 255, 0.9);
-    border: 2px solid var(--liant-green);
-    color: var(--forest-green);
+    border: 2px solid var(--liant);
+    color: var(--liant);
     text-decoration: none;
     font-family: 'Cinzel', serif;
     font-weight: 600;
@@ -67,7 +109,7 @@ body {
 }
 
 .back-button:hover {
-    background: var(--liant-green);
+    background: var(--liant);
     color: white;
     transform: translateX(-5px);
     box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
@@ -84,7 +126,7 @@ body {
     position: relative;
     z-index: 2;
     background: linear-gradient(to bottom, 
-        rgba(124, 179, 66, 0.1) 0%, 
+        rgba(124, 179, 66, 0.05) 0%, 
         transparent 100%);
 }
 
@@ -103,7 +145,7 @@ body {
     border-radius: 12px;
     box-shadow: 
         0 10px 40px rgba(76, 175, 80, 0.4),
-        0 0 0 4px var(--liant-green),
+        0 0 0 4px var(--liant),
         0 0 0 8px rgba(76, 175, 80, 0.3);
     border: 4px solid white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -113,7 +155,7 @@ body {
     transform: scale(1.02);
     box-shadow: 
         0 15px 50px rgba(76, 175, 80, 0.5),
-        0 0 0 4px var(--leaf-green),
+        0 0 0 4px var(--liant-light),
         0 0 0 8px rgba(76, 175, 80, 0.4);
 }
 
@@ -126,24 +168,24 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 3.5rem;
     font-weight: 900;
-    color: var(--forest-green);
+    color: var(--liant);
     margin-bottom: 20px;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 0px rgba(124, 179, 66, 0.3);
+    text-shadow: 2px 2px 0px rgba(124, 179, 66, 0.2);
 }
 
 .class-quote {
     font-size: 1.4rem;
     font-style: italic;
-    color: var(--earth-brown);
+    color: var(--liant-light);
     margin-bottom: 25px;
     padding-left: 20px;
-    border-left: 4px solid var(--liant-green);
+    border-left: 4px solid var(--liant);
 }
 
 .class-type {
     font-size: 1.1rem;
-    color: var(--warm-brown);
+    color: var(--earth-light);
     font-weight: 600;
 }
 
@@ -199,11 +241,18 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--forest-green);
+    color: var(--liant);
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 3px solid var(--liant-green);
+    border-bottom: 3px solid var(--liant);
     letter-spacing: 2px;
+}
+
+.subsection-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--liant);
+    margin: 40px 0 20px;
 }
 
 .intro-text {
@@ -212,11 +261,31 @@ body {
     color: var(--ink);
 }
 
+.interactive-hint {
+    background: linear-gradient(135deg, rgba(124, 179, 66, 0.15), rgba(76, 175, 80, 0.15));
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--leaf);
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: var(--liant-dark);
+    animation: pulse-hint 2s ease-in-out infinite;
+}
+
+@keyframes pulse-hint {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(76, 175, 80, 0);
+    }
+}
+
 /* Boîte de contenu */
 .content-box {
     background: rgba(255, 255, 255, 0.5);
     padding: 30px;
-    border-left: 4px solid var(--liant-green);
+    border-left: 4px solid var(--liant);
     border-radius: 8px;
 }
 
@@ -233,7 +302,7 @@ body {
     background: rgba(76, 175, 80, 0.1);
     padding: 20px;
     border-radius: 6px;
-    border: 2px solid var(--liant-green);
+    border: 2px solid var(--liant);
     margin-top: 20px;
 }
 
@@ -252,12 +321,12 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--leaf-green);
+    border: 2px solid var(--liant-light);
 }
 
 .stat-category h3 {
     font-family: 'Cinzel', serif;
-    color: var(--forest-green);
+    color: var(--liant);
     margin-bottom: 15px;
     font-size: 1.2rem;
 }
@@ -305,13 +374,13 @@ body {
 }
 
 .stat-item.neutral {
-    color: #616161;
-    border-color: #9e9e9e;
-    background: rgba(158, 158, 158, 0.1);
+    color: #666;
+    border-color: #999;
+    background: rgba(150, 150, 150, 0.08);
 }
 
 .stat-item.highlight {
-    border: 2px solid var(--liant-green);
+    border: 2px solid var(--liant);
     background: rgba(76, 175, 80, 0.15);
     font-size: 1.1rem;
 }
@@ -338,7 +407,7 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     margin-bottom: 20px;
-    border-left: 5px solid var(--liant-green);
+    border-left: 5px solid var(--liant);
     border-radius: 8px;
     transition: all 0.3s ease;
 }
@@ -351,77 +420,164 @@ body {
 
 .talent-card h3 {
     font-family: 'Cinzel', serif;
-    color: var(--forest-green);
+    color: var(--liant);
     margin-bottom: 12px;
     font-size: 1.3rem;
+}
+
+.talent-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--liant-light);
+    margin: 15px 0 10px;
+    font-size: 1.1rem;
 }
 
 .talent-card p {
     font-size: 1.05rem;
     line-height: 1.7;
+    margin-bottom: 10px;
 }
 
-/* Grille de filières (départs) */
-.filiere-grid {
+.talent-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Animation légère de balancement pour les cartes de départs */
+@keyframes gentle-sway {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-3px) rotate(0.5deg);
+    }
+}
+
+/* Grille de départs (équivalent parcours/vocations) */
+.depart-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    gap: 35px;
 }
 
-.filiere-card {
+.depart-card {
     background: rgba(255, 255, 255, 0.7);
-    padding: 25px;
-    border: 2px solid var(--earth-brown);
-    border-radius: 10px;
+    padding: 30px;
+    border: 3px solid var(--liant-light);
+    border-radius: 12px;
     transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    scroll-margin-top: 100px;
 }
 
-.filiere-card:hover {
-    border-color: var(--liant-green);
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
-    transform: translateY(-5px);
+.depart-card:hover {
+    border-color: var(--liant);
+    box-shadow: 0 8px 30px rgba(76, 175, 80, 0.2);
+    transform: translateY(-2px);
+    animation: gentle-sway 3s ease-in-out infinite;
 }
 
-.filiere-card h3 {
+.depart-card.selected {
+    border-color: var(--leaf);
+    border-width: 4px;
+    box-shadow: 0 8px 40px rgba(76, 175, 80, 0.4), 
+                0 0 0 2px rgba(124, 179, 66, 0.2);
+    background: rgba(124, 179, 66, 0.08);
+}
+
+.depart-card.selected::before {
+    content: '✓ SÉLECTIONNÉ';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--leaf);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
     font-family: 'Cinzel', serif;
-    color: var(--earth-brown);
-    margin-bottom: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(124, 179, 66, 0.4);
+}
+
+.depart-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--liant);
+    margin-bottom: 15px;
+    font-size: 1.7rem;
+}
+
+.depart-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--liant-light);
+    margin: 20px 0 10px;
     font-size: 1.2rem;
 }
 
-.filiere-desc {
-    font-style: italic;
-    color: var(--warm-brown);
-    margin-bottom: 15px;
+.depart-card .subsection {
+    background: rgba(76, 175, 80, 0.05);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 6px;
+    border-left: 3px solid var(--liant);
 }
 
-.filiere-card ul {
+.depart-card ul {
     list-style: none;
     padding-left: 0;
+    margin: 10px 0;
 }
 
-.filiere-card li {
-    padding: 8px 0 8px 20px;
+.depart-card li {
+    padding: 6px 0 6px 20px;
     position: relative;
 }
 
-.filiere-card li::before {
-    content: '▸';
+.depart-card li::before {
+    content: '🌿';
     position: absolute;
     left: 0;
-    color: var(--liant-green);
-    font-weight: bold;
+    font-size: 0.9rem;
 }
 
-.bonus-stat {
-    background: var(--liant-green);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 700;
+/* Grille d'équipement */
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.equipment-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--liant-light);
+    transition: all 0.3s ease;
+}
+
+.equipment-item:hover {
+    border-color: var(--liant);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.15);
+}
+
+.equipment-item .icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.equipment-item h4 {
     font-family: 'Cinzel', serif;
-    margin-top: 15px;
+    color: var(--liant);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.equipment-item p {
+    font-size: 0.95rem;
+    color: var(--ink);
 }
 
 /* Liste de connaissances */
@@ -434,19 +590,19 @@ body {
 .knowledge-item {
     background: rgba(255, 255, 255, 0.6);
     padding: 20px;
-    border-left: 4px solid var(--liant-green);
+    border-left: 4px solid var(--liant);
     border-radius: 6px;
 }
 
 .knowledge-item h4 {
     font-family: 'Cinzel', serif;
-    color: var(--forest-green);
+    color: var(--liant);
     margin-bottom: 10px;
     font-size: 1.1rem;
 }
 
 .knowledge-item .level {
-    color: var(--warm-brown);
+    color: var(--earth-light);
     font-size: 0.9rem;
     font-weight: 600;
 }
@@ -455,47 +611,7 @@ body {
     font-size: 1.05rem;
 }
 
-/* Grille d'équipement */
-.equipment-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px;
-}
-
-.equipment-item {
-    display: flex;
-    gap: 15px;
-    align-items: flex-start;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 20px;
-    border-radius: 8px;
-    border: 2px solid var(--leaf-green);
-    transition: all 0.3s ease;
-}
-
-.equipment-item:hover {
-    border-color: var(--liant-green);
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.15);
-}
-
-.equipment-item .icon {
-    font-size: 2.5rem;
-    flex-shrink: 0;
-}
-
-.equipment-item h4 {
-    font-family: 'Cinzel', serif;
-    color: var(--forest-green);
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
-
-.equipment-item p {
-    font-size: 0.95rem;
-    color: var(--ink);
-}
-
-/* Grille de compétences */
+/* Grille de compétences - COMME GUERRIER */
 .competences-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -506,12 +622,12 @@ body {
     background: rgba(255, 255, 255, 0.6);
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--leaf-green);
+    border: 2px solid var(--liant-light);
 }
 
 .competence-category h3 {
     font-family: 'Cinzel', serif;
-    color: var(--forest-green);
+    color: var(--liant);
     margin-bottom: 15px;
     font-size: 1.2rem;
 }
@@ -532,7 +648,7 @@ body {
 }
 
 .competence-list strong {
-    color: var(--forest-green);
+    color: var(--liant);
 }
 
 /* Footer */
@@ -546,7 +662,7 @@ body {
 .divider {
     width: 200px;
     height: 2px;
-    background: linear-gradient(to right, transparent, var(--liant-green), transparent);
+    background: linear-gradient(to right, transparent, var(--liant), transparent);
     margin: 0 auto 20px;
 }
 
@@ -556,7 +672,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* Styles pour le graphique des caractéristiques */
+/* Styles pour le graphique */
 .chart-container {
     grid-column: 1 / -1;
     max-width: 500px;
@@ -570,7 +686,7 @@ body {
     padding: 20px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 12px;
-    border: 2px solid var(--liant-green);
+    border: 2px solid var(--liant);
 }
 
 .chart-wrapper canvas {
@@ -593,14 +709,14 @@ body {
     .class-quote {
         border-left: none;
         padding-left: 0;
-        border-top: 4px solid var(--liant-green);
+        border-top: 4px solid var(--liant);
         padding-top: 15px;
     }
 
     .stats-grid,
-    .filiere-grid,
     .equipment-grid,
-    .competences-grid {
+    .competences-grid,
+    .depart-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -640,7 +756,7 @@ body {
     .content-box,
     .stat-category,
     .talent-card,
-    .filiere-card {
+    .depart-card {
         padding: 20px;
     }
 

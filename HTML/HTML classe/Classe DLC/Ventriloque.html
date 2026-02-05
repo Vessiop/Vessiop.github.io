@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventriloque - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Ventriloque.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../../../index.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/vENTRILOQUE.jpg" alt="Ventriloque">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🎭 Ventriloque</h1>
+            <p class="class-quote">« Elle colle son front contre celui de la poupée, comme une prière. Mais je t'apprendrai à rire comme elle, à pleurer comme elle, à aimer comme elle. »</p>
+            <p class="class-type">✨ Lanceur de sorts altérés • Contrôleur tactique • Magie modulable</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description / Présentation</h2>
+            <div class="content-box">
+                <p>Un Ventriloque est un lanceur de sorts qui ne se contente pas d'incanter : il altère ses sorts en plein lancement, comme on modifie une phrase au milieu d'une conversation. Là où un mage choisit un sort "fixe", le Ventriloque lance un Chant (magie élémentaire simple) puis le déforme avec des formes d'altération (mur, pluie, fléchette, brume…), afin d'adapter instantanément sa magie à la situation.</p>
+                
+                <p>Son pouvoir passe par un catalyseur essentiel : une <strong>Poupée</strong>, qui sert de réceptacle, d'ancrage et de relais. Ce lien rend la classe extrêmement flexible et redoutable en contrôle de terrain, mais impose aussi un style de jeu exigeant : beaucoup de décisions tactiques, gestion d'Altération, et un équilibre fragile entre maîtrise et surcharge.</p>
+                
+                <p>En combat, le Ventriloque est un contrôleur tactique : il peut changer la forme d'un sort, surprendre, repousser, isoler, piéger ou diviser un groupe adverse. Hors combat, il excelle dans tout ce qui touche aux réceptacles, aux phénomènes occultes, à la discrétion et aux scènes où la voix, le mensonge ou l'étrange ont de l'importance.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>✨ Type de classe :</strong> Lanceur de sorts altérés / Contrôleur tactique</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d12</li>
+                        <li><strong>PM :</strong> 1d16</li>
+                        <li><strong>PE :</strong> 1d10</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −3</span>
+                        <span class="stat-item negative">CST : −2</span>
+                        <span class="stat-item positive">DEX : +3</span>
+                        <span class="stat-item positive">INT : +3</span>
+                        <span class="stat-item negative">SAG : −3</span>
+                        <span class="stat-item positive">PER : +3</span>
+                        <span class="stat-item negative">CHA : −3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 30 + 2d6</li>
+                        <li><strong>REA :</strong> +0</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 2</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 2</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passif -->
+        <section class="section">
+            <h2 class="section-title">🛡️ Passif — Voix Distordue Maudite</h2>
+            <div class="content-box">
+                <p>Le Ventriloque peut altérer la structure d'un sort magique en combinant un sort de Poupée (élémentaire ou magique) avec un modificateur de Ventriloquisme (Spellcraft : Pluie, Mur, Fléchette, etc.).</p>
+                
+                <div class="subsection">
+                    <h4>✅ Fonctionnement (2 actions, par défaut)</h4>
+                    <p>Cette combinaison prend normalement 2 actions :</p>
+                    <ul>
+                        <li>1 action pour formuler le Chant (sort de Poupée)</li>
+                        <li>1 action pour appliquer l'altération Spellcraft</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4>Réserve d'AL (Points d'Altération)</h4>
+                    <p>Sa réserve est de <strong>5 + Mod INT</strong> points d'altération (= AL). Le Ventriloque débute chaque combat avec <strong>3 AL</strong>, et récupère <strong>1 AL par tour</strong>.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Fusion (AL)</h4>
+                    <p>Lorsqu'il lance une combinaison Chant + Spellcraft, le Ventriloque peut réaliser l'ensemble en <strong>1 seule action</strong> en payant le coût normal en AL du Spellcraft choisi (sans coût supplémentaire).</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Synchronisation</h4>
+                    <p>Si le Ventriloque possède une Poupée active, il peut consommer <strong>1 PR</strong> (point de réaction) pour tenter une synchronisation (jet de SAG brut) :</p>
+                    <ul>
+                        <li>✅ Réussite : +2 AL</li>
+                        <li>❌ Échec : +1 AL</li>
+                        <li>✨ Critique : +3 AL</li>
+                        <li>😞 Échec critique : −1 AL</li>
+                    </ul>
+                    <p>Utilisable <strong>une fois par tour</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents</h2>
+            
+            <div class="talent-card">
+                <h3>1) Maîtrise mineure du style de sorcellerie du ventriloque maudit</h3>
+                <p>Le Ventriloque ne lance pas ses sorts comme un mage classique. Il les tord, les fracture, les réinvente à travers une grammaire magique altérée. Cette maîtrise représente sa capacité à manipuler les "Altérations de Ventriloquisme" (Spellcraft) — pluie, mur, brume, fléchette… — qui modifient la structure d'un sort, sans en altérer la nature.</p>
+                <p><strong>Offre la compétence :</strong> Spellcraft +2</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>2) Maîtrise mineure des Chants Animés</h3>
+                <p>Le Ventriloque maîtrise l'art des Chants Animés, une forme de magie brute et simple servant de base idéale pour l'altération magique. Ces chants peuvent être combinés aux altérations Spellcraft pour créer de nouveaux sorts hybrides.</p>
+                <p><strong>Éléments accessibles selon le niveau :</strong></p>
+                <ul>
+                    <li><strong>Mineur (LV 1) :</strong> Feu, Eau, Terre</li>
+                    <li><strong>Moyen (LV 2) :</strong> Vent, Glace, Foudre</li>
+                    <li><strong>Avancé (LV 3) :</strong> Ombre, Magie pure</li>
+                    <li><strong>Majeur (LV 4) :</strong> Sang, Toxique</li>
+                    <li><strong>Parfait (LV 5) :</strong> Lumière, Ténèbres</li>
+                </ul>
+                <p><strong>Offre la compétence :</strong> Magie du chant Animé +2</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>3) Héritage du Féticheur — Fabrication Maudite Lv 1</h3>
+                <p>Le lanceur a perfectionné sa capacité à tordre l'énergie magique ambiante selon le chant produit et l'altération imposée.</p>
+                <p><strong>Bonus :</strong> +2 AL de base (supplémentaires à la base du passif)</p>
+                <p>Cet héritage peut être amélioré jusqu'au niveau 10. À chaque augmentation de niveau, le nombre de AL augmente de +2.</p>
+                
+                <div class="subsection">
+                    <h4>Choix de Gains (tous les 3 niveaux d'amélioration)</h4>
+                    <ul>
+                        <li><strong>Rythme de la Trame :</strong> +1 AL supplémentaire à chaque fin de tour</li>
+                        <li><strong>Fêlure Favorable :</strong> Taux de succès critique en synchronisation augmenté de +5</li>
+                        <li><strong>Suture Réflexe :</strong> Une fois par combat, fusion Spellcraft avec 1 PR au lieu d'un PA</li>
+                        <li><strong>Surcharge du Marionnettiste :</strong> Une fois par combat, consommer X PR supplémentaires pour augmenter la Puissance de 10% par PR (Max 30%)</li>
+                        <li><strong>Accord Parfait :</strong> Réussite en synchronisation : +1 AL ; Critique : +2 AL</li>
+                        <li><strong>Cri de Brisure — Chant Taunitruant :</strong> Consommer 5 AL pour un cri dévastateur (10 ft rayon, DD 10 + Mod INT)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="talent-card">
+                <h3>4) Étiquette du Nid</h3>
+                <p>Le Ventriloque porte en lui un décalage social né de la vie en Nid : silences appris, gestes rares, voix trop contrôlée.</p>
+                <ul>
+                    <li><strong>Malus (civils / humanoïdes ordinaires) :</strong> Désavantage sur les jets de Social face à de nouvelles personnes</li>
+                    <li><strong>Briser le décalage :</strong> Jet de Sang-Froid DD = 20 − (Mod. CHA), mais consomme 20−(Mod CST ou SAG) PE</li>
+                    <li><strong>Avantage (entités surnaturelles) :</strong> Avantage sur Social et Sang-Froid face aux entités majeures</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🎭 Origine du Nid</h2>
+            <p class="intro-text">« Chaque Ventriloque porte l'empreinte de son Nid d'origine : un parcours de vie qui l'a forgé et a produit la personne qu'il est… »</p>
+            <p class="intro-text"><strong>Choisis une origine :</strong></p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="origin-grid">
+                <!-- Origine 1 -->
+                <div class="origin-card village">
+                    <h3>🏘️ Ventriloque de Nid (Village "protégé par la Voix")</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as grandi dans l'ombre d'un Nid de Paroles : enfant d'un village lié au Nid, ou apprenti discrètement "assigné" à sa protection. Très tôt, tu as compris qu'un Nid ne protège pas comme un rempart, mais comme une présence : il détourne le regard, brouille les pistes, étouffe les rumeurs avant qu'elles ne deviennent dangereuses.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <ul>
+                            <li><strong>Détection Magique mineure :</strong> Sixième sens pour percevoir phénomènes magiques, objets enchantés ou auras anormales (Compétence : Analyse magique +2)</li>
+                            <li><strong>Veilleur des Murmures :</strong> Avantage sur PER/Analyse pour détecter phénomènes surnaturels discrets. 1 fois par scène, demander un détail supplémentaire au MJ</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>INT +3 • PER +3 • CST +3</strong></p>
+                        <p><strong>Trait spécifique :</strong> Métier ou Instinct +1</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📚 Connaissance supplémentaire</h4>
+                        <h5>Connaissance du domaine des Maléfices (Modéré)</h5>
+                        <p>Tu maîtrises les bases de la magie des maléfices : une sous-branche des malédictions, utilisable par les mortels et issue de pratiques occultes structurées. Tu sais reconnaître la différence entre une malédiction "lourde" et un maléfice plus "pratique" (déclencheurs, durée, signatures, contreparties). Tu connais les formes courantes (marquage, affaiblissement, obsession, fuite de chance, perturbation mentale) et les méthodes de mitigation : purification partielle, contournement, bris de déclencheur. Cette connaissance n'annule pas un maléfice à elle seule, mais elle évite de le nourrir par erreur.</p>
+                    </div>
+                </div>
+
+                <!-- Origine 2 -->
+                <div class="origin-card cocon">
+                    <h3>🌙 Cocon Errant (Duo/Trio de Ventriloques)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as été formé dans un Cocon : deux ou trois Ventriloques qui vivent cachés, se déplacent souvent, et survivent grâce à des commandes, des enquêtes occultes, ou des services rendus via un réceptacle. Avec eux, tu as appris les règles invisibles : acheter une poupée sans attirer l'attention, louer une chambre sans laisser ton vrai nom, écouter une ville sans t'y accrocher.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <ul>
+                            <li><strong>Furtivité Silencieuse mineure :</strong> Diminue le bruit des déplacements et améliore la dissimulation (Compétence : Furtivité +2)</li>
+                            <li><strong>Pas de Murmure :</strong> Avantage sur jets liés à se déplacer sans attirer l'attention. 1 fois par jour, déclarer une cache simple préparée à l'avance (DD max 10)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>DEX +3 • PER +3 • INT +3</strong></p>
+                        <p><strong>Trait spécifique :</strong> Instinct ou Savoir +1</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📚 Connaissance supplémentaire</h4>
+                        <h5>Connaissance des Réseaux de Poupées Murmureuses (Moyen)</h5>
+                        <p>Tu connais les boutiques, artisans, collecteurs et circuits discrets où circulent réceptacles, pièces, tissus, yeux de poupées, et matériaux rares. Tu sais comment ces réseaux communiquent : codes, rumeurs, intermédiaires, commandes indirectes, et lieux "qui n'existent pas" sur une carte. Tu peux reconnaître une vraie filière de Ventriloques d'un piège ou d'un vendeur profane, et tu sais à qui s'adresser sans attirer l'attention. Cette connaissance sert aussi à repérer d'autres Cocons ou à obtenir de l'aide en ville.</p>
+                    </div>
+                </div>
+
+                <!-- Origine 3 -->
+                <div class="origin-card clinique">
+                    <h3>⚗️ Clinique des Chirurgiens de la Mort</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu es un produit d'atelier : voix refaite, essence ajustée, corps marqué. Certains disent que c'est "plus stable". Toi, tu sais que c'est juste plus fonctionnel — et que ça se paie. Tu te souviens des odeurs médicinales et métalliques, des gestes précis, des mots froids qu'on emploie quand on parle d'un être vivant comme d'une mécanique.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <ul>
+                            <li><strong>Chirurgien des Filaments :</strong> Fils de filaments magiques pour réparer Poupées et effectuer couture médicale (Compétence : Couture médicale du Ventriloque +1)</li>
+                            <li><strong>Protocole de Réaccord :</strong> Avantage sur Métier/Analyse pour réparer réceptacles. 1 fois par jour, réduire de moitié le temps de réparation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>INT +3 • CST +3 • DEX +3</strong></p>
+                        <p><strong>Trait spécifique :</strong> Résilience ou Métier +1</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance de l'Art de la Couture Occulte (Moyen)</h5>
+                        <p>Tu connais les principes de "couture" appliqués à la magie : recoudre une trame fissurée, stabiliser une liaison, renforcer un ancrage, colmater une résonance instable. Tu sais diagnostiquer une altération mal "cousue" (risque de rupture, surcharge, contrecoup) et choisir la bonne approche : renforcer, isoler, dévier, ou laisser respirer. Cette connaissance s'applique autant aux poupées catalyseurs qu'aux effets occultes sur un corps ou un lieu. En bref, tu sais réparer la structure, pas seulement l'apparence.</p>
+                        
+                        <h5>Connaissance de l'Anatomie Humanoïde (Moyen)</h5>
+                        <p>Tu connais l'anatomie des humanoïdes de façon pratique : zones vitales, articulations, circulation, limites du corps sous stress. Tu sais reconnaître une blessure grave d'une blessure superficielle, comprendre pourquoi un corps s'effondre (choc, hémorragie, fracture, surmenage), et appliquer des gestes de stabilisation. Tu comprends aussi comment la voix et la respiration se dégradent sous douleur, fatigue ou contrecoups magiques — utile pour un Ventriloque. Cette connaissance améliore tes décisions médicales, même sans être un guérisseur "miracle".</p>
+                    </div>
+                </div>
+
+                <!-- Origine 4 -->
+                <div class="origin-card tribu">
+                    <h3>🎵 Enfant du Son (Tribu vouée à une Anirvak)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu viens d'une communauté isolée, liée aux mythes des Anirvak. Là-bas, la Voix n'est pas un simple outil : c'est une présence, une tradition, parfois une crainte respectueuse qui organise la vie quotidienne. On t'a appris à écouter avant de parler, à sentir l'air, à reconnaître les silences "trop pleins" — ceux qui indiquent qu'une chose observe, jauge, attend.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <ul>
+                            <li><strong>Amélioration des talents :</strong> Bonus aux maîtrises de Ventriloquisme et Chant Animé</li>
+                            <li><strong>Respect des Présences du Nid :</strong> Avantage sur Sang-Froid/Social face aux entités surnaturelles. Avantage pour reconnaître tabous ou signes d'avertissement liés à la Voix</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>SAG +3 • PER +3 • INT +3</strong></p>
+                        <p><strong>Trait spécifique :</strong> Sang-Froid ou Savoir +1</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance des Bestiaires Élémentaires (Moyen)</h5>
+                        <p>Tu connais les créatures liées aux éléments (feu, eau, terre, vent, glace, foudre…) : comportements, signes d'apparition, et réactions typiques à leur environnement. Tu sais identifier leurs faiblesses générales (déséquilibre d'élément, zones défavorables, rupture de flux) et les risques fréquents (auras, brûlures, engelures, électrocution, suffocation). Tu comprends comment éviter d'aggraver une situation : ne pas "nourrir" l'élément, ne pas briser une zone d'équilibre, ne pas provoquer une entité territoriale. Utile autant pour la survie que pour l'analyse tactique.</p>
+                        
+                        <h5>Connaissance du Bestiaire Féerique (Moyen)</h5>
+                        <p>Tu connais les êtres féeriques : leurs logiques, leurs contrats implicites, leurs tabous, et les erreurs classiques qui attirent leur colère. Tu sais reconnaître des signes de présence (motifs, musique, odeurs, changements subtils de perception) et différencier un jeu innocent d'un piège. Tu connais des règles pratiques : ne pas promettre à la légère, ne pas accepter certains cadeaux, faire attention aux noms et aux remerciements. Cette connaissance sert surtout à survivre à une rencontre féerique sans la transformer en dette.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances de base</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la magie (Moyen)</h4>
+                    <p>Tu maîtrises les fondamentaux : théorie des filaments, principes d'incantation, écoles et natures magiques, et vocabulaire technique. Tu sais reconnaître un objet magique (fonction, aura, indice de danger), distinguer un effet spontané d'un sort construit, et identifier les grandes familles d'enchantements. Tu comprends les bases des rituels, des catalyseurs et des limites classiques (portée, durée, contreparties). En bref : c'est la culture générale indispensable pour naviguer dans le monde magique.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la magie maudite (Moyen)</h4>
+                    <p>Tu connais les bases de la magie maudite : sources impures, pactes, contaminations, "prix" payé en chair, esprit ou destin. Tu sais repérer les signes d'une malédiction active (symptômes, déclencheurs, rémanence), différencier une simple corruption d'une structure maudite durable, et reconnaître les objets/rituels à risque. Tu comprends les méthodes courantes de stabilisation : sceaux, isolements, contournements, sacrifices mineurs. Cette connaissance ne rend pas immunisé — elle évite surtout de faire l'erreur fatale.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la magie de Ventriloquisme (Moyen)</h4>
+                    <p>Tu comprends la grammaire propre aux Ventriloques : la magie comme phrase altérable, modulable par des formes (mur, pluie, fléchette…) et portée par un réceptacle. Tu sais analyser une combinaison Chant + Spellcraft, anticiper ses faiblesses, et reconnaître quand une altération est instable ou "mal cousue". Tu connais les usages tactiques typiques : brouillage, redirection, changements de forme à la volée, pression mentale. C'est la connaissance qui permet de parler "la langue du Nid" plutôt que de lancer des sorts comme un mage classique.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la Poupée (Intermédiaire)</h4>
+                    <p>Tu connais les poupées comme fétiches, réceptacles et catalyseurs : matériaux, symboliques, méthodes de fabrication, et rituels d'ancrage. Tu sais entretenir et réparer un réceptacle, identifier une poupée "saine" d'une poupée fissurée (ou infestée), et comprendre les risques liés aux liens trop profonds. Tu connais aussi les usages sociaux : comment une poupée est perçue, quand la montrer, quand la cacher, et comment elle sert de preuve, de menace ou de serment. Cette connaissance couvre autant l'artisanat que le tabou.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du Domaine du bestiaire magique (Moyen)</h4>
+                    <p>Tu possèdes une culture générale des créatures magiques : catégories, comportements, territoires, et signes de présence. Tu sais repérer des indices (traces, résidus, odeurs, effets sur l'environnement), et reconnaître les dangers typiques : venins, malédictions naturelles, immunités élémentaires, rituels de chasse. Tu connais les bases d'interaction : éviter de provoquer, comprendre la hiérarchie d'un groupe, et identifier ce qui attire ou repousse. C'est une connaissance utile autant en exploration qu'en survie.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance des mythes et légendes (Moyen)</h4>
+                    <p>Tu connais les grands récits, symboles et traditions : légendes de régions, contes d'entités majeures, histoires de Nids, et avertissements transmis par le folklore. Tu sais relier un phénomène étrange à un mythe connu (rituel, lieu maudit, nom interdit, signe de passage), et distinguer le "conte" de la piste réellement exploitable. Tu reconnais aussi les motifs récurrents : pactes, dettes, noms vrais, objets-limites, interdits de parole. Souvent, cette connaissance ne donne pas une solution directe — mais elle évite d'entrer dans la mauvaise histoire.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du Domaine des Nids de Ventriloque (Moyen)</h4>
+                    <p>Tu connais l'existence et le fonctionnement des Nids : leur rôle, leurs règles implicites, leurs protections et leurs signes distinctifs. Tu sais repérer les indices d'un territoire "tenu par la Voix" (silences anormaux, rumeurs étouffées, itinéraires qui se brouillent, tabous locaux). Tu comprends comment on approche un Nid sans l'offenser : codes, offrandes, prudences, et ce qu'il ne faut jamais demander. Cette connaissance sert autant à trouver qu'à survivre à proximité d'un Nid.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align: center; font-size: 1.2rem; margin: 0;">
+                    <strong>Aucune classe d'arme</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎁 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">👘</span>
+                    <div>
+                        <h4>Robe de Ventriloque sombre</h4>
+                        <p>Réduction du coût des sorts Spellcraft : -10%</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💜</span>
+                    <div>
+                        <h4>3 potions de magie</h4>
+                        <p>Restauration des points de magie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>2 potions de vie</h4>
+                        <p>Soins d'urgence</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🎎</span>
+                    <div>
+                        <h4>Poupée de Ventriloque aux yeux X</h4>
+                        <p>Catalyseur modifiant la nature élémentaire des sorts</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🪆</span>
+                    <div>
+                        <h4>3 poupées de rechange (basiques)</h4>
+                        <p>Réceptacles de secours</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🧰</span>
+                    <div>
+                        <h4>Kit de restauration de poupées</h4>
+                        <p>Outils pour entretien et réparation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sorts Spellcraft -->
+        <section class="section">
+            <h2 class="section-title">📘 Sorts Spellcraft</h2>
+            <div class="content-box">
+                <p><strong>🎴 Obtention de sort Spellcraft (création de personnage)</strong></p>
+                <p>Obtention de <strong>1 sort Spellcraft</strong> égal au niveau de maîtrise du lanceur (lors de la création du personnage) gratuitement au choix :</p>
+            </div>
+
+            <div class="spells-table">
+                <!-- Niveau 1 -->
+                <div class="spell-card level-1">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Fléchette</h3>
+                        <span class="spell-level">Niveau 1</span>
+                        <span class="spell-cost">+8 PM + 1 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>Tu pinces l'air comme un couturier qui serre un point, et le Chant se tend en une gerbe de filaments fins, brillants, qui vibrent comme des aiguilles. La Poupée "cligne" des yeux et la salve part avec un sifflement sec, presque silencieux.</p>
+                        <h4>Règles</h4>
+                        <p>Le Chant devient une attaque rapide : tu peux le déclarer en début de tour en dépensant 1 PR (il se résout avant tes autres actions), sinon il se résout normalement. Le Chant gagne un percement léger : ignore 10% de réduction (physique ou magique, selon l'élément).</p>
+                        <p><strong>Limite :</strong> 1 fois par tour.</p>
+                    </div>
+                </div>
+
+                <div class="spell-card level-1">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Pluie</h3>
+                        <span class="spell-level">Niveau 1</span>
+                        <span class="spell-cost">+12 PM + 1 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>La trame se "détisse" au-dessus de la zone : une pluie courte tombe en gouttes irrégulières, chacune portant un éclat de l'élément (braises, poussière, éclats d'eau…). On dirait des larmes de magie qui retombent mal cousues.</p>
+                        <h4>Règles</h4>
+                        <p>Zone 20 ft rayon, touche 4 cibles aléatoires dans la zone (alliés possibles). Chaque cible subit l'effet du Chant à 50% d'efficacité (dégâts/soins/bouclier), arrondi selon ton système. Effets en % : réduit l'effet de 10% de sa valeur (min 10%).</p>
+                    </div>
+                </div>
+
+                <div class="spell-card level-1">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Mur</h3>
+                        <span class="spell-level">Niveau 1</span>
+                        <span class="spell-cost">+14 PM + 1 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>Tu "tires" le Chant comme un rideau : des fils épais se rassemblent et deviennent une paroi tangible, striée de coutures lumineuses. La surface respire doucement, comme une peau faite de magie brute.</p>
+                        <h4>Règles</h4>
+                        <p>Mur 5 à 15 ft, 40 PV, Défense 5 (phys/mag), dure 2 tours. Il peut porter la nature élémentaire du Chant (selon MJ). Changer l'élément : 1 PA ou 1 AL (au choix) tant que le mur est actif.</p>
+                        <p><strong>Limite :</strong> 1 mur actif à la fois.</p>
+                    </div>
+                </div>
+
+                <div class="spell-card level-1">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Marteau</h3>
+                        <span class="spell-level">Niveau 1</span>
+                        <span class="spell-cost">+12 PM + 1 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>La magie se condense en une masse invisible ; l'air se plisse, puis "tombe" sur la cible comme si un géant frappait avec un maillet fait de trame. Impact sourd, sans éclat, mais brutal.</p>
+                        <h4>Règles</h4>
+                        <p>Le Chant devient un impact mono-cible : ajoute +2d6 dégâts (physiques ou magiques selon l'élément). Ignore 10% de réduction correspondante.</p>
+                        <p><strong>Limite :</strong> mono-cible uniquement.</p>
+                    </div>
+                </div>
+
+                <!-- Niveau 2 -->
+                <div class="spell-card level-2">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Aiguille</h3>
+                        <span class="spell-level">Niveau 2</span>
+                        <span class="spell-cost">+14 PM + 1 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>Tu fais glisser un fil entre tes doigts, et la trame "cherche" des échos similaires : une couture invisible relie toutes les cibles d'un même type, comme si elles partageaient un même patron.</p>
+                        <h4>Règles</h4>
+                        <p>Choisis un type (morts-vivants, bêtes, soldats, etc.). Zone 20 ft rayon : toutes les cibles valides subissent le Chant à 80% d'efficacité.</p>
+                        <p><strong>Limite :</strong> type clair et pertinent (MJ tranche).</p>
+                    </div>
+                </div>
+
+                <!-- Niveau 3 -->
+                <div class="spell-card level-3">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Brume</h3>
+                        <span class="spell-level">Niveau 3</span>
+                        <span class="spell-cost">+20 PM + 2 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>La Poupée exhale un souffle épais ; une brume se tisse au ras du sol, lourde, chargée de micro-fragments lumineux. Elle avale les contours et laisse une sensation de "magie humide" sur la peau.</p>
+                        <h4>Règles</h4>
+                        <p>Nuage 15 ft rayon, dure 2 tours. À la fin de tour de chaque entité dans la brume, applique le Chant à 70% d'efficacité.</p>
+                        <p><strong>Limites :</strong> 1 seule brume active à la fois.</p>
+                    </div>
+                </div>
+
+                <div class="spell-card level-3">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Flèche</h3>
+                        <span class="spell-level">Niveau 3</span>
+                        <span class="spell-cost">+18 PM + 2 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>Tu "tends" le Chant comme une corde et le libères d'un geste net : un trait rectiligne jaillit, ultra propre, comme une couture parfaite qui tranche l'air.</p>
+                        <h4>Règles</h4>
+                        <p>Ligne 20 ft, touche les 3 premières cibles. Bonus de puissance : ajoute +1d6 par niveau du Chant (LV1→+1d6 … LV5→+5d6).</p>
+                        <p><strong>Limite :</strong> nécessite une ligne claire.</p>
+                    </div>
+                </div>
+
+                <!-- Niveau 4 -->
+                <div class="spell-card level-4">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Explosion</h3>
+                        <span class="spell-level">Niveau 4</span>
+                        <span class="spell-cost">+20 PM + 2 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>Le Chant se contracte en une bulle, puis craque d'un coup : une gerbe circulaire éclate, comme une poche de trame trop tendue qui cède. Les fragments retombent en étincelles de l'élément.</p>
+                        <h4>Règles</h4>
+                        <p>Explosion 10 ft rayon centrée sur un point. Applique le Chant à toutes les cibles dans la zone. Bonus : +1d6 par niveau du Chant (LV1→+1d6 … LV5→+5d6).</p>
+                    </div>
+                </div>
+
+                <div class="spell-card level-4">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Rémanence</h3>
+                        <span class="spell-level">Niveau 4</span>
+                        <span class="spell-cost">+16 PM + 2 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>Une "ombre" de ton Chant reste suspendue autour de la Poupée, comme une phrase inachevée qui refuse de mourir. On entend parfois un écho faible, un demi-mot, une vibration.</p>
+                        <h4>Règles</h4>
+                        <p>Au début de ton prochain tour, ton dernier Chant Animé est relancé automatiquement. Ce relancement consomme 1 PR au lieu d'une action.</p>
+                        <p><strong>Limites :</strong> ne copie pas un Chant Interdit/Antique ; 1 fois par combat.</p>
+                    </div>
+                </div>
+
+                <div class="spell-card level-4">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Miroir physique</h3>
+                        <span class="spell-level">Niveau 4</span>
+                        <span class="spell-cost">+18 PM + 2 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>Une pellicule invisible se pose sur la cible : au moindre choc, on voit comme des fissures de verre lumineux… puis le Chant "repart" en retour vers l'assaillant.</p>
+                        <h4>Règles</h4>
+                        <p>Sur toi ou un allié à 20 ft, durée 1 tour. Les 3 prochaines attaques physiques subies déclenchent l'effet du Chant sur l'assaillant à 75% d'efficacité. CàC : touche auto. À distance : jet requis.</p>
+                    </div>
+                </div>
+
+                <!-- Niveau 5 -->
+                <div class="spell-card level-5">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Nova</h3>
+                        <span class="spell-level">Niveau 5</span>
+                        <span class="spell-cost">+(12 PM × X) + 3 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>Tu ouvres la main et la trame se met à tourner en spirale ; l'air se met à "chanter" sans son. Puis une onde sphérique part, comme une respiration gigantesque, et tout ce qui est dedans est happé par l'élément.</p>
+                        <h4>Règles</h4>
+                        <p>Zone = (X × 5 ft) où X = (PM supplémentaires dépensés / 12) (arrondi inférieur). Applique le Chant à toutes les entités dans la zone (alliés compris). Bonus : +2d6 par niveau du Chant (LV1→+2d6 … LV5→+10d6).</p>
+                        <p><strong>Limites :</strong> 1 fois par tour ; frappe sans distinction.</p>
+                    </div>
+                </div>
+
+                <div class="spell-card level-5">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Œil du Cyclone</h3>
+                        <span class="spell-level">Niveau 5</span>
+                        <span class="spell-cost">+26 PM + 3 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>Un anneau de vent se coud autour de la cible, tournant comme une cage de fil barbelé d'air. Des éclats de l'élément apparaissent par à-coups sur la paroi, comme des "accents" de Chant.</p>
+                        <h4>Règles</h4>
+                        <p>Barrière autour d'une cible (alliée ou ennemie), dure 2 tours. Traverser : jet de Puissance DD 16 en désavantage. Briser : 40 dégâts cumulés à la barrière. Se faufiler : jet de Finesse DD 6–16 (selon MJ). Si échec de traversée/attaque maladroite : contrecoup → applique le Chant sur le fautif avec +2d8 (mono-cible).</p>
+                        <p><strong>Limite :</strong> 1 seul Œil actif.</p>
+                    </div>
+                </div>
+
+                <div class="spell-card level-5">
+                    <div class="spell-header">
+                        <h3>Spellcraft : Négation</h3>
+                        <span class="spell-level">Niveau 5</span>
+                        <span class="spell-cost">+40 PM + 4 AL</span>
+                    </div>
+                    <div class="spell-body">
+                        <h4>Visuel</h4>
+                        <p>Tu "retires" la couleur du Chant : l'élément se décolore, puis s'éteint. Ne reste qu'un souffle blanc/gris, brut, qui grince comme une lame sur la trame. L'impact a une sensation de vide, pas de chaleur, pas de froid : juste la magie pure.</p>
+                        <h4>Règles</h4>
+                        <p>Le Chant devient Magie pure : ignore barrières élémentaires et réductions élémentaires, et ignore 50% de réduction magique générale si elle existe. Aucun effet secondaire du Chant ne s'applique (statuts, brûlure, gel, saignement, etc.). Bonus : +3d6 par niveau du Chant (LV1→+3d6 … LV5→+15d6).</p>
+                        <p><strong>Limites :</strong> 1 fois par tour ; si le Chant est un soin/bouclier, la Négation est impossible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Analyse magique (INT)</strong> — Lire un sort, comprendre un enchantement et repérer une anomalie dans la trame</li>
+                        <li><strong>Spellcraft (Altération) (INT)</strong> — Optimiser une altération, diagnostiquer une combinaison instable</li>
+                        <li><strong>Magie du Chant Animé (INT)</strong> — Améliore la précision, stabilité et efficacité des Chants</li>
+                        <li><strong>Magie du Chant Inanimé (INT)</strong> — Sorts liés au silence, brouillage et effets "sans voix"</li>
+                        <li><strong>Lecture des Flux (SAG)</strong> — Détecter perturbations, résidus et zones altérées</li>
+                        <li><strong>Analyse comportementale (PER/INT)</strong> — Lire intentions et mensonges via micro-gestes</li>
+                        <li><strong>Écoute active (PER)</strong> — Repérer murmures, vibrations, fausses voix</li>
+                        <li><strong>Jeux d'acteur (CHA)</strong> — Simuler identité, imiter voix, jouer émotions</li>
+                        <li><strong>Mensonge maîtrisé (CHA)</strong> — Mentir vite et proprement sous pression</li>
+                        <li><strong>Intimidation froide (CHA)</strong> — Pression par silences, regard fixe, phrases courtes</li>
+                        <li><strong>Esquive (DEX)</strong> — Se repositionner, éviter corps-à-corps</li>
+                        <li><strong>Furtivité (DEX)</strong> — Se déplacer sans être repéré</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Couture occulte (Métier)</strong> — Recoudre trame magique, stabiliser altération</li>
+                        <li><strong>Fabrication de fétiches (Métier)</strong> — Créer ou modifier poupées et composants rituels</li>
+                        <li><strong>Entretien du Réceptacle (Métier)</strong> — Diagnostiquer usure, prolonger "santé" d'une Poupée</li>
+                        <li><strong>Résistance au contrecoup (Résilience)</strong> — Encaisser surcharge et retours de magie</li>
+                        <li><strong>Stabilité vocale (Résilience)</strong> — Tenir la voix malgré douleur ou stress</li>
+                        <li><strong>Masque social (Sang-Froid)</strong> — Paraître "normal" malgré la poupée</li>
+                        <li><strong>Lecture des non-dits (Social)</strong> — Comprendre codes, tabous, sous-entendus</li>
+                        <li><strong>Manipulation douce (Social)</strong> — Influencer sans forcer</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sentir qu'une situation tourne mal</li>
+                        <li><strong>Détection d'embuscade (Instinct)</strong> — Repérer piège social ou physique</li>
+                        <li><strong>Gestuelle marionnettiste (Finesse)</strong> — Faire agir la Poupée de façon crédible</li>
+                        <li><strong>Savoir élémentaire (Savoir)</strong> — Choisir l'option la plus stable</li>
+                        <li><strong>Savoir des mythes & légendes (Savoir)</strong> — Retenir récits, tabous, formules</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/ClasseDCL/Ventriloque.js"></script>
+</body>
+</html>

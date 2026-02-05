@@ -12,7 +12,7 @@
     <div class="parchment-overlay"></div>
     
     <!-- Bouton retour -->
-    <a href="../../HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    <a href="../../../HTML/HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
     
     <!-- En-tête avec image et citation -->
     <header class="hero-section">
@@ -22,7 +22,7 @@
         <div class="hero-content">
             <h1 class="class-title">🐾 Liant</h1>
             <p class="class-quote">« Un duo agit comme une seule volonté : une coordination vive, naturelle, impossible à imiter sans avoir vécu le lien. »</p>
-            <p class="class-type">🧭 Physique + Lié animal — tacticien naturel, contrôle via compagnon</p>
+            <p class="class-type">🧭 Physique + Lié animal — tacticien naturel • contrôle via compagnon</p>
         </div>
     </header>
 
@@ -95,7 +95,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Talents de classe -->
         <section class="section">
             <h2 class="section-title">🎓 Talents de classe</h2>
@@ -132,70 +131,139 @@
 
         <!-- Départs animaliers -->
         <section class="section">
-            <h2 class="section-title">🐾 Départs animaliers (au choix)</h2>
-            <p class="intro-text">Au début de ton aventure, choisis un départ qui définira ta relation avec ton compagnon et tes capacités :</p>
+            <h2 class="section-title">🐾 Départs animaliers</h2>
+            <p class="intro-text">« Au début de ton aventure, choisis un départ qui définira ta relation avec ton compagnon et tes capacités. »</p>
+            <p class="intro-text"><strong>Choisis un départ :</strong></p>
             
-            <div class="filiere-grid">
-                <div class="filiere-card">
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur un Départ pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="depart-grid">
+                <!-- Départ 1: Compagnon de Longue Route -->
+                <div class="depart-card compagnon-longue-route" id="compagnon-longue-route">
                     <h3>A) Compagnon de Longue Route</h3>
-                    <p class="filiere-desc">Vous n'avez pas trouvé votre compagnon dans un marais maudit ou au sommet d'une montagne interdite. Vous l'avez eu depuis longtemps — assez pour que le temps devienne autre chose qu'un souvenir : une fondation.</p>
-                    <ul>
-                        <li><strong>Seconde Chance (animalier) :</strong> Une fois par session, lorsque votre compagnon rate un jet, vous pouvez lui accorder une relance. Vous gardez le meilleur résultat.</li>
-                        <li><strong>Départ Accordé (compagnon) :</strong> Votre compagnon commence directement au niveau 3 de lien avec vous. Une fois par session, vous pouvez relancer un jet de lien que vous venez d'effectuer.</li>
-                        <li><strong>Amitié de Route :</strong> Lorsque vous apprivoisez un nouveau compagnon, le compagnon commence automatiquement avec 1 niveau de lien avec vous.</li>
-                    </ul>
-                    <p class="bonus-stat">🎁 Bonus : +3 Charisme</p>
+                    
+                    <div class="subsection">
+                        <h4>Description</h4>
+                        <p>Vous n'avez pas trouvé votre compagnon dans un marais maudit ou au sommet d'une montagne interdite. Vous l'avez eu depuis longtemps — assez pour que le temps devienne autre chose qu'un souvenir : une fondation.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <ul>
+                            <li><strong>Seconde Chance (animalier) :</strong> Une fois par session, lorsque votre compagnon rate un jet, vous pouvez lui accorder une relance. Vous gardez le meilleur résultat.</li>
+                            <li><strong>Départ Accordé (compagnon) :</strong> Votre compagnon commence directement au niveau 3 de lien avec vous. Une fois par session, vous pouvez relancer un jet de lien que vous venez d'effectuer.</li>
+                            <li><strong>Amitié de Route :</strong> Lorsque vous apprivoisez un nouveau compagnon, le compagnon commence automatiquement avec 1 niveau de lien avec vous.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Charisme</strong></p>
+                    </div>
                 </div>
 
-                <div class="filiere-card">
+                <!-- Départ 2: Sillage des Hurons Gris -->
+                <div class="depart-card sillage-hurons" id="sillage-hurons">
                     <h3>B) Sillage des Hurons Gris</h3>
-                    <p class="filiere-desc">À une période de votre vie, vous avez marché aux côtés des Hurons Gris : parfois en simple aide, parfois au cœur des traques, et parfois face au danger, là où l'on apprend vite ou l'on disparaît.</p>
-                    <ul>
-                        <li><strong>Leçons de Terrain (Connaissances Modéré) :</strong> Art de la survie, Domaine de la chasse, Bestiaire animal.</li>
-                        <li><strong>Maîtrise d'arme à distance :</strong> une arme au choix.</li>
-                        <li><strong>Maître du Pistage (mineur) :</strong> Compétence Pistage +2.</li>
-                        <li><strong>Accès de catégorie :</strong> Draconoïde (Petit / Moyen).</li>
-                    </ul>
-                    <p class="bonus-stat">🎁 Bonus : +3 Perception</p>
+                    
+                    <div class="subsection">
+                        <h4>Description</h4>
+                        <p>À une période de votre vie, vous avez marché aux côtés des Hurons Gris : parfois en simple aide, parfois au cœur des traques, et parfois face au danger, là où l'on apprend vite ou l'on disparaît.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <ul>
+                            <li><strong>Leçons de Terrain (Connaissances Modéré) :</strong> Art de la survie, Domaine de la chasse, Bestiaire animal.</li>
+                            <li><strong>Maîtrise d'arme à distance :</strong> une arme au choix.</li>
+                            <li><strong>Maître du Pistage (mineur) :</strong> Compétence Pistage +2.</li>
+                            <li><strong>Accès de catégorie :</strong> Draconoïde (Petit / Moyen).</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Perception</strong></p>
+                    </div>
                 </div>
 
-                <div class="filiere-card">
+                <!-- Départ 3: Frontière Indomptée -->
+                <div class="depart-card frontiere-indomptee" id="frontiere-indomptee">
                     <h3>C) Frontière Indomptée</h3>
-                    <p class="filiere-desc">Il existe, sur chaque plan, des régions que l'on évite même sur les cartes : des terres délaissées où la nature règne sans frein. Pourtant, vous avez choisi d'y aller.</p>
-                    <ul>
-                        <li><strong>Instinct Endurci :</strong> 1×/session, face à une créature animale, Avantage sur un jet de Résistance contre intimidation/peur.</li>
-                        <li><strong>Accès :</strong> Faune des Confins : liens possibles avec animaux des Terres Sauvages.</li>
-                        <li><strong>Amitié des Confins (lien) :</strong> minimum 1 point de progression lors de création/progression de lien (sauf échec critique).</li>
-                    </ul>
-                    <p class="bonus-stat">🎁 Bonus : +3 Constitution</p>
+                    
+                    <div class="subsection">
+                        <h4>Description</h4>
+                        <p>Il existe, sur chaque plan, des régions que l'on évite même sur les cartes : des terres délaissées où la nature règne sans frein. Pourtant, vous avez choisi d'y aller.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <ul>
+                            <li><strong>Instinct Endurci :</strong> 1×/session, face à une créature animale, Avantage sur un jet de Résistance contre intimidation/peur.</li>
+                            <li><strong>Accès :</strong> Faune des Confins : liens possibles avec animaux des Terres Sauvages.</li>
+                            <li><strong>Amitié des Confins (lien) :</strong> minimum 1 point de progression lors de création/progression de lien (sauf échec critique).</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+3 Constitution</strong></p>
+                    </div>
                 </div>
 
-                <div class="filiere-card">
+                <!-- Départ 4: Appel des Montures Oubliées -->
+                <div class="depart-card appel-montures" id="appel-montures">
                     <h3>D) Appel des Montures Oubliées</h3>
-                    <p class="filiere-desc">Combattant dans l'âme et passionné de récits anciens, vous avez passé des heures à tourner les pages de chroniques, de bestiaires, de mythes et de légendes.</p>
-                    <ul>
-                        <li><strong>Maîtrise d'arme d'hast (mineur) :</strong> lance/hallebarde/etc.</li>
-                        <li><strong>Conduite de monture (mineur) :</strong> Compétence de trait spécifique Conduite de monture (Métier) +1.</li>
-                        <li><strong>Connaissances Modéré :</strong> Mythes & Légendes ; Créatures d'un ancien temps.</li>
-                        <li><strong>Choix (1) :</strong> Montée Éclair OU Affinité des Âges (animalier)</li>
-                    </ul>
-                    <p class="bonus-stat">🎁 Bonus : +2 Dextérité et Force</p>
+                    
+                    <div class="subsection">
+                        <h4>Description</h4>
+                        <p>Combattant dans l'âme et passionné de récits anciens, vous avez passé des heures à tourner les pages de chroniques, de bestiaires, de mythes et de légendes.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <ul>
+                            <li><strong>Maîtrise d'arme d'hast (mineur) :</strong> lance/hallebarde/etc.</li>
+                            <li><strong>Conduite de monture (mineur) :</strong> Compétence de trait spécifique Conduite de monture (Métier) +1.</li>
+                            <li><strong>Connaissances Modéré :</strong> Mythes & Légendes ; Créatures d'un ancien temps.</li>
+                            <li><strong>Choix (1) :</strong> Montée Éclair OU Affinité des Âges (animalier)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+2 Dextérité</strong> et <strong>+2 Force</strong></p>
+                    </div>
                 </div>
 
-                <div class="filiere-card">
+                <!-- Départ 5: Sillage des Arcaniums -->
+                <div class="depart-card sillage-arcaniums" id="sillage-arcaniums">
                     <h3>E) Sillage des Arcaniums</h3>
-                    <p class="filiere-desc">Depuis longtemps, vous vous intéressez aux entités élémentaires — ces présences brutes et anciennes dont on dit qu'elles ont participé à façonner le monde.</p>
-                    <ul>
-                        <li><strong>Éveil magique :</strong> base PM à 1d12 (si inférieur) + magie accessible. À l'obtention : 2 dés de gain de PM.</li>
-                        <li><strong>Connaissances Modéré :</strong> Bestiaire des créatures élémentaires ; Mythes & Légendes.</li>
-                        <li><strong>Accès de catégorie :</strong> Élémentaire (Petit / Moyen).</li>
-                        <li><strong>Choix (1) :</strong> Accord des Éléments OU Convergence de Source</li>
-                    </ul>
-                    <p class="bonus-stat">🎁 Bonus : +2 Intelligence et Sagesse</p>
+                    
+                    <div class="subsection">
+                        <h4>Description</h4>
+                        <p>Depuis longtemps, vous vous intéressez aux entités élémentaires — ces présences brutes et anciennes dont on dit qu'elles ont participé à façonner le monde.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Gains</h4>
+                        <ul>
+                            <li><strong>Éveil magique :</strong> base PM à 1d12 (si inférieur) + magie accessible. À l'obtention : 2 dés de gain de PM.</li>
+                            <li><strong>Connaissances Modéré :</strong> Bestiaire des créatures élémentaires ; Mythes & Légendes.</li>
+                            <li><strong>Accès de catégorie :</strong> Élémentaire (Petit / Moyen).</li>
+                            <li><strong>Choix (1) :</strong> Accord des Éléments OU Convergence de Source</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Bonus de caractéristique</h4>
+                        <p><strong>+2 Intelligence</strong> et <strong>+2 Sagesse</strong></p>
+                    </div>
                 </div>
             </div>
         </section>
-
         <!-- Connaissances -->
         <section class="section">
             <h2 class="section-title">📚 Connaissances</h2>
@@ -282,32 +350,31 @@
                 </div>
             </div>
         </section>
-
         <!-- Compétences -->
         <section class="section">
             <h2 class="section-title">🎯 Compétences proposées</h2>
             
             <div class="competences-grid">
                 <div class="competence-category">
-                    <h3>Compétences liées aux caractéristiques</h3>
+                    <h3>Compétences de caractéristique</h3>
                     <ul class="competence-list">
-                        <li><strong>Communication animale (Charisme)</strong> — Transmettre une intention claire à une créature</li>
-                        <li><strong>Dressage (Charisme)</strong> — Former un animal par routines et récompenses</li>
-                        <li><strong>Ordre de dressage (Sagesse)</strong> — Donner un ordre au bon moment avec la bonne intention</li>
-                        <li><strong>Présence rassurante (Charisme/Sagesse)</strong> — Apaiser une créature par calme et assurance</li>
-                        <li><strong>Observation environnementale (Perception)</strong> — Repérer dangers, traces et passages</li>
-                        <li><strong>Arme X (Force ou Dextérité)</strong> — Maîtrise pratique d'une arme spécifique</li>
-                        <li><strong>Analyse corporelle (Perception)</strong> — Repérer les signes de fatigue, douleur ou stress</li>
+                        <li><strong>Communication animale (CHA)</strong> — Transmettre une intention claire à une créature sans paroles, via posture et présence.</li>
+                        <li><strong>Dressage (CHA)</strong> — Former un animal par routines, récompenses et répétition. Permet d'enseigner des comportements fiables.</li>
+                        <li><strong>Ordre de dressage (SAG)</strong> — Donner un ordre au bon moment avec la bonne intention, pour obtenir une réaction immédiate du compagnon.</li>
+                        <li><strong>Présence rassurante (CHA/SAG)</strong> — Apaiser une créature stressée ou agressive par calme, confiance et assurance.</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Repérer dangers, traces, passages cachés et éléments du terrain : angles morts, couverts, zones à risque.</li>
+                        <li><strong>Arme X (FOR ou DEX)</strong> — Maîtrise pratique d'une arme spécifique : garde, angles, timing et contrôle en combat.</li>
+                        <li><strong>Analyse corporelle (PER)</strong> — Repérer les signes de fatigue, douleur, stress ou maladie chez un compagnon ou une créature.</li>
                     </ul>
                 </div>
 
                 <div class="competence-category">
                     <h3>💠 Compétences de traits spécifiques</h3>
                     <ul class="competence-list">
-                        <li><strong>Conduite de monture (Métier)</strong> — Monter et diriger une monture en mouvement</li>
-                        <li><strong>Premier soin (Métier)</strong> — Stabiliser une blessure : nettoyer, bander, stopper un saignement</li>
-                        <li><strong>Soin animalier (Métier)</strong> — Soins adaptés aux bêtes sans les stresser</li>
-                        <li><strong>Savoir animalier (Savoir)</strong> — Connaissances générales sur la faune et les comportements</li>
+                        <li><strong>Conduite de monture (Métier)</strong> — Monter et diriger une monture en mouvement : équilibre, pression, coordination et contrôle de vitesse.</li>
+                        <li><strong>Premier soin (Métier)</strong> — Stabiliser une blessure simple : nettoyer, bander, stopper un saignement, éviter l'infection immédiate.</li>
+                        <li><strong>Soin animalier (Métier)</strong> — Soins adaptés aux bêtes : manipuler sans stresser, évaluer la blessure, appliquer le traitement sans rompre le lien.</li>
+                        <li><strong>Savoir animalier (Savoir)</strong> — Connaissances générales sur la faune, les comportements, les cycles et les besoins selon les espèces.</li>
                     </ul>
                 </div>
             </div>
@@ -319,92 +386,6 @@
         <p>© 2024 Termion - Tous droits réservés</p>
     </footer>
 
-    <script>
-        // Création du graphique radar des caractéristiques
-        const ctx = document.getElementById('statsChart').getContext('2d');
-        
-        // Données de Liant (échelle de -4 à +6)
-        const statsData = {
-            FOR: -1,
-            CST: -1,
-            DEX: 1,
-            INT: 0,
-            SAG: 2,
-            PER: 2,
-            CHA: 4
-        };
-
-        // Convertir les valeurs pour le graphique (ajouter 4 pour que 0 soit au centre)
-        const convertedData = Object.values(statsData).map(val => val + 4);
-
-        const statsChart = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
-                datasets: [{
-                    label: 'Caractéristiques',
-                    data: convertedData,
-                    backgroundColor: 'rgba(76, 175, 80, 0.2)',
-                    borderColor: 'rgba(76, 175, 80, 0.8)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(76, 175, 80, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(76, 175, 80, 1)',
-                    pointRadius: 5,
-                    pointHoverRadius: 7
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    r: {
-                        min: 0,
-                        max: 10, // -4 à +6 = 10 niveaux
-                        ticks: {
-                            stepSize: 2,
-                            callback: function(value) {
-                                // Convertir les valeurs affichées (-4 à +6)
-                                return value - 4;
-                            },
-                            color: '#2E7D32',
-                            font: {
-                                size: 11,
-                                weight: 'bold'
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(76, 175, 80, 0.2)'
-                        },
-                        angleLines: {
-                            color: 'rgba(76, 175, 80, 0.2)'
-                        },
-                        pointLabels: {
-                            color: '#2E7D32',
-                            font: {
-                                size: 14,
-                                weight: 'bold',
-                                family: "'Cinzel', serif"
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const actualValue = context.parsed.r - 4;
-                                return context.label + ': ' + (actualValue >= 0 ? '+' : '') + actualValue;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="../../../Java/Classe/Classe classique/Liant.js"></script>
 </body>
 </html>
