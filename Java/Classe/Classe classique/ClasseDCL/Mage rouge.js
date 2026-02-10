@@ -1,42 +1,42 @@
 // Création du graphique radar des caractéristiques
 const ctx = document.getElementById('statsChart').getContext('2d');
 
-// Données de base du Liant (échelle de -4 à +6)
+// Données de base du Mage Rouge (échelle de -4 à +6)
 const baseStats = {
-    FOR: -1,
-    CST: -1,
-    DEX: 1,
-    INT: 0,
+    FOR: -3,
+    CST: -2,
+    DEX: 3,
+    INT: 3,
     SAG: 2,
-    PER: 2,
-    CHA: 4
+    PER: -3,
+    CHA: 3
 };
 
-// Bonus des départs animaliers
-const departBonuses = {
-    'depart-a': { CHA: 3 },
-    'depart-b': { PER: 3 },
-    'depart-c': { CST: 3 },
-    'depart-d': { DEX: 2, FOR: 2 },
-    'depart-e': { INT: 2, SAG: 2 }
+// Bonus des Pétales
+const petaleBonuses = {
+    'petale-1': { DEX: 3, CST: 4 }, // Carnívora: CST passe de -2 à +2
+    'petale-2': { INT: 3, PER: 6 }, // Llanura: PER passe de -3 à +3
+    'petale-3': { PER: 7, CST: 5 }, // Schiusa: PER passe de -3 à +4, CST passe de -2 à +3
+    'petale-4': { SAG: 4, CST: 4 }, // Accordo: SAG +4, CST passe de -2 à +2
+    'petale-5': { SAG: 3, PER: 5 }  // Madre-Botánica: SAG +3, PER passe de -3 à +2
 };
 
-// Noms des départs pour l'affichage
-const departNames = {
-    'depart-a': 'Compagnon de Longue Route',
-    'depart-b': 'Sillage des Hurons Gris',
-    'depart-c': 'Frontière Indomptée',
-    'depart-d': 'Appel des Montures Oubliées',
-    'depart-e': 'Sillage des Arcaniums'
+// Noms des Pétales pour l'affichage
+const petaleNames = {
+    'petale-1': 'Initié de la Pétale Carnívora',
+    'petale-2': 'Apprenti de la Pétale Llanura Escarlata',
+    'petale-3': 'Explorateur de la Pétale Schiusa del Vestigio',
+    'petale-4': 'Chercheur de la Pétale Accordo Policromo',
+    'petale-5': 'Initié de la Pétale Madre-Botánica'
 };
 
-let currentDepart = null;
+let currentPetale = null;
 
 // Fonction pour calculer les stats avec bonus
-function calculateStats(depart) {
+function calculateStats(petale) {
     const stats = { ...baseStats };
-    if (depart && departBonuses[depart]) {
-        const bonuses = departBonuses[depart];
+    if (petale && petaleBonuses[petale]) {
+        const bonuses = petaleBonuses[petale];
         for (let stat in bonuses) {
             stats[stat] += bonuses[stat];
         }
@@ -57,13 +57,13 @@ const statsChart = new Chart(ctx, {
         datasets: [{
             label: 'Caractéristiques',
             data: convertStatsForChart(baseStats),
-            backgroundColor: 'rgba(106, 159, 90, 0.25)',
-            borderColor: 'rgba(106, 159, 90, 1)',
+            backgroundColor: 'rgba(212, 90, 106, 0.3)',
+            borderColor: 'rgba(212, 90, 106, 1)',
             borderWidth: 3,
-            pointBackgroundColor: 'rgba(106, 159, 90, 1)',
-            pointBorderColor: '#d4d9d0',
-            pointHoverBackgroundColor: '#d4d9d0',
-            pointHoverBorderColor: 'rgba(106, 159, 90, 1)',
+            pointBackgroundColor: 'rgba(212, 90, 106, 1)',
+            pointBorderColor: '#f4d9d0',
+            pointHoverBackgroundColor: '#f4d9d0',
+            pointHoverBorderColor: 'rgba(212, 90, 106, 1)',
             pointRadius: 6,
             pointHoverRadius: 8
         }]
@@ -79,28 +79,28 @@ const statsChart = new Chart(ctx, {
             r: {
                 min: 0,
                 max: 10,
-                backgroundColor: 'rgba(15, 25, 18, 0.3)',
+                backgroundColor: 'rgba(20, 12, 12, 0.4)',
                 ticks: {
                     stepSize: 2,
                     callback: function(value) {
                         return value - 4;
                     },
-                    color: '#a8c4b0',
-                    backdropColor: 'rgba(15, 25, 18, 0.8)',
+                    color: '#d4a8a0',
+                    backdropColor: 'rgba(20, 12, 12, 0.9)',
                     font: {
                         size: 12,
                         weight: 'bold'
                     }
                 },
                 grid: {
-                    color: 'rgba(106, 159, 90, 0.5)',
+                    color: 'rgba(212, 90, 106, 0.6)',
                     circular: true
                 },
                 angleLines: {
-                    color: 'rgba(106, 159, 90, 0.5)'
+                    color: 'rgba(212, 90, 106, 0.6)'
                 },
                 pointLabels: {
-                    color: '#a8c4b0',
+                    color: '#d4a8a0',
                     font: {
                         size: 15,
                         weight: 'bold',
@@ -114,10 +114,10 @@ const statsChart = new Chart(ctx, {
                 display: false
             },
             tooltip: {
-                backgroundColor: 'rgba(15, 25, 18, 0.95)',
-                titleColor: '#a8c4b0',
-                bodyColor: '#d4d9d0',
-                borderColor: 'rgba(106, 159, 90, 0.8)',
+                backgroundColor: 'rgba(20, 12, 12, 0.95)',
+                titleColor: '#d4a8a0',
+                bodyColor: '#f4d9d0',
+                borderColor: 'rgba(212, 90, 106, 0.9)',
                 borderWidth: 2,
                 callbacks: {
                     label: function(context) {
@@ -131,27 +131,27 @@ const statsChart = new Chart(ctx, {
 });
 
 // Fonction pour mettre à jour le graphique
-function updateChart(depart) {
-    const newStats = calculateStats(depart);
+function updateChart(petale) {
+    const newStats = calculateStats(petale);
     statsChart.data.datasets[0].data = convertStatsForChart(newStats);
     statsChart.update();
-    currentDepart = depart;
+    currentPetale = petale;
     
     // Mettre à jour l'indicateur visuel
-    updateDepartSelection(depart);
-    updateStatsDisplay(depart);
+    updatePetaleSelection(petale);
+    updateStatsDisplay(petale);
 }
 
 // Fonction pour mettre à jour l'affichage de la sélection
-function updateDepartSelection(depart) {
+function updatePetaleSelection(petale) {
     // Retirer la classe selected de toutes les cartes
     document.querySelectorAll('.origin-card').forEach(card => {
         card.classList.remove('selected');
     });
     
     // Ajouter la classe selected à la carte choisie
-    if (depart) {
-        const selectedCard = document.querySelector(`.origin-card.${depart}`);
+    if (petale) {
+        const selectedCard = document.querySelector(`.origin-card.${petale}`);
         if (selectedCard) {
             selectedCard.classList.add('selected');
             selectedCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -160,13 +160,13 @@ function updateDepartSelection(depart) {
 }
 
 // Fonction pour afficher les stats actuelles
-function updateStatsDisplay(depart) {
-    const displayElement = document.getElementById('current-depart-display');
+function updateStatsDisplay(petale) {
+    const displayElement = document.getElementById('current-petale-display');
     if (!displayElement) return;
 
-    if (depart) {
-        const stats = calculateStats(depart);
-        const bonuses = departBonuses[depart];
+    if (petale) {
+        const stats = calculateStats(petale);
+        const bonuses = petaleBonuses[petale];
         let bonusText = '';
         
         for (let stat in bonuses) {
@@ -174,52 +174,52 @@ function updateStatsDisplay(depart) {
         }
         
         displayElement.innerHTML = `
-            <strong>Départ sélectionné :</strong> ${departNames[depart]}<br>
+            <strong>Pétale sélectionnée :</strong> ${petaleNames[petale]}<br>
             <strong>Bonus appliqués :</strong> ${bonusText}
         `;
         displayElement.style.display = 'block';
     } else {
-        displayElement.innerHTML = '<strong>Aucun départ sélectionné</strong> - Stats de base affichées';
+        displayElement.innerHTML = '<strong>Aucune Pétale sélectionnée</strong> - Stats de base affichées';
         displayElement.style.display = 'block';
     }
 }
 
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
-    const departCards = document.querySelectorAll('.origin-card');
+    const petaleCards = document.querySelectorAll('.origin-card');
     
-    // Ajouter les événements de clic sur les cartes de départ
-    departCards.forEach(card => {
+    // Ajouter les événements de clic sur les cartes de Pétale
+    petaleCards.forEach(card => {
         card.style.cursor = 'pointer';
         
         card.addEventListener('click', function() {
-            const departClass = Array.from(this.classList).find(cls => 
-                ['depart-a', 'depart-b', 'depart-c', 'depart-d', 'depart-e'].includes(cls)
+            const petaleClass = Array.from(this.classList).find(cls => 
+                ['petale-1', 'petale-2', 'petale-3', 'petale-4', 'petale-5'].includes(cls)
             );
             
-            if (departClass) {
-                // Si on clique sur le départ déjà sélectionné, on le désélectionne
-                if (currentDepart === departClass) {
+            if (petaleClass) {
+                // Si on clique sur la Pétale déjà sélectionnée, on la désélectionne
+                if (currentPetale === petaleClass) {
                     updateChart(null);
                 } else {
-                    updateChart(departClass);
+                    updateChart(petaleClass);
                 }
             }
         });
     });
 
-    // Créer l'élément d'affichage du départ sélectionné
+    // Créer l'élément d'affichage de la Pétale sélectionnée
     const chartContainer = document.querySelector('.chart-container');
     const displayDiv = document.createElement('div');
-    displayDiv.id = 'current-depart-display';
+    displayDiv.id = 'current-petale-display';
     displayDiv.style.marginTop = '20px';
     displayDiv.style.padding = '15px';
-    displayDiv.style.background = 'rgba(74, 107, 58, 0.2)';
+    displayDiv.style.background = 'rgba(139, 45, 61, 0.25)';
     displayDiv.style.borderRadius = '6px';
     displayDiv.style.textAlign = 'center';
     displayDiv.style.fontSize = '0.95rem';
     displayDiv.style.display = 'none';
-    displayDiv.style.border = '1px solid rgba(74, 107, 58, 0.4)';
+    displayDiv.style.border = '1px solid rgba(139, 45, 61, 0.5)';
     chartContainer.appendChild(displayDiv);
 
     // Initialiser l'affichage

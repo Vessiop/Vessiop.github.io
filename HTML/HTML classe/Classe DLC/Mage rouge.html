@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mage Rouge - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Mage rouge.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="parchment-overlay"></div>
+    
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/mAGE ROUGE.jpg" alt="Mage Rouge">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🌹 Mage Rouge</h1>
+            <p class="class-quote">« La beauté est une arme bien plus tranchante qu'une lame, ne pensez-vous pas ? »</p>
+            <p class="class-type">✨ Duelliste magique • Enchanteur floral • Grâce martiale</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">
+                📜 Description
+                <span class="deroso-trigger">
+                    ✨ Parole de DeRoso
+                    <div class="deroso-popup">
+                        <div class="popup-arrow"></div>
+                        <div class="popup-header">« Parole de DeRoso »</div>
+                        <div class="popup-scroll">
+                            <p>« La beauté est une arme bien plus tranchante qu'une lame, ne pensez-vous pas ? Chaque sort, chaque coup porté, est une œuvre d'art que je peins sur le champ de bataille. Car, voyez-vous, il ne s'agit pas simplement de vaincre, mais de captiver. Et quand tout est dit et fait, mes ennemis ne tomberont pas uniquement sous mes coups, mais sous mon charme. »</p>
+                        </div>
+                    </div>
+                </span>
+            </h2>
+            <div class="content-box">
+                <p>Tel une rose qui surgit au milieu du fracas, le Mage Rouge illumine le champ de bataille par sa présence. Délicat en apparence mais tranchant dans l'intention, raffiné dans le geste mais parfois terriblement sanglant dans le résultat, il ne correspond à aucun stéréotype du "mage classique" enfermé dans la distance et les incantations figées. Chez lui, la magie se porte comme une tenue : avec maîtrise, rythme et une élégance qui dissimule la menace.</p>
+                
+                <p>Le Mage Rouge possède plusieurs visages, comme une fleur possède plusieurs pétales. Tantôt duelliste d'une grâce agressive, tantôt enchanteur capable de fixer l'élémentaire dans la matière, tantôt botaniste-mage frôlant le naturel avec une magie plus vivante que savante, il change d'approche sans jamais perdre sa cohérence. C'est là toute la beauté de son art : quel que soit le domaine où on l'observe, il capte les regards, parce qu'il donne l'impression que tout — combat, magie, savoir — suit une chorégraphie invisible.</p>
+                
+                <p>Mais cette beauté n'est pas un simple spectacle. Sous la soie et les pétales se cache un esprit plus proche d'un chercheur que d'un artiste superficiel : quelqu'un qui étudie les Sources, leurs origines, leurs accords, leurs collisions, et tout ce que l'élémentaire laisse comme traces sur le monde. Le Mage Rouge n'accumule pas seulement des techniques : il accumule des compréhensions, et chaque nouvelle vérité devient un pétale de plus dans son arsenal.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d14</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −3</span>
+                        <span class="stat-item negative">CST : −2</span>
+                        <span class="stat-item positive">DEX : +3</span>
+                        <span class="stat-item positive">INT : +3</span>
+                        <span class="stat-item positive">SAG : +2</span>
+                        <span class="stat-item negative">PER : −3</span>
+                        <span class="stat-item positive">CHA : +3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 30 + 2d6</li>
+                        <li><strong>REA :</strong> +5</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 2</span>
+                        <span>Instinct : 2</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">💪 Talents</h2>
+            
+            <div class="talent-card">
+                <h3>Don de Jade</h3>
+                <p>Le Don de Jade est un don rare, porté par quelques individus seulement. S'il est développé et appris, il permet d'accéder naturellement au style magique de la magie florale, comme une maîtrise instinctive plutôt qu'un simple apprentissage académique. Sa particularité majeure est qu'un porteur du Don de Jade possède nécessairement deux Sources élémentaires : c'est une contrainte inhérente au don, presque impossible à contourner.</p>
+                <p><strong>En jeu :</strong> à l'obtention du Don de Jade, le lanceur choisit une Source élémentaire de base (au choix). Il obtient ensuite une seconde Source élémentaire tirée au hasard. Au final, le personnage doit toujours terminer avec exactement deux Sources élémentaires liées à ce Don.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineur de l'art de la rose</h3>
+                <p>Tu maîtrises un style de duel codifié, fondé sur l'élégance, le rythme et la lecture des ouvertures. Tes mouvements sont précis et chorégraphiés, mais toujours pensés pour être efficaces : feintes, angles, distances et punition d'erreurs. Tu sais imposer un tempo à l'adversaire et transformer chaque échange en "danse" contrôlée. Plus qu'une technique, c'est une discipline qui mélange présence, contrôle du corps et science du duel.</p>
+                <p><strong>Offre la compétence :</strong> Technique de l'art de la rose (Dextérité) à +2</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineur de la rapière</h3>
+                <p>Compétence martiale permettant de manier la rapière avec précision et élégance.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise de la magie florale</h3>
+                <p>Tu sais guider l'essence magique à travers le vivant : pétales, pollen, sève, racines et floraisons deviennent des vecteurs de sorts. Cette magie suit souvent des cycles (éclosion, expansion, fanaison) que tu apprends à accélérer, stabiliser ou détourner selon le besoin. Tu es capable de produire des effets subtils mais puissants : entraves organiques, protection végétale, soin, brouillage ou altérations douces. Là où d'autres forcent la nature, toi tu l'accordes à ton intention, avec finesse et contrôle.</p>
+                <p><strong>Offre la compétence :</strong> Magie florale (Intelligence) à +2</p>
+            </div>
+        </section>
+
+        <!-- Passif de classe -->
+        <section class="section">
+            <h2 class="section-title">🩸 Passif de classe — Danse Écarlate</h2>
+            <div class="content-box">
+                <div class="subsection">
+                    <h4>🌹 Danse Écarlate (Passif)</h4>
+                    <p>Lorsque le lanceur réussit un sort de magie florale, une technique de l'Art de la Rose, ou un mouvement acrobatique, avec une marge de réussite élevée (+20 sur un jet de caractéristique, ou +3 sur un jet de trait spécifique), il gagne 1 Pétale de Jade.</p>
+                    <ul>
+                        <li>Le lanceur ne peut posséder que <strong>3 Pétales de Jade</strong> à la fois.</li>
+                        <li>Il ne peut gagner qu'<strong>1 Pétale de Jade par tour</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4>💎 Dépense de Pétale (1 fois par tour)</h4>
+                    <p>Le lanceur peut dépenser 1 Pétale de Jade pour activer un seul des effets suivants :</p>
+                    
+                    <h5>Tempo Précieux</h5>
+                    <p>➡️ Le lanceur obtient Avantage sur son prochain jet de Réactivité (jusqu'au début de son prochain tour).</p>
+                    
+                    <h5>Feinte Écarlate</h5>
+                    <p>➡️ La prochaine attaque issue d'une technique de l'Art de la Rose applique l'effet « Feinte ».</p>
+                    
+                    <h5>Floraison Guidée</h5>
+                    <p>➡️ Au choix :</p>
+                    <ul>
+                        <li>Le lanceur obtient +10 sur son prochain sort de magie florale (jusqu'au début de son prochain tour),</li>
+                        <li>ou Il lance immédiatement un sort de Champ floral avec Avantage (si un sort de ce type est disponible).</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4>✨ Grâce — Fulgurance Écarlate (1 fois par combat)</h4>
+                    <p>Une fois par combat, le lanceur peut déclencher une Grâce, au prix de <strong>30 PE et 30 PM</strong>.</p>
+                    <p>Lorsqu'il l'active, le lanceur peut dépenser immédiatement ses Pétales de Jade pour déclencher plusieurs effets de Danse Écarlate d'un seul coup.</p>
+                    <ul>
+                        <li>Il peut activer un nombre d'effets égal au nombre de Pétales de Jade actuellement possédés (ex : 2 Pétales = 2 effets, 3 Pétales = 3 effets).</li>
+                    </ul>
+                    <p>Cette fulgurance représente un tour où le Mage Rouge pousse sa chorégraphie et sa symbiose à leur maximum : la Rose, la Floraison et le Tempo s'alignent parfaitement — mais au prix d'un effort brutal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🌾 Origine du Champs et Pétale</h2>
+            <p class="intro-text">« Chaque Mage Rouge porte l'empreinte de sa Pétale : l'école qui l'a formé, les valeurs qui l'ont forgé… »</p>
+            <p class="intro-text"><strong>Choisis une origine :</strong></p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="origin-grid">
+                <!-- Origine 1 -->
+                <div class="origin-card petale-1">
+                    <h3>🌹 1) Initié de la Pétale Carnívora</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>La Pétale Carnívora n'enseigne pas la violence brute : elle enseigne la précision du duel. On t'a appris à considérer chaque affrontement comme une équation vivante où tout se joue sur le rythme, la distance et la lecture des ouvertures. Tes maîtres insistaient sur une idée simple : un duel se gagne avant le coup final, au moment exact où l'autre perd son tempo.</p>
+                        <p>Dans cette branche, la grâce n'est pas une politesse — c'est un piège. Tes mouvements sont beaux parce qu'ils sont optimisés, chorégraphiés parce qu'ils doivent masquer l'intention, et élégants parce que l'élégance rend l'adversaire imprudent. La Carnívora forme des Mages Rouges qui savent sourire dans la pression et frapper quand l'autre croit encore être en contrôle.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Récompense</h4>
+                        <p>Obtient le talent « <strong>Maîtrise mineure de l'Agilité</strong> » — Développe la fluidité des mouvements et améliore la coordination corporelle dans les déplacements. Permet d'exécuter des gestes rapides, souples ou instinctifs avec plus d'aisance. Ce talent est utile pour toutes les situations demandant de l'équilibre, de la vitesse ou de la réactivité. Il soutient aussi les actions d'esquive ou les manœuvres d'évitement.</p>
+                        <p><strong>Obtient la compétence de Trait spécifique :</strong> Agilité de mouvement +1 (Finesse)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎯 Choix – 1 talent :</h4>
+                        <ul>
+                            <li><strong>Orgullo della Rosa (Orgueil de la Rose) :</strong> Une fois par session, le lanceur peut effectuer un jet de Provocation ou un jet de Résistance à la Provocation avec Avantage (si le jet est réussi, il obtient Avantage sur le prochain jet de Réactivité).</li>
+                            <li><strong>Vanità Scarlatta (Vanité Écarlate) :</strong> Une fois par session, lorsque le lanceur doit réaliser une action d'Agilité (Base : Finesse), il peut s'accorder un bonus au jet égal à son Mod de CHA. De plus, pour ce jet, le taux de succès critique devient égal à la moitié du Mod de CHA (arrondi à l'inférieur).</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>Gain de caractéristiques :</strong> +3 en DEX, et le -2 en CST passe à +2</p>
+                        <p><strong>Gain trait spécifique :</strong> +1 Finesse</p>
+                    </div>
+                </div>
+
+                <!-- Origine 2 -->
+                <div class="origin-card petale-2">
+                    <h3>⚗️ 2) Apprenti de la Pétale Llanura Escarlata</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>La Pétale Llanura Escarlata est le territoire de ceux qui veulent faire durer la magie, la fixer, la rendre portable et fiable. Là où d'autres mages jettent un sort et passent à autre chose, toi tu as appris à "faire tenir" un effet dans la matière : sur une lame, dans un sceau, dans une pierre, dans une inscription. On t'a formé à penser comme un artisan : stabilité, déclencheur, usure, compatibilité, entretien.</p>
+                        <p>Dans les ateliers de la Llanura, la magie n'est pas un caprice — c'est une construction. Tu sais lire un objet comme un texte : comprendre ce qu'il "porte", ce qui peut se fissurer, et ce qui peut être amélioré. On dit souvent que cette Pétale ne brille pas au premier regard… mais qu'elle décide de l'issue d'une aventure bien avant le combat, quand un objet enchanté fait la différence au bon moment.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Récompense</h4>
+                        <p>Obtient le talent « <strong>Maîtrise mineure du style magique de l'enchantement</strong> » — Confère la capacité d'imprégner objets ou êtres vivants de propriétés magiques temporaires ou durables. Ce talent peut renforcer armes et armures, améliorer des capacités physiques, ou même altérer subtilement le comportement d'un objet.</p>
+                        <p><strong>Obtient la Compétence :</strong> Enchantement Magique +2</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎯 Choix – 1 talent :</h4>
+                        <ul>
+                            <li><strong>Perla Incantatrice (Perle Enchanteresse) :</strong> Tout sort d'enchantement lancé par le lanceur et visant sa personne, une arme ou un effet d'enchantement appliqué sur un équipement voit sa durée augmentée de +2 tours (en plus de la durée de base). ⚠️ Ne s'applique pas aux effets indiqués comme non améliorables.</li>
+                            <li><strong>Mano di Sigillo (Main du Sceau) :</strong> Lorsque le lanceur manipule un objet dans le cadre d'un travail d'enchantement (création, inscription, insufflation, réparation enchantée, etc.), il obtient un bonus à son jet de travail égal à son Mod INT.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>Gain de caractéristiques :</strong> +3 en INT, et le -3 en PER passe à +3</p>
+                        <p><strong>Gain trait spécifique :</strong> +1 Métier</p>
+                    </div>
+                </div>
+
+                <!-- Origine 3 -->
+                <div class="origin-card petale-3">
+                    <h3>🗺️ 3) Explorateur de la Pétale Schiusa del Vestigio</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>La Pétale Schiusa del Vestigio est née loin des salons : dans la poussière, le froid, et les silences trop anciens. On t'a appris à survivre là où la magie a laissé des cicatrices : ruines instables, tunnels chargés d'essence, lieux où l'air lui-même semble garder mémoire d'un drame. Ici, un bon mage n'est pas celui qui lance le plus beau sort, mais celui qui revient vivant avec des informations utiles.</p>
+                        <p>Tu as développé des réflexes de terrain : lire un sol, sentir une zone "fausse", repérer les détails qui trahissent un piège ou un passage. La Schiusa forme des esprits endurants, capables d'avancer sans certitude, de douter intelligemment, et de comprendre que la curiosité est une force… si elle est tenue en laisse. Les anciens disent que cette Pétale ne donne pas du prestige : elle donne quelque chose de plus rare — le droit de continuer.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Récompense</h4>
+                        <p>Obtient le talent « <strong>Observateur de terrain mineur</strong> » — Affûte la capacité à analyser rapidement l'environnement immédiat. Ce talent permet de repérer les irrégularités du sol, les zones à risque ou les points d'avantage stratégique, que ce soit en nature sauvage ou en zone urbaine. Très utile pour anticiper embuscades, trouver un bon couvert ou détecter des traces subtiles.</p>
+                        <p><strong>Offre la Compétence :</strong> Observation environnementale +2 (Perception)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎯 Choix – 1 talent :</h4>
+                        <ul>
+                            <li><strong>Corpo di Petalo (Corps de Pétale) :</strong> En milieu naturel, dès lors qu'un courant d'air circule (même léger), le lanceur peut manifester un pétale magique pour 3 PM. Le pétale se laisse porter par le vent en sens inverse, comme s'il "remontait" le souffle, et sert de guide visuel (direction, repère, trajectoire). Il peut aider à suivre un chemin, localiser une sortie, ou confirmer un flux d'air dans une zone.</li>
+                            <li><strong>Fulgore di Petali (Fulgurance de Pétales) :</strong> Une fois par scène, le lanceur déclenche une fulgurance florale : une course brève où une myriade de pétales jaillit et tourbillonne autour de lui, brouillant toutes les tentatives d'attaque contre sa personne. Jusqu'à la fin de cette fulgurance, les attaques qu'il subit voient leurs dégâts réduits de moitié. La distance de mouvement générée par cette course est égale à la moitié du déplacement du lanceur (en ft).</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>Gain de caractéristiques :</strong> le -3 en PER passe à +4, et le -2 en CST passe à +3</p>
+                        <p><strong>Gain trait spécifique :</strong> +1 Instinct</p>
+                    </div>
+                </div>
+
+                <!-- Origine 4 -->
+                <div class="origin-card petale-4">
+                    <h3>🔬 4) Chercheur de la Pétale Accordo Policromo</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>La Pétale Accordo Policromo est une obsession assumée : comprendre ce qui vit entre les Plans, entre les Sources, entre la théorie et l'incarnation. Tu as grandi entouré de schémas, de récits d'apparitions, de notes de terrain et de débats interminables sur l'harmonie parfaite. Mais cette Pétale ne forme pas que des penseurs : elle forme des gens prêts à s'approcher d'une vérité dangereuse, et à payer le prix de l'expérience.</p>
+                        <p>Tu as appris à regarder l'élémentaire comme un monde à part, avec ses règles, ses humeurs, et ses présences qui ne se laissent pas réduire à "un sort". Tu sais que certaines entités ne se combattent pas : elles se comprennent, se contournent, se respectent… ou se provoquent avec prudence. Dans l'Accordo, on dit que le vrai pouvoir n'est pas de dominer une Source, mais de s'accorder avec elle assez longtemps pour que le monde te réponde.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Récompense</h4>
+                        <p>Obtient le talent « <strong>Résistance de Jade</strong> » — ce talent offre une résistance élémentaire de 20% à toutes les natures élémentaires liées aux Sources élémentaires du lanceur.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎯 Choix – 1 talent :</h4>
+                        <ul>
+                            <li><strong>Risonanza Parziale dei Petali (Résonance Partielle Florale) :</strong> La résonance partielle du lanceur est naturellement orientée vers la voie florale et les pétales. Tant que le jet concerne la Résonance partielle florale, tous ses jets sont effectués avec Avantage. Cette affinité reflète une harmonie plus facile à stabiliser lorsqu'elle passe par la forme végétale.</li>
+                            <li><strong>Risonanza Parziale Elementale (Résonance Partielle Élémentaire) :</strong> La résonance partielle du lanceur est davantage orientée vers la nature élémentaire. Le lanceur choisit un élément (au choix) au moment de l'acquisition du talent. Tant que le jet concerne la Résonance partielle de cet élément, tous ses jets sont effectués avec Avantage. Cette spécialisation représente un "accord" plus spontané avec une Source précise.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>Gain de caractéristiques :</strong> +4 en SAG, et le -2 en CST passe à +2</p>
+                        <p><strong>Gain trait spécifique :</strong> +1 Résilience</p>
+                    </div>
+                </div>
+
+                <!-- Origine 5 -->
+                <div class="origin-card petale-5">
+                    <h3>🌿 5) Initié de la Pétale Madre-Botánica</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>La Pétale Madre-Botánica incarne une approche vivante et respectueuse de la magie florale. Ici, la floraison n'est pas un simple outil : c'est une conversation avec le vivant. On t'a enseigné que chaque plante, chaque essence, chaque bourgeon porte en lui une logique propre, une histoire inscrite dans sa sève. Tu as appris à écouter avant de forcer, à observer avant de cueillir, et à cultiver avant de puiser.</p>
+                        <p>Cette Pétale attire les esprits qui voient dans la magie florale plus qu'une arme : une médecine, un langage, une manière de réparer ce qui est brisé. Les Initiés de la Madre-Botánica sont souvent ceux qui savent guérir, préserver, et transformer sans jamais détruire l'équilibre. On dit de cette Pétale qu'elle ne produit pas les plus rapides, ni les plus spectaculaires… mais qu'elle forme ceux qui restent debout quand tout le reste a brûlé.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Récompense</h4>
+                        <p>Obtient le talent « <strong>Maîtrise mineure de la Botanique</strong> » — Confère une compréhension profonde des plantes, de leurs propriétés médicinales, toxiques ou magiques, et de leurs cycles de vie. Ce talent permet d'identifier rapidement des espèces rares, d'optimiser la récolte d'ingrédients et d'anticiper les réactions d'une flore exposée à la magie.</p>
+                        <p><strong>Obtient la Compétence :</strong> Savoir Botanique +2 (Savoir)</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🎯 Choix – 1 talent :</h4>
+                        <ul>
+                            <li><strong>Soffio Curativo (Souffle Curatif) :</strong> Une fois par session, le lanceur peut canaliser l'essence florale pour accélérer la guérison naturelle. En dépensant 15 PM, il peut restaurer 2d6 PV à une cible vivante à portée de toucher. Cette guérison fonctionne mieux sur les blessures récentes et les plaies ouvertes.</li>
+                            <li><strong>Radici Profonde (Racines Profondes) :</strong> Le lanceur bénéficie d'une stabilité accrue lorsqu'il est en contact avec un sol naturel (terre, herbe, racines). Tant qu'il touche ce type de surface, il obtient +2 à tous les jets de résistance contre les effets de déplacement forcé, de déséquilibre ou de renversement.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>Gain de caractéristiques :</strong> +3 en SAG, et le -3 en PER passe à +2</p>
+                        <p><strong>Gain trait spécifique :</strong> +1 Savoir</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📘 Connaissances de base</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine magique (modéré)</h4>
+                    <p>Tu comprends le fonctionnement général de la magie : circulation de l'essence, structure d'un sort, conditions de stabilité et causes d'échec. Tu sais reconnaître les grandes familles (altération, invocation, protection, insufflation…) et lire l'intention derrière un rituel. Tu as des bases solides pour interpréter un phénomène magique inconnu, même si tu manques parfois de détails techniques. Cette connaissance te permet aussi de mieux dialoguer avec d'autres mages et d'éviter des erreurs "de débutant".</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance des techniques de l'art de la rose (modéré)</h4>
+                    <p>Tu maîtrises les principes de l'Art de la Rose : posture, rythme, angles, ouvertures, et économie de mouvement. Tu connais les enchaînements typiques, leurs objectifs (pression, feinte, punition, déséquilibre) et comment ils s'insèrent dans un duel. Tu sais identifier la signature d'une école ou d'un style à ses gestes et à son tempo. Même si tu n'exécutes pas tout parfaitement, tu comprends ce que tu regardes et pourquoi ça marche.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance théorique des sources élémentaires / résonances (modéré)</h4>
+                    <p>Tu comprends comment les Sources élémentaires (feu, eau, vent, terre, etc.) se manifestent, interagissent et se contrarient. Tu sais ce qu'est une résonance : un "accord" entre le corps, l'essence et une Source qui rend la magie plus stable, plus pure, ou plus dangereuse si elle est forcée. Tu connais les règles théoriques de compatibilité et les effets secondaires d'une mauvaise synchronisation. Cette base te sert à analyser un environnement ou une créature imprégnée d'élémentaire.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance de la magie florale (modéré)</h4>
+                    <p>Tu connais la logique de la magie florale : croissance dirigée, propriétés d'essences végétales, et formes de sorts basées sur pollen, sève, racines ou pétales. Tu sais que cette magie fonctionne souvent par cycles (éclosion, expansion, fanaison) et qu'elle répond fortement au terrain et à l'entretien. Tu comprends les usages principaux : soin, contrôle doux, entrave, protection organique et altérations subtiles. Tu sais aussi reconnaître des signes d'une floraison magique "malade" ou corrompue.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de Jade (moyen)</h4>
+                    <p>Tu connais l'histoire, les symboles et les grandes branches (pétales) du Domaine de Jade, ainsi que leurs spécialisations et rivalités implicites. Tu comprends les codes : respect, esthétique, maîtrise de soi, et la philosophie de "guidage" plutôt que domination brute. Tu sais identifier les pratiques typiques (magie florale, insufflation, harmonisation) et les fonctions sociales du Domaine. Cette connaissance te rend crédible face aux membres du Jade et te donne des repères pour naviguer leurs traditions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align: center; font-size: 1.2rem; margin: 0;">
+                    <strong>+1 Rapière</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">💼 Objets offerts</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armadura de Rosa</h4>
+                        <p>Armure légère renforcée par une extension magique. Tant qu'elle est portée, elle confère la compétence « Présence de la Rose » : N.A à +10 en CHA dans tout établissement ou lieu lié aux institutions magiques qui respectent les Mages Rouges. Elle accorde aussi une résistance magique de 10% à un élément au choix (Hors lumière, ténèbres, abysse, maudit)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Rapière basique</h4>
+                        <p>Arme de prédilection du Mage Rouge</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💜</span>
+                    <div>
+                        <h4>+2 potions de magie</h4>
+                        <p>Restauration des points de magie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>+1 potion de vie</h4>
+                        <p>Soins d'urgence</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💚</span>
+                    <div>
+                        <h4>+1 potion d'endurance</h4>
+                        <p>Restaure les points d'endurance</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🌹</span>
+                    <div>
+                        <h4>Insigne de la Rose</h4>
+                        <p>Un écusson en forme de rose ouverte, dont le nombre de pétales visibles varie selon l'institution d'origine. Il sert de marque officielle d'appartenance et permet d'identifier immédiatement le institution de la Rose/Domaine de jade auquel le porteur est rattaché.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🎓 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Magie florale (Intelligence)</strong> — Sert à lancer, contrôler et optimiser les sorts floraux. Aide aussi à comprendre leurs effets, cycles et limites.</li>
+                        <li><strong>Élégance de la rose (Charisme)</strong> — Mesure le raffinement, la prestance et le respect des codes de l'École de la Rose. Utile pour impressionner, se faire reconnaître ou agir selon l'étiquette.</li>
+                        <li><strong>Rapière (Dextérité)</strong> — Représente la précision et la maîtrise des attaques à la rapière. Sert pour toucher proprement, feinter et placer des coups rapides.</li>
+                        <li><strong>Magie d'enchantement élémentaire (Intelligence)</strong> — Sert à imprégner un objet d'un effet élémentaire (feu, glace, vent, etc.) de manière stable. Utile pour créer, réparer ou ajuster un enchantement élémentaire.</li>
+                        <li><strong>Technique de l'art de la rose (Dextérité)</strong> — Regroupe les gestes et enchaînements propres à l'Art de la Rose. Sert à exécuter des techniques stylées, efficaces et bien placées.</li>
+                        <li><strong>Réactif (Réactivité)</strong> — Améliore la vitesse de réponse face au danger. Sert pour les esquives instantanées, contre-attaques et réactions sous pression.</li>
+                        <li><strong>Esquive (Dextérité)</strong> — Permet d'éviter une attaque par déplacement, pivot ou retrait. Sert aussi à réduire l'impact d'un assaut en se repositionnant.</li>
+                        <li><strong>Provocation (Charisme)</strong> — Sert à déstabiliser un adversaire par des mots, une posture ou un défi. Peut le pousser à l'erreur ou à te cibler.</li>
+                        <li><strong>Magie élémentaire X (Intelligence)</strong> — Mesure ta maîtrise d'un élément précis (X = feu, eau, vent, etc.). Sert à lancer et contrôler les sorts liés à cet élément.</li>
+                        <li><strong>Résonance partiel élémentaire (Sagesse)</strong> — Sert à te synchroniser partiellement avec un élément choisi et à stabiliser son accord. Utile pour éviter la dissonance et améliorer la cohérence de tes effets.</li>
+                        <li><strong>Résonance partiel florale (Sagesse)</strong> — Sert à harmoniser ton essence avec la magie florale et ses cycles. Aide à stabiliser et affiner les effets floraux.</li>
+                        <li><strong>Analyse corporel (Perception)</strong> — Sert à lire le corps d'un adversaire (respiration, tension, appuis) pour anticiper ses actions. Utile pour repérer fatigue, feintes ou intentions.</li>
+                        <li><strong>Robustesse (Constitution)</strong> — Mesure la capacité à encaisser effort, douleur et conditions difficiles. Sert contre fatigue, poisons légers, et chocs répétés.</li>
+                        <li><strong>Observation environnementale (Perception)</strong> — Sert à repérer traces, pièges, risques et avantages du terrain. Utile pour éviter une embuscade ou choisir une bonne position.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧷 Compétences de trait spécifique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Agilité de mouvement (Finesse)</strong> — Permet des déplacements fluides, précis et équilibrés. Utile pour glisser, pivoter, changer d'appui et se placer au bon moment.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Aide à sentir un risque imminent avant qu'il n'arrive. Utile pour éviter une embuscade ou réagir sans réfléchir longtemps.</li>
+                        <li><strong>Pas florale (Finesse)</strong> — Représente une marche légère et élégante inspirée de la magie florale. Utile pour se déplacer discrètement, sans rupture de rythme, et se repositionner proprement.</li>
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Permet de continuer à agir malgré une blessure ou une souffrance. Réduit l'impact de la douleur sur tes actions et ta concentration.</li>
+                        <li><strong>Parole Noble (Social)</strong> — Sert à parler avec autorité et dignité selon les codes du Jade. Utile pour calmer une tension, imposer le respect ou demander un duel encadré.</li>
+                        <li><strong>Négociation (Social)</strong> — Permet d'obtenir un accord, un compromis ou un avantage social sans conflit. Utile pour marchander, convaincre ou éviter l'escalade.</li>
+                        <li><strong>Évitement de danger (Finesse)</strong> — Sert à se sortir d'une zone risquée par un mouvement propre (angle mort, terrain instable, attaque multiple). Utile pour éviter pièges, collisions ou attaques en chaîne.</li>
+                        <li><strong>Travail d'enchanteur (Métier)</strong> — Mesure la qualité de ton travail technique sur les objets enchantés (gravure, scellement, ajustement). Utile pour créer, réparer ou renforcer un support magique.</li>
+                        <li><strong>Provocation noble (Social)</strong> — Permet de provoquer sans vulgarité, avec style et contrôle, pour pousser l'autre à la faute. Utile pour déclencher un duel ou briser le calme d'un adversaire.</li>
+                        <li><strong>Savoir du domaine élémentaires (Savoir)</strong> — Connaissance des éléments, de leurs interactions et des signes de résonance. Utile pour identifier une influence élémentaire ou prévoir un risque.</li>
+                        <li><strong>Savoir Botanique (Savoir)</strong> — Connaissance des plantes, de leurs propriétés et de leurs usages (magiques ou non). Utile pour récolter, préparer, reconnaître un danger végétal ou optimiser un sort floral.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/ClasseDCL/Mage rouge.js"></script>
+</body>
+</html>

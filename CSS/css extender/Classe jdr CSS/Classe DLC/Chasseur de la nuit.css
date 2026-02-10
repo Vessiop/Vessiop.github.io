@@ -1,19 +1,19 @@
 :root {
-    --parchment: #0f140f;
-    --parchment-dark: #080c08;
-    --ink: #d4d9d0;
-    
-    /* Couleurs Liant - palette forêt sombre avec touches terreuses */
-    --liant: #4a6b3a;
-    --liant-light: #5a8b4a;
-    --liant-dark: #2a4a1a;
-    --shadow: #0a1f0f;
-    --shadow-dark: #050f08;
-    --accent: #6a9f5a;
-    --accent-dark: #4a6f3a;
-    --moss: #5a7a4a;
-    --earth: #5a4a2a;
-    --amber: #d4a574;
+    --parchment: #090c16;
+    --parchment-dark: #050810;
+    --ink: #d0d8ec;
+
+    /* Couleurs Chasseur de la Nuit - palette ombre et nuit */
+    --nuit: #1e2d52;
+    --nuit-light: #2e4070;
+    --nuit-dark: #0e1a30;
+    --shadow: #060a14;
+    --shadow-dark: #030508;
+    --accent: #7a92cc;
+    --accent-dark: #5a70aa;
+    --argent: #a8b8d8;
+    --brume: #3a4a6a;
+    --eclat: #c0cce0;
 }
 
 * {
@@ -26,16 +26,16 @@ body {
     font-family: 'Crimson Text', serif;
     background-color: var(--parchment);
     background-image: 
-        radial-gradient(circle at 20% 50%, rgba(74, 107, 58, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(90, 122, 74, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 50% 0%, rgba(42, 74, 26, 0.05) 0%, transparent 40%);
+        radial-gradient(circle at 20% 50%, rgba(30, 45, 82, 0.14) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(46, 64, 112, 0.14) 0%, transparent 50%),
+        radial-gradient(circle at 50% 0%, rgba(14, 26, 48, 0.10) 0%, transparent 40%);
     color: var(--ink);
     min-height: 100vh;
     line-height: 1.7;
 }
 
-/* Texture de parchemin */
-.parchment-overlay {
+/* Texture d'ombre */
+.shadow-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -46,11 +46,20 @@ body {
             0deg,
             transparent,
             transparent 2px,
-            rgba(74, 107, 58, 0.03) 2px,
-            rgba(74, 107, 58, 0.03) 4px
+            rgba(30, 45, 82, 0.04) 2px,
+            rgba(30, 45, 82, 0.04) 4px
         );
     pointer-events: none;
     z-index: 1;
+}
+
+/* Particules */
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
 }
 
 /* Bouton retour */
@@ -62,8 +71,8 @@ body {
     top: 20px;
     left: 20px;
     padding: 12px 20px;
-    background: rgba(15, 20, 15, 0.9);
-    border: 2px solid var(--liant);
+    background: rgba(9, 12, 22, 0.9);
+    border: 2px solid var(--nuit);
     color: var(--accent);
     text-decoration: none;
     font-family: 'Cinzel', serif;
@@ -75,10 +84,10 @@ body {
 }
 
 .back-button:hover {
-    background: var(--liant);
-    color: #d4d9d0;
+    background: var(--nuit);
+    color: #d0d8ec;
     transform: translateX(-5px);
-    box-shadow: 0 4px 15px rgba(74, 107, 58, 0.6);
+    box-shadow: 0 4px 15px rgba(30, 45, 82, 0.8);
 }
 
 /* Section Hero */
@@ -92,7 +101,7 @@ body {
     position: relative;
     z-index: 2;
     background: linear-gradient(to bottom, 
-        rgba(74, 107, 58, 0.15) 0%, 
+        rgba(30, 45, 82, 0.18) 0%, 
         transparent 100%);
 }
 
@@ -100,7 +109,7 @@ body {
     flex: 0 0 400px;
     animation: fadeInLeft 1s ease-out;
     padding: 10px;
-    background: linear-gradient(135deg, rgba(74, 107, 58, 0.2), rgba(42, 74, 26, 0.3));
+    background: linear-gradient(135deg, rgba(30, 45, 82, 0.35), rgba(14, 26, 48, 0.45));
     border-radius: 16px;
 }
 
@@ -110,19 +119,19 @@ body {
     display: block;
     border-radius: 12px;
     box-shadow: 
-        0 10px 40px rgba(10, 31, 15, 0.8),
-        0 0 0 4px var(--liant),
-        0 0 0 8px rgba(74, 107, 58, 0.4);
-    border: 4px solid rgba(106, 159, 90, 0.3);
+        0 10px 40px rgba(3, 5, 8, 0.95),
+        0 0 0 4px var(--nuit),
+        0 0 0 8px rgba(30, 45, 82, 0.55);
+    border: 4px solid rgba(122, 146, 204, 0.35);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-image img:hover {
     transform: scale(1.02);
     box-shadow: 
-        0 15px 50px rgba(10, 31, 15, 0.9),
-        0 0 0 4px var(--liant-light),
-        0 0 0 8px rgba(74, 107, 58, 0.6);
+        0 15px 50px rgba(3, 5, 8, 1),
+        0 0 0 4px var(--nuit-light),
+        0 0 0 8px rgba(30, 45, 82, 0.75);
 }
 
 .hero-content {
@@ -137,7 +146,7 @@ body {
     color: var(--accent);
     margin-bottom: 20px;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 4px rgba(10, 31, 15, 0.8);
+    text-shadow: 2px 2px 4px rgba(3, 5, 8, 0.95);
 }
 
 .class-quote {
@@ -146,7 +155,7 @@ body {
     color: var(--ink);
     margin-bottom: 25px;
     padding-left: 20px;
-    border-left: 4px solid var(--liant);
+    border-left: 4px solid var(--nuit);
 }
 
 .class-type {
@@ -210,8 +219,12 @@ body {
     color: var(--accent);
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 3px solid var(--liant);
+    border-bottom: 3px solid var(--nuit);
     letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .subsection-title {
@@ -228,7 +241,7 @@ body {
 }
 
 .interactive-hint {
-    background: linear-gradient(135deg, rgba(74, 107, 58, 0.25), rgba(42, 74, 26, 0.25));
+    background: linear-gradient(135deg, rgba(30, 45, 82, 0.35), rgba(14, 26, 48, 0.35));
     padding: 15px 20px;
     border-radius: 8px;
     border-left: 4px solid var(--accent);
@@ -240,20 +253,20 @@ body {
 
 @keyframes pulse-hint {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(106, 159, 90, 0.4);
+        box-shadow: 0 0 0 0 rgba(122, 146, 204, 0.45);
     }
     50% {
-        box-shadow: 0 0 0 8px rgba(106, 159, 90, 0);
+        box-shadow: 0 0 0 8px rgba(122, 146, 204, 0);
     }
 }
 
 /* Boîte de contenu */
 .content-box {
-    background: rgba(10, 15, 10, 0.7);
+    background: rgba(5, 8, 16, 0.82);
     padding: 30px;
-    border-left: 4px solid var(--liant);
+    border-left: 4px solid var(--nuit);
     border-radius: 8px;
-    border: 1px solid rgba(74, 107, 58, 0.4);
+    border: 1px solid rgba(30, 45, 82, 0.55);
 }
 
 .content-box p {
@@ -266,18 +279,24 @@ body {
 }
 
 .content-box .subsection {
-    background: rgba(74, 107, 58, 0.15);
+    background: rgba(30, 45, 82, 0.22);
     padding: 20px;
     margin: 15px 0;
     border-radius: 6px;
-    border-left: 3px solid var(--liant);
+    border-left: 3px solid var(--nuit);
 }
 
-.content-box .subsection h4 {
+.content-box .subsection h4,
+.content-box .subsection h5 {
     font-family: 'Cinzel', serif;
     color: var(--accent);
     margin-bottom: 12px;
     font-size: 1.2rem;
+}
+
+.content-box .subsection h5 {
+    font-size: 1.1rem;
+    margin-top: 15px;
 }
 
 .content-box .subsection ul {
@@ -295,15 +314,25 @@ body {
     content: '▸';
     position: absolute;
     left: 0;
-    color: var(--liant);
+    color: var(--nuit-light);
     font-weight: bold;
 }
 
+/* Danger box (faiblesse du passif) */
+.danger-box {
+    background: rgba(80, 20, 20, 0.25) !important;
+    border-left: 3px solid #7a2a2a !important;
+}
+
+.danger-box h4 {
+    color: #d06060 !important;
+}
+
 .highlight-box {
-    background: rgba(74, 107, 58, 0.2);
+    background: rgba(30, 45, 82, 0.28);
     padding: 20px;
     border-radius: 6px;
-    border: 2px solid var(--liant);
+    border: 2px solid var(--nuit);
     margin-top: 20px;
 }
 
@@ -319,10 +348,10 @@ body {
 }
 
 .stat-category {
-    background: rgba(10, 15, 10, 0.7);
+    background: rgba(5, 8, 16, 0.82);
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--liant-light);
+    border: 2px solid var(--nuit-light);
 }
 
 .stat-category h3 {
@@ -339,7 +368,7 @@ body {
 
 .stat-category li {
     padding: 8px 0;
-    border-bottom: 1px solid rgba(74, 107, 58, 0.3);
+    border-bottom: 1px solid rgba(30, 45, 82, 0.45);
 }
 
 .stat-category li:last-child {
@@ -355,34 +384,34 @@ body {
 
 .stat-item {
     padding: 10px;
-    background: rgba(5, 8, 5, 0.6);
+    background: rgba(3, 5, 8, 0.7);
     border-radius: 4px;
     text-align: center;
     font-weight: 600;
-    border: 1px solid rgba(74, 107, 58, 0.5);
+    border: 1px solid rgba(30, 45, 82, 0.6);
 }
 
 .stat-item.positive {
-    color: #7ab66a;
-    border-color: #5a9b4a;
-    background: rgba(90, 155, 74, 0.2);
+    color: #90aadc;
+    border-color: #3a5a8a;
+    background: rgba(30, 45, 82, 0.35);
 }
 
 .stat-item.negative {
-    color: #c97a5a;
-    border-color: #a85a3a;
-    background: rgba(168, 74, 43, 0.2);
+    color: #c07a7a;
+    border-color: #8a4a4a;
+    background: rgba(100, 40, 40, 0.25);
 }
 
 .stat-item.neutral {
-    color: #9aa69a;
-    border-color: #6a7a6a;
-    background: rgba(106, 122, 106, 0.15);
+    color: #8a9aaa;
+    border-color: #4a5a6a;
+    background: rgba(50, 60, 80, 0.2);
 }
 
 .stat-item.highlight {
     border: 2px solid var(--accent);
-    background: rgba(74, 107, 58, 0.3);
+    background: rgba(30, 45, 82, 0.4);
     font-size: 1.1rem;
 }
 
@@ -398,26 +427,26 @@ body {
 
 .traits-grid span {
     padding: 8px;
-    background: rgba(74, 107, 58, 0.2);
+    background: rgba(30, 45, 82, 0.28);
     border-radius: 4px;
     font-size: 0.95rem;
-    border: 1px solid rgba(74, 107, 58, 0.4);
+    border: 1px solid rgba(30, 45, 82, 0.55);
 }
 
 /* Cartes de talents */
 .talent-card {
-    background: rgba(10, 15, 10, 0.7);
+    background: rgba(5, 8, 16, 0.82);
     padding: 25px;
     margin-bottom: 20px;
-    border-left: 5px solid var(--liant);
+    border-left: 5px solid var(--nuit);
     border-radius: 8px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(74, 107, 58, 0.4);
+    border: 1px solid rgba(30, 45, 82, 0.55);
 }
 
 .talent-card:hover {
-    background: rgba(10, 15, 10, 0.9);
-    box-shadow: 0 5px 20px rgba(74, 107, 58, 0.5);
+    background: rgba(5, 8, 16, 0.96);
+    box-shadow: 0 5px 20px rgba(30, 45, 82, 0.65);
     transform: translateX(5px);
 }
 
@@ -430,7 +459,7 @@ body {
 
 .talent-card h4 {
     font-family: 'Cinzel', serif;
-    color: var(--liant-light);
+    color: var(--nuit-light);
     margin: 15px 0 10px;
     font-size: 1.1rem;
 }
@@ -442,11 +471,11 @@ body {
 }
 
 .talent-card .subsection {
-    background: rgba(74, 107, 58, 0.15);
+    background: rgba(30, 45, 82, 0.22);
     padding: 20px;
     margin: 15px 0;
     border-radius: 6px;
-    border-left: 3px solid var(--liant);
+    border-left: 3px solid var(--nuit);
 }
 
 .talent-card ul {
@@ -464,20 +493,40 @@ body {
     content: '▸';
     position: absolute;
     left: 0;
-    color: var(--liant);
+    color: var(--nuit-light);
     font-weight: bold;
 }
 
-/* Grille des départs */
+/* Talent spécial */
+.talent-special {
+    border-color: var(--accent) !important;
+    background: rgba(30, 45, 82, 0.28) !important;
+    box-shadow: 0 0 25px rgba(122, 146, 204, 0.22);
+}
+
+.special-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    margin-bottom: 14px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--parchment);
+    background: var(--accent);
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+/* Grille des origines (Sections) */
 .origin-grid {
     display: grid;
     gap: 35px;
 }
 
 .origin-card {
-    background: rgba(10, 15, 10, 0.8);
+    background: rgba(5, 8, 16, 0.87);
     padding: 30px;
-    border: 3px solid var(--liant-light);
+    border: 3px solid var(--nuit-light);
     border-radius: 12px;
     transition: all 0.3s ease;
     position: relative;
@@ -486,16 +535,16 @@ body {
 
 .origin-card:hover {
     border-color: var(--accent);
-    box-shadow: 0 8px 30px rgba(74, 107, 58, 0.5);
+    box-shadow: 0 8px 30px rgba(30, 45, 82, 0.65);
     transform: translateY(-2px);
 }
 
 .origin-card.selected {
     border-color: var(--accent);
     border-width: 4px;
-    box-shadow: 0 8px 40px rgba(106, 159, 90, 0.6), 
-                0 0 0 2px rgba(106, 159, 90, 0.3);
-    background: rgba(74, 107, 58, 0.2);
+    box-shadow: 0 8px 40px rgba(122, 146, 204, 0.45), 
+                0 0 0 2px rgba(122, 146, 204, 0.28);
+    background: rgba(30, 45, 82, 0.28);
 }
 
 .origin-card.selected::before {
@@ -511,33 +560,43 @@ body {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1px;
-    box-shadow: 0 2px 8px rgba(106, 159, 90, 0.6);
+    box-shadow: 0 2px 8px rgba(122, 146, 204, 0.5);
 }
 
-/* Départs spécifiques */
-.origin-card.depart-a {
-    border-color: #5a8a4a;
-    background: linear-gradient(135deg, rgba(90, 138, 74, 0.12), rgba(10, 15, 10, 0.8));
+/* Sections spécifiques - légères teintes distinctives */
+.origin-card.section-filature {
+    border-color: #2e5070;
+    background: linear-gradient(135deg, rgba(46, 80, 112, 0.14), rgba(5, 8, 16, 0.87));
 }
 
-.origin-card.depart-b {
-    border-color: #6a7a5a;
-    background: linear-gradient(135deg, rgba(106, 122, 90, 0.12), rgba(10, 15, 10, 0.8));
+.origin-card.section-masques {
+    border-color: #3a3070;
+    background: linear-gradient(135deg, rgba(58, 48, 112, 0.14), rgba(5, 8, 16, 0.87));
 }
 
-.origin-card.depart-c {
-    border-color: #4a6a3a;
-    background: linear-gradient(135deg, rgba(74, 106, 58, 0.12), rgba(10, 15, 10, 0.8));
+.origin-card.section-voile {
+    border-color: #1e3a5a;
+    background: linear-gradient(135deg, rgba(30, 58, 90, 0.14), rgba(5, 8, 16, 0.87));
 }
 
-.origin-card.depart-d {
-    border-color: #7a6a4a;
-    background: linear-gradient(135deg, rgba(122, 106, 74, 0.12), rgba(10, 15, 10, 0.8));
+.origin-card.section-archives {
+    border-color: #2a4a6a;
+    background: linear-gradient(135deg, rgba(42, 74, 106, 0.14), rgba(5, 8, 16, 0.87));
 }
 
-.origin-card.depart-e {
-    border-color: #5a7a6a;
-    background: linear-gradient(135deg, rgba(90, 122, 106, 0.12), rgba(10, 15, 10, 0.8));
+.origin-card.section-artifices {
+    border-color: #2a4a3a;
+    background: linear-gradient(135deg, rgba(42, 74, 58, 0.14), rgba(5, 8, 16, 0.87));
+}
+
+.origin-card.section-extraction {
+    border-color: #2a3a5a;
+    background: linear-gradient(135deg, rgba(42, 58, 90, 0.14), rgba(5, 8, 16, 0.87));
+}
+
+.origin-card.section-chatiment {
+    border-color: #5a2a2a;
+    background: linear-gradient(135deg, rgba(90, 42, 42, 0.14), rgba(5, 8, 16, 0.87));
 }
 
 .origin-card h3 {
@@ -549,7 +608,7 @@ body {
 
 .origin-card h4 {
     font-family: 'Cinzel', serif;
-    color: var(--liant-light);
+    color: var(--nuit-light);
     margin: 20px 0 10px;
     font-size: 1.2rem;
 }
@@ -562,11 +621,11 @@ body {
 }
 
 .origin-card .subsection {
-    background: rgba(74, 107, 58, 0.15);
+    background: rgba(30, 45, 82, 0.22);
     padding: 20px;
     margin: 15px 0;
     border-radius: 6px;
-    border-left: 3px solid var(--liant);
+    border-left: 3px solid var(--nuit);
 }
 
 .origin-card ul {
@@ -584,33 +643,20 @@ body {
     content: '▸';
     position: absolute;
     left: 0;
-    color: var(--liant);
+    color: var(--nuit-light);
     font-weight: bold;
 }
 
-/* Liste de connaissances */
-.knowledge-list {
-    list-style: none;
-    padding: 0;
-}
-
-.knowledge-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(74, 107, 58, 0.3);
+.origin-card p {
     font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 8px;
 }
 
-.knowledge-list li:last-child {
-    border-bottom: none;
-}
-
-.knowledge-list strong {
-    color: var(--accent);
-}
-
+/* Liste de connaissances */
 .knowledge-item {
     padding: 20px 0;
-    border-bottom: 1px solid rgba(74, 107, 58, 0.3);
+    border-bottom: 1px solid rgba(30, 45, 82, 0.45);
 }
 
 .knowledge-item:last-child {
@@ -647,16 +693,16 @@ body {
     display: flex;
     gap: 15px;
     align-items: flex-start;
-    background: rgba(10, 15, 10, 0.7);
+    background: rgba(5, 8, 16, 0.82);
     padding: 20px;
     border-radius: 8px;
-    border: 2px solid var(--liant-light);
+    border: 2px solid var(--nuit-light);
     transition: all 0.3s ease;
 }
 
 .equipment-item:hover {
     border-color: var(--accent);
-    box-shadow: 0 5px 15px rgba(74, 107, 58, 0.4);
+    box-shadow: 0 5px 15px rgba(30, 45, 82, 0.55);
 }
 
 .equipment-item .icon {
@@ -684,10 +730,10 @@ body {
 }
 
 .competence-category {
-    background: rgba(10, 15, 10, 0.7);
+    background: rgba(5, 8, 16, 0.82);
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--liant-light);
+    border: 2px solid var(--nuit-light);
 }
 
 .competence-category h3 {
@@ -704,7 +750,7 @@ body {
 
 .competence-list li {
     padding: 10px 0;
-    border-bottom: 1px solid rgba(74, 107, 58, 0.3);
+    border-bottom: 1px solid rgba(30, 45, 82, 0.45);
     font-size: 1.05rem;
 }
 
@@ -749,10 +795,10 @@ body {
     position: relative;
     width: 100%;
     padding: 20px;
-    background: rgba(15, 25, 18, 0.8);
+    background: rgba(3, 5, 10, 0.92);
     border-radius: 12px;
     border: 2px solid var(--accent);
-    box-shadow: inset 0 0 30px rgba(10, 31, 15, 0.5);
+    box-shadow: inset 0 0 30px rgba(3, 5, 8, 0.65);
 }
 
 .chart-wrapper canvas {
@@ -775,7 +821,7 @@ body {
     .class-quote {
         border-left: none;
         padding-left: 0;
-        border-top: 4px solid var(--liant);
+        border-top: 4px solid var(--nuit);
         padding-top: 15px;
     }
 
@@ -817,6 +863,8 @@ body {
 
     .section-title {
         font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .content-box,

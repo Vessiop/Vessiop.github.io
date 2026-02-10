@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chasseur de la Nuit - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Chasseur de la nuit.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="shadow-overlay"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Chasseur de la nuit.jpg" alt="Chasseur de la Nuit">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🌘 Chasseur de la Nuit</h1>
+            <p class="class-quote">« Leur imprévisibilité est leur arme la plus redoutable. Ils entrent dans l'ombre… et n'en ressortent que lorsqu'ils le décident. »</p>
+            <p class="class-type">🌑 Serviteurs des Ombres • Organisation secrète • Maîtres de l'infiltration</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description</h2>
+            <div class="content-box">
+                <p>Collectant les informations pour les puissants, châtiant impitoyablement les criminels de la nation, et anéantissant leurs ennemis sans le moindre discernement. Le trait commun à ces trois énoncés est que leur action reste toujours dans l'ombre.</p>
+                <p>Ils sont les serviteurs du peuple des ombres, dévoués à leur Impératrice. L'Association des Chasseurs de la Nuit est implantée dans chaque plan existant, maîtrisant l'art de la collecte d'informations, traquant les individus et exécutant des missions d'assassinat. Leur imprévisibilité est leur arme la plus redoutable.</p>
+                <p>Vêtus d'une tenue caractéristique des Chasseurs de la Nuit, leurs vêtements élégants sont dignes du plan des ombres.</p>
+                <p>À l'origine, leur création trouve ses racines dans le plan d'Arzass (plan des ombres), où ils étaient destinés à servir en tant que gardes d'élite de l'Impératrice des Ombrales. Au fil du temps, une nouvelle Impératrice décida d'étendre le rôle des Chasseurs de la Nuit, en les transformant en une organisation vouée à traquer et à collecter tout ce que l'Impératrice désire.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d14</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & Malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +2</span>
+                        <span class="stat-item positive">CST : +2</span>
+                        <span class="stat-item positive">DEX : +2</span>
+                        <span class="stat-item positive">INT : +3</span>
+                        <span class="stat-item negative">SAG : −3</span>
+                        <span class="stat-item positive">PER : +3</span>
+                        <span class="stat-item negative">CHA : −3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 25 + 2d6</li>
+                        <li><strong>REA :</strong> +5</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 2</span>
+                        <span>Finesse : 2</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">💪 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Entraînement des Night Hunters</h3>
+                <p>Les Chasseurs de la Nuit sont formés pour affronter tout type d'ennemi : créatures d'ombre, horreurs, humanoïdes ou combattants entraînés. Cette formation leur donne une base solide dans le maniement des armes propres à leur ordre.</p>
+                <div class="subsection">
+                    <h4>Effet</h4>
+                    <ul>
+                        <li>Choisis 1 maîtrise d'armes (corps à corps et/ou distance).</li>
+                        <li>Gagne en plus 1 maîtrise d'arme spéciale propre aux Chasseurs de la Nuit.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de la magie des ombres</h3>
+                <p>Accès aux techniques fondamentales de la magie propre au plan d'Arzass et à l'ordre des Chasseurs.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Furtivité Silencieuse (mineure)</h3>
+                <p>La démarche devient plus discrète et les déplacements produisent moins de bruit, même sur un sol imparfait. Les ombres, les sons ambiants et les obstacles sont utilisés pour réduire la visibilité et masquer la présence. Les approches gagnent en finesse, tout comme les retraites rapides sans trace évidente. Très utile pour observer, surprendre, ou éviter une confrontation.</p>
+                <p><strong>Offre la Compétence :</strong> Furtivité +2 (Dextérité) ; Compétence de Trait spécifique : Déplacement silencieux (Finesse) +1</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Instinct Nocturne</h3>
+                <p>Quand le lanceur évolue dans une zone sombre ou remplie d'ombres, ses instincts se mettent en alerte. Tous ses jets d'Instinct (réactions, pressentiments, repérage "au feeling", etc.) sont faits en Avantage tant qu'il reste dans cet environnement.</p>
+            </div>
+
+            <!-- Talent spécial -->
+            <div class="talent-card talent-special">
+                <div class="special-badge">⭐ Talent Spécial — Atout de l'être</div>
+                <h3>Pacte du Chasseur de la Nuit</h3>
+                <p>Le chasseur a scellé un pacte, offrant sa vie à l'organisation et par extension à l'Obscurance. Son existence est désormais liée à sa terre natale, même au-delà de la mort.</p>
+                <div class="subsection">
+                    <h4>Éléments liés au Pacte</h4>
+                    <ul>
+                        <li><strong>Carte de vie du chasseur de la nuit</strong></li>
+                        <li><strong>Lien de la bourse des ombres</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passif de classe -->
+        <section class="section">
+            <h2 class="section-title">🕵️ Passif de classe — Fondue des Ombres</h2>
+            <div class="content-box">
+                <p>Le lanceur se glisse dans l'ombre d'une créature et y reste caché de 10 secondes à plusieurs minutes (selon la taille / stabilité de l'ombre et la situation).</p>
+
+                <div class="subsection">
+                    <h4>État</h4>
+                    <p>Tant que tu es dans l'ombre, tu es totalement immobile et concentré : tu ne peux pas attaquer, lancer d'autre effet, ni interagir.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Entrée discrète</h4>
+                    <p>Si tu veux te fondre sans attirer l'attention, fais un jet d'INT. La difficulté augmente selon la vigilance de la cible et l'environnement.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Détection</h4>
+                    <p>Une cible attentive ou sensibilisée à la magie peut tenter un jet de PER ou SAG pour remarquer "un truc anormal" dans son ombre. DD = 5 × Mod DEX du lanceur.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Sortie</h4>
+                    <p>Quitter l'ombre prend quelques secondes : tu ne peux pas agir immédiatement. Si besoin, fais un jet de Discrétion pour éviter d'être repéré au moment de sortir.</p>
+                </div>
+
+                <div class="subsection danger-box">
+                    <h4>⚠️ Faiblesse (danger)</h4>
+                    <p>Si l'ombre subit des dégâts magiques (zone, sort, effet qui touche l'ombre), tu les prends plein fouet. Dans ce cas, fais un jet de Résilience DD = 8 + (dizaines de dégâts subis) : en cas d'échec, l'état se brise (et tu es forcé de sortir).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sections d'apprentissage -->
+        <section class="section">
+            <h2 class="section-title">🎓 Origine de la Section d'apprentissage</h2>
+            <p class="intro-text">« Chaque Chasseur de la Nuit porte la marque de sa Section : une spécialité forgée dans l'ombre de l'Ordre… »</p>
+            <p class="intro-text"><strong>Choisis une Section :</strong></p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Section pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- Section Filature -->
+                <div class="origin-card section-filature">
+                    <h3>🔍 Section Filature</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Formés à traquer une cible, qu'elle soit humanoïde ou créature, ces chasseurs apprennent à exploiter chaque indice : traces, odeurs, rythmes, habitudes, failles. Rien ne leur échappe longtemps. Ils savent user de la patience comme d'une lame, et frapper au bon moment, en affaiblissant peu à peu leur proie avec la précision froide de la nuit.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Maître du Pistage (mineur) :</strong> Les traces se lisent plus finement : empreintes, perturbations, signes discrets de passage. La direction, la vitesse et parfois l'intention deviennent plus faciles à estimer. Les fausses pistes et les pièges simples se repèrent mieux. Un atout majeur pour traquer ou éviter d'être traqué.</p>
+                        <p><strong>Offre la Compétence :</strong> Pistage +2 (Perception)</p>
+                        <p style="margin-top:12px;"><strong>Traque au Clair-Obscur :</strong> Quand le lanceur doit pister dans un environnement sombre ou faiblement éclairé, il peut 1 fois par session effectuer son jet de Pistage avec Avantage.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance du domaine de la survie (Modéré)</h5>
+                        <p>Tu connais les bases pour tenir en mission : trouver de l'eau, gérer le froid, improviser un abri et économiser tes ressources. Tu sais lire un terrain pour éviter les zones trop risquées et repérer les signes annonciateurs de danger. Cette connaissance sert surtout à durer, pas à briller.</p>
+                        <h5>Connaissance du domaine de la chasse (Modéré)</h5>
+                        <p>Tu connais les habitudes des proies, les horaires, les pistes, et les méthodes pour suivre sans être vu. Tu sais préparer une approche, choisir un emplacement d'observation et exploiter les erreurs d'un être traqué. Cela t'aide autant à capturer qu'à neutraliser proprement, sans te précipiter.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>DEX +2 • PER +3 • CHA −2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 au choix : Instinct ou Savoir</p>
+                    </div>
+                </div>
+
+                <!-- Section Masques & Serments -->
+                <div class="origin-card section-masques">
+                    <h3>🎭 Section Masques & Serments</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Ici, on forme les voix de l'Ordre : manipulateurs, négociateurs, menteurs élégants, diplomates capables de gagner une mission sans dégainer une arme. Lecture du langage corporel, psychologie, subtilités sociales… Ils apprennent à analyser une personne en quelques phrases, et à retourner une situation par les mots, les promesses ou les menaces voilées.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Diplomatie Affirmée (mineure) :</strong> Les échanges sociaux tendus deviennent plus simples à gérer grâce à un ton mieux choisi et des mots plus justes. Les demandes se structurent naturellement, sans paraître agressives ou faibles. Les tensions se désamorcent plus souvent avant de dégénérer, et les négociations gagnent en crédibilité. Une prise de parole "qui tient" même lorsque le contexte est hostile.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Parole Diplomatique +1 (Social) ; Compétence : Présence Diplomatique +2 (Charisme)</p>
+                        <p style="margin-top:12px;"><strong>Langage du Voile :</strong> Lors d'une discussion diplomatique, le lanceur peut 1 fois par session obtenir un bonus à son jet de Social égal à la moitié du Mod de CHA (arrondi à l'inférieur).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance du domaine psychologique (Modéré)</h5>
+                        <p>Tu comprends mieux les réactions humaines : stress, peur, ego, culpabilité, besoin de contrôle. Tu sais repérer des incohérences simples dans un discours et anticiper comment une personne va "tenir" sous pression. Cette connaissance sert à choisir la bonne approche : calmer, confronter, flatter, ou faire douter.</p>
+                        <h5>Connaissance du domaine de la Noblesse (Modéré)</h5>
+                        <p>Tu connais les codes sociaux : titres, rangs, manières de parler, comportements attendus et fautes qui trahissent un imposteur. Tu sais comment se déroulent les échanges dans les milieux de pouvoir et où se cachent les vraies influences. Cela te permet d'éviter les erreurs grossières et de comprendre les jeux d'apparence.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>CHA passe à +3 • SAG passe à +2 • CST −2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 au choix : Social ou Sang-froid</p>
+                    </div>
+                </div>
+
+                <!-- Section Voile Obscur -->
+                <div class="origin-card section-voile">
+                    <h3>🌑 Section Voile Obscur</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Discrétion, infiltration et récolte d'informations : ce sont les véritables "chasseurs d'ombres". Ils entrent, observent, prennent ce qu'il faut… puis disparaissent sans laisser de preuve. Leurs mouvements sont silencieux, leurs actions presque imperceptibles. Comme un voile qui passe devant les yeux une fraction de seconde, ils sèment le doute — et savent parfaitement l'exploiter pour provoquer l'erreur chez l'adversaire.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Maître du Camouflage (mineur) :</strong> Se fondre dans un décor devient plus naturel grâce à une meilleure gestion de la silhouette, des couleurs et de l'immobilité. Les décors urbains comme naturels offrent plus d'angles de dissimulation exploitables. L'observation longue sans être repéré devient plus accessible. Parfait pour l'embuscade, l'espionnage ou la fuite.</p>
+                        <p><strong>Offre la Compétence :</strong> Camouflage +2 (Dextérité)</p>
+                        <p style="margin-top:12px;"><strong>Foulée des ombres :</strong> Quand le lanceur utilise Plongée des Ombres (passif), il peut dépenser 12 PE pour plonger rapidement dans l'ombre d'un individu proche sans jet. De plus, la durée de maintien dans l'ombre est augmentée, pouvant atteindre plus d'une dizaine de minutes.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance du domaine criminel (Modéré)</h5>
+                        <p>Tu connais les formes de criminalité les plus fréquentes : vols, extorsions, contrebande, assassinats commandités, fausses identités. Tu sais comment pensent les criminels "pratiques" et quels réflexes ils ont quand ils sont traqués. Cette connaissance aide à anticiper une fuite, une planque ou une réaction violente.</p>
+                        <h5>Connaissance des réseaux criminels (Modéré)</h5>
+                        <p>Tu comprends comment s'organisent les réseaux : intermédiaires, planques, messagers, corruption et territoires. Tu sais reconnaître les signes d'un lieu contrôlé (regards, mots, habitudes) et repérer les personnes "utiles" sans trop attirer l'attention. Cela te donne une lecture plus fine des villes et de leurs souterrains.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>DEX +3 • PER +2 • FOR −2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 au choix : Finesse ou Instinct</p>
+                    </div>
+                </div>
+
+                <!-- Section Archives Nocturnes -->
+                <div class="origin-card section-archives">
+                    <h3>📜 Section Archives Nocturnes</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Dans cette formation, on enseigne que l'information est une arme au moins aussi dangereuse qu'une lame. Étude, documentation, recoupement, logique rapide : ces chasseurs deviennent des érudits de terrain, capables de décortiquer un dossier, d'anticiper un piège, ou d'identifier une menace en un regard. Leur force, c'est d'avoir toujours un coup d'avance.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Maître de l'Investigation (mineur) :</strong> Les scènes se lisent avec méthode : ce qui manque, ce qui a bougé, ce qui ne colle pas. Les indices se relient plus facilement pour construire une hypothèse utilisable. Les conclusions hâtives se font plus rares grâce à une vérification instinctive. Une maîtrise précieuse pour enquêter sans se perdre dans le bruit.</p>
+                        <p><strong>Offre la Compétence :</strong> Investigation +2 (Perception)</p>
+                        <p style="margin-top:12px;"><strong>Mémoire des Archives Nocturnes :</strong> Quand le lanceur effectue un jet de connaissance précis (lié à une info/technique exacte, pas un domaine de connaissance), il réalise son jet de Savoir avec Avantage.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Amélioration d'un cran de la connaissance du domaine du plan d'Arzass</h5>
+                        <h5>Connaissance des mythes et légendes (Moyen)</h5>
+                        <p>Tu connais les récits importants : histoires anciennes, figures ombrales, lieux maudits, symboles et traditions qui reviennent dans plusieurs plans. Tu sais faire la différence entre une légende "folklore" et une légende qui cache une vérité dangereuse. Cette connaissance sert souvent à comprendre un indice culturel ou un avertissement crypté.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>INT +3 • PER +2 • FOR −2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 au choix : Savoir ou Sang-froid</p>
+                    </div>
+                </div>
+
+                <!-- Section Artifices Silencieux -->
+                <div class="origin-card section-artifices">
+                    <h3>⚙️ Section Artifices Silencieux</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Sans atteindre la technomancie, cette section donne aux Chasseurs une maîtrise solide des outils, des mécanismes et des ateliers de l'Ordre. Création et entretien d'équipements, compréhension des extensions, préparation d'armes spécialisées, ajustements rapides en mission… Tout ce qui permet d'être autonome et efficace, même loin de toute aide. C'est l'un des piliers pratiques de l'Association.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Savoir-faire : Bricolage (mineur) :</strong> Tu sais réparer, ajuster et fabriquer des solutions simples avec les moyens du bord. Une roue qui grince, une boucle cassée ou un mécanisme qui coince deviennent gérables sans atelier complet. Tu reconnais aussi ce qui est dangereux à manipuler et ce qui peut tenir "assez longtemps". Utile pour improviser des outils, renforcer un campement ou dépanner un équipement.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Bricolage +1 (Métier)</p>
+                        <p style="margin-top:12px;"><strong>Rite d'Atelier Ombral :</strong> Le lanceur peut retirer lui-même des extensions d'un niveau égal à son niveau de maîtrise de "Savoir-faire : Bricolage" (mineur = lv1, moyen = lv2, etc.). Il peut aussi préfabriquer certaines extensions de base de niveau 1, ce qui demande argent, matériaux et temps de confection.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance du domaine des Ateliers des Ombres (Modéré)</h5>
+                        <p>Tu connais les bases des ateliers de l'Ordre : organisation, outils, matériaux courants et logique des extensions. Tu sais comment sont entretenus les équipements, comment se prépare une pièce et quelles erreurs évitent les catastrophes en mission. Cela t'aide à communiquer efficacement avec les artisans de l'Ordre et à rester autonome.</p>
+                        <h5>Connaissance du domaine mécanique (Modéré)</h5>
+                        <p>Tu comprends les principes simples : leviers, engrenages, pression, verrouillage, déclencheurs et systèmes de sécurité. Tu sais reconnaître un mécanisme fragile, un dispositif truqué ou une installation dangereuse. Cette connaissance sert autant en infiltration (portes, pièges) qu'en réparation rapide sur le terrain.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>INT +2 • DEX +2 • SAG −2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 au choix : Métier ou Savoir</p>
+                    </div>
+                </div>
+
+                <!-- Section Extraction -->
+                <div class="origin-card section-extraction">
+                    <h3>🩹 Section Extraction</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Les Chasseurs apprennent à survivre, mais aussi à ramener les autres. Premiers soins, stabilisation, gestion de la douleur et récupération rapide : cette section forge des agents capables d'agir sous pression, même blessés. On y entraîne aussi l'instinct à repérer une présence vivante, à sentir une respiration faible, à retrouver quelqu'un sous les décombres ou dans le chaos d'une fuite.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Savoir-faire : Premiers soins (mineur) :</strong> Tu sais stabiliser un blessé, nettoyer une plaie et limiter les complications immédiates. Tu fais la différence entre "ça saigne" et "ça tue", et tu agis sans paniquer. Tu peux improviser des bandages, immobiliser un membre et surveiller les signes graves. Ce savoir-faire ne remplace pas la médecine avancée, mais évite le pire.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Soin manuel +1 (Métier)</p>
+                        <p style="margin-top:12px;"><strong>Sutures du Crépuscule :</strong> Le lanceur peut 1 fois par session se concentrer et effectuer un jet de Soin Manuel avec Avantage. Si ce jet est un succès, il réduit automatiquement de 1 niveau un effet de Saignement sur la cible soignée.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance du domaine médical (Modéré)</h5>
+                        <p>Tu connais les bases du corps : signes de choc, infections possibles, blessures graves et priorités de stabilisation. Tu sais quoi surveiller et quand il faut agir vite plutôt que "bien faire". Cette connaissance ne remplace pas un spécialiste, mais elle évite les erreurs qui coûtent la vie.</p>
+                        <h5>Connaissance des premiers soins (Modéré)</h5>
+                        <p>Tu sais pratiquer les gestes essentiels : nettoyer, comprimer, bander, immobiliser, limiter l'hémorragie et surveiller l'état général. Tu comprends comment éviter d'aggraver une blessure et comment déplacer un blessé sans le briser. C'est une connaissance de terrain, faite pour intervenir vite et correctement.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>CST +3 • PER +2 • CHA −2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 au choix : Résilience ou Métier</p>
+                    </div>
+                </div>
+
+                <!-- Section Châtiment des Horreurs -->
+                <div class="origin-card section-chatiment">
+                    <h3>⚔️ Section Châtiment des Horreurs</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Cette section forme les spécialistes des affrontements inégaux : monstres nocturnes, bêtes féroces, créatures humanoïdes aux facultés anormales. Discipline, sang-froid et adaptation constante : ils apprennent à tenir face à plus fort qu'eux, à exploiter l'environnement, et à survivre à des combats qui, pour d'autres, seraient perdus d'avance. Leur ingéniosité en plein chaos est leur vraie arme.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Entraînement mineur à la résistance à la peur (Mineur) :</strong> La peur perturbe moins l'action : panique et figement deviennent plus rares. Même sous menace, une décision reste possible et le souffle se reprend plus vite. Cela aide à tenir un rôle, protéger un allié ou reculer proprement. Un talent de tenue mentale, pas d'inconscience.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Courage mental +1 (Sang-froid)</p>
+                        <p style="margin-top:12px;"><strong>Lame d'Arzass :</strong> Quand le lanceur affronte un monstre avec une arme de Chasseur de la Nuit, il ignore 10% de la Résistance spéciale de la cible (physique ou magique, selon le type de l'attaque).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Amélioration d'un cran de la connaissance du bestiaire d'Arzass</h5>
+                        <h5>Connaissance du domaine des Monstres (Modéré)</h5>
+                        <p>Tu connais les comportements typiques des monstres : territorialité, chasse, intimidation, rituels, réactions aux blessures et à la lumière. Tu sais repérer des signes annonciateurs et comprendre quand une créature joue avec sa proie plutôt que de fuir. Cette connaissance sert surtout à survivre et à choisir une stratégie réaliste face à l'inconnu.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>FOR +3 • CST +2 • INT −2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 au choix : Puissance ou Résilience ou Sang-froid</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances de base -->
+        <section class="section">
+            <h2 class="section-title">📘 Connaissances de base</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Chasseurs de la Nuit (Intermédiaire)</h4>
+                    <p>Tu connais la structure de l'Ordre : ses rangs, ses règles, ses usages et ses méthodes de mission. Tu comprends comment se transmettent les contrats, comment se valident les réussites, et ce qui est considéré comme une faute grave. Tu sais aussi reconnaître les signes, codes et habitudes propres aux Chasseurs, même lorsqu'ils cherchent à rester discrets.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine du Plan d'Arzass (Intermédiaire)</h4>
+                    <p>Tu connais les bases de ce plan : ses zones, ses ambiances, ses dangers typiques et ses coutumes ombrales. Tu sais comment la pénombre y "vit" différemment, et quels lieux sont à éviter sans préparation. Cette connaissance t'aide à te repérer, à comprendre les comportements locaux et à anticiper certaines menaces.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance des armes des Chasseurs de la Nuit (Moyen)</h4>
+                    <p>Tu connais les armes usuelles de l'Ordre : leur maniement général, leur entretien et leurs usages en mission. Tu sais distinguer une arme standard d'une arme spéciale, et reconnaître leurs particularités (équilibre, discrétion, impact, contraintes). Tu comprends aussi pourquoi certaines armes sont privilégiées selon le type de cible.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du bestiaire du Plan d'Arzass (Moyen)</h4>
+                    <p>Tu connais les créatures les plus courantes d'Arzass : leurs comportements, leurs signes de présence et leurs dangers habituels. Tu sais repérer des indices simples (griffures, silences anormaux, traces, odeurs) et éviter les erreurs classiques face à elles. Cette connaissance ne fait pas de toi un expert absolu, mais elle réduit fortement les mauvaises surprises.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align:center; font-size:1.2rem; margin:0;"><strong>+1 en arme au choix</strong></p>
+            </div>
+        </section>
+
+        <!-- Carte de vie & Bourse -->
+        <section class="section">
+            <h2 class="section-title">📜 Carte de Vie & Bourse des Ombres</h2>
+
+            <div class="talent-card">
+                <h3>📜 Carte de Vie du Chasseur de la Nuit</h3>
+                <p>Chaque chasseur diplômé de l'École des Chasseurs de la Nuit possède cette carte, un outil multifonction essentiel à sa carrière.</p>
+                <div class="subsection">
+                    <h4>Fonctionnalités</h4>
+                    <ul>
+                        <li>✔ Réception des missions directement via la carte</li>
+                        <li>✔ Validation des missions accomplies et attribution des récompenses</li>
+                        <li>✔ Obtention des "Louanges des Ombres" (argent, amélioration de capacités, caractéristiques, infos…)</li>
+                        <li>✔ Matérialisation unique : liée à l'essence du chasseur, il peut la faire apparaître à volonté</li>
+                        <li>✔ Lecture restreinte : seuls d'autres chasseurs ou décodeurs magiques peuvent en comprendre le contenu</li>
+                        <li>✔ Permet l'évolution de rang via missions majeures</li>
+                    </ul>
+                    <p style="margin-top:12px;">Cette carte représente à la fois l'identité, la progression et les ressources du chasseur, renforçant son rôle dans l'organisation.</p>
+                </div>
+            </div>
+
+            <div class="talent-card">
+                <h3>👛 Bourse des Ombres</h3>
+                <p>La Bourse des Ombres est une poche spéciale non physique à première vue, liée au chasseur. Elle ajoute, via un lien connecté à la carte de vie du chasseur de la nuit, une section dédiée dans son inventaire pour stocker l'argent gagné grâce à ses missions.</p>
+                <div class="subsection">
+                    <h4>Utilisation principale</h4>
+                    <ul>
+                        <li>✔ Réception automatique des paiements de missions</li>
+                        <li>✔ Transfert d'argent vers les Informateurs des Ombres pour obtenir des renseignements</li>
+                        <li>✔ Ne peut pas être remplie manuellement : seulement par mission ou promotion</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">💼 Objets offerts</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🥷</span>
+                    <div>
+                        <h4>Équipement de Chasseur de la Nuit</h4>
+                        <p>Équipement de chasseur de la nuit, vêtement équivalent à une armure légère avec une extension magique. Offre la Compétence : Furtivité des ombres N.A +10.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Arme classique au choix</h4>
+                        <p>Dès le lv 10, l'option des armes de chasseur sera disponible.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">📜</span>
+                    <div>
+                        <h4>Carte de Vie du Chasseur (nom de code unique)</h4>
+                        <p>Slots fantôme — liée à l'essence du chasseur</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">👛</span>
+                    <div>
+                        <h4>Bourse des Ombres</h4>
+                        <p>Slots fantôme — poche non physique liée à la carte de vie</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>+2 potions de vie</h4>
+                        <p>Soins d'urgence</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">💜</span>
+                    <div>
+                        <h4>+2 potions de magie</h4>
+                        <p>Restauration des points de magie</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">💚</span>
+                    <div>
+                        <h4>+2 potions d'endurance</h4>
+                        <p>Restaure les points d'endurance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">✅ Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🎯 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Furtivité (DEX)</strong> — Te déplacer sans être vu ni entendu, te cacher, approcher une cible ou quitter une zone discrètement.</li>
+                        <li><strong>Magie des ombres (INT)</strong> — Utiliser et contrôler les techniques/sorts liés aux ombres, avec précision et efficacité.</li>
+                        <li><strong>Arme X (FOR/DEX)</strong> — Attaquer avec ton arme de prédilection (FOR pour impact/armes lourdes, DEX pour précision/armes fines ou tir).</li>
+                        <li><strong>Analyse comportementale (SAG)</strong> — Lire les attitudes, micro-gestes et intentions probables d'une cible pour anticiper ses réactions.</li>
+                        <li><strong>Analyse psychologique (SAG)</strong> — Comprendre les motivations, peurs et failles d'une personne pour choisir la meilleure approche (calmer, pousser, manipuler).</li>
+                        <li><strong>Réactif (REA)</strong> — Réagir vite à un danger, saisir une ouverture, éviter une action surprise ou déclencher une réponse réflexe.</li>
+                        <li><strong>Réflexion (INT)</strong> — Résoudre un problème, construire une déduction logique, relier des indices et éviter les conclusions hâtives.</li>
+                        <li><strong>Pistage (PER)</strong> — Suivre une trace, estimer direction/vitesse, repérer une fausse piste et retrouver une cible en fuite.</li>
+                        <li><strong>Lecture des mensonges (SAG)</strong> — Détecter incohérences, mensonges et dissonances émotionnelles dans un discours ou une réaction.</li>
+                        <li><strong>Esquive (DEX)</strong> — Éviter une attaque en sortant de la ligne, grâce au timing, au placement et à la mobilité.</li>
+                    </ul>
+                </div>
+                <div class="competence-category">
+                    <h3>🧷 Compétences de trait spécifique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Désamorçage (Métier)</strong> — Repérer et neutraliser un piège ou mécanisme dangereux avec méthode, sans déclencher l'activation.</li>
+                        <li><strong>Résistance à la peur (Sang-froid)</strong> — Tenir face à l'effroi, limiter la panique et rester capable de décider et d'agir sous menace.</li>
+                        <li><strong>Pas silencieux (Finesse)</strong> — Marcher et se repositionner sans bruit, même sur terrain imparfait, en contrôlant appuis et rythme.</li>
+                        <li><strong>Résistance à la chaleur (Résilience)</strong> — Supporter températures élevées, fumées, effort en chaleur et limiter l'épuisement lié.</li>
+                        <li><strong>Résistance au froid (Résilience)</strong> — Tenir en environnement glacé, réduire engourdissement et perte d'efficacité due au froid.</li>
+                        <li><strong>Récolte d'informations (Social)</strong> — Obtenir des renseignements via contacts, rumeurs, questions bien placées, sans éveiller les soupçons.</li>
+                        <li><strong>Manipulation (Social)</strong> — Influencer quelqu'un par pression subtile, suggestion ou exploitation de ses failles, sans forcément mentir frontalement.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sentir une embuscade, une surveillance ou un piège "avant preuve", et choisir un réflexe de survie.</li>
+                        <li><strong>Bricolage (Métier)</strong> — Réparer, ajuster ou improviser un outil/équipement rapidement avec les moyens du bord.</li>
+                        <li><strong>Identification de monstre (Savoir)</strong> — Reconnaître une créature, ses habitudes et dangers typiques, et déduire une réponse tactique viable.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/ClasseDCL/Chasseur de la nuit.js"></script>
+</body>
+</html>
