@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éclat du Cirque - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Eclat du Cirque.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="circus-overlay"></div>
+    <div class="confetti" id="confetti"></div>
+
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/cIRQUE.jpg" alt="Éclat du Cirque">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🎭 Éclat du Cirque</h1>
+            <p class="class-quote">« MESDAMES ET MESSIEURS ! Ouvrez grand vos yeux, vos cœurs, et vos esprits, car je vais vous montrer ce que le Domaine du Cirque a de plus beau à vous offrir : de la joie, de la fantaisie, et surtout… de la bonne humeur ! »</p>
+            <p class="class-type">🎪 Artistes du Merveilleux • Magie des émotions • Maîtres de la scène</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">🎭 Description</h2>
+            <div class="content-box">
+                <p><strong>Parole d'un acteur :</strong> « Humoriste le jour, clown la nuit… ou l'inverse ? Franchement, je ne sais plus. Ce que je sais, en revanche, c'est que j'aime ce que je fais. Et ce que j'aime par-dessus tout, c'est voir les sourires s'allumer sur les visages des habitants des différents plans. Grâce à mes talents magiques, évidemment… Quoi ? Vous ne me croyez pas ? (clin d'œil complice et petit rire) Eh bien soit ! (raclement de gorge solennel) MESDAMES ET MESSIEURS ! Ouvrez grand vos yeux, vos cœurs, et vos esprits, car je vais vous montrer ce que le Domaine du Cirque a de plus beau à vous offrir : de la joie, de la fantaisie, et surtout… de la bonne humeur ! »</p>
+                <p>Ainsi commence l'étrange et merveilleuse épopée des Éclats du Cirque, une classe née d'un plan que certains disent factice, d'autres mythique — mais que tous s'accordent à trouver… spectaculaire. Liés aux Grands Cirques, véritables troupes magiques itinérantes entre les plans, ces artistes incarnent une magie unique : la Magie du Merveilleux.</p>
+                <p>Véritables investigateurs des émotions, ils voyagent de régions en régions pour offrir aux âmes en manque ce qu'elles ont perdu : le rire, l'émerveillement, le plaisir… et lorsque le moment l'exige, la tristesse juste, la catharsis, et le réconfort. Jongleurs, trapézistes, clowns, contorsionnistes — et bien d'autres encore — ils donnent corps et cœur à leurs numéros pour raviver, chez le peuple, des émotions étouffées par les temps difficiles.</p>
+                <p>Les Éclats du Cirque ne dominent pas par la force brute, mais par leur présence scénique, leur créativité débordante, et leur capacité à transformer un champ de bataille en piste de spectacle. Toujours prêts à improviser, à provoquer une ovation ou à détourner un sort par une pirouette, ils ne laissent jamais personne indifférent. Et si un jour vous en croisez un au détour d'un village, d'un plan… ou d'une tragédie, soyez prêt : quand la lumière s'allume, le spectacle commence.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d14</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & Malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −2</span>
+                        <span class="stat-item negative">CST : −2</span>
+                        <span class="stat-item positive">DEX : +3</span>
+                        <span class="stat-item positive">INT : +1</span>
+                        <span class="stat-item positive">SAG : +3</span>
+                        <span class="stat-item neutral">PER : 0</span>
+                        <span class="stat-item positive highlight">CHA : +3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 30 + 3d6</li>
+                        <li><strong>REA :</strong> +4</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 2</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 2</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de la magie fantastique du Cirque</h3>
+                <p>Voici la forme de magie la plus singulière des Éclats du Cirque : elle puise sa puissance dans les émotions partagées et la résonance du public. Elle permet de créer des artifices dans le pur thème du cirque, sous toutes leurs formes : des armes puissantes à l'allure volontairement ridicule, des ballons capables de déclencher des explosions élémentaires, et une multitude d'autres manifestations aussi créatives qu'imprévisibles — tout est bon pour susciter l'émotion.</p>
+                <p>Cette magie tire sa force du Cirque d'affiliation du lanceur, comme si la troupe elle-même nourrissait le sort.</p>
+                <p><strong>Cette magie est humour. Cette magie est drama. Cette magie est, tout simplement… émotionnelle.</strong></p>
+                <p><strong>Offre la compétence :</strong> Magie du Cirque (INT) +2</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Pouvoir du Patron</h3>
+                <p>Le lanceur peut utiliser la Caractéristique de Charisme (CHA) à la place de l'Intelligence (INT) pour le lancement de ses sorts de certaines catégories de maîtrise magique. Tous les tests de magie et d'incantation sont désormais basés sur CHA au lieu d'INT.</p>
+                <p><strong>(Mod INT remplacé par Mod CHA sur les dégâts)</strong></p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Virtuose de la Piste</h3>
+                <p>Grâce à son expérience dans l'art du cirque, le lanceur dégage une aisance naturelle face au public.</p>
+                <ul>
+                    <li>Il réduit la difficulté de tout jet de Sang-froid de -4 lorsqu'il est en situation de représentation ou sous les regards.</li>
+                    <li>Il obtient également la compétence « Prestation de Cirque » N.A (Charisme) à +10, utilisable pour tout tour où il réalise une action de spectacle du cirque.</li>
+                </ul>
+            </div>
+
+            <div class="talent-card">
+                <h3>Action Cirquique (Mineur)</h3>
+                <p>Les performances de cirque de base deviennent plus propres et plus sûres : jonglage, équilibre scénique, pirouettes, figures simples. La coordination et la présence s'améliorent, même sous regard ou en environnement instable. Cela permet de divertir, de distraire, ou d'exécuter des gestes précis en mouvement. Un talent à la frontière entre technique et spectacle.</p>
+                <p><strong>Offre la Compétence :</strong> Arts du cirque +2 (Dextérité) ; Compétence de Trait spécifique : Adresse scénique +1 (Finesse)</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Serment des Quatre Vents</h3>
+                <p>Par le pacte tabou du Serment des Quatre Reflets, connu et transmis dans tous les Cirques — anciens comme récents — les Éclats obtiennent un accès particulier au Domaine Élémentaire propre à leur art. Concrètement, cela signifie que chaque Éclat peut, lorsqu'il lance un sort de Magie du Cirque Élémentaire, y ajouter un choix de nature élémentaire supplémentaire, en s'inspirant des "reflets" du Cirque.</p>
+                <ul>
+                    <li>Le lanceur choisit jusqu'à 3 natures élémentaires disponibles pour cet effet.</li>
+                    <li>Attention : ce ne sont pas des maîtrises magiques.</li>
+                    <li>Les maîtrises conventionnelles restent basées sur la Source Élémentaire du personnage.</li>
+                    <li>Ici, c'est un effet additionnel : à chaque lancement d'un sort de Cirque Élémentaire, le lanceur peut choisir une nature élémentaire parmi ses Reflets, et l'appliquer en plus, de façon cohérente avec la source élémentaire du lanceur et le thème du sort.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Passif de classe -->
+        <section class="section">
+            <h2 class="section-title">🎪 Passif de classe — Ovations du Chapiteau</h2>
+            <div class="content-box">
+                <div class="subsection">
+                    <h4>🎭 Condition</h4>
+                    <p>Si le lanceur est entouré d'un groupe (PNJ) ou d'au moins 3 PJ (hors lanceur).</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>✨ Bonus</h4>
+                    <p>Avantage sur :</p>
+                    <ul>
+                        <li>Prestation du Cirque</li>
+                        <li>Sorts du Cirque basés sur CHA</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4>🎪 Points de Cirque (PC)</h4>
+                    <p><strong>PC max = (Mod CHA × 2) + 4</strong></p>
+                    
+                    <h5>Dépenses</h5>
+                    <ul>
+                        <li><strong>Réplique Parfaite (4 PC, 1/scène) :</strong> +10 sur un jet de CHA et -1 à la valeur d'échec critique pour ce jet.</li>
+                        <li><strong>Rattrapage d'Ovation (6 PC, 1/session) :</strong> relance un jet de CHA lié au Cirque raté (garder le meilleur).</li>
+                        <li><strong>Puissance Optimale (6 PC) :</strong> si tu devais gagner un 2e avantage sur un sort du Cirque déjà en avantage, tu le convertis en « puissance optimale ».</li>
+                    </ul>
+
+                    <h5>Récupération des Points de Cirque</h5>
+                    <ul>
+                        <li>Le lanceur récupère 1 PC par long repos.</li>
+                        <li>Il peut aussi récupérer des PC s'il réalise une prestation marquante ou insuffle l'émotion de son Domaine du Cirque.</li>
+                    </ul>
+
+                    <h5>Rappel d'Applaudissements — 1 fois par scène</h5>
+                    <p>Après une bonne prestation (ou une action qui provoque réellement l'émotion du Domaine du Cirque) :</p>
+                    <p><strong>➤ Le lanceur récupère 1dX PC, avec :</strong></p>
+                    <ul>
+                        <li>X = la dizaine de la Marge de Réussite si le jet est un jet de base CHA</li>
+                        <li>X = la Marge de Réussite si le jet est un jet de base Social</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formations de Cirque -->
+        <section class="section">
+            <h2 class="section-title">🎪 Formation d'un Cirque</h2>
+            <p class="intro-text">« Chaque artiste porte l'éclat de sa troupe… Quel rôle choisirez-vous ? »</p>
+            <p class="intro-text"><strong>Choisissez votre Formation :</strong></p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Formation pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- ClownGard -->
+                <div class="origin-card formation-clown">
+                    <h3>🤡 ClownGard</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Humoriste le jour, combattant quand il le faut, le ClownGard est à la fois le blagueur officiel de la troupe et un gardien fiable. Il provoque des émotions chez ceux qui en ont besoin, en lien direct avec le Domaine du Cirque de sa compagnie. Armé de son humour et d'un style de combat volontairement clownesque — feintes, pirouettes, provocations — il fait rêver les plus jeunes… tout en restant un rempart solide pour ceux qui suivent une voie d'action.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Blagueur (mineur) :</strong> L'humour sert d'outil social : détendre, désamorcer, ou relancer un moral qui s'effondre. Les répliques tombent mieux, avec un sens du timing plus sûr. Les tensions se brisent plus souvent avant d'exploser, sans ridiculiser les mauvaises personnes. Un talent qui rend l'ambiance plus respirable quand tout se crispe.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Humour +1 (Social) ; Compétence : Présence Humoristique (Charisme)</p>
+                        <p style="margin-top:12px;"><strong>Sentinelle du Rire (Physique ou Magique – au choix) :</strong> Le lanceur canalise son aura scénique pour renforcer son impact en combat. ➤ Effet : le lanceur obtient un bonus à son Mod Physique ou Mod Magique (au choix au moment de l'acquisition) égal à son Mod de CHA.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance du domaine de l'Humour (Modéré)</h5>
+                        <p>Tu connais les grands registres comiques : satire, absurde, burlesque, provocation légère, et humour de situation. Tu sais surtout quand et comment l'utiliser : détendre, détourner l'attention, casser une tension, ou relever un moral qui s'effondre. Tu comprends les limites sociales (ce qui humilie, ce qui apaise, ce qui déclenche) et tu sais adapter ton jeu selon la culture du plan. Enfin, tu sais "lire" une salle : ce qui fait rire ici peut être un affront ailleurs.</p>
+                        <h5>Connaissance du domaine des Grands Cirques (Modéré)</h5>
+                        <p>Tu connais les principaux Grands Cirques, leur style, leur réputation, et les différences de codes entre eux (Soleil, Fantasme, Déprime, Folie…). Tu sais comment une troupe se structure : qui commande, qui décide, comment on recrute, et comment on règle les conflits internes. Tu connais aussi les règles tacites : tabous, pactes, "dettes de piste", et la façon dont les Cirques protègent leurs secrets. Enfin, tu sais reconnaître une troupe au premier regard grâce aux détails de tenue, d'accessoires et de rituels.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>CHA +3 • FOR +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Social +1</p>
+                    </div>
+                </div>
+
+                <!-- Trapézistes -->
+                <div class="origin-card formation-trapeze">
+                    <h3>🎪 Trapézistes</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Maîtres de l'aérien, les Trapézistes sont de véritables as de la voltige. Ils sautent de plateforme en plateforme sans la moindre hésitation, comme si le vent les portait à chaque envol. Dans une compagnie, leur rôle varie : messagers, éclaireurs, explorateurs… ce sont souvent ceux qu'on envoie récupérer ce qui est inaccessible. On dit qu'ils sont bénis par l'aura des « Quatre Vents » — une expression philosophique du cirque, mais aussi un mot porte-chance. Une fois sur leur terrain de jeu, ils deviennent presque insaisissables.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Maîtrise mineure de l'Acrobatie :</strong> Les figures et franchissements deviennent plus propres : roulades, sauts, réceptions et mouvements aériens s'enchaînent avec maîtrise. La gestion de l'élan et du timing évite les retombées maladroites et les blessures bêtes. Même sous pression, le corps garde une réponse coordonnée. Idéal pour traverser, impressionner, ou survivre à une situation instable.</p>
+                        <p><strong>Compétence :</strong> Action acrobatique +2 (Dextérité) ; Trait spécifique : Acrobatie +1 (Finesse)</p>
+                        <p style="margin-top:12px;"><strong>Bénédiction des Quatre Vents :</strong> Le corps du lanceur répond comme porté par un souffle invisible, au bon moment. ➤ Effet : 1 fois par session, le lanceur peut obtenir un bonus sur un jet de Finesse égal au Mod de CHA ou au Mod de DEX (au choix au moment de l'utilisation). ➤ Bonus spécial : si c'est un jet acrobatique / trapéziste, le jet est effectué en avantage.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance des agrès aériens (Modéré)</h5>
+                        <p>Tu connais les agrès de voltige : trapèze, tissus, sangles, corde lisse, anneaux, perches et lignes de sécurité. Tu sais vérifier les points critiques : nœuds, mousquetons, tension, ancrages, usure et répartition du poids. Tu comprends les principes de base des trajectoires et de l'élan : où prendre la vitesse, où casser le mouvement, où réceptionner sans se blesser. Enfin, tu sais improviser un dispositif simple en terrain réel (pont, descente, récupération) sans transformer ça en suicide.</p>
+                        <h5>Connaissance du domaine des Grands Cirques (Modéré)</h5>
+                        <p>Tu connais les troupes majeures, leurs signatures de spectacle et leurs façons de voyager entre les plans. Tu sais comment les Grands Cirques gèrent la sécurité, les répétitions, et les itinéraires "sûrs" (ou interdits). Tu reconnais les styles d'aérien selon le cirque : aérien lumineux, onirique, dramatique ou chaotique. Enfin, tu sais à qui parler dans une troupe pour obtenir un passage, un accès, ou une autorisation.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>DEX +3 • PER +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Instinct +1</p>
+                    </div>
+                </div>
+
+                <!-- Acteur de Cirque -->
+                <div class="origin-card formation-acteur">
+                    <h3>🎭 Acteur de Cirque</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Jongleurs, équilibristes, musiciens ou comédiens, les Acteurs de Cirque portent mille visages au sein d'une compagnie. Leurs rôles sont aussi divers que variés — et c'est précisément ce qui fait leur charme. Ce sont eux qui animent les spectacles, remplissent le chapiteau de rythme et de panache, et assurent la vie quotidienne de la troupe. Sans eux, le cirque n'aurait ni cœur… ni souffle : ce sont les véritables piliers de chaque compagnie.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Talent évolutif lié à son rôle du cirque au choix</strong></p>
+                        <p style="margin-top:12px;"><strong>Aimant de Piste :</strong> Par sa simple présence et ses tours, le lanceur sait capter les regards et retourner l'énergie d'un public. ➤ Effet : 1 fois par session, le lanceur obtient avantage sur un jet de Charisme envers une foule. ➤ Bonus spécial : si c'est un jet de Prestation, le taux de marge de réussite sur le jet est augmenté de +5 × (Mod de CHA du lanceur).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Amélioration d'un cran de la connaissance du domaine du Cirque</h5>
+                        <p>Tu as une compréhension plus avancée du fonctionnement d'un cirque : pas seulement la scène, mais aussi les coulisses, la logistique et la discipline de troupe. Tu sais comment se construisent les spectacles : répétitions, transitions, rythme, gestion des imprévus et sécurité. Tu connais mieux les rôles et leurs interactions (régie, artistes, artisans, monteurs, intendance). Enfin, tu sais comment une compagnie tient debout : contrats, rumeurs, réputation, et équilibre interne.</p>
+                        <h5>Connaissance du domaine des Grands Cirques (Modéré)</h5>
+                        <p>Tu sais comment les Grands Cirques se distinguent des compagnies ordinaires : influence, accès aux plans, pactes et règles propres. Tu connais leur manière de négocier avec les autorités locales et comment ils obtiennent protection ou tolérance. Tu comprends aussi leurs stratégies : certains cherchent la lumière, d'autres le rêve, d'autres la catharsis ou le chaos contrôlé. Enfin, tu sais repérer quand un "chapiteau" n'est pas normal et que la troupe cache quelque chose.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>DEX +3 • INT +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Finesse +1</p>
+                    </div>
+                </div>
+
+                <!-- Costumier -->
+                <div class="origin-card formation-costumier">
+                    <h3>🧵 Costumier</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Artisan de l'image et de l'impact scénique, le Costumier conçoit, ajuste, répare et adapte costumes, masques et ornements — parfois enchantés. Il ne "déguisera" pas seulement quelqu'un : il le transforme pour servir un rôle, une illusion ou une émotion. Et certains jurent que ce n'est pas de l'illusion… juste le talent du cirque à son plus haut niveau. Avec quelques accessoires et un peu de maquillage, il peut changer un visage entier… pour un temps.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Maître du Déguisement (mineur) :</strong> L'apparence se transforme avec plus de crédibilité : posture, intonation et détails sociaux s'alignent. Un rôle ne se limite plus à un costume, il devient une manière d'exister. Les infiltrations et sorties se font avec moins d'accrocs visibles. Particulièrement utile pour passer des contrôles ou changer d'identité en ville.</p>
+                        <p><strong>Offre la Compétence :</strong> Déguisement +2 (Charisme)</p>
+                        <p style="margin-top:12px;"><strong>Métamorphose d'Atelier :</strong> Avec un peu d'équipement et un savoir-faire affûté, le lanceur peut transformer quelqu'un en un temps anormalement court, même sous pression. ➤ Effet : tout jet de Métier effectué sous pression voit sa Difficulté réduite de -2. ➤ Toute personne maquillée / changée par le lanceur effectue ses jets de Charisme (pour "rester dans la peau" du personnage visuellement) en avantage.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance de la Costumerie du cirque (Modéré)</h5>
+                        <p>Tu maîtrises les bases solides de la costumerie de scène : tissus, coupes, attaches rapides, réparations express et confort en mouvement. Tu sais créer une silhouette lisible de loin, adapter un costume à un numéro (aérien, combat, illusion) et éviter les détails dangereux. Tu connais aussi les masques, maquillages et ornements : comment ils transforment un visage, un statut, une présence. Enfin, tu sais dissimuler de petites choses dans une tenue sans que ça se voie (poches, doublures, fixations).</p>
+                        <h5>Connaissance du domaine des Grands Cirques (Modéré)</h5>
+                        <p>Tu connais les styles visuels des Grands Cirques : palettes, symboles, matériaux, et la "signature" de chaque troupe. Tu sais reconnaître un costume officiel, une tenue de répétition, ou un déguisement de couverture utilisé en ville. Tu connais les règles internes sur les masques et identités : qui a le droit de porter quoi, et ce qui est tabou. Enfin, tu comprends pourquoi l'apparence dans les Grands Cirques est une arme : elle guide l'émotion autant que la magie.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>INT +3 • CHA +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Métier +1</p>
+                    </div>
+                </div>
+
+                <!-- Technicien de l'ombre -->
+                <div class="origin-card formation-technicien">
+                    <h3>🕯️ Technicien de l'ombre</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Maître des coulisses, le Technicien de l'ombre contrôle tout ce que le public ne doit jamais voir : lumières, fumées, mécanismes, entrées/sorties, câbles, agrès, bruitages… Il rend le spectacle possible en maîtrisant l'invisible, et sait même "scénariser" un champ de bataille. Récepteur du cirque, il a aussi accès à de nombreux objets et accessoires — souvent cachés dans sa petite poche comique, pleine de surprises. Mais surtout, il gère les affaires "sales" dont la troupe a parfois besoin : récupération d'informations, élimination de nuisibles, infiltration, discrétion. C'est lui qui consolide les fondations de la compagnie, dans l'ombre.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Furtivité Silencieuse (mineure) :</strong> La démarche devient plus discrète et les déplacements produisent moins de bruit, même sur un sol imparfait. Les ombres, les sons ambiants et les obstacles sont utilisés pour réduire la visibilité et masquer la présence. Les approches gagnent en finesse, tout comme les retraites rapides sans trace évidente. Très utile pour observer, surprendre, ou éviter une confrontation.</p>
+                        <p><strong>Offre la Compétence :</strong> Furtivité +2 (Dextérité) ; Compétence de Trait spécifique : Déplacement silencieux (Finesse) +1</p>
+                        <p style="margin-top:12px;"><strong>Relais du Cirque :</strong> Le lanceur est un soutien de proximité : il lit le timing, guide le mouvement, et peut prendre la place au moment critique. ➤ Effet : lorsque le lanceur est à côté d'un allié, 1 fois par tour, il peut consommer 1 PR pour offrir à cet allié un bonus sur sa prochaine action offensive physique (au contact) égal à (Mod de PER) × 2. ➤ Si l'allié réussit son action, le lanceur peut, pour 10 PE, intervertir sa position avec l'allié (si l'allié accepte).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance du domaine de la Psychologie (Modéré)</h5>
+                        <p>Tu comprends les réactions humaines de base : stress, panique, mensonge, agressivité, effet de foule, et mécanismes de défense. Tu sais repérer les signaux faibles : micro-changements de ton, gestes, regards, incohérences et comportements "trop propres". Tu sais aussi comment influencer sans magie : rythme, silence, pression douce, détournement et suggestion. Enfin, tu connais les limites : quand une personne est juste nerveuse… ou réellement dangereuse.</p>
+                        <h5>Connaissance du domaine Criminel (Modéré)</h5>
+                        <p>Tu connais les logiques criminelles courantes : racket, réseaux d'informateurs, contrebande, faux papiers, repérages et filatures. Tu sais reconnaître des signes : lieux de rendez-vous, codes de passage, messages cachés et comportements de "surveillance". Tu comprends aussi comment une opération se prépare : couverture, sortie, diversion, et effacement de traces. Enfin, tu sais que l'information vaut souvent plus que la violence, et tu sais où chercher sans te faire remarquer.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER +3 • INT +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Savoir +1</p>
+                    </div>
+                </div>
+
+                <!-- Sorcière enchanteresse -->
+                <div class="origin-card formation-sorciere">
+                    <h3>🧪 Sorcière enchanteresse</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Une sorcière… il y en a toujours une dans les histoires et les contes de fées. Dans les cirques, les Sorcières enchanteresses et leurs mixtures de chaudron sont toujours, disons… particulières. Elles s'occupent des potions, des décoctions, des poudres et de la magie pratique — souvent sous le rôle de vendeuse ou de guérisseuse étrange. Mais lorsqu'il faut incarner la "méchante" pour effrayer, impressionner ou déclencher une émotion forte grâce à une potion, une présence ou un regard… elle prend ce rôle avec un talent redoutable.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Savoir-faire : Alchimie (mineur) :</strong> Tu maîtrises les bases des mélanges stables : dosages, chauffe, agitation et précautions élémentaires. Tu peux préparer des produits de terrain (baumes, irritants, fumées simples, neutralisants légers) si tu as les ingrédients. Tu reconnais les erreurs typiques qui rendent un mélange dangereux. Ce savoir-faire donne une alchimie "fiable", même sans laboratoire.</p>
+                        <p><strong>Compétence de Trait spécifique :</strong> Alchimie +1 (Métier)</p>
+                        <p style="margin-top:12px;"><strong>Maîtrise mineure du cœur Arcanique : Toxine :</strong> La Maîtrise du Cœur Arcanique est une faculté transmise par certains sorciers et occultistes cherchant à perfectionner leur arsenal magique. Elle consiste à manipuler les filaments de magie et à les faire circuler dans sa Source élémentaire, afin de les convertir — par des arts plus sombres — en une nature plus infectieuse et plus toxique. ➤ Effet : Offre la compétence Magie toxique +2. ⚠️ Note : Cette maîtrise n'appartient pas à la catégorie des sorts du Cirque.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance du domaine de l'Alchimie (Modéré)</h5>
+                        <p>Tu connais les bases fiables des mélanges : dosages, chauffes, stabilisation, agitation, et erreurs qui rendent un produit dangereux. Tu sais préparer des décoctions utiles en déplacement : baumes, fumées simples, irritants légers, neutralisants basiques, teintures et solvants. Tu sais identifier une potion "qui a tourné" et éviter les accidents de manipulation. Enfin, tu connais les précautions essentielles : gants, ventilation, contenants, et compatibilités.</p>
+                        <h5>Connaissance du domaine des Poisons (Modéré)</h5>
+                        <p>Tu connais les familles de poisons : irritants, paralysants légers, toxines lentes, et poisons de contact (selon ce qui existe dans ton univers). Tu sais repérer les symptômes typiques et distinguer ce qui relève d'une toxine, d'une maladie ou d'une corruption. Tu connais les bases d'une réponse : dilution, neutralisation simple, et mesures d'urgence en attendant un vrai traitement. Enfin, tu sais que le poison est surtout une question de dose, de temps, et de voie d'entrée.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>INT +3 • SAG +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Savoir +1</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances de base -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances de base</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Éclats du Cirque (Moyen)</h4>
+                    <p>Tu connais l'histoire, les règles internes et les usages propres aux Éclats du Cirque : leur manière de voyager, leurs hiérarchies implicites, et les codes qui les protègent. Tu sais reconnaître une troupe, un "chapiteau d'anomalie", et les signes qu'un Éclat laisse derrière lui (marques, rituels, symboles). Tu comprends aussi leur réputation : bienveillance publique, mais méfiance des ordres mystiques. Enfin, tu sais comment négocier avec eux ou demander un service sans franchir un tabou.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance de la magie du cirque : l'art mystique du spectacle (Modéré)</h4>
+                    <p>Tu comprends comment la Magie du Cirque transforme la mise en scène en énergie : rythme, émotion partagée, présence, et artifice. Tu sais distinguer les effets "purs" (illusion, émotion, spectacle) des effets "élémentaires" (accessoires infusés, explosions, plateformes). Tu connais les risques : trop d'intensité peut provoquer des débordements, des réactions de foule, ou des effets inattendus. Enfin, tu sais identifier quel type d'émotion alimente le mieux un numéro (joie, émerveillement, peur contrôlée, mélancolie, absurde).</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine du cirque (Moyen)</h4>
+                    <p>Tu connais la vie de troupe : montage, répétitions, tournées, gestion du public, sécurité des agrès, et organisation des spectacles. Tu sais reconnaître les rôles clés (maître de piste, régie, artistes, artisans) et comprendre comment une compagnie se structure au quotidien. Tu connais aussi les habitudes de recrutement, les rites d'entrée, et les règles de discipline sous le chapiteau. Enfin, tu sais comment un cirque survit : contrats, dons, mécénat, rumeurs, et protection des routes.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine du Plan Infernal (Modéré)</h4>
+                    <p>Tu connais les grands principes du Plan Infernal : ses dangers, ses zones d'influence, ses règles implicites et la logique de ses entités. Tu sais reconnaître des signes d'activité infernale (pactes, symboles, corruption émotionnelle, fausses promesses) et les comportements typiques des créatures qui y sont liées. Tu comprends aussi pourquoi ce plan attire les pactes, les dettes, et les échanges de pouvoir contre un prix. Enfin, tu sais qu'on n'y survit pas par la force seule : l'information, les précautions et les limites claires valent souvent plus qu'un combat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align:center; font-size:1.2rem; margin:0;"><strong>À déterminer selon le choix du personnage</strong></p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">📦 Équipement de départ</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🎪</span>
+                    <div>
+                        <h4>Armure/vêtement du domaine du cirque au choix</h4>
+                        <p>Tenue d'artiste adaptée au rôle choisi dans la troupe</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">🎫</span>
+                    <div>
+                        <h4>Carte d'insigne d'âmes du cirque</h4>
+                        <p>Un badge/carte spécial pouvant être matérialisé par magie (un seul badge actif à la fois). Il sert d'insigne officiel et relie les informations essentielles du lanceur : identité de base, appartenance à un Grand Cirque, rôle au sein de sa compagnie, ainsi que ses Points d'Argent du Cirque et quelques autres données fondamentales.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">🎁</span>
+                    <div>
+                        <h4>Un objet de la boutique du Cirque de base</h4>
+                        <p>(non arme ou armure)</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">💜</span>
+                    <div>
+                        <h4>2 potions de magie</h4>
+                        <p>Restauration des points de magie</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>1 potion de vie</h4>
+                        <p>Soins d'urgence</p>
+                    </div>
+                </div>
+            </div>
+            <div class="highlight-box" style="margin-top:20px;">
+                <p style="text-align:center;"><strong>Accès à la Boutique Universelle du Cirque</strong></p>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🎯 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Magie du Cirque (INT)</strong> — Utiliser la Magie du Merveilleux pour créer illusions, artifices et effets scéniques. Sert aussi à modeler les accessoires enchantés (ballons, rubans, cerceaux…) et à maîtriser leurs effets.</li>
+                        <li><strong>Arme de lancer (FOR/DEX)</strong> — Toucher et contrôler des projectiles (dague, carte, petite hache, objet de scène lancé). Permet aussi de gérer les lancers en mouvement, les trajectoires et les tirs rapides.</li>
+                        <li><strong>Observation des foules (PER)</strong> — Lire une foule : repérer meneurs, menaces, suspects, réactions et dynamiques de groupe. Utile en ville, en représentation, ou dans un attroupement tendu.</li>
+                        <li><strong>Prestation de cirque (CHA)</strong> — Réussir un numéro, captiver un public et imposer une présence scénique. Sert à divertir, distraire, apaiser ou impressionner par la performance.</li>
+                        <li><strong>Mise en scène (CHA)</strong> — Organiser le rythme d'une scène : entrées/sorties, transitions, effets dramatiques, timing, placement. Permet de transformer une action en "moment" qui influence l'attention et les émotions.</li>
+                        <li><strong>Lecture émotionnelle (SAG)</strong> — Percevoir l'état émotionnel réel d'une cible (peur, colère, tristesse, excitation) et sentir les incohérences. Très utile contre le bluff, les manipulations et les faux rôles.</li>
+                        <li><strong>Déguisement (CHA)</strong> — Modifier crédiblement l'apparence et l'attitude : posture, voix, détails sociaux. Sert à passer des contrôles, infiltrer, ou changer d'identité sans éveiller les soupçons.</li>
+                        <li><strong>Furtivité (DEX)</strong> — Se déplacer et agir sans être remarqué, en utilisant ombres, angles morts et timing. Permet aussi d'approcher, se retirer ou se cacher efficacement.</li>
+                        <li><strong>Arme X (FOR/DEX)</strong> — Compétence d'arme flexible liée à l'équipement ou au style choisi (arme de scène, arme de garde, arme signature). Sert à attaquer proprement et à utiliser les techniques basiques de cette arme.</li>
+                        <li><strong>Action acrobatique (DEX)</strong> — Réaliser sauts, roulades, réceptions et figures en situation réelle (combat, poursuite, terrain instable). Sert autant à éviter un danger qu'à se repositionner proprement.</li>
+                        <li><strong>Robustesse (CST)</strong> — Encaisser l'effort : fatigue, marche longue, coups légers, conditions difficiles. Sert aussi à tenir sous pression physique et à éviter de "lâcher" trop vite.</li>
+                        <li><strong>Lecture de la Scène (SAG)</strong> — Comprendre ce qui se joue dans une situation : intentions, rapports de force, pièges sociaux, basculement d'ambiance. Permet de choisir le bon moment pour agir ou se taire.</li>
+                        <li><strong>Réflexion (INT)</strong> — Analyse froide et méthodique : déduire, planifier, résoudre, repérer une solution logique. Sert aussi à anticiper les options adverses et éviter les erreurs bêtes.</li>
+                    </ul>
+                </div>
+                <div class="competence-category">
+                    <h3>🧩 Compétences de trait spécifique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Déplacement agile (Finesse)</strong> — Bouger avec contrôle et fluidité, même dans des espaces étroits ou encombrés. Sert à passer entre des obstacles, se glisser, ou garder des appuis propres.</li>
+                        <li><strong>Déplacement silencieux (Finesse)</strong> — Réduire au maximum le bruit des pas et des gestes en mouvement. Très utile pour s'approcher, se repositionner, ou fuir sans alerter.</li>
+                        <li><strong>Acrobatie (Finesse)</strong> — Exécuter des gestes techniques précis : équilibre fin, appuis risqués, figures maîtrisées. Sert là où une acrobatie "brute" ne suffit pas : il faut du contrôle parfait.</li>
+                        <li><strong>Costumerie (Métier)</strong> — Coudre, réparer, ajuster et optimiser des tenues (costumes, masques, accessoires). Permet aussi d'adapter une tenue à une situation (discrétion, scène, mobilité).</li>
+                        <li><strong>Calme sous regard (Sang-froid)</strong> — Garder ses moyens quand tout le monde observe : pression sociale, public, intimidation, danger visible. Sert à éviter panique, bégaiement, perte de contrôle ou erreur de timing.</li>
+                        <li><strong>Savoir du domaine Infernal (Savoir)</strong> — Connaissances et repères liés au domaine infernal : symboles, pactes, règles, créatures, risques et tabous. Sert à reconnaître un signe, éviter une erreur grave, ou interpréter une situation occulte.</li>
+                        <li><strong>Humour (Social)</strong> — Utiliser le comique comme outil : détendre, désamorcer, détourner l'attention, créer de la sympathie. Sert aussi à provoquer sans déclencher immédiatement l'hostilité.</li>
+                        <li><strong>Instinct de détection de mensonge (Instinct)</strong> — Sentir quand quelque chose "cloche" : micro-réactions, incohérences, émotion fausse. Ne donne pas la vérité absolue, mais indique qu'on te cache quelque chose.</li>
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Continuer malgré la douleur, un choc ou une blessure gênante. Sert à ne pas perdre ses moyens et à rester fonctionnel quand le corps proteste.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Pressentir un risque imminent : embuscade, piège, intention hostile, situation qui tourne mal. Sert à réagir plus tôt, se décaler, ou éviter d'avancer au mauvais endroit.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe classique/ClasseDCL/Eclat du Cirque.js"></script>
+</body>
+</html>
