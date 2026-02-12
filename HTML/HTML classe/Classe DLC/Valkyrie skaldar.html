@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skaldar / Valkyrie - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Valkyrie skaldar.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="sky-overlay"></div>
+    <div class="clouds" id="clouds"></div>
+
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/skaldare.jpg" alt="Skaldar / Valkyrie">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">⚔️ Skaldar / Valkyrie</h1>
+            <p class="class-quote">« Le ciel est notre domaine, la terre n'est qu'un point de départ. »</p>
+            <p class="class-type">🌌 Guerriers du ciel • Maîtres du vent • Elite d'Yggdrasil</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">
+                📜 Description
+                <span class="valkyrie-trigger">
+                    ✨ Parole de Valkyrie
+                    <div class="valkyrie-popup">
+                        <div class="popup-arrow"></div>
+                        <div class="popup-header">« Parole de Valkyrie Commande Einhéria »</div>
+                        <div class="popup-scroll">
+                            <p>« Le ciel est notre domaine, la terre n'est qu'un point de départ. Dans la bataille, chaque saut est une prière adressée aux astres, chaque coup de lance une promesse de victoire. Nous ne laissons pas la faiblesse, l'échec ou la peur nous enchaîner. Nous sommes les messagers de la gloire éternelle, et notre honneur brille comme les étoiles. Si vous trébuchez, c'est l'héritage que vous trahissez, et cela, je ne le tolérerai pas. »</p>
+                        </div>
+                    </div>
+                </span>
+            </h2>
+            <div class="content-box">
+                <p>Les Skaldars et Valkyries d'Yggdrasil représentent l'élite des combattants du ciel : une force de l'Ordre formée pour agir là où les autres manquent d'appuis, de vitesse, ou de souffle. Héritiers de traditions anciennes, ils portent un style martial devenu légendaire, né d'un plan où l'air lui-même semble répondre aux pas de ceux qui ont su le comprendre.</p>
+                <p>Leur art repose sur trois piliers : l'arme d'hast, la verticalité, et le rythme. Lance, hallebarde ou javelot deviennent des extensions naturelles du corps, utilisées pour contrôler la distance, frapper avec précision, ou percer une garde au moment exact. Là où d'autres combattent "à plat", eux imposent le combat depuis les hauteurs : bonds, retombées, angles impossibles, et attaques fulgurantes qui transforment le champ de bataille en terrain de chasse.</p>
+                <p>Le vent n'est pas seulement un décor : il accompagne leur mouvement. Les Skaldars/Valkyries ne manipulent pas l'essence comme une caste magique classique ; ils la guident. Dans leurs impulsions, leurs réceptions et leurs enchaînements, l'air suit le geste et renforce le style — comme si Yggdrasil reconnaissait l'héritage de ses guerriers célestes.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d16</li>
+                        <li><strong>PM :</strong> 1d12</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & Malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +2</span>
+                        <span class="stat-item negative">CST : −2</span>
+                        <span class="stat-item positive">DEX : +2</span>
+                        <span class="stat-item negative">INT : −3</span>
+                        <span class="stat-item positive">SAG : +2</span>
+                        <span class="stat-item positive highlight">PER : +4</span>
+                        <span class="stat-item negative">CHA : −1</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 25 + 3d6</li>
+                        <li><strong>REA :</strong> +8</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 2</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 2</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Formation de Skaldar / Valkyrie</h3>
+                <p>Formé dans les écoles de police de ton monde d'origine, tu as appris les bases des armes d'hast et à les manier comme une extension de ton corps. Tu obtiens les maîtrises mineures suivantes :</p>
+                <ul>
+                    <li>Maîtrise mineure : Lance</li>
+                    <li>Maîtrise mineure : Hallebarde</li>
+                    <li>Maîtrise mineure : Javelot</li>
+                </ul>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de l'art du combat : Pluie de Piques Lunaires</h3>
+                <p>Style de combat propre aux Skaldars/Valkyries, né sur leur plan d'origine. Il repose sur une agilité surnaturelle et un corps extrêmement léger, permettant des propulsions, bonds et attaques fulgurantes avec des armes d'hast, mêlant puissance et précision. Mais cet art est aussi lié à l'essence magique environnante, la manipulant pas comme les autres castes magiques, mais la guidant pour produire des effets de vent qui suivent le mouvement du lanceur.</p>
+                <p><strong>Offre la compétence :</strong> Technique des Piques Lunaires (FOR/DEX) +2</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Ossature d'Astre-Léger</h3>
+                <p>Grâce à une constitution rare propre à certains natifs du plan d'Yggdrasil, ton corps est anormalement léger et réagit comme s'il "accrochait" l'air.</p>
+                <p><strong>Condition :</strong> l'effet s'applique tant que tu ne portes pas d'armure lourde.</p>
+                <ul>
+                    <li>Tu peux réaliser facilement des bonds verticaux ou horizontaux atteignant environ ± 3–4 mètres (sans jet).</li>
+                    <li>Pour toute figure spéciale (appui sur une surface, double impulsion, changement brutal de trajectoire, saut en angle compliqué, etc.), tu dois réussir un jet de Finesse avec une DD choisie selon la difficulté.</li>
+                </ul>
+                <h4>Chutes contrôlées :</h4>
+                <p>Tant que tu n'as pas perdu l'équilibre et que la chute est volontaire et maîtrisée :</p>
+                <ul>
+                    <li>Aucun dégât de chute jusqu'à 3 mètres.</li>
+                    <li>Au-delà de 3 mètres, les dégâts de chute sont réduits de 50%.</li>
+                </ul>
+            </div>
+
+            <div class="talent-card">
+                <h3>Pas de lune innée</h3>
+                <p>Le vent semble reconnaître ton origine. Par un don lié à l'essence d'Yggdrasil, tu peux créer de brefs jets d'air comprimé sous tes pieds pour enchaîner des petits bonds sur quelques secondes.</p>
+                <p><strong>Coût :</strong> 5 PE (pour l'action).</p>
+                <p><strong>Effet :</strong> tu peux effectuer une suite de petits sauts rapides (propulsions courtes) pour te repositionner ou franchir un obstacle.</p>
+                <p><strong>Limite :</strong> tu ne peux pas rester en stationnaire avec cette faculté : elle sert uniquement à avancer / bondir, pas à flotter sur place.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Choix de talent (1 au choix)</h3>
+                <div class="subsection">
+                    <h4>Maîtrise mineure de l'Agilité</h4>
+                    <p>Les déplacements gagnent en fluidité et en précision, même lors des changements brusques de direction. Les appuis deviennent plus sûrs, ce qui réduit les pertes d'équilibre et améliore les réactions instinctives. L'esquive et l'évitement se font avec moins d'hésitation, sans "casser" le mouvement. Cette maîtrise sert autant en combat qu'en terrain difficile.</p>
+                    <p><strong>Trait spécifique :</strong> Agilité de mouvement +1 (Finesse)</p>
+                </div>
+                <div class="subsection">
+                    <h4>ou</h4>
+                </div>
+                <div class="subsection">
+                    <h4>Maître du Saut Précis (mineur)</h4>
+                    <p>Les distances se jugent plus vite et les réceptions deviennent plus sûres. Les obstacles se franchissent avec moins d'hésitation et moins de perte de vitesse. En combat, cela aide à se repositionner ou à sortir d'un danger immédiat. Un talent de mobilité nette, pensé pour l'efficacité.</p>
+                    <p><strong>Obtient la compétence de Trait spécifique :</strong> Saut +1 (Finesse) et la Compétence : Saut (Dextérité) +2.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passif de classe -->
+        <section class="section">
+            <h2 class="section-title">🌀 Passif de classe — Rythme Astral</h2>
+            <div class="content-box">
+                <div class="subsection">
+                    <h4>⭐ Ressource : Points de Bravoure (PB)</h4>
+                    <p><strong>PB : 0 / 6 max</strong></p>
+                    
+                    <h5>✅ Gagner des PB</h5>
+                    <ul>
+                        <li>Début de ton tour (sauf 1er tour du combat) : +1 PB</li>
+                        <li>1 fois par tour, si tu réussis une de ces actions : +1 PB
+                            <ul style="margin-left: 20px; margin-top: 5px;">
+                                <li>Parade réussie</li>
+                                <li>Coup critique</li>
+                                <li>Manœuvre acrobatique réussie</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4>🛡️ MODE DEFAULT — Stocker & Tenir</h4>
+                    <p><strong>Fréquence :</strong> 1 fois par tour</p>
+                    <p>Tu déclares Default et tu consommes des PA (y compris des PA non utilisées). (Attention : les points consommés sont consommés et non réutilisables durant le tour.)</p>
+                    <h5>Effets (jusqu'au début de ton prochain tour) :</h5>
+                    <ul>
+                        <li>+2 PB (sans dépasser 6)</li>
+                        <li>Réduction de dégâts : –10% par PA consommé</li>
+                        <li>Exemple : 2 PA consommés → –20% dégâts reçus, même s'il pourrait te rester d'autres PA.</li>
+                    </ul>
+                    <p><strong>Attention :</strong> si le lanceur fait une réaction lorsqu'il est en Mode Default, il perd ce mode.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>⚔️ MODE BRAVE — Enchaîner & Percer</h4>
+                    <p>Pendant ton tour, tu peux consommer des PA et PE pour obtenir des attaques bonus.</p>
+                    <h5>Attaques Brave (bonus)</h5>
+                    <ul>
+                        <li>Chaque 2 PA et 10 PE consommés → +1 Attaque Brave</li>
+                        <li>Attaque Brave = attaque simple uniquement (pas de capacité / pas de sort)</li>
+                        <li>Dégâts d'une Attaque Brave : –50%</li>
+                        <li>Maximum : 3 Attaques Brave bonus par tour</li>
+                    </ul>
+
+                    <h5>⭐ Expertise Brave (par arme)</h5>
+                    <p>Quand tu touches avec une arme de ta Formation (hors multi-coup qui est compté pour 1 point) :</p>
+                    <p><strong>Lance / Hallebarde / Javelot → +1 Point d'Expertise Brave de l'arme utilisée.</strong></p>
+                    <p>Quand l'Expertise Brave atteint le seuil requis, ça permet d'activer des attaques spéciales Brave liées à la catégorie d'arme (Lance / Hallebarde / Javelot).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capacité de classe -->
+        <section class="section">
+            <h2 class="section-title">⚡ Capacité de classe</h2>
+            <div class="content-box">
+                <div class="subsection">
+                    <h4>LV 1 — Bond d'Astre-Vent</h4>
+                    <p><strong>Coût :</strong> 1 PA / 26 PE / 2 PB</p>
+                    <p><strong>Portée :</strong> 15 ft / <strong>Durée :</strong> instantané</p>
+                    <p>Tu compresses l'air sous tes appuis : une impulsion nette te projette vers l'avant ou vers le haut, comme si le vent te "portait" une fraction de seconde.</p>
+                    
+                    <h5>Règles :</h5>
+                    <p>Tu te déplaces jusqu'à 15 ft en saut (vertical ou horizontal), en ignorant les terrains difficiles liés au sol (marches, débris, boue, etc.). À la fin du bond, tu peux choisir 1 option :</p>
+                    <ul>
+                        <li><strong>Option A — Atterrissage offensif :</strong> si tu es au contact d'un ennemi (5 ft) et que tu tiens une arme d'hast (lance/hallebarde) ou un javelot, tu peux effectuer 1 attaque simple immédiatement ; cette attaque gagne +10 % dégâts et 5 % en plus sur les chance d'activé l'effet « Perforation »</li>
+                        <li><strong>Option B — Repositionnement pur :</strong> tu termines ton bond sans attaque et tu gagnes +2 au prochain jet de Finesse lié au mouvement avant la fin de ton tour (ex : réception, équilibre, figure simple).</li>
+                    </ul>
+
+                    <h5>Limites :</h5>
+                    <ul>
+                        <li>1 fois par tour.</li>
+                        <li>Ne permet pas de rester en stationnaire.</li>
+                        <li>Si tu es Entravé/Immobilisé (ou effet équivalent), la capacité échoue (le coût est dépensé).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formations -->
+        <section class="section">
+            <h2 class="section-title">🎖️ Formation</h2>
+            <p class="intro-text">« Chaque formation forge un guerrier différent… Quelle voie as-tu choisie ? »</p>
+            <p class="intro-text"><strong>Choisis ta Formation :</strong></p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Formation pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- Formation Lance -->
+                <div class="origin-card formation-lance">
+                    <h3>⚔️ Formation Lance</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Soldat de formation et policier de fonction, tu as suivi l'entraînement officiel du Plan Naturel. Formé aux bases de l'art du combat de l'Ordre, tu es un guerrier aussi redoutable au sol que dans les airs. Bénis par le vent, les Skaldars/Valkyries issus de cette voie sont connus pour être presque impossibles à distancer : sur les autres Plans, sans monture rapide, rares sont ceux capables de leur échapper longtemps.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Amélioration d'un cran</strong> sur le talent d'une maîtrise d'arme d'hast obtenue via le talent « Formation de Skaldar / Valkyrie » (un au choix)</p>
+                        <p style="margin-top:12px;"><strong>Maître du Pistage (mineur) :</strong> Les traces se lisent plus finement : empreintes, perturbations, signes discrets de passage. La direction, la vitesse et parfois l'intention deviennent plus faciles à estimer. Les fausses pistes et les pièges simples se repèrent mieux. Un atout majeur pour traquer ou éviter d'être traqué.</p>
+                        <p><strong>Offre la Compétence :</strong> Pistage +2 (Perception)</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Amélioration d'un cran de la connaissance du bestiaire de la nature</h5>
+                        <p>Ton expérience de terrain rend cette connaissance plus pratique et plus rapide à utiliser. Tu lis mieux les traces, les sons et les comportements, et tu reconnais plus vite les signes d'un prédateur ou d'une bête en fuite. Tu sais aussi quelles créatures réagissent au vent, aux mouvements brusques ou aux odeurs. En situation de poursuite, tu perds moins de temps sur des fausses pistes "naturelles".</p>
+                        <h5>Connaissance du domaine criminel (modéré)</h5>
+                        <p>Tu connais les formes de criminalité les plus fréquentes, leurs méthodes simples et leurs habitudes de déplacement. Tu sais où la criminalité se cache : zones de passage, marchés, ruelles, relais, ou lieux où l'autorité se fait plus rare. Cela t'aide à reconnaître une mise en scène, une diversion ou une fuite organisée, même sans preuve directe. Tu comprends aussi comment certains réseaux recrutent, se financent ou se protègent.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>FOR +2 • CST de −2 → +1</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Puissance ou Finesse</p>
+                    </div>
+                </div>
+
+                <!-- Formation Égide -->
+                <div class="origin-card formation-egide">
+                    <h3>🛡️ Formation Égide</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Protecteur et gardien, porteur de la bravoure des anciens. Cette formation regroupe les gardes d'élite de l'Ordre, entraînés à protéger des lieux sacrés et des sites stratégiques. On les décrit comme de véritables murs mobiles, réputés pour une posture exemplaire, solide, et une stabilité impressionnante dans leurs appuis. Bénis par le vent, celui-ci semble souvent combattre à leurs côtés, comme s'il renforçait naturellement leur défense.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Entraînement mineur à la résistance à la peur (mineur) :</strong> La peur perturbe moins l'action : panique et figement deviennent plus rares. Même sous menace, une décision reste possible et le souffle se reprend plus vite. Cela aide à tenir un rôle, protéger un allié ou reculer proprement. Un talent de tenue mentale, pas d'inconscience.</p>
+                        <p><strong>Trait spécifique :</strong> Résistance mentale +1 (Sang-froid)</p>
+                        <p style="margin-top:12px;"><strong>Appui de l'Égide :</strong> 1 fois par session, le lanceur peut relancer un jet de Constitution lié à la robustesse (le sien ou celui d'un allié) situé à 10 ft maximum.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance des mythes et légendes (modéré)</h5>
+                        <p>Tu connais les récits fondateurs, les symboles et les histoires qui entourent Yggdrasil, ses astres, et les serments de l'Ordre. Ces mythes ne sont pas "juste des contes" : ils influencent la culture, les lieux sacrés et les comportements des croyants. Cela te permet de comprendre pourquoi certains sites sont protégés, pourquoi certains actes sont considérés comme des profanations, et pourquoi certains ennemis cherchent à briser ces symboles. Tu sais aussi reconnaître les références importantes dans les rituels et les traditions.</p>
+                        <h5>Connaissance du domaine des lieux sacrés et historique (modéré)</h5>
+                        <p>Tu connais les lieux importants : temples, sanctuaires, monuments, anciens champs de bataille et sites de mémoire. Tu sais ce que ces lieux représentent, ce qu'il faut éviter d'y faire, et comment y maintenir l'ordre sans provoquer de scandale. Cela t'aide à sécuriser une zone avec méthode, en comprenant les accès, les points sensibles, et les routes de sortie. Tu as aussi des bases sur l'histoire locale qui expliquent pourquoi ces lieux sont autant surveillés.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>CST de −2 → +3 • SAG +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Résilience ou Sang-froid</p>
+                    </div>
+                </div>
+
+                <!-- Formation Piquée -->
+                <div class="origin-card formation-piquee">
+                    <h3>🩺 Formation Piquée</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Secouriste, sauveteur… ce sont les noms que l'on donne à ces officiers qui traversent les airs pour porter assistance aux personnes en danger. Leur vent est dit bénit pour la guérison, et leur formation les prépare à intervenir dans les pires situations : zones enflammées, falaises, précipices, victimes coincées, blessés graves… Ils ne sont pas là pour briller : ils sont là pour sauver, coûte que coûte.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Savoir-faire : Premiers soins (mineur) :</strong> Tu sais stabiliser un blessé, nettoyer une plaie et limiter les complications immédiates. Tu distingues l'urgence vitale du "ça fait mal" et tu agis avec méthode. Tu peux improviser bandages, attelles et surveillance simple, sans transformer ça en chirurgie. Ce savoir-faire évite que la moindre blessure devienne une catastrophe.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Soin manuel +1 (Métier)</p>
+                        <p style="margin-top:12px;"><strong>Ruée du Secouriste :</strong> le lanceur enchaîne une succession de bonds rapides en direction d'une cible blessée. Pendant cette ruée, toutes les attaques d'opportunité déclenchées contre lui sont effectuées avec désavantage (uniquement durant le déplacement de la ruée).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance des premiers soins (modéré)</h5>
+                        <p>Tu connais les gestes essentiels pour stabiliser un blessé, limiter une hémorragie, nettoyer une plaie et éviter l'aggravation immédiate. Tu sais faire la différence entre une urgence vitale et une blessure "impressionnante mais stable". Cela te permet d'agir vite sans faire n'importe quoi, même en situation dangereuse ou sous stress. Tu sais aussi improviser des solutions simples (bandage, attelle, surveillance) avec le matériel du terrain.</p>
+                        <h5>Connaissance du domaine médical (modéré)</h5>
+                        <p>Tu as des bases plus larges : anatomie simple, symptômes courants, signes d'infection, choc, douleur anormale, et risques liés à l'effort. Tu sais reconnaître quand une situation dépasse les premiers soins et qu'il faut un traitement plus avancé. Cela t'aide aussi à mieux comprendre les potions, baumes et soins utilisés par d'autres classes, sans forcément les pratiquer. Tu comprends enfin les limites : quand il faut immobiliser, quand il faut évacuer, et quand il faut cesser de bouger un blessé.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER +2 • CHA de −1 → +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Métier ou Social</p>
+                    </div>
+                </div>
+
+                <!-- Formation Météorologique -->
+                <div class="origin-card formation-meteo">
+                    <h3>⛈️ Formation Météorologique</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>La météo du Plan Naturel est violente… en vérité, c'est un euphémisme : elle est presque toujours catastrophique. Pluies infernales, grêlons, tempêtes de sable, brasier ardent… et parfois tout cela dans une même zone, sans logique apparente.</p>
+                        <p>Les soldats Météonomes sont formés à guider et contenir ces forces naturelles. Leur maîtrise est telle qu'ils peuvent empêcher ces phénomènes d'atteindre les zones habitées, là où peu de choses pourraient résister. C'est une spécialisation rare, extrêmement énergivore et dangereuse, mais quand ils sont présents… l'air devient étrangement plus léger, comme si le vent lui-même retenait son souffle.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Maîtrise mineure de la magie météorologique :</strong> Cette forme de magie puise dans les filaments magiques de l'environnement et de la nature, transformant cette énergie brute en phénomènes météorologiques puissants (tempêtes, éclairs, vents violents…). En raison de la densité et de la nature instable de cette source magique, les sorts météorologiques nécessitent souvent un temps de canalisation à l'aide d'un réceptacle magique, afin d'éviter que les éléments ne se déchaînent de manière incontrôlée — au risque d'affecter alliés comme ennemis. Tous les jets de canalisation liés à cette magie utilisent principalement l'INT (Intelligence), et parfois aussi la CST (Constitution), selon la nature du sort lancé.</p>
+                        <p style="margin-top:12px;"><strong>Concentration météorologique :</strong> 1 fois par session, le lanceur peut effectuer avec avantage un jet de Canalisation lié à une capacité/sort météorologique nécessitant un temps de canalisation (et non un sort instantané).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>Connaissance du domaine météorologique (modéré)</h5>
+                        <p>Tu connais les phénomènes météo du Plan Naturel : rafales, fronts instables, pluies violentes, grêles, tempêtes soudaines et changements brutaux. Tu sais repérer les signes avant-coureurs, estimer les risques et choisir un itinéraire qui réduit l'exposition. Cela te permet aussi de lire comment le vent se comporte dans une zone (couloirs, turbulences, "points morts"). En opération, tu sais quand une météo devient une menace directe pour civils et soldats.</p>
+                        <h5>Connaissance de la magie météorologique (modéré)</h5>
+                        <p>Tu connais les principes de cette magie : elle guide les filaments magiques de l'environnement pour créer des phénomènes météo, au lieu de générer l'élément "de rien". Tu comprends pourquoi cette magie demande souvent une canalisation et un réceptacle, et ce qui arrive quand elle est mal stabilisée. Cela t'aide à reconnaître un sort météo en préparation, à identifier un risque de déchaînement, et à appliquer des procédures de sécurité. Tu connais aussi les bases des jets de canalisation associés, et ce que cela exige mentalement et physiquement.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>INT de −3 → +3 • CST de −2 → +2 • SAG −2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Savoir ou Finesse</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances de base -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances de base</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine d'Yggdrasil (moyen)</h4>
+                    <p>Tu connais les grandes zones du domaine, ses reliefs, ses routes aériennes et terrestres, ainsi que ses points de passage importants. Tu comprends la logique de sa structure et les dangers naturels qui reviennent souvent selon les régions. Cela te permet de te repérer plus facilement, de prévoir les trajectoires possibles et d'éviter les erreurs de navigation "bêtes". Tu sais aussi identifier les lieux connus, leurs usages, et ce qu'ils représentent pour les habitants.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la Brigade des cieux (Valkyries d'Yggdrasil) (intermédiaire)</h4>
+                    <p>Tu connais l'existence, l'organisation générale et les rôles de la Brigade des cieux, ainsi que sa réputation sur le Plan Naturel. Tu comprends les grades, les fonctions typiques (patrouille, garde, intervention, maintien de l'ordre), et les règles de conduite attendues. Cela t'aide à agir de manière crédible face à d'autres membres de l'Ordre et à reconnaître les signes d'appartenance ou d'autorité. Tu sais aussi ce que la Brigade protège en priorité et comment elle est perçue dans les autres Plans.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du style de combat Skaldar/Valkyrie (modéré)</h4>
+                    <p>Tu maîtrises les bases théoriques du style : placements, rythmes, appuis, et enchaînements typiques entre bonds et attaques d'hast. Tu connais les principes qui rendent ce style efficace : vitesse, précision, contrôle de l'angle, et usage intelligent du vent. Cela te permet d'identifier un pratiquant, de reconnaître une posture, ou de comprendre pourquoi une manœuvre a réussi. Tu sais aussi comment ce style s'adapte selon la lance, la hallebarde ou le javelot.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du bestiaire de la nature (modéré)</h4>
+                    <p>Tu connais les créatures naturelles les plus fréquentes : leurs comportements, leurs signes de présence, et leurs dangers courants. Tu sais comment les éviter, comment ne pas les provoquer inutilement, et quelles erreurs attirent souvent l'attaque. Cela te permet aussi de reconnaître une trace ou une zone de territoire, et d'estimer rapidement le niveau de menace. Tu as des bases sur leurs faiblesses simples et sur les règles de prudence en milieu sauvage.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Langue bonus : l'yddralien</h4>
+                    <p>Langue commune spéciale au plan d'Yggdrasil</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align:center; font-size:1.2rem; margin:0;"><strong>+1 Lance / Hallebarde</strong></p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">📦 Équipement de départ</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure moyenne de service Skaldar/Valkyrie</h4>
+                        <p>Armure moyenne de corps, offrant une extension magique et annulant les malus de Finesse ou de mouvement de corps</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Lance (ou Hallebarde) de service Skaldar/Valkyrie</h4>
+                        <p>Possède l'effet « Canalisation Yggdrasilienne : lorsque cet objet fait un jet de résistance à une canalisation d'une capacité/sort Skaldar/Valkyrie, il le fait avec avantage »</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">🗡️</span>
+                    <div>
+                        <h4>2x Javelots</h4>
+                        <p>Armes de lancer d'élite</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">🎒</span>
+                    <div>
+                        <h4>Arnet à javelots de dos</h4>
+                        <p>Pouvant placer 4 javelots</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">🪢</span>
+                    <div>
+                        <h4>Corde 50 ft (15 mètres)</h4>
+                        <p>Équipement de terrain</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>1 potion de vie</h4>
+                        <p>Niveau équivalent du personnage</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">💜</span>
+                    <div>
+                        <h4>1 potion de magie</h4>
+                        <p>Niveau équivalent du personnage</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <span class="icon">💚</span>
+                    <div>
+                        <h4>1 potion d'endurance</h4>
+                        <p>Niveau équivalent du personnage</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🎯 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Attaque d'hast (FOR/DEX)</strong> — Maniement précis des armes d'hast pour piquer, faucher et contrôler la distance. Sert autant à frapper qu'à imposer ta zone d'allonge.</li>
+                        <li><strong>Jet de Javelot (FOR/DEX)</strong> — Lancer tendu et perforant, utile pour ouvrir un combat ou stopper une approche. Demande un bon timing et une trajectoire propre.</li>
+                        <li><strong>Saut Skaldar/Valkyrie (FOR)</strong> — Technique de saut d'assaut mêlant impulsion, hauteur et retombée maîtrisée. Permet d'atteindre, contourner ou surprendre une cible.</li>
+                        <li><strong>Acrobatie aérienne (DEX)</strong> — Figures, pivots, réceptions et changements d'axe en plein mouvement, même sous pression. Utile pour franchir, esquiver et garder ton rythme en combat.</li>
+                        <li><strong>Canalisation du Vent (SAG)</strong> — Guidage des flux aériens autour de toi pour accompagner tes mouvements et stabiliser certains effets. Représente ton lien "naturel" au vent plus qu'une magie classique.</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Lecture rapide du terrain, des hauteurs, des couverts et des dangers immédiats. Sert à choisir le bon angle d'attaque et éviter les pièges évidents.</li>
+                        <li><strong>Pistage (PER)</strong> — Lecture fine des traces et indices de passage : direction, vitesse, intention probable. Idéal pour traquer ou ne pas être surpris.</li>
+                        <li><strong>Présence d'Ordre (CHA)</strong> — Autorité calme et crédible : sommations, coordination, maintien du contrôle en situation tendue. Permet de faire obéir sans forcément menacer.</li>
+                        <li><strong>Réactif (Réactivité)</strong> — Capacité à agir vite au bon moment : démarrages, réflexes, réponses immédiates en combat. Représente ton tempo naturel et ta vitesse de décision.</li>
+                    </ul>
+                </div>
+                <div class="competence-category">
+                    <h3>🧩 Compétences de trait spécifique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Agilité de mouvement (Finesse)</strong> — Déplacements plus fluides et précis, même lors des changements brusques de direction. Réduit les pertes d'élan et les erreurs d'appui.</li>
+                        <li><strong>Équilibre (Finesse)</strong> — Capacité à rester stable sur des surfaces instables, glissantes ou étroites. Permet de rattraper un déséquilibre avant qu'il ne devienne une chute.</li>
+                        <li><strong>Lecture d'intention (Instinct)</strong> — Lecture rapide des signes corporels et du rythme adverse pour anticiper une attaque, une fuite ou une feinte. Aide à réagir avant que l'action ne se déclenche vraiment.</li>
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — La douleur perturbe moins tes décisions et ton efficacité sous blessure. Limite les erreurs impulsives et permet de continuer à agir proprement malgré l'inconfort.</li>
+                        <li><strong>Dialecte militaire (Social)</strong> — Connaissance des codes, formules, ordres courts et manières de parler propres aux forces de l'Ordre. Utile pour se faire comprendre vite, imposer un cadre, ou reconnaître une hiérarchie.</li>
+                        <li><strong>Soin manuel (Métier)</strong> — Gestes pratiques pour stabiliser, nettoyer et bander une blessure de manière fiable. Sert à éviter qu'un problème simple devienne une complication.</li>
+                        <li><strong>Saut (Finesse)</strong> — Meilleure estimation des distances et réceptions plus sûres, même en mouvement. Facilite le repositionnement et les franchissements rapides.</li>
+                        <li><strong>Chute maîtrisée (Finesse)</strong> — Capacité à contrôler une chute, amortir et limiter les dégâts en gardant l'équilibre. Permet de tomber "proprement" au lieu de s'écraser.</li>
+                        <li><strong>Posture Puissante (Puissance)</strong> — Stance solide et offensive qui permet d'imposer ton allonge et de casser la garde par la pression. Rend tes frappes plus "lourdes" et difficiles à ignorer.</li>
+                        <li><strong>Résistance à la peur (Résilience)</strong> — La panique et le figement deviennent plus rares face à une menace intense. Aide à tenir ta position, protéger un allié, ou reculer sans perdre le contrôle.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/ClasseDCL/Valkyrie skaldar.js"></script>
+</body>
+</html>
