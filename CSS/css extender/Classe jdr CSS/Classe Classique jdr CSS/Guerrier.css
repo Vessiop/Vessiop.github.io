@@ -1,17 +1,21 @@
 :root {
-    --parchment: #f4e4d8;
-    --parchment-dark: #d4c4a8;
-    --ink: #2c1a16;
-    --gold: #c9a961;
-    --gold-dark: #9d7d3a;
-    --burgundy: #6b2737;
+    --parchment: #1a1612;
+    --parchment-dark: #0d0a08;
+    --ink: #d4caba;
     
-    /* Couleurs Lame-Sort - palette désertique/runique */
-    --lamesort: #d4a574;
-    --lamesort-light: #e8d4b8;
-    --lamesort-dark: #9b6b3f;
-    --rune: #7a5230;
-    --rune-dark: #4a3820;
+    /* Couleurs Guerrier - palette martiale fer/acier/sang */
+    --steel: #6b7c8a;
+    --steel-light: #8a9faf;
+    --steel-dark: #3a4652;
+    --iron: #4a4a4a;
+    --iron-light: #6a6a6a;
+    --iron-dark: #2a2a2a;
+    --bronze: #b8733a;
+    --bronze-light: #d49558;
+    --blood: #8b1a1a;
+    --blood-dark: #5a0f0f;
+    --leather: #5c4a3a;
+    --leather-dark: #3a2a1a;
 }
 
 * {
@@ -23,12 +27,44 @@
 body {
     font-family: 'Crimson Text', serif;
     background-color: var(--parchment);
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(107, 124, 138, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(184, 115, 58, 0.10) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(92, 74, 58, 0.08) 0%, transparent 40%),
+        linear-gradient(180deg, transparent 0%, rgba(13, 10, 8, 0.5) 100%);
     color: var(--ink);
     min-height: 100vh;
     line-height: 1.7;
+    position: relative;
 }
 
-/* Texture de parchemin */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 1px,
+            rgba(107, 124, 138, 0.03) 1px,
+            rgba(107, 124, 138, 0.03) 2px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 1px,
+            rgba(92, 74, 58, 0.02) 1px,
+            rgba(92, 74, 58, 0.02) 2px
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Texture métal/cuir */
 .parchment-overlay {
     position: fixed;
     top: 0;
@@ -40,8 +76,15 @@ body {
             0deg,
             transparent,
             transparent 2px,
-            rgba(44, 26, 22, 0.015) 2px,
-            rgba(44, 26, 22, 0.015) 4px
+            rgba(138, 155, 168, 0.03) 2px,
+            rgba(138, 155, 168, 0.03) 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(107, 90, 68, 0.02) 2px,
+            rgba(107, 90, 68, 0.02) 4px
         );
     pointer-events: none;
     z-index: 1;
@@ -56,9 +99,9 @@ body {
     top: 20px;
     left: 20px;
     padding: 12px 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid var(--lamesort);
-    color: var(--lamesort);
+    background: rgba(42, 37, 32, 0.95);
+    border: 2px solid var(--steel);
+    color: var(--steel-light);
     text-decoration: none;
     font-family: 'Cinzel', serif;
     font-weight: 600;
@@ -69,10 +112,10 @@ body {
 }
 
 .back-button:hover {
-    background: var(--lamesort);
-    color: white;
+    background: var(--steel);
+    color: var(--parchment);
     transform: translateX(-5px);
-    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+    box-shadow: 0 4px 15px rgba(138, 155, 168, 0.6);
 }
 
 /* Section Hero */
@@ -86,16 +129,19 @@ body {
     position: relative;
     z-index: 2;
     background: linear-gradient(to bottom, 
-        rgba(212, 165, 116, 0.05) 0%, 
-        transparent 100%);
+        rgba(107, 124, 138, 0.15) 0%, 
+        rgba(13, 10, 8, 0.3) 100%);
 }
 
 .hero-image {
     flex: 0 0 400px;
     animation: fadeInLeft 1s ease-out;
     padding: 10px;
-    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(155, 107, 63, 0.1));
+    background: linear-gradient(135deg, rgba(107, 124, 138, 0.20), rgba(184, 115, 58, 0.15));
     border-radius: 16px;
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.1),
+        0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 .hero-image img {
@@ -104,19 +150,20 @@ body {
     display: block;
     border-radius: 12px;
     box-shadow: 
-        0 10px 40px rgba(212, 165, 116, 0.4),
-        0 0 0 4px var(--lamesort),
-        0 0 0 8px rgba(212, 165, 116, 0.3);
-    border: 4px solid white;
+        0 10px 40px rgba(0, 0, 0, 0.8),
+        0 0 0 4px var(--steel),
+        0 0 0 8px rgba(184, 115, 58, 0.4);
+    border: 4px solid rgba(107, 124, 138, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-image img:hover {
     transform: scale(1.02);
     box-shadow: 
-        0 15px 50px rgba(212, 165, 116, 0.5),
-        0 0 0 4px var(--lamesort-light),
-        0 0 0 8px rgba(212, 165, 116, 0.4);
+        0 15px 50px rgba(0, 0, 0, 1),
+        0 0 0 4px var(--steel-light),
+        0 0 0 8px rgba(184, 115, 58, 0.6),
+        0 0 40px rgba(184, 115, 58, 0.3);
 }
 
 .hero-content {
@@ -128,25 +175,30 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 3.5rem;
     font-weight: 900;
-    color: var(--lamesort);
+    color: var(--steel-light);
     margin-bottom: 20px;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 0px rgba(212, 165, 116, 0.2);
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 15px rgba(107, 124, 138, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 .class-quote {
     font-size: 1.4rem;
     font-style: italic;
-    color: var(--lamesort-light);
+    color: var(--bronze-light);
     margin-bottom: 25px;
     padding-left: 20px;
-    border-left: 4px solid var(--lamesort);
+    border-left: 4px solid var(--bronze);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .class-type {
     font-size: 1.1rem;
-    color: var(--rune-dark);
+    color: var(--steel);
     font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 @keyframes fadeInLeft {
@@ -201,17 +253,17 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--lamesort);
+    color: var(--steel-light);
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 3px solid var(--lamesort);
+    border-bottom: 3px solid var(--steel);
     letter-spacing: 2px;
 }
 
 .subsection-title {
     font-family: 'Cinzel', serif;
     font-size: 1.5rem;
-    color: var(--lamesort);
+    color: var(--bronze-light);
     margin: 40px 0 20px;
 }
 
@@ -222,52 +274,104 @@ body {
 }
 
 .interactive-hint {
-    background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(155, 107, 63, 0.15));
+    background: linear-gradient(135deg, rgba(138, 155, 168, 0.18), rgba(205, 127, 50, 0.15));
     padding: 15px 20px;
     border-radius: 8px;
-    border-left: 4px solid var(--rune);
+    border-left: 4px solid var(--bronze);
     margin-bottom: 30px;
     font-size: 1rem;
-    color: var(--lamesort-dark);
+    color: var(--ink);
     animation: pulse-hint 2s ease-in-out infinite;
 }
 
 @keyframes pulse-hint {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.4);
+        box-shadow: 0 0 0 0 rgba(138, 155, 168, 0.4);
     }
     50% {
-        box-shadow: 0 0 0 8px rgba(212, 165, 116, 0);
+        box-shadow: 0 0 0 8px rgba(138, 155, 168, 0);
     }
 }
 
 /* Boîte de contenu */
 .content-box {
-    background: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(135deg, rgba(26, 22, 18, 0.80), rgba(13, 10, 8, 0.85));
     padding: 30px;
-    border-left: 4px solid var(--lamesort);
+    border-left: 4px solid var(--steel);
     border-radius: 8px;
+    border: 1px solid rgba(107, 124, 138, 0.25);
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .content-box p {
     margin-bottom: 20px;
     font-size: 1.1rem;
+    color: var(--ink);
 }
 
 .content-box p:last-child {
     margin-bottom: 0;
 }
 
+.content-box .subsection {
+    background: rgba(107, 124, 138, 0.08);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 6px;
+    border-left: 3px solid var(--bronze);
+    border: 1px solid rgba(107, 124, 138, 0.15);
+}
+
+.content-box .subsection h4,
+.content-box .subsection h5 {
+    font-family: 'Cinzel', serif;
+    color: var(--bronze-light);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.content-box .subsection h5 {
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+.content-box .subsection ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+}
+
+.content-box .subsection li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+}
+
+.content-box .subsection li::before {
+    content: '⚔';
+    position: absolute;
+    left: 0;
+    color: var(--bronze);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
 .highlight-box {
-    background: rgba(212, 165, 116, 0.1);
+    background: linear-gradient(135deg, rgba(107, 124, 138, 0.15), rgba(184, 115, 58, 0.12));
     padding: 20px;
     border-radius: 6px;
-    border: 2px solid var(--lamesort);
+    border: 2px solid var(--steel);
     margin-top: 20px;
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .highlight-box p {
     margin: 0;
+    color: var(--ink);
 }
 
 /* Grille de statistiques */
@@ -278,17 +382,21 @@ body {
 }
 
 .stat-category {
-    background: rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, rgba(26, 22, 18, 0.80), rgba(13, 10, 8, 0.85));
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--lamesort-light);
+    border: 2px solid var(--steel-dark);
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .stat-category h3 {
     font-family: 'Cinzel', serif;
-    color: var(--lamesort);
+    color: var(--steel-light);
     margin-bottom: 15px;
     font-size: 1.2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .stat-category ul {
@@ -298,7 +406,8 @@ body {
 
 .stat-category li {
     padding: 8px 0;
-    border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+    border-bottom: 1px solid rgba(107, 124, 138, 0.2);
+    color: var(--ink);
 }
 
 .stat-category li:last-child {
@@ -314,35 +423,46 @@ body {
 
 .stat-item {
     padding: 10px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(10, 8, 6, 0.6);
     border-radius: 4px;
     text-align: center;
     font-weight: 600;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(107, 124, 138, 0.3);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .stat-item.positive {
-    color: #2d7a2d;
-    border-color: #5a8f5a;
-    background: rgba(90, 143, 90, 0.1);
+    color: #b8d4a8;
+    border-color: #88a878;
+    background: linear-gradient(135deg, rgba(136, 168, 120, 0.25), rgba(10, 8, 6, 0.6));
+    box-shadow: 
+        inset 0 1px 2px rgba(0, 0, 0, 0.3),
+        inset 0 -1px 0 rgba(136, 168, 120, 0.2);
 }
 
 .stat-item.negative {
-    color: #a84a2b;
-    border-color: #c9664b;
-    background: rgba(168, 74, 43, 0.1);
+    color: #e8a8a8;
+    border-color: #c88888;
+    background: linear-gradient(135deg, rgba(200, 136, 136, 0.25), rgba(10, 8, 6, 0.6));
+    box-shadow: 
+        inset 0 1px 2px rgba(0, 0, 0, 0.3),
+        inset 0 -1px 0 rgba(200, 136, 136, 0.2);
 }
 
 .stat-item.neutral {
-    color: #666;
-    border-color: #999;
-    background: rgba(150, 150, 150, 0.08);
+    color: #c8c8c8;
+    border-color: #a8a8a8;
+    background: linear-gradient(135deg, rgba(168, 168, 168, 0.20), rgba(10, 8, 6, 0.6));
 }
 
 .stat-item.highlight {
-    border: 2px solid var(--lamesort);
-    background: rgba(212, 165, 116, 0.15);
+    border: 2px solid var(--bronze);
+    background: linear-gradient(135deg, rgba(184, 115, 58, 0.30), rgba(10, 8, 6, 0.7));
     font-size: 1.1rem;
+    box-shadow: 
+        inset 0 1px 2px rgba(0, 0, 0, 0.3),
+        inset 0 -1px 0 rgba(184, 115, 58, 0.3),
+        0 0 12px rgba(184, 115, 58, 0.2);
 }
 
 .resistance-list {
@@ -357,157 +477,311 @@ body {
 
 .traits-grid span {
     padding: 8px;
-    background: rgba(212, 165, 116, 0.08);
+    background: rgba(138, 155, 168, 0.15);
     border-radius: 4px;
     font-size: 0.95rem;
+    border: 1px solid rgba(138, 155, 168, 0.3);
 }
 
 /* Cartes de talents */
 .talent-card {
-    background: rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, rgba(26, 22, 18, 0.85), rgba(13, 10, 8, 0.90));
     padding: 25px;
     margin-bottom: 20px;
-    border-left: 5px solid var(--lamesort);
+    border-left: 5px solid var(--bronze);
     border-radius: 8px;
     transition: all 0.3s ease;
+    border: 1px solid rgba(107, 124, 138, 0.25);
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.talent-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(107, 124, 138, 0.4), transparent);
 }
 
 .talent-card:hover {
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 5px 20px rgba(212, 165, 116, 0.15);
+    background: linear-gradient(135deg, rgba(26, 22, 18, 0.95), rgba(13, 10, 8, 1));
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.15),
+        0 5px 20px rgba(107, 124, 138, 0.3),
+        0 0 30px rgba(184, 115, 58, 0.15);
     transform: translateX(5px);
+    border-left-color: var(--bronze-light);
 }
 
 .talent-card h3 {
     font-family: 'Cinzel', serif;
-    color: var(--lamesort);
+    color: var(--bronze-light);
     margin-bottom: 12px;
     font-size: 1.3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
 }
 
 .talent-card h4 {
     font-family: 'Cinzel', serif;
-    color: var(--lamesort-light);
+    color: var(--steel-light);
     margin: 15px 0 10px;
     font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .talent-card p {
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 10px;
+    color: var(--ink);
 }
 
-/* Grille de parcours */
-.parcours-grid {
-    display: grid;
-    gap: 35px;
-}
-
-.parcours-card {
-    background: rgba(255, 255, 255, 0.7);
-    padding: 30px;
-    border: 3px solid var(--lamesort-light);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.parcours-card:hover {
-    border-color: var(--lamesort);
-    box-shadow: 0 8px 30px rgba(212, 165, 116, 0.2);
-    transform: translateY(-2px);
-}
-
-.parcours-card.selected {
-    border-color: var(--rune);
-    border-width: 4px;
-    box-shadow: 0 8px 40px rgba(122, 82, 48, 0.4), 
-                0 0 0 2px rgba(122, 82, 48, 0.2);
-    background: rgba(122, 82, 48, 0.08);
-}
-
-.parcours-card.selected::before {
-    content: '✓ SÉLECTIONNÉ';
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--rune);
-    color: white;
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 8px rgba(122, 82, 48, 0.4);
-}
-
-/* Parcours spécifiques */
-.parcours-card.clan-desert {
-    border-color: #c9a961;
-    background: linear-gradient(135deg, rgba(201, 169, 97, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.parcours-card.maison-korrina {
-    border-color: #7a5ac9;
-    background: linear-gradient(135deg, rgba(122, 90, 201, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.parcours-card.monde-souterrain {
-    border-color: #4a4a4a;
-    background: linear-gradient(135deg, rgba(74, 74, 74, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.parcours-card.guerrier-elementaire {
-    border-color: #29c97a;
-    background: linear-gradient(135deg, rgba(41, 201, 122, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.parcours-card.champion-desert {
-    border-color: #c94d29;
-    background: linear-gradient(135deg, rgba(201, 77, 41, 0.03), rgba(255, 255, 255, 0.7));
-}
-
-.parcours-card h3 {
-    font-family: 'Cinzel', serif;
-    color: var(--lamesort);
-    margin-bottom: 15px;
-    font-size: 1.7rem;
-}
-
-.parcours-card h4 {
-    font-family: 'Cinzel', serif;
-    color: var(--lamesort-light);
-    margin: 20px 0 10px;
-    font-size: 1.2rem;
-}
-
-.parcours-card .subsection {
-    background: rgba(212, 165, 116, 0.05);
+.talent-card .subsection {
+    background: rgba(107, 124, 138, 0.08);
     padding: 20px;
     margin: 15px 0;
     border-radius: 6px;
-    border-left: 3px solid var(--lamesort);
+    border-left: 3px solid var(--steel);
+    border: 1px solid rgba(107, 124, 138, 0.15);
 }
 
-.parcours-card ul {
+.talent-card ul {
     list-style: none;
     padding-left: 0;
     margin: 10px 0;
 }
 
-.parcours-card li {
+.talent-card li {
     padding: 6px 0 6px 20px;
     position: relative;
 }
 
-.parcours-card li::before {
-    content: '▸';
+.talent-card li::before {
+    content: '⚔';
     position: absolute;
     left: 0;
-    color: var(--lamesort);
+    color: var(--bronze);
     font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Grille des vocations (CORRECTION ICI) */
+.vocation-grid {
+    display: grid;
+    gap: 35px;
+}
+
+.vocation-card {
+    background: linear-gradient(135deg, rgba(26, 22, 18, 0.85), rgba(13, 10, 8, 0.88));
+    padding: 30px;
+    border: 3px solid var(--steel-dark);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.vocation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(107, 124, 138, 0.3), transparent);
+    border-radius: 12px 12px 0 0;
+    pointer-events: none;
+}
+
+.vocation-card:hover {
+    border-color: var(--steel-light);
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.12),
+        0 8px 30px rgba(107, 124, 138, 0.4),
+        0 0 40px rgba(184, 115, 58, 0.2);
+    transform: translateY(-2px);
+}
+
+.vocation-card.selected {
+    border-color: var(--bronze);
+    border-width: 4px;
+    box-shadow: 
+        inset 0 1px 0 rgba(212, 149, 88, 0.15),
+        0 8px 40px rgba(184, 115, 58, 0.6), 
+        0 0 0 2px rgba(184, 115, 58, 0.3),
+        0 0 60px rgba(184, 115, 58, 0.25);
+    background: linear-gradient(135deg, rgba(184, 115, 58, 0.12), rgba(26, 22, 18, 0.90));
+}
+
+.vocation-card.selected::after {
+    content: '✓ SÉLECTIONNÉ';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, var(--bronze), var(--bronze-light));
+    color: var(--parchment);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 
+        0 2px 8px rgba(184, 115, 58, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+/* Vocations spécifiques - couleurs distinctives */
+.vocation-card.forge {
+    border-color: var(--bronze);
+    background: linear-gradient(135deg, rgba(184, 115, 58, 0.15), rgba(26, 22, 18, 0.85));
+}
+
+.vocation-card.forge:hover {
+    box-shadow: 
+        inset 0 1px 0 rgba(212, 149, 88, 0.12),
+        0 8px 30px rgba(184, 115, 58, 0.5),
+        0 0 40px rgba(184, 115, 58, 0.3);
+}
+
+.vocation-card.shield {
+    border-color: var(--steel);
+    background: linear-gradient(135deg, rgba(107, 124, 138, 0.15), rgba(26, 22, 18, 0.85));
+}
+
+.vocation-card.shield:hover {
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.12),
+        0 8px 30px rgba(107, 124, 138, 0.5),
+        0 0 40px rgba(107, 124, 138, 0.3);
+}
+
+.vocation-card.rogue {
+    border-color: var(--iron);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.15), rgba(26, 22, 18, 0.85));
+}
+
+.vocation-card.rogue:hover {
+    box-shadow: 
+        inset 0 1px 0 rgba(106, 106, 106, 0.12),
+        0 8px 30px rgba(74, 74, 74, 0.5),
+        0 0 40px rgba(74, 74, 74, 0.3);
+}
+
+.vocation-card.magic {
+    border-color: #7a5aa8;
+    background: linear-gradient(135deg, rgba(122, 90, 168, 0.15), rgba(26, 22, 18, 0.85));
+}
+
+.vocation-card.magic:hover {
+    box-shadow: 
+        inset 0 1px 0 rgba(142, 110, 188, 0.12),
+        0 8px 30px rgba(122, 90, 168, 0.5),
+        0 0 40px rgba(122, 90, 168, 0.3);
+}
+
+.vocation-card.agile {
+    border-color: #5a8a5a;
+    background: linear-gradient(135deg, rgba(90, 138, 90, 0.15), rgba(26, 22, 18, 0.85));
+}
+
+.vocation-card.agile:hover {
+    box-shadow: 
+        inset 0 1px 0 rgba(110, 158, 110, 0.12),
+        0 8px 30px rgba(90, 138, 90, 0.5),
+        0 0 40px rgba(90, 138, 90, 0.3);
+}
+
+.vocation-card.stance {
+    border-color: var(--leather);
+    background: linear-gradient(135deg, rgba(92, 74, 58, 0.15), rgba(26, 22, 18, 0.85));
+}
+
+.vocation-card.stance:hover {
+    box-shadow: 
+        inset 0 1px 0 rgba(112, 94, 78, 0.12),
+        0 8px 30px rgba(92, 74, 58, 0.5),
+        0 0 40px rgba(92, 74, 58, 0.3);
+}
+
+.vocation-card.duel {
+    border-color: var(--blood);
+    background: linear-gradient(135deg, rgba(139, 26, 26, 0.15), rgba(26, 22, 18, 0.85));
+}
+
+.vocation-card.duel:hover {
+    box-shadow: 
+        inset 0 1px 0 rgba(159, 46, 46, 0.12),
+        0 8px 30px rgba(139, 26, 26, 0.5),
+        0 0 40px rgba(139, 26, 26, 0.3);
+}
+
+.vocation-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--steel-light);
+    margin-bottom: 15px;
+    font-size: 1.7rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+}
+
+.vocation-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--bronze-light);
+    margin: 20px 0 10px;
+    font-size: 1.2rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.vocation-card .subsection {
+    background: rgba(107, 124, 138, 0.08);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 6px;
+    border-left: 3px solid var(--bronze);
+    border: 1px solid rgba(107, 124, 138, 0.15);
+}
+
+.vocation-card .subsection h4 {
+    color: var(--bronze-light);
+}
+
+.vocation-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+}
+
+.vocation-card li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+}
+
+.vocation-card li::before {
+    content: '⚔';
+    position: absolute;
+    left: 0;
+    color: var(--bronze);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.vocation-card p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 8px;
+    color: var(--ink);
 }
 
 /* Grille d'équipement */
@@ -521,28 +795,37 @@ body {
     display: flex;
     gap: 15px;
     align-items: flex-start;
-    background: rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, rgba(26, 22, 18, 0.80), rgba(13, 10, 8, 0.85));
     padding: 20px;
     border-radius: 8px;
-    border: 2px solid var(--lamesort-light);
+    border: 2px solid var(--steel-dark);
     transition: all 0.3s ease;
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .equipment-item:hover {
-    border-color: var(--lamesort);
-    box-shadow: 0 5px 15px rgba(212, 165, 116, 0.15);
+    border-color: var(--bronze);
+    box-shadow: 
+        inset 0 1px 0 rgba(212, 149, 88, 0.12),
+        0 5px 15px rgba(107, 124, 138, 0.4),
+        0 0 20px rgba(184, 115, 58, 0.2);
+    transform: translateY(-2px);
 }
 
 .equipment-item .icon {
     font-size: 2.5rem;
     flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 .equipment-item h4 {
     font-family: 'Cinzel', serif;
-    color: var(--lamesort);
+    color: var(--bronze-light);
     margin-bottom: 5px;
     font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .equipment-item p {
@@ -558,17 +841,21 @@ body {
 }
 
 .competence-category {
-    background: rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, rgba(26, 22, 18, 0.80), rgba(13, 10, 8, 0.85));
     padding: 25px;
     border-radius: 8px;
-    border: 2px solid var(--lamesort-light);
+    border: 2px solid var(--steel-dark);
+    box-shadow: 
+        inset 0 1px 0 rgba(138, 159, 175, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .competence-category h3 {
     font-family: 'Cinzel', serif;
-    color: var(--lamesort);
+    color: var(--steel-light);
     margin-bottom: 15px;
     font-size: 1.2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .competence-list {
@@ -578,7 +865,7 @@ body {
 
 .competence-list li {
     padding: 10px 0;
-    border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+    border-bottom: 1px solid rgba(138, 155, 168, 0.2);
     font-size: 1.05rem;
 }
 
@@ -587,7 +874,7 @@ body {
 }
 
 .competence-list strong {
-    color: var(--lamesort);
+    color: var(--bronze-light);
 }
 
 /* Footer */
@@ -601,13 +888,13 @@ body {
 .divider {
     width: 200px;
     height: 2px;
-    background: linear-gradient(to right, transparent, var(--lamesort), transparent);
+    background: linear-gradient(to right, transparent, var(--steel), transparent);
     margin: 0 auto 20px;
 }
 
 .footer p {
     font-size: 0.95rem;
-    color: var(--gold-dark);
+    color: var(--steel);
     letter-spacing: 1px;
 }
 
@@ -623,9 +910,14 @@ body {
     position: relative;
     width: 100%;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(10, 8, 6, 0.8), rgba(13, 10, 8, 0.9));
     border-radius: 12px;
-    border: 2px solid var(--lamesort);
+    border: 2px solid var(--bronze);
+    box-shadow: 
+        inset 0 1px 0 rgba(212, 149, 88, 0.1),
+        inset 0 0 30px rgba(0, 0, 0, 0.6),
+        0 4px 16px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(184, 115, 58, 0.15);
 }
 
 .chart-wrapper canvas {
@@ -648,14 +940,14 @@ body {
     .class-quote {
         border-left: none;
         padding-left: 0;
-        border-top: 4px solid var(--lamesort);
+        border-top: 4px solid var(--bronze);
         padding-top: 15px;
     }
 
     .stats-grid,
     .equipment-grid,
     .competences-grid,
-    .parcours-grid {
+    .vocation-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -695,7 +987,7 @@ body {
     .content-box,
     .stat-category,
     .talent-card,
-    .parcours-card {
+    .vocation-card {
         padding: 20px;
     }
 

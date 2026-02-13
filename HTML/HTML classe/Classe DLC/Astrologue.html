@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrologue - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Astrologue.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="stars-container" id="stars"></div>
+    <div class="cosmos-overlay"></div>
+
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/aSTROLGOUE.png" alt="Astrologue">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">✨ Astrologue</h1>
+            <p class="class-quote">« En levant les yeux vers les cieux, nous ne cherchons pas seulement de beaux motifs : nous traquons des signatures astrales. »</p>
+            <p class="class-type">🌌 Mage des Sacres • Contrôleur mystique • Stratège astral</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description</h2>
+            <div class="content-box">
+                <p>En levant les yeux vers les cieux, les Astrologues ne cherchent pas seulement de beaux motifs : ils traquent des signatures astrales, des cycles et des résonances capables d'éveiller une énergie que peu de mortels comprennent. Là où d'autres mages imposent leur volonté à l'élément, eux apprennent à écouter : la lumière, les phases, les signes et les forces invisibles qui traversent les Plans.</p>
+                
+                <p>Beaucoup d'Astrologues sont formés (ou au moins influencés) par les Tours de l'Or Blanc, une institution de recherche tenue par des conclaves reclus, plus proches de savants obsessionnels que d'aventuriers. Ils étudient à huis clos, publient peu, protègent jalousement leurs découvertes, et n'aiment pas le monde extérieur — mais ils finissent pourtant par y retourner, car certains ciels ne se révèlent qu'à ceux qui voyagent.</p>
+                
+                <p>Leur magie s'appuie sur la Magie des Sacres, une force non naturelle qui répond aux astres : Soleil, Lune, Constellations, gravité, étoiles… Elle est dense, vitale, parfois presque « conceptuelle », et devient réellement redoutable lorsque l'Astrologue parvient à créer un astre pour imposer ses propres conditions au champ de bataille. Ainsi, l'Astrologue n'est pas un simple lanceur de sorts : c'est un contrôleur mystique, un enquêteur des phénomènes célestes, et un stratège qui fait basculer le tempo d'un combat en modifiant l'ordre, les phases et la présence astrale.</p>
+                
+                <p>Au fil de sa progression, il se spécialise selon une approche de recherche dominante : Sacre Solaire, Sacre Lunaire, Adjuration Stellaire, Gravitomancie ou Magie Stellaire. Chacune est une manière différente de parler au ciel… et d'obtenir une réponse.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d12</li>
+                        <li><strong>PM :</strong> 1d16</li>
+                        <li><strong>PE :</strong> 1d10</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🔢 Bonus & Malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −3</span>
+                        <span class="stat-item negative">CST : −3</span>
+                        <span class="stat-item negative">DEX : −1</span>
+                        <span class="stat-item positive highlight">INT : +3</span>
+                        <span class="stat-item positive highlight">SAG : +3</span>
+                        <span class="stat-item positive">PER : +2</span>
+                        <span class="stat-item negative">CHA : −1</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 30 + 2d6</li>
+                        <li><strong>REA :</strong> +0</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 2</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 2</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">💪 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Don du savoir des Sacres</h3>
+                <p>L'Héritage des Hauts-Cieux est un don rare accordé aux « Enfants des Sacres ». Chez eux, cette faculté apparaît presque naturellement, comme si elle relevait d'une magie instinctive : la manipulation de l'Énergie des Sacres.</p>
+                <p>Or, cette magie n'a rien de commun avec les pratiques élémentaires classiques. Elle est non naturelle, étrangère au fonctionnement habituel des écoles conventionnelles, et se distingue immédiatement par la densité vitale qui l'imprègne. Selon sa catégorie et selon le porteur, cette énergie peut aller jusqu'à influencer le réel de manière conceptuelle, et non seulement matérielle.</p>
+                <p>Elle peut prendre de nombreuses formes :</p>
+                <ul>
+                    <li>l'énergie solaire transmise par le Soleil propre à un plan,</li>
+                    <li>l'énergie gravitationnelle, une magie astrale qui anime la gravité au moyen de filaments stellaires,</li>
+                    <li>ou encore la magie des étoiles, plus lointaine, plus instable, mais d'une puissance singulière.</li>
+                </ul>
+                <p>Pour la plupart des êtres, approcher ces forces demande des années d'étude, de rituels et de risques. Pour les Enfants des Sacres, c'est différent : cette énergie répond à leur appel comme si elle faisait déjà partie d'eux.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Cœur du Sacre</h3>
+                <p><strong>1× par combat</strong>, le lanceur peut activer ce talent au choix : 1 PR ou 20 PM.</p>
+                <p>Lorsqu'il crée un astre (Soleil, Lune ou Constellation), il y injecte une concentration supplémentaire et le verrouille dans une pulsation stable. L'astre vibre, et une sphère protectrice apparaît autour de lui, visible à l'œil nu : une membrane astrale qui encaisse les impacts.</p>
+                <p><strong>Effet :</strong> l'astre gagne une Barrière de PV égale à la moitié de ses PV de base. Tant que cette barrière existe, les dégâts sont d'abord appliqués à la Barrière, avant d'affecter les PV réels de l'astre.</p>
+                <p><strong>Fin :</strong> quand la Barrière tombe à 0, l'astre recommence à subir les dégâts normalement.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Murmure des Étoiles</h3>
+                <p><strong>1× par nuit (par session)</strong>, le lanceur peut méditer pour canaliser l'énergie des Sacres et demander un éclairage sur une situation actuelle ou un événement proche (dans la journée ou les prochains jours).</p>
+                <p><strong>Jet requis :</strong> Méditation (DD +10).</p>
+                <p><strong>Effet :</strong> en cas de réussite, il reçoit une réponse sous forme d'intuition, de symbole ou d'image. Si la marge de réussite est de 30+, la réponse est plus claire, comme un écho des anciens du plan. La précision dépend de la question et du lieu de méditation.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Érudit de la Tour de l'Or Blanc</h3>
+                <p>Ayant passé une partie de sa formation et de ses recherches dans la Tour de l'Or Blanc, l'Astrologue a développé un socle de connaissances particulièrement solide.</p>
+                <p><strong>Effet :</strong> tous tes jets de Savoir liés à une connaissance que tu maîtrises au moins au rang « Moyen » sont effectués avec Avantage.</p>
+            </div>
+        </section>
+
+        <!-- Passif de classe -->
+        <section class="section">
+            <h2 class="section-title">🧿 Passif de classe : Précognition Astrale</h2>
+            <div class="content-box">
+                <div class="subsection">
+                    <h4>🧿 Écoute du Firmament (Passif)</h4>
+                    <p>Par son lien constant avec les astres et sa lecture intuitive du ciel, le lanceur bénéficie d'un avantage permanent : il possède en continu un bonus actif de 1d20, représentant sa capacité à « devancer » les variations astrales et à ajuster son action au bon moment.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>🌠 Ajustements Stellaires (1× par tour)</h4>
+                    <p>Une fois par tour, le lanceur peut choisir un des effets suivants :</p>
+                    
+                    <h5>1) Correction du Destin</h5>
+                    <p><strong>Coût :</strong> 1 PR</p>
+                    <p>Pendant 1 tour, le lanceur peut faire monter d'un cran la position dans l'ordre de tour d'une cible alliée (ou lui-même), ou au contraire faire descendre d'un cran une cible adverse dans l'ordre de tour.</p>
+                    <p><strong>Limite :</strong> ne fonctionne pas sur une entité de catégorie Boss.</p>
+                    
+                    <h5>2) Appel d'Astre</h5>
+                    <p><strong>Coût :</strong> 1 PR</p>
+                    <p>Au début de ton tour, si aucun sort de création d'astre n'est actuellement présent sur le terrain, tu peux immédiatement lancer :</p>
+                    <ul>
+                        <li>un sort de création d'astre, ou</li>
+                        <li>un sort d'influence d'astre (non offensif), uniquement sur un astre que tu as créé.</li>
+                    </ul>
+                    <p><strong>Note :</strong> le coût en PM du sort n'est pas modifié.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🌟 Origines Astrologiques</h2>
+            <p class="intro-text">« Chaque astrologue forge son lien au cosmos selon sa voie de recherche… Quelle est la tienne ? »</p>
+            <p class="intro-text"><strong>Choisis ton Origine :</strong></p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- Adepte Solaire -->
+                <div class="origin-card origin-solaire">
+                    <h3>☀️ Adepte Solaire</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as passé des années dans un conclave attaché aux axes héliacaux : lumière directionnelle, zénith, corones, éruptions, et cycles de jour propres aux Plans. Reclus dans une annexe des Tours de l'Or Blanc, tu traites le soleil comme un phénomène à la fois sacré et scientifique : on n'admire pas l'astre, on le reproduit, on l'optimise, et on l'emploie comme une pièce maîtresse de rituel.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talent obtenu</h4>
+                        <p><strong>Maîtrise mineure — Sacre Solaire</strong></p>
+                        <p>Magie rare liée aux forces solaires : lumière directionnelle, purification, intensification et phénomènes héliacaux. Le lanceur apprend à canaliser l'essence solaire d'un plan (ou d'un astre artificiel) pour produire des effets sacrés et stables.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>✨ Sort de base : Sacre solaire — Création du Soleil (35 PM)</h4>
+                        <p><strong>PA :</strong> 1 action • <strong>Portée :</strong> soi • <strong>Durée :</strong> jusqu'à destruction / fin de combat</p>
+                        <p>Un soleil artificiel incandescent s'allume au-dessus du lanceur, comme une sphère de jour miniaturisée.</p>
+                        <p><strong>Règles :</strong> Tu crées un Soleil artificiel lié à ta magie. Il possède 80 PV. Tant qu'il est présent, il entre en résonance avec les sorts de Sacres et de Constellations et compte comme « présence du Soleil » pour tout effet/sort qui l'exige.</p>
+                        <p><strong>Limites :</strong> 1 seul Soleil artificiel actif par lanceur. Si l'astre est détruit, tous les effets exigeant la présence du Soleil via cet astre cessent immédiatement. L'astre ne peut pas être déplacé hors de la zone du lanceur (il reste au-dessus de lui).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine Solaire (Modéré)</h5>
+                        <p>Tu comprends les principes liés aux phénomènes solaires d'un plan : cycles, zénith, lumière directionnelle, variations de ciel et « jours anormaux ». Tu sais reconnaître les signes d'une influence solaire active et ce que cela implique pour un rituel ou un combat. Tu connais les usages typiques : purification, orientation, intensification, et sceaux d'aurore. En pratique, tu peux anticiper comment le « jour » d'un plan modifie la magie et le terrain.</p>
+                        <h5>• Connaissance de la magie du Sacre Solaire (Modéré)</h5>
+                        <p>Tu connais la logique propre au Sacre Solaire : la magie n'éclaire pas seulement, elle impose un axe, un rythme et une pression. Tu comprends comment un Soleil (réel ou artificiel) sert de pivot pour des phases, réductions de coûts ou effets de surpuissance. Tu sais aussi reconnaître les limites : un astre détruit, un ciel bouché, une rupture de résonance. Cette connaissance aide à construire des sorts solaires cohérents et à éviter les usages « hors conditions ».</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>SAG +4 • CHA +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Savoir ou Sang-Froid</p>
+                    </div>
+                </div>
+
+                <!-- Adepte de la Lune -->
+                <div class="origin-card origin-lunaire">
+                    <h3>🌊 Adepte de la Lune</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu étudies la lune comme une horloge : flux, reflux, phases, reflets, pénombre, et influence sur le vivant. Les conclaves lunaires des Tours de l'Or Blanc sont connus pour leur discipline : peu de mots, beaucoup d'observation. Là où d'autres cherchent l'éclat, toi tu cherches la constance, la mitigation et les sauvetages précis.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talent obtenu</h4>
+                        <p><strong>Maîtrise mineure — Sacre Lunaire</strong></p>
+                        <p>Magie rare fondée sur les cycles lunaires : phases, reflets, pénombre, constance et mitigation. Le lanceur stabilise des effets précis et contrôle le tempo d'un affrontement sous une lune réelle ou artificielle.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>✨ Sort de base : Sacre lunaire — Création de la Lune (35 PM)</h4>
+                        <p><strong>PA :</strong> 1 action • <strong>Portée :</strong> soi (ou point à 30 ft) • <strong>Durée :</strong> jusqu'à destruction / fin de combat</p>
+                        <p>Une lune artificielle apparaît dans le ciel local, froide et argentée, et projette un halo doux sur la zone.</p>
+                        <p><strong>Règles :</strong> Tu invoques une Lune artificielle liée à ta magie. Elle possède 80 PV. Tant qu'elle est présente, elle entre en résonance avec les sorts de Sacres et de Constellations. Elle peut aussi servir de « présence astrale » pour activer des effets qui demandent une Lune (si le sort l'indique).</p>
+                        <p><strong>Limites :</strong> 1 seule Lune artificielle active par lanceur. Si l'astre est détruit, tous les effets dépendants cessent immédiatement. Si tu la places à 30 ft, elle reste fixe (pas de déplacement).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine Lunaire (Modéré)</h5>
+                        <p>Tu comprends la lune comme un système de cycles : phases, reflets, pénombre, rythme nocturne, et effets subtils sur le vivant. Tu connais les liens fréquents avec la protection, la mitigation, la précision et les flux de terrain (ralentissements, repositionnements, sauvetages). Tu sais reconnaître les situations où une influence lunaire est « forte » et où elle est au contraire presque absente. En pratique, tu lis le champ de bataille comme une marée à recaler.</p>
+                        <h5>• Connaissance de la magie du Sacre Lunaire (Modéré)</h5>
+                        <p>Tu maîtrises les bases du Sacre Lunaire : une magie plus stable que spectaculaire, souvent basée sur phases, durée, contrôle doux et bénédictions de constance. Tu comprends comment une Lune artificielle sert de point d'ancrage à des cycles de 4 temps, et comment ses phases modifient coûts, durée et défenses. Tu sais aussi quand la lune devient un outil d'analyse (reflets, signes, indices). Cette connaissance te sert à optimiser les effets lunaires sans te disperser.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>SAG +2 • PER +2 • DEX +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Instinct ou Résilience</p>
+                    </div>
+                </div>
+
+                <!-- Adepte des Constellations -->
+                <div class="origin-card origin-constellation">
+                    <h3>✨ Adepte des Constellations</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu fais partie de ceux qui traitent les constellations comme des signatures conceptuelles. Dans les tours, on te surnomme parfois « scribe du ciel » : tu traques les motifs rares, tu compares les ciels de plusieurs Plans, et tu testes comment une Constellation répond à une intention. Ton travail ressemble plus à une adjuration qu'à une simple observation : tu tisses des filaments stellaires comme on écrit une loi.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talent obtenu</h4>
+                        <p><strong>Maîtrise mineure — Adjuration Stellaire</strong></p>
+                        <p>Une adjuration à demi conceptuelle : les filaments d'étoiles qui tracent les signes astrologiques s'infusent chez le lanceur et canalisent l'appui des constellations.</p>
+                        <p><strong>Confère la compétence :</strong> Magie d'adjuration stellaire +2</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>✨ Sort de base : Adjuration stellaire — Astre-Signe (Constellation X) (34 PM)</h4>
+                        <p><strong>PA :</strong> 1 action • <strong>Portée :</strong> 60 ft • <strong>Durée :</strong> jusqu'à destruction / fin de combat</p>
+                        <p>Des filaments d'étoiles se tendent et dessinent dans l'air une constellation lumineuse (X), comme un sceau céleste suspendu.</p>
+                        <p><strong>Règles :</strong> Tu crées un Astre-Signe correspondant à une Constellation X (choisie au lancement). L'astre possède 80 PV et est considéré comme une Constellation X active et visible. Tant qu'il est présent : tout sort/capacité qui exige la présence de la Constellation X peut s'appuyer sur cet astre comme condition valide ; les effets « sous influence d'une constellation » peuvent considérer cet astre comme source.</p>
+                        <p><strong>Limites :</strong> 1 seul Astre-Signe actif par lanceur. Non cumulable avec un autre Astre-Signe : si tu relances, l'ancien se dissipe. L'astre est non offensif. S'il est détruit, la condition « Constellation X active » disparaît immédiatement.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance de la magie d'adjuration stellaire (Modéré)</h5>
+                        <p>Tu connais les principes de l'adjuration stellaire, une magie de constellations à demi conceptuelle qui se manifeste par des filaments d'étoiles et des tracés de signes. Tu comprends que cette voie ne repose pas sur la puissance brute, mais sur la cohérence du thème (interdit, scellé, bannissement, voile, serment, appel…) entre l'intention du lanceur et la constellation invoquée. Tu sais identifier les formes d'adjuration, leurs conditions d'activation (présence d'un signe/astre, syntonie, rituel), et leurs limites habituelles. En pratique, cela te permet d'analyser rapidement une adjuration rencontrée et de concevoir des effets stellaires « propres », stables et logiques.</p>
+                        <h5>• Amélioration d'un cran : connaissance du domaine des constellations</h5>
+                        <p>Ta maîtrise des constellations est approfondie : tu ne te contentes plus de reconnaître les motifs, tu en comprends les harmoniques complexes, les interactions entre plusieurs signes simultanés, et les variations subtiles d'un plan à l'autre. Tu peux prévoir comment une constellation affectera un rituel ou un combat, anticiper les résonances, et éviter les conflits de thèmes. Cette expertise te permet de construire des adjurations plus fines et d'interpréter des signes que d'autres astrologues manqueraient.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>SAG +3 • PER +2 • INT +1</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Savoir ou Social</p>
+                    </div>
+                </div>
+
+                <!-- Adepte de la Gravité -->
+                <div class="origin-card origin-gravite">
+                    <h3>🛰️ Adepte de la Gravité</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Toi, tu n'as jamais été fasciné par les « lumières » du ciel… mais par ce qu'elles impliquent : masse, attraction, inertie. Dans un petit cercle de chercheurs de l'Or Blanc, on te confie les travaux ingrats : stabiliser une salle de rituel, neutraliser une chute, détourner une trajectoire, démonter un mécanisme sans le toucher. Tu vois le champ de bataille comme un ensemble de vecteurs.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talent obtenu</h4>
+                        <p><strong>Maîtrise mineure — Gravitomancie</strong></p>
+                        <p>Magie fondée sur l'attraction des masses : le lanceur génère un champ gravitationnel qui enveloppe les cibles et leur applique une masse « fictive ».</p>
+                        <p><strong>Confère la compétence :</strong> Magie gravitationnelle (Intelligence) +2</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>✨ Sort de base : Gravitomancie — Gradient d'Attraction (18 PM)</h4>
+                        <p><strong>PA :</strong> 1 action • <strong>Portée :</strong> 40 ft • <strong>Durée :</strong> instantané</p>
+                        <p>L'air se densifie en une ligne invisible, et la cible « bascule » comme si le monde penchait vers un point.</p>
+                        <p><strong>Règles :</strong> Choisis une créature ou un objet non fixé (poids max : 5 kg × rang de maîtrise en Gravitomancie). Tu effectues un jet de magie gravitationnelle ; en réussite, tu appliques un effet :</p>
+                        <ul>
+                            <li>Attirer la cible de 10 ft vers toi, ou</li>
+                            <li>Repousser la cible de 10 ft loin de toi, ou</li>
+                            <li>Décaler la cible de 10 ft latéralement.</li>
+                        </ul>
+                        <p><strong>Limites :</strong> Ne traverse pas une barrière solide. Les cibles massives/fixées peuvent être immunisées ou réduire la distance selon le MJ.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance de la magie gravitationnelle (Modéré)</h5>
+                        <p>Tu comprends la gravité comme une magie de forces : attraction, inertie, poids fictif, trajectoire et équilibre. Tu sais comment elle agit sans « changer la nature » d'une cible, mais en imposant une contrainte de masse ou de direction. Tu connais ses usages courants : déplacer, ralentir, stabiliser, repousser, et protéger contre chutes ou projectiles. En pratique, tu lis un combat comme un ensemble de vecteurs à corriger.</p>
+                        <h5>• Amélioration d'un cran : connaissance des mythes et légendes</h5>
+                        <p>Ta compréhension des récits anciens s'approfondit : tu ne te contentes plus de connaître les grandes histoires, tu en saisis les nuances, les variations régionales, et les significations cachées. Tu peux identifier les symboles récurrents, relier des mythes apparemment distincts à une source commune, et reconnaître quand une légende dissimule une vérité historique ou astronomique. Cette expertise te permet de décrypter des inscriptions anciennes, de comprendre des rituels oubliés, et d'anticiper le comportement d'entités mythiques.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>INT +3 • CST de −3 → +1 • PER +1</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Résilience ou Finesse</p>
+                    </div>
+                </div>
+
+                <!-- Adepte Stellaire -->
+                <div class="origin-card origin-stellaire">
+                    <h3>🌌 Adepte Stellaire</h3>
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu es de ceux qui passent des nuits entières à traquer des anomalies : comètes, poussières cosmiques, étoiles trop nettes, et surtout les signatures rares comme l'Étoile du Temps. Les conclaves stellaires sont les plus reclus : ils notent tout, publient peu, et ne sortent que lorsqu'un événement céleste l'exige. Ta magie est la plus imprévisible… mais aussi celle qui offre le plus de coups d'avance.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎁 Talent obtenu</h4>
+                        <p><strong>Maîtrise mineure — Stellaire</strong></p>
+                        <p>La magie stellaire puise dans l'énergie des astres et des hauts cieux, une force encore mystérieuse qui se manifeste sous des formes magnifiques et imprévisibles.</p>
+                        <p><strong>Confère la compétence :</strong> Magie stellaire +2</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>✨ Sort de base : Magie stellaire — Trait Stellaire (16 PM)</h4>
+                        <p><strong>PA :</strong> 1 action • <strong>Portée :</strong> 60 ft • <strong>Type :</strong> attaque magique • <strong>Nature :</strong> magie pure • <strong>Durée :</strong> instantané</p>
+                        <p>Le lanceur condense une lueur d'étoile dans sa paume, puis libère un trait stellaire fulgurant, presque impossible à suivre à l'œil nu.</p>
+                        <p><strong>Règles :</strong> Fais un jet d'attaque de Magie stellaire contre une cible. Si la cible doit faire un jet d'esquive et/ou de réactivité, ce jet est effectué avec Désavantage à cause de la vitesse du projectile. En cas de réussite, la cible subit 1d8 dégâts magiques stellaires (magie pure).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance de la magie Stellaire (Modéré)</h5>
+                        <p>Tu connais les bases de la magie stellaire : énergie des hauts cieux, manifestations lumineuses, fragments cosmiques, comètes, et effets parfois imprévisibles. Tu sais qu'elle peut se combiner à des phénomènes rares et qu'elle frôle parfois la prémonition, sans être une science exacte. Tu reconnais ses signes : pulsations, éclats, poussières astrales, et « tension » dans l'air avant un effet. En pratique, tu sais exploiter cette magie pour frapper vite ou bénir avec finesse, tout en surveillant la stabilité.</p>
+                        <h5>• Amélioration d'un cran : connaissance des mythes et légendes</h5>
+                        <p>Ta compréhension des récits anciens s'approfondit : tu ne te contentes plus de connaître les grandes histoires, tu en saisis les nuances, les variations régionales, et les significations cachées. Tu peux identifier les symboles récurrents, relier des mythes apparemment distincts à une source commune, et reconnaître quand une légende dissimule une vérité historique ou astronomique. Cette expertise te permet de décrypter des inscriptions anciennes, de comprendre des rituels oubliés, et d'anticiper le comportement d'entités mythiques.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER +3 • SAG +2 • DEX +1</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Instinct ou Savoir</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances de base -->
+        <section class="section">
+            <h2 class="section-title">📘 Connaissances de base</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Tours de l'Or Blanc (Moyen)</h4>
+                    <p>Tu connais l'institution des Tours de l'Or Blanc, ses conclaves, ses méthodes d'étude et ses règles non écrites. Tu sais comment un astrologue « reconnu » travaille : carnets d'observation, cartographies, rituels d'étalonnage, et archives conservées loin du public.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la magie des Sacres (Moyen)</h4>
+                    <p>Tu comprends les bases de l'énergie des Sacres : une magie astrale rare, distincte des magies élémentaires classiques, liée aux astres, aux cycles et aux forces supérieures d'un plan. Tu sais reconnaître ses signatures, ses contraintes et ses usages typiques.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des constellations (Moyen)</h4>
+                    <p>Tu maîtrises les notions de constellations comme motifs actifs, et pas seulement comme dessins dans le ciel. Tu sais qu'une constellation peut être liée à un thème harmonique et que ses manifestations varient selon le plan.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance des mythes et légendes (Modéré)</h4>
+                    <p>Tu connais les récits transmis autour des astres, des signes du ciel, des prophéties et des créatures liées aux hauteurs. Tu sais distinguer ce qui relève du conte, de la tradition religieuse, ou de l'observation déformée par le temps.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Calamités (Mineur)</h4>
+                    <p>Tu possèdes des bases sur les Calamités : des entités ou fléaux hors normes, capables de laisser des cicatrices sur un plan entier. Tu sais qu'elles ont souvent des signatures, des influences et des périodes d'apparition.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine Historique (Modéré)</h4>
+                    <p>Tu connais l'histoire « utile » : grandes périodes, événements marquants, transitions de pouvoirs, et traces laissées par des crises anciennes. Tu sais replacer un site, une ruine, un rituel ou un ordre dans une chronologie approximative.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align:center; font-size:1.2rem; margin:0;"><strong>Aucune</strong></p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">💼 Objets de base</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">👘</span>
+                    <div>
+                        <h4>Robe d'Astrologue</h4>
+                        <p>Offre une résonance avec la nature du sacre utilisé (+5 Magie de sacre N.A)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔮</span>
+                    <div>
+                        <h4>Sphère catalyseur</h4>
+                        <p>Au choix du lanceur</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">📖</span>
+                    <div>
+                        <h4>Livre du domaine du Savoir Astrologique</h4>
+                        <p>Au choix du lanceur</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔭</span>
+                    <div>
+                        <h4>Kit d'observation des étoiles</h4>
+                        <p>Permet d'observer le ciel avec Avantage et de confirmer la présence de constellations</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🎫</span>
+                    <div>
+                        <h4>Carte de la Tour d'Or Blanc</h4>
+                        <p>Montrant votre appartenance à la Tour d'Or Blanc</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💜</span>
+                    <div>
+                        <h4>2 potions de magie</h4>
+                        <p>Restaure les points de magie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>1 potion de vie</h4>
+                        <p>Soins d'urgence</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎓 Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🎯 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Magie de Sacre (SAG)</strong> — Compétence générale pour lancer et stabiliser les sorts liés aux Sacres. Sert aussi à comprendre et ajuster une résonance astrale en situation réelle.</li>
+                        <li><strong>Magie de Sacre Lunaire (SAG)</strong> — Spécialisation lunaire : phases, pénombre, mitigation, reflets et cycles.</li>
+                        <li><strong>Magie de Sacre Solaire (SAG)</strong> — Spécialisation solaire : lumière directionnelle, zénith, intensification et purification.</li>
+                        <li><strong>Analyse magique (INT)</strong> — Décomposer un phénomène magique, reconnaître une école, un sceau, une trace ou une anomalie.</li>
+                        <li><strong>Méditation Astrale (SAG)</strong> — Se mettre en état de syntonie pour canaliser les Sacres sans se disperser.</li>
+                        <li><strong>Perception magique (INT/PER)</strong> — Repérer des signatures, tensions astrales, résidus de sorts, et détails invisibles à l'œil profane.</li>
+                        <li><strong>Orientation nocturne (PER)</strong> — S'orienter grâce au ciel, aux constellations et aux cycles, même sur des plans étrangers.</li>
+                        <li><strong>Réflexion (INT)</strong> — Relier des indices, prévoir des conséquences, construire une hypothèse solide en peu de temps.</li>
+                        <li><strong>Réactif (Réactivité)</strong> — Agir vite quand un événement critique survient.</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Lire le terrain : vents, reliefs, couvertures, lignes de vue, et signes d'activité récente.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de trait spécifique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Concentration magique (Résilience)</strong> — Tenir une incantation ou une canalisation malgré douleur, stress, saignement ou perturbations.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sentir le piège, l'embuscade ou le mauvais timing avant qu'il ne frappe.</li>
+                        <li><strong>Dialecte Arcanique (Social)</strong> — Comprendre et employer la manière de parler des érudits, des conclaves et des mages.</li>
+                        <li><strong>Savoir des Constellations (Savoir)</strong> — Connaître les signes, leurs thèmes, leurs variations selon les plans, et leurs usages rituels.</li>
+                        <li><strong>Résistance à la peur (Sang-Froid)</strong> — Garder une pensée claire face à l'horreur, à l'inconnu et aux présences écrasantes.</li>
+                        <li><strong>Instinct d'exploration (Instinct)</strong> — Repérer les chemins sûrs, les zones à éviter, et les lieux « propices » à l'observation ou au repos.</li>
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Encaisser sans perdre le contrôle : rester debout, garder sa précision, continuer une action importante.</li>
+                        <li><strong>Savoir des Calamités (Savoir)</strong> — Connaître les grandes familles de calamités, leurs signes annonciateurs, et le type d'influence qu'elles laissent sur un plan.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/ClasseDCL/Astrologue.js"></script>
+</body>
+</html>

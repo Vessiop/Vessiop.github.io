@@ -53,7 +53,7 @@ function convertStatsForChart(stats) {
     return Object.values(stats).map(val => val + 4);
 }
 
-// Création du graphique Chart.js
+// Création du graphique Chart.js avec thème bronze/acier
 const statsChart = new Chart(ctx, {
     type: 'radar',
     data: {
@@ -61,13 +61,13 @@ const statsChart = new Chart(ctx, {
         datasets: [{
             label: 'Caractéristiques',
             data: convertStatsForChart(baseStats),
-            backgroundColor: 'rgba(139, 90, 43, 0.2)',
-            borderColor: 'rgba(139, 90, 43, 0.8)',
+            backgroundColor: 'rgba(184, 115, 58, 0.20)',
+            borderColor: 'rgba(184, 115, 58, 0.9)',
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(139, 90, 43, 1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(139, 90, 43, 1)',
+            pointBackgroundColor: 'rgba(184, 115, 58, 1)',
+            pointBorderColor: 'rgba(107, 124, 138, 0.9)',
+            pointHoverBackgroundColor: '#d49558',
+            pointHoverBorderColor: 'rgba(212, 149, 88, 1)',
             pointRadius: 5,
             pointHoverRadius: 7
         }]
@@ -83,25 +83,28 @@ const statsChart = new Chart(ctx, {
             r: {
                 min: 0,
                 max: 10,
+                backgroundColor: 'rgba(10, 8, 6, 0.6)',
                 ticks: {
                     stepSize: 2,
                     callback: function(value) {
                         return value - 4;
                     },
-                    color: '#5a3a1a',
+                    color: '#b8733a',
+                    backdropColor: 'rgba(10, 8, 6, 0.8)',
                     font: {
                         size: 11,
                         weight: 'bold'
                     }
                 },
                 grid: {
-                    color: 'rgba(139, 90, 43, 0.2)'
+                    color: 'rgba(107, 124, 138, 0.3)',
+                    circular: true
                 },
                 angleLines: {
-                    color: 'rgba(139, 90, 43, 0.2)'
+                    color: 'rgba(107, 124, 138, 0.3)'
                 },
                 pointLabels: {
-                    color: '#5a3a1a',
+                    color: '#b0bfc8',
                     font: {
                         size: 14,
                         weight: 'bold',
@@ -115,6 +118,11 @@ const statsChart = new Chart(ctx, {
                 display: false
             },
             tooltip: {
+                backgroundColor: 'rgba(10, 8, 6, 0.95)',
+                titleColor: '#d49558',
+                bodyColor: '#d4caba',
+                borderColor: 'rgba(184, 115, 58, 0.8)',
+                borderWidth: 2,
                 callbacks: {
                     label: function(context) {
                         const actualValue = context.parsed.r - 4;
@@ -206,16 +214,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Créer l'élément d'affichage de la vocation sélectionnée
     const chartContainer = document.querySelector('.chart-container');
-    const displayDiv = document.createElement('div');
-    displayDiv.id = 'current-vocation-display';
-    displayDiv.style.marginTop = '20px';
-    displayDiv.style.padding = '15px';
-    displayDiv.style.background = 'rgba(139, 90, 43, 0.1)';
-    displayDiv.style.borderRadius = '6px';
-    displayDiv.style.textAlign = 'center';
-    displayDiv.style.fontSize = '0.95rem';
-    displayDiv.style.display = 'none';
-    chartContainer.appendChild(displayDiv);
+    if (chartContainer) {
+        const displayDiv = document.createElement('div');
+        displayDiv.id = 'current-vocation-display';
+        displayDiv.style.cssText = `
+            margin-top: 18px;
+            padding: 13px 16px;
+            background: linear-gradient(135deg, rgba(184, 115, 58, 0.20), rgba(107, 124, 138, 0.15));
+            border: 1px solid rgba(184, 115, 58, 0.4);
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.92rem;
+            color: #d49558;
+            display: none;
+            line-height: 1.6;
+            box-shadow: inset 0 1px 0 rgba(212, 149, 88, 0.1), 0 2px 6px rgba(0, 0, 0, 0.3);
+        `;
+        chartContainer.appendChild(displayDiv);
+    }
 
     // Initialiser l'affichage
     updateStatsDisplay(null);
