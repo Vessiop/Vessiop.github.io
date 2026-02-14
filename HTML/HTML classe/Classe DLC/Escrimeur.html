@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escrimeur - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Escrimeur.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="steel-overlay"></div>
+    <div class="sparks-container" id="sparks"></div>
+
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Escrimeur Bis.jpg" alt="Escrimeur">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">⚔️ Escrimeur</h1>
+            <p class="class-quote">« Au cours d'un affrontement, le seul moment de répit que vous accordera un escrimeur, c'est lorsqu'il adoptera une posture. Mais ensuite, une tempête de fureur s'abattra sur vous. »</p>
+            <p class="class-quote-author">— Caporal Escrimeur Angarde</p>
+            <p class="class-type">⚔️ Martial stratégique • Postures de combat • Enchaînements maîtrisés</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Présentation -->
+        <section class="section">
+            <h2 class="section-title">📄 Présentation</h2>
+            <div class="content-box">
+                <p>L'Escrimeur ne se bat pas comme un simple duelliste : il construit son combat. Là où d'autres cherchent le coup le plus fort, lui cherche la posture juste, celle qui transforme un échange ordinaire en enchaînement maîtrisé. Chaque garde est une décision tactique : tenir une ligne, accélérer le rythme, piéger une réaction, ou forcer l'adversaire à révéler sa faille.</p>
+
+                <p>Son art le plus célèbre vient de Windress : l'escrime Noble Bestial, un courant où l'on imite non pas l'animal, mais sa logique de chasse. Le Loup impose la pression par le mouvement, l'Aurochs devient un rempart vivant, le Faucon frappe comme un surgissement, et le Coyote crée l'ouverture par la ruse. Ces voies ont en commun une même obsession : le positionnement, la lecture du tempo, et la capacité à basculer d'une intention à une autre sans perdre une seconde.</p>
+
+                <p>En combat, l'Escrimeur est une classe martiale stratégique et nerveuse. Il cherche à rester en posture, à gérer son endurance, et à faire payer chaque erreur adverse par une riposte propre. Le seul "répit" qu'il accorde est souvent trompeur : ce moment où il se pose… non pour souffler, mais pour déclencher la tempête.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d8</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & Malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +2</span>
+                        <span class="stat-item positive">CST : +2</span>
+                        <span class="stat-item positive highlight">DEX : +2</span>
+                        <span class="stat-item negative">INT : −2</span>
+                        <span class="stat-item positive">SAG : +1</span>
+                        <span class="stat-item positive highlight">PER : +3</span>
+                        <span class="stat-item negative">CHA : −2</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 20 + 1d6</li>
+                        <li><strong>REA :</strong> +10</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 2</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 2</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">🎯 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure d'une lame au choix</h3>
+                <p>Tu choisis une arme de lame et tu en apprends les fondamentaux : garde, portée, timing, angles de frappe. Cette maîtrise te permet d'utiliser cette arme de manière fiable en combat.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Stabilité de l'Escrimeur</h3>
+                <p>Tous les jets de résistance visant à éviter la perte d'une Posture de combat sont effectués en Avantage.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Instinct d'escrimeur</h3>
+                <p>Au début du combat, si le lanceur n'est pas surpris, il peut dépenser 5 PE pour activer immédiatement une Posture de combat de base. Il effectue alors un jet de Constitution pour se mettre en posture rapidement. Un échec critique sur ce jet n'a aucun effet négatif particulier.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de l'art des postures de combat</h3>
+                <p>Les postures ne sont plus des poses : ce sont des bases de déplacement et de puissance. Tu travailles la répartition du poids, l'ouverture de hanche, et la transition entre gardes sans latence. Chaque posture prépare la suivante, ce qui rend ton combat plus stable et plus "fluide" sous pression. Résultat : tu perds moins d'efficacité en bougeant.</p>
+                <p><strong>Offre la compétence :</strong> Postures de combat (Constitution) +2</p>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">⚔️ Terre des lames — Origine</h2>
+            <p class="intro-text">« Tout art possède une origine, et l'escrime conventionnelle ne fait pas exception. Son héritage remonte à un lieu ancien où la flamme de la passion — et l'amour du combat — brûlait si fort qu'elle poussa des maîtres à perfectionner un style devenu, avec le temps, une véritable norme. »</p>
+            <p class="intro-text">Ce courant prit le nom de style du « Noble Bestial » : une approche fondée sur le positionnement et la posture, où chaque adepte apprend à enchaîner des attaques d'une fluidité nette, comme si la lame faisait partie de lui-même.</p>
+            <p class="intro-text">Mais aucune école ne resta figée. Chacune suivit sa propre voie, se raffina selon ses principes, et se perfectionna dans des lieux différents, donnant naissance à des variantes uniques et parfois opposées.</p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une école pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- École du Loup -->
+                <div class="origin-card origin-loup">
+                    <h3>🐺 École du Loup (Windress)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Née et perfectionnée dans les terres glacées de Windress, l'École du Loup s'est forgée au contact du froid mordant et d'une faune redoutable. Elle s'inspire directement des grands loups hivernaux du Nord : des prédateurs vifs, mobiles, et surtout terriblement efficaces dans leur manière de frapper.</p>
+                        <p>À contre-courant de la mentalité habituelle des peuples du froid — souvent patients, mesurés et endurants — ce style impose une philosophie plus brutale : l'agressivité contrôlée et le mouvement constant. L'escrimeur ne cherche pas à tenir… il cherche à ne jamais offrir à son ennemi l'occasion de le verrouiller. Chaque posture sert à rester hors de portée, puis à revenir frapper vite, au moment exact où l'adversaire s'expose.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talent obtenu</h4>
+                        <p><strong>Maîtrise mineure du style de combat du Noble Bestial — Voie du Loup</strong></p>
+                        <p>Le style du Loup apprend à imposer le rythme par le mouvement et la pression. Les appuis restent vivants, la garde se transforme vite, et l'attaque surgit dès qu'une faille apparaît. Cette maîtrise enseigne surtout à frapper "propre" sans s'enfermer : une agressivité contrôlée, jamais aveugle. Plus l'adversaire hésite, plus le Loup le force à reculer.</p>
+                        <p><strong>Obtient la compétence :</strong> Technique du Noble Bestial du Loup +2</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>⚔️ Capacité : Posture du Loup Fulminant</h4>
+                        <p><strong>PA :</strong> 1 action • <strong>Portée :</strong> Soi • <strong>Durée :</strong> Maintien</p>
+                        <p>Tu adoptes une garde agressive, nerveuse, prête à bondir. Tes appuis restent en mouvement, ta lame cherche l'ouverture, et ta présence impose le rythme.</p>
+                        <p><strong>Règles :</strong> Tant que la posture est active, tu augmentes de 10 % les dégâts de ton arme principale. La posture permet l'utilisation des techniques du Loup.</p>
+                        <p><strong>Limites :</strong> À chaque fois que tu reçois une attaque, tu dois réussir un jet de Constitution (CST) pour maintenir la posture (en cas d'échec, la posture prend fin).</p>
+                        <p><strong>Coûts :</strong> 12 PE (activation) + 4 PE / tour (maintien)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine du plan de Windress (Modéré)</h5>
+                        <p>Tu connais les réalités du froid : terrains glissants, visibilité réduite, vents dangereux et dangers de l'exposition prolongée. Tu sais aussi comment les habitants de Windress se déplacent, chassent et se battent dans ces conditions. Cela t'aide à ne pas te faire surprendre par le climat ni par les pièges naturels du plan.</p>
+                        <h5>• Connaissance de l'école des techniques du Noble Bestial : Loup (Modéré)</h5>
+                        <p>Tu maîtrises les principes propres à la voie du Loup : rythme agressif, repositionnement constant et punition rapide des ouvertures. Tu sais reconnaître les transitions de garde typiques et les schémas de pression qui "enferment" un adversaire. Cette connaissance te donne une lecture plus fine des combats rapides et mobiles.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER +3 • DEX ou FOR +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Instinct ou Finesse</p>
+                    </div>
+                </div>
+
+                <!-- École de l'Aurochs -->
+                <div class="origin-card origin-aurochs">
+                    <h3>🦬 École de l'Aurochs (Arzass)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>L'École de l'Aurochs est un style né dans les terres dures et hostiles d'Arzass, où survivre exige autant de prudence que de force. Ici, l'escrime n'a pas été pensée pour briller : elle a été étudiée, adaptée, puis renforcée pour résister à un monde où même les créatures ordinaires peuvent devenir une menace mortelle.</p>
+                        <p>C'est un style défensif, massif, presque oppressant. Son nom rend hommage à l'animal emblématique du plan : l'Aurochs Zélone, symbole d'endurance et de présence écrasante. Les postures de cette école cherchent à stabiliser l'adepte, optimiser toute réduction de dégâts, et transformer la garde en mur vivant. Même sans frapper, l'escrimeur impose une pression : par la posture, par l'ancrage, par l'impression de puissance qu'il dégage — au point de dévier, contenir, voire intimider l'adversaire.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talent obtenu</h4>
+                        <p><strong>Maîtrise mineure du style de combat du Noble Bestial — Voie de l'Aurochs</strong></p>
+                        <p>Le style de l'Aurochs transforme la posture en rempart, et le rempart en menace. L'adepte apprend à se stabiliser, absorber l'impact sans céder, puis maintenir une ligne que l'ennemi peine à briser. Cette maîtrise insiste sur l'ancrage, la gestion du poids et la réduction des erreurs sous pression. Même quand il ne frappe pas, l'Aurochs "pèse" sur le duel et force l'adversaire à s'épuiser.</p>
+                        <p><strong>Obtient la compétence :</strong> Technique du Noble Bestial de l'Aurochs +2</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>⚔️ Capacité : Posture de l'Aurochs Imparable</h4>
+                        <p><strong>PA :</strong> 1 action • <strong>Portée :</strong> Soi • <strong>Durée :</strong> Maintien</p>
+                        <p>Tu t'ancres au sol, lourd et stable, comme une bête indéracinable. Ta garde se ferme, ton centre de gravité s'abaisse, et chaque impact semble "absorbé" par ta posture.</p>
+                        <p><strong>Règles :</strong> Tant que la posture est active, tu réduis les dégâts physiques subis de 10 %. La posture permet l'utilisation des techniques de l'Aurochs.</p>
+                        <p><strong>Limites :</strong> À chaque fois que tu reçois une attaque, tu dois réussir un jet de Constitution (CST) pour maintenir la posture (en cas d'échec, la posture prend fin).</p>
+                        <p><strong>Coûts :</strong> 12 PE (activation) + 4 PE / tour (maintien)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine du plan d'Arzass (Modéré)</h5>
+                        <p>Tu connais la brutalité d'Arzass : terres hostiles, zones dangereuses, et créatures capables de tuer par simple erreur d'approche. Tu sais repérer les signes de menace dans l'environnement et les habitudes de survie locales. Cette connaissance sert à limiter les risques lors d'expéditions ou de combats en terrain dur.</p>
+                        <h5>• Connaissance de l'école des techniques du Noble Bestial : Aurochs (Modéré)</h5>
+                        <p>Tu comprends l'art d'un style défensif massif : ancrage, stabilisation, gestion de l'impact et posture qui impose la pression. Tu sais comment l'Aurochs gagne en valeur dans un duel prolongé, en réduisant les erreurs et en épuisant l'adversaire. Cette connaissance aide à tenir une ligne et à "fermer" les échanges.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>CST +3 • DEX ou FOR +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Instinct ou Résilience</p>
+                    </div>
+                </div>
+
+                <!-- École du Faucon -->
+                <div class="origin-card origin-faucon">
+                    <h3>🦅 École du Faucon (Pylorianne)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Considérée par les plus fervents défenseurs de Pylorianne comme l'une des formes les plus "pures" de l'escrime, l'École du Faucon est un style fondé sur la finesse, l'explosivité, et l'âme ardente du peuple du feu. Ce n'est pas un art de l'écrasement : c'est un art du surgissement, une danse tranchante où chaque ouverture est saisie avec précision.</p>
+                        <p>Les maîtres de cette école aiment la comparer à un phénix : non pas parce qu'elle est lente et majestueuse, mais parce qu'elle semble toujours revenir, encore et encore, même après avoir été repoussée. L'adepte y gagne une forme d'élan, une vitesse mentale et physique qui pousse à avancer, à relancer, à accélérer. Le combat se transforme en une succession de coups rapides et précis, si technique et exigeante qu'elle ne tolère presque que des armes légères, capables de suivre le rythme et la fluidité du style.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talent obtenu</h4>
+                        <p><strong>Maîtrise mineure du style de combat du Noble Bestial — Voie du Faucon</strong></p>
+                        <p>Le style du Faucon est un art de surgissement : léger, précis, explosif. La maîtrise apprend à "voler" sur le combat, en plaçant des attaques fines au bon timing, puis en se repositionnant avant la riposte. Les transitions sont rapides, les trajectoires courtes, et la garde ne reste jamais figée. Ce style récompense la vitesse d'exécution et la lecture des ouvertures instantanées.</p>
+                        <p><strong>Obtient la compétence :</strong> Technique du Noble Bestial du Faucon +2</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>⚔️ Capacité : Posture du Faucon Intrépide</h4>
+                        <p><strong>PA :</strong> 1 action • <strong>Portée :</strong> Soi • <strong>Durée :</strong> Maintien</p>
+                        <p>Ton corps s'allège, ta garde devient vive, et tes réactions s'aiguisent comme si le monde ralentissait autour de toi. Tes déplacements se font plus tranchants, plus précis, plus "réactifs".</p>
+                        <p><strong>Règles :</strong> Tant que la posture est active, tu gagnes +10 en DEX et +10 en Réactivité (REA). La posture permet l'utilisation des techniques du Faucon.</p>
+                        <p><strong>Limites :</strong> À chaque fois que tu reçois une attaque, tu dois réussir un jet de Constitution (CST) pour maintenir la posture (en cas d'échec, la posture prend fin).</p>
+                        <p><strong>Coûts :</strong> 12 PE (activation) + 4 PE / tour (maintien)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine du plan pylorian (Modéré)</h5>
+                        <p>Tu connais les codes pylorians : culture du panache, du feu, du spectacle et de la réussite visible. Tu sais comment les gens se comportent dans les fêtes, dans les quartiers vivants, et dans les cercles où l'image compte autant que le talent. Cette connaissance sert à naviguer dans les relations sociales et à éviter les faux pas.</p>
+                        <h5>• Connaissance de l'école des techniques du Noble Bestial : Faucon (Modéré)</h5>
+                        <p>Tu connais les principes du Faucon : surgissement, explosivité, finesse et repositionnement immédiat. Tu sais repérer les attaques d'estoc rapides et les enchaînements qui cherchent à frapper "avant la riposte". Cette connaissance t'aide à anticiper les styles très vifs et à comprendre comment ils créent leur avantage.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>DEX +3 • REA +4</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Finesse ou Instinct</p>
+                    </div>
+                </div>
+
+                <!-- École du Coyote -->
+                <div class="origin-card origin-coyote">
+                    <h3>🐺 École du Coyote (Makarane)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Née sous la loi implacable du désert de Makarane, l'École du Coyote est parfois décrite comme une "pâle version" du style originel par certains puristes… mais les Makariens, eux, y voient une vérité simple : l'adaptation est la survie.</p>
+                        <p>Ce style est sournois, précis et perfide, conçu pour exploiter la moindre faiblesse et punir la moindre erreur, exactement comme un coyote affamé fond sur une proie déjà fragilisée. Ici, on ne mise pas sur l'honneur : on mise sur l'efficacité. La finesse est présente, mais l'école se distingue surtout par son obsession des feintes et de la création d'ouvertures. Les Makariens ont une maxime : « On ne peut pas attendre qu'une occasion apparaisse par magie. Il faut la provoquer. » Et c'est exactement ce que fait ce style : il force l'adversaire à se tromper, à réagir, puis le dévore sur l'instant. Peu noble, peut-être… mais reconnu par presque tous comme l'un des styles les plus efficaces.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talent obtenu</h4>
+                        <p><strong>Maîtrise mineure du style de combat du Noble Bestial — Voie du Coyote</strong></p>
+                        <p>Le style du Coyote enseigne à créer l'ouverture plutôt qu'à l'attendre. L'adepte apprend à manipuler la réaction adverse par la feinte, le rythme et l'angle, jusqu'à provoquer une erreur exploitable. Cette maîtrise valorise la ruse, la précision et la punition immédiate, sans chercher la noblesse du duel. Quand l'ennemi se trompe, même d'un rien, le Coyote le mord là où ça fait le plus mal.</p>
+                        <p><strong>Obtient la compétence :</strong> Technique du Noble Bestial du Coyote +2</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>⚔️ Capacité : Posture du Coyote Affamé</h4>
+                        <p><strong>PA :</strong> 1 action • <strong>Portée :</strong> Soi • <strong>Durée :</strong> Maintien</p>
+                        <p>Tant que la posture est active, tu gagnes +2 sur tes jets de Feinte et +2 sur tes jets d'Analyse / lecture d'ouverture (si vous utilisez un jet basé sur PER pour lire une faille en combat).</p>
+                        <p><strong>Déclencheur :</strong> Une fois par tour, si ta Feinte réussit contre une cible engagée, tu peux choisir 1 effet : soit tu gagnes +2 sur ta prochaine attaque contre cette cible avant la fin de ton tour, soit tu réduis de -2 le prochain jet de défense active de cette cible contre toi (Parade/Esquive) avant la fin du tour.</p>
+                        <p>La posture permet l'utilisation des techniques du Coyote.</p>
+                        <p><strong>Limites :</strong> À chaque fois que tu reçois une attaque, tu dois réussir un jet de Constitution (CST) pour maintenir la posture (en cas d'échec, la posture prend fin).</p>
+                        <p><strong>Coûts :</strong> 12 PE (activation) + 4 PE / tour (maintien)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine du plan Makarane (Modéré)</h5>
+                        <p>Tu connais la logique du désert : chaleur, rationnement, routes caravanières, dangers invisibles et lois non écrites. Tu sais reconnaître les zones où l'on survit et celles où l'on meurt, même sans combat. Cette connaissance sert à voyager, négocier et se protéger dans un plan où la faiblesse se paie vite.</p>
+                        <h5>• Connaissance de l'école des techniques du Noble Bestial : Voie Coyote (Modéré)</h5>
+                        <p>Tu connais l'art de provoquer l'erreur : feintes, changements de rythme, angles trompeurs et pression psychologique. Tu sais comment le Coyote prépare une ouverture sans la laisser paraître, puis punit immédiatement. Cette connaissance te permet de mieux contrer un style "sale mais efficace", ou de l'exploiter au maximum.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER +3 • DEX ou FOR +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Instinct ou Sang-froid</p>
+                    </div>
+                </div>
+
+                <!-- Chemin du Duelliste -->
+                <div class="origin-card origin-duelliste">
+                    <h3>⚔️ Chemin du Duelliste (Duelliste d'Honneur)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>En empruntant le chemin du Duelliste d'Honneur, vous choisissez la voie des duels et de l'exigence. Vous perfectionnez un art fondé sur l'adaptation constante à votre adversaire, tout en apprenant à parer chaque éventualité offensive avec sang-froid.</p>
+                        <p>Dans cette voie, l'arme devient une extension de vous-même : vous la maîtrisez comme si vous l'aviez toujours eue en main. Mais contrairement aux écoles rigides et codifiées, l'art du duelliste n'est pas parfaitement "propre" ni strictement structuré. Il repose sur des bases apprises, puis se construit dans la réalité du combat — affûté par la sueur, l'entraînement, et la répétition jusqu'à l'instinct.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talent obtenu</h4>
+                        <p><strong>Maîtrise mineure de l'art de la parade</strong></p>
+                        <p>La parade devient un geste technique plutôt qu'un simple réflexe : angle de lame, alignement de garde, et lecture des trajectoires. Au lieu d'encaisser, tu apprends à dévier juste assez pour casser la force et garder la ligne. Tes mouvements se font plus courts et plus propres, limitant les ouvertures gratuites. Une bonne parade prépare naturellement une réponse immédiate.</p>
+                        <p><strong>Obtention de compétence :</strong> Parade technique +2</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>⚔️ Capacité : Parade d'Académie</h4>
+                        <p><strong>Coût :</strong> 1 PR • <strong>Type :</strong> CàC (arme) • <strong>Durée :</strong> Instantané</p>
+                        <p>Lorsque tu subis une attaque physique que tu peux parer, tu peux activer cette capacité pour effectuer ton jet de Parade avec un bonus de +5 uniquement si le lanceur est engagé avec une cible. En plus, si la parade est ratée, tu gagnes un bonus défensif physique de 1d3 contre cette attaque (réduction appliquée aux dégâts de l'attaque parée).</p>
+                        <p><strong>Limites :</strong> 1 fois par tour. Ne s'active pas si tu es Surpris ou Incapacité, et ne fonctionne pas contre les attaques de zone (AoE).</p>
+                        <p><strong>Coûts :</strong> 6 PE</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine des duels : codes, règles, formalités (Modéré)</h5>
+                        <p>Tu connais les règles qui encadrent un duel : annonce, témoins, conditions de victoire, limites acceptées, et conséquences sociales. Tu sais aussi reconnaître les variantes selon les régions, et ce qui est considéré comme un affront ou une tricherie. Cette connaissance permet d'éviter les erreurs de protocole et de lire les intentions derrière une provocation.</p>
+                        <h5>• Connaissance de l'art de la parade (Modéré)</h5>
+                        <p>Tu comprends la parade comme un geste technique : angle, ligne, contrôle du choc et préservation de ta garde. Tu sais comment dévier plutôt qu'encaisser, et comment une parade prépare une riposte propre. Cette connaissance t'aide à défendre sans te désorganiser, même face à un adversaire agressif.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>SAG de −2 → +3 • CST +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Instinct ou Résilience</p>
+                    </div>
+                </div>
+
+                <!-- Archéologue d'Armes -->
+                <div class="origin-card origin-archeologue">
+                    <h3>🏺 Archéologue d'Armes d'un Autre Temps</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>L'Archéologue d'Armes d'un Autre Temps est un voyageur des lieux oubliés : ruines désolées, temples effondrés, grottes maudites et profondeurs enfouies sous les âges. Il n'avance pas pour la gloire, mais pour une quête plus rare : retrouver la perle perdue, ces armes d'un « ancien temps » — des lames disparues avec un peuple ancien dont il ne reste parfois que des fragments de légendes.</p>
+                        <p>Collectionneur passionné ou véritable amoureux du sabre, il ne cherche pas seulement à posséder : il cherche à comprendre. Il traque les inscriptions, recoupe les récits, étudie les postures décrites dans les écrits survivants, et tente de reconstituer un art du combat aujourd'hui presque éteint.</p>
+                        <p>D'après les textes, ce style ancestral était calme, noble, et patient, une manière de combattre en harmonie avec l'esprit des peuples du froid : attendre, observer, verrouiller le rythme… puis frapper. Car lorsque la faille était créée, l'attaque tombait comme une sentence : un coup net, exécuté avec une précision telle que la puissance semblait décuplée.</p>
+                        <p>Mais cet art n'est pas qu'une discipline de contre. Il est aussi un prodige de canalisation des énergies environnantes, utilisé pour optimiser chaque riposte, chaque retournement, chaque fin de duel. Un art perdu… et l'adepte que vous êtes espère le faire renaître, lame après lame, geste après geste.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <p><strong>Maîtrise mineure de l'art de la riposte</strong></p>
+                        <p>La riposte s'exécute sur le battement qui suit l'impact : juste après la défense, avant que l'ennemi ne se replace. Tu apprends à punir sans casser ta garde, en restant compact et dangereux. Cette maîtrise entraîne ton œil à reconnaître une ouverture instantanée et ton corps à la saisir. Une bonne riposte n'est pas "vite" : elle est au bon moment.</p>
+                        <p><strong>Offre la compétence :</strong> Riposte +2</p>
+                        <p style="margin-top: 15px;"><strong>Maîtrise mineure de la lame ancienne (Équivalent au Katana)</strong></p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>⚔️ Capacité : Appât de la lame ancienne</h4>
+                        <p><strong>Coût :</strong> 1 PR • <strong>Type :</strong> CàC (arme) • <strong>Durée :</strong> Instantané</p>
+                        <p>Le lanceur adopte un calme tranchant et "offre" volontairement une ouverture contrôlée, prêt à punir la moindre frappe.</p>
+                        <p><strong>Effet :</strong> Lorsqu'il subit une attaque physique individuelle (mêlée ou distance) et que cette attaque le touche, le lanceur peut activer cette réaction pour réduire les dégâts subis de 10 %, puis effectuer immédiatement une riposte : 1 attaque simple avec son arme en main contre l'assaillant (si à portée). La puissance si le coût est réussi sera augmentée de 10 % (Max 25 % non dépassable via amélioration).</p>
+                        <p><strong>Limites :</strong> 1 fois par tour. Ne s'active pas si le lanceur est Surpris, Incapacitated, ou si l'attaque reçue est une zone/AoE. La riposte est une attaque simple uniquement (pas une capacité).</p>
+                        <p><strong>Coûts :</strong> 8 PE (activation)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance des ruines et sites anciens (Modéré)</h5>
+                        <p>Tu sais lire une ruine : architecture, pièges probables, zones d'effondrement et indices de passage récent. Tu reconnais les signes d'un lieu sacré, d'un tombeau, ou d'un site pillé. Cette connaissance sert à explorer sans mourir bêtement et à trouver les zones où les secrets ont le plus de chances d'être cachés.</p>
+                        <h5>• Connaissance des armes anciennes et lames perdues (Modéré)</h5>
+                        <p>Tu connais les formes, alliages, symboles et méthodes de forge des lames d'anciens peuples. Tu sais estimer l'époque d'une arme, son usage, et parfois son style associé. Cette connaissance aide à reconnaître une pièce rare, éviter les contrefaçons, et comprendre ce que l'arme "demande" en combat.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER +3 • CST +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Savoir ou Finesse</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances générales -->
+        <section class="section">
+            <h2 class="section-title">📘 Connaissances (générales)</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de l'art de l'escrime (Moyen)</h4>
+                    <p>Tu connais les bases techniques de l'escrime : distances, lignes d'attaque, tempo, garde et déplacements. Tu sais reconnaître les styles les plus courants et comprendre ce qui fait qu'un duel bascule. Cette connaissance sert autant à mieux te former qu'à analyser un adversaire en plein combat.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des écoles de l'escrime Noble Bestial (Moyen)</h4>
+                    <p>Tu comprends l'origine et les principes communs du Noble Bestial : posture, positionnement et enchaînements fluides. Tu sais identifier les grandes familles d'écoles et ce qui les différencie dans l'intention (pression, défense, explosivité, feinte…). Cela t'aide à anticiper les choix d'un escrimeur formé dans une voie proche.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance des mythes et légendes (Moyen)</h4>
+                    <p>Tu connais les récits fondateurs, les figures héroïques, et les symboles que les peuples transmettent à travers les âges. Tu sais repérer les légendes qui cachent une vérité historique, un lieu oublié ou un danger réel. Cette connaissance sert souvent à comprendre l'importance d'un objet, d'un nom, ou d'un rituel.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance des fondements des Postures de combat (Intermédiaire)</h4>
+                    <p>Tu comprends comment une posture influence le corps : ancrage, centre de gravité, mobilité, ouverture de garde et gestion de l'effort. Tu sais pourquoi certaines postures tiennent mieux sous pression et comment on les perd (déséquilibre, choc, erreur de placement). Cette connaissance aide à choisir la bonne posture au bon moment, et à la maintenir plus efficacement.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align:center; font-size:1.2rem; margin:0;">
+                    <strong>+1 classe d'arme : Épée, rapière, sabre ou autre arme tranchante</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎒 Équipement offert par la classe</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Arme principale légère au choix</h4>
+                        <p>Rapière, sabre, épée à une main (arme de lame non de guerre)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure légère d'escrimeur</h4>
+                        <p>Protection adaptée au mouvement et à la posture</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>2 potions de vie</h4>
+                        <p>Soins d'urgence</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💪</span>
+                    <div>
+                        <h4>1 potion d'endurance</h4>
+                        <p>Restaure l'énergie en combat prolongé</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">📖</span>
+                    <div>
+                        <h4>Précepte global des écoles d'escrime connues</h4>
+                        <p>Recueil : écoles, arts, histoire, bases</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔧</span>
+                    <div>
+                        <h4>Kit d'entretien d'arme</h4>
+                        <p>Huile, chiffon, pierre fine</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🧩 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Arme (X) — (FOR ou DEX)</strong> : Maîtrise pratique de l'arme choisie : toucher, contrôler la distance et frapper avec précision. Sert aussi pour les manœuvres simples (désarmer, pousser la garde, menacer une zone).</li>
+                        <li><strong>Parade — (FOR ou DEX)</strong> : Capacité à détourner une attaque avec la lame, en gardant sa ligne et sa posture. Une bonne parade limite l'impact et prépare une riposte.</li>
+                        <li><strong>Contre-attaque — (FOR ou DEX)</strong> : Art de punir juste après une défense ou une erreur adverse, sans se découvrir. Plus que "frapper vite", c'est frapper au bon battement.</li>
+                        <li><strong>Posture (Maintien) — (CST)</strong> : Permet de rester stable en posture malgré les chocs, la pression ou le déséquilibre. Sert à résister à la perte de posture et à tenir un duel long.</li>
+                        <li><strong>Réactif — (REA)</strong> : Capacité à répondre instantanément à un danger (interception, pas de côté, action réflexe). Sert souvent à agir "à temps" quand tout va trop vite.</li>
+                        <li><strong>Analyse tactique — (PER ou INT)</strong> : Lecture d'ensemble : positions, menaces, angles, priorités, comportement adverse. Utile pour choisir la bonne posture et la bonne cible.</li>
+                        <li><strong>Lecture d'ouverture — (PER)</strong> : Détecter une faille réelle : garde trop haute, pas trop long, rythme cassé, respiration ouverte. Sert à savoir quand attaquer plutôt que "tenter".</li>
+                        <li><strong>Feinte — (DEX ou CHA)</strong> : Provoquer une réaction en mentant avec le corps : regard, épaule, cadence, ligne d'attaque. Elle sert à déplacer la garde ennemie et créer l'ouverture.</li>
+                        <li><strong>Esquive — (DEX)</strong> : Éviter l'attaque en sortant de la ligne, sans perdre l'équilibre ni le tempo. L'objectif est de rester prêt à répondre immédiatement.</li>
+                        <li><strong>Robustesse — (CST)</strong> : Tenue physique face aux impacts, aux chutes, aux coups "qui passent" et à l'usure du duel. Sert à ne pas se faire briser le rythme par la douleur ou la fatigue.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧠 Compétences de trait spécifique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Agilité de mouvement — (Finesse)</strong> : Fluidité des déplacements, changements de direction et repositionnements propres. Réduit les pertes d'équilibre en action rapide.</li>
+                        <li><strong>Acrobatie — (Finesse)</strong> : Sauts, roulades, franchissements et réceptions maîtrisées. Utile pour passer un obstacle ou survivre à un terrain instable.</li>
+                        <li><strong>Déplacement silencieux — (Finesse)</strong> : Bouger sans trahir sa présence par le bruit ou les appuis. Sert à approcher, se replacer ou décrocher sans alerter.</li>
+                        <li><strong>Stabilité corporelle — (Finesse)</strong> : Garder un centre de gravité solide malgré une poussée, une glissade ou un choc. Très utile pour ne pas perdre sa posture.</li>
+                        <li><strong>Saut — (Finesse)</strong> : Juger une distance et se réceptionner proprement. Sert autant en mobilité qu'en évitement d'urgence.</li>
+                        <li><strong>Grimpette — (Finesse)</strong> : Monter vite et proprement sur des prises simples (muret, rocher, charpente). Pratique pour gagner un angle ou fuir.</li>
+                        <li><strong>Instinct de duel — (Instinct)</strong> : Sentir le moment dangereux avant qu'il arrive : accélération, piège, intention de rupture. Aide à choisir la réaction juste.</li>
+                        <li><strong>Pressentiment d'embuscade — (Instinct)</strong> : Percevoir les signes d'un piège ou d'une présence cachée (silence anormal, regards, mouvement). Sert à éviter d'être surpris.</li>
+                        <li><strong>Lecture d'adversaire — (Instinct)</strong> : Comprendre les habitudes d'un ennemi : rythme, préférences, tics de garde. Permet d'anticiper au lieu de subir.</li>
+                        <li><strong>Tenue sous pression — (Sang-froid)</strong> : Rester lucide quand le duel devient violent ou injuste. Évite les décisions impulsives et les paniques.</li>
+                        <li><strong>Contrôle respiratoire — (Sang-froid)</strong> : Stabiliser souffle et rythme cardiaque pour garder une exécution propre. Aide aussi à récupérer plus vite après effort.</li>
+                        <li><strong>Contrôle d'expression — (Sang-froid)</strong> : Masquer ses intentions sur le visage et dans la posture. Réduit les "indices gratuits" donnés à l'adversaire.</li>
+                        <li><strong>Tolérance à la douleur — (Résilience)</strong> : Continuer à agir proprement malgré une blessure ou une gêne. Limite les erreurs causées par la souffrance.</li>
+                        <li><strong>Endurance physique — (Résilience)</strong> : Tenir un effort long sans s'écrouler : duel prolongé, marche, combat répété. Réduit l'usure sur la durée.</li>
+                        <li><strong>Savoir des écoles — (Savoir)</strong> : Connaître les styles, leurs principes et leurs faiblesses probables. Sert à reconnaître une voie et adapter sa réponse plus vite.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/ClasseDCL/Escimeur.js"></script>
+</body>
+</html>
