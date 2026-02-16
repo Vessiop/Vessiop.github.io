@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pati-mage - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Patimage.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="cream-overlay"></div>
+    <div class="sparkles-container" id="sparkles"></div>
+
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/pATIMAGE.png" alt="Pati-mage">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🎂 Pati-mage</h1>
+            <p class="class-quote">« Mmm... (pensif) ce gâteau serait bien meilleur avec un peu de glaçage flamboyant... ou peut-être quelques génoises pour l'acidité... Ah, je suis indécis ! Pourquoi ne pas ajouter aussi des sucreries ? Mmm... une part pour chaque ennemi, et les bonbons seront pour mes alliés... parfait ! »</p>
+            <p class="class-quote-author">— Angelo Oscar Vincenzo</p>
+            <p class="class-type">🍰 Artiste du goût • Lanceur tactique • Contrôleur mobile</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description</h2>
+            <div class="content-box">
+                <p>Le Pati-mage n'est pas "juste" un cuisinier qui lance des sorts : c'est un artiste du goût et de l'effet, un lanceur de magie qui transforme la pâtisserie en outil tactique. Là où un mage classique canalise une énergie brute, lui l'infuse, la travaille, la dose, puis la scelle dans une création sucrée qui agit comme une arme… ou une bénédiction.</p>
+
+                <p>Son pouvoir repose sur une idée simple : chaque ingrédient porte une signature, une "note" magique. En les combinant, le Pati-mage fabrique des créations qui peuvent soutenir les alliés (Sucreries de Pouvoir), affaiblir les ennemis (Pâtisseries de Faiblesse), empoisonner ou user sur la durée (Gourmandises Vénéneuses), altérer l'état d'une cible (Douceurs Envoûtantes) ou même parfumer le champ de bataille via des essences qui touchent l'élémentaire (Arômes). Il ne se contente pas de frapper : il prépare le terrain, impose un rythme, et force l'adversaire à subir une cuisine "trop parfaite" pour être innocente.</p>
+
+                <p>En combat, un bon Pati-mage joue comme un contrôleur mobile : il observe, choisit l'ingrédient le plus pertinent, puis décide s'il doit créer une préparation rapide, mélanger pour ajouter un effet secondaire, ou transmuter un ingrédient commun en ressource plus spécialisée. Sa magie est une cuisine de guerre : propre, précise, et parfois terriblement cruelle… parce qu'elle est efficace.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d12</li>
+                        <li><strong>PM :</strong> 1d14</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Caractéristiques</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −2</span>
+                        <span class="stat-item neutral">CST : 0</span>
+                        <span class="stat-item positive">DEX : +3</span>
+                        <span class="stat-item positive highlight">INT : +4</span>
+                        <span class="stat-item positive">SAG : +1</span>
+                        <span class="stat-item positive highlight">PER : +3</span>
+                        <span class="stat-item negative">CHA : −2</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 20 + 2d6</li>
+                        <li><strong>REA :</strong> +3</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 2</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 2</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">🍪 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Four des Mille-Mains</h3>
+                <p>Grâce à une formation spécialisée, le Pati-mage sait enchaîner des préparations rapides avec une vitesse anormale pour un artisan. Il peut donc réaliser des créations pati-magiques en plein combat, sans devoir s'arrêter longtemps ni perdre le rythme.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Œil du Gourmet-Arcaniste</h3>
+                <p>Le Pati-mage apprend à "lire" un ingrédient comme on lit une rune : odeur, texture, chaleur magique et potentiel caché. Il peut analyser un ingrédient pour obtenir des informations utiles (ex : difficulté, catégorie, compatibilités, risques). Plus ce talent est amélioré, plus l'analyse devient précise et complète.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de la magie Patimèsque</h3>
+                <p>Cette magie n'est pas apprise comme un sort classique : les premiers Pati-mages parlaient d'un don naissant, une ouverture des sens — yeux, palais, narines — à des saveurs et des énergies invisibles. Là où la plupart ne voient qu'un fruit tombé ou une herbe maigre, eux perçoivent une signature, une nature magique, et la manière dont elle peut s'assembler avec une autre.</p>
+                <p>En reliant ce "sixième sens" à l'art universel de la cuisine, ils ont donné forme à une magie unique : des pâtisseries délicieuses capables de produire des effets redoutables, comme si le corps et la matière étaient forcés d'outrepasser leurs limites naturelles par l'infusion et le mélange.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Savoir-faire : Cuisine mineure</h3>
+                <p>La cuisine devient un vrai outil de terrain : tu sais préparer un repas correct même avec peu, et éviter les erreurs basiques qui rendent malade. Tu reconnais les cuissons sûres, ajustes les rations et améliores la conservation simple (salage, séchage). Dans un groupe, tes repas stabilisent l'énergie et limitent les pertes de ressources. Même en urgence, tu sais faire "propre et utile".</p>
+                <p><strong>Obtient la compétence de Trait spécifique :</strong> Cuisine +1 (Métier)</p>
+            </div>
+        </section>
+
+        <!-- Sort de classe -->
+        <section class="section">
+            <h2 class="section-title">✨ Sort de classe offert</h2>
+            <div class="spell-card">
+                <h3>Préparation de nourriture — « Bon appétit »</h3>
+                <p>Le lanceur combine 2 ingrédients pour créer une viennoiserie magique.</p>
+                <p><strong>Jet de Métier :</strong> Difficulté = Difficulté ingrédient 1 + Difficulté ingrédient 2.</p>
+                
+                <h4>📌 Effets (si le jet est réussi) :</h4>
+                <p>Le lanceur obtient une viennoiserie magique qu'il peut utiliser immédiatement :</p>
+                
+                <div class="spell-option">
+                    <h5>Option A — Lancer offensif :</h5>
+                    <p>Il lance la viennoiserie sur une cible dans un rayon de 30 ft. Si la cible est touchée (jet d'attaque magique simple), elle subit 3 dégâts magiques.</p>
+                </div>
+                
+                <div class="spell-option">
+                    <h5>Option B — Effet culinaire :</h5>
+                    <p>Le lanceur choisit de ne pas infliger de dégâts, et applique à la place 1 effet de base lié à la catégorie dominante des ingrédients utilisés (liste des effets gérée ailleurs).</p>
+                </div>
+                
+                <p><strong>Coût :</strong> 12 PM</p>
+            </div>
+        </section>
+
+        <!-- Passif de classe -->
+        <section class="section">
+            <h2 class="section-title">🍰 Passif de classe : Pati Magie</h2>
+            <div class="content-box">
+                <p><strong>Tu possèdes des Points d'Infusion (PI) :</strong> PI max = 4 + Stats Métier</p>
+                <p>Tu récupères tous tes PI après un repos court.</p>
+
+                <div class="subsection">
+                    <h4>1) Mode Mélange — "Poudre d'infusion"</h4>
+                    <p>Quand tu fais une Préparation pati-magique, tu peux effectuer 1 mélange :</p>
+                    <ul>
+                        <li>Choisis 1 ingrédient A (peu importe sa catégorie : Commun, Pouvoir, Faiblesse, Vénéneux, Envoûtant, Arôme…).</li>
+                        <li>Choisis 1 ingrédient B (peu importe sa catégorie).</li>
+                        <li>B est consommé et se dissipe en poudre d'infusion.</li>
+                        <li>Tu dépenses des PI pour imprimer un effet de base de la catégorie de B dans l'ingrédient A (la liste des effets est externe).</li>
+                    </ul>
+                    
+                    <h5>Coût en PI</h5>
+                    <p>Le coût est égal à la moitié de la difficulté de l'ingrédient B, arrondie à l'inférieur (minimum 1).</p>
+                    
+                    <h5>Résultat</h5>
+                    <ul>
+                        <li>L'ingrédient A devient "mélangé" : il conserve sa base, mais porte un effet de base de la catégorie de B.</li>
+                        <li>Cela peut créer un ingrédient à double effet (harmonisé).</li>
+                    </ul>
+                    
+                    <h5>Limites</h5>
+                    <ul>
+                        <li>1 mélange par tour.</li>
+                        <li>Un ingrédient déjà mélangé ne peut pas être remélangé (pas de chaîne de mélanges).</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4>2) Mode Création — "Transmutation de Commun"</h4>
+                    <p>À ton tour, tu peux dépenser des PI pour altérer un ingrédient Commun et le transformer en ingrédient de base d'une catégorie que tu maîtrises (ta voie).</p>
+                    <ul>
+                        <li>Tu choisis 1 ingrédient Commun.</li>
+                        <li>Tu le transformes en ingrédient de base de ta catégorie maîtrisée (ex : Voie Vénéneux → ingrédient de base Vénéneux).</li>
+                        <li>L'ingrédient créé reçoit un effet de base de cette catégorie (liste externe).</li>
+                    </ul>
+                    
+                    <h5>Coût en PI</h5>
+                    <p>Le coût est égal à la moitié de la difficulté de l'ingrédient Commun, arrondie à l'inférieur (minimum 1).</p>
+                    
+                    <h5>Limites</h5>
+                    <ul>
+                        <li>1 création par tour.</li>
+                        <li>Un ingrédient créé par ce mode est considéré comme "mélangé/créé" : il ne peut pas être remélangé ensuite.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🎂 Origines du Pati-mage</h2>
+            <p class="intro-text">« Chaque Pati-mage affine son art selon une voie culinaire… Quelle est la tienne ? »</p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- Confiseur de Pouvoir -->
+                <div class="origin-card origin-confiseur">
+                    <h3>🍬 Confiseur de Pouvoir</h3>
+                    <p class="origin-category">Catégorie : Sucreries de Pouvoir</p>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu viens d'ateliers où la confiserie n'est pas un luxe : c'est une médecine de guerre. On y cuisine pour faire tenir un allié debout, soutenir un souffle, renforcer un corps épuisé ou encaisser un assaut. Tes créations sont pensées pour l'équipe : propres, stables, et capables de "prendre" vite au bon moment.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Travailleur Gourmet : Confiserie de Renfort (Mineur)</h5>
+                        <p>Tu as appris à fabriquer des sucreries de soutien, dont la magie se fixe naturellement sur les alliés : elles se déclenchent vite, tiennent mieux, et s'accordent plus facilement à un organisme fatigué. Tu reconnais instinctivement les ingrédients qui nourrissent la vitalité, l'endurance et la résistance.</p>
+                        <p><strong>✅ Effet :</strong> tu peux désormais transformer un ingrédient Commun en ingrédient de catégorie Sucreries de Pouvoir (via ton Mode Création).</p>
+                        
+                        <h5 style="margin-top: 15px;">Accord Sucré : Plaisir Fortifiant</h5>
+                        <p>Tout Mode Mélange dont la Base (ingrédient A) est une Sucrerie de Pouvoir coûte -1 PI (minimum 1 PI).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Amélioration : Connaissance du domaine de la pâtisserie magique (modéré → avancé)</h5>
+                        
+                        <h5>• Connaissance des ingrédients — Sucreries de Pouvoir (Modéré)</h5>
+                        <p>Tu connais les ingrédients qui servent à soutenir : vitalité, endurance, résistances, régénérations et stabilisation d'un allié. Tu sais lesquels "prennent" vite en combat, lesquels tiennent mieux sur la durée, et lesquels doivent être consommés immédiatement pour ne pas perdre leur effet. Cette connaissance te permet d'éviter les erreurs classiques (dosage trop lourd, surcharge sucrée, incompatibilité qui annule un buff). Elle t'aide aussi à choisir les ingrédients les plus fiables selon l'état de l'allié : épuisé, blessé, fragile ou sous pression mentale.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>SAG +3 • PER +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Savoir +1 ou Métier +1 ou Sang-Froid +1</p>
+                    </div>
+                </div>
+
+                <!-- Pâtissier de Rupture -->
+                <div class="origin-card origin-patissier">
+                    <h3>🧁 Pâtissier de Rupture</h3>
+                    <p class="origin-category">Catégorie : Pâtisseries de Faiblesse</p>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as appris à cuisiner pour faire tomber un adversaire : casser son rythme, réduire sa précision, ralentir ses gestes, le forcer à douter. Tes desserts sont des pièges sucrés, des failles déguisées en gourmandise. On te reconnaît à cette cuisine qui ne tue pas forcément… mais qui fait perdre la maîtrise.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Travailleur Gourmet : Pâtisserie d'Affaiblissement (Mineur)</h5>
+                        <p>Tu sais composer des pâtisseries conçues pour faire chuter un adversaire : entamer sa défense, freiner ses réactions, affaiblir une stat clé ou fissurer sa stabilité mentale. Tu apprends à lire rapidement quelle faiblesse exploiter et comment la faire durer au bon moment.</p>
+                        <p><strong>✅ Effet :</strong> tu peux désormais transformer un ingrédient Commun en ingrédient de catégorie Pâtisseries de Faiblesse (via ton Mode Création).</p>
+                        
+                        <h5 style="margin-top: 15px;">Accord Amer-Sucré : Rupture Savoureuse</h5>
+                        <p>Tout Mode Mélange dont la Base (ingrédient A) est une Pâtisserie de Faiblesse coûte -1 PI (minimum 1 PI).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Amélioration : Connaissance de l'alchimie culinaire (modéré → avancé)</h5>
+                        
+                        <h5>• Connaissance des ingrédients — Pâtisseries de Faiblesse (Modéré)</h5>
+                        <p>Tu maîtrises les ingrédients conçus pour faire chuter un adversaire : baisse de stats, réduction de perception, perte de réactivité, affaiblissement de défense ou instabilité mentale. Tu sais quels goûts et textures se fixent le mieux sur une cible (croquant, poudreux, glaçage, gelée) et comment éviter qu'un malus se dissipe trop vite. Cette connaissance te permet de choisir une faiblesse pertinente selon le style de l'ennemi (brute, agile, mage, tacticien). Elle t'aide aussi à repérer un piège alimentaire similaire chez un adversaire ou dans une cuisine hostile.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER +3 • INT +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Instinct +1 ou Savoir +1 ou Métier +1</p>
+                    </div>
+                </div>
+
+                <!-- Apothi-Gourmand -->
+                <div class="origin-card origin-apothi">
+                    <h3>☠️ Apothi-Gourmand</h3>
+                    <p class="origin-category">Catégorie : Gourmandises Vénéneuses</p>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as étudié la frontière entre l'amertume et le danger : toxines, fatigues, perturbations lentes, nuisances qui brisent la concentration. Tu ne cuisines pas "sale" : tu cuisines précis, avec une logique de dosage, de timing, et de punition progressive. Une bouchée bien placée suffit à faire s'écrouler un plan adverse.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Travailleur Gourmet : Macération Toxique (Mineur)</h5>
+                        <p>Tu maîtrises les préparations qui imposent une nuisance progressive : poison, fatigue, confusion, baisse de concentration… Tes recettes sont faites pour durer, punir les erreurs, et grignoter l'efficacité de la cible au fil du combat.</p>
+                        <p><strong>✅ Effet :</strong> tu peux désormais transformer un ingrédient Commun en ingrédient de catégorie Gourmandises Vénéneuses (via ton Mode Création).</p>
+                        
+                        <h5 style="margin-top: 15px;">Accord Froid-Toxique : Douceur Dangereuse</h5>
+                        <p>Tout Mode Mélange dont la Base (ingrédient A) est une Gourmandise Vénéneuse coûte -1 PI (minimum 1 PI).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Amélioration : Connaissance du bestiaire alimentaire (modéré → avancé)</h5>
+                        
+                        <h5>• Connaissance des ingrédients — Gourmandises Vénéneuses (Modéré)</h5>
+                        <p>Tu connais les ingrédients qui imposent une nuisance progressive : toxines, fatigue, confusion, toux, perte de concentration ou dégâts de poison. Tu sais identifier les sources de danger (spores, bile, venins, plantes irritantes) et comment les manipuler sans t'empoisonner toi-même. Cette connaissance te permet de doser correctement : obtenir un effet "jouable" en combat sans rendre la préparation inutilisable ou trop lente. Elle aide aussi à reconnaître les signes d'une intoxication et à comprendre rapidement quel type de toxine est en cause.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>INT +3 • DEX +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Résilience +1 ou Métier +1 ou Sang-Froid +1</p>
+                    </div>
+                </div>
+
+                <!-- Sucrier Envoûtant -->
+                <div class="origin-card origin-sucrier">
+                    <h3>🍯 Sucrier Envoûtant</h3>
+                    <p class="origin-category">Catégorie : Douceurs Envoûtantes</p>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as appris l'art du sucre qui influence : apaiser, engourdir, fermer la gorge, endormir. Tes créations sont des murmures déguisés, une scène parfaitement accordée où l'effet passe parce que tout est juste : texture, parfum, rythme de consommation… Chez toi, la pâtisserie n'est pas seulement magique : elle est hypnotique.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Travailleur Gourmet : Confiserie d'Envoûtement (Mineur)</h5>
+                        <p>Tu sais produire des douceurs qui visent l'état : sommeil, paralysie, mutisme, inhibition… Tes recettes cherchent l'instant où l'esprit ou le corps cède, et tu reconnais les ingrédients capables "d'endormir" le réel.</p>
+                        <p><strong>✅ Effet :</strong> tu peux désormais transformer un ingrédient Commun en ingrédient de catégorie Douceurs Envoûtantes (via ton Mode Création).</p>
+                        
+                        <h5 style="margin-top: 15px;">Accord Hypnotique : Rêve Sucré</h5>
+                        <p>Tout Mode Mélange dont la Base (ingrédient A) est une Douceur Envoûtante coûte -1 PI (minimum 1 PI).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Amélioration : Connaissance du domaine de la cuisine (moyen → modéré)</h5>
+                        
+                        <h5>• Connaissance des ingrédients — Douceurs Envoûtantes (Modéré)</h5>
+                        <p>Tu connais les ingrédients qui visent l'état plutôt que les dégâts : sommeil, paralysie, mutisme, inhibition, engourdissement ou apaisement forcé. Tu sais comment ces effets se déclenchent (odeur, ingestion, contact, vapeur) et quels supports les rendent plus stables (sirop, sucre fin, glaçage, infusion chaude). Cette connaissance t'aide à choisir le bon "angle" : viser l'esprit ou le corps selon la situation, sans gaspiller un ingrédient rare. Elle te sert aussi à repérer des substances calmantes ou soporifiques dans l'environnement (marché, forêt, réserve, cuisine).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>CHA +3 • SAG +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Social +1 ou Sang-Froid +1 ou Instinct +1</p>
+                    </div>
+                </div>
+
+                <!-- Aromaturge de Combat -->
+                <div class="origin-card origin-aromaturge">
+                    <h3>🌿 Aromaturge de Combat</h3>
+                    <p class="origin-category">Catégorie : Arôme</p>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as appris à parfumer le champ de bataille : un arôme n'est pas un simple goût, c'est une signature, un marqueur qui révèle une faiblesse élémentaire ou renforce une adaptation. Tu cuisines avec des sens aiguisés, capable de choisir le bon parfum pour frapper ou protéger. Un simple souffle peut devenir une clé qui ouvre une vulnérabilité.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Travailleur Gourmet : Aromaturgie Élémentaire (Mineur)</h5>
+                        <p>Tu travailles les essences comme des vecteurs : affaiblir une résistance, installer une vulnérabilité, renforcer une adaptation… Tes arômes s'implantent par l'odeur, la trace et le souffle, et se lient naturellement à l'énergie du combat.</p>
+                        <p><strong>✅ Effet :</strong> tu peux désormais transformer un ingrédient Commun en ingrédient de catégorie Arôme (via ton Mode Création).</p>
+                        
+                        <h5 style="margin-top: 15px;">Accord Parfumé : Essence Fine</h5>
+                        <p>Tout Mode Mélange dont la Base (ingrédient A) est un Arôme coûte -1 PI (minimum 1 PI).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Amélioration : Connaissance de l'alchimie culinaire (modéré → avancé)</h5>
+                        
+                        <h5>• Connaissance des ingrédients — Arôme (Modéré)</h5>
+                        <p>Tu maîtrises les arômes comme des vecteurs : ils ne sont pas juste un parfum, mais une signature qui peut révéler une faiblesse élémentaire, installer une vulnérabilité ou renforcer une adaptation. Tu sais quels types d'essences se lient naturellement à certains éléments (froid, feu, foudre, etc.) et comment les extraire (zestes, huiles, fumées, réductions). Cette connaissance t'aide à doser finement : un arôme trop faible ne "marque" pas la cible, trop fort devient instable ou détectable. Elle te permet aussi d'identifier un danger élémentaire "à l'odeur" avant qu'il se déclenche.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER +3 • SAG +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Savoir +1 ou Instinct +1 ou Métier +1</p>
+                    </div>
+                </div>
+
+                <!-- Cuisto Aventurier -->
+                <div class="origin-card origin-cuisto">
+                    <h3>🔪 Cuisto Aventurier</h3>
+                    <p class="origin-category">Chasse & Saveur — grand couteau</p>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu n'as pas appris dans un atelier : tu as appris sur les routes, dans les camps, les ruines et les plaines gelées. Ton outil principal n'est pas une spatule : c'est un grand couteau de combat, fait pour chasser, dépecer, et cuisiner vite. Tu affrontes les bêtes (et parfois pire) non pas pour le trophée… mais pour leur saveur exploitable.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Maîtrise mineure : Style de combat au couteau</h5>
+                        <p>Tu sais te battre au couteau lourd : trancher net, profiter des ouvertures, et maintenir une pression de chasseur. En dehors du combat, tu maîtrises aussi la découpe utile : ne rien perdre, récupérer ce qui compte, et travailler rapidement une carcasse.</p>
+                        <p><strong>Compétence offerte :</strong> Couteau de combat (DEX) +2</p>
+                        
+                        <h5 style="margin-top: 15px;">Récolte au Tranchant</h5>
+                        <p>Quand tu infliges le coup final à une bête/créature (ou que tu participes activement à sa mise à mort), tu peux tenter une récolte rapide :</p>
+                        <ul>
+                            <li>Jet de Métier (DD = 10 + Difficulté de la chair)</li>
+                            <li>Réussite : tu obtiens 1 ingrédient Commun + 1 ingrédient d'une catégorie logique pour la créature.</li>
+                        </ul>
+                        <p>Ensuite, 1 fois par combat, au prix de 15 PM, tu peux convertir gratuitement (sans PI) un de ces Communs via Mode Création.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Amélioration : Connaissance du bestiaire alimentaire (modéré → avancé)</h5>
+                        
+                        <h5>• Connaissance de la chasse et du dépeçage (Modéré)</h5>
+                        <p>Tu connais les gestes propres : saigner, lever une pièce, retirer une glande, désosser sans perdre la qualité. Tu sais aussi comment conserver temporairement une viande ou un organe sans qu'il perde son intérêt (sel, froid, fumée). Cette connaissance sert à alimenter ton gameplay d'ingrédients "sur le terrain", sans dépendre d'un marché. Elle t'aide également à exploiter des créatures dangereuses sans te mettre en danger inutilement.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>DEX +3 • PER +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> Instinct +1 ou Résilience +1 ou Métier +1</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances générales -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances de base</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la cuisine (moyen)</h4>
+                    <p>Tu connais les techniques essentielles : découpes, cuissons, conservation, et gestion des ressources en situation réelle. Tu sais improviser un repas avec peu, optimiser un feu, et nourrir un groupe sans gaspiller. En jeu, ça sert autant à survivre qu'à reconnaître si un plat est raté, dangereux, ou au contraire parfaitement exploitable.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la pâtisserie magique (modéré)</h4>
+                    <p>Tu maîtrises les principes propres aux préparations sucrées enchantées : textures qui "portent" un sort, glaçages comme supports, et stabilisation d'effets via le sucre ou les crèmes. Tu sais pourquoi une recette tient… et pourquoi elle "explose" magiquement si elle est mal dosée. Cette connaissance permet d'anticiper les effets, de créer plus proprement, et de reconnaître une pâtisserie magique hostile.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du bestiaire alimentaire (modéré)</h4>
+                    <p>Tu sais quelles créatures sont comestibles, lesquelles sont toxiques, et lesquelles possèdent des parties "exploitables" (glande, écorce, moelle, suif, etc.). Tu reconnais aussi les indices : odeurs, traces, habitudes, et zones de chasse/collecte. En jeu, ça te sert à récolter plus intelligemment, éviter les intoxications, et trouver des ingrédients rares "au bon endroit".</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Ingrédient Patimèsque (Moyen)</h4>
+                    <p>Tu connais les bases communes à tous les ingrédients utilisés par les Pati-mages : catégories, logiques de mélange, risques d'incompatibilité et principes d'infusion. Tu sais reconnaître les signes d'un ingrédient exploitable (fraîcheur, charge magique, stabilité) et ceux d'un ingrédient dangereux ou "faux". Cette connaissance aide aussi à estimer rapidement la difficulté, l'usage probable et la manière de conserver un ingrédient sans qu'il perde son potentiel. Enfin, elle te donne des repères pour improviser quand tu n'as pas l'ingrédient parfait sous la main.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">⚔️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align:center; font-size:1.2rem; margin:0;">
+                    <strong>+1 Couteau de combat</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎒 Équipement de base</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🎒</span>
+                    <div>
+                        <h4>Sacoche d'ingrédients du cuisinier</h4>
+                        <p>6/6 slots</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure légère de base</h4>
+                        <p>Protection adaptée au mouvement</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🍰</span>
+                    <div>
+                        <h4>Paquet d'ingrédients</h4>
+                        <p>4 types d'ingrédient (3 communs + 1 rare) — 15 unités de chaque type</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🍴</span>
+                    <div>
+                        <h4>Kit de cuisinier</h4>
+                        <p>Ustensiles de base</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🍽️</span>
+                    <div>
+                        <h4>2 paquets d'assiettes</h4>
+                        <p>6 assiettes chacun (support de lancer / présentation)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔪</span>
+                    <div>
+                        <h4>2 couteaux de cuisine d'aventurier</h4>
+                        <p>+10% dégâts vs animaux non cuirassés</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>1 potion de vie</h4>
+                        <p>Soins d'urgence</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💜</span>
+                    <div>
+                        <h4>2 potions de magie</h4>
+                        <p>Restaure les points de magie</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🧩 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Magie Gourmande (INT)</strong> — Te permet d'imaginer et structurer une recette magique cohérente, en anticipant les risques et les catégories d'effets. Sert aussi à comprendre pourquoi un mélange marche… ou échoue.</li>
+                        <li><strong>Lancer de pâtisserie (DEX)</strong> — Sert à lancer proprement une création (assiette, projectile sucré) avec précision et stabilité. Utile pour toucher une cible, viser un point précis ou lancer sans perdre l'objet.</li>
+                        <li><strong>Analyse d'ingrédients (PER)</strong> — Permet d'évaluer rapidement la qualité, la rareté, la catégorie et les dangers d'un ingrédient (contamination, toxines, défauts). Tu repères aussi les détails utiles avant de l'utiliser.</li>
+                        <li><strong>Lecture des faiblesses gustatives (SAG)</strong> — T'aide à sentir ce qui "prendra" le mieux sur une cible : affaiblissement, confusion, vulnérabilité, etc. Sert à choisir la bonne recette en fonction de l'état mental/physique de l'ennemi.</li>
+                        <li><strong>Repérage de récolte (PER)</strong> — Permet de trouver des zones propices à la collecte (baies, herbes, ruches, spores, etc.) et d'identifier les bons signes. Sert aussi à éviter les coins pauvres ou dangereux.</li>
+                        <li><strong>Couteau de combat (DEX)</strong> — Sert à utiliser un couteau en situation de combat : attaques rapides, parades simples, ripostes et gestes propres. Utile aussi pour trancher, ouvrir ou se défendre à courte portée.</li>
+                        <li><strong>Préparation pati-magique (INT)</strong> — C'est la compétence de fabrication : assembler les bons ingrédients et produire une création utilisable (viennoiserie, biscuit, glaçage…). Elle mesure ta capacité à "faire tenir" la préparation dans le temps et sous stress.</li>
+                        <li><strong>Magie pati-magique (INT)</strong> — Représente ta maîtrise du style magique de la gourmandise : énergie, activation, contrôle des effets. Sert quand tu dois canaliser ou stabiliser un effet gourmand sans passer uniquement par la cuisine.</li>
+                        <li><strong>Observation culinaire (PER)</strong> — Permet de repérer des détails sur un plat, une cuisine, une préparation ou un comportement alimentaire (odeur, texture, trace). Très utile pour enquêter, détecter un sabotage ou comprendre une recette.</li>
+                        <li><strong>Récolte d'ingrédients (PER)</strong> — Sert à récupérer proprement un ingrédient en quantité exploitable sans l'abîmer (cueillette, extraction simple, récupération en carcasse). Permet aussi d'éviter les erreurs qui contaminent ou cassent la ressource.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧠 Compétences de trait spécifique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Cuisine (Métier)</strong> — Te permet de produire un résultat fiable en cuisine, même en condition difficile. Sert aussi à improviser un plat correct avec peu de moyens.</li>
+                        <li><strong>Préparation Culinaire magique (Métier)</strong> — C'est ton savoir-faire pour transformer des ingrédients en créations magiques stables et utilisables. Elle sert dès qu'il faut "exécuter la recette" proprement, vite, et sans gaspiller.</li>
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Te permet de continuer une action malgré une blessure, une brûlure ou un choc. Utile pour ne pas lâcher une préparation ou un combat à cause de la douleur.</li>
+                        <li><strong>Endurance prolongée (Résilience)</strong> — Sert à tenir sur la durée : marche longue, combat qui traîne, froid, manque de repos. Tu fatigues moins vite et restes fonctionnel plus longtemps.</li>
+                        <li><strong>Récupération rapide (Résilience)</strong> — Te permet de revenir plus vite après un effort ou un coup dur (reprendre ton souffle, te remettre d'un stress physique). Utile après une course, un surmenage ou un round difficile.</li>
+                        <li><strong>Résistance aux toxines (Résilience)</strong> — Sert à encaisser poisons, aliments douteux, fumées irritantes et contaminations légères. Utile aussi pour manipuler des ingrédients vénéneux sans te mettre toi-même en danger.</li>
+                        <li><strong>Manipulation culinaire délicate (Finesse)</strong> — Permet les gestes précis : doser, saupoudrer, extraire, travailler une pâte/essence sans la gâcher. Très utile pour éviter les accidents sur des ingrédients rares.</li>
+                        <li><strong>Équilibre (Finesse)</strong> — Sert à rester stable sur terrain glissant, étroit ou instable, et à agir sans tomber. Utile aussi pour lancer ou découper proprement en mouvement.</li>
+                        <li><strong>Mémoire d'ingrédient (Savoir)</strong> — Te permet de retenir des propriétés utiles : rareté, effet, danger, compatibilités, origine. Utile pour reconnaître un ingrédient déjà vu et éviter les erreurs de mélange.</li>
+                        <li><strong>Calme sous pression (Sang-froid)</strong> — Sert à agir proprement quand tout s'accélère : menace proche, urgence, chaos. Utile pour réussir une préparation ou une action clé sans paniquer.</li>
+                        <li><strong>Gestion de la peur (Sang-froid)</strong> — Permet de ne pas perdre tes moyens face à l'horreur, l'intimidation ou un danger supérieur. Utile pour continuer à agir et décider malgré la peur.</li>
+                        <li><strong>Contrôle émotionnel (Sang-froid)</strong> — Sert à ne pas te laisser guider par colère, stress, frustration ou panique. Utile pour garder un plan cohérent et ne pas "sur-réagir".</li>
+                        <li><strong>Pressentiment (Instinct)</strong> — Te permet de sentir un danger, une erreur ou un piège avant d'avoir une preuve claire. Utile pour éviter une embuscade, une contamination ou une mauvaise décision.</li>
+                        <li><strong>Réflexe de survie (Instinct)</strong> — Sert à réagir instantanément : se décaler, se protéger, saisir une opportunité, éviter un coup. Utile quand la situation bascule sans prévenir.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/ClasseDCL/Patimage.js"></script>
+</body>
+</html>
