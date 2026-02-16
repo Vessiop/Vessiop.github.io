@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exorciste - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Exorciste.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="shadow-overlay"></div>
+    <div class="light-particles" id="particles"></div>
+
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/EXORCISME.jpg" alt="Exorciste">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">✨ Exorciste</h1>
+            <p class="class-quote">« Peur, terreur et désespoir. Tels sont les ultimes sentiments des victimes face à leur destin funeste. Devant ces chasseurs infatigables, n'offrant le repos qu'une fois qu'ils ont accordé le même repos éternel à leurs proies. »</p>
+            <p class="class-quote-author">— Azaela</p>
+            <p class="class-type">✨ Chasseur rituel • Purificateur • Porteur de Lumière Déchue</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description</h2>
+            <div class="content-box">
+                <p>Les Exorcistes sont des chasseurs rituels et une organisation implantée à travers de nombreux Plans, dédiée à l'élimination des menaces maudites, de la corruption, et des phénomènes liés aux abysses. Là où la magie ordinaire échoue, ils interviennent avec méthode : repérer, contenir, puis purifier… ou, si aucun retour n'est possible, détruire.</p>
+
+                <p>Reconnaissables à leur tenue claire souvent tachée de sang, ils portent une réputation froide et inquiétante : on dit que chaque Exorciste a quelque chose qui glace l'entourage, comme si affronter l'horreur marquait l'âme autant que le corps. Certains portent même une Lumière Déchue, une énergie grisâtre et instable, vue comme une malédiction par le monde, mais considérée par l'Ordre comme une bénédiction maudite permettant d'exprimer l'art exorciste.</p>
+
+                <p>Leur magie est une lumière altérée, conçue pour annuler, purger, sceller, corriger et restaurer l'équilibre spirituel. Et lorsqu'ils s'adressent à une entité impure, leurs derniers mots sont toujours les mêmes :</p>
+                <p class="ritual-phrase">« Retourne à ton état d'origine. »</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d14</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & Malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −3</span>
+                        <span class="stat-item positive highlight">CST : +3</span>
+                        <span class="stat-item negative">DEX : −3</span>
+                        <span class="stat-item positive">INT : +2</span>
+                        <span class="stat-item positive highlight">SAG : +3</span>
+                        <span class="stat-item neutral">PER : 0</span>
+                        <span class="stat-item negative">CHA : −3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 30 + 3d6</li>
+                        <li><strong>REA :</strong> +3</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 2</span>
+                        <span>Sang-froid : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">🌟 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Entraînement mineur à la résistance à la peur (Mineur)</h3>
+                <p>La peur perturbe moins l'action : panique et figement deviennent plus rares. Même sous menace, une décision reste possible et le souffle se reprend plus vite. Cela aide à tenir un rôle, protéger un allié ou reculer proprement. Un talent de tenue mentale, pas d'inconscience.</p>
+                <p><strong>Offre la compétence :</strong> Trait spécifique : Résistance à la peur +1 (Sang-froid)</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Résistance mentale impie</h3>
+                <p>Face aux influences issues d'une magie maudite, corrompue ou abyssale, tous tes jets de RM sont effectués avec avantage.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Enfant de la Lumière Déchue</h3>
+                <p>Tu portes dans ton sang une "lumière corrompue", une énergie de nature lumineuse mais ternie, grisâtre, presque aussi froide que l'ombre. Où que tu ailles, cette marque attire les ennuis : accidents, rencontres funestes, malchances… comme si le monde réagissait à ce flux instable. Pour beaucoup, c'est la preuve de ta propre corruption ; pour l'Ordre des exorcistes, c'est au contraire une bénédiction maudite, la source rare qui te permet d'exprimer l'art véritable de l'exorcisme.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Fondations de l'art exorciste</h3>
+                <p>Tu as appris les bases essentielles de la manipulation de cette magie.</p>
+                <p><strong>Tu gagnes la compétence :</strong> Magie d'exorcisme (Sagesse) +5</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Terreur d'exorcisme</h3>
+                <p>Tant qu'une entité maudite/corrompue/abyssale ne possède pas au moins 2 + Modificateur de Sagesse en Sang-Froid, tes jets d'Intimidation contre elle sont effectués avec avantage.</p>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">✨ Origine de l'exorcisme</h2>
+            <p class="intro-text">« Chaque exorciste emprunte une voie pour affronter la corruption… Quelle est la tienne ? »</p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- Répurgateur -->
+                <div class="origin-card origin-repurgateur">
+                    <h3>🧵 Répurgateur (L'Increvable)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as appris à corriger plutôt qu'à détruire : dissiper les altérations, retrouver la vérité sous la déformation, et ramener un être ou un objet vers un état antérieur. Ta voie est rare et exigeante, car la répurgation est une magie coûteuse, faite de filaments lumineux colorés, en perpétuelle réparation. Dans l'Ordre, on te traite souvent comme un pilier : celui qui tient quand tout s'effondre, celui qui voit ce que la corruption tente de tordre.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Maîtrise mineure de la Magie d'Exorcisme : Style Répurgation</h5>
+                        <p>C'est la magie la plus rare, la plus coûteuse, mais aussi la plus subtile. Elle permet de reconstruire partiellement ce qui a été brisé, de ramener un être ou un objet à un état antérieur (physique ou magique), ou de révéler son essence vraie. Visuellement, elle se manifeste sous forme de filaments lumineux colorés, en perpétuelle réparation.</p>
+                        <p><strong>Obtention de la compétence :</strong> Magie exo. de Répurgation à +2</p>
+                        
+                        <h5 style="margin-top: 15px;">Décortication Répurgatrice</h5>
+                        <p>Tous les effets classés malus d'influence (peur, confusion, charme, affaiblissement mental…) voient leur durée réduite de 1 tour (minimum 1 tour restant).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Amélioration d'un cran : Connaissance du domaine de l'exorcisme</h5>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>INT +3 • SAG +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Résilience ou Savoir ou Sang-Froid</p>
+                    </div>
+                </div>
+
+                <!-- Exterminateur -->
+                <div class="origin-card origin-exterminateur">
+                    <h3>⚡ Exterminateur (L'Avant-garde)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu avances en première ligne. L'extermination est la voie brutale et directe : une magie qui ressemble à des éclairs multicolores, des rafales instables, des frappes spirituelles conçues pour anéantir la trace maudite. Tu traques les résidus et tu refuses la rédemption quand la corruption a déjà gagné. Dans une escouade, tu es la pointe : celui qui ouvre la route à coups de tempête exorciste.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Maîtrise mineure de la Magie d'Exorcisme : Style Extermination</h5>
+                        <p>Brutale et directe, cette magie concentre une puissance destructrice pour anéantir toute trace d'énergie maudite. Elle prend souvent la forme de frappes éclatantes, de lames de lumière impure ou d'impulsions électriques colorées.</p>
+                        <p><strong>Obtention de la compétence :</strong> Magie exo. d'Extermination à +2</p>
+                        
+                        <h5 style="margin-top: 15px;">Flaire des chasseurs de malheur</h5>
+                        <p>+10 aux jets de PER basés sur l'odorat pour traquer entités corrompues / résidus impurs.</p>
+                        <p><strong>Obtention de la compétence :</strong> Flaire Anti Impurs N.A +10</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Amélioration d'un cran : Connaissance du bestiaire maudit</h5>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER +4 • CST +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Puissance ou Instinct ou Résilience</p>
+                    </div>
+                </div>
+
+                <!-- Purificateur -->
+                <div class="origin-card origin-purificateur">
+                    <h3>🕯️ Purificateur (Poseur de Sceaux)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu es formé à neutraliser sans forcément détruire : sceaux, chaînes spirituelles grisâtres, champs d'apaisement. Ton rôle est celui du rempart mystique : tu réduis l'influence mentale, tu sécurises une zone, tu prépares un bannissement propre. Les Purificateurs excellent dans la stabilisation d'un terrain et la fabrication d'objets de scellement.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Maîtrise mineure de la Magie d'Exorcisme : Style Purification</h5>
+                        <p>Cette magie cherche à rétablir un équilibre spirituel, à extraire les influences impures sans forcément détruire la cible. Elle se manifeste par des chaînes spectrales, des sceaux, ou des lueurs argentées pâles, et permet de restreindre, sceller ou expulser les énergies maudites.</p>
+                        <p><strong>Obtention de la compétence :</strong> Magie exo. de Purification à +2</p>
+                        
+                        <h5 style="margin-top: 15px;">Œil de Scellement</h5>
+                        <p>1 fois par session, relance d'un jet de concentration pour maintenir un sort.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Amélioration d'un cran : Connaissance de la corruption</h5>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>SAG +3 • CST +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Savoir ou Sang-Froid ou Social</p>
+                    </div>
+                </div>
+
+                <!-- Veilleur Noir -->
+                <div class="origin-card origin-veilleur">
+                    <h3>⚔️🕯️ Veilleur Noir (Caste spéciale)</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu n'es pas un exorciste "de robe". Tu es un exorciste de fer : un chevalier noir intégré aux méthodes de l'Ordre, maniant une voie de l'exorcisme comme une discipline de guerre. Là où d'autres tracent des sceaux à distance, toi tu les imposes dans la mêlée, à la lame, au bouclier, au corps. Les Veilleurs Noirs existent pour les missions où l'exorcisme seul ne suffit pas : tenir une ligne, arracher un otage, ou affronter une présence abyssale au contact.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Talent de maîtrise (origine)</h5>
+                        <p>Maîtrise mineure : Arme de guerre (au choix) OU Maîtrise mineure : Discipline Martiale (Parade/Contre)</p>
+                        
+                        <h5 style="margin-top: 15px;">Croix d'Interdiction</h5>
+                        <p>1 fois par combat, quand tu touches en mêlée une cible maudite/corrompue/abyssale, tu imposes un verrouillage :</p>
+                        <ul>
+                            <li>soit –10 à son prochain jet d'influence (peur/terreur/charme/confusion),</li>
+                            <li>soit désavantage sur son prochain jet de concentration.</li>
+                        </ul>
+                        <p>(Choix au moment de l'impact, non cumulable.)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Amélioration d'un cran : Connaissance de l'ordre des exorcistes</h5>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>FOR de −3 → +3 • CST +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Puissance ou Résilience ou Sang-Froid</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances générales -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances de base de l'Exorciste</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de l'exorcisme (Moyen)</h4>
+                    <p>Savoir général sur la magie d'exorcisme : ses principes, ses limites, et ses usages contre maudit, corruption et abysses. Elle couvre la logique des interventions (détecter → contenir → purifier/détruire → sécuriser) et les erreurs qui aggravent une contamination. Elle aide aussi à reconnaître un phénomène typique et à choisir la bonne voie (Purification / Extermination / Répurgation) selon la situation.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance de l'ordre des exorcistes (Intermédiaire)</h4>
+                    <p>Connaissance de la structure et du fonctionnement de l'Ordre : ses grades, ses rôles, ses castes rares, et la manière dont une escouade opère. Elle inclut la réputation complexe de l'organisation, ses relations historiques tendues avec l'Ordre de la Lumière, et la coalition récente face à la corruption. Elle permet d'identifier les factions par Plan (Alkabone, Feu Purifiant, Zertorre/Physia, Ordre d'Or) et leurs spécialités.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du bestiaire maudit (Moyen)</h4>
+                    <p>Savoir pratique sur les créatures maudites : comportements, menaces, signes avant-coureurs, faiblesses, et risques de contamination. Elle sert à analyser une scène (traces, symptômes, "résidus") et à déduire le type d'entité ou la nature de l'influence. Très utilisée par les Exterminateurs (traque) et par les Répurgateurs (lecture des déformations).</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance de la corruption (Modéré)</h4>
+                    <p>Compréhension des mécanismes de propagation : comment une influence corrompue s'installe, se nourrit, et altère l'esprit, le corps ou un lieu. Elle aide à repérer les premiers seuils (obsessions, réactions anormales, "règles étrangères" qui s'installent) et à éviter les erreurs qui accélèrent une contamination. Elle devient cruciale depuis l'augmentation des menaces et l'apparition de monstres abyssaux liés à cette corruption.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des abysses (Modéré)</h4>
+                    <p>Savoir plus profond sur les fléaux abyssaux : nature étrangère, phénomènes anormaux (altérations spatiales/ temporelles / environnementales), et dangers spécifiques. Cette connaissance est particulièrement alimentée par certaines factions (notamment l'Ordre d'Or, réputé pour ses informations sur les abysses et ses singularités). Elle sert à comprendre pourquoi un lieu "ne suit plus les règles" et à adapter les procédures d'exorcisme à une menace non-standard.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align:center; font-size:1.2rem; margin:0;">
+                    <strong>+1 arme au choix</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🧪 Équipement de base</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">👘</span>
+                    <div>
+                        <h4>Robe d'Exorciste / Armure légère d'Exorciste</h4>
+                        <p>Réduction 10% dégâts de magie maudite / corrompue / abysse (ton item de classe)</p>
+                        <p><strong>Effet :</strong> si le sang d'un être corrompu/maudit/abysse se retrouve sur l'équipement, le porteur (s'il maîtrise l'une des magies d'exorcisme) peut retracer sa trace sur 500 mètres (uniquement l'originaire de ce sang et sur une bonne quantité de sang).</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🕯️</span>
+                    <div>
+                        <h4>5 Talismans : Détection maudite</h4>
+                        <p>Insuffler 5 PM : brille en blanc en présence de magie maudite (lueur = densité) (ne se désagrège pas sauf si la zone est maudite/corrompue/abysse)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>2 potions de vie</h4>
+                        <p>Soins d'urgence</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💜</span>
+                    <div>
+                        <h4>2 potions de magie</h4>
+                        <p>Restaure les points de magie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>+1 arme au choix</h4>
+                        <p>Celle de ton style / mission</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🎯 Compétences liées aux caractéristiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Magie d'Exorcisme (INT)</strong> — Permet de lancer, calibrer et stabiliser les sorts d'exorciste. Sert aussi à adapter la puissance/portée/durée d'un effet selon la menace.</li>
+                        <li><strong>Magie d'Ex. Purification (INT)</strong> — Sert à poser des sceaux, chaînes spirituelles et champs d'apaisement pour neutraliser une énergie maudite sans forcément la détruire. Idéal pour contenir, sceller, protéger une zone ou sécuriser un allié.</li>
+                        <li><strong>Magie d'Ex. Extermination (INT)</strong> — Permet de libérer des rafales destructrices dédiées à l'élimination d'entités maudites/corrompues. Sert aussi à briser des maléfices et à "finir" une cible dangereuse rapidement.</li>
+                        <li><strong>Magie d'Ex. Répurgation (INT)</strong> — Sert à corriger, dissiper et reconstruire partiellement ce qui a été altéré (effets, états, essence). Utile pour révéler une vérité cachée, réduire des malus et restaurer un état antérieur.</li>
+                        <li><strong>Analyse maudite (PER)</strong> — Permet de lire une aura souillée, repérer des résidus et comprendre la nature d'une influence. Sert à identifier une source, estimer la dangerosité et éviter les pièges "invisibles".</li>
+                        <li><strong>Traque des résidus (PER)</strong> — Sert à suivre une signature maudite/corrompue via traces, odeurs, variations de l'air ou du terrain. Très utile pour poursuivre une entité, retrouver un lieu contaminé ou confirmer une fuite.</li>
+                        <li><strong>Lecture d'environnement (PER)</strong> — Permet de repérer les zones anormales : règles étrangères, points de rupture, angles morts et détails suspects. Sert à choisir un itinéraire sûr et installer un périmètre intelligent.</li>
+                        <li><strong>Rituel de bannissement (SAG)</strong> — Sert à tenir un protocole long et stable (bannissement, expulsion, purification rituelle) sans dévier. Plus la SAG est solide, plus l'exorciste reste "droit" face aux pressions spirituelles.</li>
+                        <li><strong>Résistance mentale appliquée (SAG)</strong> — Permet de résister aux effets magiques directs qui cherchent à déséquilibrer l'esprit (hors influence "pure" gérée surtout par la RM). Sert à garder la clarté, l'intuition juste et la discipline en combat.</li>
+                        <li><strong>Autorité d'Ordre (CHA)</strong> — Sert à imposer une décision et une procédure quand la panique monte (civils, alliés, témoins). Utile pour calmer, ordonner, ou obtenir l'obéissance immédiate sur un terrain dangereux.</li>
+                        <li><strong>Interrogatoire de survivants (CHA)</strong> — Permet d'obtenir des informations fiables malgré choc, peur ou mensonges involontaires. Sert à reformuler, cadrer le récit et repérer les incohérences sans aggraver le traumatisme.</li>
+                        <li><strong>Posture défensive (CST)</strong> — Sert à tenir une ligne, encaisser et rester stable sous pression sans perdre sa concentration. Utile pour protéger un rituel, tenir un couloir, ou résister à une charge.</li>
+                        <li><strong>Combat anti-maudit (FOR ou DEX selon arme)</strong> — Permet de frapper une cible maudite en exploitant ses ouvertures (rythme, angle, points faibles). Sert autant à l'offensive qu'aux "coups d'arrêt" pour sauver un allié.</li>
+                        <li><strong>Réaction de parade (REA)</strong> — Sert à parer, rompre un contact dangereux ou casser une action ennemie au bon timing. Utile pour couper une entrave, interrompre une attaque ou protéger quelqu'un à la dernière seconde.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧠 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Permet de rester fonctionnel blessé et de continuer à agir malgré la souffrance. Sert aussi à maintenir un rituel ou une garde sous dégâts.</li>
+                        <li><strong>Résistance aux poisons (Résilience)</strong> — Sert à encaisser toxines, miasmes, souillures physiques et affaiblissements biologiques. Utile pour survivre à une zone contaminée ou tenir jusqu'à traitement.</li>
+                        <li><strong>Équilibre de tracé (Finesse)</strong> — Permet de tracer un sceau propre, précis et stable sans bavure, même sous stress. Sert aussi à manipuler des composants fragiles (poudres, fils, runes).</li>
+                        <li><strong>Manipulation de talisman (Finesse)</strong> — Sert à activer, poser, retirer ou "désamorcer" un talisman sans déclencher d'effet parasite. Utile quand il faut agir vite au contact d'une aura instable.</li>
+                        <li><strong>Bris de verrouillage (Puissance)</strong> — Sert à forcer un passage scellé, arracher une entrave ou briser un obstacle physique résistant. Utile quand la solution doit être immédiate et brutale.</li>
+                        <li><strong>Impact rituel (Puissance)</strong> — Permet de pousser/repousser une entité hors d'une zone par contrainte brute (corps, terrain, choc). Utile pour gagner du temps, dégager un allié ou expulser d'un cercle.</li>
+                        <li><strong>Diagnostic d'influence (Savoir)</strong> — Sert à identifier un malus (type, source probable, niveau de danger) et à choisir la contre-mesure. Utile pour ne pas gaspiller ses ressources ou aggraver l'état.</li>
+                        <li><strong>Doctrine de l'Ordre (Savoir)</strong> — Permet d'appliquer les procédures officielles : sécurisation, priorité de cible, rapport, et gestion de scène. Utile pour travailler en escouade sans chaos.</li>
+                        <li><strong>Sang-froid de crise (Sang-Froid)</strong> — Sert à agir avec lucidité quand la peur ou la terreur monte et que tout le monde hésite. Utile pour prendre la décision dure au bon moment.</li>
+                        <li><strong>Pressentiment de souillure (Instinct)</strong> — Permet de sentir une embuscade, un "mauvais pas", ou une zone piégée avant d'en avoir la preuve. Utile pour éviter une catastrophe et se repositionner vite.</li>
+                        <li><strong>Lecture des intentions (Social)</strong> — Sert à calmer un civil, lire un mensonge, repérer une manipulation ou désamorcer un conflit local. Utile pour obtenir coopération et éviter la violence inutile.</li>
+                        <li><strong>Réseau de l'Ordre (Social)</strong> — Permet d'obtenir hébergement, informations, accès à un contact ou une base selon la réputation et les codes. Utile pour accélérer une enquête ou sécuriser une extraction.</li>
+                        <li><strong>Rituels de terrain (Métier)</strong> — Sert à installer un périmètre, préparer un cercle, gérer le matériel et sécuriser une zone souillée. Utile pour transformer un terrain chaotique en zone contrôlée.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/ClasseDCL/Exorciste.js"></script>
+</body>
+</html>
