@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gardien Spirituel - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/gardienspirit.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="ethereal-overlay"></div>
+    <div class="soul-mist" id="mist"></div>
+
+    <!-- Bouton retour -->
+    <a href="../../HTML classe/ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/BS_Revenant_Grace.jpg" alt="Gardien Spirituel">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">🛡️ Gardien Spirituel</h1>
+            <p class="class-quote">« Père, mère… si ma voix vous parvient encore, ne pleurez pas. Mon âme descendra aux enfers et j'y marcherai sans trembler, car je n'ai plus le luxe d'avoir peur. Je reposerai en paix, même dans les pires abîmes, une fois ma vengeance accomplie. Et si je perds mes bras, mes jambes, mon corps… alors je trouverai un autre corps. Je vous le jure : je reviendrai avec ce que la mort m'a laissé. »</p>
+            <p class="class-quote-author">— Parole d'un Revenant (enfant appelé de l'autre monde)</p>
+            <p class="class-type">👻 Être spirituel • Possesseur d'armure • Gardien des seuils</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description</h2>
+            <div class="content-box">
+                <p>Les Gardiens Spirituels sont des êtres qui ont frôlé la mort dans un lieu saturé d'énergie d'âme : un champ de bataille noyé de regrets, une tombe maudite, une faille proche du Plan des Âmes… et ils en sont revenus imprégnés. Leur âme s'est mêlée à une force étrangère et familière à la fois, si dense qu'elle peut désormais se détacher du corps, puis se réancrer ailleurs.</p>
+
+                <p>Pour eux, la chair n'est plus un destin : c'est un support. Leur véritable « corps » est leur ancrage, souvent une armure-réceptacle qu'ils apprennent à habiter comme une seconde peau, froide et silencieuse, mais incroyablement fidèle. Là où d'autres guerriers tombent, le Gardien se désancre : sa forme se retire, et il revient tant que son âme tient encore.</p>
+
+                <p>Armés d'une lance ou d'une hallebarde, ils tiennent la ligne avec une lourdeur presque inhumaine : ils protègent, encaissent, puis répondent avec une violence qui semble venir d'au-delà. Mais cette puissance a un prix : plus le lien est forcé, plus l'âme s'use — et ceux qui jouent avec les morts finissent souvent par découvrir qu'on ne ressort pas toujours intact de l'autre côté.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d16</li>
+                        <li><strong>PM :</strong> 1d12</li>
+                        <li><strong>PE :</strong> 1d12</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🔢 Bonus & Malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +2</span>
+                        <span class="stat-item positive highlight">CST : +3</span>
+                        <span class="stat-item negative">DEX : −3</span>
+                        <span class="stat-item positive">INT : +2</span>
+                        <span class="stat-item positive highlight">SAG : +4</span>
+                        <span class="stat-item negative">PER : −3</span>
+                        <span class="stat-item negative">CHA : −1</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 30 + 3d6</li>
+                        <li><strong>REA :</strong> +2</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 2</span>
+                        <span>Sang-froid : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">💪 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de la possession d'armure spirituelle</h3>
+                <p>Permet au lanceur de posséder une armure via son essence spirituelle, et de la manipuler comme son propre corps. À ce stade de maîtrise, l'usage est stable mais limité. Une maîtrise plus élevée permettrait de modifier, adapter ou spécialiser l'armure davantage.</p>
+                <p><strong>Offre la compétence :</strong> Possession d'armure spirituelle (Sagesse) +2</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Lien d'Incarna</h3>
+                <p>Le lanceur peut lier une armure comme réceptacle spirituel, devenant son second corps. La synchronisation nécessite 100 points, obtenus via des jets de Sagesse toutes les 2 heures (coût : 20 PE + 20 PM par tentative). Chaque réussite partielle donne des points égaux à l'écart entre le seuil et le résultat. Une fois la synchronisation atteinte, l'armure devient une extension totale du lanceur, facilitant toute action spirituelle ou martiale. Plus l'armure est complexe ou chargée d'énergie, plus la synchronisation est longue.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de la lance ou hallebarde</h3>
+                <p>Tu maîtrises les fondamentaux de ces armes d'allonge : garde, distance, frappes d'arrêt et contrôle de zone. Cette maîtrise te permet de tenir une ligne et de punir les approches imprudentes.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de la magie spirituelle d'âmes</h3>
+                <p>Cette magie est une forme de magie spirituelle, mais dans son état le plus pur et le plus brut. En tant qu'être spirituel, tu ne perçois plus la magie et l'essence comme un mortel : tu les ressens de l'intérieur, comme une vérité immédiate. Cette énergie est l'essence même de ta nouvelle existence, la matière dont ta vie revenante est faite. Pour le lanceur, elle agit presque comme un corps parallèle, une extension naturelle de lui-même.</p>
+                <p><strong>Offre la compétence :</strong> Magie spirituelle d'âmes (Sagesse) +2</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Seuil de Rupture</h3>
+                <p>Le Gardien Spirituel ne « meurt » pas vraiment quand ses PV tombent à 0 : son lien au réceptacle (armure) se brise et il reprend une forme spirituelle désancrée. Tant qu'il lui reste des PM, son âme tient encore. Quand ses PM tombent à 0, l'âme s'effondre : c'est le coma spirituel, et la mort définitive si rien ne le sauve.</p>
+            </div>
+        </section>
+
+        <!-- Passif de classe -->
+        <section class="section">
+            <h2 class="section-title">🕵️‍♂️ Passif de Classe — Esprit Gardien</h2>
+            <div class="content-box">
+                <p>Au début de chaque combat, le Gardien Spirituel commence avec <strong>0 % de Puissance Spirituelle (PS)</strong>.</p>
+
+                <p>Chaque fois qu'il subit une attaque physique ou des dégâts magiques directs, il gagne <strong>+20 % PS</strong>.</p>
+
+                <p>À <strong>100 % PS</strong>, toutes ses attaques de magie spirituelle infligent <strong>+10 % de dégâts</strong> tant que ce seuil est maintenu.</p>
+
+                <p>Lorsqu'un allié dans un rayon de 10 ft est touché, le Gardien peut dépenser <strong>1 Point de Réaction (PR)</strong> pour gagner <strong>+10 % PS</strong>.</p>
+
+                <p><strong>PS : 0 / 100</strong></p>
+            </div>
+        </section>
+
+        <!-- Sort de classe -->
+        <section class="section">
+            <h2 class="section-title">🔥 Sort de classe</h2>
+            <div class="spell-card">
+                <h3>Possession Spirituelle d'Armure (LV 3)</h3>
+                <p><strong>PA :</strong> 1 action • <strong>Portée :</strong> Contact (armure vide) • <strong>Durée :</strong> 8 tours (1 h hors combat)</p>
+                
+                <p>Le lanceur sépare son esprit de son corps-réceptacle : une brume d'âme s'étire hors de lui et s'enfonce dans l'armure choisie. L'armure se redresse, « habitée », et le Gardien agit à travers elle comme si c'était son propre corps.</p>
+                
+                <h4>Règles :</h4>
+                <p>Tu possèdes une armure vide et tu la contrôles. Pendant la durée, tu bénéficies des bonus de l'armure possédée et de ces effets généraux : Réduction de 10 % des dégâts physiques ou magiques (ce bonus ne s'applique pas aux faiblesses).</p>
+                
+                <div class="spell-option">
+                    <h5>• Armure légère :</h5>
+                    <p>+10 DEX, +20 REA, +5 CST. Faiblesse : −10 FOR.</p>
+                </div>
+                
+                <div class="spell-option">
+                    <h5>• Armure intermédiaire :</h5>
+                    <p>+5 DEX, +5 FOR, +15 RM.</p>
+                </div>
+                
+                <div class="spell-option">
+                    <h5>• Armure lourde :</h5>
+                    <p>+10 CST, +5 FOR, Réduction de 10 % dégâts tranchants, −10 DEX, +10 % vulnérabilité contondant.</p>
+                </div>
+                
+                <p><strong>Fin du sort :</strong> À la fin du sort, l'esprit retourne automatiquement dans le corps-réceptacle actuel.</p>
+                
+                <h4>Limites :</h4>
+                <p>Nécessite une armure vide (non portée/occupée). Si l'armure est détruite, le sort se termine immédiatement (retour forcé). Les bonus/malus listés sont exclusifs à l'armure possédée (tu ne choisis qu'un type). La capacité de posséder ton corps-réceptacle est considérée comme permanente tant qu'il n'est pas détruit (ce sort ne la « consomme » pas).</p>
+                
+                <p><strong>Coût :</strong> 40 PM</p>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🧬 Origines (Vocations) — Gardien Spirituel</h2>
+            <p class="intro-text">« Chaque Gardien revient pour une raison… Quelle est la tienne ? »</p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- Veilleur du Seuil Pâle -->
+                <div class="origin-card origin-veilleur">
+                    <h3>⚰️ Veilleur du Seuil Pâle</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as été « ramassé » entre deux souffles, dans une zone où le Plan des Âmes déborde sur le monde. Depuis, tu ressens les passages comme on sent une tempête avant qu'elle n'éclate. Tu protèges les lieux de mort, tu gardes les seuils, et tu refuses qu'on profane ce qui doit reposer. Ton armure est un poste de garde autant qu'un corps.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Gardien des tombes</h5>
+                        <p>Tout jet de vigilance de surveillance sera fait avec avantage (tant que le lanceur est dans une armure-réceptacle) (base Perception ou Instinct).</p>
+                        
+                        <h5 style="margin-top: 15px;">Interdiction silencieuse</h5>
+                        <p>Une fois qu'un ennemi entre dans une zone de 10 ft de rayon autour du lanceur, s'il termine son tour toujours dans la zone, le lanceur gagne +10 % PS.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>⬆️ Amélioration de connaissance (base)</h5>
+                        <p>Plan des Âmes (mineur) → modéré</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER de −3 → +3 • CST +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Sang-froid ou Instinct</p>
+                    </div>
+                </div>
+
+                <!-- Porte-Serment Inachevé -->
+                <div class="origin-card origin-serment">
+                    <h3>🩸 Porte-Serment Inachevé</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu n'es pas revenu « par accident » : tu es revenu parce que tu as juré. Ton âme tient grâce à une parole gravée plus fort que la mort, et ton réceptacle devient l'armure de cette promesse. Tu encaisses pour protéger, tu frappes pour rappeler la dette, et tu ne cèdes pas tant que la mission respire. La vengeance n'est pas ton moteur : c'est ton verrou.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Serment d'interposition</h5>
+                        <p>1 fois par combat, quand un allié à 10 ft est touché, tu peux dépenser 1 PR pour réduire les dégâts qu'il subit de 10 % et gagner +10 % PS.</p>
+                        
+                        <h5 style="margin-top: 15px;">Volonté serrée</h5>
+                        <p>Tant que tu es à 50 % PS ou plus, tu gagnes +10 RM.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>⬆️ Amélioration de connaissance (base)</h5>
+                        <p>Domaine des Revenants (modéré) → avancé</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>CST +3 • SAG +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Résilience ou Sang-froid</p>
+                    </div>
+                </div>
+
+                <!-- Forgeron d'Incarna -->
+                <div class="origin-card origin-forgeron">
+                    <h3>🛡️ Forgeron d'Incarna</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as appris à parler aux armures comme on parle à des bêtes de trait : par le poids, les rivets, et la vérité du métal. Ton lien n'est pas seulement mystique : il est technique, précis, entretenu. Tu choisis tes réceptacles comme un artisan choisit sa lame, et tu sais « corriger » une armure qui rejette ton âme. Ton style est méthodique, presque froid.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Réglage du réceptacle</h5>
+                        <p>Hors combat, tu réduis de 25 % le temps nécessaire d'une tentative de synchronisation (Lien d'Incarna) sur une armure que tu as modifiée/entretenue.</p>
+                        
+                        <h5 style="margin-top: 15px;">Ancrage court</h5>
+                        <p>1 fois par combat, quand tu lances Possession Spirituelle d'Armure, tu gagnes immédiatement +75 % PS.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Nouvelle connaissance — Connaissance du domaine des armures (modéré)</h5>
+                        <p>Tu connais les armures comme des structures vivantes : tu sais distinguer une pièce conçue pour tenir un choc d'une pièce faite pour la mobilité, et repérer une faiblesse avant qu'elle ne cède. Tu comprends comment les matériaux, les rivets, les sangles et la forme globale influencent la protection, le poids et la stabilité. Tu sais évaluer l'état d'une armure en quelques gestes (alignement des plaques, tension des attaches, microfissures). Enfin, tu as des bases pour entretenir, ajuster et adapter une armure à son porteur ou à un usage spécifique.</p>
+                        
+                        <h5>⬆️ Amélioration de connaissance (base)</h5>
+                        <p>Magie de possession d'armure (modéré) → avancé</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>SAG +2 • INT +3</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Métier ou Savoir</p>
+                    </div>
+                </div>
+
+                <!-- Tranche-Âme des Champs Froids -->
+                <div class="origin-card origin-tranche">
+                    <h3>🗡️ Tranche-Âme des Champs Froids</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as survécu à une guerre où la mort ne suffisait plus à arrêter les soldats. Ton art n'est pas « noble » : il est efficace, direct, brutal — tu frappes ce qui tient l'ennemi debout. Ta Lame d'Âme n'est pas une élégance : c'est une condamnation. Tu joues plus agressif qu'un Gardien classique, mais tu restes un rempart.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Impact spirituel</h5>
+                        <p>1 fois par tour, si tu attaques en étant à 100 % PS, tu ajoutes +5 au jet de dégâts sur une attaque d'arme tranchante au corps à corps. Si l'attaque est portée avec une arme « haste », ce bonus est doublé.</p>
+                        
+                        <h5 style="margin-top: 15px;">Présence d'Abîme</h5>
+                        <p>Lorsque tu touches un ennemi en mêlée, 1 fois par combat, tu peux libérer un dégagement spirituel sombre destiné à le dissuader de s'en prendre à tes alliés. La cible effectue un jet de Sang-froid DD = 2 + Mod de SAG. En cas d'échec, elle subit un désavantage sur son prochain jet d'attaque visant un allié autre que toi (le malus ne s'applique pas si elle attaque le lanceur).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Nouvelle connaissance — Connaissance du domaine de la guerre (modéré)</h5>
+                        <p>Tu comprends la guerre comme un enchaînement de décisions : position, pression, moral, logistique et timing comptent autant que la force brute. Tu sais lire un champ de bataille : repérer une ligne qui va rompre, identifier la cible qui « tient » un groupe, et anticiper un contournement ou une charge. Tu connais les principes de base des formations (front, flancs, repli, fixation) et comment protéger une unité sans la ralentir. Enfin, tu sais que survivre ne suffit pas : il faut choisir quand frapper, et quand tenir jusqu'au dernier pas.</p>
+                        
+                        <h5>⬆️ Amélioration de connaissance (base)</h5>
+                        <p>Magie spirituelle des âmes (modéré) → avancé</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>FOR +3 • DEX de −3 → +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Puissance, Résilience ou Finesse</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances générales -->
+        <section class="section">
+            <h2 class="section-title">📘 Connaissances</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine du Plan des Âmes (mineur)</h4>
+                    <p>Tu sais reconnaître les « signes » d'un passage : froid sec, silence anormal, échos qui reviennent faux, traces de deuil dans l'air. Tu connais les grandes lois : ancre, errance, appel, dissolution. Tu comprends pourquoi certaines zones deviennent des nœuds spirituels et comment éviter de les profaner. Tu as quelques repères sur les rites de repos, même si tu n'es pas prêtre.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance de la magie spirituelle des âmes (modéré)</h4>
+                    <p>Tu comprends que l'âme est une matière : elle se tend, se fracture, se coud, se marque. Tu sais distinguer une blessure « d'esprit » d'une blessure « de chair », et comment l'énergie d'âme circule (souffle, volonté, mémoire). Tu connais les bases pour amplifier un impact spirituel ou stabiliser un flux. Tu sais aussi repérer les magies qui « purifient » et celles qui « dévorent ».</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Gardiens Spirituels (modéré)</h4>
+                    <p>Tu connais l'histoire des premiers Gardiens, les différents styles de réceptacles et les erreurs qui brisent une synchronisation. Tu sais comment ils s'entraînent : encaissement, ancrage, discipline, et « gestion du désancrage ». Tu connais leurs serments, leurs tabous et leurs rivalités internes. Tu sais reconnaître un Gardien à sa façon de bouger… même en armure.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance de la magie de possession d'armure (modéré)</h4>
+                    <p>Tu sais comment une essence prend place dans un réceptacle : points d'accroche, résistance de l'objet, rejet, parasite. Tu connais les risques : possession instable, armure « vide » qui ne l'est pas, écho d'ancienne âme. Tu sais renforcer un lien, le détendre, ou couper un ancrage en urgence. Tu as aussi des repères pour choisir une armure compatible (forme, matériaux, symboles).</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Revenants (modéré)</h4>
+                    <p>Tu sais qu'un revenant n'est pas « juste un mort » : c'est un être lié par une promesse, une haine ou une mission. Tu reconnais les signes de folie spirituelle, de fragmentation de mémoire et de dérive de l'ancre. Tu sais comment les vivants réagissent (peur, superstition, chasse) et quels ordres les traquent. Tu connais aussi les méthodes pour apaiser… ou empêcher la dégénérescence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align:center; font-size:1.2rem; margin:0;">
+                    <strong>+1 en Lance ou Hallebarde</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">💼 Objets Offerts</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure Réceptacle (non magique)</h4>
+                        <p>Légère / Intermédiaire / Lourde</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Lance ou Hallebarde</h4>
+                        <p>Au choix</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔧</span>
+                    <div>
+                        <h4>Kit d'Entretien d'Armure</h4>
+                        <p>Pour maintenir ton réceptacle en état optimal</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💫</span>
+                    <div>
+                        <h4>3 Potions d'Impact spirituel puissant</h4>
+                        <p>Cette potion s'asperge sur le Gardien lorsqu'il est dans son armure-réceptacle. Une fois utilisée, le lanceur récupère 20 + 6 × (Mod de SAG) (sans pouvoir descendre en dessous de 0 : si le Mod est négatif, on le considère comme 0 pour ce calcul). Limite : utilisable 1 fois par scène/combat. Pour retrouver son plein effet, il faut attendre 3 heures avant de pouvoir en réutiliser une efficacement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🎓 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Magie spirituelle d'âmes (SAG)</strong> — Offre un bonus sur tous les jets de magie d'âme (impacts, stabilisation, techniques spirituelles du Gardien).</li>
+                        <li><strong>Possession d'armure spirituelle (SAG)</strong> — Offre un bonus pour posséder, contrôler et maintenir une armure-réceptacle, surtout en situation de stress ou d'instabilité.</li>
+                        <li><strong>Réactif (Réactivité)</strong> — Offre un bonus aux jets de Réactivité pour esquiver, parer, ou déclencher une réaction au bon moment.</li>
+                        <li><strong>Robustesse (Constitution)</strong> — Offre un bonus pour encaisser sans être déplacé, résister aux chocs et tenir l'effort sur la durée.</li>
+                        <li><strong>Arme X (FOR/DEX)</strong> — Offre un bonus aux jets d'attaque et de maniement avec l'arme choisie (selon qu'elle utilise FOR ou DEX).</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Offre un bonus pour repérer pièges, détails, positions ennemies et dangers dans le terrain.</li>
+                        <li><strong>Prescience magique (SAG)</strong> — Offre un bonus pour sentir une menace magique imminente ou un phénomène mystique avant qu'il ne se déclenche.</li>
+                        <li><strong>Discernement d'âme (SAG)</strong> — Offre un bonus pour analyser une présence spirituelle, distinguer une âme saine/corrompue, et lire les traces d'ancrage ou de serment.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Ancrage d'Âme (Résilience)</strong> — Tenir debout malgré la rupture, la douleur ou l'épuisement. Sert aussi à rester fonctionnel quand le lien au réceptacle devient instable.</li>
+                        <li><strong>Résistance à l'Exorcisme (Résilience)</strong> — Mieux supporter les effets de purification/pression spirituelle (sans les annuler). Aide à ne pas s'effondrer sous une magie qui « brûle l'âme ».</li>
+                        <li><strong>Savoir du domaine spirituel (Savoir)</strong> — Permet d'identifier et de comprendre les phénomènes spirituels (présences, résidus, zones instables) et d'en déduire les risques ou la meilleure approche.</li>
+                        <li><strong>Savoir du domaine d'âmes (Savoir)</strong> — Sert à analyser les lois liées aux âmes (ancre, errance, serment, fracture) et à reconnaître les traces ou blessures spirituelles sur une cible ou un lieu.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Te permet de pressentir une menace imminente (embuscade, attaque surprise, piège) et de réagir avant même d'avoir une preuve claire.</li>
+                        <li><strong>Déplacement spectral (Finesse)</strong> — Aide à te repositionner avec précision en évitant les obstacles et les zones dangereuses, surtout lors de mouvements « glissés » ou en situation de forme spirituelle.</li>
+                        <li><strong>Réparation d'armure (Métier)</strong> — Permet d'entretenir et réparer rapidement une armure (sangles, rivets, plaques) afin qu'elle reste fiable et compatible avec la possession.</li>
+                        <li><strong>Parole d'outre-tombe (Social)</strong> — Facilite la communication avec les morts, revenants ou entités spirituelles : trouver le bon ton, respecter les codes, et obtenir des informations sans déclencher d'hostilité.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/ClasseDCL/gardienspirituel.js"></script>
+</body>
+</html>
