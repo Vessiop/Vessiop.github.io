@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danseur de Combat - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Danseur de combat.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="silk-overlay"></div>
+    <div class="flowing-ribbons" id="ribbons"></div>
+
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Danseur de combat.jpg" alt="Danseur de Combat">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">💃 Danseur de Combat</h1>
+            <p class="class-quote">« Danser… même lorsque le monde s'effondre autour de moi. Danser pour tenir debout, pour que le feu en moi ne s'éteigne jamais. Mes muscles crient, mes pas s'alourdissent, et pourtant… je continue. Car tant que mes pieds frappent le sol, tant que mon corps dessine l'espoir dans l'air… je suis encore vivant. Et dans cette danse, je défie la cruauté du monde. »</p>
+            <p class="class-quote-author">— Melanova</p>
+            <p class="class-type">✨ Maître du mouvement • Artiste du flux • Danseur rythmé</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description / Présentation</h2>
+            <div class="content-box">
+                <p>Sous la pluie des lames et le silence des sorts, le Danseur de Combat avance comme une phrase vivante : un corps qui parle, une respiration qui guide, un rythme qui impose sa loi. Là où d'autres combattent en force ou en ruse, lui combat en mouvement. Chaque appui, chaque pivot, chaque déplacement construit une trajectoire précise, assez élégante pour captiver… et assez dangereuse pour briser une intention ennemie avant même qu'elle n'aboutisse.</p>
+
+                <p>Ces danseurs ne se contentent pas d'être "agiles". Ils lisent l'espace comme une scène : les angles morts, les sorties, les regards, la tension d'une foule ou d'un champ de bataille. Ils savent quand attirer l'attention et quand l'effacer, quand accélérer le tempo et quand le casser net. Leur maîtrise du corps repose sur l'équilibre, la coordination, la tenue sous pression et le contrôle émotionnel : même fatigués, même blessés, ils cherchent à rester justes, propres, et difficiles à suivre.</p>
+
+                <p>Mais ce qui rend leur art réellement singulier, c'est leur relation au flux invisible du monde. Certains perçoivent, au-delà des gestes, des filaments arcaniques qui parcourent la réalité comme des courants. Ils ne "forcent" pas cette énergie : ils l'accordent. En dansant, ils la guident, la font tournoyer, la projettent ou la stabilisent autour d'eux, comme si le mouvement pouvait convaincre le réel de se plier à une cadence nouvelle. Cela crée un style rare, à la frontière entre rituel et duel, où la précision du geste compte autant que l'intention.</p>
+
+                <p>Nés de traditions variées — des danses brûlantes des terres pyrales aux chorégraphies du désert, des troupes codifiées aux silhouettes masquées des milieux plus troubles — les Danseurs de Combat portent chacun une "valse" différente. Pourtant, tous partagent la même vérité : tant que le rythme tient, ils tiennent aussi. Et quand ils entrent vraiment dans leur art, le combat cesse d'être une simple violence… il devient une scène où chaque seconde a un tempo, chaque pas une conséquence, et chaque mouvement une promesse.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d14</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & Malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −2</span>
+                        <span class="stat-item neutral">CST : 0</span>
+                        <span class="stat-item positive">DEX : +1</span>
+                        <span class="stat-item positive">INT : +1</span>
+                        <span class="stat-item positive highlight">SAG : +3</span>
+                        <span class="stat-item negative">PER : −1</span>
+                        <span class="stat-item positive highlight">CHA : +3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 25 + 2d6</li>
+                        <li><strong>REA :</strong> +5</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 2</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 2</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure du style magique de fluctuation</h3>
+                <p>Discipline rare mêlant l'art de la danse au contrôle des flux arcaniques. Par des mouvements précis, le lanceur façonne les filaments magiques, les projette avec élégance vers ses alliés ou les fait tournoyer autour de lui afin de conférer des effets aux entités proches. Il accorde ainsi les filaments du monde à sa danse, modulant leur trajectoire et leur intensité.</p>
+                <p><strong>Gain de :</strong> Compétence : Fluctuation Magique +2 (Sagesse)</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Artiste du Mouvement</h3>
+                <p>Grâce à leur apprentissage rigoureux de l'art de la danse, ils maîtrisent des bases que peu ont la chance d'acquérir. Lorsqu'ils réalisent une prestation de danse hors combat (scène sociale, mondaine ou diplomatique), ils obtiennent un bonus de +10 aux jets de Charisme liés à cette performance.</p>
+                <p><strong>Offre la compétence spéciale :</strong> Prestation Dansée Émérite — N.A (Charisme) +10</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de l'Agilité</h3>
+                <p>Développe la fluidité des mouvements et améliore la coordination corporelle dans les déplacements. Permet d'exécuter des gestes rapides, souples ou instinctifs avec plus d'aisance. Ce talent est utile pour toutes les situations demandant de l'équilibre, de la vitesse ou de la réactivité. Il soutient aussi les actions d'esquive ou les manœuvres d'évitement.</p>
+                <p><strong>Gain de :</strong> Trait spécifique : Agilité de mouvement +1 (Finesse)</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maître de la Danseur (mineur)</h3>
+                <p>La danse devient une maîtrise du rythme et de l'espace, capable d'attirer l'attention ou de la détourner. Les mouvements gagnent en expressivité et en communication non verbale. En scène comme en fête, l'aisance crée une présence forte, parfois hypnotique. Un talent qui sert autant à séduire qu'à distraire.</p>
+                <p><strong>Gain de :</strong> Trait spécifique : Danse +1 (Finesse) ; Compétence : Prestation de danse (Charisme) +2</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Tempo du Fugace</h3>
+                <p>Lorsque le lanceur exécute une Danse ou se trouve en état de Danse, il peut réaliser une capacité de "Pas" de Fluctuation une fois par tour, en la payant 1 PR au lieu de son PA.</p>
+            </div>
+        </section>
+
+        <!-- Passif de classe -->
+        <section class="section">
+            <h2 class="section-title">🎼 Passif de classe — Cadence de Fluctuation</h2>
+            <div class="content-box">
+                <p class="intro-text">La Fluctuation répond au tempo : plus tu enchaînes sans casser ton rythme, plus tes mouvements deviennent efficaces et exploitables.</p>
+
+                <div class="subsection">
+                    <h4>1) Réserve de Cadence (max)</h4>
+                    <p>Ta Cadence maximale est :</p>
+                    <p><strong>Cadence max = 2 + Mod de SAG (minimum 2).</strong></p>
+                    <p>La Sagesse représente ton ressenti du flux et ta capacité à garder un rythme "juste" même sous pression.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>2) Gagner de la Cadence</h4>
+                    <ul>
+                        <li>Quand tu utilises une capacité de "Pas", tu gagnes <strong>+1 Cadence</strong> (une fois par tour)</li>
+                        <li>Si ce Pas est utilisé pendant une Danse complète maintenue, tu gagnes <strong>+2 Cadence</strong> à la place (une fois par tour)</li>
+                        <li>Quand tu démarres une Danse complète, tu gagnes <strong>+1 Cadence</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4>3) Dépenser la Cadence — choix d'effets</h4>
+                    <p>Une fois par tour, tu peux dépenser de la Cadence.</p>
+                    
+                    <h5>A) Dépense simple (1 Cadence)</h5>
+                    <p>Choisis un effet :</p>
+                    <ul>
+                        <li>+2 à ton prochain jet lié à la Danse / Fluctuation / Pas ce tour si c'est base Finesse, et +10 si c'est base Sagesse, ou</li>
+                        <li>+5 ft de déplacement (avant ou après une action) ; les attaques d'opportunité seront faites en désavantage, ou</li>
+                        <li>+20 Réactivité jusqu'au début de ton prochain tour. Le jet de Réactivité, si c'est produit durant une phase de Danse, est fait en avantage.</li>
+                    </ul>
+                    
+                    <h5 style="margin-top: 15px;">B) (2 Cadences) — Enchaînement de Tempo</h5>
+                    <p>Tu peux dépenser 2 Cadences pour déclencher un Enchaînement de Tempo :</p>
+                    <p>➡️ Tu exécutes immédiatement une capacité de "Pas" supplémentaire ce tour, sans coût en PA ni en PR.</p>
+                    <p>Ce Pas bonus ne peut pas faire gagner de Cadence (il "consomme" le rythme au lieu de le construire).</p>
+                    <p><strong>Limite :</strong> 1 Enchaînement par tour.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>4) Perte de rythme</h4>
+                    <p>Au début de ton tour, si tu n'as ni maintenu une Danse complète, ni utilisé de Pas depuis ton dernier tour, ta Cadence retombe à 0.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🌙 Origine de la Valse</h2>
+            <p class="intro-text">« Chaque danseur porte une valse différente… Quelle est la tienne ? »</p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- Danseur nomade -->
+                <div class="origin-card origin-nomade">
+                    <h3>🌍 Danseur nomade</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Danseur itinérant, il fait résonner ses valses partout où il passe. Il n'a pas de scène attitrée, car le monde entier est sa piste : rues, ponts, tavernes, marchés. Il vit des airs nouveaux, des cultures croisées, des routes longues et des rencontres brèves, adaptant son corps au terrain, au vent et au regard des inconnus.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Amélioration du talent "Maîtrise mineure de l'Agilité"</h5>
+                        
+                        <h5 style="margin-top: 15px;">Élan des Routes</h5>
+                        <p>Lorsque le lanceur commence un combat, il possède déjà 1 point de Cadence.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance des routes & cultures itinérantes (modérée)</h5>
+                        <p>Cette connaissance regroupe les routes marchandes, les pratiques des voyageurs et les coutumes qu'on croise de ville en ville. Elle aide à comprendre comment se comporter dans une taverne inconnue, comment marchander sans s'attirer d'ennuis et comment éviter les pièges sociaux des régions étrangères. Elle sert aussi à reconnaître les signes d'une route dangereuse ou d'un lieu contrôlé. Enfin, elle donne des repères sur les musiques populaires locales et les styles de rue.</p>
+                        
+                        <h5>• Connaissance du terrain urbain & de ses rythmes (modérée)</h5>
+                        <p>Cette connaissance permet de lire une ville comme une scène : foule, horaires, patrouilles, ruelles et zones à risque. Elle aide à repérer où une prestation attire les bons regards… et où elle attire les mauvais. Elle sert aussi à comprendre l'ambiance d'un quartier en observant ses sons et ses mouvements. Très utile pour se déplacer vite sans se perdre, ou pour disparaître au bon moment.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER de −1 → +3 • CST de 0 → +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Instinct ou Métier ou Sang-froid</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Équipement spécial</h4>
+                        <p><strong>Sandales d'itinérance :</strong> Ces sandales légères facilitent les appuis et économisent l'effort. Elles réduisent de 2 le coût en PE des Danses du lanceur ainsi que de ses capacités de Pas.</p>
+                    </div>
+                </div>
+
+                <!-- Danse de spectacle -->
+                <div class="origin-card origin-spectacle">
+                    <h3>🎭 Danse de spectacle</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Issu d'une troupe, son art a été codifié, répété, puis synchronisé : entrées, rythmes, transitions, improvisations prévues. Il a la discipline du plateau et la tenue d'un professionnel. Quand il commence, il est difficile de l'interrompre : il a appris à continuer malgré le bruit, les imprévus, la fatigue, et même les tentatives de perturbation.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Amélioration d'un cran du talent « Maître de la Danseur »</h5>
+                        
+                        <h5 style="margin-top: 15px;">Tenue Scénique Inaltérable</h5>
+                        <p>Tout jet de concentration visant à ne pas perdre sa Danse obtient un bonus de +10, traduit par l'obtention de la compétence : « Équilibre de Danse » (Base Constitution) — N.A +10. Une fois par session, il peut effectuer ce jet en avantage.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance des arts de scène & mise en scène (modérée)</h5>
+                        <p>Cette connaissance couvre les bases du théâtre et du spectacle : placement, entrée, respiration, gestion du public et maintien du rôle. Elle aide à comprendre comment une troupe construit une performance crédible, même avec peu de moyens. Elle sert aussi à repérer un décor truqué, une scène piégée ou une manipulation par effet visuel. Enfin, elle permet d'adapter une prestation à un lieu sacré, noble ou populaire.</p>
+                        
+                        <h5>• Connaissance des milieux mondains & étiquette de représentation (modérée)</h5>
+                        <p>Cette connaissance concerne les codes sociaux liés aux spectacles : invitations, mécènes, règles implicites et comportements attendus selon le rang. Elle aide à éviter les faux pas qui ruinent une carrière ou déclenchent une dispute. Elle sert aussi à reconnaître qui contrôle réellement une salle : le noble, le maître de scène ou l'argent. Enfin, elle permet d'utiliser la représentation comme un outil diplomatique.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>CHA +3 • SAG +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Social ou Sang-froid ou Finesse</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Équipement spécial</h4>
+                        <p><strong>Tenue chic de scène (si aucune armure n'est équipée) :</strong> Un vêtement conçu pour la performance, taillé pour capter le regard et tenir la posture. Il offre un bonus de +10 aux prestations de danse, se traduisant par l'obtention de la compétence : « Tenue : Prestation de Danse — N.A (Charisme) +10 ».</p>
+                    </div>
+                </div>
+
+                <!-- Danseur des terres du feu -->
+                <div class="origin-card origin-feu">
+                    <h3>🔥 Danseur des terres du feu</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Danse flamboyante, entre passion brute et acrobatie, où chaque geste semble nourri par une chaleur intérieure. Cette valse vient des Terres du Feu, là où le mouvement est une preuve d'âme autant qu'un défi physique. Peu peuvent porter les danses pyrales : il faut une ardeur capable de dépasser le sang et l'origine, une passion si vive qu'elle devient un brasier qui maintient la danse même quand tout vacille.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Embrasement d'Inspiration</h5>
+                        <p>Une fois par session, le lanceur peut s'enflammer et tenter une action innovante durant une phase de Danse. Si l'action repose sur un jet de trait spécifique, le taux de critique (succès critique et échec critique) augmente de +1.</p>
+                        <p>Si l'action repose sur une base Charisme, le taux de critique (succès critique et échec critique) augmente de +5.</p>
+                        <p>Si un succès critique est obtenu via ce talent, le prochain jet lié à la Danse (directement ou indirectement), physique ou magique (Fluctuation uniquement), se fait en avantage.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance des traditions pyrales & rites de passion (modérée)</h5>
+                        <p>Cette connaissance couvre les danses, cérémonies et codes symboliques liés au feu : célébrations, défis, deuils ardents, promesses et serments. Elle aide à comprendre ce qu'un mouvement signifie vraiment dans ce contexte (provocation, honneur, amour, colère). Elle sert aussi à reconnaître un style authentique d'un style copié sans âme. Enfin, elle donne des repères sur les musiques et percussions associées aux danses ardentes.</p>
+                        
+                        <h5>• Connaissance du corps en tension & préparation physique (modérée)</h5>
+                        <p>Cette connaissance traite de la préparation corporelle : échauffements, souffle, récupération et prévention des blessures liées aux figures intenses. Elle aide à performer sans se détruire, et à repérer quand un allié est au bord de la rupture. Elle sert aussi à estimer la fatigue réelle d'un adversaire en regardant sa respiration et ses appuis. C'est une connaissance très utile pour tenir un rythme long.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>INT +3 • DEX +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Puissance ou Résilience ou Sang-froid</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Équipement spécial</h4>
+                        <p><strong>Pendentif du Serment Ardent :</strong> Un talisman porté comme une promesse, chargé d'une chaleur symbolique. Il confère une résistance magique au feu de 15%.</p>
+                    </div>
+                </div>
+
+                <!-- Danseur du désert -->
+                <div class="origin-card origin-desert">
+                    <h3>🏜️ Danseur du désert</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Forgé par les routes brûlantes et les horizons sans fin, il a appris à mêler la danse aux objets du quotidien comme aux armes : éventail, rubans, bâtons, lames courtes ou outils makariens. Son art repose sur une chorégraphie martiale où le geste "combat" et le geste "danse" se confondent, créant une valse rythmée par le sable, le souffle et la précision.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Maîtrise mineure d'une arme au choix</h5>
+                        <p>Et un bonus de classe d'arme lié à la maîtrise choisie.</p>
+                        
+                        <h5 style="margin-top: 15px;">Chorégraphie Tranchante</h5>
+                        <p>Une fois par combat, au prix de 12 PE, le lanceur obtient un bonus de MD (Marge Défensive) égal à la valeur de sa compétence d'arme principale utilisée.</p>
+                        <p>(Rappel : si la MR de l'attaquant est inférieure à la MD du lanceur, l'attaque n'atteint pas sa cible.)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance des armes de danse & chorégraphies martiales (modérée)</h5>
+                        <p>Cette connaissance porte sur l'usage des armes/objets dans une danse : trajectoires sûres, angles, transitions et mise en scène du danger. Elle aide à exécuter une chorégraphie martiale sans blesser un allié, et à reconnaître un style réellement combatif. Elle sert aussi à créer une diversion crédible : l'adversaire ne sait plus si c'est une performance ou une attaque. Enfin, elle donne une base de lecture des duels rituels.</p>
+                        
+                        <h5>• Connaissance des caravanes & survie aride (modérée)</h5>
+                        <p>Cette connaissance regroupe les règles de survie dans les zones sèches : repérer l'eau, éviter les pièges climatiques, lire le vent et la poussière. Elle aide à comprendre la logique des caravanes (routines, gardes, stockage, itinéraires). Elle sert aussi à reconnaître les signes d'un danger désertique avant qu'il frappe. Très utile pour voyager sans dépendre d'une ville.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>FOR de −2 → +3 • PER de −1 → +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Finesse ou Instinct ou Résilience</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Équipement spécial</h4>
+                        <p><strong>Arme au choix :</strong> Le lanceur commence avec une arme de son choix, adaptée à sa chorégraphie martiale.</p>
+                    </div>
+                </div>
+
+                <!-- Valse de la Charma -->
+                <div class="origin-card origin-charma">
+                    <h3>🎭 Valse de la Charma</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Dans certains milieux, on les appelle les "Charma" : danseurs et danseuses dont l'exotisme est une couverture parfaite. Leur danse attire, détourne l'attention, installe une proximité… puis viennent les mots justes, les silences bien placés et les questions innocentes. Ils récoltent les confidences sans forcer, grâce à une éloquence naturelle et une capacité à donner envie d'écouter. Souvent, un masque accompagne leur art : non pour se cacher, mais pour contrôler ce que les autres croient voir.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Beau Parleur (mineur)</h5>
+                        <p>Les idées se formulent avec plus de clarté, de rythme et de puissance persuasive. Le vocabulaire s'adapte au public sans perdre la cohérence du propos. Les discours publics, plaidoiries et débats deviennent plus convaincants et mieux tenus sous pression. Une parole mieux maîtrisée, capable de retourner l'ambiance d'une salle.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Éloquence +1 (Social) ; Compétence : Présence éloquente +2 (Charisme)</p>
+                        
+                        <h5 style="margin-top: 15px;">Réplique de Charma</h5>
+                        <p>Par son ton et ses mots, le lanceur parvient, avec une aisance presque surnaturelle, à rebondir sur les moments forts d'une discussion pour recentrer l'échange. Une fois par session, il peut relancer un jet de Social raté — le sien ou celui d'une autre personne.</p>
+                        <p>Si cet échec mène à un conflit, il peut réduire la DD du jet social d'une valeur égale à son modificateur de Charisme, arrondi au pair supérieur.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du réseau social & récolte d'informations (modérée)</h5>
+                        <p>Cette connaissance permet de comprendre comment circulent les rumeurs : qui parle, qui écoute, qui ment et pourquoi. Elle aide à choisir les bons lieux et les bons intermédiaires pour obtenir un détail utile sans se griller. Elle sert aussi à repérer un mensonge de protection d'un mensonge calculé, par contexte plus que par intuition pure. Enfin, elle permet de bâtir un réseau léger, mais efficace.</p>
+                        
+                        <h5>• Connaissance des masques, identités & codes d'apparence (modérée)</h5>
+                        <p>Cette connaissance couvre l'usage social du masque : rôle, symbolique, statut et jeu d'identité. Elle aide à comprendre ce qu'un masque dit d'une personne (ou ce qu'il veut faire croire). Elle sert aussi à choisir une apparence qui ouvre des portes plutôt que d'alarmer. Enfin, elle permet de repérer les détails incohérents dans un déguisement ou une identité jouée.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>CHA +3 • PER de −1 → +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Social ou Savoir ou Sang-froid</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Équipement spécial</h4>
+                        <p><strong>Parfum d'ambiance (30/30) :</strong> À chaque utilisation, le parfum consomme 2 slots et diffuse une senteur agréable, florale avec une légère note fruitée, subtile mais marquante. L'effet dure jusqu'à 5 minutes (ou moins si l'odeur se dissipe). Toute personne discutant avec le lanceur doit réussir un jet de Sang-froid de DD 2 + Mod de Charisme du lanceur (arrondi au pair supérieur) ; en cas d'échec, l'interlocuteur se détend et s'enivre légèrement, et le lanceur gagne +1 en Social.</p>
+                    </div>
+                </div>
+
+                <!-- Valse des ombres -->
+                <div class="origin-card origin-ombres">
+                    <h3>🌑 Valse des ombres</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Valse discrète, déplacements silencieux, présence légère comme un souffle. On dit qu'ils sont "l'ombre des stars" : derrière chaque grand danseur, il existe une valse invisible qui prépare, protège, guide ou corrige sans se montrer. Seul, il est presque introuvable. Mais ensemble, les danseurs d'ombre forment un tout : une troupe synchronisée par le rythme, capable de soutenir une scène… ou de disparaître avec elle.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Furtivité Silencieuse (mineure)</h5>
+                        <p>La démarche devient plus discrète et les déplacements produisent moins de bruit, même sur un sol imparfait. Les ombres, les sons ambiants et les obstacles sont utilisés pour réduire la visibilité et masquer la présence. Les approches gagnent en finesse, tout comme les retraites rapides sans trace évidente. Très utile pour observer, surprendre, ou éviter une confrontation.</p>
+                        <p><strong>Offre la Compétence :</strong> Furtivité +2 (Dextérité) ; Trait spécifique : Déplacement silencieux (Finesse) +1</p>
+                        
+                        <h5 style="margin-top: 15px;">Pas Sans Trace</h5>
+                        <p>Les capacités de Pas ne font aucun bruit, et même les déplacements généraux du lanceur deviennent extrêmement discrets. Tant que la DD n'est pas supérieure de 8 ou plus, les jets de Discrétion via base Finesse sont automatiquement réussis. Si une capacité de Pas est utilisée, le seuil passe de 8 à 10. (uniquement si le lanceur ne porte que très peu d'équipement : traduit par armure légère non encombrante ou vêtement, et possède un sac pas trop rempli)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine criminel (modérée)</h5>
+                        <p>Cette connaissance concerne les logiques criminelles : repaires, filières, codes, prudence et erreurs qui coûtent cher. Elle aide à comprendre comment éviter une embuscade urbaine, comment repérer une surveillance et comment reconnaître un piège social. Elle sert aussi à lire un quartier : qui le tient, comment il réagit à un étranger et où disparaissent les gens. Enfin, elle donne des repères sur les règles implicites du milieu.</p>
+                        
+                        <h5>• Connaissance de l'infiltration scénique (modérée)</h5>
+                        <p>Cette connaissance sert à se fondre dans un lieu en se faisant passer pour un élément normal de l'ambiance (figurant, assistant, danseur de soutien, porteur d'accessoires). Elle aide à bouger sans attirer l'œil, car on a l'air "à sa place". Elle permet aussi d'exploiter le bruit, la lumière et le rythme d'une scène pour masquer une action discrète. Enfin, elle donne des méthodes simples pour sortir d'un lieu sans déclencher d'alerte.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>DEX +3 • SAG +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Finesse ou Instinct ou Sang-froid</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Équipement spécial</h4>
+                        <p><strong>Armure légère — Peau des Ombres :</strong> Une armure légère sombre, pensée pour se fondre dans les zones peu éclairées. Elle confère un bonus de +10 en discrétion sur une base de Dextérité, se traduisant par l'obtention de la compétence : « Furtivité dans les Ombres — N.A (Dextérité) +10 ».</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances générales -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la danse (moyen)</h4>
+                    <p>Cette connaissance couvre les bases théoriques et culturelles de la danse : rythmes, styles, postures, lecture du mouvement et techniques de prestation. Elle permet d'identifier un style, de comprendre une chorégraphie, ou de repérer une erreur volontaire dans une performance. Elle sert aussi à s'adapter à une scène, un public, ou une tradition locale sans commettre de faute grossière. Enfin, elle aide à transmettre ou enseigner des bases à quelqu'un.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de l'art magique de la fluctuation (moyen)</h4>
+                    <p>Cette connaissance porte sur les filaments arcaniques : comment ils circulent, comment ils réagissent au mouvement, et comment une danse peut guider leur trajectoire. Elle sert à comprendre pourquoi une Danse fonctionne, à reconnaître une fluctuation instable, ou à éviter des erreurs de canalisation. Elle aide aussi à lire une "signature" de Fluctuation laissée dans un lieu (résidus, zone accordée, rythme étrange). C'est une base technique, mais liée au ressenti et au contrôle.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du style de danse Makarienne (modérée)</h4>
+                    <p>Cette connaissance concerne les danses des terres arides : chorégraphies longues, appuis économes, et intégration d'objets ou d'armes dans le mouvement. Elle permet de reconnaître un style makarian, d'en comprendre l'intention (combat, cérémonie, performance), et d'exécuter ses bases sans se blesser. Elle aide aussi à lire les codes sociaux associés à ces danses (respect, défi, séduction, rite). Enfin, elle donne des repères sur les musiques et rythmes typiques du désert.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du style de danse Pylorianne (modérée)</h4>
+                    <p>Cette connaissance couvre les danses dites "pyrales" : mouvements vifs, élans, ruptures de rythme, présence forte et expressivité intense. Elle permet de comprendre comment une danse transmet passion, défi ou inspiration, et comment la gestuelle peut "porter" une énergie explosive. Elle aide à identifier les variantes régionales, les usages rituels, et les erreurs dangereuses (figures trop risquées, souffle mal géré). C'est une danse qui demande autant de technique que d'âme.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎁 Équipement de Départ</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">👘</span>
+                    <div>
+                        <h4>Vêtements de danseur</h4>
+                        <p>Offre un bonus de +5 lors des jets de présentation de danse pour l'exotisme.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🎀</span>
+                    <div>
+                        <h4>Rubans de Fluctuation</h4>
+                        <p>(choix Makarienne : +solidité / Pylorianne : +résistance magique) — Réduction de 2 PM sur les danses magiques.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>2 potions de vie</h4>
+                        <p>Soins d'urgence</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚡</span>
+                    <div>
+                        <h4>1 potion d'endurance</h4>
+                        <p>Restaure l'énergie physique</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure légère</h4>
+                        <p>Protection mobile adaptée à la danse</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🎯 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Danse de Fluctuation (Sagesse)</strong> — Permet d'activer et de façonner la magie par une danse codifiée, en guidant les filaments arcaniques avec précision. Sert à lancer et stabiliser des effets de Fluctuation par la technique et la compréhension.</li>
+                        <li><strong>Danse de Présentation (CHA)</strong> — Sert à exécuter une danse esthétique non magique pour impressionner, divertir ou marquer une scène sociale. Permet aussi de capter l'attention et d'influencer l'ambiance d'un lieu.</li>
+                        <li><strong>Charme de Séducteur / Séductrice (CHA)</strong> — Permet de séduire, captiver et convaincre par le langage corporel, le ton et la présence. Utile pour obtenir une faveur, une information ou désamorcer une tension par l'attrait.</li>
+                        <li><strong>Équilibre dansant (CST)</strong> — Permet de tenir le rythme et la stabilité du corps lors de danses prolongées ou sous pression physique. Sert aussi à encaisser les perturbations (bousculades, fatigue, chocs légers) sans casser la posture.</li>
+                        <li><strong>Sabre (DEX)</strong> — Regroupe les jets d'attaque et la maîtrise technique du sabre, avec un style basé sur la mobilité et les angles rapides. Sert à frapper proprement, feinter et se replacer sans perdre le tempo.</li>
+                        <li><strong>Action acrobatique (DEX)</strong> — Couvre roulades, sauts, franchissements et figures en mouvement, même en situation dangereuse. Sert à se repositionner, éviter un obstacle ou réaliser une action spectaculaire sans se blesser.</li>
+                        <li><strong>Fluctuation magique (SAG)</strong> — Permet de guider les filaments par ressenti et contrôle du flux plutôt que par théorie pure. Sert à ajuster l'intensité, la trajectoire et la stabilité d'un effet de Fluctuation.</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Permet de lire rapidement une zone : issues, angles morts, couverts, risques et détails utiles. Sert à anticiper un danger ou à choisir une position avantageuse.</li>
+                        <li><strong>Lecture comportementale (SAG)</strong> — Permet de repérer nervosité, intention agressive, peur ou incohérences dans l'attitude d'une personne. Sert à anticiper une réaction, détecter une tension ou sentir un mensonge probable.</li>
+                        <li><strong>Jeu d'acteur (CHA)</strong> — Permet d'incarner un rôle crédible par la posture, la voix et les détails sociaux. Utile pour infiltrer, improviser une identité ou maintenir une façade sous pression.</li>
+                        <li><strong>Réflexion / Analyse (INT)</strong> — Sert à structurer un plan, relier des indices et comprendre une logique ou une méthode. Utile pour résoudre un problème, éviter une erreur évidente ou exploiter une faille.</li>
+                        <li><strong>Furtivité (DEX)</strong> — Permet de se déplacer sans attirer l'attention, approcher une cible ou se repositionner discrètement. Sert autant à l'infiltration qu'au retrait propre en situation tendue.</li>
+                        <li><strong>Diplomatie / Présence (CHA)</strong> — Permet de négocier, calmer une situation et obtenir un accord sans escalade. Sert à choisir les mots justes et la posture qui "tient" face à un interlocuteur difficile.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>💠 Compétences de Trait Spécifique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Danse (Finesse)</strong> — Sert à exécuter une chorégraphie propre et technique, en gardant un rythme précis et des mouvements maîtrisés. Utile autant pour performer que pour enchaîner des pas complexes sous pression.</li>
+                        <li><strong>Agilité de mouvement (Finesse)</strong> — Permet de se déplacer avec fluidité, de changer de direction sans perdre l'équilibre et d'éviter les obstacles en mouvement. Très utile pour se repositionner rapidement en combat ou traverser un terrain instable.</li>
+                        <li><strong>Savoir des Fluctuations (Savoir)</strong> — Sert à comprendre et interpréter les filaments magiques présents dans l'environnement, ainsi que leurs anomalies. Aide à repérer une zone chargée, un résidu de magie, ou une fluctuation instable.</li>
+                        <li><strong>Masque d'émotion (Sang-froid)</strong> — Permet de cacher son état émotionnel réel et de garder une façade calme, même sous stress ou provocation. Utile pour mentir sans trembler, négocier, ou danser sans laisser paraître la fatigue.</li>
+                        <li><strong>Déplacement silencieux (Finesse)</strong> — Réduit le bruit des pas et aide à exploiter les sons ambiants pour masquer sa présence. Sert à approcher, observer ou se retirer sans laisser de trace évidente.</li>
+                        <li><strong>Éloquence (Social)</strong> — Permet de parler avec rythme, clarté et impact pour convaincre ou captiver un auditoire. Utile pour tenir une salle, influencer une décision, ou retourner une situation par la parole.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sert à pressentir une menace ou une embuscade avant qu'elle ne devienne évidente. Aide à choisir le bon mouvement, reculer au bon moment, ou éviter une erreur fatale.</li>
+                        <li><strong>Équilibre (Finesse)</strong> — Permet de garder des appuis sûrs sur des surfaces étroites, glissantes ou instables. Utile pour danser sur un terrain traître, éviter une chute ou rester stable pendant un échange violent.</li>
+                        <li><strong>Acrobatie (Finesse)</strong> — Sert à réaliser des figures propres comme des roulades, sauts, réceptions et franchissements sans se blesser. Utile en combat pour esquiver, surprendre ou franchir une zone dangereuse.</li>
+                        <li><strong>Calme face au public (Sang-froid)</strong> — Permet de rester stable et crédible lorsqu'on est observé, jugé ou provoqué. Utile pour performer sous pression, parler devant une foule ou garder la maîtrise d'une scène sociale tendue.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/ClasseDCL/Danseur de combat.js"></script>
+</body>
+</html>
