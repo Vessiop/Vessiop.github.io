@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berserkeur - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Berserkeur.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="tribal-overlay"></div>
+    <div class="soul-energy" id="souls"></div>
+
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Beserkeur.jpg" alt="Berserkeur">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">⚔️ Berserkeur</h1>
+            <p class="class-description">Le Héraut des Esprits marche à la frontière du monde sauvage et du monde spirituel. Là où d'autres cherchent la technique ou la ruse, le Berserkeur écoute d'abord l'instinct : il sent le combat venir, et son corps répond comme une bête sacrée prête à déchirer la réalité.</p>
+            <p class="class-type">🐺 Guerrier spirituel • Réceptacle d'âmes • Héraut tribal</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description</h2>
+            <div class="content-box">
+                <p>Le Héraut des Esprits marche à la frontière du monde sauvage et du monde spirituel. Là où d'autres cherchent la technique ou la ruse, le Berserkeur écoute d'abord l'instinct : il sent le combat venir, et son corps répond comme une bête sacrée prête à déchirer la réalité.</p>
+
+                <p>Mais sa fureur n'est pas seulement animale : elle est aussi ancestrale. Par ses rites, ses marques d'ascension, et sa capacité à s'accorder à l'invisible, il devient un réceptacle vivant, capable d'appeler un fragment spirituel pour renforcer sa chair et sa volonté.</p>
+
+                <p>Pour un Berserkeur, la Transe n'est pas un simple "mode berserk". C'est une harmonie : un pacte bref, parfois propre, parfois instable, où l'esprit et le corps se superposent jusqu'à ne faire qu'un. Dans cet état, il frappe plus lourd, tient plus longtemps, et perçoit ce que les autres ignorent… comme si un second regard se tenait derrière le sien.</p>
+
+                <p>Cependant, toute harmonie a un prix : si l'esprit est noble, il soutient… mais si l'appel attire une présence trouble, la transe peut glisser vers une possession, drainant l'énergie et menaçant la lucidité. C'est ce danger qui rend le Berserkeur aussi redoutable pour ses ennemis… que potentiellement dangereux pour ceux qui se tiennent trop près.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d16</li>
+                        <li><strong>PM :</strong> 1d10</li>
+                        <li><strong>PE :</strong> 1d16</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🔢 Bonus & Malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive highlight">FOR : +3</span>
+                        <span class="stat-item positive">CST : +1</span>
+                        <span class="stat-item negative">DEX : −3</span>
+                        <span class="stat-item neutral">INT : 0</span>
+                        <span class="stat-item positive highlight">SAG : +4</span>
+                        <span class="stat-item positive">PER : +1</span>
+                        <span class="stat-item negative">CHA : −3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 30 + 3d6</li>
+                        <li><strong>REA :</strong> +5</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 2</span>
+                        <span>Puissance : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                        <span>Sang-froid : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">💪 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Initiation du Réceptacle Spirituel</h3>
+                <p>Éduqué pour devenir un Berserkeur, à la fois réceptacle d'âmes et héraut du monde spirituel, tu as reçu une base solide pour tenir tête à tes pairs, autant face aux menaces physiques que spirituelles. Cette initiation se traduit par les acquis suivants :</p>
+                <ul>
+                    <li>Maîtrise d'arme au choix</li>
+                    <li>Compétence (trait spécifique) : « Voix des Esprits (Social) +2 »</li>
+                    <li>Compétence : « Barrière spirituel mental (RM) +5 »</li>
+                    <li>Talent : « Corps Accordé » — Tous les dégâts de magie spirituelle subis sont réduits de moitié.</li>
+                    <li>Et obtient ce talent « Savoir spirituel » — Tout jet de savoir lié au domaine spirituel sera fait en avantage</li>
+                </ul>
+            </div>
+
+            <div class="talent-card">
+                <h3>Appel des Échos Spirituels mineur</h3>
+                <p>Le lanceur peut adopter une posture de recueillement afin de concentrer son souffle et diffuser une énergie spirituelle à travers tout son corps. En prenant le temps nécessaire, cette émanation devient un appel capable d'attirer un fragment d'âme — voire un esprit mineur — pouvant se synchroniser avec lui et lui prêter assistance, si l'esprit juge la situation digne ou en adéquation avec sa nature.</p>
+                <p>À la fin de l'appel, si l'esprit accepte, le lanceur doit payer un tribut de 3d10 PM et 3d10 PE.</p>
+                <p>Cependant, si l'esprit a été satisfait (par un jet de Social ou par les actions/attitudes du lanceur), le tribut peut être réduit de moitié, ou dans certains cas annulé.</p>
+                <p><strong>Jet de Social :</strong> DD 20 (base)</p>
+                <p><strong>Le lanceur obtient la compétence :</strong> « Appel des Échos (sagesse) +2 »</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de la magie spirituelle</h3>
+                <p>La Magie Spirituelle est une magie astrale liée à la nature même des âmes. La magie spirituelle conventionnelle consiste à employer cette essence de manière modérée pour guider, stabiliser, ou produire des effets liés à l'essence vitale des êtres.</p>
+                <p><strong>Offre la compétence :</strong> Magie spirituelle (sagesse) +2</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Vision spirituelle</h3>
+                <p>Le lanceur peut percevoir les énergies et entités spirituelles, même dissimulées. En cas de camouflage magique, il peut effectuer un jet de Sagesse (Perception magique) pour détecter la dissimulation et révéler la trace.</p>
+            </div>
+        </section>
+
+        <!-- Passif de classe -->
+        <section class="section">
+            <h2 class="section-title">🕵️‍♂️ Passif de classe : Transe de l'Ancrage Astral</h2>
+            <div class="content-box">
+                <p class="intro-text">Le Berserkeur peut s'harmoniser avec l'énergie spirituelle environnante, même lorsqu'elle paraît inexistante, afin d'entrer dans une phase de transe. Un fragment d'être spirituel l'habite alors, renforçant son corps et son âme… mais au prix d'un risque de possession et d'un drain d'énergie.</p>
+
+                <div class="subsection">
+                    <h4>Activation</h4>
+                    <p>Jet de SAG avec DD +10.</p>
+                    <p>En combat : l'activation prend le tour entier.</p>
+                    <p>Relance possible dans le même tour si tu sacrifies des PA (selon règle de table).</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Effets pendant la Transe (tant qu'elle est stable)</h4>
+                    <h5>Avantage sur :</h5>
+                    <ul>
+                        <li>Jets de Puissance</li>
+                        <li>Jets de Résistance Mentale (RM)</li>
+                        <li>Jets pour résister à un effet magique maudit (base SAG)</li>
+                        <li>Jets de Magie spirituelle</li>
+                    </ul>
+                    <p><strong>Réactions instinctives :</strong> tu n'as pas besoin de jet de Réactivité pour tenter une réaction.</p>
+                    <p><strong>Réduction des dégâts magiques :</strong> -20% (sauf : Ténèbres, Lumière, Maudit, Abysse)</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Durée stable</h4>
+                    <p>Lance 1dX (X = Mod de SAG du lanceur+1) : c'est le nombre de tours pendant lesquels la transe reste sans contrecoup.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Début de possession (après la durée stable)</h4>
+                    <p>À partir de la fin de cette durée :</p>
+                    <p>Le Berserkeur subit 4d10 de perte, appliquée à la fois en PM et en PE (même résultat pour les deux).</p>
+                    <p>Si PM ou PE tombe à 0, la possession s'éteint et la transe prend fin.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Se libérer de la possession</h4>
+                    <p>En combat : jet de SAG pour se libérer (coûte 1 PR si l'âme est harmonieuse).</p>
+                    <p>Hors combat : gratuit (sauf cas particulier).</p>
+                    <p>Dans tous les cas, la libération déclenche une dernière fois la perte d'énergie (4d10) mais le lanceur peut faire un jet de résilience DD 14 pour ne subir que la moitié de la perte.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Limite</h4>
+                    <p>1 fois par combat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🌿 Origines</h2>
+            <p class="intro-text">« Chaque Berserkeur trouve sa voie entre le sauvage et le spirituel… Quelle est la tienne ? »</p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- Primitif -->
+                <div class="origin-card origin-primitif">
+                    <h3>🐺 Primitif : Hérauts des terres sauvages/clan tribaux</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Dès l'enfance, tu as été façonné pour l'ascension vers la voie du Berserkeur. Ta tribu t'a appris à survivre par toi-même, à te battre avec ce que tu pouvais trouver, et à endurcir ton corps contre toutes les menaces : ennemis visibles comme invisibles, dangers physiques comme spirituels.</p>
+                        <p>Tu as grandi dans les contrées sauvages, au milieu des épreuves et des rituels, jusqu'au jour où les maîtres de ton clan t'ont enfin retrouvé pour te baptiser "Berserkeur". C'est à cet instant, par le poids de tout ce que tu avais affronté, qu'une part surnaturelle s'est réveillée en toi : le corps et l'esprit apprennent parfois à se confondre, ne formant plus qu'un, lors de moments choisis.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Style Primitif — Frappe Tangible</h5>
+                        <p>En mode Transe, le lanceur s'accorde brièvement au domaine spirituel, rendant tangible pour lui ce qui ne l'est pas normalement. Pendant la Transe, lorsqu'une cible est immunisée aux dégâts physiques des armes non magiques du lanceur, cette immunité devient une résistance de 50% à la place. (uniquement les armes tranchant)</p>
+                        
+                        <h5 style="margin-top: 15px;">Instinct de survie</h5>
+                        <p>Tous les jets d'Instinct liés à la survie (repérer un danger naturel, choisir un abri, éviter un piège environnemental, trouver une issue, etc.) sont effectués avec avantage.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine des terres sauvages (Modéré)</h5>
+                        <p>Tu connais les régions indomptées : reliefs, dangers naturels, climats, et signaux qui annoncent un piège du vivant ou du surnaturel. Tu sais survivre dans des zones où les routes sont rares et où les règles "civilisées" ne tiennent plus. Tu apprends aussi à lire les traces, comprendre les territoires de chasse et reconnaître les lieux que même les animaux évitent.</p>
+                        
+                        <h5>• Amélioration de la connaissance du domaine des clan tribaux d'un cran</h5>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>FOR +2 • CST +3</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Résilience ou Instinct ou Puissance</p>
+                    </div>
+                </div>
+
+                <!-- Héraut spirituel -->
+                <div class="origin-card origin-heraut">
+                    <h3>🕯️ Héraut spirituel</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu es un messager des êtres spirituels : ceux qui errent encore dans le monde mortel, comme ceux qui résident dans le Plan des Âmes. Au sein des clans tribaux, tu es vu comme un guide, un gourou, un passeur entre les réalités.</p>
+                        <p>Tu apprends à manipuler l'essence spirituelle environnante pour comprendre "l'autre monde" — celui que les mortels ordinaires ne peuvent percevoir naturellement. On raconte que tu as été initié près des Rivières des Âmes, un lieu terrible où des âmes malheureuses se sont agglutinées au point de former une zone surnaturelle saturée d'énergie spirituelle. Traverser cet endroit sans un mental solide rend fou.</p>
+                        <p>Pour toi, la magie spirituelle n'est pas une discipline extérieure : c'est une extension directe de ton être.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Porte-Voix des Esprits</h5>
+                        <p>Le lanceur obtient avantage sur tous les jets de Social avec les entités spirituelles, grâce à son rôle de passerelle entre les deux mondes. En mode Transe, il peut tenter un jet de Social DD 14 pour obtenir une aide de connaissance liée à la scène (indices, compréhension d'un phénomène, intention d'une entité…), dans la limite du possible et à l'appréciation du MJ.</p>
+                        
+                        <h5 style="margin-top: 15px;">Synchro Âme-Corps</h5>
+                        <p>Le lanceur gagne un bonus de +4 au Mode de Défense Magique. 1 fois par session, en mode Transe, il peut activer cette synchro pour obtenir +20% de réduction de dégâts subis (physiques et magiques), mais cela consomme 1 tour de sa durée stable de Transe.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine des âmes (Modéré)</h5>
+                        <p>Tu connais la notion d'âme au-delà des mythes : ce qui la compose, ce qui la fragilise, et ce qui la retient au monde mortel. Tu comprends les phénomènes d'errance, d'ancrage, de rupture, et les raisons pour lesquelles une âme refuse de partir. Cette connaissance te permet d'interpréter certains symptômes spirituels et de mieux anticiper les réactions d'un esprit lié à un lieu ou à une émotion.</p>
+                        
+                        <h5>• Amélioration de la connaissance du domaine spirituel d'un cran</h5>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>SAG +2 • PER +3</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Savoir ou Sang-froid ou Social</p>
+                    </div>
+                </div>
+
+                <!-- Héraut de la haine -->
+                <div class="origin-card origin-haine">
+                    <h3>🔥 Héraut de la haine</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Lors de ton ascension en tant que Berserkeur, un phénomène rare s'est produit : une brèche d'énergie s'est ouverte… et a résonné avec toi, jusque dans ton for intérieur. Cette résonance a libéré une vague d'énergie d'une impureté anormale, qui s'est imprimée dans ton âme.</p>
+                        <p>À la fin de l'ascension, ton âme — entraînée à appeler des esprits pouvant s'harmoniser avec toi — est devenue une âme Exhaustus : une âme dotée d'une barrière et d'un champ spirituel si puissants qu'elle peut absorber certaines âmes et les plier à sa volonté. Désormais, ton "champ d'âmes" ne se limite plus aux esprits capables de résonner avec toi : tu peux t'harmoniser avec les âmes de tout être spirituel déjà mort.</p>
+                        <p>Mais cette faculté est une lame à double tranchant. Une harmonie trop profonde peut ouvrir la voie à une possession : des âmes obscures, saturées de haine, de colère et de désir de vengeance, coincées dans le monde mortel, peuvent tenter de s'emparer de toi.</p>
+                        <p>Les sages t'ont prévenu : « De grands pouvoirs exigent de grandes responsabilités. » Car même si ton âme est souillée par les ténèbres… pour l'instant, c'est toi qui restes maître de ces ténèbres.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Chœur des Âmes Tourmentées</h5>
+                        <p>Le lanceur peut invoquer des âmes brisées, chargées de haine et de souffrance, afin qu'elles se greffent brièvement à son corps et à son esprit. Si l'appel est maîtrisé, il peut en extraire une puissance monstrueuse : en cas de réussite, il choisit 1 fois par combat de gagner +20% de dégâts soit physiques, soit magiques (un seul choix pour tout le combat).</p>
+                        <p><strong>Contrecoup :</strong> pour mettre fin à la transe, le lanceur doit réussir un jet de RM (au lieu d'un jet de SAG). En cas d'échec, il doit refaire un jet de RM : si ce second jet échoue, la possession prend le dessus pendant le tour, et le personnage peut attaquer la cible la plus proche ou agir de façon confuse selon le degré de lucidité décidé par le MJ.</p>
+                        
+                        <h5 style="margin-top: 15px;">Mécanisme de Rage Maîtrisée</h5>
+                        <p>En mode transe, tous les jets de provocation (ou d'intimidation) qui s'appuient sur la haine, la colère ou des émotions similaires sont effectués avec avantage.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance des mythes et légendes (Modéré)</h5>
+                        <p>Tu connais les récits qui parlent d'âmes maudites, d'esprits vengeurs, de pactes brisés et de berserkeur devenus catastrophes vivantes. Tu sais reconnaître les symboles, les histoires locales, et les avertissements transmis sous forme de contes ou de traditions. Cette connaissance sert autant à comprendre une menace qu'à deviner quelle entité se cache derrière une rumeur… ou une malédiction ancienne.</p>
+                        
+                        <h5>• Amélioration de la connaissance de l'art l'harmonie des âmes d'un cran</h5>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>SAG +2 • CHA de −3 → +3 • RM −6</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Sang-froid ou Résilience ou Instinct</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances générales -->
+        <section class="section">
+            <h2 class="section-title">🔮 Connaissances de base</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine spirituel (Moyen)</h4>
+                    <p>Tu comprends les bases du monde spirituel : manifestations, présences, signes avant-coureurs et phénomènes d'influence invisible. Tu sais distinguer une ambiance "chargée" d'un lieu neutre, et repérer les comportements typiques liés à une présence spirituelle. Cette connaissance t'aide aussi à comprendre les règles générales des esprits (liens, résonances, tabous) sans forcément en maîtriser les détails profonds.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des clans tribaux (Moyen)</h4>
+                    <p>Tu connais les structures tribales : hiérarchies, codes d'honneur, rites de passage, et formes de respect propres aux clans. Tu sais comment un clan se gouverne, comment il juge un étranger, et quelles attitudes évitent l'affront. Cela te permet de t'intégrer, négocier ou imposer ta présence sans déclencher immédiatement un conflit culturel.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du bestiaire spirituel (Modéré)</h4>
+                    <p>Tu connais les grandes catégories d'entités spirituelles : esprits mineurs, fragments d'âmes, errants, gardiens, et présences corrompues. Tu sais reconnaître des signes distinctifs (odeurs, sensations, effets, comportements) pour identifier ce que tu as en face de toi. Cette connaissance t'aide à deviner si une entité est dangereuse, instable, manipulatrice ou au contraire compatible avec une harmonie.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance de l'historique des Berserkeur (Modéré)</h4>
+                    <p>Tu connais l'origine, les traditions et les grandes figures liées aux Berserkeur, ainsi que les différentes interprétations de leur voie selon les clans. Tu sais quels rituels sont considérés comme "authentiques", lesquels sont contestés, et quelles erreurs du passé ont marqué cette discipline. Cela te permet aussi de reconnaître certains symboles, peintures, chants ou pratiques propres aux lignées de Berserkeur.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance de l'art de l'Harmonie des âmes (Modéré)</h4>
+                    <p>Tu connais les principes qui permettent à une âme et un corps de s'aligner sans se détruire mutuellement : résonance, équilibre, limites et contreparties. Tu sais que toute harmonie a un prix, et qu'un mauvais accord peut virer à l'invasion, à l'épuisement ou à la souillure. Cette connaissance t'aide à établir une synchronisation plus propre, à détecter les incompatibilités, et à comprendre comment stabiliser une transe.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align:center; font-size:1.2rem; margin:0;">
+                    <strong>+1 classe d'arme liée à la maîtrise choisie</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">💼 Objets offerts</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure légère du clan tribal</h4>
+                        <p>Une armure faite de peaux d'animaux épaisses, assemblées et renforcées par des coutures tribales. Elle porte des motifs propres au clan et une bordure de fourrure soyeuse qui conserve la chaleur. Par instants, lorsque la lumière la frôle, de minuscules fragments de cristaux tribaux incrustés dans le cuir scintillent, signe d'une protection magique discrète.</p>
+                        <p><strong>(Armure légère + extension magique)</strong> — Offre la compétence : Résistance au froid (Résilience) +2</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Arme au choix</h4>
+                        <p>L'arme est adaptée à ton style et aux traditions du clan, souvent marquée de gravures simples ou d'un talisman attaché au manche.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🎨</span>
+                    <div>
+                        <h4>2 Pots de Peinture tribale (20/20)</h4>
+                        <p>Une peinture rituelle utilisée par les Berserkeur sur leurs tatouages et marques d'ascension. Elle ne sert pas à décorer : elle réveille l'essence et les sensations vécues lors de l'ascension, facilitant l'entrée en transe. Chaque utilisation consume une partie de la peinture.</p>
+                        <p><strong>(5 utilisations par personne)</strong></p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>2 potions de vie</h4>
+                        <p>Pour survivre aux blessures graves et rester debout quand le corps commence à lâcher.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚡</span>
+                    <div>
+                        <h4>1 potion d'endurance</h4>
+                        <p>Pour récupérer rapidement après un effort violent ou un contrecoup de transe.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💜</span>
+                    <div>
+                        <h4>1 potion de magie</h4>
+                        <p>Pour soutenir les dépenses de PM, notamment lors des appels ou de la magie spirituelle.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">✨</span>
+                    <div>
+                        <h4>Marques : "Peinture d'Ascension Berserk" (sur le corps)</h4>
+                        <p>Ces marques imprégnées ne sont pas une simple peinture : ce sont des signes d'initiation, obtenus durant l'ascension pour devenir Berserkeur. Elles sont ancrées dans le corps et dans l'âme, et témoignent du lien permanent avec le domaine spirituel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🔧 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Arme X (Force/Dextérité)</strong> — Bonus aux jets d'attaque et de maîtrise avec l'arme choisie. Sert aussi à exécuter des manœuvres simples liées à cette arme.</li>
+                        <li><strong>Robustesse (Constitution)</strong> — Résister aux chocs violents, aux coups qui font vaciller et aux tentatives de projection. Aide aussi à tenir un effort physique prolongé sans céder.</li>
+                        <li><strong>Magie spirituelle (Sagesse)</strong> — Canaliser et modeler l'essence spirituelle pour produire des effets, des appels ou des stabilisations. Sert à lancer et contrôler les techniques de magie spirituelle.</li>
+                        <li><strong>Réactif (Réactivité)</strong> — Agir vite face à une menace : esquive courte, repositionnement, réponse immédiate. Utile pour survivre pendant les moments vulnérables (début de transe, canalisation).</li>
+                        <li><strong>Observation environnementale (Perception)</strong> — Repérer des détails, traces, dangers et opportunités dans le terrain. Permet aussi de détecter une présence anormale ou des indices subtils.</li>
+                        <li><strong>Détection magique (Sagesse)</strong> — Sentir et analyser une aura, une dissimulation ou une trace surnaturelle. Aide à identifier si une zone/entité est chargée, corrompue ou instable.</li>
+                        <li><strong>Résistance spirituelle possession (RM)</strong> — Résister aux tentatives de possession, d'intrusion ou de domination spirituelle. Sert à maintenir ton contrôle quand une entité cherche à s'imposer.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧠 Compétences de trait spécifique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Continuer à agir malgré la douleur, la fatigue ou une blessure qui gêne. Aide à tenir après le contrecoup d'une transe.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Pressentir une menace avant qu'elle soit visible : embuscade, piège, présence spirituelle hostile. Permet de choisir la bonne réaction au bon moment.</li>
+                        <li><strong>Muscle entraînée (Puissance)</strong> — Forcer physiquement sans finesse : briser, pousser, arracher, dominer un obstacle. Sert aussi à imposer ta force dans une lutte.</li>
+                        <li><strong>Soulever de terre (Puissance)</strong> — Soulever ou déplacer des charges lourdes, retourner un obstacle, dégager un passage. Très utile pour ouvrir la voie ou sauver un allié coincé.</li>
+                        <li><strong>Dégagement de puissance (Puissance)</strong> — Se libérer d'une prise, repousser un adversaire trop proche ou briser un maintien. Permet d'imposer une rupture brutale dans l'échange.</li>
+                        <li><strong>Voix des Esprits (Social)</strong> — Communiquer avec une entité spirituelle : apaiser, négocier, demander assistance, éviter l'affront. Peut influencer le "tribut" ou l'attitude d'un esprit.</li>
+                        <li><strong>Savoir tribal (Savoir)</strong> — Connaître les rites, codes et traditions des clans : tabous, cérémonies, hiérarchie, gestes de respect. Utile pour éviter les erreurs culturelles et comprendre un rituel tribal.</li>
+                        <li><strong>Savoir spirituel (Savoir)</strong> — Identifier les phénomènes spirituels : types d'esprits, signes de corruption, dangers d'harmonie. Sert à comprendre ce que tu affrontes et à choisir la bonne approche.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/ClasseDCL/Berserkeur.js"></script>
+</body>
+</html>
