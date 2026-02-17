@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chasseur de Gemme - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Chasseur de gemme.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="crystal-overlay"></div>
+    <div class="gem-sparkles" id="gems"></div>
+
+    <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+
+    <!-- En-tête -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/Chasseurd e gamme.jpg" alt="Chasseur de Gemme">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">💎 Chasseur de Gemme</h1>
+            <p class="class-description">Le Chasseur de Gemmes est un tireur mercenaire né dans des terres où tout se paye : le sable, le sang, les primes… et les cristaux. Il vit au rythme des contrats et des détonations, mais ce qui le distingue d'un simple Jeune Tireur, c'est ce qu'il porte dans le regard : les Iris du Karûn, une altération rare issue des profondeurs, liée aux Enfants des Gemmes.</p>
+            <p class="class-type">🔫 Tireur d'élite • Maître des cristaux • Enfant des Gemmes</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Présentation -->
+        <section class="section">
+            <h2 class="section-title">📜 Présentation</h2>
+            <div class="content-box">
+                <p>Le Chasseur de Gemmes est un tireur mercenaire né dans des terres où tout se paye : le sable, le sang, les primes… et les cristaux. Il vit au rythme des contrats et des détonations, mais ce qui le distingue d'un simple Jeune Tireur, c'est ce qu'il porte dans le regard : les Iris du Karûn, une altération rare issue des profondeurs, liée aux Enfants des Gemmes.</p>
+
+                <p>Là où d'autres tirent avec de la poudre, lui tire avec une résonance : son arme n'est pas "chargée", elle est accordée. Le Gemspark, forgé autour d'un cristal-réservoir, ne mange pas des munitions classiques : il boit l'essence du porteur, puis la recrache sous forme de tirs imprégnés de gemmes. Plus il s'immerge dans son état de Gemsight, plus sa vision devient froide et précise : angles morts, couverts, distances, failles… tout ressort comme si le monde était découpé au couteau.</p>
+
+                <p>Mais ce pouvoir n'est pas gratuit. Le Chasseur de Gemmes dépense sa réserve de Spark (SP) pour maintenir l'éveil, forcer un tir raté à se corriger, ou activer des techniques liées à ses yeux. En échange, il devient un prédateur tactique : il se place mieux, lit mieux, frappe plus propre, et sait survivre même quand le terrain devient une tombe.</p>
+
+                <p>On raconte souvent qu'on ne sait jamais où se trouve un Chasseur de Gemmes… jusqu'au moment exact où sa balle révèle sa position. Et même là, il est déjà ailleurs : derrière un couvert, dans un angle, ou dans une ombre de dune. Parce que dans le désert, la règle est simple : celui qui reste visible trop longtemps meurt.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d10</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & Malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −3</span>
+                        <span class="stat-item neutral">CST : 0</span>
+                        <span class="stat-item positive highlight">DEX : +4</span>
+                        <span class="stat-item negative">INT : −3</span>
+                        <span class="stat-item positive">SAG : +2</span>
+                        <span class="stat-item positive highlight">PER : +3</span>
+                        <span class="stat-item positive">CHA : +1</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> 25 + 2d6</li>
+                        <li><strong>REA :</strong> +10</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 1</span>
+                        <span>Finesse : 2</span>
+                        <span>Métier : 2</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Puissance : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents -->
+        <section class="section">
+            <h2 class="section-title">🎓 Talents</h2>
+
+            <div class="talent-card">
+                <h3>Héritage des Iris Karûn (Lv 1)</h3>
+                <p>Le lanceur fait partie de ceux qu'on appelle, sur le Plan du Désert, les Enfants des Gemmes — ou Fils des Profondeurs. Une caste d'explorateurs réputés dont la puissance vient de leurs yeux altérés, forgés par l'expérience, la retenue et la compréhension de la résonance. Avec le temps, ces yeux s'adaptent mieux au corps du porteur.</p>
+                
+                <h4>Effet :</h4>
+                <p>À chaque montée de niveau, le maximum de Spark (SP) augmente. (valeur exacte définie par tes paliers d'amélioration ci-dessous)</p>
+                
+                <h4>Paliers d'amélioration (coût en points d'amélioration de talent) :</h4>
+                <ul>
+                    <li>Niveaux 1 à 3 : 1 point d'amélioration</li>
+                    <li>Niveaux 4 à 6 : 2 points d'amélioration</li>
+                    <li>Niveaux 7 à 9 : 3 points d'amélioration</li>
+                    <li>Niveau 10 : 4 points d'amélioration</li>
+                </ul>
+                
+                <h4>Bonus de palier :</h4>
+                <p>À partir du niveau 4, le lanceur obtient le talent : Maîtrise mineure de la Magie des Gemmes.</p>
+                
+                <h4>Optimisation du maintien :</h4>
+                <p>Tous les 2 niveaux, le coût en PE lié au maintien de l'état (Gemsight) diminue de 1 (cumulatif).</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure des armes à feu courtes ou longues au choix</h3>
+                <p>Tu maîtrises les fondamentaux de ces armes : visée, recul, maintenance et tir de précision. Cette maîtrise te permet de gérer efficacement ton Gemspark en toutes circonstances.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Liberté des gemmes</h3>
+                <p>1 fois par tour — Quand le lanceur tente une action risquée basée sur Finesse (dangereuse, réussite non garantie), et qu'il réussit le jet, il gagne Avantage sur son prochain jet de tir ou sur sa prochaine action risquée basée sur Finesse.</p>
+                <p><em>(Ne se déclenche que sur une action réellement risquée - validation MJ)</em></p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Savoir-faire « Joaillerie » mineur</h3>
+                <p>La taille, le sertissage et l'assemblage de pièces fines deviennent fiables, même avec un outillage limité. Tu sais évaluer la qualité d'une gemme ou d'un métal (défauts, pureté, fausses pierres) et repérer rapidement une contrefaçon grossière. La réparation d'un bijou (anneau fendu, chaîne rompue, serti desserré) se fait proprement, sans fragiliser la pièce. Enfin, tu peux créer des bijoux simples et solides, utiles autant pour le prestige que pour dissimuler un mécanisme discret (cache, compartiment fin).</p>
+                <p><strong>Obtention de compétence :</strong> Trait spécifique : Joaillerie +1 (Métier) ; Compétence : Expertise des gemmes +2 (Savoir)</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de l'Agilité</h3>
+                <p>Les déplacements gagnent en fluidité et en précision, même lors des changements brusques de direction. Les appuis deviennent plus sûrs, ce qui réduit les pertes d'équilibre et améliore les réactions instinctives. L'esquive et l'évitement se font avec moins d'hésitation, sans "casser" le mouvement. Cette maîtrise sert autant en combat qu'en terrain difficile.</p>
+                <p><strong>Compétence de Trait spécifique :</strong> Agilité de mouvement +1 (Finesse)</p>
+            </div>
+        </section>
+
+        <!-- Passif de classe -->
+        <section class="section">
+            <h2 class="section-title">✨ Passif de classe — Yeux de Gemsight</h2>
+            <div class="content-box">
+                <p class="intro-text">Quand le pouvoir s'éveille, le lanceur s'illumine : sur certaines zones de sa peau apparaissent de petites plaques semblables à des écailles, taillées comme des fragments de gemme de la même couleur que ses yeux. Ses iris brillent comme une pierre scintillante, et de fines veines ressortent légèrement autour du regard.</p>
+
+                <div class="subsection">
+                    <h4>Réserve de Spark</h4>
+                    <p>Le lanceur possède une réserve de <strong>Spark (SP)</strong> égale à <strong>2 + Mod sagesse + (lv de X)</strong>.</p>
+                    <p>Il peut activer ses Yeux de Gemme pour entrer en mode <strong>Gemsight</strong> au prix de <strong>2 SP</strong>.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Effets tant que l'état est actif</h4>
+                    <ul>
+                        <li><strong>Avantage</strong> sur les jets de Perception visuelle.</li>
+                        <li>Accès à l'effet de combat : <strong>Visée / Expertise de visée</strong> : 1 PR → bonus de critique = Mod PER (jusqu'à ton prochain tir). (activable pour 8 PE)</li>
+                        <li>1 fois par tour, si un tir est raté, le lanceur peut le relancer en payant 10 PE (garde le meilleur).</li>
+                        <li>Il peut utiliser pleinement la puissance de son Gemspark.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4>Coût</h4>
+                    <p>L'état consomme <strong>1 SP par tour</strong> et consomme <strong>10 PE</strong>.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4>Récupération de SP</h4>
+                    <ul>
+                        <li><strong>Repos court :</strong> +1dX SP (X = Mod SAG).</li>
+                        <li><strong>Repos long :</strong> récupère la moitié du maximum (sauf sommeil fastidieux).</li>
+                        <li><strong>En combat :</strong> 1 fois par tour, si l'un de ces déclencheurs arrive : crit, perte ≥ 10% PV max en un coup, ou action risquée (MJ) → +1 SP.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🧭 Origines — Chasseur de Gemmes</h2>
+            <p class="intro-text">« Chaque Chasseur porte ses cristaux différemment… Quelle est ta voie ? »</p>
+
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+
+            <div class="origin-grid">
+
+                <!-- Explorateur des Cristaux -->
+                <div class="origin-card origin-explorateur">
+                    <h3>🔍 Explorateur des Cristaux</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu es un pisteur des terres profondes du Karûn, habitué aux galeries instables comme aux dunes ouvertes. Tu voyages léger, tu lis le terrain, tu anticipes les dangers et tu sais quand contourner plutôt que forcer. Ton agilité n'est pas un luxe : c'est ton second instinct, presque une seconde arme.</p>
+                        <p>On fait appel à toi quand il faut retrouver une piste, récupérer un objet perdu, ramener quelqu'un vivant, ou explorer un lieu où la prudence vaut plus que la force. Ta réputation s'est bâtie sur une chose simple : tu reviens, même quand les autres se perdent.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Observateur de terrain (mineur)</h5>
+                        <p>Les lieux se lisent plus vite : angles morts, sorties, points hauts, zones à risque et couverts. Les détails "suspects" ressortent plus naturellement avant même l'analyse complète. Le choix des positions devient plus intelligent en exploration comme en combat. Un talent de lecture spatiale, utile et discret.</p>
+                        <p><strong>Offre la Compétence :</strong> Observation environnementale +2 (Perception)</p>
+                        
+                        <h5 style="margin-top: 15px;">Veille d'Éclat</h5>
+                        <p>Effet : Au prix de 2 SP, tant que le lanceur est en mode Gemsight, il ne peut pas subir l'effet de combat "Surprise".</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine de l'exploration des Profondeurs (Modéré)</h5>
+                        <p>Cette connaissance couvre les bases de survie et de déplacement dans les zones souterraines : galeries instables, cavernes, failles et passages étroits. Elle aide à reconnaître les signes d'effondrement, de poches de gaz, ou de zones "sonores" qui trahissent une fragilité. Elle inclut les réflexes d'orientation sans ciel, ainsi que l'organisation d'une progression en équipe. Enfin, elle permet d'exploiter intelligemment la verticalité et les couverts naturels.</p>
+                        
+                        <h5>🔼 Amélioration : Connaissance du domaine du Plan Makarien (Moyenne → Intermédiaire)</h5>
+                        <p>Tu ne connais plus seulement le plan, tu connais ses routes utiles, ses zones mortes, ses régions à "mauvaise réputation" et ses accès officieux. Tu sais où les caravanes évitent de passer, quels lieux changent après une tempête, et où l'eau se trouve vraiment. Tu comprends mieux les habitudes locales et les dangers saisonniers. Cette connaissance rend tes trajets plus rapides, plus sûrs, et plus rentables.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>PER +3 • CST +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Métier ou Instinct ou Finesse</p>
+                    </div>
+                </div>
+
+                <!-- Liturgiste du Karûn -->
+                <div class="origin-card origin-liturgiste">
+                    <h3>⚕️ Liturgiste du Karûn</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu as grandi dans un monde où le danger est partout : pièges, terrains défaillants, effondrements, créatures des profondeurs. Là où d'autres paniquent, toi tu gardes la tête froide et tu soutiens l'expédition. Tu n'es pas seulement un tireur : tu es celui qui stabilise une situation.</p>
+                        <p>Étrangement, ta maîtrise de la résonance et ta connaissance des corps te donnent une précision presque chirurgicale. Tu n'es pas un médecin… mais tu sais limiter l'hémorragie, réduire les risques, et gagner les secondes qui sauvent une vie. Ton rôle est souvent celui d'un support solide : autant par ta force de frappe que par ta capacité à empêcher une mission de tourner au désastre.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Savoir-faire : Premiers soins (mineur)</h5>
+                        <p>Tu sais stabiliser un blessé, nettoyer une plaie et limiter les complications immédiates. Tu distingues l'urgence vitale du "ça fait mal" et tu agis avec méthode. Tu peux improviser bandages, attelles et surveillance simple, sans transformer ça en chirurgie. Ce savoir-faire évite que la moindre blessure devienne une catastrophe.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Soin manuel +1 (Métier)</p>
+                        
+                        <h5 style="margin-top: 15px;">Diagnostic de Résonance</h5>
+                        <p>Effet : Si le lanceur effectue un Soin manuel sur une cible alors que Gemsight est actif, il obtient un bonus égal à son Mod de PER sur son jet de Métier.</p>
+                        <p>1 fois par scène/combat, la cible soignée peut effectuer son jet de Résilience avec Avantage si nécessaire.</p>
+                        <p>Si la cible possède un saignement, elle réduit son niveau de saignement d'un montant égal au Mod de PER du lanceur (1 fois par scène/combat).</p>
+                        <p><strong>Coût :</strong> 1 SP.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine du secourisme d'expédition (Modéré)</h5>
+                        <p>Cette connaissance concerne les soins de survie en mission : stabiliser, limiter l'hémorragie, gérer la douleur et éviter les complications rapides. Elle aide à improviser proprement avec peu de matériel, et à prioriser quand plusieurs blessés exigent une action. Elle inclut aussi la lecture des signes corporels inquiétants (choc, infection naissante, épuisement critique). Enfin, elle apprend à travailler en équipe avec discipline pour sauver des vies dans le chaos.</p>
+                        
+                        <h5>🔼 Amélioration : Connaissance du domaine des minerais et gemmes (Moyenne → Intermédiaire)</h5>
+                        <p>Tu distingues mieux une gemme "saine" d'une gemme instable ou dangereuse, même avant extraction complète. Tu comprends davantage les signes précurseurs d'un filon qui va céder, vibrer, ou libérer une réaction anormale. Tu sais aussi quelles pierres valent la peine d'être sécurisées plutôt que prises dans l'urgence. Cette connaissance réduit les accidents stupides et rend tes récupérations plus propres.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>SAG +3 • INT +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Sang-Froid ou Métier</p>
+                    </div>
+                </div>
+
+                <!-- Chapardeur d'Éclats -->
+                <div class="origin-card origin-chapardeur">
+                    <h3>🎭 Chapardeur d'Éclats</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Tu parcours les déserts sauvages en prélevant ce qui t'intéresse, sans jamais en faire trop : juste assez pour survivre, juste assez pour avancer, et surtout pas assez pour attirer l'attention. On te traite parfois de voleur… mais tu sais que ton talent est plus vaste : tu sais prendre ce que les autres ne peuvent pas atteindre.</p>
+                        <p>Ce don devient précieux quand il faut fouiller un tombeau ancien, entrer dans une ruine piégée, ou subtiliser une relique avant qu'elle ne tombe entre de mauvaises mains. Tu ne laisses derrière toi qu'un léger éclat, une trace infime — quand tu le veux. Et quand tu ne le veux pas… on ne te voit même pas passer.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Maître du Pickpocket (mineur)</h5>
+                        <p>Le vol discret devient plus propre grâce à une meilleure lecture du timing et des angles morts. La main se fait plus sûre, plus rapide, et les gestes inutiles disparaissent. L'observation repère plus facilement où les cibles rangent naturellement leurs objets. Même en cas d'échec, la suspicion immédiate est plus facile à éviter.</p>
+                        <p><strong>Offre la compétence de Trait spécifique :</strong> Vol discret +1 (Finesse)</p>
+                        
+                        <h5 style="margin-top: 15px;">Finesse Cristalline</h5>
+                        <p>Effet : Tant que le lanceur est en mode Gemsight, il peut 1 fois par scène/combat ajouter un bonus égal à son Mod de PER à un jet de Finesse.</p>
+                        <p><strong>Coût :</strong> 1 SP.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine criminel (Modéré)</h5>
+                        <p>Cette connaissance couvre les méthodes de vol, contrebande, recel, et les habitudes des réseaux clandestins. Elle aide à reconnaître les lieux où s'échangent les biens "chauds", les codes d'approche et les pièges sociaux courants. Elle inclut les risques typiques : fausses identités, appâts, chasseurs de primes et règles implicites de territoire. Enfin, elle permet de savoir quand une opportunité est "trop belle" et cache une embuscade.</p>
+                        
+                        <h5>🔼 Amélioration : Connaissance du domaine des Chasseurs de Gemmes (Modérée → Moyenne)</h5>
+                        <p>Tu comprends mieux leurs contrats, leurs rivalités, et les raisons réelles derrière certaines missions. Tu sais comment ils sécurisent leurs trouvailles, comment ils se couvrent juridiquement ou illégalement, et comment ils font disparaître une piste. Tu connais mieux les erreurs qui font "griller" un chasseur dans ce milieu. Cette amélioration te rend crédible face aux vrais professionnels.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>CHA +3 • DEX +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Finesse ou Social ou Instinct</p>
+                    </div>
+                </div>
+
+                <!-- Né des Sables Brillants -->
+                <div class="origin-card origin-sables">
+                    <h3>🏜️ Né des Sables Brillants</h3>
+                    
+                    <div class="subsection">
+                        <h4>📖 Description</h4>
+                        <p>Depuis l'enfance, tu as été bercé par les mythes des gemmes de pouvoir et de leur lien avec les êtres primordiaux : esprits élémentaires, forces cristallines, anciens pactes oubliés. Les anciens t'ont transmis une sagesse simple : tout a une essence, et l'essence répond à celui qui sait écouter.</p>
+                        <p>Tu as appris à chercher l'harmonie avec la vie, les pierres et les créatures élémentaires… mais tu as aussi été formé au combat. Pas pour écraser, mais pour tenir, protéger, et survivre même quand tu es désarmé. Ton tir est précis, mais ton esprit l'est tout autant : tu avances comme quelqu'un qui comprend que chaque gemme est une histoire — et que certaines histoires valent une guerre.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        <h5>Maîtrise d'une arme de corps à corps au choix</h5>
+                        <p>Tu maîtrises les fondamentaux d'une arme de mêlée, te permettant de tenir ta position même sans ton Gemspark.</p>
+                        
+                        <h5 style="margin-top: 15px;">Regard du Faucon de Karûn</h5>
+                        <p>Effet : Tant que le lanceur est en mode Gemsight et qu'il est engagé avec un ennemi, il peut 1 fois par combat, lorsqu'il subit une attaque directe, faire un jet de Perception pour réagir à la place d'un jet basé sur la Réactivité. Si le résultat est meilleur et permet l'évitement, l'attaque est évitée.</p>
+                        <p>⚠️ Ne fonctionne pas contre une attaque de zone ni une attaque avec l'effet "Imparable".</p>
+                        <p><strong>Coût :</strong> 1 SP (au lieu d'un coût en PR).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📚 Connaissances supplémentaires</h4>
+                        <h5>• Connaissance du domaine des esprits primordiaux cristallins (Modéré)</h5>
+                        <p>Cette connaissance concerne les entités et forces liées aux résonances élémentaires et cristallines, ainsi que leurs signes distinctifs. Elle aide à reconnaître une présence, une zone "accordée", ou un phénomène qui ne relève pas du naturel. Elle inclut les croyances, rites simples et tabous qui évitent d'aggraver une situation spirituelle. Enfin, elle donne des clés pour comprendre pourquoi certaines gemmes "répondent" à certains porteurs.</p>
+                        
+                        <h5>🔼 Amélioration : Connaissance du domaine des mythes et légendes (Modérée → Moyenne)</h5>
+                        <p>Tu ne te contentes plus de reconnaître un récit : tu sais relier les versions, identifier les éléments communs et repérer ce qui a été déformé avec le temps. Tu comprends mieux les symboles, les lieux récurrents et les avertissements cachés dans les légendes. Tu sais aussi distinguer un mythe "pédagogique" d'un mythe qui décrit un vrai danger. Cette amélioration te rend plus pertinent quand il faut interpréter un indice ancien.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Gains</h4>
+                        <p><strong>FOR de −3 → +3 • SAG +2</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 Résilience ou Instinct ou Puissance</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Connaissances générales -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances de base</h2>
+            <div class="content-box">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine du Plan Makarien (Moyen)</h4>
+                    <p>Cette connaissance couvre la géographie globale de Makarane/Makarien, ses zones habitées, ses routes, ses dangers et ses cultures dominantes. Elle aide à reconnaître les types de régions (dunes, canyons, plaines de sel, zones d'orage de sable) et à anticiper les risques typiques. Elle inclut aussi les usages de base du commerce local, des caravanes, et des conflits récurrents. Enfin, elle permet d'éviter les erreurs "de touriste" qui coûtent cher dans un plan aussi rude.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des armes à feu (Moyen)</h4>
+                    <p>Cette connaissance regroupe les principes généraux : types d'armes, portée, recul, entretien, enrayages et comportements des munitions. Elle sert à identifier rapidement une arme, comprendre son état, et repérer si une pièce a été modifiée ou bricolée. Elle inclut les bases de sécurité, de démontage simple et de réparation de terrain. Elle permet aussi de reconnaître une munition adaptée, dangereuse, ou incompatible.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la joaillerie (Moyen)</h4>
+                    <p>Cette connaissance couvre les méthodes de taille, de sertissage, d'évaluation et de contrôle de qualité des gemmes et métaux précieux. Elle aide à repérer les défauts (fissures, inclusions, fragilité), les contrefaçons et les illusions simples. Elle inclut les styles de fabrication, les standards de valeur et les indices d'origine d'une pièce. Elle est utile autant pour vendre correctement que pour éviter de se faire tromper.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des minerais et gemmes (Moyen)</h4>
+                    <p>Cette connaissance sert à identifier les minerais, cristaux et gemmes, ainsi que leurs propriétés physiques et risques courants. Elle aide à comprendre où ils se trouvent, comment ils se forment, et pourquoi certains filons sont instables ou dangereux. Elle permet aussi de reconnaître les pierres "anormales" (trop chaudes, trop froides, vibrantes, contaminées). Enfin, elle sert à estimer rapidement la valeur brute d'une découverte avant raffinage.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des mythes et légendes (Modéré)</h4>
+                    <p>Cette connaissance rassemble les récits, symboles et légendes liés aux gemmes de pouvoir, aux lieux interdits et aux anciens pactes. Elle aide à reconnaître un nom, un signe, un rituel ou une croyance sans forcément en connaître tous les détails. Elle sert aussi à repérer les mensonges "mythologiques" qu'on raconte pour manipuler ou effrayer. Enfin, elle donne des pistes sur les zones à éviter… ou celles qui cachent quelque chose.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Chasseurs de Gemmes (Modéré)</h4>
+                    <p>Cette connaissance porte sur les codes, méthodes et réputations des Chasseurs de Gemmes à travers Makarane et le Karûn. Elle inclut leurs pratiques d'expédition, leurs manières de négocier, et les types de missions qu'ils acceptent. Elle aide à comprendre leur jargon, leurs rites, et ce qui se transmet de maître à apprenti. Elle permet aussi d'identifier les signes d'un "vrai" Chasseur de Gemmes face à un imposteur.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classe d'arme -->
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box">
+                <p style="text-align:center; font-size:1.2rem; margin:0;">
+                    <strong>+1 Arme à feu à une main ou à deux mains</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎒 Équipement de départ</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🔫</span>
+                    <div>
+                        <h4>Gemspark court ou long (au choix)</h4>
+                        <p>Une arme unique forgée autour d'un cristal, à l'apparence d'une arme à feu conventionnelle. Elle possède un compartiment de gemme servant de réservoir, où s'insère une pierre liée à l'arme et utilisée comme source d'énergie.</p>
+                        <p>Contrairement aux armes classiques, le Gemspark n'utilise pas de munitions conventionnelles : il fonctionne grâce à une énergie magique tirée de la résonance entre la gemme et son porteur. Seuls les Chasseurs de Gemmes sont capables d'activer correctement ce réservoir, en canalisant leur essence et leur lien naturel aux gemmes pour alimenter l'arme.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💎</span>
+                    <div>
+                        <h4>4 gemmes de base qualité au choix</h4>
+                        <p>Chaque gemme définit une nature magique différente pour ton Gemspark (le type de gemme détermine l'élément/la nature du tir).</p>
+                        <p><strong>Fonctionnement (50/50) :</strong> à chaque tir, l'arme déclenche un bonus de dégâts magiques dépendant de son format :</p>
+                        <ul>
+                            <li>Gemspark long : +2d6 dégâts</li>
+                            <li>Gemspark court : +2d4 dégâts</li>
+                        </ul>
+                        <p>La nature magique de ce bonus (feu, glace, foudre, etc.) change selon la gemme insérée dans le compartiment.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔧</span>
+                    <div>
+                        <h4>Kit de Joaillerie et polissage</h4>
+                        <p>Outils nécessaires pour tailler, sertir et évaluer les gemmes avec précision.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure légère</h4>
+                        <p>Protection mobile adaptée au style de combat du Chasseur de Gemmes.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">❤️</span>
+                    <div>
+                        <h4>2 potions de vie</h4>
+                        <p>Soins d'urgence pour survivre aux situations critiques.</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚡</span>
+                    <div>
+                        <h4>1 potion d'endurance</h4>
+                        <p>Restaure l'énergie physique lors des longues expéditions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>🎯 Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Tir d'arme à feu courte ou longue (Dextérité)</strong> — Permet de viser, gérer le recul et tirer proprement à différentes distances. Sert aussi à enchaîner des tirs sans perdre la stabilité.</li>
+                        <li><strong>Réactif (Réactivité)</strong> — Mesure la capacité à répondre instantanément à un danger (contre, interruption, mouvement réflexe). Sert à agir au bon timing quand une situation bascule.</li>
+                        <li><strong>Intimidation (Charisme)</strong> — Sert à imposer sa présence par la menace, la froideur ou la confiance, pour faire plier une cible. Peut briser la volonté, faire reculer ou obtenir une information sous pression.</li>
+                        <li><strong>Esquive (Dextérité)</strong> — Permet d'éviter une attaque par déplacement, torsion ou pas rapide plutôt que par blocage. Sert aussi à réduire l'impact d'un coup même si l'évitement n'est pas parfait.</li>
+                        <li><strong>Observation environnementale (Perception)</strong> — Sert à lire le terrain : couverts, angles, pièges visibles, traces, détails anormaux. Utile pour choisir une position sûre et repérer une ouverture tactique.</li>
+                        <li><strong>Vision de faucon (Perception)</strong> — Permet de repérer à grande distance un mouvement, une silhouette, un reflet ou un détail infime. Sert aux tirs longue distance, au repérage et à l'identification rapide d'une menace.</li>
+                        <li><strong>Furtivité (Dextérité)</strong> — Sert à se déplacer sans bruit, se cacher, se fondre dans un décor ou une zone d'ombre. Utile pour préparer une embuscade, éviter un combat ou se repositionner discrètement.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>✅ Compétences de trait spécifique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Agilité de mouvement (Finesse)</strong> — Permet de se faufiler, changer d'appui, passer un obstacle ou se réorienter sans perdre l'équilibre. Sert aussi à rester fluide en combat, même en terrain difficile.</li>
+                        <li><strong>Savoir de joaillerie (Savoir)</strong> — Sert à tailler, polir, évaluer et manipuler des gemmes sans les abîmer. Utile pour estimer une valeur, détecter une contrefaçon ou préparer une gemme pour la résonance.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Permet de sentir une menace avant qu'elle ne soit évidente (embuscade, piège, intention hostile). Sert à éviter le "mauvais pas" et choisir le bon réflexe.</li>
+                        <li><strong>Dialecte de mercenaire (Social)</strong> — Sert à comprendre et utiliser les codes, expressions et manières de parler des mercenaires et chasseurs de primes. Utile pour négocier, se faire accepter ou repérer un mensonge dans ce milieu.</li>
+                        <li><strong>Glissade de couvert (Finesse)</strong> — Permet de rejoindre rapidement un couvert, se glisser derrière un obstacle ou s'y engouffrer proprement. Utile pour survivre à une rafale, casser une ligne de vue ou préparer un tir.</li>
+                        <li><strong>Résistance à la peur (Sang-Froid)</strong> — Permet de garder sa lucidité sous peur/terreur, éviter panique et figement, et continuer à agir efficacement. Utile pour tenir une visée ou protéger un allié même sous menace.</li>
+                        <li><strong>Connaissance des gemmes / cristaux (Savoir)</strong> — Sert à identifier les gemmes, comprendre leurs propriétés, risques et usages (naturels ou magiques). Utile pour distinguer une gemme "saine" d'une gemme instable, maudite ou truquée.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion — Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/ClasseDCL/Chasseur de gemme.js"></script>
+</body>
+</html>
