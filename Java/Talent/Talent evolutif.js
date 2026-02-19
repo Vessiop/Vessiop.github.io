@@ -1090,7 +1090,14 @@ function renderTable() {
     
     let visibleCount = 0;
     
-    talents.forEach((talent, index) => {
+    talents.forEach((talent) => {
+        // ✅ CORRECTION : Trouver l'index ORIGINAL dans allTalents
+        const originalIndex = allTalents.findIndex(t => 
+            t.nom === talent.nom && 
+            t.categorie === talent.categorie && 
+            t.cout === talent.cout
+        );
+        
         // Filtrage par catégorie
         if (!selectedCategories.has(talent.categorie)) {
             return;
@@ -1110,15 +1117,15 @@ function renderTable() {
         visibleCount++;
         
         const row = document.createElement('tr');
-        row.dataset.talentIndex = index;
+        row.dataset.talentIndex = originalIndex; // ✅ Utilise l'index original
         
         // Mode sélection actif
         if (selectionMode) {
             row.classList.add('selectable');
-            if (selectedTalents.has(index)) {
+            if (selectedTalents.has(originalIndex)) { // ✅ Vérifie avec l'index original
                 row.classList.add('selected');
             }
-            row.addEventListener('click', () => toggleSelection(index));
+            row.addEventListener('click', () => toggleSelection(originalIndex)); // ✅ Passe l'index original
         }
         
         // Colonne Nom
@@ -1462,5 +1469,4 @@ function attachEventListeners() {
     
     // Reset
     document.getElementById('resetSelection').addEventListener('click', resetSelection);
-    document.getElementById('resetSelectionRecap').addEventListener('click', resetSelection);
 }
