@@ -11,13 +11,13 @@
     <div class="parchment-overlay"></div>
     
     <!-- Bouton retour -->
-    <a href="../../Talent/Type de talent proposer.html" class="back-button">← Retour aux talents</a>
+    <a href="../../../HTML/Talent/Type de talent proposer.html" class="back-button">← Retour aux talents</a>
     
     <header class="header">
         <div class="ornament ornament-left">⚡</div>
         <div class="title-container">
             <h1 class="main-title">Talents Évolutifs</h1>
-            <p class="subtitle">Maîtrises d'armes, techniques de combat et arts magiques</p>
+            <p class="subtitle">Maîtrises, savoir-faire et arts de combat</p>
         </div>
         <div class="ornament ornament-right">⚡</div>
     </header>
@@ -30,38 +30,38 @@
                 <button id="clearSearch" class="clear-btn">✕</button>
             </div>
             
-            <!-- NOUVEAU : Filtres par catégorie -->
+            <!-- Filtres par catégorie -->
             <div class="category-filters">
                 <h3 class="filter-title">📂 Filtrer par catégorie :</h3>
                 <div class="category-checkboxes">
                     <label class="category-checkbox">
-                        <input type="checkbox" value="Les Armes" checked>
+                        <input type="checkbox" value="Talent de métier" checked>
                         <span class="checkbox-custom"></span>
-                        <span class="checkbox-label cat-armes">⚔️ Les Armes</span>
+                        <span class="checkbox-label cat-metier">🔨 Talent de métier</span>
                     </label>
                     
                     <label class="category-checkbox">
-                        <input type="checkbox" value="Technique de combat" checked>
+                        <input type="checkbox" value="Talent de combat" checked>
                         <span class="checkbox-custom"></span>
-                        <span class="checkbox-label cat-technique">🥋 Technique de combat</span>
+                        <span class="checkbox-label cat-combat">⚔️ Talent de combat</span>
                     </label>
                     
                     <label class="category-checkbox">
-                        <input type="checkbox" value="Talent évolutif classique" checked>
+                        <input type="checkbox" value="Talent lié à la magie" checked>
                         <span class="checkbox-custom"></span>
-                        <span class="checkbox-label cat-classique">⭐ Talent évolutif classique</span>
+                        <span class="checkbox-label cat-magie">🔮 Talent lié à la magie</span>
                     </label>
                     
                     <label class="category-checkbox">
-                        <input type="checkbox" value="Lien magique" checked>
+                        <input type="checkbox" value="Talent commun" checked>
                         <span class="checkbox-custom"></span>
-                        <span class="checkbox-label cat-magie">🔮 Lien magique</span>
+                        <span class="checkbox-label cat-commun">⭐ Talent commun</span>
                     </label>
                     
                     <label class="category-checkbox">
-                        <input type="checkbox" value="Style magique" checked>
+                        <input type="checkbox" value="Talent spéciaux" checked>
                         <span class="checkbox-custom"></span>
-                        <span class="checkbox-label cat-style">✨ Style magique</span>
+                        <span class="checkbox-label cat-speciaux">✨ Talent spéciaux</span>
                     </label>
                 </div>
                 
@@ -71,8 +71,64 @@
                 </div>
             </div>
             
-            <div class="results-count">
-                <span id="talentCount">0</span> talents affichés sur <span id="totalCount">0</span>
+            <!-- Barre d'info : compteur + toggle mode sélection -->
+            <div class="info-bar">
+                <div class="results-count">
+                    <span id="talentCount">143</span> talents affichés sur <span id="totalCount">143</span>
+                </div>
+                
+                <div class="selection-toggle">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="selectionModeToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="toggle-label">Mode Sélection</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- ZONE DE SÉLECTION (RÉCAPITULATIF) - DÉPLACÉE ICI -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <div id="recapSection" class="recap-section" style="display: none;">
+            <div class="recap-header">
+                <div class="ornament ornament-left">⚜️</div>
+                <h2 class="recap-title">📜 Talents Sélectionnés</h2>
+                <div class="ornament ornament-right">⚜️</div>
+            </div>
+
+            <div class="recap-counter">
+                <span class="recap-label">Total des points :</span>
+                <span id="totalPoints" class="recap-points">0</span>
+                <span class="recap-label-pts">points</span>
+            </div>
+
+            <div class="recap-table-wrapper">
+                <table class="recap-table">
+                    <thead>
+                        <tr>
+                            <th class="recap-col-nom">Nom</th>
+                            <th class="recap-col-desc">Description</th>
+                            <th class="recap-col-cout">Coût</th>
+                            <th class="recap-col-actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recapBody">
+                        <!-- Rempli dynamiquement par JS -->
+                    </tbody>
+                </table>
+                
+                <div id="emptyRecap" class="empty-recap">
+                    <p>⚠️ Aucun talent sélectionné</p>
+                    <p class="empty-recap-hint">Activez le mode sélection et cliquez sur les talents ci-dessous pour les ajouter à votre liste.</p>
+                </div>
+            </div>
+
+            <div class="recap-actions">
+                <button id="resetSelection" class="reset-btn">
+                    <span class="btn-icon">🗑️</span>
+                    <span class="btn-text">Réinitialiser la sélection</span>
+                </button>
             </div>
         </div>
 
@@ -84,7 +140,7 @@
                         <th class="col-nom sortable" data-sort="nom">
                             Nom <span class="sort-icon">⇅</span>
                         </th>
-                        <th class="col-effet">Effet</th>
+                        <th class="col-effet">Description</th>
                         <th class="col-categorie sortable" data-sort="categorie">
                             Catégorie <span class="sort-icon">⇅</span>
                         </th>
