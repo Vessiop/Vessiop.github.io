@@ -53,13 +53,13 @@ const statsChart = new Chart(ctx, {
         datasets: [{
             label: 'Caractéristiques',
             data: convertStatsForChart(baseStats),
-            backgroundColor: 'rgba(45, 90, 74, 0.2)',
-            borderColor: 'rgba(45, 90, 74, 0.8)',
+            backgroundColor: 'rgba(58, 90, 74, 0.3)',
+            borderColor: 'rgba(212, 165, 116, 1)',
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(45, 90, 74, 1)',
-            pointBorderColor: '#fff',
+            pointBackgroundColor: 'rgba(200, 184, 168, 1)',
+            pointBorderColor: 'rgba(212, 165, 116, 1)',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(45, 90, 74, 1)',
+            pointHoverBorderColor: 'rgba(212, 165, 116, 1)',
             pointRadius: 5,
             pointHoverRadius: 7
         }]
@@ -75,30 +75,42 @@ const statsChart = new Chart(ctx, {
             r: {
                 min: 0,
                 max: 10,
+                backgroundColor: 'rgba(26, 30, 26, 0.8)',
                 ticks: {
                     stepSize: 2,
                     callback: function(value) {
                         return value - 4;
                     },
-                    color: '#1d3a2a',
+                    color: '#c8b8a8',
+                    backdropColor: 'rgba(46, 52, 46, 0.95)',
+                    backdropPadding: 4,
                     font: {
-                        size: 11,
-                        weight: 'bold'
-                    }
-                },
-                grid: {
-                    color: 'rgba(45, 90, 74, 0.2)'
-                },
-                angleLines: {
-                    color: 'rgba(45, 90, 74, 0.2)'
-                },
-                pointLabels: {
-                    color: '#1d3a2a',
-                    font: {
-                        size: 14,
+                        size: 13,
                         weight: 'bold',
                         family: "'Cinzel', serif"
-                    }
+                    },
+                    showLabelBackdrop: true,
+                    z: 10
+                },
+                grid: {
+                    color: 'rgba(58, 90, 74, 0.5)',
+                    circular: true,
+                    lineWidth: 1
+                },
+                angleLines: {
+                    color: 'rgba(58, 90, 74, 0.5)',
+                    lineWidth: 1
+                },
+                pointLabels: {
+                    color: '#d4a574',
+                    font: {
+                        size: 15,
+                        weight: 'bold',
+                        family: "'Cinzel', serif"
+                    },
+                    backdropColor: 'rgba(46, 52, 46, 0.85)',
+                    backdropPadding: 6,
+                    borderRadius: 4
                 }
             }
         },
@@ -107,6 +119,21 @@ const statsChart = new Chart(ctx, {
                 display: false
             },
             tooltip: {
+                backgroundColor: 'rgba(46, 52, 46, 0.95)',
+                titleColor: '#d4a574',
+                bodyColor: '#c8b8a8',
+                borderColor: 'rgba(58, 90, 74, 0.8)',
+                borderWidth: 2,
+                padding: 12,
+                titleFont: {
+                    family: "'Cinzel', serif",
+                    size: 14,
+                    weight: 'bold'
+                },
+                bodyFont: {
+                    family: "'Crimson Text', serif",
+                    size: 13
+                },
                 callbacks: {
                     label: function(context) {
                         const actualValue = context.parsed.r - 4;
@@ -161,9 +188,19 @@ function updateStatsDisplay(voie) {
             bonusText += `${stat} +${bonuses[stat]} `;
         }
         
+        // Ajouter infos spéciales
+        let extraInfo = '';
+        if (voie === 'routes') {
+            extraInfo = '<br><strong>Bonus :</strong> Observateur de terrain, Choix kit Routes (Ronde Guetteur/Camouflage/Second Croc)';
+        } else if (voie === 'flots') {
+            extraInfo = '<br><strong>Bonus :</strong> Expertise Nageur, Choix héritage Flots (Souffle Courants/Lecture Ciel/Chef Pont)';
+        } else if (voie === 'hautes') {
+            extraInfo = '<br><strong>Bonus :</strong> Escalade Instinctive, Choix kit Hautes (Bombardier/Œil Panoramique/Vol Initiative)';
+        }
+        
         displayElement.innerHTML = `
             <strong>Voie sélectionnée :</strong> ${voieNames[voie]}<br>
-            <strong>Bonus appliqués :</strong> ${bonusText}
+            <strong>Bonus appliqués :</strong> ${bonusText}${extraInfo}
         `;
         displayElement.style.display = 'block';
     } else {
@@ -200,13 +237,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const chartContainer = document.querySelector('.chart-container');
     const displayDiv = document.createElement('div');
     displayDiv.id = 'current-voie-display';
-    displayDiv.style.marginTop = '20px';
-    displayDiv.style.padding = '15px';
-    displayDiv.style.background = 'rgba(45, 90, 74, 0.1)';
-    displayDiv.style.borderRadius = '6px';
-    displayDiv.style.textAlign = 'center';
-    displayDiv.style.fontSize = '0.95rem';
-    displayDiv.style.display = 'none';
+    displayDiv.style.cssText = `
+        margin-top: 18px;
+        padding: 15px 20px;
+        background: linear-gradient(135deg, rgba(58, 90, 74, 0.35), rgba(212, 165, 116, 0.25));
+        border: 2px solid rgba(212, 165, 116, 0.5);
+        border-radius: 10px;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #d4a574;
+        display: none;
+        line-height: 1.8;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 30px rgba(58, 90, 74, 0.3);
+        backdrop-filter: blur(10px);
+    `;
     chartContainer.appendChild(displayDiv);
 
     // Initialiser l'affichage

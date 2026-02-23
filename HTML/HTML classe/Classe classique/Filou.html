@@ -42,6 +42,7 @@
         <!-- Statistiques de base -->
         <section class="section">
             <h2 class="section-title">📊 Statistiques de base</h2>
+            
             <div class="stats-grid">
                 <div class="stat-category">
                     <h3>❤️ Base PV / PM / PE</h3>
@@ -53,7 +54,7 @@
                 </div>
 
                 <div class="stat-category">
-                    <h3>📊 Bonus & malus</h3>
+                    <h3>📊 Bonus & malus de base</h3>
                     <div class="bonus-grid">
                         <span class="stat-item negative">FOR : −1</span>
                         <span class="stat-item negative">CST : −1</span>
@@ -70,7 +71,7 @@
                 </div>
 
                 <div class="stat-category">
-                    <h3>🧠 Traits spécifiques</h3>
+                    <h3>🧠 Traits spécifiques de base</h3>
                     <div class="traits-grid">
                         <span>Résilience : 1</span>
                         <span>Instinct : 1</span>
@@ -91,6 +92,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Talents de classe -->
         <section class="section">
             <h2 class="section-title">🎓 Talents de classe</h2>
@@ -126,14 +128,19 @@
                 </div>
             </div>
         </section>
+
         <!-- Origines criminelles -->
         <section class="section">
             <h2 class="section-title">🧾 Origine criminelle (1 au choix)</h2>
             <p class="intro-text">Choisis une origine qui définit ton style et ta spécialité dans le monde criminel :</p>
             
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une carte d'origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
             <div class="origin-grid">
-                <!-- Origine 1 -->
-                <div class="origin-card">
+                <!-- Origine 1 : Pilleur -->
+                <div class="origin-card origin-pilleur">
                     <h3>🔓 Pilleur des Salles Fortes</h3>
                     <p>Il ne s'agit pas de ramasser ce qui traîne : l'objectif, c'est l'inaccessible. Manoirs silencieux, coffres scellés, salles fortes et mécanismes conçus pour décourager les meilleurs — voilà le terrain de jeu. Tout repose sur la préparation, le calme, et la beauté d'un plan exécuté sans bruit. Un vol réussi n'est pas une chance : c'est une pièce parfaitement jouée.</p>
                     
@@ -151,13 +158,26 @@
                         <p><strong>Difficulté :</strong> 20 − Mod DEX (arrondi au pair inférieur).</p>
                     </div>
                     
-                    <div class="subsection">
-                        <p><strong>Bonus de caractéristiques :</strong> +3 DEX et +1 INT ou PER, +1 en Finesse ou Métier (au choix)</p>
+                    <div class="bonus-section">
+                        <h4>📊 Bonus de caractéristiques :</h4>
+                        <p><strong>Base :</strong> DEX +3</p>
+                        <div class="choice-group">
+                            <p><strong>Choix bonus +1 :</strong></p>
+                            <label class="choice-label">
+                                <input type="radio" name="pilleur-char" value="INT" checked>
+                                <span>INT +1</span>
+                            </label>
+                            <label class="choice-label">
+                                <input type="radio" name="pilleur-char" value="PER">
+                                <span>PER +1</span>
+                            </label>
+                        </div>
+                        <p style="margin-top: 10px;"><strong>🧩 Bonus de trait spécifique :</strong> Finesse ou Métier +1 (au choix)</p>
                     </div>
                 </div>
 
-                <!-- Origine 2 -->
-                <div class="origin-card">
+                <!-- Origine 2 : Main de la Ruée -->
+                <div class="origin-card origin-main">
                     <h3>👥 Main de la Ruée</h3>
                     <p>La chute n'était pas prévue. Un manque, un faux pas, un moment trop long au mauvais endroit… et la limite a été franchie. Depuis, l'instinct s'est aiguisé : survivre, se fondre dans la foule, éviter que les murs se referment. Le vol n'est pas forcément un plaisir — mais les mains apprennent vite quand la nécessité serre la gorge.</p>
                     
@@ -174,13 +194,15 @@
                         <p>D'un simple regard, grâce à l'habitude et l'instinct, le Filou identifie qui possède le plus de richesse, quels objets ont de la valeur, et quelles cibles sont trop risquées à dépouiller. Quand il doit faire un jet d'analyse lié à l'équipement / la richesse / la valeur / la dangerosité d'une cible, il effectue ce jet en <strong>Avantage</strong>.</p>
                     </div>
                     
-                    <div class="subsection">
-                        <p><strong>Bonus de caractéristiques :</strong> +2 PER et +2 DEX, +1 en Finesse ou Instinct (au choix)</p>
+                    <div class="bonus-section">
+                        <h4>📊 Bonus de caractéristiques :</h4>
+                        <p><strong>Base :</strong> PER +2, DEX +2</p>
+                        <p style="margin-top: 10px;"><strong>🧩 Bonus de trait spécifique :</strong> Finesse ou Instinct +1 (au choix)</p>
                     </div>
                 </div>
 
-                <!-- Origine 3 -->
-                <div class="origin-card">
+                <!-- Origine 3 : Rôdeur -->
+                <div class="origin-card origin-rodeur">
                     <h3>🏹 Rôdeur de Convoi</h3>
                     <p>La loi n'est pas un mur, c'est une frontière. Sur la route, les convois ont des failles, les escortes des réflexes prévisibles, et chaque virage peut devenir une souricière. Ici, on gagne par pression, timing, nombre, et fuite organisée. Brigand pour certains… méthode de survie pour d'autres.</p>
                     
@@ -197,13 +219,26 @@
                         <p>Quand le Filou prépare une embuscade, il obtient <strong>+5 à l'Initiative</strong>. S'il est pris en embuscade, il peut relancer une seule fois son jet d'Initiative.</p>
                     </div>
                     
-                    <div class="subsection">
-                        <p><strong>Bonus de caractéristiques :</strong> +2 PER et +2 en FOR ou DEX, +1 en Puissance ou Résilience ou Instinct (au choix)</p>
+                    <div class="bonus-section">
+                        <h4>📊 Bonus de caractéristiques :</h4>
+                        <p><strong>Base :</strong> PER +2</p>
+                        <div class="choice-group">
+                            <p><strong>Choix bonus +2 :</strong></p>
+                            <label class="choice-label">
+                                <input type="radio" name="rodeur-char" value="FOR" checked>
+                                <span>FOR +2</span>
+                            </label>
+                            <label class="choice-label">
+                                <input type="radio" name="rodeur-char" value="DEX">
+                                <span>DEX +2</span>
+                            </label>
+                        </div>
+                        <p style="margin-top: 10px;"><strong>🧩 Bonus de trait spécifique :</strong> Puissance ou Résilience ou Instinct +1 (au choix)</p>
                     </div>
                 </div>
 
-                <!-- Origine 4 -->
-                <div class="origin-card">
+                <!-- Origine 4 : Charlatan -->
+                <div class="origin-card origin-charlatan">
                     <h3>🎭 Charlatan des Pavés</h3>
                     <p>L'or ne se prend pas toujours : il se fait offrir. Une histoire crédible, une urgence bien jouée, un sourire placé au bon moment — et la cible coopère sans même comprendre. Les gens se lisent vite : peur, besoin, orgueil, solitude. La lame est une option… la confiance, elle, est une arme.</p>
                     
@@ -227,17 +262,31 @@
                         </ul>
                     </div>
                     
-                    <div class="subsection">
-                        <p><strong>Bonus de caractéristiques :</strong> +3 CHA et +1 INT ou SAG, +1 en Sang-froid ou Social ou Finesse (au choix)</p>
+                    <div class="bonus-section">
+                        <h4>📊 Bonus de caractéristiques :</h4>
+                        <p><strong>Base :</strong> CHA +3</p>
+                        <div class="choice-group">
+                            <p><strong>Choix bonus +1 :</strong></p>
+                            <label class="choice-label">
+                                <input type="radio" name="charlatan-char" value="INT" checked>
+                                <span>INT +1</span>
+                            </label>
+                            <label class="choice-label">
+                                <input type="radio" name="charlatan-char" value="SAG">
+                                <span>SAG +1</span>
+                            </label>
+                        </div>
+                        <p style="margin-top: 10px;"><strong>🧩 Bonus de trait spécifique :</strong> Sang-froid ou Social ou Finesse +1 (au choix)</p>
                     </div>
                 </div>
             </div>
         </section>
+
         <!-- Connaissances -->
         <section class="section">
             <h2 class="section-title">📚 Connaissances</h2>
             
-            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--shadow); font-size: 1.5rem; margin: 30px 0 20px;">Connaissances de base</h3>
+            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--purple-light); font-size: 1.5rem; margin: 30px 0 20px;">Connaissances de base</h3>
             
             <div class="knowledge-list">
                 <div class="knowledge-item">
@@ -256,7 +305,7 @@
                 </div>
             </div>
             
-            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--shadow); font-size: 1.5rem; margin: 40px 0 20px;">Connaissances selon la voie choisie</h3>
+            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--purple-light); font-size: 1.5rem; margin: 40px 0 20px;">Connaissances selon la voie choisie</h3>
             
             <div class="origin-grid" style="margin-top: 30px;">
                 <!-- Pilleur des Salles Fortes -->
@@ -288,6 +337,7 @@
                         <p>Familiarité avec la logique urbaine : foules, marchés, ruelles, horaires, lieux sûrs, rumeurs et comportements typiques des quartiers. Lecture rapide des opportunités et des dangers (patrouilles, témoins, zones surveillées), avec une capacité à se fondre dans le décor. Utile pour survivre, disparaître et agir sans attirer l'attention.</p>
                     </div>
                 </div>
+
                 <!-- Rôdeur de Convoi -->
                 <div class="origin-card">
                     <h3>🏹 Rôdeur de Convoi</h3>
@@ -323,7 +373,7 @@
         <section class="section">
             <h2 class="section-title">📦 Équipement de départ</h2>
             
-            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--shadow); font-size: 1.3rem; margin-bottom: 20px;">Équipement commun</h3>
+            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--purple-light); font-size: 1.3rem; margin-bottom: 20px;">Équipement commun</h3>
             
             <div class="equipment-grid">
                 <div class="equipment-item">
@@ -351,7 +401,7 @@
                 </div>
             </div>
             
-            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--shadow); font-size: 1.3rem; margin: 40px 0 20px;">Selon la voie choisie</h3>
+            <h3 class="subsection-title" style="font-family: 'Cinzel', serif; color: var(--purple-light); font-size: 1.3rem; margin: 40px 0 20px;">Selon la voie choisie</h3>
             
             <div class="origin-grid">
                 <!-- Équipement Pilleur -->
@@ -443,6 +493,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Compétences -->
         <section class="section">
             <h2 class="section-title">🎯 Compétences proposées</h2>
@@ -512,92 +563,6 @@
         <p>© 2024 Termion - Tous droits réservés</p>
     </footer>
 
-    <script>
-        // Création du graphique radar des caractéristiques
-        const ctx = document.getElementById('statsChart').getContext('2d');
-        
-        // Données du Filou (échelle de -4 à +6)
-        const statsData = {
-            FOR: -1,
-            CST: -1,
-            DEX: 3,
-            INT: 1,
-            SAG: -1,
-            PER: 2,
-            CHA: -1
-        };
-
-        // Convertir les valeurs pour le graphique (ajouter 4 pour que 0 soit au centre)
-        const convertedData = Object.values(statsData).map(val => val + 4);
-
-        const statsChart = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: ['FOR', 'CST', 'DEX', 'INT', 'SAG', 'PER', 'CHA'],
-                datasets: [{
-                    label: 'Caractéristiques',
-                    data: convertedData,
-                    backgroundColor: 'rgba(74, 58, 90, 0.2)',
-                    borderColor: 'rgba(74, 58, 90, 0.8)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(74, 58, 90, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(74, 58, 90, 1)',
-                    pointRadius: 5,
-                    pointHoverRadius: 7
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    r: {
-                        min: 0,
-                        max: 10, // -4 à +6 = 10 niveaux
-                        ticks: {
-                            stepSize: 2,
-                            callback: function(value) {
-                                // Convertir les valeurs affichées (-4 à +6)
-                                return value - 4;
-                            },
-                            color: '#4a3a5a',
-                            font: {
-                                size: 11,
-                                weight: 'bold'
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(74, 58, 90, 0.2)'
-                        },
-                        angleLines: {
-                            color: 'rgba(74, 58, 90, 0.2)'
-                        },
-                        pointLabels: {
-                            color: '#4a3a5a',
-                            font: {
-                                size: 14,
-                                weight: 'bold',
-                                family: "'Cinzel', serif"
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const actualValue = context.parsed.r - 4;
-                                return context.label + ': ' + (actualValue >= 0 ? '+' : '') + actualValue;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="../../../Java/Classe/Classe classique/Filou.js"></script>
 </body>
 </html>

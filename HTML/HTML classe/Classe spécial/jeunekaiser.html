@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeune Kaiser - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe spécial css/jeunekaiser.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="essence-overlay"></div>
+    
+   <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/kaiser.png" alt="Jeune Kaiser">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">👑 Jeune Kaiser</h1>
+            <p class="class-quote">« Ils m'appellent Kaiser… mais je ne suis qu'un homme. La différence, c'est que mon ordre laisse une trace. Et quand il le faut, je la laisse peser sur le monde. »</p>
+            <p class="class-type">⚔️ Stratège de terrain • Don de Kronwille • Bannières d'Esprits • autorité martiale</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description</h2>
+            <div class="content-box">
+                <p>Le Jeune Kaiser est un stratège de terrain dont la puissance vient d'un phénomène rarissime : le <strong>Don de Kronwille</strong>, une rémanence martiale ancienne qui s'est harmonisée à son Essence. Depuis, sa volonté ne se limite plus à commander par la voix : elle s'imprime dans l'énergie environnante et peut influencer l'espace et les psychés, au prix d'un effort réel qui draine corps et magie.</p>
+                
+                <p>Sur le champ de bataille, le Kaiser transforme cette Présence en <strong>Bannières d'Esprits</strong>, des zones maintenues qui sculptent le combat : accélérer une percée, verrouiller une ligne, stabiliser les survivants, écraser la volonté ennemie… ou, dans les cas les plus rares, laisser parler une couronne de ténèbres.</p>
+                
+                <p>Armé pour la guerre et taillé pour les décisions sous pression, il n'est pas seulement un combattant : c'est un <strong>centre de gravité tactique</strong>, capable de faire basculer un affrontement par un ordre juste… ou par une autorité trop lourde pour être ignorée.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d10</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +1</span>
+                        <span class="stat-item negative">CST : −1</span>
+                        <span class="stat-item negative">DEX : −2</span>
+                        <span class="stat-item positive">INT : +1</span>
+                        <span class="stat-item positive">SAG : +2</span>
+                        <span class="stat-item positive">PER : +1</span>
+                        <span class="stat-item positive highlight">CHA : +3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> <span class="highlight-stat">25 + 2d6</span></li>
+                        <li><strong>REA :</strong> +4</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 2</span>
+                        <span>Sang-froid : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">💪 Talents (base)</h2>
+            
+            <div class="talent-card">
+                <h3>Don de Kronwille</h3>
+                <p>Le Don de Kronwille est un phénomène extrêmement rare où des filaments d'Essence marqués par une rémanence — l'empreinte d'un grand guerrier disparu — s'insufflent dans une personne vivante et s'harmonisent avec elle. Cette empreinte ne remplace pas l'esprit du porteur : elle teinte son énergie d'une Présence ancienne, comme une aura venue d'un autre temps qui s'accroche à son existence.</p>
+                <p>À partir de là, le porteur découvre une manière anormale de manipuler l'Essence environnementale : ses ordres et intentions peuvent s'imprimer dans l'énergie autour de lui et influencer l'espace ou les psychés. C'est ce Don qui lui permet d'utiliser l'Essence d'Esprits de différentes façons, notamment sous forme de Bannières et d'effets de commandement.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure du style magique de Bannière / Kronwille</h3>
+                <p>Un flux d'Essence particulier se rassemble autour du Kaiser, comme un vent constant que seuls les Kaiser peuvent percevoir clairement. Cette énergie n'est pas une magie classique : elle se déploie en filaments visibles, tourbillonnant autour de son porteur, puis s'ancre au sol comme si la volonté du Kaiser devenait un étendard invisible planté sur le champ de bataille.</p>
+                <p><strong>➤</strong> Offre la compétence : <strong>Bannière d'Esprits (Sagesse) +2</strong></p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure d'une arme au choix</h3>
+                <p>Tu maîtrises une arme de corps à corps ou à distance de ton choix.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Prédisposition au Champ de Bataille</h3>
+                <p>Le Kaiser est naturellement taillé pour manier les armes lourdes et imposer son style.</p>
+                <p><strong>Effet 1 — Maniement facilité :</strong> Toute arme colossale (ou nécessitant une stat de Puissance pour être maniée correctement) voit sa contrainte réduite de -2 pour le Kaiser.</p>
+                <p><strong>Effet 2 — Frappe par Autorité :</strong> Quand tu combats avec une arme colossale ou à deux mains, tu peux 1 fois par combat utiliser la statistique de CHA pour ton jet d'attaque, à la place de la caractéristique habituelle (FOR/DEX/etc.).</p>
+            </div>
+        </section>
+
+        <!-- Origines de l'Esprit -->
+        <section class="section">
+            <h2 class="section-title">🌟 Origines de l'Esprit (Kaiser)</h2>
+            <p class="intro-text">L'Esprit de Kronwille qui s'est harmonisé avec le Kaiser définit la nature de sa Présence et de ses Bannières. Chaque origine imprime une philosophie martiale différente, une manière unique de commander et d'influencer le champ de bataille.</p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="origine-grid">
+                <!-- Esprit du Conquérant -->
+                <div class="origine-card conquerant">
+                    <h3>⚔️ Esprit du Conquérant</h3>
+                    <p class="origine-devise">« Toujours vers l'avant. »</p>
+                    <p class="origine-description">Cette rémanence vient d'un meneur de guerre qui vivait pour l'initiative, l'élan et la prise de terrain. Elle ne "rend pas gentil" ni "plus agressif" : elle imprime un rythme, une cadence de bataille, une certitude que reculer est une perte de temps. Quand elle résonne, les alliés sentent une pression positive : avancer devient naturel, comme si le champ de bataille s'ouvrait devant eux.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Voie de la conquête : Bannière de guerre</h5>
+                            <p>La rémanence du Conquérant s'accorde à ton Kronwille et transforme ton aura en étendard d'assaut. Quand tu dresses cette bannière, l'Essence autour de toi prend un rythme offensif : elle pousse les corps à avancer et les décisions à se trancher plus vite.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Impulsion d'Avant-Garde</h5>
+                            <p>Une fois par tour au prix de 5 PE, quand tu utilises un Ordre sur un allié ou que tu actives ta Bannière de guerre, tu peux lui donner un "coup d'élan" immédiat.</p>
+                            <p><strong>Effet :</strong> l'allié gagne +10 ft de déplacement ce tour ou +5 sur sa prochaine action offensive (attaque/manœuvre).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>CHA +3</strong> et <strong>PER +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Instinct, Social ou Puissance</p>
+                    </div>
+                    
+                    <div class="subsection banniere-info">
+                        <h4>🚩 Bannière de guerre : Terre du combat (LV2)</h4>
+                        <p><strong>Coût :</strong> 14 PM + 8 PE • Maintien : 7 PM + 4 PE/tour</p>
+                        <p><strong>Visuel :</strong> Les filaments d'Essence se rassemblent au-dessus de toi comme une hampe invisible, puis se tendent vers l'avant comme des lignes de charge. Un souffle chaud traverse la zone, et les ombres paraissent incliner les corps vers la cible.</p>
+                        <p><strong>Effet :</strong> Tant que la bannière est maintenue, chaque allié dans la zone (15 ft) gagne +5 sur ses jets d'attaque pour viser une cible. Une fois par combat, lorsqu'un allié rate une attaque, il peut la relancer (sans bonus).</p>
+                    </div>
+                </div>
+
+                <!-- Esprit du Rempart -->
+                <div class="origine-card rempart">
+                    <h3>🛡️ Esprit du Rempart</h3>
+                    <p class="origine-devise">« Personne ne tombera. »</p>
+                    <p class="origine-description">Cette rémanence vient d'un protecteur de ligne, un "mur humain" dont la présence rendait la troupe plus dure à briser. Elle imprime une stabilité : tenir sous pression, encaisser, rester debout même quand le corps veut plier. Elle ne cherche pas la gloire : elle cherche que la ligne ne cède pas.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Voie du Bastion : Bannière de rempart</h5>
+                            <p>La rémanence du Rempart se fixe dans tes filaments : ton Kronwille devient une présence de garde qui stabilise l'espace. La bannière ne "protège" pas seulement : elle impose un calme lourd, une tenue de ligne qui rend les chutes plus difficiles et les ruptures plus rares.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Ligne inébranlable</h5>
+                            <p>Quand ta Bannière de rempart est active, tes alliés proches deviennent plus difficiles à faire plier, comme si l'espace lui-même "tenait" avec eux.</p>
+                            <p><strong>Effet :</strong> 1 fois par tour, lorsqu'un allié dans la bannière devrait subir un effet de déstabilisation (chute, recul forcé, perte de position), il peut relancer son jet de tenue et garder le meilleur résultat.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>CST +3</strong> et <strong>CHA +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Résilience, Sang-Froid ou Puissance</p>
+                    </div>
+                    
+                    <div class="subsection banniere-info">
+                        <h4>🚩 Bannière de rempart : Bastion d'esprit (LV2)</h4>
+                        <p><strong>Coût :</strong> 14 PM + 10 PE • Maintien : 7 PM + 5 PE/tour</p>
+                        <p><strong>Visuel :</strong> L'Essence s'épaissit en couches lourdes et stables autour de toi, comme une brume qui se superpose en plaques. Les sons deviennent plus mats, et les impacts semblent "absorbés" par l'air avant d'atteindre les corps.</p>
+                        <p><strong>Effet :</strong> Les alliés dans la zone (15 ft) gagnent +3 en défense physique et +3 en défense magique. De plus, les jets contre déstabilisation sont effectués avec avantage.</p>
+                    </div>
+                </div>
+
+                <!-- Esprit de l'Humaniste -->
+                <div class="origine-card humaniste">
+                    <h3>💚 Esprit de l'Humaniste</h3>
+                    <p class="origine-devise">« Relevez-vous. Survivez. »</p>
+                    <p class="origine-description">Cette rémanence vient d'un meneur qui refusait la fatalité : pas un saint, mais un survivant qui savait que tenir moralement fait basculer une bataille. Elle imprime une forme de "second souffle" : quand tout vacille, elle pousse à se relever, respirer, et continuer. Ce n'est pas de la douceur : c'est une volonté de vie brutale, concrète.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Voie de la survie : Bannière médicale</h5>
+                            <p>L'Humaniste ne te donne pas une magie sacrée : il imprime dans ton Kronwille une résonance de survie. Cette bannière agit comme un "second souffle" tactique : elle stabilise, maintient debout, et aide les corps à continuer malgré l'épuisement ou la douleur.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Instinct de survie</h5>
+                            <p>Ta rémanence réveille l'instinct de survie : au bon moment, tu rends une bataille "encore gagnable".</p>
+                            <p><strong>Effet :</strong> 1 fois par combat, quand un allié dans ta Bannière médicale rate une action importante, tu peux lui accorder Avantage sur une nouvelle tentative immédiate ou lui rendre 10 % PE et/ou PM (au choix).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>SAG +3</strong> et <strong>PER +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Social, Sang-Froid ou Savoir</p>
+                    </div>
+                    
+                    <div class="subsection banniere-info">
+                        <h4>🚩 Bannière médicale : Ressource de survie (LV2)</h4>
+                        <p><strong>Coût :</strong> 14 PM + 10 PE • Maintien : 7 PM + 5 PE/tour</p>
+                        <p><strong>Visuel :</strong> L'air devient plus respirable, comme si la panique glissait hors de la zone. Des filaments se posent sur les épaules et la nuque des alliés comme un soutien invisible, et leur regard se recentre.</p>
+                        <p><strong>Effet :</strong> Au début du tour de chaque allié (15 ft), il récupère 1d4 PE. Une fois par tour, un allié effectue son prochain jet de Résilience avec avantage. Jets contre mort en Inconscience avec avantage (1/tour).</p>
+                    </div>
+                </div>
+
+                <!-- Esprit du Tyran -->
+                <div class="origine-card tyran">
+                    <h3>👿 Esprit du Tyran</h3>
+                    <p class="origine-devise">« Craignez ma fureur. »</p>
+                    <p class="origine-description">Cette rémanence vient d'un dominateur pur : un être dont l'ordre ne demandait pas d'accord, il s'imposait. Elle imprime une pression froide, presque hostile : même les alliés sentent qu'ils sont dans l'ombre d'un sommet. Elle ne "rend pas méchant" : elle rend irrésistible — et dangereusement exigeant. La troupe obéit parce qu'elle sent que refuser coûte trop cher.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Voie de la peur : Bannière du tyran</h5>
+                            <p>La rémanence du Tyran transforme ton Kronwille en pression froide : ta bannière devient un avertissement vivant. Elle n'a pas besoin de hurler pour terroriser : l'air y est plus lourd, les gestes y sont plus hésitants, et la désobéissance y semble coûter cher.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Autorité absolue</h5>
+                            <p>Ton contrôle ne vient pas que des mots : il vient de la conséquence. Ta présence fait hésiter ceux qui voudraient te défier.</p>
+                            <p><strong>Effet :</strong> 1 fois par combat, quand tu réussis un Ordre sur un ennemi ou qu'un ennemi entre dans ta Bannière du tyran, tu peux lui infliger un Désavantage sur sa prochaine action (attaque, manœuvre ou jet social contre toi).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>CHA +3</strong> et <strong>INT +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Sang-Froid, Social ou Puissance</p>
+                    </div>
+                    
+                    <div class="subsection banniere-info">
+                        <h4>🚩 Bannière du tyran : d'Oppression (LV2)</h4>
+                        <p><strong>Coût :</strong> 14 PM + 10 PE • Maintien : 7 PM + 5 PE/tour</p>
+                        <p><strong>Visuel :</strong> La zone se refroidit d'un cran, comme si l'air pesait sur la cage thoracique. Les filaments s'accrochent aux silhouettes ennemies comme des ombres épaisses, et chaque geste semble demander une permission invisible.</p>
+                        <p><strong>Effet :</strong> Chaque ennemi dans la zone (15 ft) subit −5 sur sa prochaine action offensive de son tour. La première réaction qu'il tente est effectuée avec désavantage.</p>
+                    </div>
+                </div>
+
+                <!-- Esprit des Ténèbres Couronnées -->
+                <div class="origine-card tenebres">
+                    <h3>🌑 Esprit des Ténèbres Couronnées</h3>
+                    <p class="origine-devise">« Obéis… ou disparais. »</p>
+                    <p class="origine-description">Cette rémanence n'est pas simplement "sombre" : elle est déjà corrompue. Son Essence porte une volonté ancienne, déformée par la magie des Ténèbres, comme si l'ombre s'était incrustée dans la mémoire d'un souverain disparu. Quand elle s'harmonise avec un Kaiser, elle n'amène pas seulement une présence : elle apporte une autorité noire, une influence qui ne persuade pas… elle contamine.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise mineure du cœur arcanique : Ténèbres</h5>
+                            <p>Offre la compétence : <strong>Magie des ténèbres +2</strong></p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Ère des Ténèbres — Voie du Kaiser Couronné</h5>
+                            <p>À l'aube des ténèbres, tu deviens leur reflet : une présence qui absorbe, tord et plie l'Essence autour d'elle comme si le monde devait céder. Cette voie te marque d'une puissance sombre, lente et invasive — une corruption qui s'insinue dans la chair comme dans l'esprit.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Sceptre Noir : Pliure de l'Essence</h5>
+                            <p><strong>1 fois par jour :</strong> D'un simple regard, le porteur force l'Essence d'un sort qui le frappe à se tordre sous une autorité ténébreuse. Il ne "dissipe" pas : il déforme et recompose l'énergie subie pour en tirer un avantage.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>CHA +3</strong> et <strong>INT +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Sang-Froid, Puissance ou Savoir</p>
+                    </div>
+                    
+                    <div class="subsection banniere-info">
+                        <h4>🚩 Bannière de la couronne des ténèbres : d'Extraction d'Essence (LV2)</h4>
+                        <p><strong>Coût :</strong> 13 PM + 11 PE • Maintien : 7 PM + 6 PE/tour</p>
+                        <p><strong>Visuel :</strong> Des filaments noirs se plantent dans l'air comme des aiguilles, puis se tendent vers les ennemis comme des lignes de perfusion inversées. À chaque action agressive, on distingue un bref reflux d'ombre qui revient vers toi.</p>
+                        <p><strong>Effet :</strong> La première fois par tour qu'un ennemi (15 ft) réussit une action offensive, tu récupères 1d4 PM ou 1d4 PE. S'il rate, sa prochaine action subit −5 (1/ennemi/tour).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine militaire <span class="level">(Modéré)</span></h4>
+                    <p>Tu connais le fonctionnement général d'une force armée : grades, discipline, chaînes de commandement et rôles sur le terrain. Tu sais comment une troupe se déplace, se ravitaille et se maintient opérationnelle sur la durée.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance de la magie d'esprit de bannière <span class="level">(Modéré)</span></h4>
+                    <p>Tu comprends les principes de base des Bannières d'Esprits : comment l'Essence se rassemble, se stabilise et s'ancre dans une zone. Tu sais distinguer une bannière "saine" d'une bannière instable.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la stratégie militaire <span class="level">(Modéré)</span></h4>
+                    <p>Tu connais les grands principes qui font gagner une guerre : objectifs, priorités, tempo, contrôle du terrain et gestion des forces. Tu sais analyser une situation en termes de risques et de bénéfices.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de siège <span class="level">(Modéré)</span></h4>
+                    <p>Tu connais les méthodes et contraintes d'un siège : tenir une position longtemps, gérer la faim, la fatigue et la peur, et éviter l'effondrement interne. Tu comprends les logiques d'attaque et de défense.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine psychologique <span class="level">(Modéré)</span></h4>
+                    <p>Tu sais lire les réactions humaines sous stress : panique, colère, obéissance, blocage, fatigue mentale et résignation. Tu comprends comment une présence peut renforcer une troupe… ou la faire craquer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">💼 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Équipement de guerre de Kaiser</h4>
+                        <p>Armure moyenne avec extension magique</p>
+                        <p class="bonus">Offre : « Présence impériale à N.A+10 »</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🗡️</span>
+                    <div>
+                        <h4>Arme de guerre au choix</h4>
+                        <p>+1 en arme au choix</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🏴</span>
+                    <div>
+                        <h4>Cape du Kaiserat</h4>
+                        <p>Relance 1×/jour d'un jet d'ordre tactique ou bannière d'esprit</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚗️</span>
+                    <div>
+                        <h4>Potions de combat</h4>
+                        <p>1× Potion de vie • 1× Potion de magie • 1× Potion d'endurance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎓 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Arme X (FOR/DEX)</strong> — Maîtrise d'une arme en mêlée pour toucher proprement et imposer ton rythme.</li>
+                        <li><strong>Bannière d'Esprit (SAG)</strong> — Déploiement, placement et ajustement d'une bannière selon la situation.</li>
+                        <li><strong>Arme à tir X (FOR/DEX)</strong> — Viser sous pression, exploiter les lignes de vue et punir une ouverture.</li>
+                        <li><strong>Réactif (REA)</strong> — Réagir vite aux menaces par esquive, parade ou micro-déplacement.</li>
+                        <li><strong>Analyse de combat (SAG/PER)</strong> — Lire un affrontement : intentions, priorités, danger immédiat.</li>
+                        <li><strong>Analyse tactique (PER/INT)</strong> — Comprendre positions, couverts, angles, menaces et conséquences.</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Repérer passages, couverts, angles morts, obstacles.</li>
+                        <li><strong>Présence Impériale (CHA)</strong> — Imposer ton autorité par posture, voix et regard.</li>
+                        <li><strong>Commandement impérial (CHA)</strong> — Directives nettes et coordination sous tension.</li>
+                        <li><strong>Maintien de Bannière (CST)</strong> — Tenir une bannière active malgré chocs, fatigue et stress.</li>
+                        <li><strong>Robustesse (CST)</strong> — Endurer effort, douleur et coups répétés.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sentir un problème arriver avant d'en avoir la preuve.</li>
+                        <li><strong>Pressentiment d'embuscade (Instinct)</strong> — Repérer signes de présence cachée ou piège.</li>
+                        <li><strong>Tenue sous pression (Sang-froid)</strong> — Rester lucide quand tout devient chaotique.</li>
+                        <li><strong>Résistance à la peur (Sang-froid)</strong> — Garder le contrôle face à intimidation ou horreur.</li>
+                        <li><strong>Contrôle respiratoire (Sang-froid)</strong> — Stabiliser son souffle pour garder exécution propre.</li>
+                        <li><strong>Contrôle d'expression (Sang-froid)</strong> — Masquer intentions et réactions.</li>
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Encaisser souffrance sans perdre moyens.</li>
+                        <li><strong>Force de pousser (Puissance)</strong> — Imposer résultat brut : repousser, briser, ouvrir passage.</li>
+                        <li><strong>Protocole militaire (Savoir)</strong> — Comprendre grades, discipline, procédures.</li>
+                        <li><strong>Organisation de campagne (Métier)</strong> — Gérer rations, repos, rotation, équipement.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe spécial js/jeunekaiser.js"></script>
+</body>
+</html>

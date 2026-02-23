@@ -1,42 +1,42 @@
 // Création du graphique radar des caractéristiques
 const ctx = document.getElementById('statsChart').getContext('2d');
 
-// Données de base du Chasseur (échelle de -4 à +6)
+// Données de base du Jeune Kaiser (échelle de -4 à +6)
 const baseStats = {
-    FOR: -1,
-    CST: 0,
-    DEX: 3,
-    INT: -2,
-    SAG: 1,
-    PER: 4,
-    CHA: -3
+    FOR: 1,
+    CST: -1,
+    DEX: -2,
+    INT: 1,
+    SAG: 2,
+    PER: 1,
+    CHA: 3
 };
 
-// Bonus des terrains de chasse
-const terrainBonuses = {
-    'terres-hostiles': { PER: 2, CST: 2 },
-    'artisan-lisieres': { PER: 2, INT: 5 }, // INT passe de -2 à +3
-    'pacte-gris': { PER: 2, DEX: 3 },
-    'traqueur-contrats': { PER: 2, CHA: 6 }, // CHA passe de -3 à +3
-    'traqueur-anomalies': { PER: 2, CST: 3 }
+// Bonus des Origines d'Esprit
+const origineBonuses = {
+    'conquerant': { CHA: 3, PER: 2 },
+    'rempart': { CST: 3, CHA: 2 },
+    'humaniste': { SAG: 3, PER: 2 },
+    'tyran': { CHA: 3, INT: 2 },
+    'tenebres': { CHA: 3, INT: 2 }
 };
 
-// Noms des terrains pour l'affichage
-const terrainNames = {
-    'terres-hostiles': 'Arpenteur des Terres Hostiles',
-    'artisan-lisieres': 'Artisan des Lisières',
-    'pacte-gris': 'Pisteur du Pacte Gris',
-    'traqueur-contrats': 'Traqueur de Contrats',
-    'traqueur-anomalies': 'Traqueur d\'Anomalies'
+// Noms des origines pour l'affichage
+const origineNames = {
+    'conquerant': 'Esprit du Conquérant',
+    'rempart': 'Esprit du Rempart',
+    'humaniste': 'Esprit de l\'Humaniste',
+    'tyran': 'Esprit du Tyran',
+    'tenebres': 'Esprit des Ténèbres Couronnées'
 };
 
-let currentTerrain = null;
+let currentOrigine = null;
 
 // Fonction pour calculer les stats avec bonus
-function calculateStats(terrain) {
+function calculateStats(origine) {
     const stats = { ...baseStats };
-    if (terrain && terrainBonuses[terrain]) {
-        const bonuses = terrainBonuses[terrain];
+    if (origine && origineBonuses[origine]) {
+        const bonuses = origineBonuses[origine];
         for (let stat in bonuses) {
             stats[stat] += bonuses[stat];
         }
@@ -57,13 +57,13 @@ const statsChart = new Chart(ctx, {
         datasets: [{
             label: 'Caractéristiques',
             data: convertStatsForChart(baseStats),
-            backgroundColor: 'rgba(58, 90, 58, 0.3)',
-            borderColor: 'rgba(74, 122, 74, 1)',
+            backgroundColor: 'rgba(107, 45, 92, 0.3)',
+            borderColor: 'rgba(212, 169, 68, 1)',
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(200, 216, 200, 1)',
-            pointBorderColor: 'rgba(74, 122, 74, 1)',
+            pointBackgroundColor: 'rgba(232, 199, 102, 1)',
+            pointBorderColor: 'rgba(212, 169, 68, 1)',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(74, 122, 74, 1)',
+            pointHoverBorderColor: 'rgba(212, 169, 68, 1)',
             pointRadius: 5,
             pointHoverRadius: 7
         }]
@@ -79,14 +79,14 @@ const statsChart = new Chart(ctx, {
             r: {
                 min: 0,
                 max: 10,
-                backgroundColor: 'rgba(26, 36, 24, 0.7)',
+                backgroundColor: 'rgba(26, 22, 32, 0.8)',
                 ticks: {
                     stepSize: 2,
                     callback: function(value) {
                         return value - 4;
                     },
-                    color: '#c8d8c8',
-                    backdropColor: 'rgba(45, 61, 40, 0.95)',
+                    color: '#e0e8f0',
+                    backdropColor: 'rgba(42, 30, 46, 0.95)',
                     backdropPadding: 4,
                     font: {
                         size: 13,
@@ -97,22 +97,22 @@ const statsChart = new Chart(ctx, {
                     z: 10
                 },
                 grid: {
-                    color: 'rgba(58, 90, 58, 0.5)',
+                    color: 'rgba(107, 45, 92, 0.5)',
                     circular: true,
                     lineWidth: 1
                 },
                 angleLines: {
-                    color: 'rgba(58, 90, 58, 0.5)',
+                    color: 'rgba(107, 45, 92, 0.5)',
                     lineWidth: 1
                 },
                 pointLabels: {
-                    color: '#8aaa8a',
+                    color: '#e8c766',
                     font: {
                         size: 15,
                         weight: 'bold',
                         family: "'Cinzel', serif"
                     },
-                    backdropColor: 'rgba(45, 61, 40, 0.85)',
+                    backdropColor: 'rgba(42, 30, 46, 0.85)',
                     backdropPadding: 6,
                     borderRadius: 4
                 }
@@ -123,10 +123,10 @@ const statsChart = new Chart(ctx, {
                 display: false
             },
             tooltip: {
-                backgroundColor: 'rgba(45, 61, 40, 0.95)',
-                titleColor: '#8aaa8a',
-                bodyColor: '#c8d8c8',
-                borderColor: 'rgba(58, 90, 58, 0.8)',
+                backgroundColor: 'rgba(42, 30, 46, 0.95)',
+                titleColor: '#e8c766',
+                bodyColor: '#e0e8f0',
+                borderColor: 'rgba(107, 45, 92, 0.8)',
                 borderWidth: 2,
                 padding: 12,
                 titleFont: {
@@ -150,27 +150,27 @@ const statsChart = new Chart(ctx, {
 });
 
 // Fonction pour mettre à jour le graphique
-function updateChart(terrain) {
-    const newStats = calculateStats(terrain);
+function updateChart(origine) {
+    const newStats = calculateStats(origine);
     statsChart.data.datasets[0].data = convertStatsForChart(newStats);
     statsChart.update();
-    currentTerrain = terrain;
+    currentOrigine = origine;
     
     // Mettre à jour l'indicateur visuel
-    updateTerrainSelection(terrain);
-    updateStatsDisplay(terrain);
+    updateOrigineSelection(origine);
+    updateStatsDisplay(origine);
 }
 
 // Fonction pour mettre à jour l'affichage de la sélection
-function updateTerrainSelection(terrain) {
+function updateOrigineSelection(origine) {
     // Retirer la classe selected de toutes les cartes
-    document.querySelectorAll('.terrain-card').forEach(card => {
+    document.querySelectorAll('.origine-card').forEach(card => {
         card.classList.remove('selected');
     });
     
     // Ajouter la classe selected à la carte choisie
-    if (terrain) {
-        const selectedCard = document.querySelector(`.terrain-card.${terrain}`);
+    if (origine) {
+        const selectedCard = document.querySelector(`.origine-card.${origine}`);
         if (selectedCard) {
             selectedCard.classList.add('selected');
             selectedCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -179,84 +179,84 @@ function updateTerrainSelection(terrain) {
 }
 
 // Fonction pour afficher les stats actuelles
-function updateStatsDisplay(terrain) {
-    const displayElement = document.getElementById('current-terrain-display');
+function updateStatsDisplay(origine) {
+    const displayElement = document.getElementById('current-origine-display');
     if (!displayElement) return;
 
-    if (terrain) {
-        const stats = calculateStats(terrain);
-        const bonuses = terrainBonuses[terrain];
+    if (origine) {
+        const stats = calculateStats(origine);
+        const bonuses = origineBonuses[origine];
         let bonusText = '';
         
         for (let stat in bonuses) {
-            bonusText += `${stat} ${bonuses[stat] >= 0 ? '+' : ''}${bonuses[stat]} `;
+            bonusText += `${stat} +${bonuses[stat]} `;
         }
         
-        // Ajouter infos spéciales par terrain
+        // Ajouter infos spéciales
         let extraInfo = '';
-        if (terrain === 'terres-hostiles') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Sens du Biome, Catégorie Animal, +1 Instinct/Sang-froid';
-        } else if (terrain === 'artisan-lisieres') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Bricoleur naturel +1, Mécanique Aiguisée, +1 Métier';
-        } else if (terrain === 'pacte-gris') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Pistage amélioré, Adepte chasse gris (+1d10 initiative), Catégorie Créature mythique';
-        } else if (terrain === 'traqueur-contrats') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Profilage de Cible (Avantage), Catégorie Humanoïde, +1 Social/Sang-froid';
-        } else if (terrain === 'traqueur-anomalies') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Réflexe Chasseur d\'Horreur, Catégorie Monstre, +1 Résilience/Instinct/Puissance';
+        if (origine === 'conquerant') {
+            extraInfo = '<br><strong>Voie :</strong> Conquête • Bannière de guerre • Impulsion d\'Avant-Garde<br><strong>Choix trait :</strong> +1 Instinct/Social/Puissance';
+        } else if (origine === 'rempart') {
+            extraInfo = '<br><strong>Voie :</strong> Bastion • Bannière de rempart • Ligne inébranlable<br><strong>Choix trait :</strong> +1 Résilience/Sang-Froid/Puissance';
+        } else if (origine === 'humaniste') {
+            extraInfo = '<br><strong>Voie :</strong> Survie • Bannière médicale • Instinct de survie<br><strong>Choix trait :</strong> +1 Social/Sang-Froid/Savoir';
+        } else if (origine === 'tyran') {
+            extraInfo = '<br><strong>Voie :</strong> Peur • Bannière du tyran • Autorité absolue<br><strong>Choix trait :</strong> +1 Sang-Froid/Social/Puissance';
+        } else if (origine === 'tenebres') {
+            extraInfo = '<br><strong>Voie :</strong> Kaiser Couronné • Magie Ténèbres +2 • Sceptre Noir<br><strong>Choix trait :</strong> +1 Sang-Froid/Puissance/Savoir';
         }
         
         displayElement.innerHTML = `
-            <strong>Terrain de chasse sélectionné :</strong> ${terrainNames[terrain]}<br>
+            <strong>Origine sélectionnée :</strong> ${origineNames[origine]}<br>
             <strong>Bonus appliqués :</strong> ${bonusText}${extraInfo}
         `;
         displayElement.style.display = 'block';
     } else {
-        displayElement.innerHTML = '<strong>Aucun terrain sélectionné</strong> - Stats de base affichées';
+        displayElement.innerHTML = '<strong>Aucune origine sélectionnée</strong> - Stats de base affichées';
         displayElement.style.display = 'block';
     }
 }
 
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
-    const terrainCards = document.querySelectorAll('.terrain-card');
+    const origineCards = document.querySelectorAll('.origine-card');
     
-    // Ajouter les événements de clic sur les cartes de terrain
-    terrainCards.forEach(card => {
+    // Ajouter les événements de clic sur les cartes d'origine
+    origineCards.forEach(card => {
         card.style.cursor = 'pointer';
         
         card.addEventListener('click', function() {
-            const terrainClass = Array.from(this.classList).find(cls => 
-                ['terres-hostiles', 'artisan-lisieres', 'pacte-gris', 'traqueur-contrats', 'traqueur-anomalies'].includes(cls)
+            const origineClass = Array.from(this.classList).find(cls => 
+                ['conquerant', 'rempart', 'humaniste', 'tyran', 'tenebres'].includes(cls)
             );
             
-            if (terrainClass) {
-                // Si on clique sur le terrain déjà sélectionné, on le désélectionne
-                if (currentTerrain === terrainClass) {
+            if (origineClass) {
+                // Si on clique sur l'origine déjà sélectionnée, on la désélectionne
+                if (currentOrigine === origineClass) {
                     updateChart(null);
                 } else {
-                    updateChart(terrainClass);
+                    updateChart(origineClass);
                 }
             }
         });
     });
 
-    // Créer l'élément d'affichage du terrain sélectionné
+    // Créer l'élément d'affichage de l'origine sélectionnée
     const chartContainer = document.querySelector('.chart-container');
     const displayDiv = document.createElement('div');
-    displayDiv.id = 'current-terrain-display';
+    displayDiv.id = 'current-origine-display';
     displayDiv.style.cssText = `
         margin-top: 18px;
         padding: 15px 20px;
-        background: linear-gradient(135deg, rgba(58, 90, 58, 0.35), rgba(74, 122, 74, 0.25));
-        border: 2px solid rgba(74, 122, 74, 0.5);
+        background: linear-gradient(135deg, rgba(107, 45, 92, 0.35), rgba(212, 169, 68, 0.25));
+        border: 2px solid rgba(212, 169, 68, 0.5);
         border-radius: 10px;
         text-align: center;
         font-size: 0.95rem;
-        color: #8aaa8a;
+        color: #e8c766;
         display: none;
         line-height: 1.8;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 30px rgba(58, 90, 58, 0.3);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 30px rgba(107, 45, 92, 0.3);
         backdrop-filter: blur(10px);
     `;
     chartContainer.appendChild(displayDiv);

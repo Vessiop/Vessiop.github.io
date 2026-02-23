@@ -70,13 +70,13 @@ const statsChart = new Chart(ctx, {
         datasets: [{
             label: 'Caractéristiques',
             data: convertStatsForChart(baseStats),
-            backgroundColor: 'rgba(74, 90, 138, 0.2)',
-            borderColor: 'rgba(74, 90, 138, 0.8)',
+            backgroundColor: 'rgba(107, 127, 184, 0.3)',
+            borderColor: 'rgba(138, 159, 218, 1)',
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(74, 90, 138, 1)',
-            pointBorderColor: '#fff',
+            pointBackgroundColor: 'rgba(232, 238, 255, 1)',
+            pointBorderColor: 'rgba(138, 159, 218, 1)',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(74, 90, 138, 1)',
+            pointHoverBorderColor: 'rgba(138, 159, 218, 1)',
             pointRadius: 5,
             pointHoverRadius: 7
         }]
@@ -92,30 +92,42 @@ const statsChart = new Chart(ctx, {
             r: {
                 min: 0,
                 max: 10,
+                backgroundColor: 'rgba(10, 14, 39, 0.6)',
                 ticks: {
                     stepSize: 2,
                     callback: function(value) {
                         return value - 4;
                     },
-                    color: '#4a5a8a',
+                    color: '#e8eeff',
+                    backdropColor: 'rgba(30, 39, 73, 0.95)',
+                    backdropPadding: 4,
                     font: {
-                        size: 11,
-                        weight: 'bold'
-                    }
-                },
-                grid: {
-                    color: 'rgba(74, 90, 138, 0.2)'
-                },
-                angleLines: {
-                    color: 'rgba(74, 90, 138, 0.2)'
-                },
-                pointLabels: {
-                    color: '#4a5a8a',
-                    font: {
-                        size: 14,
+                        size: 13,
                         weight: 'bold',
                         family: "'Cinzel', serif"
-                    }
+                    },
+                    showLabelBackdrop: true,
+                    z: 10
+                },
+                grid: {
+                    color: 'rgba(107, 127, 184, 0.4)',
+                    circular: true,
+                    lineWidth: 1
+                },
+                angleLines: {
+                    color: 'rgba(107, 127, 184, 0.4)',
+                    lineWidth: 1
+                },
+                pointLabels: {
+                    color: '#c8d5f7',
+                    font: {
+                        size: 15,
+                        weight: 'bold',
+                        family: "'Cinzel', serif"
+                    },
+                    backdropColor: 'rgba(30, 39, 73, 0.8)',
+                    backdropPadding: 6,
+                    borderRadius: 4
                 }
             }
         },
@@ -124,6 +136,21 @@ const statsChart = new Chart(ctx, {
                 display: false
             },
             tooltip: {
+                backgroundColor: 'rgba(30, 39, 73, 0.95)',
+                titleColor: '#c8d5f7',
+                bodyColor: '#e8eeff',
+                borderColor: 'rgba(107, 127, 184, 0.8)',
+                borderWidth: 2,
+                padding: 12,
+                titleFont: {
+                    family: "'Cinzel', serif",
+                    size: 14,
+                    weight: 'bold'
+                },
+                bodyFont: {
+                    family: "'Crimson Text', serif",
+                    size: 13
+                },
                 callbacks: {
                     label: function(context) {
                         const actualValue = context.parsed.r - 4;
@@ -229,13 +256,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const chartContainer = document.querySelector('.chart-container');
     const displayDiv = document.createElement('div');
     displayDiv.id = 'current-filiere-display';
-    displayDiv.style.marginTop = '20px';
-    displayDiv.style.padding = '15px';
-    displayDiv.style.background = 'rgba(74, 90, 138, 0.1)';
-    displayDiv.style.borderRadius = '6px';
-    displayDiv.style.textAlign = 'center';
-    displayDiv.style.fontSize = '0.95rem';
-    displayDiv.style.display = 'none';
+    displayDiv.style.cssText = `
+        margin-top: 18px;
+        padding: 15px 20px;
+        background: linear-gradient(135deg, rgba(107, 127, 184, 0.25), rgba(138, 159, 218, 0.15));
+        border: 2px solid rgba(138, 159, 218, 0.4);
+        border-radius: 10px;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #c8d5f7;
+        display: none;
+        line-height: 1.8;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(107, 127, 184, 0.2);
+        backdrop-filter: blur(10px);
+    `;
     chartContainer.appendChild(displayDiv);
 
     // Initialiser l'affichage

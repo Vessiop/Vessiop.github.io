@@ -57,13 +57,13 @@ const statsChart = new Chart(ctx, {
         datasets: [{
             label: 'Caractéristiques',
             data: convertStatsForChart(baseStats),
-            backgroundColor: 'rgba(74, 106, 74, 0.2)',
-            borderColor: 'rgba(74, 106, 74, 0.8)',
+            backgroundColor: 'rgba(106, 138, 106, 0.3)',
+            borderColor: 'rgba(212, 165, 116, 1)',
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(74, 106, 74, 1)',
-            pointBorderColor: '#fff',
+            pointBackgroundColor: 'rgba(200, 216, 200, 1)',
+            pointBorderColor: 'rgba(212, 165, 116, 1)',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(74, 106, 74, 1)',
+            pointHoverBorderColor: 'rgba(212, 165, 116, 1)',
             pointRadius: 5,
             pointHoverRadius: 7
         }]
@@ -79,30 +79,42 @@ const statsChart = new Chart(ctx, {
             r: {
                 min: 0,
                 max: 10,
+                backgroundColor: 'rgba(26, 30, 24, 0.8)',
                 ticks: {
                     stepSize: 2,
                     callback: function(value) {
                         return value - 4;
                     },
-                    color: '#2a4a2a',
+                    color: '#c8d8c8',
+                    backdropColor: 'rgba(46, 52, 40, 0.95)',
+                    backdropPadding: 4,
                     font: {
-                        size: 11,
-                        weight: 'bold'
-                    }
-                },
-                grid: {
-                    color: 'rgba(74, 106, 74, 0.2)'
-                },
-                angleLines: {
-                    color: 'rgba(74, 106, 74, 0.2)'
-                },
-                pointLabels: {
-                    color: '#2a4a2a',
-                    font: {
-                        size: 14,
+                        size: 13,
                         weight: 'bold',
                         family: "'Cinzel', serif"
-                    }
+                    },
+                    showLabelBackdrop: true,
+                    z: 10
+                },
+                grid: {
+                    color: 'rgba(106, 138, 106, 0.5)',
+                    circular: true,
+                    lineWidth: 1
+                },
+                angleLines: {
+                    color: 'rgba(106, 138, 106, 0.5)',
+                    lineWidth: 1
+                },
+                pointLabels: {
+                    color: '#d4a574',
+                    font: {
+                        size: 15,
+                        weight: 'bold',
+                        family: "'Cinzel', serif"
+                    },
+                    backdropColor: 'rgba(46, 52, 40, 0.85)',
+                    backdropPadding: 6,
+                    borderRadius: 4
                 }
             }
         },
@@ -111,6 +123,21 @@ const statsChart = new Chart(ctx, {
                 display: false
             },
             tooltip: {
+                backgroundColor: 'rgba(46, 52, 40, 0.95)',
+                titleColor: '#d4a574',
+                bodyColor: '#c8d8c8',
+                borderColor: 'rgba(106, 138, 106, 0.8)',
+                borderWidth: 2,
+                padding: 12,
+                titleFont: {
+                    family: "'Cinzel', serif",
+                    size: 14,
+                    weight: 'bold'
+                },
+                bodyFont: {
+                    family: "'Crimson Text', serif",
+                    size: 13
+                },
                 callbacks: {
                     label: function(context) {
                         const actualValue = context.parsed.r - 4;
@@ -173,6 +200,10 @@ function updateStatsDisplay(parcours) {
             extraInfo = '<br><strong>Bonus spécial :</strong> REA +2, Finesse +1, Transmission de stats, Maîtrise d\'arme de tir/jet';
         } else if (parcours === 'protecteur') {
             extraInfo = '<br><strong>Bonus spécial :</strong> REA +4, Puissance/Résilience +1, Transmission de stats, Maîtrise d\'arme CàC';
+        } else if (parcours === 'spiritisme') {
+            extraInfo = '<br><strong>Bonus spécial :</strong> Magie Spirituelle, Vision spirituelle, Messager des esprits';
+        } else if (parcours === 'sorcellerie') {
+            extraInfo = '<br><strong>Bonus spécial :</strong> Arts occultes (occulte ou nécromantique), Évolution classe (niv 5), Dégénérescence';
         }
         
         displayElement.innerHTML = `
@@ -214,13 +245,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const chartContainer = document.querySelector('.chart-container');
     const displayDiv = document.createElement('div');
     displayDiv.id = 'current-parcours-display';
-    displayDiv.style.marginTop = '20px';
-    displayDiv.style.padding = '15px';
-    displayDiv.style.background = 'rgba(74, 106, 74, 0.1)';
-    displayDiv.style.borderRadius = '6px';
-    displayDiv.style.textAlign = 'center';
-    displayDiv.style.fontSize = '0.95rem';
-    displayDiv.style.display = 'none';
+    displayDiv.style.cssText = `
+        margin-top: 18px;
+        padding: 15px 20px;
+        background: linear-gradient(135deg, rgba(106, 138, 106, 0.35), rgba(212, 165, 116, 0.25));
+        border: 2px solid rgba(212, 165, 116, 0.5);
+        border-radius: 10px;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #d4a574;
+        display: none;
+        line-height: 1.8;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 30px rgba(106, 138, 106, 0.3);
+        backdrop-filter: blur(10px);
+    `;
     chartContainer.appendChild(displayDiv);
 
     // Initialiser l'affichage
