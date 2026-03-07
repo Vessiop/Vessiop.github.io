@@ -7,6 +7,7 @@
     --burgundy: #6b2737;
     --selected: rgba(201, 169, 97, 0.3);
     --selected-hover: rgba(201, 169, 97, 0.45);
+    --condition-bg: rgba(157, 125, 58, 0.08);
 }
 
 * {
@@ -119,7 +120,7 @@ body {
 }
 
 .container {
-    max-width: 1600px;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 40px 20px 80px;
     position: relative;
@@ -264,7 +265,7 @@ body {
     font-weight: 700;
 }
 
-/* Section talents sélectionnés (NOUVEAU) */
+/* Section talents sélectionnés */
 .selected-section {
     margin-bottom: 30px;
     background: linear-gradient(135deg, rgba(107, 39, 55, 0.05), rgba(201, 169, 97, 0.1));
@@ -392,6 +393,17 @@ body {
     padding-right: 30px;
 }
 
+.selected-talent-condition {
+    font-size: 0.85rem;
+    color: var(--gold-dark);
+    font-style: italic;
+    margin-bottom: 8px;
+    padding: 5px 8px;
+    background: var(--condition-bg);
+    border-radius: 4px;
+    border-left: 3px solid var(--gold-dark);
+}
+
 .selected-talent-effet {
     font-size: 0.95rem;
     color: var(--ink);
@@ -493,13 +505,19 @@ body {
 }
 
 .col-nom {
+    width: 18%;
+    min-width: 160px;
+}
+
+.col-condition {
     width: 20%;
     min-width: 180px;
+    background: var(--condition-bg);
 }
 
 .col-effet {
-    width: 60%;
-    min-width: 400px;
+    width: 42%;
+    min-width: 350px;
 }
 
 .col-cout {
@@ -513,6 +531,23 @@ body {
     font-weight: 700;
     color: var(--burgundy);
     font-size: 1.05rem;
+}
+
+.talent-condition {
+    color: var(--gold-dark);
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    border-left: 3px solid var(--gold-dark);
+}
+
+.talent-condition.aucune {
+    color: #999;
+    font-style: italic;
+    border-left: 3px solid #ccc;
 }
 
 .talent-effet {
@@ -716,6 +751,7 @@ body {
         display: block;
         padding: 8px 0;
         border: none;
+        background: transparent;
     }
 
     .talents-table td::before {

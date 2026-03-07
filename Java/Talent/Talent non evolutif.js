@@ -1,4 +1,30 @@
-// Tous les talents non évolutifs (LISTE COMPLÈTE - 120+ talents)
+// Fonction pour extraire la condition d'un effet
+function extractCondition(effet) {
+    // Cherche les patterns de condition
+    const conditionMatch = effet.match(/\(Condition\s*:\s*[^)]+\)/i);
+    if (conditionMatch) {
+        // Retirer les parenthèses et "Condition :"
+        return conditionMatch[0].replace(/\(Condition\s*:\s*/i, '').replace(/\)$/, '').trim();
+    }
+    
+    // Vérifier si le texte commence par "Condition :" sans parenthèses
+    const directConditionMatch = effet.match(/^Condition\s*:\s*[^.]+/i);
+    if (directConditionMatch) {
+        return directConditionMatch[0].replace(/^Condition\s*:\s*/i, '').trim();
+    }
+    
+    return null;
+}
+
+// Fonction pour nettoyer l'effet (retirer la condition si elle y est)
+function cleanEffet(effet) {
+    return effet
+        .replace(/\(Condition\s*:\s*[^)]+\)\s*/i, '')
+        .replace(/^Condition\s*:\s*[^.]+\.\s*/i, '')
+        .trim();
+}
+
+// Tous les talents non évolutifs avec extraction automatique des conditions
 const allTalents = [
     {
         nom: "Vivacité",
@@ -200,7 +226,7 @@ const allTalents = [
     },
     {
         nom: "Corps Martial — Conversion Puissance",
-        effet: "Condition : maîtriser en Avancé un style de combat de corps basé sur Force de combat/Force. Ton corps a appris à frapper \"avec le poids du réel\" : pour tes attaques de corps physiques qui utilisaient Force de combat/Force, tu peux désormais utiliser Puissance à la place",
+        effet: "(Condition : maîtriser en Avancé un style de combat de corps basé sur Force de combat/Force)Ton corps a appris à frapper \"avec le poids du réel\" : pour tes attaques de corps physiques qui utilisaient Force de combat/Force, tu peux désormais utiliser Puissance à la place",
         cout: 2,
         id: "corps-martial-puissance"
     },
@@ -212,7 +238,7 @@ const allTalents = [
     },
     {
         nom: "Corps Martial — Conversion Finesse",
-        effet: "Condition : maîtriser en Avancé un style de combat de corps basé sur Dextérité. Tes coups deviennent plus propres, plus précis, plus efficaces : pour tes attaques de corps physiques qui utilisaient Dextérité, tu peux désormais utiliser Finesse à la place",
+        effet: "(Condition : maîtriser en Avancé un style de combat de corps basé sur Dextérité)Tes coups deviennent plus propres, plus précis, plus efficaces : pour tes attaques de corps physiques qui utilisaient Dextérité, tu peux désormais utiliser Finesse à la place",
         cout: 2,
         id: "corps-martial-finesse"
     },
@@ -224,7 +250,7 @@ const allTalents = [
     },
     {
         nom: "Maître natation",
-        effet: "Condition : avoir le talent « Expertise du Nageur ». Tant que ton jet de natation vise une difficulté ≤ DD 12, tu le réalises avec Avantage. De plus, pour toute épreuve de natation DD 10, la Difficulté est réduite de -2 (donc tu rends ces situations \"triviales\" sans être invincible).",
+        effet: "(Condition : avoir le talent « Expertise du Nageur »)Tant que ton jet de natation vise une difficulté ≤ DD 12, tu le réalises avec Avantage. De plus, pour toute épreuve de natation DD 10, la Difficulté est réduite de -2 (donc tu rends ces situations \"triviales\" sans être invincible).",
         cout: 1,
         id: "maitre-natation"
     },
@@ -236,7 +262,7 @@ const allTalents = [
     },
     {
         nom: "Souffle Fantôme",
-        effet: "Condition : Maîtrise mineure du Contrôle Respiratoire. En calant ton souffle sur une cible ou en le réduisant au strict minimum, tu peux \"effacer\" ta présence : pour 5 PE, tu fais un jet de Sang-froid DD 10 minimum ; en cas de réussite, ton prochain jet de Discrétion est fait avec Avantage, tant que tu restes immobile. En plus, tous tes jets liés au contrôle respiratoire en situation voient leur Difficulté réduite de -2 (hors l'activation spéciale ci-dessus).",
+        effet: "(Condition : Maîtrise mineure du Contrôle Respiratoire)En calant ton souffle sur une cible ou en le réduisant au strict minimum, tu peux \"effacer\" ta présence : pour 5 PE, tu fais un jet de Sang-froid DD 10 minimum ; en cas de réussite, ton prochain jet de Discrétion est fait avec Avantage, tant que tu restes immobile. En plus, tous tes jets liés au contrôle respiratoire en situation voient leur Difficulté réduite de -2 (hors l'activation spéciale ci-dessus).",
         cout: 1,
         id: "souffle-fantome"
     },
@@ -266,7 +292,7 @@ const allTalents = [
     },
     {
         nom: "Équilibriste Né",
-        effet: "Condition : avoir « Maîtrise de l'Équilibre » au rang Avancé. Quand tu dois simplement te maintenir en équilibre (sur une poutre, un rebord, un objet instable), tout test de DD 8 ou moins est automatiquement réussi. De plus, toute épreuve demandant un équilibre en action (bouger, manipuler, combattre tout en restant stable) voit sa DD réduite de -2.",
+        effet: "(Condition : avoir « Maîtrise de l'Équilibre » au rang Avancé)Quand tu dois simplement te maintenir en équilibre (sur une poutre, un rebord, un objet instable), tout test de DD 8 ou moins est automatiquement réussi. De plus, toute épreuve demandant un équilibre en action (bouger, manipuler, combattre tout en restant stable) voit sa DD réduite de -2.",
         cout: 1,
         id: "equilibriste-ne"
     },
@@ -284,7 +310,7 @@ const allTalents = [
     },
     {
         nom: "Grimpeur Accroche-Mur",
-        effet: "Condition : avoir le talent « Grimpeur » et Finesse 6. Tout jet de grimpette visant une DD 10 ou moins est automatiquement réussi. Quand tu grimpes en action, si tu subis une attaque non-zone pendant cette action, l'attaque contre toi est faite en Désavantage, et tu ne perds pas la première fois par tour ton mouvement lors d'une progression de grimpe \"raisonnable\" sur une structure.",
+        effet: "(Condition : avoir le talent « Grimpeur » et Finesse 6)Tout jet de grimpette visant une DD 10 ou moins est automatiquement réussi. Quand tu grimpes en action, si tu subis une attaque non-zone pendant cette action, l'attaque contre toi est faite en Désavantage, et tu ne perds pas la première fois par tour ton mouvement lors d'une progression de grimpe \"raisonnable\" sur une structure.",
         cout: 2,
         id: "grimpeur-accroche"
     },
@@ -296,7 +322,7 @@ const allTalents = [
     },
     {
         nom: "Pêcheur de Rumeurs",
-        effet: "Condition : avoir « Récolteur d'informations » au rang Modéré. En ville, tu peux \"pêcher\" l'info une fois par jour : soit en discutant (jet de Charisme), soit en écoutant et observant (jet de Perception), ce qui te coûte 15 PE. Pour chaque tranche de 10 MR sur ton jet, tu obtiens une catégorie d'info (10 : mineure, 20 : spéciale, 30 : importante/quête, 40 : clé) ; si tu dois rester discret pour enquêter, tu fais aussi un jet de Discrétion (Finesse) DD 10 minimum. (Les infos ne sont pas \"farmables\" : une zone a un stock logique par période.)",
+        effet: "(Condition : avoir « Récolteur d'informations » au rang Modéré)En ville, tu peux \"pêcher\" l'info une fois par jour : soit en discutant (jet de Charisme), soit en écoutant et observant (jet de Perception), ce qui te coûte 15 PE. Pour chaque tranche de 10 MR sur ton jet, tu obtiens une catégorie d'info (10 : mineure, 20 : spéciale, 30 : importante/quête, 40 : clé) ; si tu dois rester discret pour enquêter, tu fais aussi un jet de Discrétion (Finesse) DD 10 minimum. (Les infos ne sont pas \"farmables\" : une zone a un stock logique par période.)",
         cout: 2,
         id: "pecheur-rumeurs"
     },
@@ -338,7 +364,7 @@ const allTalents = [
     },
     {
         nom: "Maître de guerre : arme de Maître",
-        effet: "Condition : posséder Initiation du Stratège (ex \"Nouvelle Campagne\") et avoir une maîtrise d'arme au rang Parfait.Une fois par tour, en dépensant 1 PMG, tu déclenches une attaque avec ton arme liée à cette maîtrise Parfaite en choisissant un seul des deux effets : (A) l'attaque est faite avec Avantage, ou (B) le jet de dégâts obtient l'effet \"Puissance optimale\". Tu ne peux pas cumuler les deux sur la même attaque : c'est l'un ou l'autre, à chaque utilisation.",
+        effet: "(Condition : posséder Initiation du Stratège (ex \"Nouvelle Campagne\") et avoir une maîtrise d'arme au rang Parfait)Une fois par tour, en dépensant 1 PMG, tu déclenches une attaque avec ton arme liée à cette maîtrise Parfaite en choisissant un seul des deux effets : (A) l'attaque est faite avec Avantage, ou (B) le jet de dégâts obtient l'effet \"Puissance optimale\". Tu ne peux pas cumuler les deux sur la même attaque : c'est l'un ou l'autre, à chaque utilisation.",
         cout: 2,
         id: "mdg-arme-maitre"
     },
@@ -350,37 +376,37 @@ const allTalents = [
     },
     {
         nom: "Maître de guerre : Briseur de Plates",
-        effet: "Condition : posséder Initiation du Stratège et avoir une maîtrise d'arme contondante au rang Moyen.Une fois par tour, tu peux renforcer une attaque contondante en dépensant au minimum 1 PMG : ton attaque gagne +10% de chance d'appliquer Destruction d'armure. Si ton arme possède déjà un mécanisme/effet permettant Destruction d'armure, tu peux augmenter ce taux de +5% par PMG supplémentaire dépensé (tant que les conditions normales d'application de l'effet sont respectées).Spécialisation — Casseur de Garde (Passive Maître de guerre) : Effet : choisis un type d'armure : Légère / Intermédiaire / Lourde. Contre ce type, l'application de Destruction d'armure est faite avec Avantage (selon tes règles d'application). Tu peux changer ce choix une fois par repos long.",
+        effet: "(Condition : posséder Initiation du Stratège et avoir une maîtrise d'arme contondante au rang Moyen)Une fois par tour, tu peux renforcer une attaque contondante en dépensant au minimum 1 PMG : ton attaque gagne +10% de chance d'appliquer Destruction d'armure. Si ton arme possède déjà un mécanisme/effet permettant Destruction d'armure, tu peux augmenter ce taux de +5% par PMG supplémentaire dépensé (tant que les conditions normales d'application de l'effet sont respectées).Spécialisation — Casseur de Garde (Passive Maître de guerre) : Effet : choisis un type d'armure : Légère / Intermédiaire / Lourde. Contre ce type, l'application de Destruction d'armure est faite avec Avantage (selon tes règles d'application). Tu peux changer ce choix une fois par repos long.",
         cout: 2,
         id: "mdg-briseur-plates"
     },
     {
         nom: "Maître de guerre : Égide du Commandant",
-        effet: "Condition : posséder Initiation du Stratège (ex \"Nouvelle Campagne\"). Une fois par tour, tu peux dépenser 3 PMG pour te protéger au moment critique : sur une attaque subie, tu doubles ta Valeur de MD appliquée contre cette attaque pendant une seule fenêtre d'action, c'est-à-dire l'action et/ou la réaction immédiate liée à cette défense. L'effet ne dure pas au-delà de cette résolution : c'est un \"bouclier tactique\" instantané, pas un buff permanent.",
+        effet: "(Condition : posséder Initiation du Stratège (ex \"Nouvelle Campagne\"))Une fois par tour, tu peux dépenser 3 PMG pour te protéger au moment critique : sur une attaque subie, tu doubles ta Valeur de MD appliquée contre cette attaque pendant une seule fenêtre d'action, c'est-à-dire l'action et/ou la réaction immédiate liée à cette défense. L'effet ne dure pas au-delà de cette résolution : c'est un \"bouclier tactique\" instantané, pas un buff permanent.",
         cout: 2,
         id: "mdg-egide"
     },
     {
         nom: "Maître de guerre : Doctrine de l'Hémorragie",
-        effet: "Condition : posséder Initiation du Stratège et avoir une maîtrise d'arme tranchante au rang Moyen.Une fois par tour, tu peux renforcer une attaque tranchante en dépensant au minimum 1 PMG : ton attaque gagne +10% de chance d'appliquer Saignement. Si ton arme possède déjà un mécanisme/effet permettant Saignement, tu peux augmenter ce taux de +5% par PMG supplémentaire dépensé (tant que les conditions normales d'application de l'effet sont respectées).Spécialisation — Entaille Fondatrice (Passive Maître de guerre) : Effet : la première fois que tu infliges au moins 1 niveau de Saignement à une cible, tu ajoutes +1 × X niveaux supplémentaires à cette première infliction (une seule fois par cible). X = le rang de maîtrise de l'arme utilisée (selon ton échelle : Moyen/Avancé/Parfait, etc.).",
+        effet: "(Condition : posséder Initiation du Stratège et avoir une maîtrise d'arme tranchante au rang Moyen)Une fois par tour, tu peux renforcer une attaque tranchante en dépensant au minimum 1 PMG : ton attaque gagne +10% de chance d'appliquer Saignement. Si ton arme possède déjà un mécanisme/effet permettant Saignement, tu peux augmenter ce taux de +5% par PMG supplémentaire dépensé (tant que les conditions normales d'application de l'effet sont respectées).Spécialisation — Entaille Fondatrice (Passive Maître de guerre) : Effet : la première fois que tu infliges au moins 1 niveau de Saignement à une cible, tu ajoutes +1 × X niveaux supplémentaires à cette première infliction (une seule fois par cible). X = le rang de maîtrise de l'arme utilisée (selon ton échelle : Moyen/Avancé/Parfait, etc.).",
         cout: 2,
         id: "mdg-hemorragie"
     },
     {
         nom: "Maître de guerre : Assaut Impératif",
-        effet: "Condition : posséder Initiation du Stratège. Une fois par tour, quand tu déclares une attaque contre une cible, tu peux dépenser 3 PMG pour enclencher une Course tactique : tu te précipites immédiatement vers la cible (comme l'action Course), puis tu obtiens une attaque immédiate contre elle en dépensant 1 Point de Réaction (PR). Cette attaque n'est pas une capacité spéciale : c'est une attaque \"normale\", simplement rendue possible par ton assaut.",
+        effet: "(Condition : posséder Initiation du Stratège)Une fois par tour, quand tu déclares une attaque contre une cible, tu peux dépenser 3 PMG pour enclencher une Course tactique : tu te précipites immédiatement vers la cible (comme l'action Course), puis tu obtiens une attaque immédiate contre elle en dépensant 1 Point de Réaction (PR). Cette attaque n'est pas une capacité spéciale : c'est une attaque \"normale\", simplement rendue possible par ton assaut.",
         cout: 2,
         id: "mdg-assaut"
     },
     {
         nom: "Maître de guerre : Doctrine de la Rupture",
-        effet: "Condition : posséder Initiation du Stratège et avoir une maîtrise d'arme contondante au rang Moyen.Une fois par tour, tu peux renforcer une attaque contondante en dépensant au minimum 1 PMG : ton attaque gagne +10% de chance d'appliquer Fragilisation. Si ton arme possède déjà un mécanisme/effet permettant Fragilisation, tu peux augmenter ce taux de +5% par PMG supplémentaire dépensé (tant que les conditions normales d'application de l'effet sont respectées).Spécialisation — Faille Exploitée (Passive Maître de guerre) : Effet : dès que tu as appliqué Fragilisation sur une cible, tes attaques contre cette cible sont faites avec Avantage pour toucher (jusqu'à la fin de la durée de Fragilisation, ou tant que l'effet est actif selon tes règles).",
+        effet: "(Condition : posséder Initiation du Stratège et avoir une maîtrise d'arme contondante au rang Moyen)Une fois par tour, tu peux renforcer une attaque contondante en dépensant au minimum 1 PMG : ton attaque gagne +10% de chance d'appliquer Fragilisation. Si ton arme possède déjà un mécanisme/effet permettant Fragilisation, tu peux augmenter ce taux de +5% par PMG supplémentaire dépensé (tant que les conditions normales d'application de l'effet sont respectées).Spécialisation — Faille Exploitée (Passive Maître de guerre) : Effet : dès que tu as appliqué Fragilisation sur une cible, tes attaques contre cette cible sont faites avec Avantage pour toucher (jusqu'à la fin de la durée de Fragilisation, ou tant que l'effet est actif selon tes règles).",
         cout: 2,
         id: "mdg-rupture"
     },
     {
         nom: "Maître de guerre : Brèche d'Armure",
-        effet: "Condition : posséder Initiation du Stratège et avoir une maîtrise d'arme au rang Modéré/MoyenCe talent te permet d'activer (ou d'amplifier) l'effet Réduction d'armure selon le type d'arme : Tranchant → s'applique sur armures légères et intermédiaires ; Contondant → s'applique sur armures intermédiaires et lourdes. Coût : 1 PMG pour appliquer Réduction d'armure 10% si ton arme ne possède pas déjà l'effet. Si ton arme a déjà une Réduction d'armure, tu augmentes sa valeur de +5% par PMG supplémentaire dépensé (en respectant les conditions normales d'application de l'effet).Spécialisation — Impact Forcé (Passive Maître de guerre) :Effet : une fois par combat, si tu rates une attaque de corps-à-corps avec une arme qui possède Réduction d'armure (X ou globale), tu peux \"forcer\" la réussite à condition que ta MR ne soit pas inférieure à -20. L'attaque est alors considérée comme réussie, mais elle n'inflige que 50% des dégâts finaux. L'objectif est de transformer un raté en coup \"glissant\" qui marque quand même l'armure.",
+        effet: "(Condition : posséder Initiation du Stratège et avoir une maîtrise d'arme au rang Modéré/Moyen)Ce talent te permet d'activer (ou d'amplifier) l'effet Réduction d'armure selon le type d'arme : Tranchant → s'applique sur armures légères et intermédiaires ; Contondant → s'applique sur armures intermédiaires et lourdes. Coût : 1 PMG pour appliquer Réduction d'armure 10% si ton arme ne possède pas déjà l'effet. Si ton arme a déjà une Réduction d'armure, tu augmentes sa valeur de +5% par PMG supplémentaire dépensé (en respectant les conditions normales d'application de l'effet).Spécialisation — Impact Forcé (Passive Maître de guerre) :Effet : une fois par combat, si tu rates une attaque de corps-à-corps avec une arme qui possède Réduction d'armure (X ou globale), tu peux \"forcer\" la réussite à condition que ta MR ne soit pas inférieure à -20. L'attaque est alors considérée comme réussie, mais elle n'inflige que 50% des dégâts finaux. L'objectif est de transformer un raté en coup \"glissant\" qui marque quand même l'armure.",
         cout: 2,
         id: "mdg-breche"
     },
@@ -392,25 +418,25 @@ const allTalents = [
     },
     {
         nom: "Maître de guerre : surcharge",
-        effet: "Condition : posséder Initiation du Stratège et maîtriser une arme au rang Moyen (ou supérieur).Quand tu réussis une réaction défensive liée à cette arme (parade, blocage, manœuvre défensive selon tes règles), tu peux dépenser 2 PMG pour enchaîner : ton prochain jet offensif réalisé dans la continuité immédiate (la riposte ou l'attaque qui suit ta défense, selon ta fenêtre de tour) est effectué avec Avantage. Ce talent récompense les défenses propres qui cassent le rythme adverse.",
+        effet: "(Condition : posséder Initiation du Stratège et maîtriser une arme au rang Moyen (ou supérieur))Quand tu réussis une réaction défensive liée à cette arme (parade, blocage, manœuvre défensive selon tes règles), tu peux dépenser 2 PMG pour enchaîner : ton prochain jet offensif réalisé dans la continuité immédiate (la riposte ou l'attaque qui suit ta défense, selon ta fenêtre de tour) est effectué avec Avantage. Ce talent récompense les défenses propres qui cassent le rythme adverse.",
         cout: 2,
         id: "mdg-surcharge"
     },
     {
         nom: "Sanctuaire Arcanique",
-        effet: "Condition : avoir une classe de mage \"pure\" (pas juste utilisateur magique).Quand tu affrontes une entité magique, ton aura se \"verrouille\" et tes réflexes défensifs deviennent plus nets face aux flux surnaturels. Tu gagnes alors un bonus de MD (Marge Défensive) égal au double de ton MOD d'INT ou du MOD de SAG (selon la caractéristique utilisée par ta classe pour la magie).",
+        effet: "(Condition : avoir une classe de mage \"pure\" (pas juste utilisateur magique))Quand tu affrontes une entité magique, ton aura se \"verrouille\" et tes réflexes défensifs deviennent plus nets face aux flux surnaturels. Tu gagnes alors un bonus de MD (Marge Défensive) égal au double de ton MOD d'INT ou du MOD de SAG (selon la caractéristique utilisée par ta classe pour la magie).",
         cout: 2,
         id: "sanctuaire-arcanique"
     },
     {
         nom: "Ancrage du Combattant",
-        effet: "(Condition : Avoir 30 en Constitution Minimun)Ton corps sait encaisser les chocs qui cherchent à te faire céder : bousculade, projection, déséquilibre ou déplacement forcé. Tous tes jets de résistance basés sur la Constitution contre ces effets sont améliorés par un entraînement spécifique et une meilleure lecture de l'impact sont fait en avantage",
+        effet: "(Condition : Avoir 30 en Constitution Minimum)Ton corps sait encaisser les chocs qui cherchent à te faire céder : bousculade, projection, déséquilibre ou déplacement forcé. Tous tes jets de résistance basés sur la Constitution contre ces effets sont améliorés par un entraînement spécifique et une meilleure lecture de l'impact sont fait en avantage",
         cout: 1,
         id: "ancrage-combattant"
     },
     {
         nom: "Pistage d'huron",
-        effet: "Condition : avoir une maîtrise du Pistage.En milieu naturel, tu sais effacer ta présence et choisir des trajectoires qui n'offrent presque aucun indice exploitable. Lors d'une phase de traque, la MR minimale requise pour te repérer devient égale à 5 × (rang de maîtrise du Pistage) : plus ta maîtrise est haute, plus tu deviens difficile à \"accrocher\" sur le terrain.",
+        effet: "(Condition : avoir une maîtrise du Pistage)En milieu naturel, tu sais effacer ta présence et choisir des trajectoires qui n'offrent presque aucun indice exploitable. Lors d'une phase de traque, la MR minimale requise pour te repérer devient égale à 5 × (rang de maîtrise du Pistage) : plus ta maîtrise est haute, plus tu deviens difficile à \"accrocher\" sur le terrain.",
         cout: 2,
         id: "pistage-huron"
     },
@@ -482,7 +508,7 @@ const allTalents = [
     },
     {
         nom: "Soigneur des Compagnons",
-        effet: "Condition : avoir Savoir-faire : Premiers soins ou être Chasseur / Liant / Chaman.Effet :Tu as l'habitude de traiter griffures, morsures, fractures et états de panique chez les bêtes. Tous les soins réalisés sur un animal (soins animaliers / premiers soins appliqués à une bête) sont effectués avec Avantage. Si le soin demandé est DD 10 ou moins, il est automatiquement réussi.En combat, tu peux tenter de stabiliser/soigner un animal en utilisant 1 PR (intervention rapide). Si tu rates ce jet, tu peux le relancer, mais cela consomme ton Action et te coûte 8 PE (effort intense + geste complet).",
+        effet: "(Condition : avoir Savoir-faire : Premiers soins ou être Chasseur / Liant / Chaman)Tu as l'habitude de traiter griffures, morsures, fractures et états de panique chez les bêtes. Tous les soins réalisés sur un animal (soins animaliers / premiers soins appliqués à une bête) sont effectués avec Avantage. Si le soin demandé est DD 10 ou moins, il est automatiquement réussi.En combat, tu peux tenter de stabiliser/soigner un animal en utilisant 1 PR (intervention rapide). Si tu rates ce jet, tu peux le relancer, mais cela consomme ton Action et te coûte 8 PE (effort intense + geste complet).",
         cout: 2,
         id: "soigneur-compagnons"
     },
@@ -500,7 +526,7 @@ const allTalents = [
     },
     {
         nom: "Faveur du Destin",
-        effet: "(Une fois par personnage) Ton destin \"accroche\" parfois : il refuse de te laisser payer le prix tout de suite. Une fois par session, quand tu dépenses 1 Point de Destin, tu peux activer ce talent : tu as 50% de chance que le point ne soit pas consommé. Tant que tu n'as pas obtenu ce succès, l'effet reste \"en attente\" et pourra être retenté à la session suivante (jusqu'à réussite).",
+        effet: "(Une fois par personnage)Ton destin \"accroche\" parfois : il refuse de te laisser payer le prix tout de suite. Une fois par session, quand tu dépenses 1 Point de Destin, tu peux activer ce talent : tu as 50% de chance que le point ne soit pas consommé. Tant que tu n'as pas obtenu ce succès, l'effet reste \"en attente\" et pourra être retenté à la session suivante (jusqu'à réussite).",
         cout: 2,
         id: "faveur-destin"
     },
@@ -524,7 +550,7 @@ const allTalents = [
     },
     {
         nom: "Noyau d'Instinct Anti-Terreur",
-        effet: "(Condition : Avoir le talent « Cœur de Traque : Monstres & Bêtes » )Quand tu subis une tentative de peur (naturelle ou magique) provenant d'une créature, et que tu résistes à cet effet (réussite sur ton jet), ton prochain jet lié à cette confrontation est effectué avec Avantage (dans le cadre logique de la scène/du combat).Si, en plus, tu obtiens un Succès Critique sur cette résistance, tu transformes ta montée d'adrénaline en violence maîtrisée : sur ta prochaine attaque directe non magique contre la créature à l'origine de la peur, tu gagnes un bonus de succès critique égal à ta stat de Sang-froid. Limite : 1 fois par tour.",
+        effet: "(Condition : Avoir le talent « Cœur de Traque : Monstres & Bêtes »)Quand tu subis une tentative de peur (naturelle ou magique) provenant d'une créature, et que tu résistes à cet effet (réussite sur ton jet), ton prochain jet lié à cette confrontation est effectué avec Avantage (dans le cadre logique de la scène/du combat).Si, en plus, tu obtiens un Succès Critique sur cette résistance, tu transformes ta montée d'adrénaline en violence maîtrisée : sur ta prochaine attaque directe non magique contre la créature à l'origine de la peur, tu gagnes un bonus de succès critique égal à ta stat de Sang-froid. Limite : 1 fois par tour.",
         cout: 2,
         id: "noyau-anti-terreur"
     },
@@ -672,7 +698,17 @@ const allTalents = [
         cout: 1,
         id: "constance-mentale"
     }
-];
+].map(talent => {
+    // Extraire la condition et nettoyer l'effet
+    const condition = extractCondition(talent.effet);
+    const effetCleaned = condition ? cleanEffet(talent.effet) : talent.effet;
+    
+    return {
+        ...talent,
+        condition: condition,
+        effet: effetCleaned
+    };
+});
 
 // Variables globales
 let talents = [...allTalents];
@@ -701,7 +737,8 @@ function renderTable() {
     talents.forEach(talent => {
         const matchesSearch = searchTerm === '' || 
             talent.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            talent.effet.toLowerCase().includes(searchTerm.toLowerCase());
+            talent.effet.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (talent.condition && talent.condition.toLowerCase().includes(searchTerm.toLowerCase()));
         
         if (!matchesSearch) {
             return;
@@ -731,6 +768,15 @@ function renderTable() {
         nomSpan.innerHTML = highlightText(talent.nom, searchTerm);
         nomCell.appendChild(nomSpan);
         
+        // Colonne Condition
+        const conditionCell = document.createElement('td');
+        conditionCell.className = 'col-condition';
+        conditionCell.setAttribute('data-label', 'Condition');
+        const conditionSpan = document.createElement('span');
+        conditionSpan.className = 'talent-condition' + (talent.condition ? '' : ' aucune');
+        conditionSpan.innerHTML = talent.condition ? highlightText(talent.condition, searchTerm) : 'Aucune';
+        conditionCell.appendChild(conditionSpan);
+        
         // Colonne Effet
         const effetCell = document.createElement('td');
         effetCell.className = 'col-effet';
@@ -750,6 +796,7 @@ function renderTable() {
         coutCell.appendChild(coutSpan);
         
         row.appendChild(nomCell);
+        row.appendChild(conditionCell);
         row.appendChild(effetCell);
         row.appendChild(coutCell);
         
@@ -815,8 +862,14 @@ function updateSelectedSection() {
             updateSelectedSection();
         });
         
+        let conditionHTML = '';
+        if (talent.condition) {
+            conditionHTML = `<div class="selected-talent-condition">Condition : ${talent.condition}</div>`;
+        }
+        
         card.innerHTML = `
             <div class="selected-talent-name">${talent.nom}</div>
+            ${conditionHTML}
             <div class="selected-talent-effet">${talent.effet}</div>
             <div class="selected-talent-cout">${talent.cout} point${talent.cout > 1 ? 's' : ''}</div>
         `;
