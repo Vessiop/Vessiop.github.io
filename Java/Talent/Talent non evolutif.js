@@ -24,6 +24,136 @@ function cleanEffet(effet) {
         .trim();
 }
 
+// Définition des catégories (réduites à 7)
+const categories = {
+    'caracteristiques': {
+        name: '📊 Caractéristiques & Croissance',
+        icon: '📊',
+        description: 'Stats de base, traits, gains par niveau, bonus permanents'
+    },
+    'combat': {
+        name: '⚔️ Combat & Guerre',
+        icon: '⚔️',
+        description: 'Combat martial, Maître de guerre, techniques d\'armes, tactiques'
+    },
+    'defense': {
+        name: '🛡️ Défense & Résistance',
+        icon: '🛡️',
+        description: 'Défense physique/magique, armures, résistances élémentaires'
+    },
+    'magie': {
+        name: '✨ Magie & Arcanes',
+        icon: '✨',
+        description: 'Éveil magique, sorts, incantation, pouvoirs mystiques'
+    },
+    'social-savoir': {
+        name: '💬 Social & Savoir',
+        icon: '💬',
+        description: 'Dialectes, interactions, connaissance, analyse, déduction'
+    },
+    'exploration-competences': {
+        name: '🗺️ Exploration & Compétences',
+        icon: '🗺️',
+        description: 'Survie, terrain, orientation, métier, initiations, fondations'
+    },
+    'special': {
+        name: '⭐ Spéciaux & Uniques',
+        icon: '⭐',
+        description: 'Talents uniques, dépassement, transformations, faveurs'
+    }
+};
+
+// Fonction pour assigner les catégories à un talent
+function assignCategories(talent) {
+    const cats = [];
+    const nom = talent.nom.toLowerCase();
+    const effet = talent.effet.toLowerCase();
+    const condition = (talent.condition || '').toLowerCase();
+    
+    // 📊 Caractéristiques & Croissance
+    if (nom.includes('vivacité') || nom.includes('barrière mental') || nom.includes('sprinteur')) cats.push('caracteristiques');
+    if (nom.includes('vitalité') || nom.includes('endurant') || nom.includes('potentielle')) cats.push('caracteristiques');
+    if (effet.includes('réactivité') || effet.includes('résistance mentale') || effet.includes('mouvement')) cats.push('caracteristiques');
+    if (effet.includes('gain de pv') || effet.includes('gain de pe') || effet.includes('gain de pm')) cats.push('caracteristiques');
+    if (effet.includes('résilience +') || effet.includes('savoir +') || effet.includes('finesse +')) cats.push('caracteristiques');
+    if (effet.includes('instinct +') || effet.includes('puissance +') || effet.includes('social +')) cats.push('caracteristiques');
+    if (effet.includes('sang-froid +') || effet.includes('métier +')) cats.push('caracteristiques');
+    if (effet.includes('gain : résilience') || effet.includes('gain : savoir') || effet.includes('gain : finesse')) cats.push('caracteristiques');
+    if (effet.includes('gain : instinct') || effet.includes('gain : puissance') || effet.includes('gain : social')) cats.push('caracteristiques');
+    if (effet.includes('gain : sang-froid') || effet.includes('gain : trait')) cats.push('caracteristiques');
+    
+    // ⚔️ Combat & Guerre
+    if (nom.includes('maître de guerre') || nom.includes('initiation du stratège')) cats.push('combat');
+    if (nom.includes('corps martial') || nom.includes('ambidextrie')) cats.push('combat');
+    if (nom.includes('sanguinaire') || nom.includes('empoisonneur')) cats.push('combat');
+    if (nom.includes('massacreur') || nom.includes('tireur sauvage')) cats.push('combat');
+    if (nom.includes('affinité martiale') || nom.includes('yeux dans le dos')) cats.push('combat');
+    if (nom.includes('maître des embuscade') || nom.includes('réveil instinctif')) cats.push('combat');
+    if (nom.includes('peau de danger') || nom.includes('réactivité supérieure')) cats.push('combat');
+    if (effet.includes('arme') && (effet.includes('attaque') || effet.includes('dégâts'))) cats.push('combat');
+    if (effet.includes('pmg') || effet.includes('maître de guerre')) cats.push('combat');
+    if (effet.includes('surpris') || effet.includes('embuscade') || effet.includes('initiative')) cats.push('combat');
+    if (effet.includes('point de réaction')) cats.push('combat');
+    
+    // 🛡️ Défense & Résistance
+    if (nom.includes('corps de rock') || nom.includes('corps magique')) cats.push('defense');
+    if (nom.includes('forteresse') || nom.includes('garde de velours') || nom.includes('mailles')) cats.push('defense');
+    if (nom.includes('marcheur des éléments') || nom.includes('accord élémentaire')) cats.push('defense');
+    if (nom.includes('ancrage du combattant') || nom.includes('purge de corruption')) cats.push('defense');
+    if (effet.includes('défense physique') || effet.includes('défense magique')) cats.push('defense');
+    if (effet.includes('résistance') && !effet.includes('résistance mentale') && !effet.includes('résistance à la mort')) cats.push('defense');
+    
+    // ✨ Magie & Arcanes
+    if (nom.includes('éveil magique') || nom.includes('stabilité d\'incantation')) cats.push('magie');
+    if (nom.includes('sanctuaire arcanique') || nom.includes('constance mentale')) cats.push('magie');
+    if (nom.includes('accord élémentaire') || nom.includes('pouvoir du patron')) cats.push('magie');
+    if (effet.includes('magie') || effet.includes('sort') || effet.includes('incantation')) cats.push('magie');
+    if (effet.includes('pm') && (effet.includes('montée de niveau') || effet.includes('1d12'))) cats.push('magie');
+    
+    // 💬 Social & Savoir
+    if (nom.includes('dialecte')) cats.push('social-savoir');
+    if (nom.includes('aisance relationnelle') || nom.includes('autorité douce')) cats.push('social-savoir');
+    if (nom.includes('point d\'accroche') || nom.includes('linguiste')) cats.push('social-savoir');
+    if (nom.includes('lecteur méthodique') || nom.includes('bibliothèque vivante')) cats.push('social-savoir');
+    if (nom.includes('hypothèse gagnante') || nom.includes('analyste')) cats.push('social-savoir');
+    if (nom.includes('pêcheur de rumeurs') || nom.includes('rire qui tient')) cats.push('social-savoir');
+    if (effet.includes('charisme') && effet.includes('social')) cats.push('social-savoir');
+    if (effet.includes('analyse') || effet.includes('connaissance') || effet.includes('savoir')) cats.push('social-savoir');
+    if (effet.includes('dialecte')) cats.push('social-savoir');
+    
+    // 🗺️ Exploration & Compétences
+    if (nom.includes('guide') || nom.includes('montagnard') || nom.includes('forestier')) cats.push('exploration-competences');
+    if (nom.includes('lecteur de cartes') || nom.includes('rations frugales')) cats.push('exploration-competences');
+    if (nom.includes('architecte du bivouac') || nom.includes('instinct de cap')) cats.push('exploration-competences');
+    if (nom.includes('fondations') || nom.includes('initiation') && !nom.includes('stratège')) cats.push('exploration-competences');
+    if (nom.includes('numéro de piste') || nom.includes('voix de scène')) cats.push('exploration-competences');
+    if (nom.includes('soigneur') || nom.includes('pratique du rite')) cats.push('exploration-competences');
+    if (nom.includes('maître natation') || nom.includes('grimpeur') || nom.includes('équilibriste')) cats.push('exploration-competences');
+    if (nom.includes('assise inébranlable') || nom.includes('pointe de charge')) cats.push('exploration-competences');
+    if (nom.includes('sommeil régulier') || nom.includes('ramasseur')) cats.push('exploration-competences');
+    if (effet.includes('compétence :') || effet.includes('n.a +')) cats.push('exploration-competences');
+    if (effet.includes('orientation') || effet.includes('survie') || effet.includes('repos')) cats.push('exploration-competences');
+    if (effet.includes('terrain') || effet.includes('métier') && effet.includes('jet')) cats.push('exploration-competences');
+    
+    // ⭐ Spéciaux & Uniques
+    if (nom.includes('réveil du potentiel') || nom.includes('transmission')) cats.push('special');
+    if (nom.includes('dépassement') || nom.includes('faveur du destin')) cats.push('special');
+    if (nom.includes('purge de corruption') || nom.includes('cœur de traque')) cats.push('special');
+    if (nom.includes('noyau d\'instinct') || nom.includes('masque du vide')) cats.push('special');
+    if (nom.includes('verrou d\'appuis') || nom.includes('corps filant')) cats.push('special');
+    if (nom.includes('briseur d\'obstacle') || nom.includes('bras de catapulte')) cats.push('special');
+    if (nom.includes('pressentiment') || nom.includes('procédure d\'urgence')) cats.push('special');
+    if (nom.includes('improvisation propre') || nom.includes('présence d\'ancrage')) cats.push('special');
+    if (nom.includes('dur a cuire') || nom.includes('ossature inflexible')) cats.push('special');
+    if (nom.includes('élan intouchable') || nom.includes('réserves du sanctuaire')) cats.push('special');
+    if (nom.includes('souffle fantôme')) cats.push('special');
+    
+    // Si aucune catégorie n'a été assignée, mettre dans "special"
+    if (cats.length === 0) cats.push('special');
+    
+    return [...new Set(cats)]; // Retirer les doublons
+}
+
 // Tous les talents non évolutifs avec extraction automatique des conditions
 const allTalents = [
     {
@@ -706,7 +836,8 @@ const allTalents = [
     return {
         ...talent,
         condition: condition,
-        effet: effetCleaned
+        effet: effetCleaned,
+        categories: assignCategories({ ...talent, effet: effetCleaned, condition })
     };
 });
 
@@ -714,6 +845,7 @@ const allTalents = [
 let talents = [...allTalents];
 let currentSort = { column: null, direction: null };
 let searchTerm = '';
+let activeFilters = new Set(); // Filtres de catégorie actifs
 
 // Système de sélection
 let selectionMode = false;
@@ -721,10 +853,105 @@ let selectedTalents = new Set(); // Stocke les IDs des talents sélectionnés
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
+    initializeFilters();
     renderTable();
     updateCounts();
     attachEventListeners();
 });
+
+// Initialiser les filtres de catégorie
+function initializeFilters() {
+    const filterGrid = document.getElementById('filterGrid');
+    
+    // Compter le nombre de talents par catégorie
+    const categoryCounts = {};
+    Object.keys(categories).forEach(key => {
+        categoryCounts[key] = 0;
+    });
+    
+    allTalents.forEach(talent => {
+        talent.categories.forEach(cat => {
+            categoryCounts[cat]++;
+        });
+    });
+    
+    // Créer les boutons de filtre
+    Object.entries(categories).forEach(([key, category]) => {
+        const count = categoryCounts[key] || 0;
+        if (count === 0) return; // Ne pas afficher les catégories vides
+        
+        const filterDiv = document.createElement('div');
+        filterDiv.className = 'filter-category';
+        filterDiv.dataset.category = key;
+        
+        filterDiv.innerHTML = `
+            <input type="checkbox" id="filter-${key}">
+            <div class="filter-checkbox"></div>
+            <div class="filter-category-label">
+                <div class="filter-category-name">${category.icon} ${category.name.replace(/^[📊🎯📈🛡️⚔️🎖️✨💬🗺️🎓⚡📚⭐]\s/, '')}</div>
+                <div class="filter-category-count">${count} talent${count > 1 ? 's' : ''}</div>
+            </div>
+        `;
+        
+        filterDiv.addEventListener('click', () => toggleFilter(key));
+        filterGrid.appendChild(filterDiv);
+    });
+}
+
+// Toggle un filtre de catégorie
+function toggleFilter(categoryKey) {
+    const filterDiv = document.querySelector(`.filter-category[data-category="${categoryKey}"]`);
+    
+    if (activeFilters.has(categoryKey)) {
+        activeFilters.delete(categoryKey);
+        filterDiv.classList.remove('active');
+    } else {
+        activeFilters.add(categoryKey);
+        filterDiv.classList.add('active');
+    }
+    
+    updateFilterBadge();
+    renderTable();
+}
+
+// Mettre à jour le badge de compteur de filtres
+function updateFilterBadge() {
+    const clearFiltersBtn = document.getElementById('clearFilters');
+    const activeCount = document.getElementById('activeFiltersCount');
+    
+    if (activeFilters.size > 0) {
+        clearFiltersBtn.style.display = 'inline-block';
+        activeCount.textContent = activeFilters.size;
+    } else {
+        clearFiltersBtn.style.display = 'none';
+    }
+}
+
+// Effacer tous les filtres
+function clearAllFilters() {
+    activeFilters.clear();
+    document.querySelectorAll('.filter-category').forEach(div => {
+        div.classList.remove('active');
+    });
+    updateFilterBadge();
+    renderTable();
+}
+
+// Toggle l'affichage des filtres
+function toggleFiltersDisplay() {
+    const filterGrid = document.getElementById('filterGrid');
+    const toggleBtn = document.getElementById('toggleFilters');
+    
+    if (filterGrid.style.display === 'none') {
+        filterGrid.style.display = 'grid';
+        toggleBtn.textContent = '▲ Masquer les filtres';
+        toggleBtn.classList.add('active');
+    } else {
+        filterGrid.style.display = 'none';
+        toggleBtn.textContent = '▼ Afficher les filtres';
+        toggleBtn.classList.remove('active');
+    }
+}
 
 // Rendu du tableau principal
 function renderTable() {
@@ -735,12 +962,17 @@ function renderTable() {
     let visibleCount = 0;
     
     talents.forEach(talent => {
+        // Filtre par recherche textuelle
         const matchesSearch = searchTerm === '' || 
             talent.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
             talent.effet.toLowerCase().includes(searchTerm.toLowerCase()) ||
             (talent.condition && talent.condition.toLowerCase().includes(searchTerm.toLowerCase()));
         
-        if (!matchesSearch) {
+        // Filtre par catégorie
+        const matchesCategory = activeFilters.size === 0 || 
+            talent.categories.some(cat => activeFilters.has(cat));
+        
+        if (!matchesSearch || !matchesCategory) {
             return;
         }
         
@@ -1000,6 +1232,10 @@ function attachEventListeners() {
     // Recherche
     document.getElementById('searchInput').addEventListener('input', handleSearch);
     document.getElementById('clearSearch').addEventListener('click', clearSearch);
+    
+    // Filtres
+    document.getElementById('toggleFilters').addEventListener('click', toggleFiltersDisplay);
+    document.getElementById('clearFilters').addEventListener('click', clearAllFilters);
     
     // Tri
     document.querySelectorAll('.sortable').forEach(header => {

@@ -265,6 +265,185 @@ body {
     font-weight: 700;
 }
 
+.results-count {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: var(--burgundy);
+    font-weight: 600;
+}
+
+.results-count span {
+    color: var(--gold-dark);
+    font-weight: 700;
+}
+
+/* Section de filtres par catégorie */
+.filter-section {
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(107, 39, 55, 0.05));
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--gold);
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.filter-header h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: var(--burgundy);
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.toggle-filters-btn {
+    padding: 8px 15px;
+    background: var(--gold);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-filters-btn:hover {
+    background: var(--burgundy);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 39, 55, 0.3);
+}
+
+.toggle-filters-btn.active {
+    background: var(--burgundy);
+}
+
+.clear-filters-btn {
+    padding: 8px 15px;
+    background: var(--burgundy);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clear-filters-btn:hover {
+    background: #8b3547;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 39, 55, 0.4);
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filter-category {
+    background: white;
+    padding: 15px 18px;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-category:hover {
+    border-color: var(--burgundy);
+    box-shadow: 0 2px 10px rgba(107, 39, 55, 0.2);
+    transform: translateY(-2px);
+}
+
+.filter-category.active {
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.2), rgba(107, 39, 55, 0.1));
+    border-color: var(--burgundy);
+    border-width: 3px;
+}
+
+.filter-category input[type="checkbox"] {
+    display: none;
+}
+
+.filter-category .filter-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--burgundy);
+    border-radius: 4px;
+    background: white;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.filter-category.active .filter-checkbox {
+    background: var(--burgundy);
+    border-color: var(--burgundy);
+}
+
+.filter-category.active .filter-checkbox::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.filter-category-label {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.filter-category-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--burgundy);
+}
+
+.filter-category-count {
+    font-size: 0.9rem;
+    color: var(--gold-dark);
+    font-style: italic;
+}
+
 /* Section talents sélectionnés */
 .selected-section {
     margin-bottom: 30px;
@@ -727,6 +906,20 @@ body {
 
     .selected-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+    
+    .filter-actions {
+        flex-direction: column;
     }
 
     .talents-table thead {

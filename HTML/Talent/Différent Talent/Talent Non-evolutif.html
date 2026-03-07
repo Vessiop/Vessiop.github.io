@@ -11,7 +11,7 @@
     <div class="parchment-overlay"></div>
     
     <!-- Bouton retour -->
-  <a href="../../../HTML/Talent/Type de talent proposer.html" class="back-button">← Retour aux talents</a>
+     <a href="../../../HTML/Talent/Type de talent proposer.html" class="back-button">← Retour aux talents</a>
     
     <header class="header">
         <div class="ornament ornament-left">✨</div>
@@ -28,6 +28,21 @@
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="🔍 Rechercher un talent par nom, condition ou effet...">
                 <button id="clearSearch" class="clear-btn">✕</button>
+            </div>
+            
+            <!-- Filtres par catégorie -->
+            <div class="filter-section">
+                <div class="filter-header">
+                    <h3>📂 Filtrer par catégorie</h3>
+                    <div class="filter-actions">
+                        <button id="toggleFilters" class="toggle-filters-btn">▼ Afficher les filtres</button>
+                        <button id="clearFilters" class="clear-filters-btn" style="display: none;">✕ Effacer filtres (<span id="activeFiltersCount">0</span>)</button>
+                    </div>
+                </div>
+                
+                <div id="filterGrid" class="filter-grid" style="display: none;">
+                    <!-- Les catégories seront insérées par JavaScript -->
+                </div>
             </div>
             
             <!-- Contrôles de sélection -->
