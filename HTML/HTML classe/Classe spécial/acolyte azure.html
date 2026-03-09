@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acolyte Azuré - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe spécial css/acolyte azure.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="flame-overlay"></div>
+    
+   <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/aCOLYTE AZURE.png" alt="Acolyte Azuré">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">💠 Acolyte Azuré</h1>
+            <p class="class-quote">« Ô Flamme azurée, que ta chaleur éclaire nos âmes en peine et nous réchauffe pour continuer nos périples. »</p>
+            <p class="class-type">🕯️ Veilleur itinérant • Conduit Azuré • Gardien de la Flamme Bleue • Protection sacrée</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description</h2>
+            <div class="content-box">
+                <p>L'Acolyte Azuré est un initié des <strong>Vigiles de la Flamme Bleue</strong>, marqué par une infime parcelle de la présence de Saphélis. Il ne se revendique pas faiseur de miracles : il se voit comme un veilleur, un protecteur itinérant chargé d'entretenir la chaleur sacrée, d'apaiser les âmes et de repousser les influences maudites. Sa magie, le <strong>Conduit Azuré</strong>, naît d'une résonance avec les Cristaux primordiaux : une flamme bleu pâle — parfois presque blanche — qui réchauffe sans consumer… jusqu'au jour où elle doit devenir braise purificatrice.</p>
+                
+                <p>On le rencontre sur les routes de Windress, entre villages isolés, chapelles et refuges, portant lampe, catalyseur et emblème de l'Ordre. Il stabilise les blessés, rassure les survivants lors des tempêtes et trace des lustrations pour révéler ou dissiper la corruption avant qu'elle ne s'enracine. En combat, l'Acolyte Azuré n'est pas un conquérant : il tient la ligne, protège les plus faibles et frappe avec une arme simple — bâton, marteau ou masse — le temps qu'un cercle de Veille s'élève et que la Flamme Bleue fasse reculer l'impie.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d14</li>
+                        <li><strong>PE :</strong> 1d14</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +1</span>
+                        <span class="stat-item neutral">CST : +0</span>
+                        <span class="stat-item negative">DEX : −1</span>
+                        <span class="stat-item negative">INT : −1</span>
+                        <span class="stat-item positive highlight">SAG : +3</span>
+                        <span class="stat-item neutral">PER : +0</span>
+                        <span class="stat-item positive">CHA : +2</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> <span class="highlight-stat">30 + 2d6</span></li>
+                        <li><strong>REA :</strong> +0</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 2</span>
+                        <span>Sang-froid : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">💪 Talents (base)</h2>
+            
+            <div class="talent-card">
+                <h3>Marqué par l'Aube Azurée</h3>
+                <p>Touché par l'énergie de la Flamme-mère, le lanceur porte en lui une infime parcelle de cette présence, logée au cœur et liée à sa Source élémentaire. Cette marque n'est pas un symbole : c'est une résonance vivante qui répond aux prières, aux gestes et aux rites des Vigiles. Grâce à elle, il obtient la capacité d'utiliser la magie sacrée de la Flamme Bleue.</p>
+                <p><strong>➡️</strong> La Sagesse est la caractéristique principale de cette magie.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Apporteur des Flammes</h3>
+                <p class="talent-quote">« Si la flamme l'accepte, toi, enfant de ce monde, tu pourras la porter pour la partager au sein des autres peuples. »</p>
+                <p>Par sa grâce, le lanceur peut porter et transporter une portion de flamme azurée, si cette flamme accepte d'être déplacée. Cette capacité est au cœur du rôle itinérant des Vigiles : raviver une chapelle, sauver un refuge ou maintenir un relais de Veille. La Flamme n'obéit pas au caprice : elle suit l'intention et la justesse du porteur.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de la magie sacrée : Conduit Azuré</h3>
+                <p>Le Conduit Azuré est la magie sacrée des Vigiles : une énergie de résonance reliant les élus à Saphélis et aux Cristaux primordiaux. Elle se manifeste comme un feu bleu pâle — parfois presque blanc — capable de réchauffer, protéger et purifier plutôt que de détruire. Ce n'est pas une magie de miracles : c'est une veille vivante qui soutient le corps et l'âme face au froid et à la corruption.</p>
+                <p><strong>➡️</strong> Offre la compétence : <strong>Magie de la Flamme Bleue +2</strong></p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Noyau de Veille — Rang 1</h3>
+                <p>La grâce a laissé une flamme au plus profond du lanceur : un brasier intérieur capable de grandir avec lui. Plus il progresse, plus cette flamme s'ouvre, renforçant son lien à la Veille et augmentant sa réserve d'Accord Azuré. Ce talent représente la "capacité du cœur" à contenir la résonance sans se briser.</p>
+                <p><strong>Effet :</strong> À chaque niveau gagné, la réserve maximale de AA augmente de +2.</p>
+                <p><strong>À l'obtention :</strong> le lanceur gagne immédiatement +2 AA (niveau 1).</p>
+                <p><strong>Limite :</strong> ce talent augmente la réserve jusqu'au niveau 10 maximum.</p>
+                <div class="talent-upgrade">
+                    <h4>Améliorations (coût) :</h4>
+                    <ul>
+                        <li>Niveaux 1 à 3 : 1 point d'amélioration</li>
+                        <li>Niveaux 4 à 6 : 2 points d'amélioration</li>
+                        <li>Niveaux 7 à 9 : 3 points d'amélioration</li>
+                        <li>Niveau 10 : 4 points d'amélioration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="talent-card">
+                <h3>Souffle de Saphélis</h3>
+                <p>Une fois par session, le lanceur peut éveiller un souffle de chaleur azurée, comme si la Flamme Bleue "tenait" son corps contre l'hiver. Il effectue alors un jet de résistance au froid avec Avantage. Cet avantage s'applique aussi à toute entité bénéficiant d'une bénédiction de la Flamme Bleue produite par le lanceur. Ce pouvoir est souvent utilisé quand la tempête ou la peur menacent de briser un groupe.</p>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🌙 Origines (au choix)</h2>
+            <p class="intro-text">Le chemin que prend l'Acolyte Azuré au sein des Vigiles définit sa relation à la Flamme Bleue et son rôle dans l'Ordre. Chaque voie incarne une philosophie différente de la Veille.</p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="origine-grid">
+                <!-- Porte-Flamme -->
+                <div class="origine-card porte-flamme">
+                    <h3>🔹 Chemin du Porte-Flamme</h3>
+                    <p class="origine-description">Les Porte-Flammes incarnent la voie la plus itinérante des Vigiles : celle de la reconnaissance active envers Saphélis. Ils n'imposent pas un dogme — ils agissent. Sur les routes de Windress, lampe azurée au poing, ils guident les perdus, ravitaillent les refuges, soutiennent les villages isolés et portent la Flamme là où elle faiblit. Leur mission est simple à dire, dure à vivre : amener l'azur là où l'hiver étouffe, raviver les chapelles, maintenir les veilles et laisser derrière eux une chaleur tenue, sans jamais dénaturer le plan de glace.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise mineure de l'Orientation</h5>
+                            <p>Les repères s'assemblent plus facilement (relief, vent, itinéraires, points fixes), et les incohérences de trajet ressortent plus vite. Même sans carte fiable, le chemin reste plus logique, et les détours inutiles diminuent.</p>
+                            <p><strong>➡️</strong> Offre la compétence : <strong>Sens de l'orientation +2 (PER)</strong></p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Guidé par l'Azur</h5>
+                            <p><strong>1 fois par session</strong>, au début d'une scène de déplacement/exploration, tu obtiens Avantage sur tous tes jets d'Orientation pendant la scène.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>PER +3</strong> et <strong>SAG +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Instinct, Métier ou Finesse</p>
+                    </div>
+                </div>
+
+                <!-- Douce Flamme -->
+                <div class="origine-card douce-flamme">
+                    <h3>🔹 Enfant de la Douce Flamme</h3>
+                    <p class="origine-description">Les Enfants de la Douce Flamme sont la branche la plus commune — non par faiblesse, mais par ouverture. Ils ne se définissent ni comme Porte-Flammes officiels, ni comme dévots stricts : ce sont des êtres marqués par l'azur, qui avancent avec cette présence dans leur propre vie. Leur foi (ou reconnaissance) est intime et parfois silencieuse : ils suivent les principes des Vigiles à leur manière, selon leur passé et leur région. Ils portent l'idée que la Flamme Bleue n'est pas un miracle, mais une compagnie : elle reste là, tapie au cœur, surtout quand tout s'effondre.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Un talent de savoir-faire évolutif au choix</h5>
+                            <p>Tu choisis un talent qui représente ta propre expertise développée au fil de ta vie.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Réconfort de Braise Douce</h5>
+                            <p><strong>1 fois par jour</strong>, pendant une scène, toi et chacun de tes coéquipiers pouvez relancer une fois un jet de Sang-froid ou de RM raté (1 relance par entité).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>CST +3</strong> et <strong>SAG +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Social, Sang-froid ou Métier</p>
+                    </div>
+                </div>
+
+                <!-- Veilleur -->
+                <div class="origine-card veilleur">
+                    <h3>🔹 Veilleur de la Flamme Azurée</h3>
+                    <p class="origine-description">Les Veilleurs de la Flamme Azurée sont la voie de la protection armée. Ils ont appris l'art des armes pour tenir face aux entités maudites, aux incursions abyssales et aux influences qui cherchent à ronger le peuple. Leur rapport à la Flamme est celui d'une responsabilité : l'azur n'est pas un feu de colère, mais une vigueur disciplinée, un rempart qui ne s'allume que quand il le faut. Ils combattent sans se laisser consumer, et utilisent la résonance du Conduit avec parcimonie : une flamme trop grande attire trop d'ombre.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Maîtrise mineure d'une arme au choix</h5>
+                            <p>Tu maîtrises une arme de ton choix pour défendre les Vigiles et les voyageurs.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Rempart des Impurs</h5>
+                            <p>Ta <strong>MD (Marge Défensive)</strong> augmente de <strong>+10</strong> contre les créatures maudites / corrompues / abyssales.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>FOR +3</strong> et <strong>CST +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Puissance, Résilience ou Sang-froid</p>
+                    </div>
+                </div>
+
+                <!-- Dévot -->
+                <div class="origine-card devot">
+                    <h3>🔹 Dévots de Saphélis — Dogme de la Flamme Bleue</h3>
+                    <p class="origine-description">Les Dévots de Saphélis suivent la voie la plus religieuse : celle du cœur, de l'âme et de la prière. Pour eux, l'étincelle reçue n'est pas une simple marque : c'est un appel. Ils voient la Flamme Bleue comme un phare bienveillant, une chaleur qui éclaire les égarés et réchauffe les âmes en peine. Leur pratique est rythmée par les litanies, les rites, la bénédiction, l'hospitalité sacrée et les veilles. Là où un Porte-Flamme agit par le pas et la route, le Dévot agit par la liturgie et la présence : maintenir le peuple debout, contre le froid comme contre le désespoir.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Noyau d'Offrande Azurée</h5>
+                            <p>La réserve maximale de AA augmente de <strong>+4</strong>, puis tous les 5 niveaux le lanceur gagne <strong>+1 AA</strong> supplémentaire à sa réserve maximale.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Orant de la Veille</h5>
+                            <p>Le lanceur obtient <strong>Avantage</strong> sur ses jets de prière, ainsi que sur les jets de Savoir liés à l'Ordre de la Flamme Bleue et à ce qui l'entoure.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>SAG +3</strong> et <strong>CHA +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Social, Savoir ou Sang-froid</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passif : Résonance de Veille -->
+        <section class="section">
+            <h2 class="section-title">🕯️ Passif : Résonance de Veille (X/X AA)</h2>
+            <div class="content-box">
+                <p>L'Acolyte Azuré possède une réserve d'énergie appelée <strong>Accord Azuré (AA)</strong>, issue de sa résonance avec les Cristaux primordiaux et la Flamme azurée.</p>
+                
+                <h3>Réserve maximale :</h3>
+                <p><strong>AA max = (Mod. SAG, minimum 1) + 4 + Y</strong></p>
+                <p>Le Modificateur de Sagesse est toujours compté avec un minimum de 1, même si le mod est négatif. Le bonus Y dépend du rang du talent Noyau de Veille. Enfin, tous les 5 niveaux, la réserve maximale augmente de +2 AA.</p>
+                
+                <h3>Utilisation :</h3>
+                <p><strong>1 fois par tour</strong>, le lanceur peut relancer un jet lié à un sort ou rite de Veille Azurée. Le coût de relance est égal au niveau du sort/rite relancé en points AA. Cette relance est l'unique effet du passif.</p>
+                
+                <h3>Récupération :</h3>
+                <p><strong>1 fois par jour</strong>, le lanceur récupère 1dX AA, avec X = Mod. SAG (minimum 1). Une fois par jour, la Lampe Azurée permet de relancer ce jet de récupération (max 1 relance/jour, peu importe le nombre d'objets). Enfin, si le lanceur se recueille dans un lieu où brûle une Flamme bleue pure, il récupère 1 AA toutes les 20 minutes jusqu'à combler ses points manquants.</p>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de l'Ordre des Vigiles de la Flamme Bleue <span class="level">(Moyen)</span></h4>
+                    <p>Tu connais l'histoire générale de l'Ordre, ses grands symboles (Flamme, étoiles, blason) et la manière dont il s'est implanté dans les régions de Windress. Tu sais distinguer les fonctions typiques d'un vigile : refuge, soins, protection des routes, maintien des veilles et soutien des villages isolés. Tu reconnais les structures de base (Maisons de Veille, chapelles, relais) et les usages courants (lampes, catalyseurs, lustrations simples). Enfin, tu comprends les grandes tensions internes : la voie pragmatique des Porte-Flammes et la voie liturgique des Dévots.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la magie sacrée du Conduit Azuré <span class="level">(Modéré)</span></h4>
+                    <p>Tu comprends les principes fondamentaux du Conduit Azuré : la résonance entre le porteur, les Cristaux primordiaux et la présence de Saphélis. Tu sais reconnaître ses manifestations visuelles (flammes bleu pâle, halos, braises blanches) et leurs significations générales. Tu sais à quoi sert cette magie dans sa forme "saine" : protéger, apaiser, stabiliser, lustrer et purifier les influences impies. Enfin, tu connais ses limites : ce n'est pas une magie de miracles, et forcer la résonance peut la rendre instable ou dangereuse.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance des Rites des Veilleurs Azuré <span class="level">(Modéré)</span></h4>
+                    <p>Tu connais les rites pratiques utilisés par les Vigiles sur le terrain : allumage, veille, geste de reconnaissance, cercle simple, marque de passage et bénédiction de refuge. Tu sais comment se déroulent les étapes essentielles d'une lustration légère et les signes qui indiquent qu'une zone "résiste" ou que la souillure est trop profonde. Tu sais aussi quels objets sont nécessaires ou recommandés (lampe, cendre d'azur, emblème, catalyseur) et quand il est préférable de ne pas improviser. Enfin, tu comprends la logique du rite : tenir et stabiliser d'abord, purifier ensuite, sans mettre le groupe en danger.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine de la survie en milieux hivernal <span class="level">(Modéré)</span></h4>
+                    <p>Tu sais comment voyager et tenir en environnement glacé : lecture du vent, gestion de la neige, repérage des zones à risque et choix d'un abri viable. Tu connais les bases de prévention de l'hypothermie et la manière de gérer un camp en blizzard (chaleur, eau, protection du souffle, repos). Tu identifies les dangers propres à Windress : gel traître, tempêtes rapides, fatigue de froid et pertes de repères. Enfin, tu sais coordonner un groupe en déplacement : rythme, pauses, gestion des charges et décisions de repli.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des ordres religieux <span class="level">(Moyen)</span></h4>
+                    <p>Tu comprends la structure générale d'un ordre religieux : hiérarchie, titres, rites, textes, obligations et influence sociale sur la population. Tu sais reconnaître les signes d'autorité (sceaux, emblèmes, tenues, lieux consacrés) et les logiques de fonctionnement interne (dogmes, tabous, vœux, discipline). Tu es capable de comparer différents cultes et d'anticiper leur réaction face à une crise : peur, hérésie, pénitence, protection ou négociation. Enfin, tu sais comment une institution religieuse s'organise concrètement : accueil, justice interne, réseau logistique et gestion des sanctuaires.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">💼 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🔷</span>
+                    <div>
+                        <h4>Catalyseur des Vigiles</h4>
+                        <p>Portable ou intégré à l'armure</p>
+                        <p class="bonus">Canalise le Conduit Azuré</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h4>Armure légère des Vigiles</h4>
+                        <p>Armure de faction</p>
+                        <p class="bonus">Extension de défense magique</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🕯️</span>
+                    <div>
+                        <h4>Lampe Azurée</h4>
+                        <p>Réceptacle sacré en alliage résistant</p>
+                        <p class="bonus">Verre mêlé de cendres d'azur, réparable</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚔️</span>
+                    <div>
+                        <h4>Arme de veille</h4>
+                        <p>Masse / marteau / bâton au choix</p>
+                        <p class="bonus">+1 en arme choisie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">💠</span>
+                    <div>
+                        <h4>Emblème de l'Ordre</h4>
+                        <p>Insigne officiel portant le nom de l'acolyte</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚗️</span>
+                    <div>
+                        <h4>Potions de voyage</h4>
+                        <p>1× Potion de vie • 1× Potion de magie</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎓 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Magie de la Flamme Bleue (SAG)</strong> — Lancer et maîtriser les effets sacrés du Conduit Azuré : protection, apaisement et purification.</li>
+                        <li><strong>Canalisation de la Flamme Bleue (SAG)</strong> — Contrôle brut de l'énergie pour maintenir halos et bénédictions sans débordement.</li>
+                        <li><strong>Détection de corruption/maudit (SAG/PER)</strong> — Repérer les signes subtils d'une présence impie avant qu'elle ne s'enracine.</li>
+                        <li><strong>Apaisement (CHA)</strong> — Calmer la peur, la panique et stabiliser un groupe en crise.</li>
+                        <li><strong>Prière envers la Flamme Bleue (SAG)</strong> — Litanies, gestes et formules des Vigiles pour les veilles et rituels.</li>
+                        <li><strong>Bénédiction du Conduit Azuré (SAG)</strong> — Appliquer halos, marques et protections adaptées au contexte.</li>
+                        <li><strong>Arme X (FOR/DEX)</strong> — Maîtrise pratique du bâton, marteau ou masse pour tenir la ligne.</li>
+                        <li><strong>Analyse magique (INT)</strong> — Observer et comprendre phénomènes magiques, sceaux et malédictions.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Self-contrôle face à la corruption (Sang-froid)</strong> — Résister à la pression impie et maintenir rites sous menace.</li>
+                        <li><strong>Premiers soins (Métier)</strong> — Stabiliser blessés et gérer urgences : gelures, hypothermie, plaies.</li>
+                        <li><strong>Orientation en Tempête (Instinct)</strong> — Choisir un chemin sûr quand visibilité disparaît et repères mentent.</li>
+                        <li><strong>Savoir du bestiaire maudit (Savoir)</strong> — Identifier créatures maudites, comportements et signes avant-coureurs.</li>
+                        <li><strong>Création d'abri de bonne fortune (Métier)</strong> — Fabriquer refuge viable avec moyens du bord pour chaleur et sécurité.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe spécial js/acolyte azure.js"></script>
+</body>
+</html>
