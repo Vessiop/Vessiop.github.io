@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acolyte Mortuaire - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe spécial css/acolyte mortuaire.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="ash-overlay"></div>
+    
+   <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/mORTUAIRE.png" alt="Acolyte Mortuaire">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">☠️ Acolyte Mortuaire</h1>
+            <p class="class-quote">« Que les morts reposent, et que les vivants n'empiètent plus sur leur paix. »</p>
+            <p class="class-type">🕯️ Gardien du Seuil • Funéurgie d'Ivoire • Culte de la Mort Blanche • Veilleur mortuaire</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📄 Description</h2>
+            <div class="content-box">
+                <p>Apprenti de la <strong>Mère Mortuaire</strong>, l'Acolyte Mortuaire appartient aux derniers héritiers du Culte de la Mort Blanche, un ordre oublié qui veille en silence sur la frontière entre les vivants et la Non-Vie. Il pratique la <strong>Funéurgie d'Ivoire</strong>, une nécromancie sacrée fondée non sur la domination des morts, mais sur le respect du passage, l'apaisement des âmes, la purification des souillures et l'interdiction absolue de la profanation. À travers ses sceaux d'ivoire, ses linceuls bénis, son sel consacré et le glas de sa cloche funéraire, il impose le repos là où la mort a été déformée, volée ou empêchée.</p>
+                
+                <p>Clandestin, discret et souvent itinérant, l'Acolyte Mortuaire agit dans l'ombre des royaumes, loin des regards des grands ordres religieux qui verraient en lui un hérétique ou un serviteur de la magie maudite. Pourtant, sa vocation n'est ni malveillante ni miséricordieuse au sens naïf : il suit une doctrine mortuaire, froide, digne et nécessaire, selon laquelle la mort est un seuil à préserver, non une arme à exploiter.</p>
+
+                <p>Il traque les créatures nécrotiques, les nécromants profanes, les âmes retenues contre leur gré et les lieux où la Non-Vie déborde sur le monde des vivants, afin de refermer les plaies invisibles laissées par l'énergie mortuaire corrompue. Mais l'Acolyte Mortuaire n'est pas qu'un chasseur de profanateurs. Il est aussi veilleur, intercesseur, guide, parfois même protecteur des rejetés. Car là où d'autres ne voient qu'horreur ou souillure, lui voit un devoir ancien : <strong>faire en sorte que la mort demeure un passage juste</strong>, et que tout, un jour, revienne au Foyer.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d14</li>
+                        <li><strong>PE :</strong> 1d12</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item positive">FOR : +1</span>
+                        <span class="stat-item positive">CST : +2</span>
+                        <span class="stat-item negative">DEX : −2</span>
+                        <span class="stat-item positive">INT : +1</span>
+                        <span class="stat-item positive highlight">SAG : +4</span>
+                        <span class="stat-item positive">PER : +2</span>
+                        <span class="stat-item negative">CHA : −2</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> <span class="highlight-stat">30 + 2d6</span></li>
+                        <li><strong>REA :</strong> +3</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 2</span>
+                        <span>Sang-froid : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 1</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">💪 Talents (base)</h2>
+            
+            <div class="talent-card">
+                <h3>Touché par la Grâce de la Mère Mort Blanche</h3>
+                <p>Béni par la Mère Mort Blanche, le lanceur a assimilé une part de son énergie sacrée. Cette grâce lui permet d'exercer la <strong>Funéurgie d'Ivoire</strong> : une nécromancie pure et cendreuse, née de la foi, qui canalise la magie nécrotique mortuaire sans corruption.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de la magie sacrée : Funéurgie d'Ivoire</h3>
+                <p>La Funéurgie d'Ivoire est une magie religieuse, héritée des anciens cultes de la Mort Blanche. Elle se distingue de la nécromancie profane : au lieu de manipuler les morts, elle impose le repos, purifie les cadavres, et trace des sceaux d'ivoire pour contenir ou dissiper la profanation.</p>
+                <p><strong>➡️</strong> Offre la compétence : <strong>Magie de Funéurgie d'Ivoire (SAG) +2</strong></p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Parole d'un Outre-Monde</h3>
+                <p>Le lanceur est capable de murmurer aux défunts et d'entendre leurs échos. Toute interaction sociale dirigée vers un mort bénéficie d'un <strong>bonus de +1</strong>.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Diacre du Foyer (mineur)</h3>
+                <p>À mesure que tu progresses dans ce talent, ton lien avec les résidus d'énergie de la Mère Mort Blanche se renforce. À partir du rang Moyen (et à chaque rang supérieur : Avancé, Majeur, Parfait), ta réserve maximale de Zèle Mortuaire augmente de <strong>+2 à chaque palier</strong> (cumulatif).</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Foi envers la Mère Mort Blanche</h3>
+                <p>Touché par la grâce ancienne de la Mère Mort Blanche, le lanceur puise sa force dans cette croyance. Il obtient <strong>+2 en Sang-Froid</strong> lors des jets contre les effets nécrotiques ou issus d'entités maudites, quelle que soit leur puissance.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure de la masse</h3>
+                <p>Tu maîtrises l'usage de la masse, arme rituelle lourde et sacrée du Culte de la Mort Blanche.</p>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">⚰️ Origines Mortuaires (au choix)</h2>
+            <p class="intro-text">Le chemin que prend l'Acolyte Mortuaire au sein du Culte de la Mort Blanche définit son rôle face au seuil entre vie et mort. Chaque voie incarne une mission sacrée différente dans la préservation de l'ordre mortuaire.</p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="origine-grid">
+                <!-- Passeur du Dernier Foyer -->
+                <div class="origine-card passeur">
+                    <h3>🔹 Passeur du Dernier Foyer</h3>
+                    <p class="origine-description">Les Passeurs du Dernier Foyer sont ceux qui vont à la rencontre des morts, mais aussi des vivants déjà brisés par l'ombre de la mort. À mi-chemin entre fossoyeurs sacrés, guides funéraires et chasseurs des morts égarés, ils redirigent les âmes perdues, les êtres terrifiés par la vie ou souillés par l'énergie mortuaire vers une issue plus juste, plus stable, parfois plus douce. Lorsque des morts troublent l'ordre du monde, terrorisent les vivants ou refusent le repos, ils agissent dans l'ombre, armés de leur foi, de leur discipline et des dons accordés par la Mère Mortuaire. Leur devoir est simple dans son principe mais lourd dans sa pratique : faire en sorte que les morts restent à leur place, que ce soit pour le bien, pour le mal, ou pour une fin nécessaire.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Veilleur du Seuil d'Ivoire</h5>
+                            <p>Lorsque le lanceur combat une entité maudite nécrotique, il obtient naturellement un bonus de <strong>+10 en MD</strong>. Une fois par tour, durant son propre tour uniquement, il peut renoncer à ce bonus de MD pour le convertir en bonus sur son jet d'attaque ou en bonus aux dégâts infligés par une arme ou par sa magie, uniquement contre des cibles nécrotiques/maudites. S'il choisit cette conversion, il perd alors le bonus de MD jusqu'à la fin du tour en cours.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Socle du Foyer Blanc</h5>
+                            <p>Lorsque le lanceur subit des dégâts provenant d'une créature maudite nécrotique, il peut, <strong>une fois par combat</strong>, réduire de 50 % la perte de PV subie. S'il le souhaite, il peut employer cette protection une seconde fois dans le même combat, mais uniquement au prix de la consommation de 1 Dé de Destin.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>FOR +3</strong> et <strong>PER +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Sang-froid ou Résilience</p>
+                    </div>
+                </div>
+
+                <!-- Porte-Flamme d'Ivoire -->
+                <div class="origine-card porte-flamme">
+                    <h3>🔹 Porte-Flamme d'Ivoire</h3>
+                    <p class="origine-description">Les Porte-Flammes d'Ivoire sont les porteurs de la flamme sacrée de la Mère Mortuaire, une flamme froide et purificatrice capable de dé-corrompre l'énergie mortuaire pervertie dont tant de vivants et de morts abusent sur le plan mortel. Leur voie est celle de la bénédiction, de la purification et de la lutte contre les altérations que cette énergie maudite peut laisser sur les corps, les âmes ou les lieux. Par leurs rites, leurs prières et leurs facultés, ils tentent de ramener de l'ordre dans ce que la Non-Vie a sali ou tordu. Leur chemin est difficile, souvent solitaire, car ils savent que dans ce monde la mort peut être plus honnête que bien des vivants, et que les pires monstruosités portent parfois encore un visage humain.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Grâce des Litanies Mortuaires</h5>
+                            <p><strong>Une fois par jour</strong>, le lanceur peut réduire de X points de ZM le coût d'activation d'une bénédiction mortuaire nécessitant du Zèle Mortuaire.</p>
+                            <p><strong>➡️</strong> Offre la compétence : <strong>Prière de la Mère Mortuaire N.A +5</strong></p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Froid du Repos Sacré</h5>
+                            <p>Le lanceur obtient <strong>+10 % de résistance magique à la glace</strong> ainsi que <strong>+10 % de résistance à la magie de sang</strong>. Le froid de la Mort Blanche coule désormais plus naturellement en lui, renforçant son corps contre certaines magies du vivant corrompu comme contre les froideurs profanes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>INT +3</strong> et <strong>SAG +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Savoir, Sang-froid ou Puissance</p>
+                    </div>
+                </div>
+
+                <!-- Rédemption Mortuaire -->
+                <div class="origine-card redemption">
+                    <h3>🔹 Chemin de la Rédemption Mortuaire</h3>
+                    <p class="origine-prerequis">⚠️ <em>Prérequis : être un être nécrotique ou semi-nécrotique</em></p>
+                    <p class="origine-description">Être maudit ayant succombé à l'énergie maudite nécromantique, ou ayant été infecté au point de ne plus être entièrement de sa race d'origine, vous êtes l'un de ces êtres que le monde rejette, traque ou craint. Rares sont ceux qui tolèrent votre existence, même lorsque cette condition ne fut jamais votre choix. Pourtant, la voie mortuaire vous offre un chemin : non pas celui d'un oubli facile, mais celui d'une lutte vers une fin digne, capable peut-être d'effacer la souillure qui vous ronge et d'empêcher qu'un sort semblable touche d'autres innocents. Ce chemin est autant une quête de salut qu'un serment de protection envers tous les malheureux perdus entre vie et mort.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Chair du Pardon Funéraire</h5>
+                            <p><strong>Une fois par combat</strong>, le lanceur peut choisir de réduire de 50 % soit les dégâts physiques infligés par un être vivant, soit les dégâts magiques nécrotiques qu'il subit.</p>
+                            <p>De plus, <strong>une fois par jour</strong>, au prix de la moitié de sa réserve maximale de ZM, il peut adresser une prière préparatoire à la Mère Mortuaire ; durant 1 heure, les faiblesses liées à sa nature nécrotique ou maudite sont temporairement annulées et tombent à 0.</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Flair des Tombes Voilées</h5>
+                            <p>Par son lien profond avec le domaine maudit et les traces de la Non-Vie, le lanceur parvient à percevoir, suivre et distinguer les énergies maudites nécromantiques présentes dans son environnement. Son instinct est suffisamment affiné pour différencier plusieurs origines nécromantiques ou plusieurs signatures mortuaires distinctes.</p>
+                            <p><strong>Effet :</strong> Tous les jets de perception liés au repérage, à l'analyse ou au pistage d'une énergie maudite nécromantique sont effectués avec <strong>Avantage</strong>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>CST +3</strong> et <strong>PER +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Sang-froid, Résilience ou Instinct</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passif : Faveur d'Ivoire -->
+        <section class="section">
+            <h2 class="section-title">🕵️‍♂️ Passif : Faveur d'Ivoire (X/X Points de Zèle Mortuaire)</h2>
+            <div class="content-box">
+                <p>En tant qu'acolyte de la Mère Mort Blanche, le lanceur est touché par sa grâce et reçoit le <strong>Zèle Mortuaire (ZM)</strong>, une ressource spirituelle qui alimente ses bénédictions.</p>
+                
+                <h3>Réserve maximale :</h3>
+                <p><strong>ZM max = 4 + (Mod. SAG)</strong></p>
+                <p>Tous les 10 niveaux, la réserve de Points de Zèle Mortuaire augmente de +2.</p>
+                
+                <h3>Utilisation :</h3>
+                <p><strong>1 fois par tour</strong>, le lanceur peut relancer un jet de sort nécrotique mortuaire en dépensant un coût en Zèle.</p>
+                <p><strong>Coût = Niveau du sort ÷ 2</strong> (arrondi au supérieur)</p>
+                
+                <h3>Récupération :</h3>
+                <ul>
+                    <li><strong>Repos court :</strong> +1dX ZM (X = Mod. Sagesse + 1)</li>
+                    <li><strong>Repos long :</strong> Remet la réserve au maximum (sauf repos interrompu ou mauvais repos : seulement la moitié)</li>
+                    <li><strong>Prière :</strong> Une fois par jour (30 minutes de prière dans un sanctuaire ou autel de la Mère Mortuaire), récupère +1d(Mod. SAG) ZM. Si le jet atteint le max et plus, gagne un excès égal au reste qui dure 2h.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des Historiques <span class="level">(Moyen)</span></h4>
+                    <p>Compréhension solide des grands événements, des ères anciennes, des conflits majeurs et des bouleversements qui ont marqué le monde. Permet de replacer une information dans un contexte historique et de reconnaître que l'histoire officielle n'est pas toujours la vérité entière, surtout pour les sujets oubliés, tabous ou scellés.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance des Princes Maudits <span class="level">(Moyen)</span></h4>
+                    <p>Savoir relatif aux Princes Maudits, ces entités nées au contact le plus pur de la magie maudite. Comprend leurs natures, influences, différences entre princes contemporains et primordiaux, ainsi que les dangers de leur existence. Permet de reconnaître signes d'influence et de comprendre qu'ils sont des incarnations de domaines maudits précis.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du culte de la Mort Blanche <span class="level">(Moyen)</span></h4>
+                    <p>Compréhension de la doctrine, des symboles, des rôles et de l'histoire cachée du Culte de la Mort Blanche. Inclut la place de Kuolema comme Mère Mortuaire, les missions du culte, sa vision du passage des âmes, et sa manière de distinguer la mort ordonnée de la nécromancie profane. Permet d'identifier rites, objets rituels et titres hiérarchiques.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du bestiaire maudit : nécrotique <span class="level">(Modéré)</span></h4>
+                    <p>Connaissance des créatures altérées par l'énergie nécrotique et les formes de Non-Vie corrompue. Permet de reconnaître grandes catégories de morts-vivants, revenants, amalgames et formes maudites. Aide à distinguer créature à apaiser, à raisonner, ou danger pur à éliminer.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance de la magie de la Funéurgie d'Ivoire <span class="level">(Modéré)</span></h4>
+                    <p>Compréhension des principes de la Funéurgie d'Ivoire, magie rituelle du culte de la Mort Blanche. Touche aux rites de passage, sceaux d'ivoire, pratiques d'apaisement, purification et gestion sacrée de l'énergie mortuaire. Cette magie n'a pas pour but de dominer les morts, mais d'assurer un passage juste et protéger les vivants.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des religions <span class="level">(Modéré)</span></h4>
+                    <p>Couvre grands cultes, croyances, ordres religieux et visions spirituelles. Permet de reconnaître symboles sacrés, pratiques, hiérarchies et différences entre foi populaire, culte organisé et doctrine ésotérique. Aide à comprendre influence religieuse sur sociétés, lois et conflits, et à percevoir croyances déformées ou hérétiques.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">💼 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">👘</span>
+                    <div>
+                        <h4>Robe ou Armure légère du Culte</h4>
+                        <p>Robe : +20 % résistance nécromantique</p>
+                        <p class="bonus">Armure légère : +10 % résistance nécromantique</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔔</span>
+                    <div>
+                        <h4>Cloche Funéraire</h4>
+                        <p>Cloche rituelle du Culte</p>
+                        <p class="bonus">−1 ZM (min. 1) bénédictions • −2 PM sorts Funéurgie</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚰️</span>
+                    <div>
+                        <h4>Masse d'Ivoire sépulcrale</h4>
+                        <p>Masse rituelle gravée de sceaux</p>
+                        <p class="bonus">+1d6 dégâts nécrotiques/rang (ignore 50 % résist.)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🧂</span>
+                    <div>
+                        <h4>Sel d'Ivoire Purificatrice</h4>
+                        <p>2 sachets (30/30 charges chacun)</p>
+                        <p class="bonus">Purifie et rompt attache âme-cadavre (5 charges/usage)</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⛪</span>
+                    <div>
+                        <h4>Kit du Sanctuaire</h4>
+                        <p>Autel portatif complet</p>
+                        <p class="bonus">+10 tests prière/rituel Mère Mortuaire</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚗️</span>
+                    <div>
+                        <h4>Potions de voyage</h4>
+                        <p>2× Potion de vie • 1× Potion de magie</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎓 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Prière de la Mère Mortuaire (SAG)</strong> — Justesse de la foi, invocation et communion sacrée avec la Mère Mortuaire.</li>
+                        <li><strong>Magie de Funéurgie d'Ivoire (SAG)</strong> — Réussite des sceaux, bénédictions, purifications et rites de passage.</li>
+                        <li><strong>Présence Mortuaire (CHA)</strong> — Aura mortuaire froide et grave qui impressionne morts-vivants et apaise esprits.</li>
+                        <li><strong>Masse (FOR)</strong> — Maîtrise martiale de la masse rituelle lourde et sacrée.</li>
+                        <li><strong>Observation environnementale (PER)</strong> — Repérer traces, anomalies, dangers et signes de profanation.</li>
+                        <li><strong>Réactif (Réactivité)</strong> — Vitesse de réaction face à danger, piège ou changement brutal.</li>
+                        <li><strong>Analyse magique (PER/INT)</strong> — Comprendre phénomènes magiques et discerner leur nature.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Parole Mortuaire (Social)</strong> — Dialogue et apaisement envers morts, endeuillés et êtres marqués par Non-Vie.</li>
+                        <li><strong>Instinct du danger (Instinct)</strong> — Sentir danger proche, présence hostile ou anomalie au seuil vie-mort.</li>
+                        <li><strong>Savoir nécromantique (Savoir)</strong> — Connaissance nécromancie, morts-vivants, malédictions mortuaires.</li>
+                        <li><strong>Mémoire Liturgique (Savoir)</strong> — Se souvenir rites, prières, symboles et textes sacrés du culte.</li>
+                        <li><strong>Rituel liturgique (Métier)</strong> — Préparation et exécution précise des rites et cérémonies sacrées.</li>
+                        <li><strong>Résistance à la peur maudite (Sang-Froid)</strong> — Rester calme face horreur nécrotique et corruption.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe spécial js/acolyte mortuaire.js"></script>
+</body>
+</html>
