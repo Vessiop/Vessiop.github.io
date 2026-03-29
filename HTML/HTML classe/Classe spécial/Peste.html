@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Médecin de la Peste Blanche - Termion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe spécial css/Peste.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="spore-overlay"></div>
+    
+   <!-- Bouton retour -->
+    <a href="../ClasseGlo.html" class="back-button">← Retour aux classes</a>
+    
+    <!-- En-tête avec image et citation -->
+    <header class="hero-section">
+        <div class="hero-image">
+            <img src="../../../Image/pESTE.png" alt="Médecin de la Peste Blanche">
+        </div>
+        <div class="hero-content">
+            <h1 class="class-title">☣️ Médecin de la Peste Blanche</h1>
+            <p class="class-quote">« Là où les prêtres prient, où les médecins ordinaires reculent, et où les bourreaux achèvent, le Médecin de la Peste Blanche observe, prélève, étudie et comprend. »</p>
+            <p class="class-type">🧪 Praticien des chairs froides • Magie Pestilentielle • Serment de Vaelzhar • Porteur de germes</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title">📜 Description</h2>
+            <div class="content-box">
+                <p>Le Médecin de la Peste Blanche n'est ni un simple guérisseur, ni un vulgaire corrupteur. C'est un <strong>chercheur des chairs condamnées</strong>, un praticien d'un savoir redouté, connu pour explorer les domaines obscurs de la pathologie occulte : maladies maudites, toxines altérées, nécroses vivantes et autres fléaux que le commun des hommes fuit, brûle ou enterre sans chercher à comprendre. Marqué par une grâce froide, sacrée pour certains, impie pour d'autres, son corps s'est lentement adapté à la proximité du mal ; sa chair s'est refroidie sans basculer tout à fait dans la mort, faisant de lui un réceptacle capable de contenir ce qui détruirait un autre être vivant.</p>
+                
+                <p>Là où les prêtres prient, où les médecins ordinaires reculent, et où les bourreaux achèvent, le Médecin de la Peste Blanche observe, prélève, étudie et comprend. Il recueille sur les mourants, les pestiférés, les empoisonnés et les chairs nécrosées des <strong>fragments de corruption</strong> qu'il stabilise sous forme de germes et de souches. Par sa magie pestilentielle, son art médical et ses méthodes d'alchimie froide, il transforme ensuite ces afflictions en instruments de travail : parfois pour affaiblir, contaminer ou ralentir un ennemi, parfois pour contenir un mal, soulager un patient ou empêcher un corps de sombrer trop vite.</p>
+
+                <p>On les dit sinistres, blasphématoires, parfois à peine plus vivants que les cadavres qu'ils dissèquent. Pourtant, derrière leur science blême et leurs pratiques cruelles en apparence, beaucoup consacrent leur existence à une tâche que peu accepteraient d'endosser : <strong>aider ceux qui souffrent de fléaux que personne d'autre ne sait traiter</strong>. Le Médecin de la Peste Blanche ne combat pas la corruption en la niant, mais en la portant, en la comprenant et, lorsque cela est encore possible, en la forçant à servir la survie plutôt que la ruine.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques de base -->
+        <section class="section">
+            <h2 class="section-title">📊 Statistiques de base</h2>
+            <div class="stats-grid">
+                <div class="stat-category">
+                    <h3>❤️ Base PV / PM / PE</h3>
+                    <ul>
+                        <li><strong>PV :</strong> 1d12</li>
+                        <li><strong>PM :</strong> 1d12</li>
+                        <li><strong>PE :</strong> 1d12</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>📊 Bonus & malus</h3>
+                    <div class="bonus-grid">
+                        <span class="stat-item negative">FOR : −3</span>
+                        <span class="stat-item negative">CST : −2</span>
+                        <span class="stat-item positive">DEX : +2</span>
+                        <span class="stat-item positive highlight">INT : +4</span>
+                        <span class="stat-item positive">SAG : +1</span>
+                        <span class="stat-item positive">PER : +3</span>
+                        <span class="stat-item negative">CHA : −3</span>
+                    </div>
+                    <ul class="resistance-list">
+                        <li><strong>RM :</strong> <span class="highlight-stat">25 + 1d6</span></li>
+                        <li><strong>REA :</strong> +0</li>
+                    </ul>
+                </div>
+
+                <div class="stat-category">
+                    <h3>🧠 Traits spécifiques</h3>
+                    <div class="traits-grid">
+                        <span>Résilience : 1</span>
+                        <span>Sang-froid : 2</span>
+                        <span>Finesse : 1</span>
+                        <span>Puissance : 1</span>
+                        <span>Savoir : 1</span>
+                        <span>Instinct : 1</span>
+                        <span>Social : 1</span>
+                        <span>Métier : 2</span>
+                    </div>
+                </div>
+
+                <div class="stat-category chart-container">
+                    <h3>📈 Graphique des caractéristiques</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talents de classe -->
+        <section class="section">
+            <h2 class="section-title">💪 Talents (base)</h2>
+            
+            <div class="talent-card">
+                <h3>Serment de Vaelzhar</h3>
+                <p>Certains y verront une hérésie, d'autres n'y comprendront qu'une souillure de plus, mais seuls ceux qui ont choisi cette voie savent ce qu'elle exige réellement. Le Serment de Vaelzhar n'est pas un simple engagement : c'est l'acceptation volontaire d'un chemin maudit, une route sombre empruntée pour comprendre, contenir et finalement manier les forces de la maladie, du poison, de l'infection et de la mort naissante afin d'aider autrui.</p>
+                <p>Ceux qui prêtent ce serment deviennent des <strong>réceptacles</strong> ; leur corps se marque, se refroidit, et apprend peu à peu à supporter ce qui détruirait les autres.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Maîtrise mineure — Magie Pestilentielle Grise</h3>
+                <p>La Magie Pestilentielle Grise est une branche intermédiaire de l'art pestilentiel, située entre la contention froide de la voie blanche et la propagation plus sombre des formes noires. Elle permet au lanceur de manipuler des germes, toxines, infections et traces nécrotiques dans un état plus instable, plus expérimental, où le fléau n'est ni totalement retenu ni complètement libéré.</p>
+                <p><strong>➡️</strong> Offre la compétence : <strong>Magie Pestilentielle Grise (INT) +2</strong></p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Réserve des Germes Blafards</h3>
+                <p>Le lanceur est devenu un véritable réceptacle pathologique. Son corps peut conserver en lui jusqu'à <strong>3 Germes mères endormis</strong> de base, issus de maladies, toxines, nécroses ou autres afflictions qu'il a prélevées, stabilisées puis liées à sa propre chair.</p>
+                <div class="talent-progression">
+                    <h4>📈 Progression du talent :</h4>
+                    <ul>
+                        <li>Tous les 2 niveaux : Réserve +1 Germe endormi</li>
+                        <li>Niveau 4 : Peut maintenir 2 Germes actifs simultanément</li>
+                        <li>Niveau 7 : Peut maintenir 3 Germes actifs simultanément</li>
+                        <li>Niveau 10 : Peut maintenir 4 Germes actifs simultanément</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="talent-card">
+                <h3>Spécialiste d'Autopsie Pathologique</h3>
+                <p>Le lanceur choisit une filière de spécialisation parmi : <strong>Maladie</strong>, <strong>Toxine</strong> ou <strong>Nécrose</strong>.</p>
+                <p>Lorsqu'il analyse un patient, un cadavre ou une trace organique liée à cette filière, il obtient <strong>Avantage</strong> sur ses jets de détection et d'analyse.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Chair Marquée du Médecin de la Peste Blanche</h3>
+                <p>La chair du lanceur porte l'empreinte du don de Vaelzhar, ce qui la rend plus apte à endurer la corruption et les atteintes organiques.</p>
+                <div class="talent-effects">
+                    <h4>🛡️ Résistances :</h4>
+                    <ul>
+                        <li><strong>+20 %</strong> résistance aux dégâts nécrotiques</li>
+                        <li><strong>+20 %</strong> résistance aux dégâts de toxine</li>
+                        <li><strong>+20 %</strong> résistance aux dégâts de sang</li>
+                        <li><strong>Avantage</strong> sur jets de Résilience contre maladies et toxines</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Origines -->
+        <section class="section">
+            <h2 class="section-title">🧬 Origine de la Peste (au choix)</h2>
+            <p class="intro-text">Le chemin que prend le Médecin de la Peste Blanche définit son approche des fléaux et son rôle dans l'ordre. Chaque origine incarne une philosophie différente de la manipulation pathologique.</p>
+            
+            <div class="interactive-hint">
+                💡 <strong>Astuce :</strong> Cliquez sur une Origine pour voir ses bonus appliqués au graphique des caractéristiques !
+            </div>
+            
+            <div class="origine-grid">
+                <!-- Scientifique de la Peste -->
+                <div class="origine-card scientifique">
+                    <h3>🔬 Scientifique de la Peste</h3>
+                    <p class="origine-description">Tu fais partie de ceux qui ont choisi d'observer les fléaux avant de les craindre. Là où d'autres voient une maladie, un poison ou une infestation comme une simple menace, toi tu y vois une structure, une logique, une évolution possible. Ton regard s'est habitué aux signes infimes : une décoloration de peau, une veine anormale, une odeur trop acide, une spore mal placée, un frisson dans la chair. Avec le temps, tu as appris à isoler, classifier, raffiner et même faire évoluer des germes connus pour en tirer des formes plus stables, plus utiles ou plus dangereuses.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Étude des Germes Blêmes</h5>
+                            <p>Lorsque le lanceur effectue un travail de recherche sur des germes, souches ou phénomènes pestilentiels, il obtient un <strong>bonus de PA = moitié Savoir</strong> (arrondi inf.).</p>
+                            <p>Pour produire un Germe fille à partir d'un Germe mère : <strong>bonus = moitié Métier ou Savoir</strong> (le plus haut).</p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Fondements de Culture Germinale (Mineur)</h5>
+                            <p>Commence avec <strong>5 × X PA</strong> en création de Germes filles (X = niveau talent).</p>
+                            <p><strong>Choix d'un type de Germe</strong> (Nécrotique/Maladie/Toxine) : <strong>+10</strong> sur tous les travaux scientifiques de ce type.</p>
+                            <p>Tous les 2 niveaux d'amélioration, choix d'un nouveau type.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>PER +3</strong> et <strong>INT +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Métier ou Savoir</p>
+                    </div>
+                </div>
+
+                <!-- Médecin Noir et Blanc -->
+                <div class="origine-card medecin">
+                    <h3>⚕️ Médecin Noir et Blanc</h3>
+                    <p class="origine-description">Tu as poussé l'art médical de cette voie bien au-delà de la simple survie. Pour toi, la souffrance n'est pas seulement une donnée à observer, mais une urgence à contenir, à détourner, à alléger — même si cela doit passer par des méthodes dures, froides et moralement troubles. Tes soins ne sont jamais doux au sens ordinaire du terme : ils compriment, drainent, gèlent, extraient, purgent ou ferment brutalement ce qui menace de céder. Pourtant, malgré cette rudesse, ils sauvent des vies.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talent commun</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Voile de Quarantaine Blanche</h5>
+                            <p><strong>Choix d'orientation :</strong> Pestilentielle Blanche OU Pestilentielle Noire</p>
+                            <p>Les sorts de cette orientation sont mieux contenus : les alliés non ciblés ne sont plus affectés par jets d'infection/contamination de zone tant qu'ils sont à une distance > moitié du rayon d'effet.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>⚗️ Choix obligatoire (1 parmi 2)</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Option A — Rendement de la Grâce Blanche</h5>
+                            <p><strong>1×/combat :</strong> Sort Pestilentielle Blanche avec nombre pair de charges → réduit consommation de moitié</p>
+                            <p><strong>➡️</strong> Compétence : <strong>Magie Pestilentielle Blanche +3</strong></p>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Option B — Rendement de la Grâce Noire</h5>
+                            <p><strong>1×/combat :</strong> Sort Pestilentielle Noire avec nombre pair de charges → réduit consommation de moitié</p>
+                            <p><strong>➡️</strong> Compétence : <strong>Magie Pestilentielle Noire +3</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>SAG +3</strong> et <strong>INT +2</strong></p>
+                        <p><strong>+1 au choix :</strong> Métier, Sang-froid ou Social</p>
+                    </div>
+                </div>
+
+                <!-- Passeur du Fléau -->
+                <div class="origine-card passeur">
+                    <h3>🦠 Passeur du Fléau</h3>
+                    <p class="origine-description">Tu n'es pas seulement un manipulateur de germes : tu es devenu un porteur, un passeur, un véritable terrain d'accueil pour les afflictions que tu étudies. Ton corps, marqué par le Serment et lentement adapté par l'usage, a appris à supporter la proximité des toxines, des maladies et des traces de nécrose. Là où un autre praticien prélève puis conserve à distance, toi tu portes, tu nourris, tu laisses mûrir en toi ce que d'autres ne survivraient pas à contenir. Ton organisme est devenu une serre froide pour les fléaux.</p>
+                    
+                    <div class="subsection">
+                        <h4>🎁 Talents obtenus</h4>
+                        
+                        <div class="reward-item">
+                            <h5>Incubation Germique</h5>
+                            <p><strong>1×/jour (repos) :</strong> Nourrir un Germe mère avec essence propre</p>
+                            <p>Jet Résilience DD 10+ • Coût : 8 PM + 8 PE</p>
+                            <p><strong>Choix d'effet :</strong></p>
+                            <ul>
+                                <li><strong>Recharge :</strong> +1dX charges (X = moitié Résilience, max 8)</li>
+                                <li><strong>Prolifération :</strong> Maturation progressive → nouveau Germe mère identique</li>
+                                <li><strong>Duplication instable :</strong> Copie 1 charge (dissipe après 24h)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="reward-item">
+                            <h5>Exhalaison Sporale</h5>
+                            <p><strong>1×/jour (réaction attaque) :</strong> Coût 15 PE</p>
+                            <p>Relâche nuée de spores 5 ft (10 ft niv 15) • Jet Résilience DD 6+Mod CST ou effet Germe • Germe consumé</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📊 Gain de caractéristiques / traits</h4>
+                        <p><strong>Transformation :</strong> CST −2 devient <strong>CST +3</strong></p>
+                        <p><strong>Gain supplémentaire :</strong> DEX +2</p>
+                        <p><strong>+1 au choix :</strong> Résilience ou Métier</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passif : Réservoir de Souche -->
+        <section class="section">
+            <h2 class="section-title">🛡️ Passif : Réservoir de Souche</h2>
+            <div class="content-box">
+                <p>Le Médecin de la Peste Blanche peut prélever sur un mort, un malade, un empoisonné ou une chair nécrosée une matière pathologique qu'il transforme, hors combat, en <strong>Souche</strong> grâce à un jet de Métier. Chaque Souche conserve la nature du mal dont elle est issue — toxique, infectieuse ou nécrotique — et gagne, lors de sa création, un certain nombre de charges.</p>
+                
+                <h3>Fonctionnement (niveau 1) :</h3>
+                <ul>
+                    <li><strong>1 Souche active</strong> à la fois (utilisable pour sorts/capacités)</li>
+                    <li>Dépense <strong>1 charge par action</strong> (max 1 charge/action)</li>
+                    <li><strong>Réserve :</strong> jusqu'à 3 Souches endormies (stabilisées, non utilisables)</li>
+                </ul>
+                
+                <h3>Changement de Souche active :</h3>
+                <p>Possible durant : repos court, préparation ou scène calme (validée MJ)</p>
+                <p>L'ancienne Souche redevient endormie si elle a encore des charges.</p>
+                <p>Une Souche à 0 charge est épuisée (ne peut plus être utilisée).</p>
+            </div>
+        </section>
+
+        <!-- Connaissances -->
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances</h2>
+            
+            <div class="knowledge-list">
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des maladies <span class="level">(Moyen)</span></h4>
+                    <p>Étude des fièvres, infections, syndromes et contaminations. Permet d'identifier signes visibles, progression et distinguer atteinte naturelle de souillure magique. Observer peau, souffle, fluides, température pour lire état réel du patient.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance de l'anatomie humanoïde <span class="level">(Moyen)</span></h4>
+                    <p>Structure du corps : os, muscles, organes, circulation, points de faiblesse et fonctions vitales. Comprendre où frapper, couper, drainer, mais aussi où soutenir, suturer ou contenir dégradation organique.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine médical <span class="level">(Moyen)</span></h4>
+                    <p>Bases du soin : premiers secours, contention, stabilisation, traitement de terrain. Comprendre ce qu'un corps peut supporter et ce qu'il faut empêcher d'empirer. Choix entre repos, compression, saignée, onguent selon gravité.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance de la magie pestilentielle Grise <span class="level">(Modéré)</span></h4>
+                    <p>Forme tempérée et intermédiaire de la magie pestilentielle. Études des états de transition : germes endormis, maladies diluées, toxines contenues, nécroses freinées. Comment doser, ralentir, suspendre ou détourner un fléau.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine des germes bactériologiques <span class="level">(Modéré)</span></h4>
+                    <p>Micro-organismes pathogènes, cultures, cycles de propagation et conditions de survie. Isoler une souche, reconnaître nature, comprendre vecteur et prévoir effets. Manipuler prélèvements, cultures, contaminations avec précision scientifique.</p>
+                </div>
+
+                <div class="knowledge-item">
+                    <h4>Connaissance du domaine du Médecin de la Peste Blanche <span class="level">(Modéré)</span></h4>
+                    <p>Savoir propre à l'ordre : souches, Germes mères, charges, traitements froids, rites de prélèvement, Serment de Vaelzhar. Comprendre comment le corps devient réceptacle sans sombrer. Vision unifiée de poison, maladie et nécrose comme forces liées.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Équipement -->
+        <section class="section">
+            <h2 class="section-title">🎒 Équipement de départ</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <span class="icon">🦺</span>
+                    <div>
+                        <h4>Veste de voyage de Peste Blanche</h4>
+                        <p>Veste renforcée avec compartiments en bec</p>
+                        <p class="bonus">+2 Résilience Poison/Maladie • Compétence N.A +2</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🔬</span>
+                    <div>
+                        <h4>Trousse de travail de Peste Blanche</h4>
+                        <p>Scalpels, pinces, compresses, aiguilles, flacons</p>
+                        <p class="bonus">Outils de prélèvement complets</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🧪</span>
+                    <div>
+                        <h4>Paquet de boîtes de réserve de germes</h4>
+                        <p>Boîtes compartimentées pour stockage</p>
+                        <p class="bonus">12 slots • 1 type de germe/slot</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">🎒</span>
+                    <div>
+                        <h4>Sac de Peste Blanche</h4>
+                        <p>Système de purification manuelle des germes</p>
+                        <p class="bonus">10 slots base + 4 slots réservés boîtes germes</p>
+                    </div>
+                </div>
+
+                <div class="equipment-item">
+                    <span class="icon">⚗️</span>
+                    <div>
+                        <h4>Potions de survie</h4>
+                        <p>2× Potion de vie • 1× Potion de magie</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section class="section">
+            <h2 class="section-title">🎯 Compétences proposées</h2>
+            
+            <div class="competences-grid">
+                <div class="competence-category">
+                    <h3>Compétences de caractéristique</h3>
+                    <ul class="competence-list">
+                        <li><strong>Magie Pestilentielle Grise (INT)</strong> — Formes intermédiaires instables : doser, altérer, ralentir sans libérer totalement.</li>
+                        <li><strong>Magie Pestilentielle Blanche (INT)</strong> — Contention, soin sale et contrôle pathologique : stabiliser, détourner, contenir.</li>
+                        <li><strong>Magie Pestilentielle Noire (INT)</strong> — Version agressive et corruptrice : diffuser fléau, renforcer altération.</li>
+                        <li><strong>Analyse clinique (INT)</strong> — Lire état du corps, identifier symptômes, repérer dysfonctionnements.</li>
+                        <li><strong>Présence blême (CHA)</strong> — Aura froide dérangeante : imposer silence, inspirer crainte ou respect.</li>
+                        <li><strong>Scalpel (DEX)</strong> — Précision avec outils chirurgicaux légers : scalpel, lancette.</li>
+                        <li><strong>Observation pathologique (PER)</strong> — Repérer signes faibles : peau, odeur, fluides anormaux, traces infectieuses.</li>
+                        <li><strong>Réactif (Réactivité)</strong> — Rapidité face à crise, effondrement corporel ou contamination soudaine.</li>
+                    </ul>
+                </div>
+
+                <div class="competence-category">
+                    <h3>🧩 Compétences de traits spécifiques</h3>
+                    <ul class="competence-list">
+                        <li><strong>Soin Manuel (Métier)</strong> — Traiter corps par gestes concrets : bandage, suture, compression, drainage.</li>
+                        <li><strong>Savoir maladie (Savoir)</strong> — Compréhension maladies, symptômes, évolution et effets sur corps.</li>
+                        <li><strong>Instinct médical (Instinct)</strong> — Sentir rapidement qu'un corps va mal sans analyse complète.</li>
+                        <li><strong>Manipulation précise médicale (Finesse/Métier)</strong> — Précision gestes fins : incision, prélèvement, injection, suture.</li>
+                        <li><strong>Travail de Germes (Métier)</strong> — Stabiliser, conserver, développer ou exploiter un Germe.</li>
+                        <li><strong>Apaisement médical (Social)</strong> — Calmer patient, rassurer blessé, obtenir coopération.</li>
+                        <li><strong>Résistance (Résilience)</strong> — Tenir face pertes de sang, toxines et affections pathologiques.</li>
+                        <li><strong>Calme face à la mort (Sang-froid)</strong> — Rester stable devant cadavre, blessure terrible ou nécrose.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spécialité de classe -->
+        <section class="section">
+            <h2 class="section-title">🧷 Spécialité de classe</h2>
+            <div class="content-box">
+                <p>Affilié à l'organisme des Médecins de la Peste Blanche, vous avez suivi une véritable formation médicale.</p>
+                
+                <h3>📋 Effets obligatoires :</h3>
+                <ul>
+                    <li>Obtention du métier <strong>Apprenti Médecin</strong></li>
+                    <li>Commence avec <strong>moitié de l'expérience requise</strong> dans ce métier</li>
+                </ul>
+                
+                <h3>🦠 Accès aux types de Germes :</h3>
+                <p><strong>À la création :</strong> 2 types de Germes au choix (Maladie / Toxine / Nécrotique)</p>
+                <p><strong>Tous les 5 niveaux :</strong> +1 type de Germe supplémentaire</p>
+                
+                <h3>📦 Règle de stockage :</h3>
+                <p>Un Germe de niveau supérieur consomme un nombre de slots = son niveau de Germe.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="divider"></div>
+        <p>© 2024 Termion - Tous droits réservés</p>
+    </footer>
+
+    <script src="../../../Java/Classe/Classe spécial js/peste.js"></script>
+</body>
+</html>
