@@ -235,6 +235,13 @@ body {
     border-color: var(--forest);
 }
 
+.race-card.unavailable {
+    opacity: 0.55;
+    cursor: not-allowed;
+    filter: grayscale(0.45);
+    pointer-events: none;
+}
+
 /* Style pour les races maudites */
 .race-card.cursed {
     background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);

@@ -203,6 +203,13 @@ body {
     border-color: var(--gold);
 }
 
+.shop-category-card.unavailable {
+    opacity: 0.55;
+    cursor: not-allowed;
+    filter: grayscale(0.45);
+    pointer-events: none;
+}
+
 .category-icon {
     font-size: 4rem;
     margin-bottom: 20px;

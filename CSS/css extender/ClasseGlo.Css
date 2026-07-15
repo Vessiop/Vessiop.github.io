@@ -289,6 +289,13 @@ body {
     border-color: var(--gold-dark);
 }
 
+.class-card.unavailable {
+    opacity: 0.55;
+    cursor: not-allowed;
+    filter: grayscale(0.45);
+    pointer-events: none;
+}
+
 .class-card.religious {
     border-color: var(--religious);
 }
