@@ -3,20 +3,20 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 
 // Données de base de l'Acolyte Azuré (échelle de -4 à +6)
 const baseStats = {
-    FOR: 1,
-    CST: 0,
+    FOR: -2,
+    CST: -2,
     DEX: -1,
-    INT: -1,
+    INT: -2,
     SAG: 3,
-    PER: 0,
+    PER: 1,
     CHA: 2
 };
 
 // Bonus des Origines
 const origineBonuses = {
     'porte-flamme': { PER: 3, SAG: 2 },
-    'douce-flamme': { CST: 3, SAG: 2 },
-    'veilleur': { FOR: 3, CST: 2 },
+    'douce-flamme': { INT: 4, SAG: 2 },
+    'veilleur': { FOR: 4, CST: 2 },
     'devot': { SAG: 3, CHA: 2 }
 };
 
@@ -25,7 +25,7 @@ const origineNames = {
     'porte-flamme': 'Chemin du Porte-Flamme',
     'douce-flamme': 'Enfant de la Douce Flamme',
     'veilleur': 'Veilleur de la Flamme Azurée',
-    'devot': 'Dévots de Saphélis'
+    'devot': 'Dévot de Saphélis'
 };
 
 let currentOrigine = null;
@@ -153,7 +153,7 @@ function updateChart(origine) {
     statsChart.data.datasets[0].data = convertStatsForChart(newStats);
     statsChart.update();
     currentOrigine = origine;
-    
+
     // Mettre à jour l'indicateur visuel
     updateOrigineSelection(origine);
     updateStatsDisplay(origine);
@@ -165,7 +165,7 @@ function updateOrigineSelection(origine) {
     document.querySelectorAll('.origine-card').forEach(card => {
         card.classList.remove('selected');
     });
-    
+
     // Ajouter la classe selected à la carte choisie
     if (origine) {
         const selectedCard = document.querySelector(`.origine-card.${origine}`);
@@ -182,26 +182,25 @@ function updateStatsDisplay(origine) {
     if (!displayElement) return;
 
     if (origine) {
-        const stats = calculateStats(origine);
         const bonuses = origineBonuses[origine];
         let bonusText = '';
-        
+
         for (let stat in bonuses) {
             bonusText += `${stat} +${bonuses[stat]} `;
         }
-        
+
         // Ajouter infos spéciales
         let extraInfo = '';
         if (origine === 'porte-flamme') {
             extraInfo = '<br><strong>Talents :</strong> Orientation +2 • Guidé par l\'Azur<br><strong>Choix trait :</strong> +1 Instinct/Métier/Finesse';
         } else if (origine === 'douce-flamme') {
-            extraInfo = '<br><strong>Talents :</strong> Savoir-faire évolutif • Réconfort de Braise Douce<br><strong>Choix trait :</strong> +1 Social/Sang-froid/Métier';
+            extraInfo = '<br><strong>Talents :</strong> Savoir-faire évolutif • Réconfort de Braise Douce<br><strong>Choix trait :</strong> +1 Social/Sang-Froid/Métier';
         } else if (origine === 'veilleur') {
-            extraInfo = '<br><strong>Talents :</strong> Arme au choix • Rempart des Impurs (+10 MD)<br><strong>Choix trait :</strong> +1 Puissance/Résilience/Sang-froid';
+            extraInfo = '<br><strong>Talents :</strong> Arme au choix • Rempart des Impurs (+10 MD)<br><strong>Choix trait :</strong> +1 Puissance/Résilience/Sang-Froid';
         } else if (origine === 'devot') {
-            extraInfo = '<br><strong>Talents :</strong> Noyau d\'Offrande Azurée (+4 AA) • Orant de la Veille<br><strong>Choix trait :</strong> +1 Social/Savoir/Sang-froid';
+            extraInfo = '<br><strong>Talents :</strong> Noyau d\'Offrande Azurée (+4 FA) • Orant de la Veille<br><strong>Choix trait :</strong> +1 Social/Savoir/Sang-Froid';
         }
-        
+
         displayElement.innerHTML = `
             <strong>Origine sélectionnée :</strong> ${origineNames[origine]}<br>
             <strong>Bonus appliqués :</strong> ${bonusText}${extraInfo}
@@ -216,16 +215,16 @@ function updateStatsDisplay(origine) {
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
     const origineCards = document.querySelectorAll('.origine-card');
-    
+
     // Ajouter les événements de clic sur les cartes d'origine
     origineCards.forEach(card => {
         card.style.cursor = 'pointer';
-        
+
         card.addEventListener('click', function() {
-            const origineClass = Array.from(this.classList).find(cls => 
+            const origineClass = Array.from(this.classList).find(cls =>
                 ['porte-flamme', 'douce-flamme', 'veilleur', 'devot'].includes(cls)
             );
-            
+
             if (origineClass) {
                 // Si on clique sur l'origine déjà sélectionnée, on la désélectionne
                 if (currentOrigine === origineClass) {

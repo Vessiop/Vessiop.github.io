@@ -644,7 +644,7 @@ body {
 }
 
 /* Origines spécifiques */
-.origin-card.origin-veilleur {
+.origin-card.origin-incarna {
     border-color: #a8c8d8;
 }
 
@@ -652,11 +652,11 @@ body {
     border-color: #c8a8a8;
 }
 
-.origin-card.origin-forgeron {
-    border-color: #b8b8c8;
+.origin-card.origin-vengeance {
+    border-color: #c88f7a;
 }
 
-.origin-card.origin-tranche {
+.origin-card.origin-outre {
     border-color: #a8a8c0;
 }
 

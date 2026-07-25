@@ -12,19 +12,19 @@ const baseStats = {
     CHA: -1
 };
 
-// Bonus par Origine
+// Essences du Gardien Spirituel
 const originBonuses = {
-    'origin-veilleur':    { PER: 6, CST: 2 },     // PER de -3 → +3 = +6
-    'origin-serment':     { CST: 3, SAG: 2 },
-    'origin-forgeron':    { SAG: 2, INT: 3 },
-    'origin-tranche':     { FOR: 3, DEX: 5 }      // DEX de -3 → +2 = +5
+    'origin-incarna':   {},
+    'origin-serment':   {},
+    'origin-vengeance': {},
+    'origin-outre':     {}
 };
 
 const originNames = {
-    'origin-veilleur':    'Veilleur du Seuil Pâle',
-    'origin-serment':     'Porte-Serment Inachevé',
-    'origin-forgeron':    'Forgeron d\'Incarna',
-    'origin-tranche':     'Tranche-Âme des Champs Froids'
+    'origin-incarna':   'Incarna véritable',
+    'origin-serment':   'Serment rêvé',
+    'origin-vengeance': 'Vengeance',
+    'origin-outre':     'Outre-Tombe'
 };
 
 let currentOrigin = null;
@@ -132,11 +132,11 @@ function updateDisplay(origin) {
         const bonuses = originBonuses[origin];
         const parts = Object.entries(bonuses).map(([k, v]) => `${k} ${v >= 0 ? '+' : ''}${v}`);
         el.innerHTML =
-            `<strong>Origine sélectionnée :</strong> ${originNames[origin]}<br>
-             <strong>Gains appliqués :</strong> ${parts.join(' · ')}`;
+            `<strong>Essence sélectionnée :</strong> ${originNames[origin]}<br>
+             <strong>Gains appliqués :</strong> ${parts.length ? parts.join(' · ') : 'Aucun bonus de caractéristique indiqué'}`;
         el.style.display = 'block';
     } else {
-        el.innerHTML = '<strong>Aucune origine sélectionnée</strong> — Stats de base';
+        el.innerHTML = '<strong>Aucune essence sélectionnée</strong> — Stats de base';
         el.style.display = 'block';
     }
 }
