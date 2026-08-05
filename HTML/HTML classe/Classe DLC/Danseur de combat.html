@@ -51,9 +51,9 @@
                 <div class="stat-category">
                     <h3>❤️ Base PV / PM / PE</h3>
                     <ul>
-                        <li><strong>PV :</strong> 1d14</li>
-                        <li><strong>PM :</strong> 1d14</li>
-                        <li><strong>PE :</strong> 1d14</li>
+                        <li><strong>PV :</strong> 1d12</li>
+                        <li><strong>PM :</strong> 1d12</li>
+                        <li><strong>PE :</strong> 1d12</li>
                     </ul>
                 </div>
 
@@ -61,11 +61,11 @@
                     <h3>📊 Bonus & Malus</h3>
                     <div class="bonus-grid">
                         <span class="stat-item negative">FOR : −2</span>
-                        <span class="stat-item neutral">CST : 0</span>
+                        <span class="stat-item negative">CST : −2</span>
                         <span class="stat-item positive">DEX : +1</span>
-                        <span class="stat-item positive">INT : +1</span>
+                        <span class="stat-item neutral">INT : +0</span>
                         <span class="stat-item positive highlight">SAG : +3</span>
-                        <span class="stat-item negative">PER : −1</span>
+                        <span class="stat-item neutral">PER : 0</span>
                         <span class="stat-item positive highlight">CHA : +3</span>
                     </div>
                     <ul class="resistance-list">
@@ -105,6 +105,20 @@
                 <h3>Maîtrise mineure du style magique de fluctuation</h3>
                 <p>Discipline rare mêlant l'art de la danse au contrôle des flux arcaniques. Par des mouvements précis, le lanceur façonne les filaments magiques, les projette avec élégance vers ses alliés ou les fait tournoyer autour de lui afin de conférer des effets aux entités proches. Il accorde ainsi les filaments du monde à sa danse, modulant leur trajectoire et leur intensité.</p>
                 <p><strong>Gain de :</strong> Compétence : Fluctuation Magique +2 (Sagesse)</p>
+                <div class="subsection">
+                    <h4>Au niveau Avancé : choix d'un Style Dansant de Fluctuation</h4>
+                    <h5>SD de Fluctuation de Faémane</h5>
+                    <p>Danse exquise et lumineuse, où chaque mouvement fait virevolter les filaments magiques autour du lanceur. Les flux arcaniques se déploient en volutes colorées, créant un spectacle gracieux, presque féerique, qui trouble autant qu'il émerveille.</p>
+                    <p><strong>Coût d'activation :</strong> 3 PT</p>
+                    <p><strong>Effet :</strong> tant que le Style de Fluctuation de Faémane est actif, le lanceur regagne une fois par tour 3 PM et obtient un bonus de Mouvement de +2,5.</p>
+                    <p><strong>Coût de maintien :</strong> 1 PT + 3 PE par tour.</p>
+
+                    <h5>SD de Fluctuation Dorémane</h5>
+                    <p>Danse fondée sur des mouvements de mains précis, circulaires et hypnotiques. Les gestes se répètent avec une vitesse troublante, jusqu'à donner l'impression que les filaments magiques tournent d'eux-mêmes autour du lanceur.</p>
+                    <p><strong>Coût d'activation :</strong> 3 PT</p>
+                    <p><strong>Effet :</strong> tant que le Style de Fluctuation de Dorémane est actif, le lanceur peut, une fois par tour, provoquer une légère perturbation magique autour d'un allié ciblé par une attaque. L'allié gagne alors un bonus de MD égal à X × 2, où X = la Finesse du lanceur, contre cette attaque uniquement.</p>
+                    <p><strong>Coût de maintien :</strong> 2 PT + 4 PE + 4 PM par tour.</p>
+                </div>
             </div>
 
             <div class="talent-card">
@@ -124,57 +138,49 @@
                 <p>La danse devient une maîtrise du rythme et de l'espace, capable d'attirer l'attention ou de la détourner. Les mouvements gagnent en expressivité et en communication non verbale. En scène comme en fête, l'aisance crée une présence forte, parfois hypnotique. Un talent qui sert autant à séduire qu'à distraire.</p>
                 <p><strong>Gain de :</strong> Trait spécifique : Danse +1 (Finesse) ; Compétence : Prestation de danse (Charisme) +2</p>
             </div>
-
-            <div class="talent-card">
-                <h3>Tempo du Fugace</h3>
-                <p>Lorsque le lanceur exécute une Danse ou se trouve en état de Danse, il peut réaliser une capacité de "Pas" de Fluctuation une fois par tour, en la payant 1 PR au lieu de son PA.</p>
-            </div>
         </section>
 
         <!-- Passif de classe -->
         <section class="section">
-            <h2 class="section-title">🎼 Passif de classe — Cadence de Fluctuation</h2>
+            <h2 class="section-title">🎼 Tempo Dansant — Passif de classe</h2>
             <div class="content-box">
-                <p class="intro-text">La Fluctuation répond au tempo : plus tu enchaînes sans casser ton rythme, plus tes mouvements deviennent efficaces et exploitables.</p>
+                <p>Le Danseur de Combat possède une ressource appelée <strong>Tempo</strong>. Le Tempo représente son rythme, sa fluidité et sa capacité à entrer en harmonie avec le combat.</p>
+                <p>Le Danseur gagne des <strong>Points de Tempo (PT)</strong> lorsqu'il utilise ses Danses, ses Pas ou ses capacités liées à la Fluctuation.</p>
+                <p>Le Tempo ne donne aucun bonus par lui-même. Il sert uniquement de ressource pour activer ou maintenir certaines facultés du Danseur de Combat.</p>
 
                 <div class="subsection">
-                    <h4>1) Réserve de Cadence (max)</h4>
-                    <p>Ta Cadence maximale est :</p>
-                    <p><strong>Cadence max = 2 + Mod de SAG (minimum 2).</strong></p>
-                    <p>La Sagesse représente ton ressenti du flux et ta capacité à garder un rythme "juste" même sous pression.</p>
+                    <h4>Réserve de Tempo</h4>
+                    <p>De base, le Danseur possède <strong>3 PT maximum</strong>, puis gagne <strong>+2 PT maximum</strong> par niveau de maîtrise supplémentaire de la danse.</p>
+                    <p>Si le Danseur devient Inconscient, son Tempo tombe à 0. Si le Danseur n'alimente pas son Tempo durant son tour avec une Danse, un Pas ou une capacité de Fluctuation, son Tempo retombe également à 0.</p>
                 </div>
 
                 <div class="subsection">
-                    <h4>2) Gagner de la Cadence</h4>
-                    <ul>
-                        <li>Quand tu utilises une capacité de "Pas", tu gagnes <strong>+1 Cadence</strong> (une fois par tour)</li>
-                        <li>Si ce Pas est utilisé pendant une Danse complète maintenue, tu gagnes <strong>+2 Cadence</strong> à la place (une fois par tour)</li>
-                        <li>Quand tu démarres une Danse complète, tu gagnes <strong>+1 Cadence</strong>.</li>
-                    </ul>
+                    <h4>Styles Dansants</h4>
+                    <p>À travers ses facultés de danse, le Danseur peut apprendre des Styles Dansants. Un Style Dansant représente une forme de danse particulière, apportant des effets spéciaux tant qu'il est actif. Certains Styles Dansants peuvent demander un niveau de maîtrise minimum, généralement Avancé.</p>
+                    <p>Lors de l'obtention de ce passif, le Danseur choisit un Style Dansant parmi les suivants :</p>
+
+                    <h5>Style Dansant de l'Armeléon</h5>
+                    <p>Danse artistique aux mouvements audacieux et aux déplacements éclatants, capable de raviver les cœurs et les âmes.</p>
+                    <p><strong>Coût d'activation :</strong> 3 PT</p>
+                    <p><strong>Effet :</strong> tant que ce Style Dansant est actif, le lanceur gagne 1d4 de bonus en défense physique et magique.</p>
+                    <p><strong>Coût de maintien :</strong> 1 PT + 4 PE par tour.</p>
+
+                    <h5>Style Dansant de la Fleur</h5>
+                    <p>Danse gracieuse et légère, dont les mouvements semblent flotter comme des pétales portés par le vent.</p>
+                    <p><strong>Coût d'activation :</strong> 3 PT</p>
+                    <p><strong>Effet :</strong> tant que ce Style Dansant est actif, le lanceur gagne +10 en MD.</p>
+                    <p><strong>Coût de maintien :</strong> 1 PT + 3 PE par tour.</p>
+
+                    <h5>Style Dansant du Lion</h5>
+                    <p>Danse féroce et dominante, faite de mouvements puissants, dynamiques et menaçants.</p>
+                    <p><strong>Coût d'activation :</strong> 3 PT</p>
+                    <p><strong>Effet :</strong> tant que ce Style Dansant est actif, les dégâts physiques au corps à corps du lanceur avec une arme Tranchante gagnent +1d6 dégâts supplémentaires.</p>
+                    <p><strong>Coût de maintien :</strong> 1 PT + 4 PE par tour.</p>
                 </div>
 
                 <div class="subsection">
-                    <h4>3) Dépenser la Cadence — choix d'effets</h4>
-                    <p>Une fois par tour, tu peux dépenser de la Cadence.</p>
-                    
-                    <h5>A) Dépense simple (1 Cadence)</h5>
-                    <p>Choisis un effet :</p>
-                    <ul>
-                        <li>+2 à ton prochain jet lié à la Danse / Fluctuation / Pas ce tour si c'est base Finesse, et +10 si c'est base Sagesse, ou</li>
-                        <li>+5 ft de déplacement (avant ou après une action) ; les attaques d'opportunité seront faites en désavantage, ou</li>
-                        <li>+20 Réactivité jusqu'au début de ton prochain tour. Le jet de Réactivité, si c'est produit durant une phase de Danse, est fait en avantage.</li>
-                    </ul>
-                    
-                    <h5 style="margin-top: 15px;">B) (2 Cadences) — Enchaînement de Tempo</h5>
-                    <p>Tu peux dépenser 2 Cadences pour déclencher un Enchaînement de Tempo :</p>
-                    <p>➡️ Tu exécutes immédiatement une capacité de "Pas" supplémentaire ce tour, sans coût en PA ni en PR.</p>
-                    <p>Ce Pas bonus ne peut pas faire gagner de Cadence (il "consomme" le rythme au lieu de le construire).</p>
-                    <p><strong>Limite :</strong> 1 Enchaînement par tour.</p>
-                </div>
-
-                <div class="subsection">
-                    <h4>4) Perte de rythme</h4>
-                    <p>Au début de ton tour, si tu n'as ni maintenu une Danse complète, ni utilisé de Pas depuis ton dernier tour, ta Cadence retombe à 0.</p>
+                    <h4>Maintien du style</h4>
+                    <p>Maintenir un Style Dansant demande de l'énergie, de la concentration et une grande fluidité corporelle. Si le lanceur ne peut plus bouger librement, perd son rythme ou cesse d'alimenter son Tempo, le Style Dansant prend fin.</p>
                 </div>
             </div>
         </section>
@@ -204,7 +210,7 @@
                         <h5>Amélioration du talent "Maîtrise mineure de l'Agilité"</h5>
                         
                         <h5 style="margin-top: 15px;">Élan des Routes</h5>
-                        <p>Lorsque le lanceur commence un combat, il possède déjà 1 point de Cadence.</p>
+                        <p>Lorsque le lanceur commence un combat, il possède déjà 1 point de PT (Point Tempo).</p>
                     </div>
 
                     <div class="subsection">
@@ -218,7 +224,7 @@
 
                     <div class="subsection">
                         <h4>📊 Gains</h4>
-                        <p><strong>PER de −1 → +3 • CST de 0 → +2</strong></p>
+                        <p><strong>PER +3 • CST de −2 → +2</strong></p>
                         <p><strong>Trait spécifique :</strong> +1 Instinct ou Métier ou Sang-froid</p>
                     </div>
 
@@ -277,9 +283,13 @@
 
                     <div class="subsection">
                         <h4>🎁 Talents obtenus</h4>
-                        <h5>Embrasement d'Inspiration</h5>
-                        <p>Une fois par session, le lanceur peut s'enflammer et tenter une action innovante durant une phase de Danse. Si l'action repose sur un jet de trait spécifique, le taux de critique (succès critique et échec critique) augmente de +1.</p>
-                        <p>Si l'action repose sur une base Charisme, le taux de critique (succès critique et échec critique) augmente de +5.</p>
+                        <h5>Maîtrise mineure de l'Acrobatie</h5>
+                        <p>Les figures et franchissements deviennent plus propres : roulades, sauts, réceptions et mouvements aériens s'enchaînent avec maîtrise. La gestion de l'élan et du timing évite les retombées maladroites et les blessures bêtes.</p>
+                        <p><strong>Gain de :</strong> Compétence : Action acrobatique +2 (Dextérité) ; Trait spécifique : Acrobatie +1 (Finesse)</p>
+
+                        <h5 style="margin-top: 15px;">Embrasement d'Inspiration</h5>
+                        <p>Une fois par jour, le lanceur peut s'enflammer et tenter une action innovante durant une phase de Danse. Si l'action repose sur un jet de trait spécifique, le taux de critique (succès critique et échec critique) augmente de +1.</p>
+                        <p>Si l'action repose sur une base Charisme ou Dextérité (prestation de danse ou technique de danse), le taux de critique (succès critique et échec critique) augmente de +5.</p>
                         <p>Si un succès critique est obtenu via ce talent, le prochain jet lié à la Danse (directement ou indirectement), physique ou magique (Fluctuation uniquement), se fait en avantage.</p>
                     </div>
 
@@ -294,7 +304,7 @@
 
                     <div class="subsection">
                         <h4>📊 Gains</h4>
-                        <p><strong>INT +3 • DEX +2</strong></p>
+                        <p><strong>CST de −2 → +3 • DEX +2</strong></p>
                         <p><strong>Trait spécifique :</strong> +1 Puissance ou Résilience ou Sang-froid</p>
                     </div>
 
@@ -319,7 +329,7 @@
                         <p>Et un bonus de classe d'arme lié à la maîtrise choisie.</p>
                         
                         <h5 style="margin-top: 15px;">Chorégraphie Tranchante</h5>
-                        <p>Une fois par combat, au prix de 12 PE, le lanceur obtient un bonus de MD (Marge Défensive) égal à la valeur de sa compétence d'arme principale utilisée.</p>
+                        <p>Une fois par combat, au prix de 10 PE, le lanceur obtient un bonus de MD (Marge Défensive) égal à la valeur de sa compétence d'arme principale utilisée.</p>
                         <p>(Rappel : si la MR de l'attaquant est inférieure à la MD du lanceur, l'attaque n'atteint pas sa cible.)</p>
                     </div>
 
@@ -334,7 +344,7 @@
 
                     <div class="subsection">
                         <h4>📊 Gains</h4>
-                        <p><strong>FOR de −2 → +3 • PER de −1 → +2</strong></p>
+                        <p><strong>FOR de −2 → +3 • PER +2</strong></p>
                         <p><strong>Trait spécifique :</strong> +1 Finesse ou Instinct ou Résilience</p>
                     </div>
 
@@ -375,7 +385,7 @@
 
                     <div class="subsection">
                         <h4>📊 Gains</h4>
-                        <p><strong>CHA +3 • PER de −1 → +2</strong></p>
+                        <p><strong>CHA +3 • PER +2</strong></p>
                         <p><strong>Trait spécifique :</strong> +1 Social ou Savoir ou Sang-froid</p>
                     </div>
 
@@ -474,7 +484,7 @@
                 <div class="equipment-item">
                     <span class="icon">❤️</span>
                     <div>
-                        <h4>2 potions de vie</h4>
+                        <h4>1 potion de vie</h4>
                         <p>Soins d'urgence</p>
                     </div>
                 </div>

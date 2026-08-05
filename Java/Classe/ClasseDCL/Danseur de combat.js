@@ -4,21 +4,21 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 // Stats de base Danseur de Combat
 const baseStats = {
     FOR: -2,
-    CST: 0,
+    CST: -2,
     DEX: 1,
-    INT: 1,
+    INT: 0,
     SAG: 3,
-    PER: -1,
+    PER: 0,
     CHA: 3
 };
 
 // Bonus par Origine
 const originBonuses = {
-    'origin-nomade':      { PER: 4, CST: 2 },       // PER de -1 → +3 = +4, CST de 0 → +2 = +2
+    'origin-nomade':      { PER: 3, CST: 4 },
     'origin-spectacle':   { CHA: 3, SAG: 2 },
-    'origin-feu':         { INT: 3, DEX: 2 },
-    'origin-desert':      { FOR: 5, PER: 3 },       // FOR de -2 → +3 = +5, PER de -1 → +2 = +3
-    'origin-charma':      { CHA: 3, PER: 3 },       // PER de -1 → +2 = +3
+    'origin-feu':         { CST: 5, DEX: 2 },
+    'origin-desert':      { FOR: 5, PER: 2 },
+    'origin-charma':      { CHA: 3, PER: 2 },
     'origin-ombres':      { DEX: 3, SAG: 2 }
 };
 
