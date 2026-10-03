@@ -16,7 +16,7 @@ const baseStats = {
 const originBonuses = {
     'origin-primitif':  { FOR: 2, CST: 3 },
     'origin-heraut':    { SAG: 2, PER: 3 },
-    'origin-haine':     { SAG: 2, CHA: 6 }      // CHA de -3 → +3 = +6
+    'origin-haine':     { FOR: 2, CHA: 3 }
 };
 
 const originNames = {
@@ -130,15 +130,9 @@ function updateDisplay(origin) {
         const bonuses = originBonuses[origin];
         const parts = Object.entries(bonuses).map(([k, v]) => `${k} ${v >= 0 ? '+' : ''}${v}`);
         
-        // Note spéciale pour Héraut de la haine
-        let note = '';
-        if (origin === 'origin-haine') {
-            note = '<br><em style="color: #d85828;">Note : RM -6 (non affiché sur le graphique)</em>';
-        }
-        
         el.innerHTML =
             `<strong>Origine sélectionnée :</strong> ${originNames[origin]}<br>
-             <strong>Gains appliqués :</strong> ${parts.join(' · ')}${note}`;
+             <strong>Gains appliqués :</strong> ${parts.join(' · ')}`;
         el.style.display = 'block';
     } else {
         el.innerHTML = '<strong>Aucune origine sélectionnée</strong> — Stats de base';

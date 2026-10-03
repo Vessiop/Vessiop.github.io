@@ -5,7 +5,7 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 const baseStats = {
     FOR: -3,
     CST: -2,
-    DEX: 2,
+    DEX: 1,
     INT: 4,
     SAG: 1,
     PER: 3,
@@ -191,11 +191,11 @@ function updateStatsDisplay(origine) {
         // Ajouter infos spéciales
         let extraInfo = '';
         if (origine === 'scientifique') {
-            extraInfo = '<br><strong>Talents :</strong> Étude Germes Blêmes (bonus PA recherche) • Fondements Culture Germinale (5×X PA, +10 type)<br><strong>Choix trait :</strong> +1 Métier/Savoir';
+            extraInfo = '<br><strong>Talents :</strong> Expertise Pathologique (information, Extraction +2) • Application Expérimentale (+5 ou charge conservée, 1/scène)<br><strong>Choix trait :</strong> +1 Métier/Savoir';
         } else if (origine === 'medecin') {
-            extraInfo = '<br><strong>Talents :</strong> Voile de Quarantaine (alliés protégés zone) • Rendement Grâce (réduction charges)<br><strong>Choix trait :</strong> +1 Métier/Sang-froid/Social';
+            extraInfo = '<br><strong>Talents :</strong> Médecine des Fléaux (Avantage médical) • Stase Blafarde (1/scène)<br><strong>Choix trait :</strong> +1 Métier/Sang-froid/Social';
         } else if (origine === 'passeur') {
-            extraInfo = '<br><strong>Talents :</strong> Incubation Germique (recharge/prolifération) • Exhalaison Sporale (réaction 5 ft)<br><strong>Note :</strong> CST −2 → +3 (transformation corporelle)<br><strong>Choix trait :</strong> +1 Résilience/Métier';
+            extraInfo = '<br><strong>Talents :</strong> Migration Organique • Germe de Secours (chacun 1/combat)<br><strong>Note :</strong> CST −2 → +3 (delta +5)<br><strong>Choix trait :</strong> +1 Résilience/Métier';
         }
         
         displayElement.innerHTML = `

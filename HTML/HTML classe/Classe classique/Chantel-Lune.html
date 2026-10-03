@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Chante-Lune.CSS">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="parchment-overlay"></div>
@@ -48,9 +49,9 @@
                 <div class="stat-category">
                     <h3>❤️ Base PV / PM / PE</h3>
                     <ul>
-                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PV :</strong> 1d12</li>
                         <li><strong>PM :</strong> <span class="highlight-stat">1d14</span></li>
-                        <li><strong>PE :</strong> 1d14</li>
+                        <li><strong>PE :</strong> 1d12</li>
                     </ul>
                 </div>
 
@@ -59,10 +60,10 @@
                     <div class="bonus-grid">
                         <span class="stat-item negative">FOR : −3</span>
                         <span class="stat-item negative">CST : −3</span>
-                        <span class="stat-item positive">DEX : +3</span>
+                        <span class="stat-item positive">DEX : +1</span>
                         <span class="stat-item positive">INT : +1</span>
                         <span class="stat-item positive">SAG : +3</span>
-                        <span class="stat-item positive">PER : +1</span>
+                        <span class="stat-item negative">PER : −1</span>
                         <span class="stat-item positive highlight">CHA : +4</span>
                     </div>
                     <ul class="resistance-list">
@@ -101,6 +102,7 @@
             <div class="talent-card">
                 <h3>Maîtrise mineure de l'Art de la Chante-Nuit</h3>
                 <p>Le lanceur possède les bases de l'art magique de la Chante-Nuit, un champ allant de l'influence douce des filaments magiques environnants jusqu'à leur animation par la composition musicale. Il peut harmoniser les filaments autour de lui et les faire se déplacer comme une vague vers une ou plusieurs cibles, renforçant leur énergie (appui magique, augmentation de puissance, meilleure canalisation, etc.). À l'inverse, il peut faire vibrer les filaments de manière agressive via sa voix, son instrument ou un support rythmique, déclenchant des pulsations capables de blesser les ennemis devant lui, généralement sous forme de magie de vent (ondes de choc, bourrasques résonantes), modulable selon sa maîtrise.</p>
+                <p><strong>Compétence obtenue :</strong> Magie de Chante-Nuit.</p>
             </div>
 
             <div class="talent-card">
@@ -110,7 +112,7 @@
 
             <div class="talent-card">
                 <h3>Tisseur de Partitions Vivantes</h3>
-                <p>Si le lanceur dispose d'une partition ou d'une composition structurée, il peut l'"activer" : l'essence magique environnante se condense vers cette partition, s'y harmonise, et les filaments deviennent visibles, flottant dans l'air sous sa direction. Le Chantelune guide ces filaments comme un chef d'orchestre, en fonction de l'intention inscrite dans la partition ; seuls les pratiquants de la Chante-Nuit peuvent réellement en comprendre la logique profonde. Plus la composition est fine, plus l'animation est précise et puissante.</p>
+                <p>Durant une Interlude, consacre <strong>3 PAct</strong> pour créer une Partition Vivante à partir d'une Mélodie de Chante-Nuit connue. En utilisant cette Mélodie, les filaments peuvent animer la partition et assurer son maintien musical à ta place. Les coûts, durées et éventuels jets de Concentration de la Mélodie restent applicables. <strong>Une seule Partition Vivante animée à la fois</strong>.</p>
             </div>
 
             <div class="talent-card">
@@ -119,161 +121,44 @@
             </div>
         </section>
 
-        <!-- Filières -->
+        <!-- Origines -->
         <section class="section">
-            <h2 class="section-title">🎓 Choix de filière – Académie de la Chante-Nuit</h2>
-            <p class="intro-text">Lors de sa formation, un Chantelune choisit une filière d'approfondissement :</p>
-            
-            <div class="interactive-hint">
-                💡 <strong>Astuce :</strong> Cliquez sur une Filière pour la sélectionner et voir ses bonus appliqués au graphique des caractéristiques !
-            </div>
-            
+            <h2 class="section-title">🌙 Origines de l’art de la Chante-Lune — 1 au choix</h2>
             <div class="filiere-grid">
-                <!-- Filière 1 : Compositeur musical -->
                 <div class="filiere-card compositeur-musical">
-                    <h3>1. Compositeur musical</h3>
-                    
-                    <div class="subsection">
-                        <p>En suivant la voie de la composition, le personnage s'oriente vers l'écriture et la création de pièces musicales structurées.</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Talents obtenus</h4>
-                        
-                        <div class="reward-item">
-                            <h5>Talent « Créateur inspiré »</h5>
-                            <p>Une fois par session, en composant une bonne mélodie, il peut dépenser 10 PE pour gagner +1 palier de succès critique sur un jet de Métier (Composition musicale).</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <p>Gagne +1 à la compétence / trait spécifique « Composition ».</p>
-                        </div>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Gains</h4>
-                        <div class="reward-item">
-                            <p><strong>Gain de caractéristique :</strong> +2 en charisme et +2 en INT mais -1 en charisme</p>
-                            <p><strong>Gain de trait spécifique :</strong> +1 Métier</p>
-                        </div>
-                    </div>
+                    <h3>🌙 Tisseur de Partitions Lunaires</h3>
+                    <p>Spécialiste de la composition, tu écris, comprends et adaptes rapidement des œuvres capables d’être animées par les filaments.</p>
+                    <div class="subsection"><h4>Plume de Clair de Lune</h4><p>La création de tes Partitions Vivantes coûte <strong>1 PAct de moins</strong> lors d’une Interlude.</p></div>                    <div class="subsection"><h4>Partition Réflexe</h4><p><strong>Une fois par combat</strong>, active une Partition Vivante en dépensant les <strong>PR nécessaires</strong> plutôt que de l’utiliser normalement pendant ton tour. Activation en réaction dès qu’une situation te permet d’agir.</p></div>
+                    <div class="subsection"><h4>Gains</h4><p><strong>INT +3, SAG +2</strong>. Trait au choix : <strong>+1 Métier, Savoir ou Instinct</strong>.</p></div>
                 </div>
 
-                <!-- Filière 2 : Chanteur émérite -->
-                <div class="filiere-card chanteur-emerite">
-                    <h3>2. Chanteur émérite</h3>
-                    
-                    <div class="subsection">
-                        <p>Le personnage suit la voie du chant et travaille profondément sa voix.</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Talents obtenus</h4>
-                        
-                        <div class="reward-item">
-                            <h5>Talent « Beau Parleur mineur »</h5>
-                            <p>Développe aisance orale, rythme, clarté et persuasion verbale, utile en discours publics, négociations ou plaidoiries.</p>
-                            <p><strong>Compétence associée :</strong> Prestation de chant +2 (Charisme).</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Talent « Belle voix »</h5>
-                            <p>Une fois par session, s'il rate un jet de chant/prestation musicale utilisant sa voix, il peut relancer ce jet.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Gains</h4>
-                        <div class="reward-item">
-                            <p><strong>Gain de caractéristique :</strong> +2 en Charisme et +3 en sagesse mais -2 en Dextérité</p>
-                            <p><strong>Gain de trait spécifique :</strong> +1 social ou sang froid</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Filière 3 : Chantelune de l'Ombre -->
-                <div class="filiere-card chantelune-ombre">
-                    <h3>3. Chantelune de l'Ombre</h3>
-                    
-                    <div class="subsection">
-                        <p>Le personnage s'initie aux sons de l'ombre, à la discrétion et aux déplacements silencieux.</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Talents obtenus</h4>
-                        
-                        <div class="reward-item">
-                            <h5>Talent « Furtivité silencieuse mineure »</h5>
-                            <p>Réduit le bruit des déplacements, améliore la dissimulation et l'écoute sans être repéré.</p>
-                            <p><strong>Compétence associée :</strong> Furtivité +2 (Dextérité).</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <p>Gagne « Pas léger +1 » comme compétence de trait spécifique, améliorant ses mouvements discrets et souples.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Gains</h4>
-                        <div class="reward-item">
-                            <p><strong>Gain de caractéristique :</strong> +2 en Dextérité et +3 en perception mais -2 en charisme</p>
-                            <p><strong>Gain de trait spécifique :</strong> +1 finesse ou instinct (au choix)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Filière 4 : Chanteguerre -->
                 <div class="filiere-card chanteguerre">
-                    <h3>4. Chanteguerre</h3>
-                    
-                    <div class="subsection">
-                        <p>Le personnage reçoit une formation de self-défense et apprend à se battre avec ou aux côtés de son instrument. Il choisit :</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Choix A ou B</h4>
-                        
-                        <div class="reward-item">
-                            <h5>1. Maîtrise d'une arme de base au choix</h5>
-                            <p>Gagne un talent de maîtrise d'arme (arme de base conventionnelle).</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>OU 2. Maîtrise des instruments de guerre</h5>
-                            <p>Apprend à manier des instruments de guerre, instruments adaptés/bricolés pouvant servir d'armes.</p>
-                            <p>Moins performants que des armes martiales classiques, mais restent son instrument de prédilection.</p>
-                            <p>En contrepartie de leurs capacités martiales, ils infligent un malus aux jets de Prestation musicale basique.</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <p>Dans les deux cas, la filière réduit le coût de l'arme ou de l'arme-instrument, grâce au soutien matériel de l'Académie.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Gains</h4>
-                        <div class="reward-item">
-                            <p><strong>Gain de caractéristique :</strong> transforme le -3 en force de combat et le -3 en constitution en +3 en force de combat et +2 en constitution mais le charisme diminue de -2</p>
-                            <p><strong>Gain de trait spécifique :</strong> +1 résilience ou puissance (au choix)</p>
-                        </div>
-                    </div>
+                    <h3>⚔️ Lame de Résonance</h3>
+                    <p>Ta formation martiale mêle gestes, rythme et magie. Les Instruments Armés servent de support musical et d’arme, tout en restant généralement moins efficaces qu’une arme militaire.</p>
+                    <div class="subsection"><h4>Virtuose de l’Arsenal</h4><p><strong>Instrument Armé +5 N.A.</strong> sur tes jets utilisant ce type d’arme.</p></div>                    <div class="subsection"><h4>Harmonie Martiale</h4><p>Ignore les malus de prestation normalement imposés par les Instruments Armés lorsque tu les utilises pour une prestation musicale.</p></div>
+                    <div class="subsection"><h4>Gains</h4><p><strong>FOR −3 devient +2 ; CST −3 devient +1</strong>. Trait au choix : <strong>+1 Puissance, Résilience ou Finesse</strong>.</p></div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Talents supplémentaires -->
-        <section class="section">
-            <h2 class="section-title">🎓 Talents supplémentaires</h2>
-            
-            <div class="talent-card">
-                <h3>Compositeur mineur</h3>
-                <p>Le personnage possède les bases de l'art de composer une musique. Il sait analyser une pièce (structure, rythme, motifs) et créer des partitions simples ou adapter un thème à une scène ou un public.</p>
-                <p><strong>➡️ Offre la compétence de trait spécifique :</strong> Composition musicale +1 (Base : Métier).</p>
-            </div>
+                <div class="filiere-card virtuose">
+                    <h3>🎶 Virtuose du Clair de Lune</h3>
+                    <p>Ton écoute et ta technique permettent de restituer précisément une œuvre et de t’adapter rapidement au rythme, à la tonalité et aux instruments.</p>
+                    <div class="subsection"><h4>Polyinstrumentiste</h4><p>Utilise n’importe quel instrument courant avec une maîtrise de base, sans remplacer une maîtrise spécialisée ou supérieure.</p></div>                    <div class="subsection"><h4>Rythme Captivant</h4><p><strong>Une fois par jour</strong>, réalise une prestation attirant l’attention des créatures capables de l’entendre. Hors combat : Avantage au jet de prestation pour capter l’attention. En combat : selon la Marge de Réussite et la sensibilité musicale des cibles, les créatures affectées peuvent perdre <strong>1 PR</strong>.</p></div>
+                    <div class="subsection"><h4>Gains</h4><p><strong>CHA +2, DEX +3</strong>. Trait au choix : <strong>+1 Finesse, Métier ou Social</strong>.</p></div>
+                </div>
 
-            <div class="talent-card">
-                <h3>Formation de Chantelune</h3>
-                <p>Le personnage a appris à prendre en main rapidement la plupart des instruments courants. Tant qu'il s'agit d'un instrument de base non complexe, il ne subit aucun malus initial lorsqu'il joue pour la première fois de ce type d'instrument.</p>
+                <div class="filiere-card chantelune-ombre">
+                    <h3>🌑 Murmure de la Lune Noire</h3>
+                    <p>Musicien des lieux où la lumière se fait rare, tu combines sonorités sombres, discrétion et observation pour revenir avec ce que d’autres n’auraient jamais dû entendre.</p>
+                    <div class="subsection"><h4>Furtivité Silencieuse — mineure</h4><p>Déplacements discrets et présence masquée par le décor et les sons ambiants. <strong>Furtivité +2 (DEX)</strong> et <strong>Déplacement silencieux +1 (Finesse)</strong>.</p></div>                    <div class="subsection"><h4>Écho Fantôme</h4><p>Déplace artificiellement l’origine d’un son produit par ton instrument vers une zone choisie grâce à une bulle sonore. Fonctionne uniquement avec les <strong>Accords</strong>, jamais avec une Mélodie. <strong>8 PM ; 1 fois par round</strong>.</p></div>
+                    <div class="subsection"><h4>Gains</h4><p><strong>PER −1 devient +3 ; DEX +2</strong>. Trait au choix : <strong>+1 Finesse, Instinct ou Sang-Froid</strong>.</p></div>
+                </div>
+
+                <div class="filiere-card chanteur-emerite">
+                    <h3>⭐ Carrière spéciale — Étoile du Clair de Lune</h3>
+                    <p>Cette carrière concerne les Chantelunes possédant l’affinité rare <strong>Feu de l’Étoile</strong>. Leur présence et leur performance transforment momentanément l’espace en une scène spirituelle.</p>
+                    <div class="subsection"><h4>L’art du chant — mineur</h4><p>Une voix travaillée, stable et expressive. <strong>Prestation de chant +2 (CHA)</strong>.</p></div>                    <div class="subsection"><h4>Public du Clair de Lune</h4><p><strong>Prestation de chant +5 N.A.</strong>. En chantant, fais réagir les filaments pour manifester jusqu’à <strong>4 silhouettes humanoïdes spectrales</strong>. Visibles par tous, intangibles et incapables d’interagir physiquement, elles réagissent à la prestation comme un public.</p></div>
+                    <div class="subsection"><h4>Gains</h4><p><strong>SAG +3, CHA +2</strong>. Trait au choix : <strong>+1 Social, Sang-Froid ou Instinct</strong>.</p></div>
+                </div>
             </div>
         </section>
 
@@ -309,13 +194,10 @@
             </div>
         </section>
 
-        <!-- Classe d'arme/instrument -->
+        <!-- Classe d'arme -->
         <section class="section">
-            <h2 class="section-title">🗡️ Classe d'arme / Classe d'instrument</h2>
-            <div class="content-box">
-                <p><strong>+1 maîtrise dans un instrument de musique de base au choix</strong> (instrument de prédilection).</p>
-                <p>Accès facilité aux talents de maîtrise d'instrument de guerre via la filière Chanteguerre.</p>
-            </div>
+            <h2 class="section-title">🗡️ Classe d’Arme</h2>
+            <div class="content-box"><p><strong>Aucune.</strong></p></div>
         </section>
 
         <!-- Équipement -->
@@ -363,13 +245,6 @@
                     </div>
                 </div>
 
-                <div class="equipment-item">
-                    <span class="icon">⚔️</span>
-                    <div>
-                        <h4>Bonus Chanteguerre</h4>
-                        <p>Si la filière Chanteguerre a été choisie, obtient une réduction de 25 % sur les instruments de guerre</p>
-                    </div>
-                </div>
             </div>
         </section>
 

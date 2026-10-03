@@ -5,42 +5,37 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 const baseStats = {
     FOR: -3,
     CST: -3,
-    DEX: 3,
+    DEX: 1,
     INT: 1,
     SAG: 3,
-    PER: 1,
+    PER: -1,
     CHA: 4
 };
 
 // Bonus des filières
 const filiereBonuses = {
-    'compositeur-musical': { 
-        CHA: 1,  // +2 -1 = +1 au final
-        INT: 2 
-    },
-    'chanteur-emerite': { 
-        CHA: 2, 
-        SAG: 3, 
-        DEX: -2 
-    },
-    'chantelune-ombre': { 
-        DEX: 2, 
-        PER: 3, 
-        CHA: -2 
-    },
-    'chanteguerre': { 
-        FOR: 6,  // transforme -3 en +3 = +6
-        CST: 5,  // transforme -3 en +2 = +5
-        CHA: -2 
-    }
+    'compositeur-musical': { INT: 3, SAG: 2 },
+    'chanteguerre': { FOR: 5, CST: 4 },
+    'virtuose': { CHA: 2, DEX: 3 },
+    'chantelune-ombre': { PER: 4, DEX: 2 },
+    'chanteur-emerite': { SAG: 3, CHA: 2 }
 };
 
 // Noms des filières pour l'affichage
 const filiereNames = {
-    'compositeur-musical': 'Compositeur musical',
-    'chanteur-emerite': 'Chanteur émérite',
-    'chantelune-ombre': 'Chantelune de l\'Ombre',
-    'chanteguerre': 'Chanteguerre'
+    "compositeur-musical": "Tisseur de Partitions Lunaires",
+    "chanteguerre": "Lame de Résonance",
+    "virtuose": "Virtuose du Clair de Lune",
+    "chantelune-ombre": "Murmure de la Lune Noire",
+    "chanteur-emerite": "Étoile du Clair de Lune"
+};
+
+const filiereDetails = {
+    "compositeur-musical": "Plume de Clair de Lune : création à 2 PAct ; Partition Réflexe : 1 fois par combat, PR nécessaires ; +1 Métier, Savoir ou Instinct au choix.",
+    "chanteguerre": "Instrument Armé +5 N.A. ; Harmonie Martiale ; +1 Puissance, Résilience ou Finesse au choix.",
+    "virtuose": "Polyinstrumentiste ; Rythme Captivant : 1 fois par jour ; +1 Finesse, Métier ou Social au choix.",
+    "chantelune-ombre": "Furtivité +2 ; Déplacement silencieux +1 ; Écho Fantôme : 8 PM, 1 fois par round, Accords uniquement ; +1 Finesse, Instinct ou Sang-Froid au choix.",
+    "chanteur-emerite": "Affinité Feu de l’Étoile ; Prestation de chant +2 et +5 N.A. ; Public spectral : jusqu’à 4 silhouettes ; +1 Social, Sang-Froid ou Instinct au choix."
 };
 
 let currentFiliere = null;
@@ -205,25 +200,15 @@ function updateStatsDisplay(filiere) {
             bonusText += `${stat} ${bonuses[stat] >= 0 ? '+' : ''}${bonuses[stat]} `;
         }
         
-        // Ajouter infos spéciales par filière
-        let extraInfo = '';
-        if (filiere === 'compositeur-musical') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Talent Créateur inspiré, Composition +1, +1 Métier';
-        } else if (filiere === 'chanteur-emerite') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Beau Parleur mineur, Prestation chant +2, Belle voix, +1 Social/Sang-froid';
-        } else if (filiere === 'chantelune-ombre') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Furtivité silencieuse mineure, Furtivité +2, Pas léger +1, +1 Finesse/Instinct';
-        } else if (filiere === 'chanteguerre') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Maîtrise arme OU instruments guerre, -25% coût, +1 Résilience/Puissance';
-        }
-        
+        const extraInfo = '<br><strong>Gains :</strong> ' + filiereDetails[filiere];
+
         displayElement.innerHTML = `
-            <strong>Filière sélectionnée :</strong> ${filiereNames[filiere]}<br>
+            <strong>Origine sélectionnée :</strong> ${filiereNames[filiere]}<br>
             <strong>Bonus appliqués :</strong> ${bonusText}${extraInfo}
         `;
         displayElement.style.display = 'block';
     } else {
-        displayElement.innerHTML = '<strong>Aucune filière sélectionnée</strong> - Stats de base affichées';
+        displayElement.innerHTML = '<strong>Aucune origine sélectionnée</strong> - Stats de base affichées';
         displayElement.style.display = 'block';
     }
 }
@@ -238,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.addEventListener('click', function() {
             const filiereClass = Array.from(this.classList).find(cls => 
-                ['compositeur-musical', 'chanteur-emerite', 'chantelune-ombre', 'chanteguerre'].includes(cls)
+                Object.keys(filiereBonuses).includes(cls)
             );
             
             if (filiereClass) {

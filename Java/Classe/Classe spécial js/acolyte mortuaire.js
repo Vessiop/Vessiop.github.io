@@ -191,11 +191,11 @@ function updateStatsDisplay(origine) {
         // Ajouter infos spéciales
         let extraInfo = '';
         if (origine === 'passeur') {
-            extraInfo = '<br><strong>Talents :</strong> Veilleur du Seuil d\'Ivoire (+10 MD) • Socle du Foyer Blanc (−50 % dégâts)<br><strong>Choix trait :</strong> +1 Sang-froid/Résilience';
+            extraInfo = '<br><strong>Talents :</strong> Veilleur du Seuil d\'Ivoire (+5 MD ou jets offensifs) • Socle du Foyer Blanc (−50 % dégâts ; seconde utilisation 2 ZM)<br><strong>Choix trait :</strong> +1 Sang-froid/Résilience';
         } else if (origine === 'porte-flamme') {
-            extraInfo = '<br><strong>Talents :</strong> Grâce Litanies (réduit ZM) • Froid du Repos Sacré (+10 % RM glace/sang)<br><strong>Choix trait :</strong> +1 Savoir/Sang-froid/Puissance';
+            extraInfo = '<br><strong>Talents :</strong> Grâce Litanies (−1 ZM/scène, minimum 0 ; Prière SAG +2) • Froid du Repos Sacré (+10 % résistance glace/sang)<br><strong>Choix trait :</strong> +1 Savoir/Sang-froid/Puissance';
         } else if (origine === 'redemption') {
-            extraInfo = '<br><strong>Talents :</strong> Chair du Pardon (−50 % dégâts) • Flair des Tombes (Avantage pistage)<br><strong>Choix trait :</strong> +1 Sang-froid/Résilience/Instinct';
+            extraInfo = '<br><strong>Talents :</strong> Chair du Pardon (−50 % dégâts) • Prière de Rédemption (une faiblesse à 0 pendant 1 h) • Flair des Tombes (Avantage)<br><strong>Choix trait :</strong> +1 Sang-froid/Résilience/Instinct';
         }
         
         displayElement.innerHTML = `

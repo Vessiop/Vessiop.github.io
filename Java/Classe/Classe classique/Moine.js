@@ -29,12 +29,16 @@ const cheminNames = {
 };
 
 let currentChemin = null;
+function getCheminBonuses(chemin) {
+    if (chemin === 'pilier' && document.getElementById('pilier-stat').value === 'DEX') return { FOR: 1, DEX: 2 };
+    return cheminBonuses[chemin] || {};
+}
 
 // Fonction pour calculer les stats avec bonus
 function calculateStats(chemin) {
     const stats = { ...baseStats };
     if (chemin && cheminBonuses[chemin]) {
-        const bonuses = cheminBonuses[chemin];
+        const bonuses = getCheminBonuses(chemin);
         for (let stat in bonuses) {
             stats[stat] += bonuses[stat];
         }
@@ -183,7 +187,7 @@ function updateStatsDisplay(chemin) {
 
     if (chemin) {
         const stats = calculateStats(chemin);
-        const bonuses = cheminBonuses[chemin];
+        const bonuses = getCheminBonuses(chemin);
         let bonusText = '';
         
         for (let stat in bonuses) {
@@ -215,6 +219,9 @@ function updateStatsDisplay(chemin) {
 
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
+    const pilierSelect = document.getElementById('pilier-stat');
+    pilierSelect.addEventListener('click', event => event.stopPropagation());
+    pilierSelect.addEventListener('change', () => updateChart('pilier'));
     const cheminCards = document.querySelectorAll('.chemin-card');
     
     // Ajouter les événements de clic sur les cartes de chemin

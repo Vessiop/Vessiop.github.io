@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe spécial css/jeunekaiser.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="essence-overlay"></div>
@@ -103,7 +104,7 @@
             </div>
 
             <div class="talent-card">
-                <h3>Maîtrise mineure du style magique de Bannière / Kronwille</h3>
+                <h3>Maîtrise mineure de l'art des Bannières d'Esprits</h3>
                 <p>Un flux d'Essence particulier se rassemble autour du Kaiser, comme un vent constant que seuls les Kaiser peuvent percevoir clairement. Cette énergie n'est pas une magie classique : elle se déploie en filaments visibles, tourbillonnant autour de son porteur, puis s'ancre au sol comme si la volonté du Kaiser devenait un étendard invisible planté sur le champ de bataille.</p>
                 <p><strong>➤</strong> Offre la compétence : <strong>Bannière d'Esprits (Sagesse) +2</strong></p>
             </div>
@@ -114,10 +115,19 @@
             </div>
 
             <div class="talent-card">
-                <h3>Prédisposition au Champ de Bataille</h3>
-                <p>Le Kaiser est naturellement taillé pour manier les armes lourdes et imposer son style.</p>
-                <p><strong>Effet 1 — Maniement facilité :</strong> Toute arme colossale (ou nécessitant une stat de Puissance pour être maniée correctement) voit sa contrainte réduite de -2 pour le Kaiser.</p>
-                <p><strong>Effet 2 — Frappe par Autorité :</strong> Quand tu combats avec une arme colossale ou à deux mains, tu peux 1 fois par combat utiliser la statistique de CHA pour ton jet d'attaque, à la place de la caractéristique habituelle (FOR/DEX/etc.).</p>
+                <h3>Maîtrise mineure de l'art du Commandement tactique</h3>
+                <p>Le Kaiser dirige et coordonne les groupes sur le champ de bataille, encourage ses alliés, impose une discipline et intimide ses adversaires.</p>
+                <p><strong>Compétence obtenue :</strong> Commandement impérial +2 — CHA.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Centre de Gravité Tactique</h3>
+                <p>La première fois de chaque round qu'un allié exécute un Ordre du Kaiser dans sa Bannière, le Kaiser peut immédiatement effectuer un déplacement volontaire de <strong>5 ft</strong>, sans consommer son MOV. Ce déplacement respecte normalement Engagé. La Bannière se déplace avec lui, puisqu'elle est centrée sur le Kaiser.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Impulsion de Commandement</h3>
+                <p><strong>1 fois par tour</strong>, lorsqu'il déploie ou remplace une Bannière d'Esprits pendant son tour, le Kaiser peut immédiatement donner un Ordre de Commandement tactique à une cible valide dans sa Zone de Commandement. Cet Ordre ne coûte aucun PA supplémentaire, conserve son coût normal en PE et compte comme l'Ordre normal du tour.</p>
             </div>
         </section>
 
@@ -143,12 +153,12 @@
                         <div class="reward-item">
                             <h5>Voie de la conquête : Bannière de guerre</h5>
                             <p>La rémanence du Conquérant s'accorde à ton Kronwille et transforme ton aura en étendard d'assaut. Quand tu dresses cette bannière, l'Essence autour de toi prend un rythme offensif : elle pousse les corps à avancer et les décisions à se trancher plus vite.</p>
+                            <p>Donne accès aux capacités de base de Bannière d'Esprits — Bannière de guerre.</p>
                         </div>
                         
                         <div class="reward-item">
-                            <h5>Impulsion d'Avant-Garde</h5>
-                            <p>Une fois par tour au prix de 5 PE, quand tu utilises un Ordre sur un allié ou que tu actives ta Bannière de guerre, tu peux lui donner un "coup d'élan" immédiat.</p>
-                            <p><strong>Effet :</strong> l'allié gagne +10 ft de déplacement ce tour ou +5 sur sa prochaine action offensive (attaque/manœuvre).</p>
+                            <h5>Esprit du Conquérant — Fer de Lance</h5>
+                            <p>La première fois par round qu'un allié exécute l'un de tes Ordres Offensifs ou de Mobilité, tu peux le désigner comme ton <strong>Avant-Garde</strong> jusqu'au début de ton prochain tour. Les alliés situés à <strong>5 ft</strong> de lui sont également considérés dans ta Zone de Commandement pour tes Ordres. Une seule Avant-Garde à la fois.</p>
                         </div>
                     </div>
                     
@@ -178,12 +188,12 @@
                         <div class="reward-item">
                             <h5>Voie du Bastion : Bannière de rempart</h5>
                             <p>La rémanence du Rempart se fixe dans tes filaments : ton Kronwille devient une présence de garde qui stabilise l'espace. La bannière ne "protège" pas seulement : elle impose un calme lourd, une tenue de ligne qui rend les chutes plus difficiles et les ruptures plus rares.</p>
+                            <p>Donne accès aux capacités de base de Bannière d'Esprits — Bannière de rempart.</p>
                         </div>
                         
                         <div class="reward-item">
-                            <h5>Ligne inébranlable</h5>
-                            <p>Quand ta Bannière de rempart est active, tes alliés proches deviennent plus difficiles à faire plier, comme si l'espace lui-même "tenait" avec eux.</p>
-                            <p><strong>Effet :</strong> 1 fois par tour, lorsqu'un allié dans la bannière devrait subir un effet de déstabilisation (chute, recul forcé, perte de position), il peut relancer son jet de tenue et garder le meilleur résultat.</p>
+                            <h5>Esprit du Rempart — Formation du Bastion</h5>
+                            <p><strong>Une fois par tour</strong>, un Ordre Défensif donné à un allié peut également bénéficier à un second allié situé à <strong>5 ft ou moins</strong> du premier et lui aussi dans ta Bannière. Le second reçoit le même effet ; cela reste un seul Ordre.</p>
                         </div>
                     </div>
                     
@@ -213,12 +223,12 @@
                         <div class="reward-item">
                             <h5>Voie de la survie : Bannière médicale</h5>
                             <p>L'Humaniste ne te donne pas une magie sacrée : il imprime dans ton Kronwille une résonance de survie. Cette bannière agit comme un "second souffle" tactique : elle stabilise, maintient debout, et aide les corps à continuer malgré l'épuisement ou la douleur.</p>
+                            <p>Donne accès aux capacités de base de Bannière d'Esprits — Bannière médicale.</p>
                         </div>
                         
                         <div class="reward-item">
-                            <h5>Instinct de survie</h5>
-                            <p>Ta rémanence réveille l'instinct de survie : au bon moment, tu rends une bataille "encore gagnable".</p>
-                            <p><strong>Effet :</strong> 1 fois par combat, quand un allié dans ta Bannière médicale rate une action importante, tu peux lui accorder Avantage sur une nouvelle tentative immédiate ou lui rendre 10 % PE et/ou PM (au choix).</p>
+                            <h5>Esprit de l'Humaniste — Commandement de Secours</h5>
+                            <p><strong>1 fois par tour</strong>, lorsqu'un allié dans ta Bannière subit des dégâts ou reçoit un effet de combat négatif, tu peux dépenser <strong>1 PR</strong> pour lui donner immédiatement un Ordre de Soutien, Défensif ou de Mobilité. Cet Ordre supplémentaire ne consomme pas l'Ordre normal de ton tour ; son coût normal doit être payé.</p>
                         </div>
                     </div>
                     
@@ -248,12 +258,13 @@
                         <div class="reward-item">
                             <h5>Voie de la peur : Bannière du tyran</h5>
                             <p>La rémanence du Tyran transforme ton Kronwille en pression froide : ta bannière devient un avertissement vivant. Elle n'a pas besoin de hurler pour terroriser : l'air y est plus lourd, les gestes y sont plus hésitants, et la désobéissance y semble coûter cher.</p>
+                            <p>Donne accès aux capacités de base de Bannière d'Esprits — Bannière du tyran.</p>
                         </div>
                         
                         <div class="reward-item">
-                            <h5>Autorité absolue</h5>
-                            <p>Ton contrôle ne vient pas que des mots : il vient de la conséquence. Ta présence fait hésiter ceux qui voudraient te défier.</p>
-                            <p><strong>Effet :</strong> 1 fois par combat, quand tu réussis un Ordre sur un ennemi ou qu'un ennemi entre dans ta Bannière du tyran, tu peux lui infliger un Désavantage sur sa prochaine action (attaque, manœuvre ou jet social contre toi).</p>
+                            <h5>Esprit du Tyran — Autorité Coercitive</h5>
+                            <p>Tes Ordres de Mobilité ou de Contrôle peuvent cibler un ennemi dans ta Bannière si leur effet peut logiquement lui être imposé. Effectue une confrontation de <strong>Commandement impérial contre Sang-Froid</strong> : en réussite, l'Ordre s'applique ; en échec, la cible résiste mais l'Ordre compte comme utilisé.</p>
+                            <p>Ne peut obliger directement une cible à se blesser volontairement, attaquer volontairement un allié, dépenser volontairement ses ressources ou accomplir une action manifestement suicidaire.</p>
                         </div>
                     </div>
                     
@@ -288,11 +299,14 @@
                         <div class="reward-item">
                             <h5>Ère des Ténèbres — Voie du Kaiser Couronné</h5>
                             <p>À l'aube des ténèbres, tu deviens leur reflet : une présence qui absorbe, tord et plie l'Essence autour d'elle comme si le monde devait céder. Cette voie te marque d'une puissance sombre, lente et invasive — une corruption qui s'insinue dans la chair comme dans l'esprit.</p>
+                            <p>Donne accès aux capacités de base de Bannière d'Esprits — Ténèbres Couronnées.</p>
                         </div>
                         
                         <div class="reward-item">
                             <h5>Sceptre Noir : Pliure de l'Essence</h5>
-                            <p><strong>1 fois par jour :</strong> D'un simple regard, le porteur force l'Essence d'un sort qui le frappe à se tordre sous une autorité ténébreuse. Il ne "dissipe" pas : il déforme et recompose l'énergie subie pour en tirer un avantage.</p>
+                            <p><strong>Résonance ténébreuse :</strong> +20 % de résistance à la magie des Ténèbres, mais −20 % de résistance à la magie de Lumière.</p>
+                            <p><strong>1 fois par jour</strong>, lorsqu'un sort devrait atteindre le Kaiser, il effectue un jet de <strong>SAG, DD = 10 × niveau du sort subi</strong>. En réussite, le sort ne le touche pas directement et est reporté vers une cible, un point ou un élément à proximité immédiate, selon sa nature et la situation. Si la marge dépasse d'au moins 20 points la marge minimale nécessaire, il peut choisir une autre cible valide à portée raisonnable.</p>
+                            <p>Ne fonctionne pas sur les sorts de Lumière, les sorts ou effets des Abysses, les pouvoirs d'une entité trop puissante (appréciation du MJ), ni les zones trop vastes pour une redirection précise.</p>
                         </div>
                     </div>
                     
@@ -353,7 +367,7 @@
                     <span class="icon">⚔️</span>
                     <div>
                         <h4>Équipement de guerre de Kaiser</h4>
-                        <p>Armure moyenne avec extension magique</p>
+                        <p>Armure légère</p>
                         <p class="bonus">Offre : « Présence impériale à N.A+10 »</p>
                     </div>
                 </div>
@@ -367,18 +381,10 @@
                 </div>
 
                 <div class="equipment-item">
-                    <span class="icon">🏴</span>
-                    <div>
-                        <h4>Cape du Kaiserat</h4>
-                        <p>Relance 1×/jour d'un jet d'ordre tactique ou bannière d'esprit</p>
-                    </div>
-                </div>
-
-                <div class="equipment-item">
                     <span class="icon">⚗️</span>
                     <div>
                         <h4>Potions de combat</h4>
-                        <p>1× Potion de vie • 1× Potion de magie • 1× Potion d'endurance</p>
+                        <p>2× Potion de vie • 1× Potion de magie • 1× Potion d'endurance</p>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Rixeur.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="parchment-overlay"></div>
@@ -71,7 +72,7 @@
                         <span class="stat-item negative">INT : −3</span>
                         <span class="stat-item negative">SAG : −1</span>
                         <span class="stat-item positive">PER : +1</span>
-                        <span class="stat-item negative">CHA : −1</span>
+                        <span class="stat-item negative">CHA : −3</span>
                     </div>
                     <ul class="resistance-list">
                         <li><strong>RM :</strong> 20 + 1d6</li>
@@ -104,25 +105,22 @@
 
         <!-- Talents de classe -->
         <section class="section">
-            <h2 class="section-title">🎓 Talents</h2>
-            
+            <h2 class="section-title">🎓 Talents de classe</h2>
             <div class="talent-card">
-                <h3>Maîtrise du style de combat de corps : Base Poing ou Pied</h3>
-                <p>Le combattant perfectionne un art de frappe brut et optimisé, basé sur l'entretien du corps, le mouvement, l'équilibre et la répétition. Il ne suit pas une école codifiée : il forge une efficacité réelle, utile en combat serré.</p>
-                <p><strong>Offre la compétence :</strong> Coup de poing +2 et Coup de pied +2 (selon le choix).</p>
+                <h3>Maîtrise mineure — Combat de Corps</h3>
+                <p>Le corps entier devient une arme : placement, appuis et transfert du poids. Offre Coup de poing +2 et Coup de pied +2 (FOR ou DEX). Les frappes corporelles maîtrisées font partie de son domaine martial.</p>
             </div>
-
             <div class="talent-card">
                 <h3>Rixe au Contact</h3>
-                <p>Quand le combattant est engagé avec une cible, il devient plus dangereux : son corps suit l'échange sans réfléchir, il "lit" le rythme et répond plus vite.</p>
-                <p><strong>Effet :</strong> +10 en Réactivité tant que vous êtes engagé avec une cible. Le lanceur obtient la compétence « Réactivité de Rixe » N.A +10.</p>
+                <p>Offre Réactivité de Rixe +2 (REA). Tant qu'il est directement engagé avec une créature et combat avec son corps ou une arme courte, le Rixeur peut utiliser cette compétence en plus de ses autres compétences de Réactivité. Ne s'applique pas aux événements sans rapport direct avec cet adversaire.</p>
             </div>
-
             <div class="talent-card">
-                <h3>Corps d'acier</h3>
-                <p>Obtient les talents « Poing de Fer » et « Pied de Fer » : conditionnement osseux et musculaire (phalanges, tibia, talon) pour délivrer des impacts denses sans se blesser.</p>
-                <p><strong>Effet :</strong> +1 au calcul de base des dégâts de corps à corps physiques pour ce membre.</p>
-                <p><strong>Améliorations (2 pts chacune) :</strong> chaque palier ajoute +1 (progression indicative : Fer → Acier → Ébonite).</p>
+                <h3>Corps d'Acier</h3>
+                <p>Les attaques physiques effectuées directement avec une partie maîtrisée du corps obtiennent +1 aux dégâts physiques de base. Le potentiel de corps est développé et éveillé.</p>
+            </div>
+            <div class="talent-card">
+                <h3>Combat de Fortune</h3>
+                <p>Offre Arme improvisée +2 (FOR ou DEX) pour frapper, bloquer ou dévier, repousser ou déplacer quelqu'un, gêner un adversaire ou exploiter un objet ou le décor dans une manœuvre. Jamais considéré comme inexpérimenté avec un objet improvisé simple utilisé comme arme.</p>
             </div>
         </section>
 
@@ -146,19 +144,20 @@
                         
                         <div class="reward-item">
                             <h5>Maîtrise des attaques sournoises</h5>
-                            <p>Permet d'effectuer des attaques sournoises, infligeant les dégâts associés à la sournoiserie. Les dégâts de sournoiserie s'additionnent avec les dégâts dits de base de sournoiserie.</p>
+                            <p>Accorde l'accès à l'effet standard Attaque sournoise : applique les dégâts et propriétés de Sournoiserie correspondants lorsque les conditions normales sont remplies.</p>
                         </div>
                         
                         <div class="reward-item">
-                            <h5>Maîtrise mineure — Style de Combat de la Fouine</h5>
-                            <p>Un style sale et opportuniste, sans noblesse ni règles fixes. La Fouine ne cherche pas la beauté du geste : elle cherche l'ouverture. Elle frappe là où ça fait mal, profite du moindre déséquilibre, fait glisser, accroche, vise les blessures et casse le rythme adverse.</p>
-                            <p><strong>➡️</strong> Offre la compétence : Coup de Fouine +2.</p>
+                            <h5>Mauvais Réflexes de Rue</h5>
+                            <p>1 fois par combat, après une attaque physique de corps à corps réussie avec le corps, une arme courte ou un objet improvisé, applique Feinte à la cible.</p>
+                            <p><strong>Feinte :</strong> la prochaine réaction directe de cette cible contre le lanceur est en Désavantage. Consommée par ce jet ou expire à la fin du prochain tour de la cible.</p>
                         </div>
                     </div>
                     
                     <div class="subsection">
                         <h4>📊 Gain de caractéristiques</h4>
-                        <p><strong>PER +2</strong> et <strong>DEX +1</strong></p>
+                        <p><strong>PER +2</strong> et <strong>DEX +3</strong></p>
+                        <p><strong>Trait :</strong> +1 au choix en Finesse, Instinct ou Sang-Froid.</p>
                     </div>
                 </div>
 
@@ -171,21 +170,22 @@
                         <h4>🎁 Récompenses</h4>
                         
                         <div class="reward-item">
-                            <h5>Maîtrise d'arme au choix</h5>
-                            <p>Obtient un talent de Maîtrise d'arme au choix et obtient +1 classe d'arme liée à l'arme choisie.</p>
+                            <h5>Répertoire de l'Arène</h5>
+                            <p>Choisit 2 armes différentes et obtient une Maîtrise mineure de chacune. Désigne une de ces armes comme Arme de Prédilection d'Arène : Classe d'Arme +1 cran pour cette arme.</p>
                         </div>
                         
                         <div class="reward-item">
                             <h5>Éclat du Fer (ou) Rage en Infériorité</h5>
-                            <p><strong>Éclat du Fer :</strong> Lors d'une prestation martiale, si l'arme a été utilisée correctement, le lanceur peut effectuer ses jets liés à la prestation en utilisant la compétence d'arme employée.</p>
+                            <p><strong>Éclat du Fer :</strong> Lors d'une prestation, démonstration, parade ou mise en scène utilisant réellement une arme maîtrisée, utilise sa compétence d'arme pour le jet principal ; si plusieurs armes maîtrisées sont utilisées, peut choisir la meilleure compétence concernée.</p>
                             <p><strong>OU</strong></p>
-                            <p><strong>Rage en Infériorité :</strong> Lorsque le lanceur se retrouve en infériorité numérique, il peut 1 fois par combat effectuer un jet d'attaque avec une maîtrise d'arme maîtrisée en Avantage.</p>
+                            <p><strong>Rage en Infériorité :</strong> 1 fois par combat, si le Rixeur ou son groupe est en infériorité numérique face aux adversaires réellement impliqués, effectue une attaque avec une arme maîtrisée en Avantage.</p>
                         </div>
                     </div>
                     
                     <div class="subsection">
                         <h4>📊 Gain de caractéristiques</h4>
-                        <p><strong>CST +2</strong> et <strong>CHA +1</strong></p>
+                        <p><strong>CST +2</strong> et <strong>CHA −3 → +2</strong> (delta +5)</p>
+                        <p><strong>Trait :</strong> +1 au choix en Puissance, Social ou Sang-Froid.</p>
                     </div>
                 </div>
 
@@ -198,20 +198,21 @@
                         <h4>🎁 Récompenses</h4>
                         
                         <div class="reward-item">
-                            <h5>Garde Vivant</h5>
-                            <p>Tant que tu es engagé au corps, tu obtiens un bonus léger sur tes jets de résistance aux projections, saisies / déséquilibres.</p>
-                            <p><strong>➡️</strong> Obtient la compétence : Robustesse N.A +5.</p>
+                            <h5>Garde Vivante</h5>
+                            <p>Offre Ancrage corporel +2 (CST), utilisable à la place du jet approprié pour résister directement à une Projection, une Saisie ou un Déséquilibre physique.</p>
                         </div>
                         
                         <div class="reward-item">
                             <h5>Reprise d'Impact</h5>
-                            <p>Le lanceur peut relancer un jet d'attaque de corps qu'il a raté, 1 fois par combat.</p>
+                            <p>1 fois par combat, après une attaque corporelle ratée, la prochaine attaque corporelle effectuée avant la fin du prochain tour obtient +5 au jet d'attaque. Sans attaque avant cette échéance, le bonus est perdu.</p>
                         </div>
                     </div>
                     
                     <div class="subsection">
                         <h4>📊 Gain de caractéristiques</h4>
-                        <p><strong>FOR ou DEX +2</strong> et <strong>CST +1</strong></p>
+                        <p><strong>FOR ou DEX +3</strong> et <strong>CST +2</strong></p>
+                        <label>Caractéristique principale <select id="guerrier-stat"><option value="FOR">FOR +3</option><option value="DEX">DEX +3</option></select></label>
+                        <p><strong>Trait :</strong> +1 au choix en Puissance, Résilience ou Finesse.</p>
                     </div>
                 </div>
 
@@ -230,18 +231,20 @@
                         
                         <div class="reward-item">
                             <h5>Dialecte criminel</h5>
-                            <p>Offre un bonus de +2 sur les jets de Social lors des premières rencontres avec des criminels.</p>
+                            <p>+2 aux jets de Social lorsque l’échange repose directement sur les codes ou usages du milieu criminel.</p>
                         </div>
                         
                         <div class="reward-item">
                             <h5>Frappe Traîtresse</h5>
-                            <p>Lorsque le lanceur attaque une cible déjà engagée avec une autre entité, il peut 1 fois par combat activer ce talent pour porter un coup opportuniste qui affaiblit la résistance physique de l'adversaire.</p>
+                            <p>1 fois par combat, déclare le talent avant son attaque physique contre une cible déjà engagée avec une autre créature hostile. Si elle réussit : Pénétration d'armure 25 % et Feinte. Les autres résistances et protections fonctionnent normalement.</p>
                         </div>
                     </div>
                     
                     <div class="subsection">
                         <h4>📊 Gain de caractéristiques</h4>
-                        <p><strong>CHA +2</strong> et <strong>DEX ou FOR +1</strong></p>
+                        <p><strong>CHA −3 → +2</strong> (delta +5) et <strong>FOR ou DEX +2</strong></p>
+                        <label>Caractéristique <select id="casseur-stat"><option value="FOR">FOR +2</option><option value="DEX">DEX +2</option></select></label>
+                        <p><strong>Trait :</strong> +1 au choix en Social, Sang-Froid ou Puissance.</p>
                     </div>
                 </div>
 
@@ -255,19 +258,20 @@
                         
                         <div class="reward-item">
                             <h5>Éveil magique</h5>
-                            <p>Déverrouille le potentiel magique : la base PM passe à 1d12 (si elle était inférieure) et la magie devient accessible. Lors de l'obtention du talent, le personnage peut lancer 2 dés de Gain de PM.</p>
+                            <p>Déverrouille le potentiel magique : la base PM passe à 1d12 (si elle était inférieure) et la magie devient accessible. Lors de l'obtention du talent, le personnage lance 2 dés de Gain de PM. Il n’obtient pas automatiquement les avantages de départ d’une classe magique complète.</p>
                         </div>
                         
                         <div class="reward-item">
                             <h5>Maîtrise mineure — Art de l'Écoulement Élémentaire</h5>
                             <p>Dans le Plan Naturel, certains guerriers apprennent à approcher la magie non comme un "sort", mais comme une circulation. L'Écoulement Élémentaire est un art ancien : faire passer l'essence magique à travers le corps, les appuis, le souffle, jusqu'à ce qu'elle devienne un prolongement instinctif du mouvement. Chaque frappe, chaque pas, chaque rotation peut alors porter une impulsion élémentaire.</p>
-                            <p><strong>➡️</strong> Offre la compétence : Écoulement Élémentaire +2.</p>
+                            <p><strong>➡️</strong> Offre la compétence : Écoulement Élémentaire +2 et accès aux futures Facultés liées à cet Art.</p>
                         </div>
                     </div>
                     
                     <div class="subsection">
                         <h4>📊 Gain de caractéristiques</h4>
-                        <p><strong>SAG +4</strong> et <strong>DEX +1</strong></p>
+                        <p><strong>SAG −1 → +3</strong> (delta +4) et <strong>DEX +2</strong></p>
+                        <p><strong>Trait :</strong> +1 au choix en Instinct, Puissance ou Savoir.</p>
                     </div>
                 </div>
             </div>
@@ -280,15 +284,10 @@
             <h3 class="subsection-title">Connaissances de base</h3>
             
             <div class="knowledge-list">
-                <div class="knowledge-item">
-                    <h4>Connaissance du domaine de la rue</h4>
-                    <p>Tu connais la vie urbaine "réelle" : les quartiers, les habitudes, les dangers, les raccourcis, et les signaux qui annoncent une embrouille. Tu sais comment parler sans te faire repérer, où traîner sans te faire plumer, et comment éviter de tomber dans un piège social ou territorial.</p>
-                </div>
-
-                <div class="knowledge-item">
-                    <h4>Connaissance du domaine criminel</h4>
-                    <p>Tu comprends les codes du monde illégal : hiérarchies, planques, dettes, menaces, et manières de négocier sans déclencher une escalade. Tu sais reconnaître une arnaque classique, une transaction douteuse, ou une situation où quelqu'un cherche à te "marquer" ou t'utiliser.</p>
-                </div>
+                <div class="knowledge-item"><h4>Pratiques de rixe <span class="level">(Moyen)</span></h4><p>Pression, distance courte, garde, rythme et opportunités du combat non codifié ; ne remplace pas les connaissances propres aux arts martiaux codifiés.</p></div>
+                <div class="knowledge-item"><h4>Conditionnement physique <span class="level">(Modéré)</span></h4><p>Entraînement, effort, récupération, impacts et signes de surcharge ; ne remplace pas une expertise médicale.</p></div>
+                <div class="knowledge-item"><h4>Milieux populaires et vie de rue <span class="level">(Modéré)</span></h4><p>Habitudes, lieux de rassemblement, tensions et dangers urbains ; ne garantit pas un contact personnel.</p></div>
+                <div class="knowledge-item"><h4>Combat improvisé <span class="level">(Modéré)</span></h4><p>Évaluer les objets et le décor pour frapper, bloquer ou gêner, leur solidité et leurs risques. Les mécanismes complexes nécessitent un savoir adapté.</p></div>
             </div>
             
             <h3 class="subsection-title">📌 Selon le milieu de vie</h3>
@@ -305,7 +304,7 @@
                     
                     <div class="knowledge-item">
                         <h4>Connaissance de la Guilde des Bas-fonds <span class="level">(Modéré)</span></h4>
-                        <p>Tu connais l'existence de guildes souterraines : leurs signes, leurs règles internes, leurs territoires et leurs méthodes. Tu sais comment obtenir un contact, demander une faveur, ou éviter une faute qui te mettrait sur liste noire.</p>
+                        <p>Tu connais l'existence de guildes souterraines : leurs signes, leurs règles internes, leurs territoires et leurs méthodes. Ce savoir aide à éviter les provocations ; les secrets internes des organisations restent protégés.</p>
                     </div>
                 </div>
 
@@ -365,12 +364,16 @@
                     
                     <div class="knowledge-item">
                         <h4>Connaissance du domaine du Plan d'Yggdrasil <span class="level">(Modéré)</span></h4>
-                        <p>Tu connais les grandes réalités d'Yggdrasil : ses îles flottantes, sa magie pure omniprésente, et les particularités physiques de ses habitants adaptés au déplacement aérien.</p>
+                        <p>Tu connais les grandes réalités d'Yggdrasil, son environnement, ses peuples et sa magie naturelle, ainsi que les conséquences majeures de l'Ère du Vent et la dispersion de populations. Les secrets locaux et événements récents demandent des informations supplémentaires.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <section class="section">
+            <h2 class="section-title">🗡️ Classe d'Arme</h2>
+            <div class="highlight-box"><p><strong>+1 en Corps de combat</strong></p></div>
+        </section>
         <!-- Équipement -->
         <section class="section">
             <h2 class="section-title">🎁 Équipement de départ</h2>
@@ -424,7 +427,7 @@
                         <li><strong>Saisie (CST)</strong> — Capacité à agripper, maintenir, serrer et tenir une cible au contact malgré la résistance.</li>
                         <li><strong>Esquive (DEX)</strong> — Éviter un coup par un déplacement court, une torsion ou un décalage au bon timing.</li>
                         <li><strong>Réactivité (REA)</strong> — Vitesse de réponse en danger immédiat : contre, repositionnement, interruption.</li>
-                        <li><strong>Analyse de combat (FOR/PER)</strong> — Lire le combat en direct : rythme, portée, angles et habitudes d'un adversaire.</li>
+                        <li><strong>Analyse de combat (PER)</strong> — Lire le combat en direct : rythme, portée, angles et habitudes d'un adversaire.</li>
                         <li><strong>Robustesse (CST)</strong> — Tenir malgré fatigue, douleur, effort prolongé et coups répétés.</li>
                         <li><strong>Blocage de corps (CST)</strong> — Encaisser ou réduire l'impact en "cassant" le coup avec le corps.</li>
                         <li><strong>Observation environnementale (PER)</strong> — Repérer les détails utiles du terrain pour se battre intelligemment.</li>

@@ -3,21 +3,21 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 
 // Stats de base Exorciste
 const baseStats = {
-    FOR: -3,
-    CST: 3,
-    DEX: -3,
-    INT: 2,
-    SAG: 3,
-    PER: 0,
-    CHA: -3
+    FOR: -2,
+    CST: 1,
+    DEX: 0,
+    INT: 3,
+    SAG: 2,
+    PER: 2,
+    CHA: -4
 };
 
 // Bonus par Origine
 const originBonuses = {
     'origin-repurgateur':     { INT: 3, SAG: 2 },
-    'origin-exterminateur':   { PER: 4, CST: 2 },
+    'origin-exterminateur':   { PER: 3, INT: 2 },
     'origin-purificateur':    { SAG: 3, CST: 2 },
-    'origin-veilleur':        { FOR: 6, CST: 2 }  // FOR de -3 → +3 = +6 total
+    'origin-veilleur':        { CST: 2 }
 };
 
 const originNames = {
@@ -28,11 +28,18 @@ const originNames = {
 };
 
 let currentOrigin = null;
+let veilleurStat = 'FOR';
+
+function getOriginBonuses(origin) {
+    const bonuses = { ...(originBonuses[origin] || {}) };
+    if (origin === 'origin-veilleur') bonuses[veilleurStat] = 3;
+    return bonuses;
+}
 
 function calculateStats(origin) {
     const s = { ...baseStats };
     if (origin && originBonuses[origin]) {
-        for (const [k, v] of Object.entries(originBonuses[origin])) {
+        for (const [k, v] of Object.entries(getOriginBonuses(origin))) {
             s[k] = (s[k] || 0) + v;
         }
     }
@@ -129,7 +136,7 @@ function updateDisplay(origin) {
     if (!el) return;
 
     if (origin) {
-        const bonuses = originBonuses[origin];
+        const bonuses = getOriginBonuses(origin);
         const parts = Object.entries(bonuses).map(([k, v]) => `${k} ${v >= 0 ? '+' : ''}${v}`);
         el.innerHTML =
             `<strong>Origine sélectionnée :</strong> ${originNames[origin]}<br>
@@ -144,6 +151,15 @@ function updateDisplay(origin) {
 // ─── INIT ────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
     const originKeys = Object.keys(originBonuses);
+
+    const martialChoice = document.getElementById('veilleur-stat');
+    if (martialChoice) {
+        martialChoice.addEventListener('click', event => event.stopPropagation());
+        martialChoice.addEventListener('change', () => {
+            veilleurStat = martialChoice.value === 'DEX' ? 'DEX' : 'FOR';
+            updateChart('origin-veilleur');
+        });
+    }
 
     document.querySelectorAll('.origin-card').forEach(card => {
         card.addEventListener('click', () => {

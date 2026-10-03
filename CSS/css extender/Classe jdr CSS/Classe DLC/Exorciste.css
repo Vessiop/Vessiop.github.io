@@ -887,6 +887,24 @@ body {
     max-height: 400px;
 }
 
+#veilleur-stat {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    margin-top: 8px;
+    padding: 8px 10px;
+    color: var(--silver);
+    background: #1a1a1f;
+    border: 1px solid var(--silver);
+    border-radius: 4px;
+    font: inherit;
+}
+
+#veilleur-stat:focus-visible {
+    outline: 2px solid var(--silver);
+    outline-offset: 2px;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .hero-section {

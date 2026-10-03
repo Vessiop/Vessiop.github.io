@@ -18,7 +18,7 @@ const petaleBonuses = {
     'petale-2': { INT: 3, PER: 6 }, // Llanura: PER passe de -3 à +3
     'petale-3': { PER: 7, CST: 5 }, // Schiusa: PER passe de -3 à +4, CST passe de -2 à +3
     'petale-4': { SAG: 4, CST: 4 }, // Accordo: SAG +4, CST passe de -2 à +2
-    'petale-5': { SAG: 3, PER: 5 }  // Madre-Botánica: SAG +3, PER passe de -3 à +2
+    'petale-5': { SAG: 4, INT: 2 }  // Madre-Botánica: SAG +4, INT +2
 };
 
 // Noms des Pétales pour l'affichage

@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acolyte d'Azverith - Termion</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="../../../CSS/css extender/Classe jdr CSS/Classe spécial css/acolyteazth.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"
+            defer></script>
+
+    <script src="../../../Java/Classe/Classe spécial js/acolyteazth.js"
+            defer></script>
+</head>
+
+<body class="azverith-page">
+
+    <!-- =========================================================
+         DÉCOR D'ARRIÈRE-PLAN
+    ========================================================== -->
+
+    <div class="ritual-background" aria-hidden="true">
+
+        <div class="blood-moon"></div>
+
+        <div class="sanctum-ring ring-one"></div>
+        <div class="sanctum-ring ring-two"></div>
+
+        <div class="ritual-particles" id="ritual-particles"></div>
+
+        <div class="vignette"></div>
+
+    </div>
+
+
+    <!-- =========================================================
+         RETOUR
+    ========================================================== -->
+
+    <a href="../ClasseGlo.html" class="back-button">
+        ← Retour aux classes
+    </a>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <header class="hero-section reveal-section">
+
+        <div class="hero-image-panel">
+
+            <div class="relic-frame">
+
+                <span class="corner corner-tl"></span>
+                <span class="corner corner-tr"></span>
+                <span class="corner corner-bl"></span>
+                <span class="corner corner-br"></span>
+
+                <div class="image-halo"></div>
+
+                <img
+                    src="../../../Image/Acolyte Azverith.png"
+                    alt="Acolyte d’Azverith portant un sceau de sang dans le dos et des bandelettes rituelles"
+                    width="896"
+                    height="1344"
+                    fetchpriority="high"
+                >
+
+            </div>
+
+            <div class="relic-caption">
+                ✦ Icône du Sang Véridique ✦
+            </div>
+
+        </div>
+
+
+        <div class="hero-content">
+
+            <p class="class-affiliation">
+                Ordre sacré • Culte d’Azverith
+            </p>
+
+            <h1 class="class-title">
+                Acolyte d’Azverith
+            </h1>
+
+            <div class="title-seal" aria-hidden="true">
+                <span>AZ</span>
+            </div>
+
+            <p class="class-quote">
+                « Le sang ne ment pas. Il se souvient. Il accuse. Il révèle. »
+            </p>
+
+            <p class="class-type">
+                Magique sacré &amp; physique —
+                Hématurgie, sacrifice, soutien, enquête et vérité.
+            </p>
+
+            <div class="hero-disciplines">
+
+                <span>Hématurgie</span>
+
+                <span>Pénitence</span>
+
+                <span>Vérité</span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <nav class="class-nav" aria-label="Sections de la fiche">
+
+        <a href="#presentation">Présentation</a>
+
+        <a href="#statistiques">Statistiques</a>
+
+        <a href="#talents">Talents</a>
+
+        <a href="#passif">Passif</a>
+
+        <a href="#origines">Origines</a>
+
+        <a href="#connaissances">Connaissances</a>
+
+        <a href="#equipement">Équipement</a>
+
+        <a href="#competences">Compétences</a>
+
+    </nav>
+
+
+    <!-- =========================================================
+         CONTENU
+    ========================================================== -->
+
+    <main class="container">
+
+
+        <!-- =====================================================
+             DESCRIPTION
+        ====================================================== -->
+
+        <section
+            class="section scripture-section reveal-section"
+            id="presentation"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-glyph">
+                    ☩
+                </span>
+
+                <div>
+
+                    <p class="eyebrow">
+                        Livre I — Doctrine
+                    </p>
+
+                    <h2>
+                        Description / Présentation
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-box sacred-text">
+
+                <p>
+                    L’Acolyte d’Azverith n’est pas simplement un mage du sang.
+                    Il appartient à une tradition plus ancienne, plus
+                    dérangeante, selon laquelle le sang est à la fois mémoire,
+                    preuve, dette et vérité vivante.
+                    Là où d’autres interrogent les mots, lui interroge les
+                    pulsations, les résidus hématiques, les contractions
+                    involontaires de la chair et les réactions profondes du
+                    vivant.
+                    Le mensonge peut naître dans la bouche ; il meurt souvent
+                    dans le sang.
+                </p>
+
+                <p>
+                    Disciple du primordial Azverith, entité ancienne liée à la
+                    vérité biologique, à la blessure, aux pactes de chair et à
+                    l’aveu arraché au vivant, l’Acolyte accepte une loi simple :
+                    pour comprendre le sang, il faut parfois lui offrir le sien.
+                    Il se mutile avec méthode, non par folie gratuite, mais parce
+                    qu’il sait que la douleur ouvre certaines portes intérieures
+                    que ni la prière douce ni l’étude froide ne suffisent à
+                    franchir.
+                </p>
+
+                <p>
+                    Cette classe mélange les rôles de pénitent de première ligne,
+                    soutien de crise et enquêteur occulte.
+                    Elle peut combattre au fléau, renforcer ses facultés par le
+                    sacrifice, protéger un allié, lire les traces laissées dans
+                    le sang, stabiliser une plaie, poursuivre une piste hématique
+                    et mettre à l’épreuve les mensonges à travers l’ichor.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             STATISTIQUES
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="statistiques"
+            data-base-stats='{"FOR":0,"CST":2,"DEX":-2,"INT":1,"SAG":4,"PER":2,"CHA":-3}'
+        >
+
+            <div class="section-heading">
+
+                <span class="section-glyph">
+                    ✥
+                </span>
+
+                <div>
+
+                    <p class="eyebrow">
+                        Livre II — Chair &amp; Esprit
+                    </p>
+
+                    <h2>
+                        Statistiques de base
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+
+                <!-- PV PM PE -->
+
+                <article class="stat-category stat-vitals">
+
+                    <h3>
+                        Base PV / PM / PE
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            <strong>PV :</strong>
+                            1d14
+                        </li>
+
+                        <li>
+                            <strong>PM :</strong>
+                            1d14
+                        </li>
+
+                        <li>
+                            <strong>PE :</strong>
+                            1d12
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <!-- CARACTÉRISTIQUES -->
+
+                <article class="stat-category">
+
+                    <h3>
+                        Bonus &amp; malus
+                    </h3>
+
+                    <div class="bonus-grid">
+
+                        <span class="stat-item neutral" data-stat="FOR">
+                            FOR : 0
+                        </span>
+
+                        <span class="stat-item positive" data-stat="CST">
+                            CST : +2
+                        </span>
+
+                        <span class="stat-item negative" data-stat="DEX">
+                            DEX : -2
+                        </span>
+
+                        <span class="stat-item positive" data-stat="INT">
+                            INT : +1
+                        </span>
+
+                        <span class="stat-item positive" data-stat="SAG">
+                            SAG : +4
+                        </span>
+
+                        <span class="stat-item positive" data-stat="PER">
+                            PER : +2
+                        </span>
+
+                        <span class="stat-item negative" data-stat="CHA">
+                            CHA : -3
+                        </span>
+
+                    </div>
+
+
+                    <ul class="resistance-list">
+
+                        <li>
+                            <strong>RM :</strong>
+                            30 + 2d6
+                        </li>
+
+                        <li>
+                            <strong>Réactivité :</strong>
+                            +2
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <!-- TRAITS -->
+
+                <article class="stat-category">
+
+                    <h3>
+                        Traits spécifiques
+                    </h3>
+
+                    <div class="traits-grid">
+
+                        <span>Résilience : 2</span>
+
+                        <span>Instinct : 1</span>
+
+                        <span>Finesse : 1</span>
+
+                        <span>Savoir : 2</span>
+
+                        <span>Social : 1</span>
+
+                        <span>Puissance : 1</span>
+
+                        <span>Métier : 1</span>
+
+                        <span>Sang-froid : 2</span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- RADAR -->
+
+                <article class="stat-category chart-container">
+
+                    <h3>
+                        Graphique des caractéristiques
+                    </h3>
+
+                    <div class="chart-wrapper">
+
+                        <div
+                            class="chart-seal"
+                            aria-hidden="true"
+                        ></div>
+
+                        <canvas
+                            id="statsChart"
+                            role="img"
+                            aria-label="Graphique des caractéristiques de l’Acolyte d’Azverith"
+                        ></canvas>
+
+                        <p
+                            id="chart-fallback"
+                            class="chart-fallback"
+                            hidden
+                        >
+                            Graphique indisponible.
+                            Les caractéristiques figurent ci-dessus.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TALENTS
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="talents"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-glyph">
+                    ♰
+                </span>
+
+                <div>
+
+                    <p class="eyebrow">
+                        Livre III — Grâces
+                    </p>
+
+                    <h2>
+                        Talents de classe
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="talent-stack">
+
+
+                <article class="talent-card">
+
+                    <span class="talent-number">
+                        I
+                    </span>
+
+                    <h3>
+                        Grâce de la Chair Pénitente
+                    </h3>
+
+                    <p>
+                        Le Sang d’Azverith a marqué le corps de l’Acolyte,
+                        habitué aux blessures et aux rites sanguins.
+                        Tant qu’il ne porte
+                        <strong>aucune armure véritable</strong>,
+                        il possède une
+                        <strong>
+                            résistance aux dégâts physiques de 10 %
+                        </strong>.
+                    </p>
+
+                    <p>
+                        Il possède également une
+                        <strong>
+                            résistance à la Magie de Sang de 20 %
+                        </strong>
+                        et effectue ses jets de résistance contre
+                        <strong>Saignement en Avantage</strong>.
+
+                        Les robes rituelles, bandages sacrés et protections
+                        purement symboliques ne sont pas des armures.
+                    </p>
+
+                </article>
+
+
+                <article class="talent-card">
+
+                    <span class="talent-number">
+                        II
+                    </span>
+
+                    <h3>
+                        Maîtrise mineure — Hématurgie d’Azverith
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Magie d’Hématurgie d’Azverith +2 — Sagesse.
+                        </strong>
+
+                        Sert à lancer les Facultés d’Azverith et à examiner
+                        directement une présence ou une trace de sang :
+                        fraîcheur, altération manifeste, nature hématique
+                        inhabituelle, influence magique, rémanence ou piste
+                        suffisamment présente.
+                    </p>
+
+                    <p>
+                        Cette analyse ne révèle pas automatiquement l’identité
+                        complète d’une créature, ses souvenirs ou tous les
+                        événements auxquels le sang a été exposé.
+                    </p>
+
+                </article>
+
+
+                <article class="talent-card">
+
+                    <span class="talent-number">
+                        III
+                    </span>
+
+                    <h3>
+                        Œil de la Vérité Rouge — Mineur
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Lecture du Mensonge +2 — Sagesse.
+                        </strong>
+
+                        Examine les mensonges verbaux, contradictions,
+                        omissions volontaires, comportements incohérents,
+                        faux-semblants et illusions dont les réactions
+                        contredisent ce qui est observable.
+                    </p>
+
+                    <p>
+                        Ce talent ne révèle jamais automatiquement la vérité
+                        exacte : il permet de comprendre qu’une parole, une
+                        situation ou une apparence mérite d’être remise en
+                        question.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PASSIF
+        ====================================================== -->
+
+        <section
+            class="section passif-section reveal-section"
+            id="passif"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-glyph">
+                    ◉
+                </span>
+
+                <div>
+
+                    <p class="eyebrow">
+                        Livre IV — Révélation
+                    </p>
+
+                    <h2>
+                        Passif — Éveil du Sang Véritable
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- RELIQUAIRE -->
+
+            <div
+                class="blood-reliquary"
+                id="blood-reliquary"
+                data-threshold="3"
+                data-blood-gauge
+                aria-label="Reliquaire symbolique du Sang Véritable"
+            >
+
+                <div class="reliquary-core">
+
+                    <div class="blood-drop">
+                        SV
+                    </div>
+
+                    <div class="reliquary-rings">
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="threshold-track">
+
+                    <span class="threshold-node blood-gauge-segment active">
+                        1
+                    </span>
+
+                    <span class="threshold-line active"></span>
+
+                    <span class="threshold-node blood-gauge-segment active">
+                        2
+                    </span>
+
+                    <span class="threshold-line active"></span>
+
+                    <span class="threshold-node blood-gauge-segment revealed">
+                        3
+                    </span>
+
+                    <span class="threshold-line"></span>
+
+                    <span class="threshold-node">
+                        +
+                    </span>
+
+                </div>
+
+
+                <p>
+                    <strong>
+                        Seuil du Sang Révélé : 3 S.V
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <p>
+                    <strong>
+                        Sang Véritable — S.V
+                    </strong>
+                </p>
+
+                <p>
+                    Réserve maximale :
+                    <strong>
+                        Modificateur de SAG + 4
+                    </strong>.
+                </p>
+
+            </div>
+
+
+            <div class="passif-grid">
+
+
+                <article>
+
+                    <h3>
+                        Gain de Sang Véritable
+                    </h3>
+
+                    <p>
+                        En combat, le lanceur gagne
+                        <strong>
+                            1 S.V maximum par tour
+                        </strong>
+                        s’il perd volontairement des PV à cause d’une Faculté
+                        d’Azverith, ou si une Faculté d’Azverith qu’il utilise
+                        applique ou active Saignement sur une créature.
+                    </p>
+
+                    <p>
+                        Plusieurs événements dans le même tour ne fournissent
+                        normalement qu’1 S.V.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <h3>
+                        Rite et repos
+                    </h3>
+
+                    <p>
+                        Hors combat, blesser volontairement une créature ou
+                        soi-même ne génère pas librement de S.V.
+
+                        Seuls les rites, Facultés et talents qui le précisent
+                        le permettent.
+                    </p>
+
+                    <p>
+                        À l’issue d’un
+                        <strong>
+                            Repos cérémoniel consacré à Azverith
+                        </strong>,
+                        le lanceur récupère
+                        <strong>1d4 S.V</strong>.
+                    </p>
+
+                </article>
+
+
+                <article class="revealed-card">
+
+                    <h3>
+                        Sang Révélé
+                    </h3>
+
+                    <p>
+                        À partir de
+                        <strong>3 S.V</strong>,
+                        le lanceur entre automatiquement en Sang Révélé.
+                    </p>
+
+                    <p>
+                        Il peut alors bénéficier des
+                        <strong>
+                            Effets Véritables
+                        </strong>
+                        de ses Facultés lorsque leurs conditions sont remplies.
+                    </p>
+
+                    <p>
+                        Entrer en Sang Révélé ne consomme pas de S.V.
+                        L’état prend immédiatement fin si la réserve descend
+                        sous son seuil.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ORIGINES
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="origines"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-glyph">
+                    ✠
+                </span>
+
+                <div>
+
+                    <p class="eyebrow">
+                        Livre V — Confréries
+                    </p>
+
+                    <h2>
+                        Origines d’Azverith — 1 au choix
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="selection-bar">
+
+                <p
+                    id="current-origin-display"
+                    aria-live="polite"
+                >
+                    <strong>
+                        Caractéristiques de base
+                    </strong>
+                </p>
+
+                <button
+                    type="button"
+                    data-reset-origin
+                >
+                    Réinitialiser
+                </button>
+
+            </div>
+
+
+            <div class="origin-grid">
+
+
+                <!-- =================================================
+                     BLACKBLOOD
+                ================================================== -->
+
+                <article
+                    class="origin-card blackblood"
+                    data-origin-name="The Blackblood Judgment"
+                    data-bonuses='{"CHA":5,"INT":2}'
+                >
+
+                    <div class="origin-emblem">
+                        ⚖
+                    </div>
+
+                    <p class="origin-order">
+                        Ordre du Jugement Noir
+                    </p>
+
+                    <h3>
+                        The Blackblood Judgment
+                    </h3>
+
+
+                    <p>
+                        Dans un passé trouble, la vérité fut perdue, étouffée et
+                        déformée.
+                        Les Blackblood Judgment sont une faction du nouveau
+                        culte d’Azverith, guidée par
+                        « La vérité, et rien que la vérité ».
+                    </p>
+
+                    <p>
+                        Ils traquent les mensonges, les crimes cachés et les
+                        vérités volontairement enterrées.
+                    </p>
+
+                    <p>
+                        Surveillés, encadrés et parfois employés par les
+                        instances juridiques, ils deviennent l’œil ensanglanté
+                        de la justice lorsque les tribunaux échouent, que les
+                        témoins se taisent ou que les preuves ont disparu.
+                    </p>
+
+
+                    <div class="origin-subsection">
+
+                        <h4>
+                            Nuance du Faux-Sang
+                        </h4>
+
+                        <p>
+                            <strong>
+                                1 fois par scène et par créature — 1 S.V.
+                            </strong>
+
+                            Lorsqu’une créature fournit une réponse importante,
+                            le lanceur en ressent la nuance :
+                            <strong>rougeâtre</strong>
+                            si elle paraît sincère ou véridique,
+                            <strong>bleutée</strong>
+                            si elle paraît volontairement fausse,
+                            <strong>violette</strong>
+                            si elle mêle vérité, mensonge, omission ou ambiguïté.
+                        </p>
+
+                        <p>
+                            Ne révèle jamais la véritable réponse.
+                        </p>
+
+                    </div>
+
+
+                    <div class="origin-subsection">
+
+                        <h4>
+                            Talent au choix
+                        </h4>
+
+                        <p>
+                            <strong>
+                                Jugement du Sang Noir :
+                            </strong>
+
+                            jets de Savoir liés au droit, aux procédures
+                            judiciaires, enquêtes officielles, crimes, procès et
+                            institutions juridiques en
+                            <strong>Avantage</strong>.
+
+                            Lorsque le cadre juridique est pertinent dans
+                            l’interaction,
+                            <strong>
+                                +2 aux jets de Social.
+                            </strong>
+                        </p>
+
+                        <p>
+                            <strong>
+                                OU Aveu Forcé du Sang :
+                            </strong>
+
+                            <strong>
+                                1 fois par jour — 3 S.V.
+                            </strong>
+
+                            La cible effectue un
+                            <strong>jet de RM</strong>.
+
+                            En cas d’échec, elle laisse échapper une vérité
+                            précise liée à la question, au crime, à la faute ou
+                            à la situation visée.
+                        </p>
+
+                        <p>
+                            Ce n’est ni une révélation de tous ses secrets ni une
+                            lecture complète de ses pensées.
+                        </p>
+
+                    </div>
+
+
+                    <div class="gains">
+
+                        <p>
+                            <strong>
+                                Caractéristiques :
+                            </strong>
+
+                            CHA de -3 à +2 ; INT +2.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Trait :
+                            </strong>
+
+                            +1 au choix :
+                            Savoir, Social ou Sang-froid.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="origin-select"
+                        type="button"
+                        data-select-origin
+                        aria-pressed="false"
+                    >
+                        Consacrer cette origine
+                    </button>
+
+                </article>
+
+
+                <!-- =================================================
+                     TRUTHBORNBLOOD
+                ================================================== -->
+
+                <article
+                    class="origin-card truthborn"
+                    data-origin-name="The Truthbornblood"
+                    data-bonuses='{"CST":3,"PER":2}'
+                >
+
+                    <div class="origin-emblem">
+                        👁
+                    </div>
+
+                    <p class="origin-order">
+                        Ordre du Sang Prophétique
+                    </p>
+
+                    <h3>
+                        The Truthbornblood
+                    </h3>
+
+
+                    <p>
+                        Les Hauts Prêtres Sanguinaires évoquent ceux dont le
+                        Sang de la Vérité s’est réveillé naturellement.
+                    </p>
+
+                    <p>
+                        Rémanences du futur, révélations d’Azverith ou
+                        intuitions : nul ne sait la véritable origine de leurs
+                        prophéties.
+                    </p>
+
+                    <p>
+                        Les Truthbornbloods portent cette Grâce instinctive.
+                        Traqueurs du mensonge aux sens hématiques développés,
+                        ils poursuivent les ennemis du culte comme ceux qui
+                        cachent la vérité en son sein, aussi longtemps qu’un
+                        véritable lien hématique subsiste.
+                    </p>
+
+
+                    <div class="origin-subsection">
+
+                        <h4>
+                            Bloodthirsty Instinct
+                        </h4>
+
+                        <p>
+                            Pour traquer, suivre ou retrouver une créature
+                            possédant du sang, le lanceur peut utiliser la
+                            <strong>Sagesse</strong>
+                            ou
+                            <strong>
+                                Magie d’Hématurgie d’Azverith
+                            </strong>.
+                        </p>
+
+                        <p>
+                            Une perception sur plusieurs kilomètres exige un
+                            lien clair :
+                            trace sanguine, échantillon, blessure récente connue
+                            ou rémanence particulièrement forte.
+                        </p>
+
+                        <p>
+                            Il obtient une direction, une présence ou une piste,
+                            jamais automatiquement une position exacte.
+
+                            Créatures sans sang, artificielles ou protégées par
+                            une magie adaptée peuvent y échapper.
+                        </p>
+
+                    </div>
+
+
+                    <div class="origin-subsection">
+
+                        <h4>
+                            Talent au choix
+                        </h4>
+
+                        <p>
+                            <strong>
+                                Trace Imagée du Sang :
+                            </strong>
+
+                            <strong>
+                                Actif — 2 S.V.
+                            </strong>
+
+                            À partir d’une véritable trace sanguine, un jet
+                            approprié d’Hématurgie peut fournir une piste, une
+                            direction ou des images fragmentaires.
+                        </p>
+
+                        <p>
+                            La difficulté dépend de l’ancienneté, de la dilution,
+                            de la distance, des obstacles, des protections et de
+                            la dissimulation.
+
+                            Aucune téléportation ni localisation exacte garantie.
+                        </p>
+
+
+                        <p>
+                            <strong>
+                                OU Frisson du Sang Effrayé :
+                            </strong>
+
+                            <strong>
+                                1 S.V — 1 fois par scène et par créature.
+                            </strong>
+
+                            Un jet de Sagesse permet de déterminer si la cible
+                            ressent une peur significative.
+                        </p>
+
+                        <p>
+                            Une réussite particulièrement importante peut révéler
+                            une autre émotion dominante selon le MJ :
+                            colère, honte, panique, culpabilité, excitation ou
+                            doute.
+
+                            Ne lit pas les pensées.
+                        </p>
+
+                    </div>
+
+
+                    <div class="gains">
+
+                        <p>
+                            <strong>
+                                Caractéristiques :
+                            </strong>
+
+                            CST +3 ; PER +2.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Trait :
+                            </strong>
+
+                            +1 au choix :
+                            Instinct, Résilience ou Sang-froid.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="origin-select"
+                        type="button"
+                        data-select-origin
+                        aria-pressed="false"
+                    >
+                        Consacrer cette origine
+                    </button>
+
+                </article>
+
+
+                <!-- =================================================
+                     BLOODMARKED
+                ================================================== -->
+
+                <article
+                    class="origin-card bloodmarked"
+                    data-origin-name="Claire the Bloodmarked"
+                    data-bonuses='{"CST":3,"SAG":2}'
+                >
+
+                    <div class="origin-emblem">
+                        ✢
+                    </div>
+
+                    <p class="origin-order">
+                        Ordre des Pécheurs Marqués
+                    </p>
+
+                    <h3>
+                        Claire the Bloodmarked
+                    </h3>
+
+
+                    <p>
+                        Les Bloodmarked parcourent le monde pour révéler les
+                        vérités cachées, belles ou terribles.
+                    </p>
+
+                    <p>
+                        Au sein du culte, ils portent le titre de Pécheurs :
+                        le rappel des fautes de ceux qui ont autrefois bafoué la
+                        vérité.
+                    </p>
+
+                    <p>
+                        Une marque lourde et douloureuse matérialise leur fardeau
+                        jusqu’à sa délivrance.
+
+                        Leur corps n’est plus entièrement mortel :
+                        un sang ancien traverse leur chair et la souffrance
+                        renforce leur capacité à avancer.
+                    </p>
+
+
+                    <div class="origin-subsection">
+
+                        <h4>
+                            Fardeau du Sang Pécheur
+                        </h4>
+
+                        <p>
+                            La première fois de la journée que le lanceur subit
+                            <strong>Saignement</strong>
+                            ou perd volontairement des PV à cause d’une Faculté
+                            d’Azverith, il récupère
+                            <strong>2 S.V</strong>.
+                        </p>
+
+                        <p>
+                            C’est une exception à la limite normale de génération.
+                        </p>
+
+                        <p>
+                            Tant qu’il possède au moins
+                            <strong>1 S.V</strong>,
+                            ses jets de
+                            <strong>
+                                Résistance à la douleur
+                            </strong>
+                            sont en
+                            <strong>Avantage</strong>.
+                        </p>
+
+                    </div>
+
+
+                    <div class="origin-subsection">
+
+                        <h4>
+                            Talent au choix
+                        </h4>
+
+                        <p>
+                            <strong>
+                                Respect du Pécheur Marqué :
+                            </strong>
+
+                            <strong>
+                                1 fois par scène
+                            </strong>,
+                            le premier jet social approprié d’une interaction
+                            pertinente avec un culte, un ordre religieux ou une
+                            institution respectant martyrs, pénitents ou porteurs
+                            d’un fardeau sacré est en
+                            <strong>Avantage</strong>.
+                        </p>
+
+                        <p>
+                            Ne s’applique pas si le groupe rejette ouvertement
+                            les Bloodmarked ou est déjà fortement hostile.
+                        </p>
+
+
+                        <p>
+                            <strong>
+                                OU Seuil du Sang Révélé :
+                            </strong>
+
+                            entrée en
+                            <strong>
+                                Sang Révélé dès 2 S.V au lieu de 3.
+                            </strong>
+
+                            Toutes les autres règles demeurent identiques.
+                        </p>
+
+                    </div>
+
+
+                    <div class="gains">
+
+                        <p>
+                            <strong>
+                                Caractéristiques :
+                            </strong>
+
+                            CST +3 ; SAG +2.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Trait :
+                            </strong>
+
+                            +1 au choix :
+                            Résilience, Savoir ou Métier.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="origin-select"
+                        type="button"
+                        data-select-origin
+                        aria-pressed="false"
+                    >
+                        Consacrer cette origine
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONNAISSANCES
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="connaissances"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-glyph">
+                    ☰
+                </span>
+
+                <div>
+
+                    <p class="eyebrow">
+                        Livre VI — Savoirs
+                    </p>
+
+                    <h2>
+                        Connaissances de base
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="knowledge-grid">
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Domaine religieux
+                        <span class="level">
+                            (Moyen)
+                        </span>
+                    </h4>
+
+                    <p>
+                        Rites, symboles, prières, structures religieuses et
+                        cérémonies courantes ; différences entre pratique
+                        spirituelle, autorité et fanatisme.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Culte d’Azverith
+                        <span class="level">
+                            (Modéré)
+                        </span>
+                    </h4>
+
+                    <p>
+                        Fondements de la foi :
+                        sang, Vérité Véritable, mensonge, aveu, pénitence,
+                        rites hématiques, serments et grandes branches du culte.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Hématurgie d’Azverith
+                        <span class="level">
+                            (Modéré)
+                        </span>
+                    </h4>
+
+                    <p>
+                        Principes de la magie sacrée du sang, conservation
+                        d’informations et d’altérations, sacrifices et
+                        canalisation de la souffrance.
+
+                        Les Facultés s’apprennent séparément.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Physiologie et Sang
+                        <span class="level">
+                            (Modéré)
+                        </span>
+                    </h4>
+
+                    <p>
+                        Circulation, hémorragies, plaies et réactions corporelles
+                        visibles ; reconnaître les anomalies et stabiliser
+                        temporairement une situation critique sans remplacer une
+                        expertise médicale.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <h3 class="subsection-title">
+                Connaissances selon l’origine
+            </h3>
+
+
+            <div class="knowledge-grid origin-knowledge">
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Blackblood Judgment
+                    </h4>
+
+                    <p>
+                        <strong>
+                            Domaine juridique (Modéré) :
+                        </strong>
+
+                        lois, enquêtes, témoignages, procès, preuves et
+                        procédures.
+                    </p>
+
+                    <p>
+                        <strong>
+                            Domaine criminel (Modéré) :
+                        </strong>
+
+                        dissimulation, fausses pistes, scènes modifiées et
+                        pratiques des criminels, receleurs et intermédiaires.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Truthbornblood
+                    </h4>
+
+                    <p>
+                        <strong>
+                            Domaine de la chasse (Modéré) :
+                        </strong>
+
+                        pistage, poursuite, traces de fuite et anticipation des
+                        déplacements.
+                    </p>
+
+                    <p>
+                        <strong>
+                            Domaine maudit (Modéré) :
+                        </strong>
+
+                        signes de malédiction, corruption et altération
+                        surnaturelle.
+                    </p>
+
+                </article>
+
+
+                <article class="knowledge-item">
+
+                    <h4>
+                        Claire the Bloodmarked
+                    </h4>
+
+                    <p>
+                        <strong>
+                            Mythes et Légendes (Modéré) :
+                        </strong>
+
+                        récits anciens, fautes du passé et traditions permettant
+                        de rechercher une vérité historique.
+                    </p>
+
+                    <p>
+                        <strong>
+                            Cultes (Modéré) :
+                        </strong>
+
+                        doctrines, symboles, principales pratiques et comparaison
+                        entre traditions religieuses.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CLASSE D'ARME
+        ====================================================== -->
+
+        <section
+            class="section reveal-section weapon-section"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-glyph">
+                    ⚔
+                </span>
+
+                <div>
+
+                    <p class="eyebrow">
+                        Livre VII — Arme rituelle
+                    </p>
+
+                    <h2>
+                        Classe d’Arme
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="weapon-relic">
+
+                <span>
+                    ☩
+                </span>
+
+                <p>
+                    <strong>
+                        +1 Classe d’Arme : Fléau.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ÉQUIPEMENT
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="equipement"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-glyph">
+                    ⌘
+                </span>
+
+                <div>
+
+                    <p class="eyebrow">
+                        Livre VIII — Reliques
+                    </p>
+
+                    <h2>
+                        Équipement de départ
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="equipment-grid">
+
+
+                <article class="equipment-item">
+
+                    <span class="equipment-icon">
+                        ♰
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Robe du culte d’Azverith
+                        </h4>
+
+                        <p>
+                            Habit rituel de l’Acolyte.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="equipment-item">
+
+                    <span class="equipment-icon">
+                        ◉
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Catalyseur d’Azverith
+                        </h4>
+
+                        <p>
+                            Outil rituel principal pour conduire ou stabiliser
+                            certaines manifestations de l’Hématurgie.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="equipment-item">
+
+                    <span class="equipment-icon">
+                        ⚔
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Fléau pénitentiel
+                        </h4>
+
+                        <p>
+                            Arme rituelle et martiale.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="equipment-item">
+
+                    <span class="equipment-icon">
+                        ✚
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            2 Potions de Vie
+                        </h4>
+
+                        <p>
+                            Équipement de départ.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="equipment-item">
+
+                    <span class="equipment-icon">
+                        ✦
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            1 Potion de Magie
+                        </h4>
+
+                        <p>
+                            Équipement de départ.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMPÉTENCES
+        ====================================================== -->
+
+        <section
+            class="section reveal-section"
+            id="competences"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-glyph">
+                    ✧
+                </span>
+
+                <div>
+
+                    <p class="eyebrow">
+                        Livre IX — Pratiques
+                    </p>
+
+                    <h2>
+                        Compétences proposées
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="subsection-title">
+                Compétences de caractéristique
+            </h3>
+
+
+            <div class="table-scroll">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Compétence
+                            </th>
+
+                            <th>
+                                Base
+                            </th>
+
+                            <th>
+                                Description
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Magie d’Hématurgie d’Azverith
+                            </td>
+
+                            <td>
+                                SAG
+                            </td>
+
+                            <td>
+                                Lancer les Facultés, canaliser le sang et
+                                effectuer certaines analyses hématiques.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Fléau
+                            </td>
+
+                            <td>
+                                FOR
+                            </td>
+
+                            <td>
+                                Manier le fléau pénitentiel, contrôler la
+                                distance et exploiter ses mouvements.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Analyse physiologique
+                            </td>
+
+                            <td>
+                                INT / PER
+                            </td>
+
+                            <td>
+                                Examiner une plaie, une perte de sang, un poison
+                                ou une altération observable.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Prière d’Azverith
+                            </td>
+
+                            <td>
+                                SAG
+                            </td>
+
+                            <td>
+                                Accomplir les rites, invocations, prières et
+                                cérémonies du culte.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Réactif
+                            </td>
+
+                            <td>
+                                Réactivité
+                            </td>
+
+                            <td>
+                                Répondre à une douleur, une ouverture, une menace
+                                ou une situation critique.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <h3 class="subsection-title">
+                Compétences de trait spécifique
+            </h3>
+
+
+            <div class="table-scroll">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Compétence
+                            </th>
+
+                            <th>
+                                Trait
+                            </th>
+
+                            <th>
+                                Description
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Résistance à la douleur
+                            </td>
+
+                            <td>
+                                Résilience
+                            </td>
+
+                            <td>
+                                Continuer à agir et conserver sa lucidité malgré
+                                la douleur ou un traumatisme.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Suture manuelle
+                            </td>
+
+                            <td>
+                                Métier
+                            </td>
+
+                            <td>
+                                Colmater, bander et stabiliser temporairement une
+                                plaie.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Instinct d’hémorragie
+                            </td>
+
+                            <td>
+                                Instinct
+                            </td>
+
+                            <td>
+                                Ressentir qu’une blessure ou une perte de sang
+                                risque de devenir critique.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Parole d’aveu
+                            </td>
+
+                            <td>
+                                Social
+                            </td>
+
+                            <td>
+                                Amener quelqu’un à parler, reconnaître une
+                                contradiction ou révéler quelque chose.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-seal">
+            AZVERITH
+        </div>
+
+        <p>
+            © 2024 Termion — Tous droits réservés
+        </p>
+
+    </footer>
+
+</body>
+</html>

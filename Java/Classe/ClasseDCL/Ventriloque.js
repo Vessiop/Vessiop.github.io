@@ -3,11 +3,11 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 
 // Données de base du Ventriloque (échelle de -4 à +6)
 const baseStats = {
-    FOR: -3,
-    CST: -2,
-    DEX: 3,
+    FOR: -4,
+    CST: -3,
+    DEX: 4,
     INT: 3,
-    SAG: -3,
+    SAG: -4,
     PER: 3,
     CHA: -3
 };
@@ -76,7 +76,7 @@ const statsChart = new Chart(ctx, {
         scales: {
             r: {
                 min: 0,
-                max: 10,
+                max: 12,
                 backgroundColor: 'rgba(15, 25, 18, 0.3)',
                 ticks: {
                     stepSize: 2,

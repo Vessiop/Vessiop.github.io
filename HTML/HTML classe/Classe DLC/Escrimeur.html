@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Escrimeur.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="steel-overlay"></div>
@@ -62,13 +63,13 @@
                         <span class="stat-item positive">CST : +2</span>
                         <span class="stat-item positive highlight">DEX : +2</span>
                         <span class="stat-item negative">INT : −2</span>
-                        <span class="stat-item positive">SAG : +1</span>
-                        <span class="stat-item positive highlight">PER : +3</span>
+                        <span class="stat-item negative">SAG : −2</span>
+                        <span class="stat-item positive highlight">PER : +2</span>
                         <span class="stat-item negative">CHA : −2</span>
                     </div>
                     <ul class="resistance-list">
                         <li><strong>RM :</strong> 20 + 1d6</li>
-                        <li><strong>REA :</strong> +10</li>
+                        <li><strong>REA :</strong> <span id="rea-value">+10</span></li>
                     </ul>
                 </div>
 
@@ -171,6 +172,11 @@
                     <div class="subsection">
                         <h4>📊 Gains</h4>
                         <p><strong>PER +3 • DEX ou FOR +2</strong></p>
+                        <fieldset class="origin-stat-choice">
+                            <legend>Caractéristique de combat +2</legend>
+                            <label><input type="radio" name="origin-loup-stat" value="DEX" data-origin-choice="origin-loup" checked> Dextérité</label>
+                            <label><input type="radio" name="origin-loup-stat" value="FOR" data-origin-choice="origin-loup"> Force</label>
+                        </fieldset>
                         <p><strong>Trait spécifique :</strong> +1 Instinct ou Finesse</p>
                     </div>
                 </div>
@@ -212,6 +218,11 @@
                     <div class="subsection">
                         <h4>📊 Gains</h4>
                         <p><strong>CST +3 • DEX ou FOR +2</strong></p>
+                        <fieldset class="origin-stat-choice">
+                            <legend>Caractéristique de combat +2</legend>
+                            <label><input type="radio" name="origin-aurochs-stat" value="DEX" data-origin-choice="origin-aurochs" checked> Dextérité</label>
+                            <label><input type="radio" name="origin-aurochs-stat" value="FOR" data-origin-choice="origin-aurochs"> Force</label>
+                        </fieldset>
                         <p><strong>Trait spécifique :</strong> +1 Instinct ou Résilience</p>
                     </div>
                 </div>
@@ -295,6 +306,11 @@
                     <div class="subsection">
                         <h4>📊 Gains</h4>
                         <p><strong>PER +3 • DEX ou FOR +2</strong></p>
+                        <fieldset class="origin-stat-choice">
+                            <legend>Caractéristique de combat +2</legend>
+                            <label><input type="radio" name="origin-coyote-stat" value="DEX" data-origin-choice="origin-coyote" checked> Dextérité</label>
+                            <label><input type="radio" name="origin-coyote-stat" value="FOR" data-origin-choice="origin-coyote"> Force</label>
+                        </fieldset>
                         <p><strong>Trait spécifique :</strong> +1 Instinct ou Sang-froid</p>
                     </div>
                 </div>
@@ -365,7 +381,7 @@
                         <p>Le lanceur adopte un calme tranchant et "offre" volontairement une ouverture contrôlée, prêt à punir la moindre frappe.</p>
                         <p><strong>Effet :</strong> Lorsqu'il subit une attaque physique individuelle (mêlée ou distance) et que cette attaque le touche, le lanceur peut activer cette réaction pour réduire les dégâts subis de 10 %, puis effectuer immédiatement une riposte : 1 attaque simple avec son arme en main contre l'assaillant (si à portée). La puissance si le coût est réussi sera augmentée de 10 % (Max 25 % non dépassable via amélioration).</p>
                         <p><strong>Limites :</strong> 1 fois par tour. Ne s'active pas si le lanceur est Surpris, Incapacitated, ou si l'attaque reçue est une zone/AoE. La riposte est une attaque simple uniquement (pas une capacité).</p>
-                        <p><strong>Coûts :</strong> 20 PE (activation)</p>
+                        <p><strong>Coûts :</strong> 8 PE (activation)</p>
                     </div>
 
                     <div class="subsection">

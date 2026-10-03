@@ -9,16 +9,16 @@ const baseStats = {
     INT: -3,
     SAG: -1,
     PER: 1,
-    CHA: -1
+    CHA: -3
 };
 
 // Bonus des milieux de vie
 const milieuBonuses = {
-    'rues': { PER: 2, DEX: 1 },
-    'gladiateur': { CST: 2, CHA: 1 },
-    'guerrier': { FOR: 2, CST: 1 },
-    'casseur': { CHA: 2, DEX: 1 },
-    'terres': { SAG: 4, DEX: 1 }
+    'rues': { PER: 2, DEX: 3 },
+    'gladiateur': { CST: 2, CHA: 5 },
+    'guerrier': { FOR: 3, CST: 2 },
+    'casseur': { CHA: 5, FOR: 2 },
+    'terres': { SAG: 4, DEX: 2 }
 };
 
 // Noms des milieux pour l'affichage
@@ -31,12 +31,17 @@ const milieuNames = {
 };
 
 let currentMilieu = null;
+function getMilieuBonuses(milieu) {
+    if (milieu === 'guerrier') return { [document.getElementById('guerrier-stat').value]: 3, CST: 2 };
+    if (milieu === 'casseur') return { CHA: 5, [document.getElementById('casseur-stat').value]: 2 };
+    return milieuBonuses[milieu] || {};
+}
 
 // Fonction pour calculer les stats avec bonus
 function calculateStats(milieu) {
     const stats = { ...baseStats };
     if (milieu && milieuBonuses[milieu]) {
-        const bonuses = milieuBonuses[milieu];
+        const bonuses = getMilieuBonuses(milieu);
         for (let stat in bonuses) {
             stats[stat] += bonuses[stat];
         }
@@ -158,7 +163,7 @@ function updateStatsDisplay(milieu) {
 
     if (milieu) {
         const stats = calculateStats(milieu);
-        const bonuses = milieuBonuses[milieu];
+        const bonuses = getMilieuBonuses(milieu);
         let bonusText = '';
         
         for (let stat in bonuses) {
@@ -178,6 +183,11 @@ function updateStatsDisplay(milieu) {
 
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
+    ['guerrier-stat', 'casseur-stat'].forEach(id => {
+        const select = document.getElementById(id);
+        select.addEventListener('click', event => event.stopPropagation());
+        select.addEventListener('change', () => updateChart(id === 'guerrier-stat' ? 'guerrier' : 'casseur'));
+    });
     const milieuCards = document.querySelectorAll('.milieu-card');
     
     // Ajouter les événements de clic sur les cartes de milieu

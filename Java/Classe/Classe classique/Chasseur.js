@@ -15,19 +15,27 @@ const baseStats = {
 // Bonus des terrains de chasse
 const terrainBonuses = {
     'terres-hostiles': { PER: 2, CST: 2 },
-    'artisan-lisieres': { PER: 2, INT: 5 }, // INT passe de -2 à +3
+    'artisan-lisieres': { PER: 2, INT: 5 },
     'pacte-gris': { PER: 2, DEX: 3 },
-    'traqueur-contrats': { PER: 2, CHA: 6 }, // CHA passe de -3 à +3
-    'traqueur-anomalies': { PER: 2, CST: 3 }
+    'traqueur-contrats': { PER: 2, CHA: 6 },
+    'traqueur-anomalies': { PER: 2, DEX: 3 }
 };
 
 // Noms des terrains pour l'affichage
 const terrainNames = {
-    'terres-hostiles': 'Arpenteur des Terres Hostiles',
-    'artisan-lisieres': 'Artisan des Lisières',
-    'pacte-gris': 'Pisteur du Pacte Gris',
-    'traqueur-contrats': 'Traqueur de Contrats',
-    'traqueur-anomalies': 'Traqueur d\'Anomalies'
+    "terres-hostiles": "Arpenteur des Terres Hostiles",
+    "artisan-lisieres": "Artisan des Lisières",
+    "pacte-gris": "Pisteur du Pacte Gris",
+    "traqueur-contrats": "Traqueur de Contrats",
+    "traqueur-anomalies": "Héritier du Fléau"
+};
+
+const terrainDetails = {
+    "terres-hostiles": "Sens du Biome ; Déplacement forestier +2 N.A. ; catégorie Animal de traque ; +1 Instinct ou Sang-Froid au choix.",
+    "artisan-lisieres": "Bricoleur naturel +1 ; Ingéniosité de Terrain : 1 fois par scène, difficulté −2 ou efficacité +10 % ; +1 Métier.",
+    "pacte-gris": "Lecture du Pisteur Gris ; 2 Points de Chasse par Repos Long ; Œil du Huron Gris : Puissance optimale contre Monstre/Bête, pas de Multi-attaque ; +1 Savoir ou Instinct au choix.",
+    "traqueur-contrats": "Marchandage +1 ; Œil du Professionnel : 1 fois par scène, +10 au premier jet exploitant l’information ; +1 Social ou Sang-Froid au choix.",
+    "traqueur-anomalies": "Expertise de Chasse : Maudit ; Proie du Fléau : 1 fois par round ; +1 Savoir ou Sang-Froid au choix."
 };
 
 let currentTerrain = null;
@@ -192,20 +200,8 @@ function updateStatsDisplay(terrain) {
             bonusText += `${stat} ${bonuses[stat] >= 0 ? '+' : ''}${bonuses[stat]} `;
         }
         
-        // Ajouter infos spéciales par terrain
-        let extraInfo = '';
-        if (terrain === 'terres-hostiles') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Sens du Biome, Catégorie Animal, +1 Instinct/Sang-froid';
-        } else if (terrain === 'artisan-lisieres') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Bricoleur naturel +1, Mécanique Aiguisée, +1 Métier';
-        } else if (terrain === 'pacte-gris') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Pistage amélioré, Adepte chasse gris (+1d10 initiative), Catégorie Créature mythique';
-        } else if (terrain === 'traqueur-contrats') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Profilage de Cible (Avantage), Catégorie Humanoïde, +1 Social/Sang-froid';
-        } else if (terrain === 'traqueur-anomalies') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Réflexe Chasseur d\'Horreur, Catégorie Monstre, +1 Résilience/Instinct/Puissance';
-        }
-        
+        const extraInfo = '<br><strong>Gains :</strong> ' + terrainDetails[terrain];
+
         displayElement.innerHTML = `
             <strong>Terrain de chasse sélectionné :</strong> ${terrainNames[terrain]}<br>
             <strong>Bonus appliqués :</strong> ${bonusText}${extraInfo}
@@ -227,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.addEventListener('click', function() {
             const terrainClass = Array.from(this.classList).find(cls => 
-                ['terres-hostiles', 'artisan-lisieres', 'pacte-gris', 'traqueur-contrats', 'traqueur-anomalies'].includes(cls)
+                Object.keys(terrainBonuses).includes(cls)
             );
             
             if (terrainClass) {

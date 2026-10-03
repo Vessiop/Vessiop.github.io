@@ -7,8 +7,8 @@ const baseStats = {
     CST: 2,
     DEX: 2,
     INT: -2,
-    SAG: 1,
-    PER: 3,
+    SAG: -2,
+    PER: 2,
     CHA: -2
 };
 
@@ -31,12 +31,27 @@ const originNames = {
     'origin-archeologue': 'Archéologue d\'Armes'
 };
 
+const martialChoices = {
+    'origin-loup': 'DEX',
+    'origin-aurochs': 'DEX',
+    'origin-coyote': 'DEX'
+};
+
+function getOriginBonuses(origin) {
+    const bonus = { ...originBonuses[origin] };
+    if (martialChoices[origin]) {
+        delete bonus.DEX;
+        bonus[martialChoices[origin]] = 2;
+    }
+    return bonus;
+}
+
 let currentOrigin = null;
 
 function calculateStats(origin) {
     const s = { ...baseStats };
     if (origin && originBonuses[origin]) {
-        for (const [k, v] of Object.entries(originBonuses[origin])) {
+        for (const [k, v] of Object.entries(getOriginBonuses(origin))) {
             if (k === 'REA') continue; // REA n'est pas dans le graphique
             s[k] = (s[k] || 0) + v;
         }
@@ -130,11 +145,13 @@ function updateSelection(origin) {
 }
 
 function updateDisplay(origin) {
+    const rea = document.getElementById('rea-value');
+    if (rea) rea.textContent = '+' + (10 + (originBonuses[origin]?.REA || 0));
     const el = document.getElementById('origin-display');
     if (!el) return;
 
     if (origin) {
-        const bonuses = originBonuses[origin];
+        const bonuses = getOriginBonuses(origin);
         const parts = Object.entries(bonuses).map(([k, v]) => `${k} ${v >= 0 ? '+' : ''}${v}`);
         el.innerHTML =
             `<strong>Origine sélectionnée :</strong> ${originNames[origin]}<br>
@@ -149,6 +166,17 @@ function updateDisplay(origin) {
 // ─── INIT ────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
     const originKeys = Object.keys(originBonuses);
+
+    document.querySelectorAll('.origin-stat-choice').forEach(group => {
+        group.addEventListener('click', event => event.stopPropagation());
+    });
+    document.querySelectorAll('[data-origin-choice]').forEach(input => {
+        input.addEventListener('change', () => {
+            const origin = input.dataset.originChoice;
+            martialChoices[origin] = input.value;
+            updateChart(origin);
+        });
+    });
 
     document.querySelectorAll('.origin-card').forEach(card => {
         card.addEventListener('click', () => {

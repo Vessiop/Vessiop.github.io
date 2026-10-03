@@ -3,30 +3,32 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 
 // Stats de base Astrologue
 const baseStats = {
-    FOR: -3,
-    CST: -3,
+    FOR: -2,
+    CST: -2,
     DEX: -1,
     INT: 3,
-    SAG: 3,
+    SAG: 2,
     PER: 2,
     CHA: -1
 };
 
 // Bonus par Origine
 const originBonuses = {
-    'origin-solaire':       { SAG: 4, CHA: 2 },
-    'origin-lunaire':       { SAG: 2, PER: 2, DEX: 2 },
-    'origin-constellation': { SAG: 3, PER: 2, INT: 1 },
-    'origin-gravite':       { INT: 3, CST: 4, PER: 1 },  // CST: -3 → +1
-    'origin-stellaire':     { PER: 3, SAG: 2, DEX: 1 }
+    'origin-solaire':       { SAG: 3, CST: 3 }, // CST -2 -> +1
+    'origin-lunaire':       { SAG: 3, PER: 2 },
+    'origin-stellaire':     { INT: 3, SAG: 2 },
+    'origin-constellation': { SAG: 3, CHA: 2 },
+    'origin-gravite':       { CST: 3, INT: 2 },
+    'origin-makarane':      { FOR: 3, CST: 2 }
 };
 
 const originNames = {
-    'origin-solaire':       'Adepte Solaire',
-    'origin-lunaire':       'Adepte de la Lune',
-    'origin-constellation': 'Adepte des Constellations',
-    'origin-gravite':       'Adepte de la Gravité',
-    'origin-stellaire':     'Adepte Stellaire'
+    'origin-solaire':       'Adepte du Sacre Solaire',
+    'origin-lunaire':       'Adepte du Sacre Lunaire',
+    'origin-stellaire':     'Adepte du Sacre Stellaire',
+    'origin-constellation': 'Adepte du Sacre des Constellations',
+    'origin-gravite':       'Adepte du Sacre Gravitationnel',
+    'origin-makarane':      'Enchanteresse des Sacres de Makarane'
 };
 
 let currentOrigin = null;

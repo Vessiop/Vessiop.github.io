@@ -16,6 +16,24 @@
     --concrete: #7a7a7a;
 }
 
+.milieu-card label {
+    display: grid;
+    gap: 6px;
+    margin: 10px 0;
+}
+
+#guerrier-stat,
+#casseur-stat {
+    width: 100%;
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid var(--rixeur);
+    border-radius: 4px;
+    background: var(--parchment);
+    color: var(--ink);
+    font: inherit;
+}
+
 * {
     margin: 0;
     padding: 0;

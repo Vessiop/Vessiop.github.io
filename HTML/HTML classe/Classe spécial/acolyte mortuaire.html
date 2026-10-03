@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe spécial css/acolyte mortuaire.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="ash-overlay"></div>
@@ -99,6 +100,7 @@
             <div class="talent-card">
                 <h3>Touché par la Grâce de la Mère Mort Blanche</h3>
                 <p>Béni par la Mère Mort Blanche, le lanceur a assimilé une part de son énergie sacrée. Cette grâce lui permet d'exercer la <strong>Funéurgie d'Ivoire</strong> : une nécromancie pure et cendreuse, née de la foi, qui canalise la magie nécrotique mortuaire sans corruption.</p>
+                <p>La <strong>Sagesse</strong> est la caractéristique principale de cette magie. Cette grâce ne donne aucun droit naturel sur les morts : une âme reste indépendante.</p>
             </div>
 
             <div class="talent-card">
@@ -109,7 +111,7 @@
 
             <div class="talent-card">
                 <h3>Parole d'un Outre-Monde</h3>
-                <p>Le lanceur est capable de murmurer aux défunts et d'entendre leurs échos. Toute interaction sociale dirigée vers un mort bénéficie d'un <strong>bonus de +1</strong>.</p>
+                <p>Le lanceur peut tenter de communiquer avec un cadavre, une âme, un esprit ou une rémanence possédant encore assez de présence. Les interactions appropriées avec les morts bénéficient d'<strong>Avantage</strong>, sans forcer une réponse ni donner automatiquement accès aux souvenirs. Une présence hostile, confuse, fragmentée ou emprisonnée peut nécessiter un rite, une Faculté ou des conditions particulières. Un test social peut employer Parole Mortuaire.</p>
             </div>
 
             <div class="talent-card">
@@ -119,12 +121,14 @@
 
             <div class="talent-card">
                 <h3>Foi envers la Mère Mort Blanche</h3>
-                <p>Touché par la grâce ancienne de la Mère Mort Blanche, le lanceur puise sa force dans cette croyance. Il obtient <strong>+2 en Sang-Froid</strong> lors des jets contre les effets nécrotiques ou issus d'entités maudites, quelle que soit leur puissance.</p>
+                <p>Le lanceur obtient <strong>Avantage</strong> sur ses jets de Sang-Froid contre les effets de peur directement provoqués par une créature nécrotique, un mort-vivant, une manifestation mortuaire ou une influence maudite nécromantique.</p>
             </div>
 
             <div class="talent-card">
                 <h3>Maîtrise mineure de la masse</h3>
                 <p>Tu maîtrises l'usage de la masse, arme rituelle lourde et sacrée du Culte de la Mort Blanche.</p>
+                <p><strong>Compétence obtenue :</strong> Masse +2 — FOR.</p>
+                <p><strong>Classe d'Arme :</strong> Masse +1.</p>
             </div>
         </section>
 
@@ -148,12 +152,12 @@
                         
                         <div class="reward-item">
                             <h5>Veilleur du Seuil d'Ivoire</h5>
-                            <p>Lorsque le lanceur combat une entité maudite nécrotique, il obtient naturellement un bonus de <strong>+10 en MD</strong>. Une fois par tour, durant son propre tour uniquement, il peut renoncer à ce bonus de MD pour le convertir en bonus sur son jet d'attaque ou en bonus aux dégâts infligés par une arme ou par sa magie, uniquement contre des cibles nécrotiques/maudites. S'il choisit cette conversion, il perd alors le bonus de MD jusqu'à la fin du tour en cours.</p>
+                            <p>Au début de chacun de ses tours, s'il affronte au moins une créature Nécrotique ou Maudite nécrotique, le lanceur choisit une posture jusqu'au début de son prochain tour : <strong>Veille du Seuil : +5 MD</strong> contre ces créatures, ou <strong>Sentence du Foyer : +5 aux jets offensifs</strong> contre elles (arme ou Faculté demandant un jet offensif). Les deux postures ne peuvent jamais être actives simultanément.</p>
                         </div>
                         
                         <div class="reward-item">
                             <h5>Socle du Foyer Blanc</h5>
-                            <p>Lorsque le lanceur subit des dégâts provenant d'une créature maudite nécrotique, il peut, <strong>une fois par combat</strong>, réduire de 50 % la perte de PV subie. S'il le souhaite, il peut employer cette protection une seconde fois dans le même combat, mais uniquement au prix de la consommation de 1 Dé de Destin.</p>
+                            <p>Contre les dégâts d'une créature Nécrotique ou Maudite nécrotique, le lanceur réduit les dégâts finaux de <strong>50 %</strong>. La première utilisation par combat est gratuite ; la seconde coûte <strong>2 ZM</strong>. Maximum : deux utilisations par combat.</p>
                         </div>
                     </div>
                     
@@ -161,6 +165,9 @@
                         <h4>📊 Gain de caractéristiques / traits</h4>
                         <p><strong>FOR +3</strong> et <strong>PER +2</strong></p>
                         <p><strong>+1 au choix :</strong> Sang-froid ou Résilience</p>
+                        <h4>Connaissances supplémentaires</h4>
+                        <p><strong>Domaine criminel — Moyen :</strong> criminalité clandestine, profanations, trafics et précautions des réseaux illégaux ; ne révèle pas les secrets d'une organisation précise.</p>
+                        <p><strong>Pratiques funéraires — Modéré :</strong> inhumation, crémation, embaumement, veilles et conservation ; reconnaître une dépouille ou sépulture manipulée contrairement au rite initial.</p>
                     </div>
                 </div>
 
@@ -174,8 +181,8 @@
                         
                         <div class="reward-item">
                             <h5>Grâce des Litanies Mortuaires</h5>
-                            <p><strong>Une fois par jour</strong>, le lanceur peut réduire de X points de ZM le coût d'activation d'une bénédiction mortuaire nécessitant du Zèle Mortuaire.</p>
-                            <p><strong>➡️</strong> Offre la compétence : <strong>Prière de la Mère Mortuaire N.A +5</strong></p>
+                            <p><strong>Une fois par scène</strong>, le lanceur réduit de <strong>1 ZM</strong> le coût d'une bénédiction mortuaire coûtant des ZM, jusqu'à un minimum de <strong>0 ZM</strong>.</p>
+                            <p><strong>➡️</strong> Offre la compétence : <strong>Prière de la Mère Mortuaire +2 — SAG</strong></p>
                         </div>
                         
                         <div class="reward-item">
@@ -188,13 +195,16 @@
                         <h4>📊 Gain de caractéristiques / traits</h4>
                         <p><strong>INT +3</strong> et <strong>SAG +2</strong></p>
                         <p><strong>+1 au choix :</strong> Savoir, Sang-froid ou Puissance</p>
+                        <h4>Connaissances supplémentaires</h4>
+                        <p><strong>Magie rituelle — Modéré :</strong> préparation, structure et maintien d'un rituel, rôle du cercle, des catalyseurs, des offrandes et de l'ordre des étapes.</p>
+                        <p><strong>Souillures et contaminations magiques — Modéré :</strong> reconnaître une altération persistante, observer sa propagation et prendre les précautions adaptées, sans identifier automatiquement son remède.</p>
                     </div>
                 </div>
 
                 <!-- Rédemption Mortuaire -->
                 <div class="origine-card redemption">
                     <h3>🔹 Chemin de la Rédemption Mortuaire</h3>
-                    <p class="origine-prerequis">⚠️ <em>Prérequis : être un être nécrotique ou semi-nécrotique</em></p>
+                    <p class="origine-prerequis">⚠️ <em>Prérequis : être Nécrotique, Semi-Nécrotique ou posséder une condition équivalente reconnue par le MJ.</em></p>
                     <p class="origine-description">Être maudit ayant succombé à l'énergie maudite nécromantique, ou ayant été infecté au point de ne plus être entièrement de sa race d'origine, vous êtes l'un de ces êtres que le monde rejette, traque ou craint. Rares sont ceux qui tolèrent votre existence, même lorsque cette condition ne fut jamais votre choix. Pourtant, la voie mortuaire vous offre un chemin : non pas celui d'un oubli facile, mais celui d'une lutte vers une fin digne, capable peut-être d'effacer la souillure qui vous ronge et d'empêcher qu'un sort semblable touche d'autres innocents. Ce chemin est autant une quête de salut qu'un serment de protection envers tous les malheureux perdus entre vie et mort.</p>
                     
                     <div class="subsection">
@@ -203,13 +213,17 @@
                         <div class="reward-item">
                             <h5>Chair du Pardon Funéraire</h5>
                             <p><strong>Une fois par combat</strong>, le lanceur peut choisir de réduire de 50 % soit les dégâts physiques infligés par un être vivant, soit les dégâts magiques nécrotiques qu'il subit.</p>
-                            <p>De plus, <strong>une fois par jour</strong>, au prix de la moitié de sa réserve maximale de ZM, il peut adresser une prière préparatoire à la Mère Mortuaire ; durant 1 heure, les faiblesses liées à sa nature nécrotique ou maudite sont temporairement annulées et tombent à 0.</p>
+                        </div>
+
+                        <div class="reward-item">
+                            <h5>Prière de Rédemption</h5>
+                            <p><strong>Une fois par jour</strong>, après une courte préparation, le lanceur dépense la moitié de sa réserve maximale de ZM, <strong>arrondie au supérieur</strong>. Il ramène à 0, pendant <strong>1 heure</strong>, une seule faiblesse mécanique directement liée à sa nature Nécrotique, Semi-Nécrotique ou Maudite. Sa catégorie, son apparence et les autres propriétés de sa nature restent inchangées.</p>
                         </div>
                         
                         <div class="reward-item">
                             <h5>Flair des Tombes Voilées</h5>
                             <p>Par son lien profond avec le domaine maudit et les traces de la Non-Vie, le lanceur parvient à percevoir, suivre et distinguer les énergies maudites nécromantiques présentes dans son environnement. Son instinct est suffisamment affiné pour différencier plusieurs origines nécromantiques ou plusieurs signatures mortuaires distinctes.</p>
-                            <p><strong>Effet :</strong> Tous les jets de perception liés au repérage, à l'analyse ou au pistage d'une énergie maudite nécromantique sont effectués avec <strong>Avantage</strong>.</p>
+                            <p><strong>Effet :</strong> Avantage sur les jets appropriés pour détecter une énergie nécromantique, différencier des signatures mortuaires, suivre une trace de Non-Vie, examiner une manifestation nécrotique ou rechercher l'origine probable d'une influence mortuaire. Ne révèle pas automatiquement l'identité exacte ou la position précise d'une créature.</p>
                         </div>
                     </div>
                     
@@ -217,6 +231,9 @@
                         <h4>📊 Gain de caractéristiques / traits</h4>
                         <p><strong>CST +3</strong> et <strong>PER +2</strong></p>
                         <p><strong>+1 au choix :</strong> Sang-froid, Résilience ou Instinct</p>
+                        <h4>Connaissances supplémentaires</h4>
+                        <p><strong>Malédictions — Modéré :</strong> signes d'influence persistante et liens possibles à une condition, un serment, une lignée ou un objet ; supprimer une manifestation ne lève pas nécessairement la malédiction.</p>
+                        <p><strong>Survie clandestine — Moyen :</strong> refuges discrets, contrôles, lieux à risque et réseaux informels des communautés marginalisées, sans procurer une identité préparée ou un réseau criminel.</p>
                     </div>
                 </div>
             </div>
@@ -229,19 +246,15 @@
                 <p>En tant qu'acolyte de la Mère Mort Blanche, le lanceur est touché par sa grâce et reçoit le <strong>Zèle Mortuaire (ZM)</strong>, une ressource spirituelle qui alimente ses bénédictions.</p>
                 
                 <h3>Réserve maximale :</h3>
-                <p><strong>ZM max = 4 + (Mod. SAG)</strong></p>
-                <p>Tous les 10 niveaux, la réserve de Points de Zèle Mortuaire augmente de +2.</p>
+                <p><strong>ZM max = 4 + Mod. SAG + bonus externes</strong>, avec un Modificateur de SAG compté au minimum à 1. Diacre du Foyer augmente directement cette réserve.</p>
                 
-                <h3>Utilisation :</h3>
-                <p><strong>1 fois par tour</strong>, le lanceur peut relancer un jet de sort nécrotique mortuaire en dépensant un coût en Zèle.</p>
-                <p><strong>Coût = Niveau du sort ÷ 2</strong> (arrondi au supérieur)</p>
+                <h3>Veille du Seuil :</h3>
+                <p><strong>Une fois par scène</strong>, une Funéurgie d'Ivoire ou un rite mortuaire réussi rend <strong>1 ZM</strong>, sans dépasser le maximum, lorsqu'il apaise une âme ou manifestation, contient ou scelle une influence nécrotique, purifie une souillure de Non-Vie, permet le repos d'une âme ou met définitivement hors d'état de nuire une créature Nécrotique ou Maudite nécrotique grâce à la Funéurgie. Une manifestation créée volontairement sans véritable danger ni obstacle ne déclenche pas cet effet.</p>
+                <h3>Seconde Litanie :</h3>
+                <p><strong>1 fois par tour</strong>, après l'échec d'un jet de Magie de Funéurgie d'Ivoire, le lanceur peut dépenser <strong>2 ZM</strong> pour le relancer immédiatement. Le nouveau résultat doit être conservé ; un même jet ne peut bénéficier de cette relance qu'une seule fois.</p>
                 
                 <h3>Récupération :</h3>
-                <ul>
-                    <li><strong>Repos court :</strong> +1dX ZM (X = Mod. Sagesse + 1)</li>
-                    <li><strong>Repos long :</strong> Remet la réserve au maximum (sauf repos interrompu ou mauvais repos : seulement la moitié)</li>
-                    <li><strong>Prière :</strong> Une fois par jour (30 minutes de prière dans un sanctuaire ou autel de la Mère Mortuaire), récupère +1d(Mod. SAG) ZM. Si le jet atteint le max et plus, gagne un excès égal au reste qui dure 2h.</li>
-                </ul>
+                <p>Un <strong>repos long réussi</strong> restaure la réserve au maximum. Un repos fortement interrompu ou sans véritable récupération spirituelle peut empêcher cette restauration.</p>
             </div>
         </section>
 
@@ -301,7 +314,7 @@
                     <div>
                         <h4>Cloche Funéraire</h4>
                         <p>Cloche rituelle du Culte</p>
-                        <p class="bonus">−1 ZM (min. 1) bénédictions • −2 PM sorts Funéurgie</p>
+                        <p class="bonus">1 fois par scène : −1 ZM OU −5 PM sur une Faculté de Funéurgie ou une bénédiction mortuaire (minimum 0 ZM ou 1 PM).</p>
                     </div>
                 </div>
 
@@ -310,7 +323,7 @@
                     <div>
                         <h4>Masse d'Ivoire sépulcrale</h4>
                         <p>Masse rituelle gravée de sceaux</p>
-                        <p class="bonus">+1d6 dégâts nécrotiques/rang (ignore 50 % résist.)</p>
+                        <p class="bonus">Premier coup de chacun de ses tours contre une créature Nécrotique ou Maudite nécrotique : +1d6 dégâts nécrotiques mortuaires, une seule fois par tour même en attaque multiple.</p>
                     </div>
                 </div>
 
@@ -318,8 +331,8 @@
                     <span class="icon">🧂</span>
                     <div>
                         <h4>Sel d'Ivoire Purificatrice</h4>
-                        <p>2 sachets (30/30 charges chacun)</p>
-                        <p class="bonus">Purifie et rompt attache âme-cadavre (5 charges/usage)</p>
+                        <p>2 sachets • 1 sachet par utilisation</p>
+                        <p class="bonus">Rite sur un cadavre, une sépulture, une faible attache spirituelle ou une manifestation appropriée : prépare un corps, protège une tombe, facilite le passage d'une âme consentante ou rompt une attache faible. Une manifestation puissante exige une Faculté ou un véritable rite.</p>
                     </div>
                 </div>
 
@@ -328,7 +341,7 @@
                     <div>
                         <h4>Kit du Sanctuaire</h4>
                         <p>Autel portatif complet</p>
-                        <p class="bonus">+10 tests prière/rituel Mère Mortuaire</p>
+                        <p class="bonus">Une fois installé : Avantage sur les jets de Prière ou de Rituel directement liés à la Mère Mortuaire. Le bonus cesse lorsque le sanctuaire est démonté ou abandonné.</p>
                     </div>
                 </div>
 

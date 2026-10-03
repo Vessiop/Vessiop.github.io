@@ -3,28 +3,26 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 
 // Données de base du Sorcier Maudit (échelle de -4 à +6)
 const baseStats = {
-    FOR: -4,
-    CST: -1,
-    DEX: 1,
+    FOR: -3,
+    CST: -2,
+    DEX: 0,
     INT: 4,
     SAG: 2,
-    PER: 0,
+    PER: 1,
     CHA: -2
 };
 
 // Bonus des voies
 const voieBonuses = {
-    'necro': { INT: 2, CST: 4 }, // CST passe de -1 à +3, donc +4 au total
-    'demon': { INT: 2, CHA: 5 }, // CHA passe de -2 à +3, donc +5 au total
-    'spirit': { INT: 1, SAG: 3 },
-    'abyss': { INT: 3 } // Bonus RM non affiché sur graphique
+    'necro': { CST: 5, SAG: 2 },
+    'demon': { CHA: 5, SAG: 2 },
+    'abyss': { INT: 2, PER: 3 }
 };
 
 // Noms des voies pour l'affichage
 const voieNames = {
     'necro': 'Voie de la Nécromancie',
-    'demon': 'Voie de la Démonologie (Occulte)',
-    'spirit': 'Voie du Spiritisme',
+    'demon': 'Voie Occulte',
     'abyss': 'Voie des Abysses'
 };
 
@@ -165,7 +163,7 @@ function updateStatsDisplay(voie) {
         
         // Ajouter info spéciale pour Abysses
         if (voie === 'abyss') {
-            bonusText += '+ RM (1d6 + Mod INT)';
+            bonusText += 'Réserve PSY : 4 + Mod. INT + moitié du niveau de Marque de la Fêlure (arrondie au supérieur)';
         }
         
         displayElement.innerHTML = `
@@ -189,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.addEventListener('click', function() {
             const voieClass = Array.from(this.classList).find(cls => 
-                ['necro', 'demon', 'spirit', 'abyss'].includes(cls)
+                ['necro', 'demon', 'abyss'].includes(cls)
             );
             
             if (voieClass) {

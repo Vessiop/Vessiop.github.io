@@ -5,7 +5,7 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 const baseStats = {
     FOR: -3,
     CST: -2,
-    DEX: -1,
+    DEX: 0,
     INT: 1,
     SAG: 3,
     PER: 2,
@@ -14,20 +14,25 @@ const baseStats = {
 
 // Bonus des parcours
 const parcoursBonuses = {
-    'sage': { SAG: 3, PER: 3 },
-    'rodeur': { DEX: 4, PER: 4 },
-    'protecteur': { FOR: 6, CST: 4 }, // FOR passe de -3 à +3, CST passe de -2 à +2
-    'spiritisme': { SAG: 3, INT: 2 },
-    'sorcellerie': { INT: 4, CST: 4, SAG: -1 } // CST passe de -2 à +2, SAG diminue
+    'sage': { SAG: 3, PER: 2 },
+    'spiritisme': { SAG: 3, CHA: 2 },
+    'rodeur': { INT: 3, SAG: 2 },
+    'sorcellerie': { INT: 3, CST: 2 }
 };
 
 // Noms des parcours pour l'affichage
 const parcoursNames = {
-    'sage': 'Sage des Forêts',
-    'rodeur': 'Rôdeur des Buissons',
-    'protecteur': 'Protecteur de la Nature',
-    'spiritisme': 'Voie du Spiritisme',
-    'sorcellerie': 'Voie de la Sorcellerie'
+    "sage": "Enfant des Terres Vivantes",
+    "spiritisme": "Passeur du Voile",
+    "rodeur": "Guide des Courants",
+    "sorcellerie": "Héritier des Arts Sombres"
+};
+
+const parcoursDetails = {
+    "sage": "Art du Vivant ; Passage du Vivant ; +1 Instinct, Métier ou Résilience au choix.",
+    "spiritisme": "Art Spirituel ; Écho Résiduel ; +1 Social, Sang-Froid ou Savoir au choix.",
+    "rodeur": "Art des Courants Élémentaires ; Équilibre des Courants ; +1 Savoir, Instinct ou Métier au choix.",
+    "sorcellerie": "Art de la Sorcellerie ; Sceau de Confinement ; +1 Savoir, Sang-Froid ou Résilience au choix."
 };
 
 let currentParcours = null;
@@ -192,27 +197,15 @@ function updateStatsDisplay(parcours) {
             bonusText += `${stat} ${bonuses[stat] >= 0 ? '+' : ''}${bonuses[stat]} `;
         }
         
-        // Ajouter infos spéciales
-        let extraInfo = '';
-        if (parcours === 'sage') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> RM +1d6, Savoir +1';
-        } else if (parcours === 'rodeur') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> REA +2, Finesse +1, Transmission de stats, Maîtrise d\'arme de tir/jet';
-        } else if (parcours === 'protecteur') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> REA +4, Puissance/Résilience +1, Transmission de stats, Maîtrise d\'arme CàC';
-        } else if (parcours === 'spiritisme') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Magie Spirituelle, Vision spirituelle, Messager des esprits';
-        } else if (parcours === 'sorcellerie') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Arts occultes (occulte ou nécromantique), Évolution classe (niv 5), Dégénérescence';
-        }
-        
+        const extraInfo = '<br><strong>Gains :</strong> ' + parcoursDetails[parcours];
+
         displayElement.innerHTML = `
-            <strong>Parcours sélectionné :</strong> ${parcoursNames[parcours]}<br>
+            <strong>Origine sélectionnée :</strong> ${parcoursNames[parcours]}<br>
             <strong>Bonus appliqués :</strong> ${bonusText}${extraInfo}
         `;
         displayElement.style.display = 'block';
     } else {
-        displayElement.innerHTML = '<strong>Aucun parcours sélectionné</strong> - Stats de base affichées';
+        displayElement.innerHTML = '<strong>Aucune origine sélectionnée</strong> - Stats de base affichées';
         displayElement.style.display = 'block';
     }
 }
@@ -227,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.addEventListener('click', function() {
             const parcoursClass = Array.from(this.classList).find(cls => 
-                ['sage', 'rodeur', 'protecteur', 'spiritisme', 'sorcellerie'].includes(cls)
+                Object.keys(parcoursBonuses).includes(cls)
             );
             
             if (parcoursClass) {

@@ -3,32 +3,28 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 
 // Stats de base de l'Éclat du Cirque
 const baseStats = {
-    FOR: -2,
+    FOR: -1,
     CST: -2,
-    DEX: 3,
-    INT: 1,
-    SAG: 3,
+    DEX: 1,
+    INT: 3,
+    SAG: 1,
     PER: 0,
     CHA: 3
 };
 
 // Bonus par Formation (delta appliqué sur les stats de base)
 const formationBonuses = {
-    'formation-clown':      { CHA: 3, FOR: 2 },
+    'formation-clown':      { CST: 4, CHA: 2 },
     'formation-trapeze':    { DEX: 3, PER: 2 },
-    'formation-acteur':     { DEX: 3, INT: 2 },
-    'formation-costumier':  { INT: 3, CHA: 2 },
-    'formation-technicien': { PER: 3, INT: 2 },
-    'formation-sorciere':   { INT: 3, SAG: 2 }
+    'formation-acteur':     { PER: 3, DEX: 2 },
+    'formation-costumier':  { INT: 3, CHA: 2 }
 };
 
 const formationNames = {
-    'formation-clown':      'ClownGard',
-    'formation-trapeze':    'Trapézistes',
-    'formation-acteur':     'Acteur de Cirque',
-    'formation-costumier':  'Costumier',
-    'formation-technicien': 'Technicien de l\'ombre',
-    'formation-sorciere':   'Sorcière enchanteresse'
+    'formation-clown':      'Sentinelle Burlesque',
+    'formation-trapeze':    'Voltigeur de l\'Impossible',
+    'formation-acteur':     'Artilleur de Piste',
+    'formation-costumier':  'Faiseur de Visages'
 };
 
 let currentFormation = null;
@@ -136,11 +132,11 @@ function updateDisplay(formation) {
         const bonuses = formationBonuses[formation];
         const parts = Object.entries(bonuses).map(([k, v]) => `${k} ${v >= 0 ? '+' : ''}${v}`);
         el.innerHTML =
-            `<strong>Formation sélectionnée :</strong> ${formationNames[formation]}<br>
+            `<strong>Origine sélectionnée :</strong> ${formationNames[formation]}<br>
              <strong>Gains appliqués :</strong> ${parts.join(' · ')}`;
         el.style.display = 'block';
     } else {
-        el.innerHTML = '<strong>Aucune formation sélectionnée</strong> — Stats de base';
+        el.innerHTML = '<strong>Aucune origine sélectionnée</strong> — Stats de base';
         el.style.display = 'block';
     }
 }

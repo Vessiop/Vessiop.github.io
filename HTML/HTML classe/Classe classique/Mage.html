@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Mage.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="parchment-overlay"></div>
@@ -31,9 +32,8 @@
         <section class="section">
             <h2 class="section-title">📜 Description / Présentation</h2>
             <div class="content-box">
-                <p>Le Mage est l'érudit par excellence. Plongeant dans les arcanes anciennes, il maîtrise l'art de manipuler la magie pure et d'en comprendre les mécanismes, loin des pratiques instinctives ou des traditions chamaniques. Là où d'autres "ressentent" la magie, le Mage la dissèque, l'étudie et la reproduit avec discipline et méthode, en observant les sources, les flux, et les lois qui régissent les filaments du monde.</p>
-                
-                <p>Sa véritable force vient de sa capacité à analyser puis moduler ses sorts selon la situation, rendant sa magie aussi précise que dévastatrice. Stratège du champ de bataille ou pilier de soutien, il anticipe, s'adapte, et façonne les affrontements à son avantage — non par instinct, mais par compréhension.</p>
+                <p>Chaque Mage possède sa propre origine, la racine de son potentiel magique. Manipulateur de magie supérieur à la moyenne, il façonne l'essence selon l'un des nombreux arts existants ; sa maîtrise provient de sa propre Source magique.</p>
+                <p>Selon son origine, il devient chercheur, explorateur arcanique, artisan, créateur d'objets magiques ou combattant. Ses facultés lui ouvrent de nombreuses portes et une place particulière dans le monde.</p>
                 
                 <div class="highlight-box">
                     <p><strong>⚔️ Armes de prédilection :</strong> Aucune — utilise des catalyseurs magiques</p>
@@ -50,7 +50,7 @@
                     <h3>❤️ Base PV / PM / PE</h3>
                     <ul>
                         <li><strong>PV :</strong> 1d12</li>
-                        <li><strong>PM :</strong> 1d18</li>
+                        <li><strong>PM :</strong> 1d16</li>
                         <li><strong>PE :</strong> 1d10</li>
                     </ul>
                 </div>
@@ -58,16 +58,16 @@
                 <div class="stat-category">
                     <h3>📊 Bonus & malus</h3>
                     <div class="bonus-grid">
-                        <span class="stat-item negative">FOR : −4</span>
+                        <span class="stat-item negative">FOR : −3</span>
                         <span class="stat-item negative">CST : −3</span>
-                        <span class="stat-item neutral">DEX : 0</span>
-                        <span class="stat-item positive highlight">INT : +6</span>
-                        <span class="stat-item positive">SAG : +4</span>
+                        <span class="stat-item negative">DEX : −2</span>
+                        <span class="stat-item positive highlight">INT : +3</span>
+                        <span class="stat-item positive">SAG : +2</span>
                         <span class="stat-item neutral">PER : 0</span>
-                        <span class="stat-item neutral">CHA : 0</span>
+                        <span class="stat-item positive">CHA : +1</span>
                     </div>
                     <ul class="resistance-list">
-                        <li><strong>RM :</strong> 30 + 3d6</li>
+                        <li><strong>RM :</strong> 30 + 2d6</li>
                         <li><strong>REA :</strong> 0</li>
                     </ul>
                 </div>
@@ -98,99 +98,85 @@
         <!-- Talents de classe -->
         <section class="section">
             <h2 class="section-title">🎓 Talents de classe</h2>
-            
             <div class="talent-card">
-                <h3>🜁 Maîtrise mineure du Cœur Arcanique</h3>
-                <p>Magie pure (la Maîtrise du Cœur est une faculté enseignée dans la difficulté, et tous les mages ne la possèdent pas). Le Cœur Arcanique permet d'utiliser la magie pure même si elle n'est pas ta source naturelle : tu apprends à concentrer tes filaments et à les convertir en énergie neutre.</p>
-                <p><strong>➡️ Effet :</strong> Offre la compétence Magie pure +2 (Intelligence)</p>
+                <h3>Maîtrise mineure de la source élémentaire X</h3>
+                <p>Une source élémentaire au choix si le Mage en possède plusieurs. Offre Magie élémentaire X +2.</p>
             </div>
-
             <div class="talent-card">
-                <h3>🜂 Maîtrise mineure de Magie élémentaire</h3>
-                <p>Maîtrise liée à sa source élémentaire (une seule maîtrise, même en cas de double source). Cette maîtrise permet de manipuler efficacement l'élément choisi et d'en exploiter toutes les propriétés tactiques.</p>
-                <p><strong>➡️ Effet :</strong> Offre la compétence Magie élémentaire X +2 (Intelligence)</p>
+                <h3>Faveur de la source magique</h3>
+                <p>À la création, le Mage choisit lui-même la nature de sa Source magique, son affinité profonde.</p>
             </div>
-
             <div class="talent-card">
-                <h3>✨ Faveur magique</h3>
-                <p>Le lanceur choisit sa source élémentaire de base (feu, eau, vent, terre, foudre, glace, etc.). Si son cœur est suffisamment solide, il peut tenter la Roue des Éléments : il obtient une relance supplémentaire et conserve le résultat qui lui convient le mieux (notamment pour viser une meilleure Rareté).</p>
+                <h3>Maîtrise mineure d'un style magique au choix</h3>
+            </div>
+            <div class="talent-card">
+                <h3>Incantation de Réserve — LV 1</h3>
+                <p>Durant une pause, prépare 1 sort provenant directement d'une Maîtrise de Nature magique. Ce sort peut être utilisé en Réaction, avec des PR au lieu de PA selon les règles normales ; coûts en ressources, portée, jets et conditions sont conservés.</p>
+                <p>Niveau maximal du sort : niveau de Maîtrise ÷ 2, arrondi à l'inférieur (Mineure 1 : LV0 ; Moyenne 2 et Avancée 3 : LV1 ; Majeure 4 et Parfaite 5 : LV2 ; Totale 6 : LV3). Les facultés provenant uniquement d'un Style magique sont exclues.</p>
+                <p>Modification des sorts préparés uniquement durant une pause. Talent évolutif jusqu'au niveau 5 : 1 sort préparé par niveau du talent.</p>
             </div>
         </section>
 
         <!-- Parcours du Mage -->
         <section class="section">
-            <h2 class="section-title">🧩 Parcours du Mage</h2>
-            <p class="intro-text">Un mage peut venir d'horizons très différents : membre d'un Arcanium, formé dans une institution magique, ou simple initié ayant appris auprès d'un Maître. Selon cette origine, sa base de savoir et sa manière de pratiquer la magie varient.</p>
-            
+            <h2 class="section-title">🧩 Origines magiques du Mage</h2>
             <div class="filiere-grid">
-                <div class="filiere-card">
-                    <h3>• Parcours solitaire</h3>
-                    <p class="filiere-desc">Ayant parcouru le monde pour découvrir et apprendre la magie sans instruction académique, tu es devenu autodidacte, capable de déceler et de comprendre les arts magiques par toi-même.</p>
+                <div class="filiere-card" data-origine="erudit">
+                    <h3>📚 Érudit des Voies Arcaniques</h3>
+                    <p class="filiere-desc">Chercheur ou étudiant passionné, le Mage approfondit les Styles qui structurent et spécialisent sa magie.</p>
+                    <p>Obtient une Maîtrise mineure d'un Style accessible : Modulation, Matérialisation, Barrière, Enchantement, Guérison, Insufflation ou Illusion.</p>
+                    <p><strong>Rôle maître :</strong> choisit l'un des deux sous-talents du Style choisi.</p>
                     <ul>
-                        <li><strong>Talent d'entraînement :</strong> Par sa formation en solitaire, il possède déjà une amélioration sur 2 de ses sorts de base.</li>
-                        <li><strong>Autodidacte magique :</strong> Une fois par jour, le lanceur obtient un bonus de (5 × Mod INT)% (minimum 5%) sur les gains de PA lors de l'obtention d'un nouveau sort.</li>
-                        <li><strong>Bonus :</strong> Possibilité d'obtenir 1 point de talent supplémentaire.</li>
+                        <li><strong>Modulation — Découpage de Trame :</strong> 1 fois par combat, exclut 1 entité des dégâts et de l'influence offensive directe d'un sort de zone non distinctif maîtrisé. Avec Modulateur : 1 fois par tour, et 2 Points de Modulation par entité supplémentaire. Exclut les facultés d'objet. <strong>OU Ajustement Arcanique.</strong></li>
+                        <li><strong>Matérialisation — Refonte de l'Essence Matérielle :</strong> pour 1 PR, dissipe sa matérialisation persistante et récupère 50 % de son coût de base en PM ; exclut les matérialisations créées directement lors d'une attaque. Peut immédiatement employer cette énergie pour un sort offensif de Matérialisation durant la même phase si les PM récupérés couvrent son coût de base. 1 fois par jour, au maximum 1 fois par combat. <strong>OU Trame Matérielle Optimisée.</strong></li>
+                        <li><strong>Barrière — Barrière de Dernier Souffle :</strong> 1 fois par jour, empêche la destruction de sa Barrière au moment où elle devrait céder ; elle récupère 50 % de ses PV actuels dans l'instant d'action. Perd immédiatement autant de PE que son coût de base en PM. Ne fonctionne pas sur les Micro-Barrières. <strong>OU Architecture Protectrice.</strong></li>
+                        <li><strong>Enchantement — Prolongation Enchantée :</strong> 1 fois par jour, lors d'un Enchantement sur soi, lance 1d3 ; une fois, à son terme, prolonge sa durée de ce nombre de tours. Seulement si sa durée normale est en tours. <strong>OU Gravure Arcanique Économe.</strong></li>
+                        <li><strong>Guérison — Soin Stabilisateur :</strong> une créature soignée par son sort de Guérison obtient Avantage sur son prochain jet de Résilience, consommé quelle qu'en soit l'issue. Une fois par jour par créature. <strong>OU Canalisation Curative Économe.</strong></li>
+                        <li><strong>Insufflation — Transfert de Résonance :</strong> 1 fois par jour, pour 1 PR, déplace une de ses Insufflations positives actives d'un allié vers un autre allié valide. L'effet quitte la première cible ; durée restante conservée, sans prolongation. <strong>OU Flux d'Insufflation Maîtrisé.</strong></li>
+                        <li><strong>Illusion — Mirage Perfectionné :</strong> +5 à la MR minimale nécessaire pour discerner ses facultés illusoires ; si aucune MR minimale n'existe, elle devient 10. <strong>OU Économie de Filaments Illusoires.</strong></li>
                     </ul>
+                    <p>Chacun des sept sous-talents d'économie réduit de 3 PM le coût de base des sorts appris du Style correspondant, sans descendre sous 1 PM.</p>
+                    <p><strong>Bonus :</strong> INT +3, SAG +2 ; +1 au choix en Savoir, Résilience ou Finesse.</p>
+                    <p><strong>Connaissance :</strong> domaine des Styles magiques (Modéré).</p>
                 </div>
-
-                <div class="filiere-card">
-                    <h3>• Parcours d'étudiant magique</h3>
-                    <p class="filiere-desc">Tu as été formé dans un Arcanium (Tour de mage), ou au sein d'une école / institution dédiée à l'apprentissage des bases magiques. Cette voie t'a donné une base théorique et pratique solide.</p>
-                    <p><strong>Le lanceur choisit un seul style magique de base parmi :</strong></p>
-                    <ul>
-                        <li><strong>École de la Modulation :</strong> Affûte la capacité à ajuster en temps réel la portée, l'intensité et les effets d'un sort. (Modulation Magique +2 + connaissance en Mineur)</li>
-                        <li><strong>École de la Matérialisation :</strong> Donne forme tangible à l'énergie magique. (Matérialisation Magique +2 + connaissance en Mineur)</li>
-                        <li><strong>École des Barrières :</strong> Spécialise dans l'édification de boucliers protecteurs. (Barrière Magique +2 + connaissance en Mineur)</li>
-                        <li><strong>École de l'Enchantement :</strong> Imprègne objets ou êtres vivants de propriétés magiques. (Enchantement Magique +2 + connaissance en Mineur)</li>
-                        <li><strong>École de la Guérison :</strong> Restauration du corps et de l'esprit. (Guérison Magique +2 + connaissance en Mineur)</li>
-                        <li><strong>École de l'Insufflation :</strong> Transmet l'énergie magique dans un objet ou une créature. (Insufflation Magique +2 + connaissance en Mineur)</li>
-                        <li><strong>École de l'Illusion :</strong> Manipule la perception sensorielle et l'émotion. (Illusion Magique +2 + connaissance en Mineur)</li>
-                    </ul>
+                <div class="filiere-card" data-origine="armes">
+                    <h3>⚔️ Mage d'Armes</h3>
+                    <p class="filiere-desc">L'acier et la magie progressent ensemble : un apprentissage martial renforce le corps du Mage.</p>
+                    <p>Obtient Maîtrise d'une arme au choix et un bonus de Classe d'arme lié à cette maîtrise.</p>
+                    <p><strong>Transmission de statistique :</strong> au maximum 2 fois par personnage, transfère jusqu'à 4 points de dés de base entre PV, PM et PE en une fois (ex. 1d16 PV → 1d14 PV et 1d10 PE → 1d12 PE).</p>
+                    <p><strong>Maniement de l'Essence Forgée :</strong> avec une arme constituée à 100 % de magie, utilise INT à la place de la caractéristique normalement requise.</p>
+                    <p><strong>Bonus :</strong> FOR −3 → +2 (delta +5), DEX −2 → +1 (delta +3) ; +1 au choix en Savoir, Résilience ou Puissance.</p>
+                    <p><strong>Connaissance :</strong> armes et catalyseurs de combat (Modéré).</p>
                 </div>
-
-                <div class="filiere-card">
-                    <h3>• Voie du Magister sombre</h3>
-                    <p class="filiere-desc">En arpentant les voies obscures du Magister, cette voie des arcanes permet, au prix d'un sacrifice, d'obtenir la maîtrise d'un « cœur sombre ». Cette voie est répugnante aux yeux des Pères, qui l'associent aux Sorciers maudits.</p>
-                    <ul>
-                        <li><strong>Maîtrise au choix :</strong> « Magie Occulte » OU « Magie nécromantique maudite ».</li>
-                        <li><strong>Dégénérescence maudite :</strong> Obtient la Dégénérescence maudite liée à la magie choisie.</li>
-                        <li><strong>Classe secondaire :</strong> Possibilité d'obtenir « Nécromancien » ou « Occultiste ».</li>
-                        <li><strong>Connaissance :</strong> Connaissance liée au choix effectué au niveau Mineur.</li>
-                    </ul>
+                <div class="filiere-card" data-origine="resonance">
+                    <h3>✦ Résonance Élémentaire Éveillée</h3>
+                    <p class="filiere-desc">Une perception profonde de sa Source permet d'exprimer une autre Nature magique.</p>
+                    <p>Obtient Maîtrise mineure du Cœur Arcanique : X. Interdits : Lumière, Ténèbres, Nature maudite ou corrompue, et Nature directement opposée à sa ou ses Sources.</p>
+                    <p><strong>Harmonie du Cœur Élémentaire / Cœur vital élémentaire :</strong> +10 % de Résistance magique contre les Natures de sa ou ses Sources et celle du Cœur Arcanique. Tous les jets de résistance contre un effet directement lié à ces Natures sont en Avantage ; une simple origine magique similaire ne suffit pas.</p>
+                    <p><strong>Bonus :</strong> SAG +3, INT +2 ; +1 au choix en Savoir ou Instinct.</p>
+                    <p><strong>Connaissance :</strong> Cœur Arcanique (Modéré).</p>
+                </div>
+                <div class="filiere-card" data-origine="arcanologue">
+                    <h3>🔬 Arcanologue</h3>
+                    <p class="filiere-desc">Chercheur des phénomènes, objets et signatures arcaniques, il préfère comprendre avant de toucher.</p>
+                    <p><strong>Détection Magique — Mineure :</strong> sensibilité aux anomalies, résidus et flux magiques ; offre Analyse magique +2 (INT).</p>
+                    <p><strong>Lecture de la Trame Arcanique :</strong> 1 fois par combat, analyse une cible visible contre une MR minimale fixée par le MJ. Obtient une seule catégorie : Résistances élémentaires, Vulnérabilités élémentaires ou Natures magiques utilisées. Une réussite élevée peut préciser les plus fortes/faibles ; ne révèle pas automatiquement les valeurs exactes. Protections, dissimulations et anomalies peuvent accroître la difficulté ou masquer des informations.</p>
+                    <p><strong>Bonus :</strong> PER +3, INT +2 ; +1 au choix en Savoir ou Métier.</p>
+                    <p><strong>Connaissance :</strong> signatures magiques (Moyen).</p>
                 </div>
             </div>
         </section>
 
         <!-- Connaissances -->
         <section class="section">
-            <h2 class="section-title">📚 Connaissances</h2>
-            
+            <h2 class="section-title">📚 Connaissances communes</h2>
             <div class="knowledge-list">
-                <div class="knowledge-item">
-                    <h4>Connaissance du domaine magique <span class="level">(Moyen)</span></h4>
-                    <p>Compréhension générale d'un domaine/école de magie (principes, limites, usages). Permet d'identifier un effet typique, de reconnaître une signature de sort, et d'adapter ses choix face à une magie connue.</p>
-                </div>
-
-                <div class="knowledge-item">
-                    <h4>Connaissance des théories magiques <span class="level">(Modéré)</span></h4>
-                    <p>Maîtrise des bases académiques : filaments, sources, stabilisation, schémas d'incantation, risques de surtension et règles de canalisation. Sert à analyser un phénomène magique et à réussir des études/recherches.</p>
-                </div>
-
-                <div class="knowledge-item">
-                    <h4>Connaissance de la magie élémentaire X <span class="level">(Modéré)</span></h4>
-                    <p>Savoir spécifique lié à un élément choisi (Feu, Eau, Vent, etc.) : propriétés, réactions, formes courantes, faiblesses et usages tactiques.</p>
-                </div>
-
-                <div class="knowledge-item">
-                    <h4>Connaissance du domaine du Cœur Arcanique <span class="level">(Modéré)</span></h4>
-                    <p>Discipline traitant de la concentration et conversion des filaments en magie pure : exercices, contrôle, dérives, rituels de stabilisation.</p>
-                </div>
-
-                <div class="knowledge-item">
-                    <h4>Connaissance du domaine des objets magiques <span class="level">(Modéré)</span></h4>
-                    <p>Savoir sur catalyseurs, artefacts, sceaux et talismans : identification, charges, entretien, risques et contrecoups.</p>
-                </div>
+                <div class="knowledge-item"><h4>Domaine magique <span class="level">(Moyen)</span></h4><p>Codes, usages, limites et contexte d'une école ou d'une Nature magique.</p></div>
+                <div class="knowledge-item"><h4>Théories magiques <span class="level">(Modéré)</span></h4><p>Filaments, Sources, circulation de l'énergie, stabilisation et surcharge.</p></div>
+                <div class="knowledge-item"><h4>Objets magiques <span class="level">(Modéré)</span></h4><p>Catalyseurs, artefacts, talismans, sceaux : manipulation, entretien, recharge et dysfonctionnements.</p></div>
+                <div class="knowledge-item"><h4>Mythes et légendes <span class="level">(Moyen)</span></h4><p>Récits de héros, monstres, lieux perdus, artefacts et phénomènes anciens.</p></div>
             </div>
+            <p><strong>Classe d'arme de base :</strong> aucune.</p>
         </section>
 
         <!-- Équipement -->
@@ -210,7 +196,7 @@
                     <span class="icon">🔮</span>
                     <div>
                         <h4>Catalyseur</h4>
-                        <p>Catalyseur de base pour canaliser la magie</p>
+                        <p>Catalyseur au choix pour canaliser la magie</p>
                     </div>
                 </div>
 
@@ -218,27 +204,10 @@
                     <span class="icon">🧪</span>
                     <div>
                         <h4>Potions</h4>
-                        <p>3 potions de magie + 1 potion de vie</p>
+                        <p>3 potions de magie + 1 potion de vie (tranche de niveau)</p>
                     </div>
                 </div>
 
-                <div class="equipment-item">
-                    <span class="icon">✨</span>
-                    <div>
-                        <h4>Réduction objet magique</h4>
-                        <p>20% de réduction sur un objet magique Commun (10% sur Non commun)</p>
-                    </div>
-                </div>
-
-                <div class="equipment-item">
-                    <span class="icon">📦</span>
-                    <div>
-                        <h4>Bonus selon parcours</h4>
-                        <p><strong>Solitaire :</strong> objet non magique (-30%)<br>
-                        <strong>Étudiant :</strong> Emblème de mage confirmé<br>
-                        <strong>Magister :</strong> catalyseur maudit (-20%)</p>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -251,7 +220,7 @@
                     <h3>Compétences liées aux caractéristiques</h3>
                     <ul class="competence-list">
                         <li><strong>Magie élémentaire X (Intelligence)</strong> — Lancer, façonner et optimiser les sorts liés à l'élément choisi</li>
-                        <li><strong>Magie pure (Intelligence)</strong> — Maîtrise de l'énergie neutre non élémentaire</li>
+                        <li><strong>Magie du Cœur Arcanique X</strong> — Selon la Nature choisie par Résonance Élémentaire Éveillée</li>
                         <li><strong>Analyse magique (Intelligence)</strong> — Identifie sorts, auras, catalyseurs et phénomènes arcaniques</li>
                         <li><strong>Modulation magique (Intelligence)</strong> — Ajuste un sort en temps réel (portée, intensité, forme, maintien)</li>
                         <li><strong>Présence magique (Charisme)</strong> — Déploiement perceptible de l'énergie du lanceur pour impressionner ou intimider</li>
@@ -284,17 +253,29 @@
         
         // Données de Mage (échelle de -4 à +6)
         const statsData = {
-            FOR: -4,
+            FOR: -3,
             CST: -3,
-            DEX: 0,
-            INT: 6,
-            SAG: 4,
+            DEX: -2,
+            INT: 3,
+            SAG: 2,
             PER: 0,
-            CHA: 0
+            CHA: 1
         };
 
         // Convertir les valeurs pour le graphique (ajouter 4 pour que 0 soit au centre)
-        const convertedData = Object.values(statsData).map(val => val + 4);
+        const baseStats = statsData;
+        const origineBonuses = {
+            erudit: { INT: 3, SAG: 2 },
+            armes: { FOR: 5, DEX: 3 },
+            resonance: { SAG: 3, INT: 2 },
+            arcanologue: { PER: 3, INT: 2 }
+        };
+        function calculateStats(origine) {
+            const stats = { ...baseStats };
+            for (const [stat, bonus] of Object.entries(origineBonuses[origine] || {})) stats[stat] += bonus;
+            return stats;
+        }
+        const convertedData = Object.values(baseStats).map(val => val + 4);
 
         const statsChart = new Chart(ctx, {
             type: 'radar',
@@ -363,6 +344,19 @@
                     }
                 }
             }
+        });
+        let currentOrigine = null;
+        document.querySelectorAll('[data-origine]').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                currentOrigine = currentOrigine === card.dataset.origine ? null : card.dataset.origine;
+                document.querySelectorAll('[data-origine]').forEach(item => {
+                    item.classList.toggle('selected', item.dataset.origine === currentOrigine);
+                    item.style.outline = item.dataset.origine === currentOrigine ? '2px solid currentColor' : '';
+                });
+                statsChart.data.datasets[0].data = Object.values(calculateStats(currentOrigine)).map(val => val + 4);
+                statsChart.update();
+            });
         });
     </script>
 </body>

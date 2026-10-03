@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Guerrier.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="parchment-overlay"></div>
@@ -62,7 +63,7 @@
                         <span class="stat-item positive">FOR : +2</span>
                         <span class="stat-item positive">CST : +1</span>
                         <span class="stat-item positive">DEX : +1</span>
-                        <span class="stat-item negative">INT : −2</span>
+                        <span class="stat-item negative">INT : −3</span>
                         <span class="stat-item negative">SAG : −2</span>
                         <span class="stat-item neutral">PER : 0</span>
                         <span class="stat-item neutral">CHA : 0</span>
@@ -102,13 +103,24 @@
             
             <div class="talent-card">
                 <h3>1) Maîtrise mineure d'une arme de base (au choix)</h3>
-                <p>Tu choisis une arme et tu en apprends les fondamentaux : garde, portée, timing, angles de frappe. Cette maîtrise te permet d'utiliser cette arme de manière fiable en combat.</p>
+                <p>Choisis une arme de base de mêlée, de tir ou de jet. Sa Maîtrise mineure devient ton premier domaine martial et détermine ta Classe d’Arme de départ.</p>
             </div>
 
             <div class="talent-card">
-                <h3>2) Voie Personnelle</h3>
-                <p>Le personnage obtient la possibilité de choisir 1 Talent Brave.</p>
-                <p>Ce talent peut être évolutif ou non-évolutif, avec un coût maximal de 2 points de talent, en respectant tous les prérequis du talent sélectionné.</p>
+                <h3>Formation martiale polyvalente</h3>
+                <p>Tu peux utiliser correctement les armes et armures de base courantes sans être considéré comme totalement inexpérimenté, même hors de ta maîtrise principale.</p>
+            </div>
+            <div class="talent-card">
+                <h3>Lecture du combat</h3>
+                <p><strong>Analyse de combat +2 (PER)</strong> : reconnaître une ouverture, la menace immédiate, une position favorable, un rythme ou une habitude adverse et interpréter une manœuvre observable.</p>
+            </div>
+            <div class="talent-card">
+                <h3>Orientation de Vocation — 1 style au choix</h3>
+                <ul>
+                    <li><strong>Style Défensif :</strong> +2 au Modificateur de Défense physique.</li>
+                    <li><strong>Style Offensif :</strong> +2 au Modificateur d’Attaque physique.</li>
+                    <li><strong>Style Réactif :</strong> 1 fois par jour, active le style pour récupérer 1 PR.</li>
+                </ul>
             </div>
         </section>
 
@@ -130,19 +142,18 @@
                     <div class="subsection">
                         <h4>🎁 Gains</h4>
                         <ul>
-                            <li>Améliore d'un cran la maîtrise d'arme choisie</li>
-                            <li>Augmente d'un cran la classe d'arme de cette arme</li>
+                            <li><strong>Perfectionnement d’arme :</strong> augmente d’un cran la Classe d’Arme associée</li>
                         </ul>
                     </div>
                     
                     <div class="subsection">
                         <h4>Talent : Pic de Puissance Martiale</h4>
-                        <p><strong>Effet :</strong> 1 fois par session, lorsque tu attaques avec une arme dont tu possèdes la maîtrise Avancée, tu peux effectuer le jet de dégâts en Avantage.</p>
+                        <p><strong>Effet :</strong> 1 fois par session, lors d’une attaque avec une arme dont la Maîtrise est <strong>au minimum Avancée</strong>, applique <strong>Puissance optimale</strong> aux dégâts : lance deux fois l’ensemble des dés et conserve le meilleur total ; ajoute les valeurs fixes une seule fois. Aucun Avantage au jet d’attaque.</p>
                     </div>
                     
                     <div class="subsection">
                         <h4>📊 Bonus de caractéristique</h4>
-                        <p><strong>+3 Force de combat</strong></p>
+                        <p><strong>FOR +3, CST +2</strong>. Trait au choix : <strong>+1 Puissance, Résilience ou Sang-Froid</strong>.</p>
                     </div>
                 </div>
 
@@ -165,7 +176,7 @@
                     
                     <div class="subsection">
                         <h4>📊 Bonus de caractéristique</h4>
-                        <p><strong>+3 Constitution</strong></p>
+                        <p><strong>CST +3, FOR +2</strong>. Trait au choix : <strong>+1 Résilience, Sang-Froid ou Instinct</strong>.</p>
                     </div>
                 </div>
 
@@ -181,12 +192,12 @@
                     
                     <div class="subsection">
                         <h4>Talent : Maîtrise des attaques sournoises</h4>
-                        <p><strong>Effet :</strong> Permet d'effectuer des attaques sournoises, infligeant les dégâts associés à la sournoiserie. Les dégâts de sournoiserie, en plus d'appliquer l'effet sournoiserie sur l'armure (attention : armure), s'additionnent avec les dégâts dits de base de sournoiserie.</p>
+                        <p><strong>Effet :</strong> Permet les Attaques sournoises et leurs dégâts lorsque les conditions nécessaires sont réunies. Les dégâts de Sournoiserie s’ajoutent aux dégâts de base concernés et appliquent les propriétés prévues par l’Attaque sournoise.</p>
                     </div>
                     
                     <div class="subsection">
                         <h4>📊 Bonus de caractéristique</h4>
-                        <p><strong>+3 Dextérité</strong></p>
+                        <p><strong>DEX +3, PER +2</strong>. Trait au choix : <strong>+1 Finesse, Instinct ou Sang-Froid</strong>.</p>
                     </div>
                 </div>
 
@@ -197,7 +208,7 @@
                     <div class="subsection">
                         <h4>🎁 Gains</h4>
                         <p><strong>Talent : Éveil magique</strong></p>
-                        <p><strong>Effet :</strong> Déverrouille le potentiel magique : la base PM passe à 1d12 (si elle était inférieure) et la magie devient accessible. Lors de l'obtention du talent, le personnage peut lancer 2 dés de Gain de PM.</p>
+                        <p><strong>Effet :</strong> Déverrouille le potentiel magique : la base PM passe à 1d12 (si elle était inférieure) et la magie devient accessible. Lors de l'obtention du talent, le personnage lance 2 dés de Gain de PM.</p>
                         <p>(N'obtient pas le départ magique d'un utilisateur magique de base.)</p>
                     </div>
                     
@@ -212,7 +223,7 @@
                     
                     <div class="subsection">
                         <h4>📊 Bonus de caractéristique</h4>
-                        <p><strong>+4 Intelligence</strong> et <strong>+1d6 supplémentaire pour la Résistance Mentale</strong></p>
+                        <p><strong>INT −3 devient +2 ; SAG −2 devient +1</strong>. Trait au choix : <strong>+1 Savoir, Sang-Froid ou Métier</strong>.</p>
                     </div>
                 </div>
 
@@ -245,7 +256,7 @@
                     
                     <div class="subsection">
                         <h4>📊 Bonus de caractéristique</h4>
-                        <p><strong>+2 Dextérité</strong> et <strong>+1 Finesse</strong></p>
+                        <p><strong>DEX +3, Réactivité +2</strong>. Trait au choix : <strong>+1 Finesse, Instinct ou Résilience</strong>.</p>
                     </div>
                 </div>
 
@@ -267,7 +278,7 @@
                     
                     <div class="subsection">
                         <h4>📊 Bonus de caractéristique</h4>
-                        <p><strong>+2 Constitution</strong> et <strong>+1 Force de combat ou Dextérité</strong></p>
+                        <p><strong>CST +3, DEX +2</strong>. Trait au choix : <strong>+1 Finesse, Sang-Froid ou Puissance</strong>.</p>
                     </div>
                 </div>
 
@@ -308,7 +319,7 @@
                     
                     <div class="subsection">
                         <h4>📊 Bonus de caractéristique</h4>
-                        <p><strong>+3 Réactivité</strong></p>
+                        <p><strong>Réactivité +3, DEX +2</strong>. Trait au choix : <strong>+1 Finesse, Instinct ou Sang-Froid</strong>.</p>
                     </div>
                 </div>
             </div>
@@ -317,8 +328,41 @@
         <!-- Connaissances -->
         <section class="section">
             <h2 class="section-title">📚 Connaissances</h2>
-            <div class="content-box">
-                <p>Le personnage peut choisir <strong>5 connaissances au choix</strong>, toutes au niveau <strong>Modéré</strong>.</p>
+            <h3 class="subsection-title">Connaissances de base</h3>
+            <div class="knowledge-list">
+                <div class="knowledge-item"><h4>Pratiques martiales (Modéré)</h4><p>Garde, distance, rythme, pression et ouvertures ; reconnaître les techniques et styles courants.</p></div>
+                <div class="knowledge-item"><h4>Armes et équipements militaires (Modéré)</h4><p>Catégories, usages, forces, limites et état général des armes, armures, boucliers et équipements courants.</p></div>
+                <div class="knowledge-item"><h4>Tactiques de combat (Modéré)</h4><p>Placement, distances, priorités, coordination, tenue de ligne, contournement et exploitation du terrain.</p></div>
+                <div class="knowledge-item"><h4>Conditionnement physique (Modéré)</h4><p>Entraînement, effort, récupération, limites du corps et signes d’épuisement ; ne remplace pas une expertise médicale.</p></div>
+            </div>
+            <h2 class="section-title">📚 Connaissances selon la Vocation</h2>
+            <h3 class="subsection-title">Voie du Forgé-Vif</h3><div class="knowledge-list">
+                <div class="knowledge-item"><h4>Techniques d’armes (Modéré)</h4><p>Gardes, enchaînements, portée, équilibre et contraintes des armes courantes.</p></div>
+                <div class="knowledge-item"><h4>Entretien des armes (Modéré)</h4><p>Usure, nettoyage, affûtage, manche et corrosion ; les réparations importantes demandent un savoir artisanal.</p></div>
+            </div>
+            <h3 class="subsection-title">Voie du Rempart Mobile</h3><div class="knowledge-list">
+                <div class="knowledge-item"><h4>Techniques de bouclier (Modéré)</h4><p>Bloquer, dévier, fermer un angle, protéger et comprendre les effets de la taille, du poids et de la forme du bouclier.</p></div>
+                <div class="knowledge-item"><h4>Formations défensives (Modéré)</h4><p>Ligne, couverture mutuelle, verrouillage d’un passage et points forts ou faiblesses visibles d’une formation simple.</p></div>
+            </div>
+            <h3 class="subsection-title">Voie du Coup Bas Tactique</h3><div class="knowledge-list">
+                <div class="knowledge-item"><h4>Tactiques d’embuscade (Modéré)</h4><p>Surprise, distractions, angles morts, positionnement et choix du moment.</p></div>
+                <div class="knowledge-item"><h4>Points vulnérables (Modéré)</h4><p>Ouvertures courantes d’une garde, armure ou structure ; ne révèle pas automatiquement les faiblesses d’une créature inconnue.</p></div>
+            </div>
+            <h3 class="subsection-title">Voie de l’Éveil Contrôlé</h3><div class="knowledge-list">
+                <div class="knowledge-item"><h4>Sources magiques (Modéré)</h4><p>Nature des Sources et influence des affinités élémentaires ; reconnaître leurs manifestations simples.</p></div>
+                <div class="knowledge-item"><h4>Principes de canalisation magique (Modéré)</h4><p>Circulation, concentration, libération et stabilisation des flux, dépenses et erreurs courantes ; ne confère pas de maîtrise pratique.</p></div>
+            </div>
+            <h3 class="subsection-title">Voie du Corps-Route</h3><div class="knowledge-list">
+                <div class="knowledge-item"><h4>Mobilité corporelle (Modéré)</h4><p>Appuis, équilibre, élan, changements de direction, réceptions et économie de mouvement.</p></div>
+                <div class="knowledge-item"><h4>Franchissement et terrain (Modéré)</h4><p>Chemins praticables, obstacles, pentes, ruines, surfaces instables et passages étroits.</p></div>
+            </div>
+            <h3 class="subsection-title">Voie de l’Avant-Garde</h3><div class="knowledge-list">
+                <div class="knowledge-item"><h4>Postures martiales (Modéré)</h4><p>Placement, appuis, orientation et répartition du poids pour attaque, défense et transition.</p></div>
+                <div class="knowledge-item"><h4>Biomécanique du combat (Modéré)</h4><p>Équilibre, rotation, ancrage et transmission ou absorption de la force ; ne remplace pas l’entraînement.</p></div>
+            </div>
+            <h3 class="subsection-title">Voie du Duelliste</h3><div class="knowledge-list">
+                <div class="knowledge-item"><h4>Codes du duel (Modéré)</h4><p>Défis, conditions, armes, coutumes et comportements honorables ou déloyaux, variables selon les cultures.</p></div>
+                <div class="knowledge-item"><h4>Lecture de l’adversaire (Modéré)</h4><p>Gardes, hésitations, répétitions et intentions visibles ; une feinte maîtrisée ou un style inconnu reste difficile à lire.</p></div>
             </div>
         </section>
 
@@ -372,13 +416,6 @@
                     </div>
                 </div>
 
-                <div class="equipment-item">
-                    <span class="icon">🎒</span>
-                    <div>
-                        <h4>1 objet de base au choix</h4>
-                        <p>Ne dépassant pas la tranche de niveau du personnage</p>
-                    </div>
-                </div>
             </div>
         </section>
 

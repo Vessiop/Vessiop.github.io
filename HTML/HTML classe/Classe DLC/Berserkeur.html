@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Berserkeur.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="tribal-overlay"></div>
@@ -33,13 +34,11 @@
         <section class="section">
             <h2 class="section-title">📄 Description</h2>
             <div class="content-box">
-                <p>Le Héraut des Esprits marche à la frontière du monde sauvage et du monde spirituel. Là où d'autres cherchent la technique ou la ruse, le Berserkeur écoute d'abord l'instinct : il sent le combat venir, et son corps répond comme une bête sacrée prête à déchirer la réalité.</p>
-
-                <p>Mais sa fureur n'est pas seulement animale : elle est aussi ancestrale. Par ses rites, ses marques d'ascension, et sa capacité à s'accorder à l'invisible, il devient un réceptacle vivant, capable d'appeler un fragment spirituel pour renforcer sa chair et sa volonté.</p>
-
-                <p>Pour un Berserkeur, la Transe n'est pas un simple "mode berserk". C'est une harmonie : un pacte bref, parfois propre, parfois instable, où l'esprit et le corps se superposent jusqu'à ne faire qu'un. Dans cet état, il frappe plus lourd, tient plus longtemps, et perçoit ce que les autres ignorent… comme si un second regard se tenait derrière le sien.</p>
-
-                <p>Cependant, toute harmonie a un prix : si l'esprit est noble, il soutient… mais si l'appel attire une présence trouble, la transe peut glisser vers une possession, drainant l'énergie et menaçant la lucidité. C'est ce danger qui rend le Berserkeur aussi redoutable pour ses ennemis… que potentiellement dangereux pour ceux qui se tiennent trop près.</p>
+                <p>Le Héraut des Esprits marche à la frontière du monde sauvage et du monde spirituel. Là où d’autres cherchent la technique ou la ruse, le Berserkeur écoute d’abord l’instinct : il sent le combat venir, et son corps répond comme une bête sacrée prête à déchirer la réalité.</p>
+                <p>Mais sa fureur n’est pas seulement animale : elle est aussi ancestrale. Par ses rites, ses marques d’Ascension et sa capacité à s’accorder à l’invisible, il devient un réceptacle vivant, capable d’accueillir un fragment spirituel afin de renforcer sa chair et sa volonté.</p>
+                <p>Pour un Berserkeur, la Transe n’est pas un simple « mode berserk ». C’est une harmonie : un pacte bref, parfois stable, parfois instable, où l’esprit et le corps se superposent progressivement jusqu’à presque ne faire qu’un. Dans cet état, il frappe plus lourd, tient plus longtemps et perçoit ce que les autres ignorent, comme si un second regard se tenait derrière le sien.</p>
+                <p>Cependant, toute harmonie a un prix. Si l’Écho soutient son réceptacle, une synchronisation trop profonde peut progressivement lui laisser davantage de place. La Transe risque alors de glisser vers une Emprise spirituelle, menaçant temporairement la volonté du Berserkeur.</p>
+                <p>C’est cette frontière entre puissance et perte de contrôle qui constitue le cœur même de sa voie.</p>
             </div>
         </section>
 
@@ -51,8 +50,8 @@
                     <h3>❤️ Base PV / PM / PE</h3>
                     <ul>
                         <li><strong>PV :</strong> 1d16</li>
-                        <li><strong>PM :</strong> 1d10</li>
-                        <li><strong>PE :</strong> 1d16</li>
+                        <li><strong>PM :</strong> 1d0</li>
+                        <li><strong>PE :</strong> 1d14</li>
                     </ul>
                 </div>
 
@@ -99,235 +98,484 @@
         <!-- Talents -->
         <section class="section">
             <h2 class="section-title">💪 Talents</h2>
-
             <div class="talent-card">
-                <h3>Initiation du Réceptacle Spirituel</h3>
-                <p>Éduqué pour devenir un Berserkeur, à la fois réceptacle d'âmes et héraut du monde spirituel, tu as reçu une base solide pour tenir tête à tes pairs, autant face aux menaces physiques que spirituelles. Cette initiation se traduit par les acquis suivants :</p>
-                <ul>
-                    <li>Maîtrise d'arme au choix</li>
-                    <li>Compétence (trait spécifique) : « Voix des Esprits (Social) +2 »</li>
-                    <li>Compétence : « Barrière spirituel mental (RM) +5 »</li>
-                    <li>Talent : « Corps Accordé » — Tous les dégâts de magie spirituelle subis sont réduits de moitié.</li>
-                    <li>Et obtient ce talent « Savoir spirituel » — Tout jet de savoir lié au domaine spirituel sera fait en avantage</li>
-                </ul>
+                <h3>Emprise progressive</h3>
+                <p>Tant que le Berserkeur est en Transe, l’Écho prend progressivement plus de place en lui.</p>
+                <p>La Transe commence à 0 Point d’Emprise.</p>
+                <p>À la fin de chacun de ses tours en Transe, il gagne +1 Point d’Emprise.</p>
+                <p>Les Points d’Emprise ne sont pas dépensés.</p>
+                <p>Paliers de base</p>
+                <p>0 à 2 Points : Résonance</p>
+                <p>3 à 5 Points : Superposition</p>
+                <p>6 Points ou plus : Ascendance</p>
+                <p>Lorsque le seuil d’un nouvel état est atteint, le Berserkeur y passe automatiquement.</p>
+                <p>Il peut également choisir de passer volontairement à l’état suivant avant d’atteindre son seuil. Dans ce cas, ses Points d’Emprise deviennent immédiatement égaux au seuil actuel du nouvel état.</p>
+                <p>Le Berserkeur ne peut normalement progresser que d’un état à la fois, sauf capacité indiquant explicitement le contraire.</p>
+                <p>Lorsque la Transe prend fin :</p>
+                <p>Les Points d’Emprise retombent à 0.</p>
             </div>
 
             <div class="talent-card">
-                <h3>Appel des Échos Spirituels mineur</h3>
-                <p>Le lanceur peut adopter une posture de recueillement afin de concentrer son souffle et diffuser une énergie spirituelle à travers tout son corps. En prenant le temps nécessaire, cette émanation devient un appel capable d'attirer un fragment d'âme — voire un esprit mineur — pouvant se synchroniser avec lui et lui prêter assistance, si l'esprit juge la situation digne ou en adéquation avec sa nature.</p>
-                <p>À la fin de l'appel, si l'esprit accepte, le lanceur doit payer un tribut de 3d10 PM et 3d10 PE.</p>
-                <p>Cependant, si l'esprit a été satisfait (par un jet de Social ou par les actions/attitudes du lanceur), le tribut peut être réduit de moitié, ou dans certains cas annulé.</p>
-                <p><strong>Jet de Social :</strong> DD 20 (base)</p>
-                <p><strong>Le lanceur obtient la compétence :</strong> « Appel des Échos (sagesse) +2 »</p>
+                <h3>Maîtrise mineure d’une arme au choix</h3>
+                <p>Le Berserkeur obtient la Maîtrise mineure d’une arme de son choix.</p>
+                <p>Cette arme détermine également sa Classe d’Arme de départ.</p>
             </div>
 
             <div class="talent-card">
-                <h3>Maîtrise mineure de la magie spirituelle</h3>
-                <p>La Magie Spirituelle est une magie astrale liée à la nature même des âmes. La magie spirituelle conventionnelle consiste à employer cette essence de manière modérée pour guider, stabiliser, ou produire des effets liés à l'essence vitale des êtres.</p>
-                <p><strong>Offre la compétence :</strong> Magie spirituelle (sagesse) +2</p>
+                <h3>Maîtrise de l’Ancrage Astral — Mineure</h3>
+                <p>Le Berserkeur apprend à mieux supporter la présence d’un Écho dans son corps et à contrôler l’Essence spirituelle produite par leur harmonie.</p>
+                <p>Il obtient :</p>
+                <p>Maîtrise de l’Ancrage Astral +2 — Sagesse</p>
+                <p>Cette compétence peut être utilisée pour :</p>
+                <p>stabiliser une synchronisation ;</p>
+                <p>canaliser l’énergie de son Écho ;</p>
+                <p>maintenir son contrôle ;</p>
+                <p>résister à l’Emprise de son propre Écho ;</p>
+                <p>modifier l’état de son Harmonie ;</p>
+                <p>utiliser certaines facultés propres à l’Ancrage Astral.</p>
+                <p>Elle représente la maîtrise spirituelle propre au Berserkeur et non une maîtrise générale de la magie spirituelle.</p>
+                <p>Évolution — Contrôle de l’Emprise</p>
+                <p>Tous les 2 niveaux supplémentaires de Maîtrise de l’Ancrage Astral, chaque état d’Harmonie peut supporter 1 Point d’Emprise supplémentaire avant le passage automatique au suivant.</p>
+                <p>Base</p>
+                <p>Résonance : 0–2</p>
+                <p>Superposition : 3–5</p>
+                <p>Ascendance : 6+</p>
+                <p>Premier gain</p>
+                <p>Résonance : 0–3</p>
+                <p>Superposition : 4–7</p>
+                <p>Ascendance : 8+</p>
+                <p>Deuxième gain</p>
+                <p>Résonance : 0–4</p>
+                <p>Superposition : 5–9</p>
+                <p>Ascendance : 10+</p>
+                <p>Plus le Berserkeur développe sa Maîtrise de l’Ancrage Astral, plus il peut conserver longtemps un état d’Harmonie avant que l’Écho ne gagne davantage de terrain.</p>
             </div>
 
             <div class="talent-card">
                 <h3>Vision spirituelle</h3>
-                <p>Le lanceur peut percevoir les énergies et entités spirituelles, même dissimulées. En cas de camouflage magique, il peut effectuer un jet de Sagesse (Perception magique) pour détecter la dissimulation et révéler la trace.</p>
+                <p>Le Berserkeur peut naturellement percevoir les Essences, traces et présences spirituelles proches.</p>
+                <p>Une manifestation spirituelle clairement présente peut être perçue sans jet.</p>
+                <p>Si une présence cherche à se dissimuler, si sa trace est faible ou si elle est protégée par un camouflage surnaturel, un jet approprié peut être demandé.</p>
+                <p>La Vision spirituelle permet notamment de :</p>
+                <p>apercevoir une entité normalement invisible car purement spirituelle ;</p>
+                <p>remarquer une trace laissée par le passage d’un esprit ;</p>
+                <p>distinguer une présence spirituelle d’un phénomène magique ordinaire ;</p>
+                <p>repérer une perturbation spirituelle inhabituelle.</p>
+                <p>Elle ne révèle pas automatiquement la nature exacte, les intentions ou l’identité de l’entité.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Écho spirituel</h3>
+                <p>Chaque Berserkeur possède un Écho spirituel lié, une présence avec laquelle son âme est capable d’entrer en Harmonie.</p>
+                <p>Chaque Écho possède plusieurs éléments.</p>
+                <p>Nature</p>
+                <p>Elle définit ce que l’Écho représente ou ce qu’il était : prédateur, guerrier, protecteur, animal spirituel, âme tourmentée, gardien ou autre présence.</p>
+                <p>Pulsion</p>
+                <p>Il s’agit du comportement instinctif que l’Écho cherche à imposer lorsqu’une Emprise spirituelle se produit.</p>
+                <p>Exemples :</p>
+                <p>poursuivre une cible ;</p>
+                <p>protéger une personne ;</p>
+                <p>refuser de battre en retraite ;</p>
+                <p>défendre un territoire ;</p>
+                <p>rechercher l’affrontement.</p>
+                <p>Résonance</p>
+                <p>L’effet de base accordé par l’Écho lorsqu’il commence à se synchroniser avec le Berserkeur.</p>
+                <p>Superposition</p>
+                <p>Une évolution de ses capacités lorsque le corps et l’Écho commencent véritablement à se mêler.</p>
+                <p>Ascendance</p>
+                <p>La manifestation la plus puissante de l’Écho, obtenue lorsque la frontière entre lui et son réceptacle devient extrêmement faible.</p>
+                <p>Changer d’Écho</p>
+                <p>Un Berserkeur ne peut normalement être lié qu’à un seul Écho à la fois.</p>
+                <p>Créer une nouvelle Harmonie demande une rencontre, un accord ou un rituel approprié effectué hors combat.</p>
+                <p>L’établissement d’un nouveau lien met normalement fin à l’ancien.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Réceptacle des Esprits Communs</h3>
+                <p>Le Berserkeur a appris à accueillir certaines formes d’Esprits communs, des présences dont la nature, les instincts et les effets sur un réceptacle sont suffisamment connus pour être transmis dans les traditions Berserkeur.</p>
+                <p>Lorsqu’il obtient ce talent, il choisit :</p>
+                <p>2 Esprits communs parmi la liste disponible.</p>
+                <p>Au moment d’entrer en Transe, il choisit lequel de ses deux Esprits il accueille.</p>
+                <p>Un seul Esprit peut être actif à la fois et il ne peut normalement pas en changer tant que la Transe n’a pas pris fin.</p>
+                <p>À chaque nouvelle Transe, le Berserkeur peut choisir librement l’un de ses deux Esprits.</p>
+                <p>Chaque Esprit possède :</p>
+                <p>un effet de Résonance ;</p>
+                <p>un effet supplémentaire de Superposition ;</p>
+                <p>un effet supplémentaire d’Ascendance ;</p>
+                <p>une Pulsion mineure en Superposition ;</p>
+                <p>une Pulsion majeure en Ascendance.</p>
+                <p>Les bonus des différents états sont cumulatifs.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Pulsions spirituelles</h3>
+                <p>🔹 Résonance</p>
+                <p>L’Écho reste suffisamment stable pour ne pas influencer directement le comportement du Berserkeur.</p>
+                <p>Aucune Pulsion.</p>
+                <p>🔸 Superposition</p>
+                <p>La Pulsion mineure de l’Esprit devient constamment active.</p>
+                <p>Tant que le Berserkeur agit conformément à celle-ci, aucun jet n’est nécessaire.</p>
+                <p>S’il souhaite accomplir une action allant clairement à l’encontre de sa Pulsion :</p>
+                <p>Maîtrise de l’Ancrage Astral (SAG) — 1d100</p>
+                <p>Réussite : il peut agir librement pour cette action.</p>
+                <p>Échec : son action doit respecter la Pulsion.</p>
+                <p>🔺 Ascendance</p>
+                <p>La Pulsion devient une Pulsion majeure, plus stricte et plus difficile à contenir.</p>
+                <p>Pour agir volontairement contre elle :</p>
+                <p>Maîtrise de l’Ancrage Astral (SAG) — 1d100 en Désavantage</p>
+                <p>La MR minimale dépend du dépassement du seuil d’Ascendance :</p>
+                <ul>
+                    <li>Dépassement de 0 à +2 Points : MR minimale 10.</li>
+                    <li>Dépassement de +3 à +5 Points : MR minimale 15.</li>
+                    <li>Dépassement de +6 Points ou plus : MR minimale 20.</li>
+                </ul>
+                <p>La Pulsion ne force jamais automatiquement le Berserkeur à considérer ses alliés comme des ennemis.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Esprit du Guerrier</h3>
+                <p>Ancien soldat, champion, combattant tribal ou âme ayant consacré son existence au maniement des armes. Cet Esprit transmet au Berserkeur des réflexes de combat profondément ancrés, mais supporte difficilement qu’un affrontement reste inachevé.</p>
+                <p>🔹 Résonance — Mémoire martiale</p>
+                <p>+5 aux jets réalisés avec l’arme maîtrisée.</p>
+                <p>Avantage aux jets de Savoir visant à reconnaître une technique, une posture ou une tradition martiale.</p>
+                <p>🔸 Superposition — Instinct du combattant</p>
+                <p>En plus des effets précédents :</p>
+                <p>+1 Puissance</p>
+                <p>Pulsion mineure — Affrontement engagé</p>
+                <p>Lorsqu’il s’engage directement contre un adversaire, le Berserkeur ressent le besoin de poursuivre cet affrontement plutôt que de changer inutilement de cible ou de battre en retraite.</p>
+                <p>🔺 Ascendance — Champion incarné</p>
+                <p>En plus des effets précédents :</p>
+                <p>1 fois par tour, les dégâts d'une attaque réussie avec son arme maîtrisée bénéficient de Puissance optimale.</p>
+                <p>Pulsion majeure — Finir le duel</p>
+                <p>Un adversaire directement engagé par le Berserkeur devient sa priorité. Tant que cet ennemi reste accessible et constitue une menace, l’Écho pousse le Berserkeur à poursuivre le combat jusqu’à sa défaite ou sa fuite complète.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Esprit du Sorcier Occulte</h3>
+                <p>Cet Esprit appartenait à un mage, chercheur ou praticien des arts occultes. Ses souvenirs ne sont pas toujours complets, mais ils transmettent au Berserkeur une compréhension instinctive des phénomènes surnaturels et une curiosité parfois dangereuse.</p>
+                <p>🔹 Résonance — Mémoire occulte</p>
+                <p>+5 aux jets liés à l’utilisation ou au contrôle d’une faculté magique possédée.</p>
+                <p>Avantage aux jets de Savoir concernant l’occulte, les malédictions, les rites interdits ou les phénomènes ésotériques.</p>
+                <p>🔸 Superposition — Corps imprégné</p>
+                <p>En plus des effets précédents :</p>
+                <p>10 % de Résistance aux dégâts magiques.</p>
+                <p>Pulsion mineure — Curiosité interdite</p>
+                <p>Face à un phénomène magique ou occulte inconnu, le Berserkeur ressent le besoin de l’observer, l’analyser ou chercher à en comprendre le fonctionnement.</p>
+                <p>🔺 Ascendance — Conscience ésotérique</p>
+                <p>En plus des effets précédents :</p>
+                <p>Les jets liés à l’utilisation ou au contrôle de facultés magiques sont effectués en Avantage.</p>
+                <p>Pulsion majeure — Le savoir avant tout</p>
+                <p>Un phénomène occulte inconnu devient une priorité pour l’Esprit. Le Berserkeur cherche à l’approcher, l’étudier ou obtenir des informations à son sujet, même lorsque cela détourne son attention de son objectif immédiat.</p>
+                <p>La Pulsion ne l’oblige pas à accomplir une action manifestement suicidaire.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Esprit du Gardien</h3>
+                <p>Ancienne sentinelle, protecteur, parent, garde ou esprit tutélaire, cette présence conserve une volonté presque absolue de protéger ceux qu’elle considère sous sa responsabilité.</p>
+                <p>🔹 Résonance — Instinct protecteur</p>
+                <p>+5 aux jets effectués pour protéger, intercepter ou défendre une autre créature.</p>
+                <p>Avantage aux jets permettant de remarquer une menace visant directement un allié proche.</p>
+                <p>🔸 Superposition — Corps-rempart</p>
+                <p>Lorsqu’il s’interpose volontairement pour protéger une autre créature :</p>
+                <p>10 % de réduction des dégâts physiques subis.</p>
+                <p>Pulsion mineure — Ne laisser personne derrière</p>
+                <p>Lorsqu’un allié proche est directement menacé, le Berserkeur ressent le besoin de se rapprocher de lui, détourner la menace ou participer à sa protection.</p>
+                <p>🔺 Ascendance — Gardien absolu</p>
+                <p>La réduction obtenue lorsqu’il s’interpose passe à :</p>
+                <p>20 %</p>
+                <p>et :</p>
+                <p>les réactions réalisées directement pour protéger un allié sont effectuées en Avantage.</p>
+                <p>Pulsion majeure — Personne ne tombe</p>
+                <p>Un allié gravement menacé ou mis hors combat devient immédiatement prioritaire. Le Berserkeur cherche à le rejoindre, le défendre ou neutraliser la menace qui pèse sur lui, même s’il doit abandonner une position avantageuse.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Esprit du Prédateur</h3>
+                <p>Bête spirituelle, chasseur ancestral ou âme dominée par l’instinct de traque, cet Esprit transforme progressivement le Berserkeur en véritable poursuivant.</p>
+                <p>🔹 Résonance — Sens du chasseur</p>
+                <p>+5 aux jets de traque, pistage ou recherche d’une créature.</p>
+                <p>Avantage aux jets de Perception visant à repérer une créature dissimulée, blessée ou en mouvement.</p>
+                <p>🔸 Superposition — Instinct prédateur</p>
+                <p>Lorsqu’il se déplace directement vers une créature hostile qu’il perçoit :</p>
+                <p>+10 % de déplacement.</p>
+                <p>Pulsion mineure — La proie fuit</p>
+                <p>Lorsqu’un adversaire tente de fuir ou de rompre l’affrontement, le Berserkeur ressent le besoin de le poursuivre.</p>
+                <p>🔺 Ascendance — Chasseur suprême</p>
+                <p>Le bonus de déplacement vers une cible devient :</p>
+                <p>+20 %</p>
+                <p>De plus :</p>
+                <p>les attaques physiques contre une cible possédant moins de la moitié de ses PV sont réalisées en Avantage.</p>
+                <p>Pulsion majeure — Achever la proie</p>
+                <p>Une cible hostile blessée qui tente de fuir devient prioritaire. Tant que le Berserkeur peut raisonnablement la poursuivre, l’Esprit le pousse à continuer la chasse jusqu’à ce qu’elle tombe ou lui échappe réellement.</p>
+            </div>
+
+            <div class="talent-card">
+                <h3>Esprit de la Fureur</h3>
+                <p>Cet Esprit est dominé par la rage, la vengeance et la violence. Il pousse le corps du Berserkeur à supporter davantage de douleur et transforme chaque blessure reçue en raison supplémentaire de continuer le combat.</p>
+                <p>🔹 Résonance — Colère contenue</p>
+                <p>+5 aux jets de Puissance liés à une action physique brutale.</p>
+                <p>Avantage aux jets visant à résister à la peur ou à l’intimidation.</p>
+                <p>🔸 Superposition — Fureur incarnée</p>
+                <p>En plus des effets précédents :</p>
+                <p>10 % de Résistance aux dégâts physiques.</p>
+                <p>Pulsion mineure — Rendre les coups</p>
+                <p>Lorsqu’une créature hostile inflige directement des dégâts au Berserkeur, celui-ci ressent le besoin de riposter contre elle ou de se rapprocher d’elle dès que possible.</p>
+                <p>🔺 Ascendance — Rage déchaînée</p>
+                <p>En plus des effets précédents :</p>
+                <p>+10 % aux dégâts physiques infligés.</p>
+                <p>Ce bonus s’ajoute aux effets normaux de l’Ascendance du Berserkeur.</p>
+                <p>Pulsion majeure — Vengeance immédiate</p>
+                <p>La dernière créature hostile ayant directement blessé le Berserkeur devient sa priorité.</p>
+                <p>Tant qu’elle reste accessible et constitue une menace, l’Écho pousse le Berserkeur à l’atteindre et l’affronter, même lorsqu’une autre cible serait tactiquement plus intéressante.</p>
             </div>
         </section>
 
         <!-- Passif de classe -->
         <section class="section">
-            <h2 class="section-title">🕵️‍♂️ Passif de classe : Transe de l'Ancrage Astral</h2>
+            <h2 class="section-title">🔮 Passif de classe — Transe de l’Ancrage Astral</h2>
             <div class="content-box">
-                <p class="intro-text">Le Berserkeur peut s'harmoniser avec l'énergie spirituelle environnante, même lorsqu'elle paraît inexistante, afin d'entrer dans une phase de transe. Un fragment d'être spirituel l'habite alors, renforçant son corps et son âme… mais au prix d'un risque de possession et d'un drain d'énergie.</p>
-
-                <div class="subsection">
-                    <h4>Activation</h4>
-                    <p>Jet de SAG avec DD +10.</p>
-                    <p>En combat : l'activation prend le tour entier.</p>
-                    <p>Relance possible dans le même tour si tu sacrifies des PA (selon règle de table).</p>
-                </div>
-
-                <div class="subsection">
-                    <h4>Effets pendant la Transe (tant qu'elle est stable)</h4>
-                    <h5>Avantage sur :</h5>
-                    <ul>
-                        <li>Jets de Puissance</li>
-                        <li>Jets de Résistance Mentale (RM)</li>
-                        <li>Jets pour résister à un effet magique maudit (base SAG)</li>
-                        <li>Jets de Magie spirituelle</li>
-                    </ul>
-                    <p><strong>Réactions instinctives :</strong> tu n'as pas besoin de jet de Réactivité pour tenter une réaction.</p>
-                    <p><strong>Réduction des dégâts magiques :</strong> -20% (sauf : Ténèbres, Lumière, Maudit, Abysse)</p>
-                </div>
-
-                <div class="subsection">
-                    <h4>Durée stable</h4>
-                    <p>Lance 1dX (X = Mod de SAG du lanceur+1) : c'est le nombre de tours pendant lesquels la transe reste sans contrecoup.</p>
-                </div>
-
-                <div class="subsection">
-                    <h4>Début de possession (après la durée stable)</h4>
-                    <p>À partir de la fin de cette durée :</p>
-                    <p>Le Berserkeur subit 4d10 de perte, appliquée à la fois en PM et en PE (même résultat pour les deux).</p>
-                    <p>Si PM ou PE tombe à 0, la possession s'éteint et la transe prend fin.</p>
-                </div>
-
-                <div class="subsection">
-                    <h4>Se libérer de la possession</h4>
-                    <p>En combat : jet de SAG pour se libérer (coûte 1 PR si l'âme est harmonieuse).</p>
-                    <p>Hors combat : gratuit (sauf cas particulier).</p>
-                    <p>Dans tous les cas, la libération déclenche une dernière fois la perte d'énergie (4d10) mais le lanceur peut faire un jet de résilience DD 14 pour ne subir que la moitié de la perte.</p>
-                </div>
-
-                <div class="subsection">
-                    <h4>Limite</h4>
-                    <p>1 fois par combat.</p>
-                </div>
+                <p>Le Berserkeur possède un Écho spirituel, une présence avec laquelle son âme est capable de s’harmoniser.</p>
+                <p>En combat, il peut laisser cet Écho se superposer progressivement à son corps afin d’entrer en Transe.</p>
+                <p>Tant que la Transe reste active, il bénéficie des capacités propres à son Écho et peut approfondir leur synchronisation à travers 3 états d’Harmonie.</p>
+                <p>Activation de la Transe</p>
+                <p><strong>Coût :</strong> 1 PA • <strong>Utilisation :</strong> 1 fois par combat</p>
+                <p>L’entrée normale en Transe ne demande aucun jet.</p>
+                <p>Le Berserkeur commence immédiatement en :</p>
+                <p>Résonance — 0 Point d’Emprise</p>
+                <p>🔹 Résonance</p>
+                <p>L’Écho s’accorde au Berserkeur sans chercher à prendre le dessus.</p>
+                <p>La Transe reste stable et le personnage profite des effets de base liés à son Écho.</p>
+                <p>Effets</p>
+                <p>Accès aux capacités de Résonance de l’Écho.</p>
+                <p>Accès aux facultés nécessitant la Transe.</p>
+                <p>Avantage aux jets de résistance contre une possession, une intrusion ou une domination provenant d’une entité spirituelle extérieure.</p>
+                <p>Risque</p>
+                <p>Aucun jet d’Emprise n’est nécessaire.</p>
+                <p>La Résonance représente l’état le plus stable de la Transe.</p>
+                <p>🔸 Superposition</p>
+                <p>Le corps et l’Écho commencent réellement à se mêler.</p>
+                <p>La présence spirituelle devient plus importante et certaines caractéristiques de l’Écho commencent à se manifester à travers son réceptacle.</p>
+                <p>Le Berserkeur conserve les effets de Résonance et gagne :</p>
+                <p>accès aux capacités de Superposition de son Écho ;</p>
+                <p>Avantage aux jets de Puissance ;</p>
+                <p>lorsqu’il utilise une réaction, il n’effectue plus le jet préliminaire de Réactivité normalement nécessaire.</p>
+                <p>Les autres coûts et conditions de la réaction restent applicables.</p>
+                <p>Risque</p>
+                <p>Aucun jet d’Emprise n’est encore demandé.</p>
+                <p>Cependant, la séparation entre le Berserkeur et son Écho devient plus difficile.</p>
+                <p>🔺 Ascendance</p>
+                <p>La frontière entre le Berserkeur et son Écho devient extrêmement faible.</p>
+                <p>L’Écho occupe désormais une place dominante et la Transe atteint son potentiel maximal.</p>
+                <p>Le Berserkeur conserve les effets précédents et gagne :</p>
+                <p>accès aux capacités d’Ascendance de son Écho ;</p>
+                <p>+10 % aux dégâts physiques et spirituels qu’il inflige ;</p>
+                <p>10 % de réduction des dégâts physiques et magiques qu’il subit.</p>
+                <p>Cependant, il devient désormais vulnérable à l’Emprise spirituelle.</p>
+                <p>👁️ Emprise spirituelle</p>
+                <p>À la fin de chacun de ses tours passés en Ascendance, le Berserkeur doit tenter de conserver le contrôle de son Harmonie.</p>
+                <p>Il effectue :</p>
+                <p>Maîtrise de l’Ancrage Astral (Sagesse) — 1d100</p>
+                <p>Le jet doit être réussi normalement et atteindre la MR minimale demandée.</p>
+                <ul>
+                    <li>Dépassement du seuil d’Ascendance de 0 à +2 Points : MR minimale 10.</li>
+                    <li>Dépassement de +3 à +5 Points : MR minimale 15.</li>
+                    <li>Dépassement de +6 Points ou plus : MR minimale 20.</li>
+                </ul>
+                <p>Réussite</p>
+                <p>Le Berserkeur conserve le contrôle.</p>
+                <p>Échec</p>
+                <p>L’Écho provoque une Emprise spirituelle.</p>
+                <p>Sa Pulsion devient active jusqu’à la fin du prochain tour du Berserkeur.</p>
+                <p>Le joueur conserve le contrôle du personnage, mais ses décisions doivent respecter autant que possible la Pulsion de son Écho.</p>
+                <p>Une Emprise ne force pas automatiquement le personnage à attaquer un allié, sauf capacité indiquant explicitement le contraire.</p>
+                <p>🔻 Mettre fin à la Transe</p>
+                <p>Résonance</p>
+                <p>Sortie libre</p>
+                <p>Aucun PA et aucun jet ne sont nécessaires.</p>
+                <p>Superposition</p>
+                <p>Coût : 1 PA</p>
+                <p>Jet :</p>
+                <p>Maîtrise de l’Ancrage Astral (Sagesse) — 1d100 ; MR minimale : 10.</p>
+                <p>Réussite : la Transe prend fin.</p>
+                <p>Échec : la Transe continue.</p>
+                <p>Ascendance</p>
+                <p>Coût : 1 PA</p>
+                <p>Jet :</p>
+                <p>Maîtrise de l’Ancrage Astral (Sagesse) — 1d100</p>
+                <ul>
+                    <li>Dépassement du seuil d’Ascendance de 0 à +2 Points : MR minimale 10.</li>
+                    <li>Dépassement de +3 à +5 Points : MR minimale 15.</li>
+                    <li>Dépassement de +6 Points ou plus : MR minimale 20.</li>
+                </ul>
+                <p>Réussite : la Transe prend fin.</p>
+                <p>Échec : l’Écho reste ancré et la Transe continue.</p>
+                <p>Lorsque la Transe prend fin :</p>
+                <p>Points d’Emprise → 0</p>
+                <p>Une fois un état supérieur atteint, le Berserkeur ne peut normalement plus revenir à un état inférieur sans mettre fin à sa Transe, sauf capacité indiquant explicitement le contraire.</p>
             </div>
         </section>
 
         <!-- Origines -->
         <section class="section">
             <h2 class="section-title">🌿 Origines</h2>
-            <p class="intro-text">« Chaque Berserkeur trouve sa voie entre le sauvage et le spirituel… Quelle est la tienne ? »</p>
-
-            <div class="interactive-hint">
-                💡 <strong>Astuce :</strong> Cliquez sur une origine pour voir ses bonus appliqués au graphique des caractéristiques !
-            </div>
-
             <div class="origin-grid">
-
-                <!-- Primitif -->
                 <div class="origin-card origin-primitif">
-                    <h3>🐺 Primitif : Hérauts des terres sauvages/clan tribaux</h3>
-                    
+                    <h3>🐺 Héraut des Terres Sauvages</h3>
                     <div class="subsection">
                         <h4>📖 Description</h4>
-                        <p>Dès l'enfance, tu as été façonné pour l'ascension vers la voie du Berserkeur. Ta tribu t'a appris à survivre par toi-même, à te battre avec ce que tu pouvais trouver, et à endurcir ton corps contre toutes les menaces : ennemis visibles comme invisibles, dangers physiques comme spirituels.</p>
-                        <p>Tu as grandi dans les contrées sauvages, au milieu des épreuves et des rituels, jusqu'au jour où les maîtres de ton clan t'ont enfin retrouvé pour te baptiser "Berserkeur". C'est à cet instant, par le poids de tout ce que tu avais affronté, qu'une part surnaturelle s'est réveillée en toi : le corps et l'esprit apprennent parfois à se confondre, ne formant plus qu'un, lors de moments choisis.</p>
+                <p>La voie de la Superposition</p>
+                <p>Les Hérauts des Terres Sauvages proviennent généralement de clans où la voie du Berserkeur est transmise par l’épreuve, les rites et la confrontation directe avec les forces du monde sauvage.</p>
+                <p>Leur apprentissage consiste notamment à laisser l’Écho transformer progressivement leur corps.</p>
+                <p>Lorsque la Superposition commence, leurs mouvements, leurs sens et parfois même leur apparence adoptent certains aspects de la présence qui les accompagne.</p>
+                <p>Ils considèrent généralement la Superposition comme l’état idéal, suffisamment profonde pour exploiter la force de l’Écho sans lui abandonner entièrement le contrôle.</p>
                     </div>
-
                     <div class="subsection">
                         <h4>🎁 Talents obtenus</h4>
-                        <h5>Style Primitif — Frappe Tangible</h5>
-                        <p>En mode Transe, le lanceur s'accorde brièvement au domaine spirituel, rendant tangible pour lui ce qui ne l'est pas normalement. Pendant la Transe, lorsqu'une cible est immunisée aux dégâts physiques des armes non magiques du lanceur, cette immunité devient une résistance de 50% à la place. (uniquement les armes tranchant)</p>
-                        
-                        <h5 style="margin-top: 15px;">Instinct de survie</h5>
-                        <p>Tous les jets d'Instinct liés à la survie (repérer un danger naturel, choisir un abri, éviter un piège environnemental, trouver une issue, etc.) sont effectués avec avantage.</p>
+                <p>🐾 Incarnation spirituelle</p>
+                <p>À partir de la Superposition, l’Écho commence à se manifester physiquement à travers le Berserkeur.</p>
+                <p>Tant qu’il se trouve en Superposition ou en Ascendance :</p>
+                <p>son corps et ses armes deviennent spirituellement tangibles ;</p>
+                <p>il peut physiquement toucher des entités spirituelles normalement intangibles ;</p>
+                <p>une immunité provenant uniquement de l’incorporéalité ne bloque plus automatiquement ses attaques.</p>
+                <p>Les autres résistances, immunités et protections restent applicables.</p>
+                <p>🐺 Harmonie primitive</p>
+                <p>1 fois par combat, lorsque le Berserkeur devrait automatiquement passer de Superposition à Ascendance, il peut retarder ce passage jusqu’à la fin de son prochain tour.</p>
+                <p>Ses Points d’Emprise continuent néanmoins d’augmenter normalement.</p>
+                <p>À la fin de ce tour supplémentaire, il entre automatiquement en Ascendance s’il n’a pas mis fin à sa Transe.</p>
                     </div>
-
                     <div class="subsection">
                         <h4>📚 Connaissances supplémentaires</h4>
-                        <h5>• Connaissance du domaine des terres sauvages (Modéré)</h5>
-                        <p>Tu connais les régions indomptées : reliefs, dangers naturels, climats, et signaux qui annoncent un piège du vivant ou du surnaturel. Tu sais survivre dans des zones où les routes sont rares et où les règles "civilisées" ne tiennent plus. Tu apprends aussi à lire les traces, comprendre les territoires de chasse et reconnaître les lieux que même les animaux évitent.</p>
-                        
-                        <h5>• Amélioration de la connaissance du domaine des clan tribaux d'un cran</h5>
+                <div class="knowledge-item">
+                    <h4>Survie en milieu sauvage — Modéré</h4>
+                <p>Cette connaissance rassemble les principes essentiels permettant de subsister loin des routes et des zones habitées. Elle comprend la recherche d’eau, l’installation d’un campement, l’orientation, l’identification de ressources simples et l’anticipation de certains dangers naturels. Les signes élémentaires annonçant un changement météorologique ou un environnement dangereux peuvent également être reconnus. Les régions extrêmes ou totalement inconnues demandent cependant une expertise plus poussée.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Faune et traces naturelles — Modéré</h4>
+                <p>Empreintes, poils, excréments, restes de nourriture et marques laissées sur la végétation permettent d’identifier le passage de nombreuses créatures. Cette connaissance aide à distinguer les habitudes d’un prédateur, d’une proie ou d’un animal territorial, ainsi qu’à estimer la direction prise ou l’ancienneté approximative d’une trace. Un comportement inhabituel chez un animal peut également être remarqué plus facilement. Les créatures surnaturelles et les espèces particulièrement rares relèvent toutefois de domaines plus spécialisés.</p>
+                </div>
                     </div>
-
                     <div class="subsection">
                         <h4>📊 Gains</h4>
                         <p><strong>FOR +2 • CST +3</strong></p>
-                        <p><strong>Trait spécifique :</strong> +1 Résilience ou Instinct ou Puissance</p>
+                        <p><strong>Trait spécifique :</strong> +1 au choix : Résilience, Instinct ou Puissance.</p>
                     </div>
                 </div>
 
-                <!-- Héraut spirituel -->
                 <div class="origin-card origin-heraut">
-                    <h3>🕯️ Héraut spirituel</h3>
-                    
+                    <h3>🕯️ Héraut Spirituel</h3>
                     <div class="subsection">
                         <h4>📖 Description</h4>
-                        <p>Tu es un messager des êtres spirituels : ceux qui errent encore dans le monde mortel, comme ceux qui résident dans le Plan des Âmes. Au sein des clans tribaux, tu es vu comme un guide, un gourou, un passeur entre les réalités.</p>
-                        <p>Tu apprends à manipuler l'essence spirituelle environnante pour comprendre "l'autre monde" — celui que les mortels ordinaires ne peuvent percevoir naturellement. On raconte que tu as été initié près des Rivières des Âmes, un lieu terrible où des âmes malheureuses se sont agglutinées au point de former une zone surnaturelle saturée d'énergie spirituelle. Traverser cet endroit sans un mental solide rend fou.</p>
-                        <p>Pour toi, la magie spirituelle n'est pas une discipline extérieure : c'est une extension directe de ton être.</p>
+                <p>La voie de l’Harmonie</p>
+                <p>Les Hérauts Spirituels cherchent moins à dominer leur Écho qu’à comprendre la conscience qu’ils accueillent.</p>
+                <p>Guides, médiateurs ou gardiens de traditions anciennes, ils apprennent à reconnaître les intentions d’une présence et à maintenir une frontière claire entre les deux esprits.</p>
+                <p>Pour eux, la véritable maîtrise consiste à savoir quand laisser l’Écho progresser et quand le retenir.</p>
                     </div>
-
                     <div class="subsection">
                         <h4>🎁 Talents obtenus</h4>
-                        <h5>Porte-Voix des Esprits</h5>
-                        <p>Le lanceur obtient avantage sur tous les jets de Social avec les entités spirituelles, grâce à son rôle de passerelle entre les deux mondes. En mode Transe, il peut tenter un jet de Social DD 14 pour obtenir une aide de connaissance liée à la scène (indices, compréhension d'un phénomène, intention d'une entité…), dans la limite du possible et à l'appréciation du MJ.</p>
-                        
-                        <h5 style="margin-top: 15px;">Synchro Âme-Corps</h5>
-                        <p>Le lanceur gagne un bonus de +4 au Mode de Défense Magique. 1 fois par session, en mode Transe, il peut activer cette synchro pour obtenir +20% de réduction de dégâts subis (physiques et magiques), mais cela consomme 1 tour de sa durée stable de Transe.</p>
+                <p>🕯️ Stabilisation de l’Harmonie</p>
+                <p>Durant son tour :</p>
+                <p>Coût : 1 PA</p>
+                <p>Le Berserkeur stabilise son lien avec l’Écho.</p>
+                <p>Il ne gagne pas le Point d’Emprise normalement obtenu à la fin de ce tour.</p>
+                <p>Les Points déjà accumulés restent inchangés.</p>
+                <p>🔄 Reflux spirituel</p>
+                <p>1 fois par combat :</p>
+                <p>Coût : 1 PA</p>
+                <p>Le Berserkeur effectue :</p>
+                <p>Maîtrise de l’Ancrage Astral (Sagesse) — 1d100</p>
+                <p>En cas de réussite, ses Points d’Emprise reviennent à la dernière valeur appartenant à l’état précédent.</p>
+                <p>Avec les seuils de base :</p>
+                <p>Superposition → Résonance : 2 Points</p>
+                <p>Ascendance → Superposition : 5 Points</p>
+                <p>Ces valeurs évoluent automatiquement si les limites d’Harmonie du Berserkeur augmentent.</p>
                     </div>
-
                     <div class="subsection">
                         <h4>📚 Connaissances supplémentaires</h4>
-                        <h5>• Connaissance du domaine des âmes (Modéré)</h5>
-                        <p>Tu connais la notion d'âme au-delà des mythes : ce qui la compose, ce qui la fragilise, et ce qui la retient au monde mortel. Tu comprends les phénomènes d'errance, d'ancrage, de rupture, et les raisons pour lesquelles une âme refuse de partir. Cette connaissance te permet d'interpréter certains symptômes spirituels et de mieux anticiper les réactions d'un esprit lié à un lieu ou à une émotion.</p>
-                        
-                        <h5>• Amélioration de la connaissance du domaine spirituel d'un cran</h5>
+                <div class="knowledge-item">
+                    <h4>Monde des Âmes — Modéré</h4>
+                <p>Le Monde des Âmes couvre les phénomènes liés à l’existence spirituelle après la mort et aux différentes raisons pouvant retenir une âme dans le monde matériel. Errance, attachement à un lieu, lien avec un objet, fragmentation ou persistance d’émotions fortes font partie des phénomènes connus. Certaines âmes conservent une véritable conscience, tandis que d’autres ne subsistent que sous la forme de traces ou de souvenirs incomplets. Cette connaissance permet de distinguer ces situations sans pour autant révéler automatiquement l’histoire ou les intentions de l’entité rencontrée.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Rites de médiation spirituelle — Modéré</h4>
+                <p>Ces rites regroupent les pratiques destinées à établir un contact prudent avec une présence spirituelle. Offrandes, gestes de respect, symboles, préparations d’un lieu et règles de conduite permettent de limiter les risques de provoquer inutilement une entité. Certaines méthodes servent également à créer un environnement favorable à la communication, à la négociation ou à l’établissement d’une Harmonie. Elles facilitent le dialogue, mais ne permettent jamais de contraindre un esprit à coopérer.</p>
+                </div>
                     </div>
-
                     <div class="subsection">
                         <h4>📊 Gains</h4>
                         <p><strong>SAG +2 • PER +3</strong></p>
-                        <p><strong>Trait spécifique :</strong> +1 Savoir ou Sang-froid ou Social</p>
+                        <p><strong>Trait spécifique :</strong> +1 au choix : Savoir, Sang-froid ou Social.</p>
                     </div>
                 </div>
 
-                <!-- Héraut de la haine -->
                 <div class="origin-card origin-haine">
-                    <h3>🔥 Héraut de la haine</h3>
-                    
+                    <h3>🔥 Héraut de la Haine</h3>
                     <div class="subsection">
                         <h4>📖 Description</h4>
-                        <p>Lors de ton ascension en tant que Berserkeur, un phénomène rare s'est produit : une brèche d'énergie s'est ouverte… et a résonné avec toi, jusque dans ton for intérieur. Cette résonance a libéré une vague d'énergie d'une impureté anormale, qui s'est imprimée dans ton âme.</p>
-                        <p>À la fin de l'ascension, ton âme — entraînée à appeler des esprits pouvant s'harmoniser avec toi — est devenue une âme Exhaustus : une âme dotée d'une barrière et d'un champ spirituel si puissants qu'elle peut absorber certaines âmes et les plier à sa volonté. Désormais, ton "champ d'âmes" ne se limite plus aux esprits capables de résonner avec toi : tu peux t'harmoniser avec les âmes de tout être spirituel déjà mort.</p>
-                        <p>Mais cette faculté est une lame à double tranchant. Une harmonie trop profonde peut ouvrir la voie à une possession : des âmes obscures, saturées de haine, de colère et de désir de vengeance, coincées dans le monde mortel, peuvent tenter de s'emparer de toi.</p>
-                        <p>Les sages t'ont prévenu : « De grands pouvoirs exigent de grandes responsabilités. » Car même si ton âme est souillée par les ténèbres… pour l'instant, c'est toi qui restes maître de ces ténèbres.</p>
+                <p>La voie de l’Ascendance</p>
+                <p>Certains Berserkeurs ne recherchent pas l’équilibre.</p>
+                <p>Ils apprennent à entrer en résonance avec des Échos marqués par la colère, la douleur, la vengeance ou d’autres émotions suffisamment fortes pour persister après la mort.</p>
+                <p>Les Hérauts de la Haine ne cherchent donc pas à ralentir l’Emprise :</p>
+                <p>Ils l’utilisent comme carburant.</p>
+                <p>Là où les autres craignent l’Ascendance, eux cherchent volontairement à l’atteindre.</p>
                     </div>
-
                     <div class="subsection">
                         <h4>🎁 Talents obtenus</h4>
-                        <h5>Chœur des Âmes Tourmentées</h5>
-                        <p>Le lanceur peut invoquer des âmes brisées, chargées de haine et de souffrance, afin qu'elles se greffent brièvement à son corps et à son esprit. Si l'appel est maîtrisé, il peut en extraire une puissance monstrueuse : en cas de réussite, il choisit 1 fois par combat de gagner +20% de dégâts soit physiques, soit magiques (un seul choix pour tout le combat).</p>
-                        <p><strong>Contrecoup :</strong> pour mettre fin à la transe, le lanceur doit réussir un jet de RM (au lieu d'un jet de SAG). En cas d'échec, il doit refaire un jet de RM : si ce second jet échoue, la possession prend le dessus pendant le tour, et le personnage peut attaquer la cible la plus proche ou agir de façon confuse selon le degré de lucidité décidé par le MJ.</p>
-                        
-                        <h5 style="margin-top: 15px;">Mécanisme de Rage Maîtrisée</h5>
-                        <p>En mode transe, tous les jets de provocation (ou d'intimidation) qui s'appuient sur la haine, la colère ou des émotions similaires sont effectués avec avantage.</p>
+                <p>🔥 Ascendance forcée</p>
+                <p>1 fois par combat, le Berserkeur peut totalement ouvrir son Ancrage à son Écho.</p>
+                <p>S’il se trouve en Résonance ou Superposition, il entre immédiatement en :</p>
+                <p>Ascendance</p>
+                <p>Ses Points d’Emprise deviennent immédiatement égaux au seuil actuel d’Ascendance.</p>
+                <p>💢 Nourrir l’Emprise</p>
+                <p>Tant qu’il se trouve en Ascendance, le Berserkeur peut volontairement offrir davantage de place à son Écho.</p>
+                <p>1 fois par tour, avant une attaque physique :</p>
+                <p>+1 Point d’Emprise</p>
+                <p>Cette attaque bénéficie de :</p>
+                <p>Puissance optimale</p>
+                <p>Les dés de dégâts sont lancés deux fois et le meilleur total est conservé.</p>
                     </div>
-
                     <div class="subsection">
                         <h4>📚 Connaissances supplémentaires</h4>
-                        <h5>• Connaissance des mythes et légendes (Modéré)</h5>
-                        <p>Tu connais les récits qui parlent d'âmes maudites, d'esprits vengeurs, de pactes brisés et de berserkeur devenus catastrophes vivantes. Tu sais reconnaître les symboles, les histoires locales, et les avertissements transmis sous forme de contes ou de traditions. Cette connaissance sert autant à comprendre une menace qu'à deviner quelle entité se cache derrière une rumeur… ou une malédiction ancienne.</p>
-                        
-                        <h5>• Amélioration de la connaissance de l'art l'harmonie des âmes d'un cran</h5>
+                <div class="knowledge-item">
+                    <h4>Âmes tourmentées — Modéré</h4>
+                <p>Certaines âmes demeurent prisonnières d’émotions suffisamment fortes pour altérer leur existence après la mort. Haine, vengeance, culpabilité, peur ou souffrance prolongée peuvent ainsi laisser des marques perceptibles sur une présence spirituelle. Cette connaissance permet d’identifier certains comportements et manifestations caractéristiques de ces états émotionnels extrêmes. Elle n’indique cependant ni la cause exacte du traumatisme ni la manière certaine d’apaiser l’âme concernée.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h4>Corruption spirituelle — Modéré</h4>
+                <p>La corruption spirituelle désigne l’altération progressive d’une âme, d’une Essence, d’un lieu ou d’un phénomène spirituel sous l’influence de forces anormales. Certains changements d’apparence, comportements, perturbations énergétiques ou réactions inhabituelles permettent d’en reconnaître les manifestations courantes. Les précautions élémentaires à adopter face à une zone ou une présence contaminée font également partie de cette connaissance. Identifier l’origine exacte d’une corruption ou trouver un moyen de la purifier demande généralement une expertise plus avancée.</p>
+                </div>
                     </div>
-
                     <div class="subsection">
                         <h4>📊 Gains</h4>
-                        <p><strong>SAG +2 • CHA de −3 → +3 • RM −6</strong></p>
-                        <p><strong>Trait spécifique :</strong> +1 Sang-froid ou Résilience ou Instinct</p>
+                        <p><strong>FOR +2 • CHA +3</strong></p>
+                        <p><strong>Trait spécifique :</strong> +1 au choix : Sang-froid, Résilience ou Puissance.</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <!-- Connaissances générales -->
         <section class="section">
-            <h2 class="section-title">🔮 Connaissances de base</h2>
+            <h2 class="section-title">📚 Connaissances de base</h2>
             <div class="content-box">
                 <div class="knowledge-item">
-                    <h4>Connaissance du domaine spirituel (Moyen)</h4>
-                    <p>Tu comprends les bases du monde spirituel : manifestations, présences, signes avant-coureurs et phénomènes d'influence invisible. Tu sais distinguer une ambiance "chargée" d'un lieu neutre, et repérer les comportements typiques liés à une présence spirituelle. Cette connaissance t'aide aussi à comprendre les règles générales des esprits (liens, résonances, tabous) sans forcément en maîtriser les détails profonds.</p>
+                    <h4>Domaine spirituel — Moyen</h4>
+                <p>Ce domaine rassemble les notions fondamentales concernant les esprits, les âmes et les manifestations provenant du monde spirituel. Il permet de reconnaître les signes courants d’une présence invisible, d’un passage spirituel ou d’une activité anormale dans un lieu. Les principes élémentaires de possession, d’apparition, d’ancrage et d’errance des âmes y sont également abordés. Les entités rares ou les phénomènes complexes nécessitent toutefois des connaissances plus spécialisées.</p>
                 </div>
                 <div class="knowledge-item">
-                    <h4>Connaissance du domaine des clans tribaux (Moyen)</h4>
-                    <p>Tu connais les structures tribales : hiérarchies, codes d'honneur, rites de passage, et formes de respect propres aux clans. Tu sais comment un clan se gouverne, comment il juge un étranger, et quelles attitudes évitent l'affront. Cela te permet de t'intégrer, négocier ou imposer ta présence sans déclencher immédiatement un conflit culturel.</p>
+                    <h4>Ancrage Astral — Moyen</h4>
+                <p>L’Ancrage Astral étudie les liens pouvant se former entre un être vivant et une présence spirituelle accueillie en son sein. Il couvre notamment les différents degrés d’Harmonie, tels que la Résonance, la Superposition et l’Ascendance, ainsi que les phénomènes d’Emprise qui peuvent en découler. Cette connaissance permet de comprendre les signes indiquant qu’un lien spirituel devient instable ou trop profond. Elle apporte également les bases nécessaires pour interpréter les comportements inhabituels d’un réceptacle ou d’un Écho.</p>
                 </div>
                 <div class="knowledge-item">
-                    <h4>Connaissance du bestiaire spirituel (Modéré)</h4>
-                    <p>Tu connais les grandes catégories d'entités spirituelles : esprits mineurs, fragments d'âmes, errants, gardiens, et présences corrompues. Tu sais reconnaître des signes distinctifs (odeurs, sensations, effets, comportements) pour identifier ce que tu as en face de toi. Cette connaissance t'aide à deviner si une entité est dangereuse, instable, manipulatrice ou au contraire compatible avec une harmonie.</p>
+                    <h4>Traditions Berserkeur — Modéré</h4>
+                <p>Cette connaissance regroupe les rites d’initiation, les Marques d’Ascension, les symboles et les pratiques traditionnellement associés aux différentes communautés Berserkeur. Certaines peintures, cicatrices rituelles ou marques corporelles peuvent révéler l’origine d’une tradition ou la fonction occupée au sein d’un clan. Les méthodes d’apprentissage et les cérémonies varient fortement selon les régions et les lignées. Il existe néanmoins suffisamment de principes communs pour reconnaître les principales coutumes liées à cette voie.</p>
                 </div>
                 <div class="knowledge-item">
-                    <h4>Connaissance de l'historique des Berserkeur (Modéré)</h4>
-                    <p>Tu connais l'origine, les traditions et les grandes figures liées aux Berserkeur, ainsi que les différentes interprétations de leur voie selon les clans. Tu sais quels rituels sont considérés comme "authentiques", lesquels sont contestés, et quelles erreurs du passé ont marqué cette discipline. Cela te permet aussi de reconnaître certains symboles, peintures, chants ou pratiques propres aux lignées de Berserkeur.</p>
+                    <h4>Bestiaire spirituel — Modéré</h4>
+                <p>Le Bestiaire spirituel recense les grandes familles d’entités liées au monde des âmes : esprits protecteurs, âmes errantes, Échos, gardiens, manifestations hostiles ou présences corrompues. Leurs comportements habituels, leurs formes d’apparition et certains signes caractéristiques peuvent être identifiés grâce à cette connaissance. Elle permet également d’estimer l’attitude générale à adopter face à une présence inconnue. Les capacités exactes d’une entité particulière restent toutefois impossibles à déterminer sans informations supplémentaires.</p>
                 </div>
                 <div class="knowledge-item">
-                    <h4>Connaissance de l'art de l'Harmonie des âmes (Modéré)</h4>
-                    <p>Tu connais les principes qui permettent à une âme et un corps de s'aligner sans se détruire mutuellement : résonance, équilibre, limites et contreparties. Tu sais que toute harmonie a un prix, et qu'un mauvais accord peut virer à l'invasion, à l'épuisement ou à la souillure. Cette connaissance t'aide à établir une synchronisation plus propre, à détecter les incompatibilités, et à comprendre comment stabiliser une transe.</p>
+                    <h4>Clans et traditions sauvages — Modéré</h4>
+                <p>Cette connaissance concerne les modes de vie des communautés tribales, nomades ou installées loin des grands centres de civilisation. Elle couvre les rites de passage, les règles d’hospitalité, les rapports entre clans, les tabous et différentes formes de respect accordées aux ancêtres ou aux esprits. Elle permet de mieux comprendre certaines coutumes et d’éviter les fautes culturelles les plus évidentes. Chaque communauté conserve cependant ses propres traditions, qui peuvent parfois être très éloignées des usages généraux.</p>
                 </div>
             </div>
         </section>
@@ -349,58 +597,28 @@
                 <div class="equipment-item">
                     <span class="icon">🛡️</span>
                     <div>
-                        <h4>Armure légère du clan tribal</h4>
-                        <p>Une armure faite de peaux d'animaux épaisses, assemblées et renforcées par des coutures tribales. Elle porte des motifs propres au clan et une bordure de fourrure soyeuse qui conserve la chaleur. Par instants, lorsque la lumière la frôle, de minuscules fragments de cristaux tribaux incrustés dans le cuir scintillent, signe d'une protection magique discrète.</p>
-                        <p><strong>(Armure légère + extension magique)</strong> — Offre la compétence : Résistance au froid (Résilience) +2</p>
+                        <h4>Armure légère de Berserkeur</h4>
                     </div>
                 </div>
-
                 <div class="equipment-item">
                     <span class="icon">⚔️</span>
                     <div>
                         <h4>Arme au choix</h4>
-                        <p>L'arme est adaptée à ton style et aux traditions du clan, souvent marquée de gravures simples ou d'un talisman attaché au manche.</p>
+                        <p>Liée à la maîtrise mineure choisie.</p>
                     </div>
                 </div>
-
                 <div class="equipment-item">
-                    <span class="icon">🎨</span>
+                    <span class="icon">🔮</span>
                     <div>
-                        <h4>2 Pots de Peinture tribale (20/20)</h4>
-                        <p>Une peinture rituelle utilisée par les Berserkeur sur leurs tatouages et marques d'ascension. Elle ne sert pas à décorer : elle réveille l'essence et les sensations vécues lors de l'ascension, facilitant l'entrée en transe. Chaque utilisation consume une partie de la peinture.</p>
-                        <p><strong>(5 utilisations par personne)</strong></p>
+                        <h4>Talisman d’Ancrage</h4>
+                        <p>Objet personnel support du lien avec l’Écho : collier, os gravé, pierre, dent, bracelet ou fragment obtenu lors du rite d’Ascension.</p>
                     </div>
                 </div>
-
                 <div class="equipment-item">
                     <span class="icon">❤️</span>
                     <div>
                         <h4>2 potions de vie</h4>
-                        <p>Pour survivre aux blessures graves et rester debout quand le corps commence à lâcher.</p>
-                    </div>
-                </div>
-
-                <div class="equipment-item">
-                    <span class="icon">⚡</span>
-                    <div>
-                        <h4>1 potion d'endurance</h4>
-                        <p>Pour récupérer rapidement après un effort violent ou un contrecoup de transe.</p>
-                    </div>
-                </div>
-
-                <div class="equipment-item">
-                    <span class="icon">💜</span>
-                    <div>
-                        <h4>1 potion de magie</h4>
-                        <p>Pour soutenir les dépenses de PM, notamment lors des appels ou de la magie spirituelle.</p>
-                    </div>
-                </div>
-
-                <div class="equipment-item">
-                    <span class="icon">✨</span>
-                    <div>
-                        <h4>Marques : "Peinture d'Ascension Berserk" (sur le corps)</h4>
-                        <p>Ces marques imprégnées ne sont pas une simple peinture : ce sont des signes d'initiation, obtenus durant l'ascension pour devenir Berserkeur. Elles sont ancrées dans le corps et dans l'âme, et témoignent du lien permanent avec le domaine spirituel.</p>
+                        <p>Soins d’urgence.</p>
                     </div>
                 </div>
             </div>
@@ -415,23 +633,23 @@
                     <ul class="competence-list">
                         <li><strong>Arme X (Force/Dextérité)</strong> — Bonus aux jets d'attaque et de maîtrise avec l'arme choisie. Sert aussi à exécuter des manœuvres simples liées à cette arme.</li>
                         <li><strong>Robustesse (Constitution)</strong> — Résister aux chocs violents, aux coups qui font vaciller et aux tentatives de projection. Aide aussi à tenir un effort physique prolongé sans céder.</li>
-                        <li><strong>Magie spirituelle (Sagesse)</strong> — Canaliser et modeler l'essence spirituelle pour produire des effets, des appels ou des stabilisations. Sert à lancer et contrôler les techniques de magie spirituelle.</li>
+                        <li><strong>Maîtrise de l’Ancrage Astral (Sagesse)</strong> — Synchroniser son âme avec son Écho, contrôler l’Essence de leur Harmonie et résister à l’Emprise de son propre Écho.</li>
                         <li><strong>Réactif (Réactivité)</strong> — Agir vite face à une menace : esquive courte, repositionnement, réponse immédiate. Utile pour survivre pendant les moments vulnérables (début de transe, canalisation).</li>
                         <li><strong>Observation environnementale (Perception)</strong> — Repérer des détails, traces, dangers et opportunités dans le terrain. Permet aussi de détecter une présence anormale ou des indices subtils.</li>
-                        <li><strong>Détection magique (Sagesse)</strong> — Sentir et analyser une aura, une dissimulation ou une trace surnaturelle. Aide à identifier si une zone/entité est chargée, corrompue ou instable.</li>
-                        <li><strong>Résistance spirituelle possession (RM)</strong> — Résister aux tentatives de possession, d'intrusion ou de domination spirituelle. Sert à maintenir ton contrôle quand une entité cherche à s'imposer.</li>
+                        <li><strong>Détection spirituelle (Sagesse)</strong> — Analyser la nature d’une présence ou trace déjà perçue ; complète la Vision spirituelle.</li>
+                        <li><strong>Résistance spirituelle à la possession (RM)</strong> — Résister à une intrusion, une domination ou une possession extérieure, et non à l’Emprise de son propre Écho.</li>
                     </ul>
                 </div>
 
                 <div class="competence-category">
                     <h3>🧠 Compétences de trait spécifique</h3>
                     <ul class="competence-list">
-                        <li><strong>Résistance à la douleur (Résilience)</strong> — Continuer à agir malgré la douleur, la fatigue ou une blessure qui gêne. Aide à tenir après le contrecoup d'une transe.</li>
+                        <li><strong>Résistance à la douleur (Résilience)</strong> — Continuer à agir malgré la douleur, la fatigue ou une blessure qui gêne.</li>
                         <li><strong>Instinct du danger (Instinct)</strong> — Pressentir une menace avant qu'elle soit visible : embuscade, piège, présence spirituelle hostile. Permet de choisir la bonne réaction au bon moment.</li>
-                        <li><strong>Muscle entraînée (Puissance)</strong> — Forcer physiquement sans finesse : briser, pousser, arracher, dominer un obstacle. Sert aussi à imposer ta force dans une lutte.</li>
+                        <li><strong>Muscle entraîné (Puissance)</strong> — Forcer physiquement sans finesse : briser, pousser, arracher, dominer un obstacle. Sert aussi à imposer ta force dans une lutte.</li>
                         <li><strong>Soulever de terre (Puissance)</strong> — Soulever ou déplacer des charges lourdes, retourner un obstacle, dégager un passage. Très utile pour ouvrir la voie ou sauver un allié coincé.</li>
                         <li><strong>Dégagement de puissance (Puissance)</strong> — Se libérer d'une prise, repousser un adversaire trop proche ou briser un maintien. Permet d'imposer une rupture brutale dans l'échange.</li>
-                        <li><strong>Voix des Esprits (Social)</strong> — Communiquer avec une entité spirituelle : apaiser, négocier, demander assistance, éviter l'affront. Peut influencer le "tribut" ou l'attitude d'un esprit.</li>
+                        <li><strong>Voix des Esprits (Social)</strong> — Communiquer avec une entité spirituelle : apaiser, négocier, demander assistance, éviter l'affront. Peut influencer son attitude ou faciliter un accord, sans la contraindre à coopérer.</li>
                         <li><strong>Savoir tribal (Savoir)</strong> — Connaître les rites, codes et traditions des clans : tabous, cérémonies, hiérarchie, gestes de respect. Utile pour éviter les erreurs culturelles et comprendre un rituel tribal.</li>
                         <li><strong>Savoir spirituel (Savoir)</strong> — Identifier les phénomènes spirituels : types d'esprits, signes de corruption, dangers d'harmonie. Sert à comprendre ce que tu affrontes et à choisir la bonne approche.</li>
                     </ul>

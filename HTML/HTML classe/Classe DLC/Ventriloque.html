@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Ventriloque.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="parchment-overlay"></div>
@@ -105,11 +106,11 @@
                 <div class="stat-category">
                     <h3>📊 Bonus & malus</h3>
                     <div class="bonus-grid">
-                        <span class="stat-item negative">FOR : −3</span>
-                        <span class="stat-item negative">CST : −2</span>
-                        <span class="stat-item positive">DEX : +3</span>
+                        <span class="stat-item negative">FOR : −4</span>
+                        <span class="stat-item negative">CST : −3</span>
+                        <span class="stat-item positive">DEX : +4</span>
                         <span class="stat-item positive">INT : +3</span>
-                        <span class="stat-item negative">SAG : −3</span>
+                        <span class="stat-item negative">SAG : −4</span>
                         <span class="stat-item positive">PER : +3</span>
                         <span class="stat-item negative">CHA : −3</span>
                     </div>
@@ -144,39 +145,16 @@
 
         <!-- Passif -->
         <section class="section">
-            <h2 class="section-title">🛡️ Passif — Voix Distordue Maudite</h2>
+            <h2 class="section-title">🛡️ Passif — Voix Distordue</h2>
             <div class="content-box">
-                <p>Le Ventriloque peut altérer la structure d'un sort magique en combinant un sort de Poupée (élémentaire ou magique) avec un modificateur de Ventriloquisme (Spellcraft : Pluie, Mur, Fléchette, etc.).</p>
-                
+                <p>Le Ventriloque lance ses Chants à travers sa Poupée et peut les modifier avec un Spellcraft.</p>
+                <p><strong>Chant :</strong> effet de base • <strong>Spellcraft :</strong> forme du sort • <strong>Poupée :</strong> point d'origine.</p>
+                <p>Lorsqu'il lance un Chant, il peut lui appliquer <strong>1 Spellcraft</strong> en payant son coût en AL, <strong>sans PA supplémentaire</strong>.</p>
+                <p>Il peut utiliser sa position ou celle de sa Poupée active comme origine du Chant. Une fois par tour, si le Chant part de la Poupée, celle-ci peut se déplacer de <strong>5 ft</strong> avant ou après l'effet.</p>
                 <div class="subsection">
-                    <h4>✅ Fonctionnement (2 actions, par défaut)</h4>
-                    <p>Cette combinaison prend normalement 2 actions :</p>
-                    <ul>
-                        <li>1 action pour formuler le Chant (sort de Poupée)</li>
-                        <li>1 action pour appliquer l'altération Spellcraft</li>
-                    </ul>
-                </div>
-
-                <div class="subsection">
-                    <h4>Réserve d'AL (Points d'Altération)</h4>
-                    <p>Sa réserve est de <strong>5 + Mod INT</strong> points d'altération (= AL). Le Ventriloque débute chaque combat avec <strong>3 AL</strong>, et récupère <strong>1 AL par tour</strong>.</p>
-                </div>
-
-                <div class="subsection">
-                    <h4>Fusion (AL)</h4>
-                    <p>Lorsqu'il lance une combinaison Chant + Spellcraft, le Ventriloque peut réaliser l'ensemble en <strong>1 seule action</strong> en payant le coût normal en AL du Spellcraft choisi (sans coût supplémentaire).</p>
-                </div>
-
-                <div class="subsection">
-                    <h4>Synchronisation</h4>
-                    <p>Si le Ventriloque possède une Poupée active, il peut consommer <strong>1 PR</strong> (point de réaction) pour tenter une synchronisation (jet de SAG brut) :</p>
-                    <ul>
-                        <li>✅ Réussite : +2 AL</li>
-                        <li>❌ Échec : +1 AL</li>
-                        <li>✨ Critique : +3 AL</li>
-                        <li>😞 Échec critique : −1 AL</li>
-                    </ul>
-                    <p>Utilisable <strong>une fois par tour</strong>.</p>
+                    <h4>Points d'Altération (AL)</h4>
+                    <p><strong>Maximum :</strong> 5 AL • <strong>Début du combat :</strong> 3 AL.</p>
+                    <p>Lancer un Chant brut sans Spellcraft depuis la Poupée rend <strong>+1 AL, 1 fois par tour</strong>.</p>
                 </div>
             </div>
         </section>
@@ -206,31 +184,24 @@
             </div>
 
             <div class="talent-card">
-                <h3>3) Héritage du Féticheur — Fabrication Maudite Lv 1</h3>
-                <p>Le lanceur a perfectionné sa capacité à tordre l'énergie magique ambiante selon le chant produit et l'altération imposée.</p>
-                <p><strong>Bonus :</strong> +2 AL de base (supplémentaires à la base du passif)</p>
-                <p>Cet héritage peut être amélioré jusqu'au niveau 10. À chaque augmentation de niveau, le nombre de AL augmente de +2.</p>
-                
-                <div class="subsection">
-                    <h4>Choix de Gains (tous les 3 niveaux d'amélioration)</h4>
-                    <ul>
-                        <li><strong>Rythme de la Trame :</strong> +1 AL supplémentaire à chaque fin de tour</li>
-                        <li><strong>Fêlure Favorable :</strong> Taux de succès critique en synchronisation augmenté de +5</li>
-                        <li><strong>Suture Réflexe :</strong> Une fois par combat, fusion Spellcraft avec 1 PR au lieu d'un PA</li>
-                        <li><strong>Surcharge du Marionnettiste :</strong> Une fois par combat, consommer X PR supplémentaires pour augmenter la Puissance de 10% par PR (Max 30%)</li>
-                        <li><strong>Accord Parfait :</strong> Réussite en synchronisation : +1 AL ; Critique : +2 AL</li>
-                        <li><strong>Cri de Brisure — Chant Taunitruant :</strong> Consommer 5 AL pour un cri dévastateur (10 ft rayon, DD 10 + Mod INT)</li>
-                    </ul>
-                </div>
+                <h3>3) Fétiche animé</h3>
+                <p>Le Ventriloque peut insuffler de l'énergie magique dans une Poupée-Réceptacle afin de l'animer et de la contrôler à distance.</p>
+                <p><strong>Coût selon la taille :</strong> Petite 5 PM • Moyenne 10 PM • Grande 20 PM.</p>
+                <p>Une fois animée, elle devient une Poupée active, peut se déplacer et servir de point d'origine aux Chants. Tant qu'elle est animée, elle bénéficie d'une <strong>Résistance surnaturelle de 15 % aux dégâts physiques et magiques</strong>.</p>
             </div>
-
             <div class="talent-card">
-                <h3>4) Étiquette du Nid</h3>
-                <p>Le Ventriloque porte en lui un décalage social né de la vie en Nid : silences appris, gestes rares, voix trop contrôlée.</p>
+                <h3>4) Démaillage de la Trame</h3>
+                <p>Le Ventriloque possède <strong>Avantage aux jets d'Analyse magique</strong>. Durant une phase de repos, il peut dépenser <strong>1 Pact</strong> pour tenter de retirer une influence magique affectant une ou plusieurs entités.</p>
+                <p>Chaque cible coûte <strong>10 PE</strong> et demande un <strong>jet de Métier DD 10</strong>. Certaines influences trop puissantes, anciennes ou complexes nécessitent une Maîtrise des Chants Animés suffisante, voire restent impossibles à découdre.</p>
+            </div>
+            <div class="talent-card">
+                <h3>5) Écho d'Essence</h3>
+                <p>Pour <strong>12 PM</strong>, le Ventriloque analyse les flux magiques naturels d'une créature proche et reproduit temporairement une partie de son empreinte vocale. Pendant <strong>1 journée</strong>, il peut comprendre et parler sommairement la langue naturelle de sa race.</p>
                 <ul>
-                    <li><strong>Malus (civils / humanoïdes ordinaires) :</strong> Désavantage sur les jets de Social face à de nouvelles personnes</li>
-                    <li><strong>Briser le décalage :</strong> Jet de Sang-Froid DD = 20 − (Mod. CHA), mais consomme 20−(Mod CST ou SAG) PE</li>
-                    <li><strong>Avantage (entités surnaturelles) :</strong> Avantage sur Social et Sang-Froid face aux entités majeures</li>
+                    <li>Conversation normale et simple uniquement : aucune lecture ou écriture.</li>
+                    <li>Aucun terme complexe, technique ou culturel inconnu, ni copie de connaissances ou souvenirs.</li>
+                    <li>Attendre <strong>1 heure</strong> avant de s'accorder à une autre race.</li>
+                    <li>Une cible expérimentée en magie peut faire un jet de SAG pour percevoir l'observation ou l'imitation de son essence.</li>
                 </ul>
             </div>
         </section>
@@ -258,8 +229,8 @@
                     <div class="subsection">
                         <h4>🎁 Gains</h4>
                         <ul>
-                            <li><strong>Détection Magique mineure :</strong> Sixième sens pour percevoir phénomènes magiques, objets enchantés ou auras anormales (Compétence : Analyse magique +2)</li>
-                            <li><strong>Veilleur des Murmures :</strong> Avantage sur PER/Analyse pour détecter phénomènes surnaturels discrets. 1 fois par scène, demander un détail supplémentaire au MJ</li>
+                            <li><strong>Détection Magique mineure :</strong> Sixième sens pour percevoir phénomènes magiques, objets enchantés ou auras anormales (Compétence : Analyse magique +2 (Intelligence))</li>
+                            <li><strong>Veille du Fétiche :</strong> Durant une phase de repos, une Poupée peut surveiller un lieu. Tant qu'elle reste en place, elle avertit silencieusement le Ventriloque d'une présence ou manifestation surnaturelle nouvelle à moins de 20 ft, avec sa direction générale, sans identité ni nature exacte. Une seule Veille active à la fois.</li>
                         </ul>
                     </div>
                     
@@ -288,8 +259,8 @@
                     <div class="subsection">
                         <h4>🎁 Gains</h4>
                         <ul>
-                            <li><strong>Furtivité Silencieuse mineure :</strong> Diminue le bruit des déplacements et améliore la dissimulation (Compétence : Furtivité +2)</li>
-                            <li><strong>Pas de Murmure :</strong> Avantage sur jets liés à se déplacer sans attirer l'attention. 1 fois par jour, déclarer une cache simple préparée à l'avance (DD max 10)</li>
+                            <li><strong>Furtivité Silencieuse mineure :</strong> Diminue le bruit des déplacements et améliore la dissimulation (Compétence : Furtivité +2 (Dextérité))</li>
+                            <li><strong>Plan du Cocon :</strong> Avantage aux jets pour semer une poursuite, repérer une voie de fuite ou disparaître après avoir été repéré. Une fois par jour, révéler une précaution simple et plausible préparée : faux nom, vêtements de rechange, petite cache, outil courant, quelques pièces ou Poupée basique de secours. Aucun objet rare, magique ou de grande valeur.</li>
                         </ul>
                     </div>
                     
@@ -318,8 +289,8 @@
                     <div class="subsection">
                         <h4>🎁 Gains</h4>
                         <ul>
-                            <li><strong>Chirurgien des Filaments :</strong> Fils de filaments magiques pour réparer Poupées et effectuer couture médicale (Compétence : Couture médicale du Ventriloque +1)</li>
-                            <li><strong>Protocole de Réaccord :</strong> Avantage sur Métier/Analyse pour réparer réceptacles. 1 fois par jour, réduire de moitié le temps de réparation</li>
+                            <li><strong>Chirurgien des Filaments :</strong> Fils de filaments magiques pour réparer Poupées et effectuer couture médicale (Compétence : Couture médicale du Ventriloque +1 (Métier))</li>
+                            <li><strong>Attelle de Filaments :</strong> Pour 8 PE, entourer une zone blessée de filaments et réduire temporairement de 1 niveau les conséquences d'une Fracture N1 ou N2, ou une altération due à une blessure (saignement, etc.). Durée : 1 scène. Ne soigne pas réellement la fracture. Une seule Attelle maintenue à la fois.</li>
                         </ul>
                     </div>
                     
@@ -351,8 +322,8 @@
                     <div class="subsection">
                         <h4>🎁 Gains</h4>
                         <ul>
-                            <li><strong>Amélioration des talents :</strong> Bonus aux maîtrises de Ventriloquisme et Chant Animé</li>
-                            <li><strong>Respect des Présences du Nid :</strong> Avantage sur Sang-Froid/Social face aux entités surnaturelles. Avantage pour reconnaître tabous ou signes d'avertissement liés à la Voix</li>
+                            <li><strong>Écoute de l'Indicible :</strong> Après quelques instants d'écoute d'une entité surnaturelle, d'un lieu chargé ou d'une manifestation magique, percevoir son impression dominante : hostilité, peur, souffrance, curiosité, appel, avertissement, protection… Aucune lecture de pensée, traduction ou information précise. Une fois par scène sur une même présence.</li>
+                            <li><strong>Protocole des Présences :</strong> En adoptant volontairement une approche rituelle ou respectueuse envers une entité surnaturelle, Avantage sur le premier jet de Social ou de Sang-Froid de la rencontre. Avantage également pour reconnaître un tabou, une mise en garde ou un comportement rituel important lié à cette présence.</li>
                         </ul>
                     </div>
                     
@@ -434,7 +405,7 @@
                     <span class="icon">👘</span>
                     <div>
                         <h4>Robe de Ventriloque sombre</h4>
-                        <p>Réduction du coût des sorts Spellcraft : -10%</p>
+                        <p>Réduction du coût des sorts Spellcraft : −2 PM et −2 PE</p>
                     </div>
                 </div>
 
@@ -463,14 +434,6 @@
                 </div>
 
                 <div class="equipment-item">
-                    <span class="icon">🪆</span>
-                    <div>
-                        <h4>3 poupées de rechange (basiques)</h4>
-                        <p>Réceptacles de secours</p>
-                    </div>
-                </div>
-
-                <div class="equipment-item">
                     <span class="icon">🧰</span>
                     <div>
                         <h4>Kit de restauration de poupées</h4>
@@ -494,14 +457,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Fléchette</h3>
                         <span class="spell-level">Niveau 1</span>
-                        <span class="spell-cost">+8 PM + 1 AL</span>
+                        <span class="spell-cost">+6 PM + 1 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>Tu pinces l'air comme un couturier qui serre un point, et le Chant se tend en une gerbe de filaments fins, brillants, qui vibrent comme des aiguilles. La Poupée "cligne" des yeux et la salve part avec un sifflement sec, presque silencieux.</p>
                         <h4>Règles</h4>
-                        <p>Le Chant devient une attaque rapide : tu peux le déclarer en début de tour en dépensant 1 PR (il se résout avant tes autres actions), sinon il se résout normalement. Le Chant gagne un percement léger : ignore 10% de réduction (physique ou magique, selon l'élément).</p>
-                        <p><strong>Limite :</strong> 1 fois par tour.</p>
+                        <p><strong>0 PA supplémentaire / Portée : Chant +10 ft / Durée : instantanée.</strong></p>
+                        <p>le Chant devient mono-cible, gagne +10 ft de portée et +5 à son jet de lancement/attaque s’il en demande un. Réflexe : lorsqu’une entité visible termine un déplacement, commence une incantation ou accomplit une action hostile à portée, le Ventriloque peut dépenser 1 PR pour lancer immédiatement Chant + Fléchette après la résolution de l’action déclencheuse. Dans ce cas, le Chant n’est appliqué qu’à 70 % de son effet. Limites : mode Réflexe 1 fois par round.</p>
                     </div>
                 </div>
 
@@ -509,13 +472,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Pluie</h3>
                         <span class="spell-level">Niveau 1</span>
-                        <span class="spell-cost">+12 PM + 1 AL</span>
+                        <span class="spell-cost">+7 PM + 1 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>La trame se "détisse" au-dessus de la zone : une pluie courte tombe en gouttes irrégulières, chacune portant un éclat de l'élément (braises, poussière, éclats d'eau…). On dirait des larmes de magie qui retombent mal cousues.</p>
                         <h4>Règles</h4>
-                        <p>Zone 20 ft rayon, touche 4 cibles aléatoires dans la zone (alliés possibles). Chaque cible subit l'effet du Chant à 50% d'efficacité (dégâts/soins/bouclier), arrondi selon ton système. Effets en % : réduit l'effet de 10% de sa valeur (min 10%).</p>
+                        <p><strong>0 PA supplémentaire / Portée : celle du Chant / Zone : rayon 10 ft / Durée : instantanée.</strong></p>
+                        <p>choisir jusqu’à 3 entités dans la zone. Chacune reçoit 60 % du Chant. Le Ventriloque peut choisir des alliés, des ennemis ou mélanger les deux si la nature du Chant le permet. Limites : une même créature ne peut recevoir qu’une seule portion de la Pluie.</p>
                     </div>
                 </div>
 
@@ -523,14 +487,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Mur</h3>
                         <span class="spell-level">Niveau 1</span>
-                        <span class="spell-cost">+14 PM + 1 AL</span>
+                        <span class="spell-cost">+8 PM + 2 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>Tu "tires" le Chant comme un rideau : des fils épais se rassemblent et deviennent une paroi tangible, striée de coutures lumineuses. La surface respire doucement, comme une peau faite de magie brute.</p>
                         <h4>Règles</h4>
-                        <p>Mur 5 à 15 ft, 40 PV, Défense 5 (phys/mag), dure 2 tours. Il peut porter la nature élémentaire du Chant (selon MJ). Changer l'élément : 1 PA ou 1 AL (au choix) tant que le mur est actif.</p>
-                        <p><strong>Limite :</strong> 1 mur actif à la fois.</p>
+                        <p><strong>0 PA supplémentaire / Portée : celle du Chant / Mur : jusqu’à 10 ft / Durée : 2 tours.</strong></p>
+                        <p>le Chant devient un mur possédant 25 + (5 × LV du Chant) PV et Défense 5. La première fois par round qu’une entité traverse volontairement le Mur, elle reçoit 50 % du Chant, si elle constitue une cible valide. Limites :1 Mur Spellcraft actif maximum. Le Chant n’est pas également appliqué au moment de créer le Mur.</p>
                     </div>
                 </div>
 
@@ -538,14 +502,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Marteau</h3>
                         <span class="spell-level">Niveau 1</span>
-                        <span class="spell-cost">+12 PM + 1 AL</span>
+                        <span class="spell-cost">+8 PM + 2 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>La magie se condense en une masse invisible ; l'air se plisse, puis "tombe" sur la cible comme si un géant frappait avec un maillet fait de trame. Impact sourd, sans éclat, mais brutal.</p>
                         <h4>Règles</h4>
-                        <p>Le Chant devient un impact mono-cible : ajoute +2d6 dégâts (physiques ou magiques selon l'élément). Ignore 10% de réduction correspondante.</p>
-                        <p><strong>Limite :</strong> mono-cible uniquement.</p>
+                        <p><strong>0 PA supplémentaire / Portée : celle du Chant / Durée : instantanée.</strong></p>
+                        <p>le Chant devient mono-cible et son effet chiffré principal est augmenté de 25 %. Si le Chant est hostile et touche sa cible, celle-ci effectue un jet de CST ; en cas d’échec, elle subit Déstabilisation. Limites : l’augmentation ne concerne que l’effet principal, jamais un effet secondaire.</p>
                     </div>
                 </div>
 
@@ -554,14 +518,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Aiguille</h3>
                         <span class="spell-level">Niveau 2</span>
-                        <span class="spell-cost">+14 PM + 1 AL</span>
+                        <span class="spell-cost">+10 PM + 2 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>Tu fais glisser un fil entre tes doigts, et la trame "cherche" des échos similaires : une couture invisible relie toutes les cibles d'un même type, comme si elles partageaient un même patron.</p>
                         <h4>Règles</h4>
-                        <p>Choisis un type (morts-vivants, bêtes, soldats, etc.). Zone 20 ft rayon : toutes les cibles valides subissent le Chant à 80% d'efficacité.</p>
-                        <p><strong>Limite :</strong> type clair et pertinent (MJ tranche).</p>
+                        <p><strong>0 PA supplémentaire / Portée : celle du Chant / Propagation : 15 ft autour de la première cible / Durée : instantanée.</strong></p>
+                        <p>choisir une catégorie d’entité pertinente au lancement. La première cible reçoit 100 % du Chant. Jusqu’à 2 autres créatures de la même catégorie, situées à 15 ft ou moins de la première, peuvent recevoir 70 % du Chant. Limites : toutes les cibles doivent appartenir à la catégorie choisie et être des cibles valides du Chant.</p>
                     </div>
                 </div>
 
@@ -570,14 +534,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Brume</h3>
                         <span class="spell-level">Niveau 3</span>
-                        <span class="spell-cost">+20 PM + 2 AL</span>
+                        <span class="spell-cost">+14 PM + 2 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>La Poupée exhale un souffle épais ; une brume se tisse au ras du sol, lourde, chargée de micro-fragments lumineux. Elle avale les contours et laisse une sensation de "magie humide" sur la peau.</p>
                         <h4>Règles</h4>
-                        <p>Nuage 15 ft rayon, dure 2 tours. À la fin de tour de chaque entité dans la brume, applique le Chant à 70% d'efficacité.</p>
-                        <p><strong>Limites :</strong> 1 seule brume active à la fois.</p>
+                        <p><strong>0 PA supplémentaire / Portée : celle du Chant / Zone : rayon 15 ft / Durée : 2 tours.</strong></p>
+                        <p>lorsqu’une entité entre pour la première fois dans la Brume durant un round ou y termine son tour, elle reçoit 40 % du Chant. Limites : une même entité ne peut être affectée qu’une fois par round. 1 seule Brume active par Ventriloque.</p>
                     </div>
                 </div>
 
@@ -585,14 +549,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Flèche</h3>
                         <span class="spell-level">Niveau 3</span>
-                        <span class="spell-cost">+18 PM + 2 AL</span>
+                        <span class="spell-cost">+12 PM + 2 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>Tu "tends" le Chant comme une corde et le libères d'un geste net : un trait rectiligne jaillit, ultra propre, comme une couture parfaite qui tranche l'air.</p>
                         <h4>Règles</h4>
-                        <p>Ligne 20 ft, touche les 3 premières cibles. Bonus de puissance : ajoute +1d6 par niveau du Chant (LV1→+1d6 … LV5→+5d6).</p>
-                        <p><strong>Limite :</strong> nécessite une ligne claire.</p>
+                        <p><strong>0 PA supplémentaire / Ligne : 30 ft / Durée : instantanée.</strong></p>
+                        <p>jusqu’aux 3 premières cibles de la ligne sont affectées. La première reçoit 100 % du Chant, la deuxième 75 %, la troisième 50 %. Limites : les cibles doivent se trouver sur une trajectoire continue. Le Chant ne peut pas contourner un couvert total.</p>
                     </div>
                 </div>
 
@@ -601,13 +565,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Explosion</h3>
                         <span class="spell-level">Niveau 4</span>
-                        <span class="spell-cost">+20 PM + 2 AL</span>
+                        <span class="spell-cost">+18 PM + 3 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>Le Chant se contracte en une bulle, puis craque d'un coup : une gerbe circulaire éclate, comme une poche de trame trop tendue qui cède. Les fragments retombent en étincelles de l'élément.</p>
                         <h4>Règles</h4>
-                        <p>Explosion 10 ft rayon centrée sur un point. Applique le Chant à toutes les cibles dans la zone. Bonus : +1d6 par niveau du Chant (LV1→+1d6 … LV5→+5d6).</p>
+                        <p><strong>0 PA supplémentaire / Portée : celle du Chant / Zone : rayon 10 ft / Durée : instantanée.</strong></p>
+                        <p>toutes les entités présentes dans la zone reçoivent 100 % du Chant et effectuent normalement les éventuels jets de résistance prévus par celui-ci. Limites : alliés compris. Le Ventriloque ne peut pas sélectionner les cibles après avoir créé l’Explosion.</p>
                     </div>
                 </div>
 
@@ -615,14 +580,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Rémanence</h3>
                         <span class="spell-level">Niveau 4</span>
-                        <span class="spell-cost">+16 PM + 2 AL</span>
+                        <span class="spell-cost">+16 PM + 3 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>Une "ombre" de ton Chant reste suspendue autour de la Poupée, comme une phrase inachevée qui refuse de mourir. On entend parfois un écho faible, un demi-mot, une vibration.</p>
                         <h4>Règles</h4>
-                        <p>Au début de ton prochain tour, ton dernier Chant Animé est relancé automatiquement. Ce relancement consomme 1 PR au lieu d'une action.</p>
-                        <p><strong>Limites :</strong> ne copie pas un Chant Interdit/Antique ; 1 fois par combat.</p>
+                        <p><strong>0 PA supplémentaire / Portée : celle du Chant / Durée : jusqu’au début du prochain tour.</strong></p>
+                        <p>lors du lancement, choisir Ancrage de cible ou Ancrage de zone. Au début du prochain tour du Ventriloque, le Chant se reproduit automatiquement à 60 % de son effet, soit sur la même cible si elle reste valide et à portée du lien, soit au même endroit. Aucun PA, PM ou AL supplémentaire n’est payé. Limites : le second Chant ne reçoit aucun Spellcraft supplémentaire. 1 fois par combat.</p>
                     </div>
                 </div>
 
@@ -630,13 +595,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Miroir physique</h3>
                         <span class="spell-level">Niveau 4</span>
-                        <span class="spell-cost">+18 PM + 2 AL</span>
+                        <span class="spell-cost">+18 PM + 3 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>Une pellicule invisible se pose sur la cible : au moindre choc, on voit comme des fissures de verre lumineux… puis le Chant "repart" en retour vers l'assaillant.</p>
                         <h4>Règles</h4>
-                        <p>Sur toi ou un allié à 20 ft, durée 1 tour. Les 3 prochaines attaques physiques subies déclenchent l'effet du Chant sur l'assaillant à 75% d'efficacité. CàC : touche auto. À distance : jet requis.</p>
+                        <p><strong>0 PA supplémentaire / Portée : 20 ft / Durée : 1 tour.</strong></p>
+                        <p>choisir le Ventriloque ou un allié. Le Miroir possède 2 charges. Lorsqu’une attaque directe fait perdre des PV à la cible protégée, une charge est consommée. Avec un Chant hostile, l’assaillant reçoit 50 % du Chant s’il est à 30 ft ou moins. Avec un Chant bénéfique, la cible protégée reçoit 50 % du Chant. Limites : maximum 2 déclenchements. Une même action à plusieurs impacts ne consomme qu’une charge.</p>
                     </div>
                 </div>
 
@@ -645,14 +611,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Nova</h3>
                         <span class="spell-level">Niveau 5</span>
-                        <span class="spell-cost">+(12 PM × X) + 3 AL</span>
+                        <span class="spell-cost">+22 PM + 3 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>Tu ouvres la main et la trame se met à tourner en spirale ; l'air se met à "chanter" sans son. Puis une onde sphérique part, comme une respiration gigantesque, et tout ce qui est dedans est happé par l'élément.</p>
                         <h4>Règles</h4>
-                        <p>Zone = (X × 5 ft) où X = (PM supplémentaires dépensés / 12) (arrondi inférieur). Applique le Chant à toutes les entités dans la zone (alliés compris). Bonus : +2d6 par niveau du Chant (LV1→+2d6 … LV5→+10d6).</p>
-                        <p><strong>Limites :</strong> 1 fois par tour ; frappe sans distinction.</p>
+                        <p><strong>0 PA supplémentaire / Origine : Ventriloque ou Poupée active / Zone : rayon 15 ft / Durée : instantanée.</strong></p>
+                        <p>toutes les autres entités dans les 15 ft reçoivent 100 % du Chant. Après avoir résolu la Nova, la Poupée peut effectuer immédiatement son déplacement gratuit de 5 ft, même si elle l’avait déjà utilisé avant le lancement. Limites : affecte également les alliés si le Chant peut les affecter. 1 fois par combat.</p>
                     </div>
                 </div>
 
@@ -666,8 +632,8 @@
                         <h4>Visuel</h4>
                         <p>Un anneau de vent se coud autour de la cible, tournant comme une cage de fil barbelé d'air. Des éclats de l'élément apparaissent par à-coups sur la paroi, comme des "accents" de Chant.</p>
                         <h4>Règles</h4>
-                        <p>Barrière autour d'une cible (alliée ou ennemie), dure 2 tours. Traverser : jet de Puissance DD 16 en désavantage. Briser : 40 dégâts cumulés à la barrière. Se faufiler : jet de Finesse DD 6–16 (selon MJ). Si échec de traversée/attaque maladroite : contrecoup → applique le Chant sur le fautif avec +2d8 (mono-cible).</p>
-                        <p><strong>Limite :</strong> 1 seul Œil actif.</p>
+                        <p><strong>0 PA supplémentaire / Portée : celle du Chant / Durée : 2 tours.</strong></p>
+                        <p>la barrière possède 35 + (5 × LV du Chant) PV et Défense 5. La traverser volontairement demande 1 PA et un jet de Puissance ou Finesse, DD = 4 + Mod. INT, arrondi au pair supérieur. En cas d’échec, la créature reste du même côté. Si le Chant est hostile, la première tentative ratée de chaque round applique 60 % du Chant au fautif. Si le Chant est bénéfique, protecteur ou curatif, la créature enfermée reçoit 50 % du Chant lors de la création de la cage. Limites :1 seul Œil actif.</p>
                     </div>
                 </div>
 
@@ -675,14 +641,14 @@
                     <div class="spell-header">
                         <h3>Spellcraft : Négation</h3>
                         <span class="spell-level">Niveau 5</span>
-                        <span class="spell-cost">+40 PM + 4 AL</span>
+                        <span class="spell-cost">+30 PM + 4 AL</span>
                     </div>
                     <div class="spell-body">
                         <h4>Visuel</h4>
                         <p>Tu "retires" la couleur du Chant : l'élément se décolore, puis s'éteint. Ne reste qu'un souffle blanc/gris, brut, qui grince comme une lame sur la trame. L'impact a une sensation de vide, pas de chaleur, pas de froid : juste la magie pure.</p>
                         <h4>Règles</h4>
-                        <p>Le Chant devient Magie pure : ignore barrières élémentaires et réductions élémentaires, et ignore 50% de réduction magique générale si elle existe. Aucun effet secondaire du Chant ne s'applique (statuts, brûlure, gel, saignement, etc.). Bonus : +3d6 par niveau du Chant (LV1→+3d6 … LV5→+15d6).</p>
-                        <p><strong>Limites :</strong> 1 fois par tour ; si le Chant est un soin/bouclier, la Négation est impossible.</p>
+                        <p><strong>0 PA supplémentaire / Portée : celle du Chant / Durée : instantanée.</strong></p>
+                        <p>utilisable uniquement avec un Chant hostile infligeant des dégâts. Le Chant devient Magie pure, perd tous ses effets secondaires élémentaires et bénéficie simultanément de Percée de garde et de Puissance optimale sur ses dégâts. Limites : impossible sur un soin, un bouclier ou un Chant essentiellement utilitaire. Aucun état, Brûlure, Saignement ou autre propriété secondaire du Chant n’est conservé. 1 fois par combat.</p>
                     </div>
                 </div>
             </div>
@@ -706,8 +672,8 @@
                         <li><strong>Jeux d'acteur (CHA)</strong> — Simuler identité, imiter voix, jouer émotions</li>
                         <li><strong>Mensonge maîtrisé (CHA)</strong> — Mentir vite et proprement sous pression</li>
                         <li><strong>Intimidation froide (CHA)</strong> — Pression par silences, regard fixe, phrases courtes</li>
-                        <li><strong>Esquive (DEX)</strong> — Se repositionner, éviter corps-à-corps</li>
-                        <li><strong>Furtivité (DEX)</strong> — Se déplacer sans être repéré</li>
+                        <li><strong>Esquive instinctif (DEX)</strong> — Se repositionner, éviter corps-à-corps</li>
+                        <li><strong>Furtivité silencieux (DEX)</strong> — Se déplacer sans être repéré</li>
                     </ul>
                 </div>
 

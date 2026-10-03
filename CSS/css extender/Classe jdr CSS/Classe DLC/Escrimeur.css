@@ -2,7 +2,7 @@
     --steel-dark: #1a1a1a;
     --steel-darker: #0d0d0d;
     --ink: #e0e8f0;
-    
+
     /* Couleurs Escrimeur - palette acier/sang */
     --steel: #8a9aa8;
     --steel-light: #b0c0d0;
@@ -939,6 +939,22 @@ body {
 }
 
 /* Responsive */
+.origin-stat-choice {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid rgba(138, 154, 168, 0.35);
+}
+
+.origin-stat-choice label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
 @media (max-width: 1024px) {
     .hero-section {
         flex-direction: column;

@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Battant de sang.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="parchment-overlay"></div>
@@ -22,7 +23,7 @@
         <div class="hero-content">
             <h1 class="class-title">⚔️ Battant de sang</h1>
             <p class="class-quote">« Je ne combats pas pour gagner. Je combats parce que c'est tout ce que je suis. »</p>
-            <p class="class-type">🧭 Combattant brut — mêlée, assaut direct, style sauvage</p>
+            <p class="class-type">🧭 Combattant brutal — mêlée, montée en puissance, endurance physique et gestion de Ferveur</p>
         </div>
     </header>
 
@@ -61,17 +62,17 @@
                 <div class="stat-category">
                     <h3>📊 Bonus & malus</h3>
                     <div class="bonus-grid">
-                        <span class="stat-item positive highlight">FOR : +6</span>
+                        <span class="stat-item positive highlight">FOR : +3</span>
                         <span class="stat-item positive">CST : +2</span>
-                        <span class="stat-item positive">DEX : +2</span>
+                        <span class="stat-item positive">DEX : +1</span>
                         <span class="stat-item negative">INT : −3</span>
                         <span class="stat-item negative">SAG : −2</span>
                         <span class="stat-item positive">PER : +1</span>
                         <span class="stat-item negative">CHA : −1</span>
                     </div>
                     <ul class="resistance-list">
-                        <li><strong>RM :</strong> 20 + 3d6</li>
-                        <li><strong>REA :</strong> +6</li>
+                        <li><strong>RM :</strong> 20 + 2d6</li>
+                        <li><strong>REA :</strong> +4</li>
                     </ul>
                 </div>
 
@@ -79,11 +80,11 @@
                     <h3>🧠 Traits spécifiques</h3>
                     <div class="traits-grid">
                         <span>Résilience : 2</span>
-                        <span>Instinct : 1</span>
+                        <span>Instinct : 2</span>
                         <span>Finesse : 1</span>
                         <span>Savoir : 1</span>
                         <span>Social : 1</span>
-                        <span>Puissance : 3</span>
+                        <span>Puissance : 2</span>
                         <span>Métier : 1</span>
                         <span>Sang-Froid : 1</span>
                     </div>
@@ -111,27 +112,15 @@
                 <p>Cette tempête, cette ferveur qui envahit le corps du porteur, est une énergie qui s'accumule au fil des affrontements. Il la sent monter, vibrer, brûler sous la peau — et, par habitude autant que par discipline, il apprend à la contenir, à la calmer, à la guider.</p>
                 
                 <h4>Effet de progression :</h4>
-                <p>À chaque amélioration de cette maîtrise, le porteur gagne <strong>+1 au maximum de Ferveur</strong>.</p>
-                
-                <h4>Choix de palier :</h4>
-                <p>Toutes les 2 améliorations, le porteur choisit l'un des effets suivants :</p>
-                
-                <div class="highlight-box">
-                    <p><strong>Départ incandescent :</strong> au début de chaque affrontement, tu gagnes +1 Ferveur. Si tu reprends ce choix une seconde fois : tu commences à +2 Ferveur à la place.</p>
-                </div>
-                
-                <div class="highlight-box">
-                    <p><strong>Économie de réflexes :</strong> 1 fois par tour, lorsque tu devrais dépenser 1 Point de Réaction, tu peux à la place dépenser 2 points de Ferveur. Si tu reprends ce choix une seconde fois : ce coût passe à 1 point de Ferveur.</p>
-                </div>
-                
-                <p style="font-style: italic; margin-top: 15px;">(Ces bonus se rajouteront au passif.)</p>
-            </div>
+                <p>La maîtrise augmente uniquement la capacité de Ferveur : <strong>Mineur 3 / Moyen 4 / Avancé 5 / Majeur 6 / Parfait 7</strong>. Chaque amélioration ajoute +1 au maximum.</p>
+
+                    </div>
 
             <div class="talent-card">
                 <h3>Vigueur Anormale du Vivant</h3>
                 <p>Il y a, dans certains corps, une force qui ne vient pas seulement de l'entraînement. Quelque chose de primal, de dense, comme si la nature elle-même avait laissé une marque — une traction invisible dans les muscles, une solidité qui refuse de céder tant qu'il reste du souffle.</p>
                 <div class="highlight-box">
-                    <p><strong>Effet :</strong> Tant que tu possèdes au moins 20 % de tes PE, tu effectues tous tes jets de Puissance avec Avantage.</p>
+                    <p><strong>Effet :</strong> Tant que tu possèdes au moins 20 % de tes PE maximum, tu obtiens Avantage sur les jets de Puissance directement destinés à pousser, repousser, soulever, retenir, briser un obstacle, rompre une prise ou une entrave, résister à un déplacement forcé ou accomplir un effort comparable de force brute.</p>
                 </div>
             </div>
 
@@ -148,14 +137,14 @@
         <section class="section">
             <h2 class="section-title">🔥 Passif — Rythme de Ferveur</h2>
             <div class="passif-box">
-                <p>Tant que tu es <strong>Engagé au corps-à-corps</strong>, tu entres dans un rythme de combat.</p>
-                <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                    <li style="padding: 8px 0;">▸ <strong>+1 Ferveur</strong> (max 3) à la fin de ton tour si tu as touché une attaque simple au CàC ou si tu as subi des dégâts au CàC pendant le round (max +1 par tour).</li>
-                    <li style="padding: 8px 0;">▸ Si, pendant un tour complet, tu n'as ni touché ni subi, et que tu n'es pas resté Engagé, tu perds <strong>–1 Ferveur</strong>.</li>
+                <p>Chaque combat commence normalement à <strong>0 Ferveur</strong>. La limite de base est <strong>3</strong>, augmentée par Tempête Intérieure.</p>
+                <ul>
+                    <li>À la fin de ton tour : <strong>+1 Ferveur maximum</strong> si, depuis la fin de ton tour précédent, tu as réussi une attaque de mêlée ou subi des dégâts directs d'un adversaire alors que tu étais Engagé.</li>
+                    <li>Si tu n'es plus Engagé et n'as rempli aucune condition de gain, tu perds <strong>1 Ferveur</strong> à la fin de ton tour, jusqu'à un minimum de 0.</li>
                 </ul>
-                <div class="highlight-box" style="margin-top: 20px;">
-                    <p><strong>Bonus :</strong> À Ferveur 1+, tu peux utiliser Acharnement (selon ses règles).</p>
-                </div>
+                <h4>Acharnement</h4>
+                <p>Après une attaque physique de mêlée réussie, avant les dégâts, dépense <strong>2 Ferveur</strong> pour obtenir <strong>Puissance optimale</strong> sur cette attaque. Limite : <strong>1 fois par tour</strong>.</p>
+                <p>Puissance optimale : lance deux fois l'ensemble des dés de dégâts et conserve le meilleur total ; ajoute les valeurs fixes une seule fois. Aucun Avantage au jet d'attaque.</p>
             </div>
         </section>
 
@@ -169,214 +158,36 @@
             </div>
             
             <div class="origin-grid">
-                <!-- Origine 1 -->
                 <div class="origin-card amoureux-affrontement">
                     <h3>⚔️ Amoureux de l'affrontement</h3>
                     <p>Tu as accueilli ce don comme on accueille une évidence. Avec le temps, il s'est fondu en toi, jusqu'à devenir une part de ton souffle, une seconde nature. Tu parcours le monde à la recherche d'épreuves, non par cruauté, mais pour cette sensation unique : l'instant où deux volontés se heurtent et où tout devient limpide. Victoire ou défaite comptent peu. Ce que tu poursuis, c'est la clarté brutale du duel, la comparaison des forces, la vérité nue de l'affrontement. Pour toi, rien n'est plus réel que le combat.</p>
-                    
-                    <h4>Cela offre :</h4>
-                    <div class="subsection">
-                        <p><strong>• +2 au maximum de points</strong> sur ton passif Rythme de la Ferveur.</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <p><strong>• Amélioration d'un cran</strong> d'une maîtrise d'arme au choix (uniquement au niveau 1, et seulement jusqu'au rang mineur).</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Talent — Combativité</h4>
-                        <p>Tant que tu es à ton maximum de Ferveur, tu peux l'activer X fois par combat.</p>
-                        <p>Lorsqu'il est activé, ta prochaine attaque est effectuée avec Avantage.</p>
-                        <p><strong>X = la moitié de ton maximum de Ferveur</strong> (arrondie au supérieur).</p>
-                    </div>
+                    <div class="subsection"><h4>Départ incandescent</h4><p>Au début de chaque combat : <strong>+1 Ferveur</strong>.</p></div>                    <div class="subsection"><h4>Combativité</h4><p>Lorsque tu atteins ta Ferveur maximale depuis une valeur inférieure, ta prochaine attaque de mêlée avant la fin de ton prochain tour bénéficie d'Avantage. L'effet prend fin après cette attaque. Pour le déclencher à nouveau, redescends sous le maximum puis atteins-le de nouveau.</p></div>                    <div class="subsection"><h4>Gains</h4><p><strong>FOR +3, Réactivité +2</strong>. Trait au choix : <strong>+1 Puissance, Instinct ou Sang-Froid</strong>.</p></div>
                 </div>
-                
-                <!-- Origine 2 -->
+
                 <div class="origin-card terres-indomptees">
                     <h3>🏔️ Né des terres indomptées</h3>
                     <p>Tu viens de contrées où la loi n'est pas écrite dans les livres, mais dans les traces au sol, les hurlements au loin et les regards qui évaluent. Là-bas, les bêtes et les monstres ne sont pas des légendes : ils partagent la même terre, la même faim, le même froid. Tu n'as pas appris à "vivre confortablement" — tu as appris à tenir, à lire le danger avant qu'il n'arrive, à avancer quand tout pousse à reculer.</p>
                     
                     <p>Ton combat est marqué par la nature : appuis bas, mouvements courts, attaques franches. Tu empruntes aux animaux leurs postures, leur impulsion, leur façon de bondir ou de briser. Et quand l'arme ne suffit plus, ton corps prend le relais — poings, coudes, pieds, tout devient outil. On te dira "sauvage" comme une insulte facile… mais ce mot n'est souvent qu'un cliché posé sur ceux qui vivent loin des villes, même si ta rudesse trahit parfois le lieu d'où tu viens.</p>
-                    
-                    <h4>Cela offre :</h4>
-                    
-                    <div class="subsection">
-                        <h4>Talent — Style de combat indompté</h4>
-                        <p>Tu adoptes un style bestial, fait d'assauts bruts et d'impacts lourds. Tu sais déclencher des charges soudaines qui peuvent mettre l'adversaire en difficulté.</p>
-                        <p><strong>Effet :</strong> tu peux dépenser tes points de Ferveur pour activer l'un des effets suivants :</p>
-                        <p><strong>Furie bestiale :</strong> en dépensant 1 point de Ferveur, tu obtiens Avantage sur ton jet d'attaque.</p>
-                        <p>Si tu réutilises cet effet une seconde fois dans le même tour, tu obtiens de nouveau l'Avantage sur ton attaque, mais tu subis ensuite un Désavantage sur la prochaine attaque dirigée contre toi.</p>
-                        <p><strong>Utilisation :</strong> X fois par combat, avec X = la moitié de ton maximum de Ferveur (arrondie au supérieur).</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Maîtrise mineure — Art des Postures de Combat</h4>
-                        <p>Tu travailles l'ancrage, la répartition du poids et la transition entre les gardes. Chaque posture soutient la suivante, te permettant de passer de la défense à l'offensive sans rupture. Résultat : plus de stabilité, meilleure portée utile, puissance mieux transmise.</p>
-                        <p><strong>Compétence obtenue :</strong> Postures de combat +2</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Sens entraîné (au choix)</h4>
-                        <p>Choisis un sens (vue, ouïe, odorat, etc.). Tu obtiens la compétence associée à ce sens à <strong>+5 N.A.</strong> (non améliorable).</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Instinct sauvage</h4>
-                        <p>1 fois par session, tu peux effectuer ton jet d'Instinct avec Avantage.</p>
-                    </div>
-                    
-                    <div class="subsection" style="border-left-color: var(--blood-light);">
-                        <h4>Langage brut (Malus)</h4>
-                        <p>Ayant grandi loin des codes urbains, tu n'as pas toujours les bons réflexes en société. Les manières, les sous-entendus et la diplomatie peuvent t'échapper… ou t'agacer au mauvais moment.</p>
-                        <p>Selon la situation, le MJ peut appliquer 1 fois par session (ou 1 fois par scène) un Désavantage sur un jet social du personnage.</p>
-                    </div>
+                    <div class="subsection"><h4>Style de combat indompté — Furie bestiale</h4><p>Avant une attaque physique de mêlée, dépense <strong>1 Ferveur</strong> pour obtenir Avantage sur cette attaque. <strong>1 fois par tour</strong>.</p></div>                    <div class="subsection"><h4>Maîtrise mineure — Art des Postures de Combat</h4><p><strong>Postures de combat +2</strong>.</p></div>                    <div class="subsection"><h4>Choix utilitaire — 1 au choix</h4><p><strong>Sens entraîné :</strong> compétence liée à un sens choisi +2.<br><strong>Instinct sauvage :</strong> 1 fois par session, un jet d'Instinct avec Avantage.<br><strong>Langage brut :</strong> Avantage aux interactions fondées directement sur l'intimidation physique ou l'affirmation brutale de ta présence. Le MJ peut appliquer Désavantage lorsque l'étiquette, la subtilité diplomatique ou le langage cérémoniel sont spécifiquement nécessaires et que cette manière de communiquer est réellement un handicap.</p></div>                    <div class="subsection"><h4>Gains</h4><p><strong>DEX +2, PER +3</strong>. Trait au choix : <strong>+1 Instinct, Résilience ou Finesse</strong>.</p></div>
                 </div>
 
-                <!-- Origine 3 -->
                 <div class="origin-card voie-mysticisme">
                     <h3>✨ Voie du mysticisme</h3>
                     <p>Au fil de ton voyage, tu as fini par chercher autre chose que la victoire ou la survie. Tu as appris à écouter. Le silence des plaines, le souffle des forêts, la patience de la glace… Tu as essayé de comprendre cette énergie en toi, de la guider, de la calmer, de lui donner un sens. Au début, rien ne venait : seulement des tentatives maladroites, des échecs répétés, et cette impression d'être "à côté".</p>
                     
                     <p>Puis les mois sont devenus des années. Et sans que tu t'en rendes compte, quelque chose s'est ouvert. Pas une maîtrise totale de cette force intérieure — mais une porte. Un chemin inattendu vers un potentiel plus profond, plus subtil, presque spirituel… peut-être même magique, là où tu ne pensais pas pouvoir aller.</p>
-                    
-                    <h4>Cela offre :</h4>
-                    
-                    <div class="subsection">
-                        <h4>Talent — Éveil magique</h4>
-                        <p>Tu déverrouilles ton potentiel magique :</p>
-                        <ul>
-                            <li>Ta base de PM passe à <strong>1d12</strong> (si elle était inférieure).</li>
-                            <li>La magie devient accessible.</li>
-                            <li>Lors de l'obtention de ce talent, tu peux lancer <strong>2 dés de Gain de PM</strong>.</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>Choix de départ (1 au choix)</h4>
-                    
-                    <div class="subsection">
-                        <h4>A) Départ chamanique — Voie du Chaman</h4>
-                        <p>Tu t'orientes vers une magie qui ne "crée" pas, mais réveille : une force empruntée au milieu naturel. Tu apprends à lire les tensions d'un lieu, à écouter ses esprits, à rééquilibrer ce qui a été perturbé. Ici, tu n'imposes pas ta volonté : tu accompagnes le monde.</p>
-                        <p><strong>Obtention de la maîtrise mineure :</strong> Magie environnementale</p>
-                        <p>La magie environnementale puise dans la nature même : pierres, eaux, vents, sous-bois, rivages. Plus le lieu est vivant, plus cette magie répond.</p>
-                        <p><strong>Compétence :</strong> Magie environnementale +2</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>B) Départ arcanique — Voie du Mage</h4>
-                        <p>Tu suis un chemin plus "académique", plus structuré : tu acceptes l'arcane comme une discipline. Tu éveilles une seule source élémentaire et tu apprends à la faire circuler proprement dans ton corps.</p>
-                        <p><strong>Choisis une source élémentaire :</strong> tu obtiens une seule maîtrise magique liée à cette source, au rang mineur.</p>
-                        <p><strong>Compétence :</strong> Magie élémentaire (source choisie) +2</p>
-                        
-                        <p style="margin-top: 15px;"><strong>Corps né des Arcanes :</strong></p>
-                        <p>Tu gagnes +10 % de résistance magique contre :</p>
-                        <ul>
-                            <li>la magie liée à ta source élémentaire,</li>
-                            <li>la corruption,</li>
-                            <li>la végétation,</li>
-                            <li>le nécrotique.</li>
-                        </ul>
-                        
-                        <p style="margin-top: 15px;"><strong>Impulsion arcanique :</strong></p>
-                        <p>1 fois par tour, tu peux consommer 1 point de Ferveur pour lancer un jet de sort maîtrisé (lié uniquement à tes maîtrises magiques) avec Avantage.</p>
-                        <p style="font-style: italic;">(Ne s'applique pas aux sorts provenant directement d'objets.)</p>
-                    </div>
+                    <div class="subsection"><h4>Éveil magique</h4><p>Le potentiel magique est déverrouillé. La base PM devient <strong>1d12</strong> si elle était inférieure. À l’obtention, lance <strong>1 dé de Gain de PM</strong>. Les autres bénéfices de départ d’une classe magique complète ne sont pas accordés.</p></div>                    <div class="subsection"><h4>Choix magique — 1 au choix</h4><p><strong>Départ chamanique :</strong> Maîtrise mineure — Magie environnementale et Magie environnementale +2.<br><strong>Départ arcanique :</strong> choisis une Source élémentaire ; Maîtrise mineure de sa magie et Magie élémentaire de cette Source +2.</p></div>                    <div class="subsection"><h4>Impulsion mystique</h4><p>Avant un jet avec une magie que tu maîtrises, dépense <strong>1 Ferveur</strong> pour l'effectuer avec Avantage. <strong>1 fois par tour</strong>. Les sorts produits directement par un objet ne bénéficient pas de cet effet.</p></div>                    <div class="subsection"><h4>Gains</h4><p><strong>INT −3 devient +1 ; SAG −2 devient +1</strong>. Trait au choix : <strong>+1 Savoir, Métier ou Sang-Froid</strong>.</p></div>
                 </div>
-                
-                <!-- Origine 4 : Enfant du Chaos -->
-                <div class="origin-card enfant-chaos" style="border-color: var(--blood); background: linear-gradient(135deg, rgba(139, 30, 30, 0.05), rgba(255, 255, 255, 0.7));">
-                    <h3>💀 Enfant du Chaos</h3>
-                    <p>Certaines anciennes théories, portées par des clans venus de plans lointains, affirment que les porteurs de la Ferveur sont des "enfants illégitimes du chaos". Leur lien à l'outre-monde serait trouble : quand ils libèrent leur énergie, l'émanation semble obscure, presque contre-nature. Selon ces croyances, une puissance enfouie sommeille en eux — appelée l'Appel du Néant — une force terrifiante qui peut se déployer, tordre la Ferveur… et la corrompre jusqu'à la transformer en quelque chose d'autre.</p>
-                    
-                    <h4>Cela offre :</h4>
-                    
-                    <div class="subsection" style="border-color: var(--blood);">
-                        <h4>Talent — Corps forgé par les abysses</h4>
-                        <p>Une énergie étrangère, infime, presque invisible, traverse parfois ton corps — comme une poussière d'outre-monde. Elle ne devrait pas suffire à changer un être… et pourtant, elle nourrit quelque chose en toi : une résonance obscure qui s'accroche à ta chair déjà hors norme.</p>
-                        <p>Lorsque ton intensité intérieure atteint son sommet, tu peux libérer cette résonance et provoquer un état rare : une surcharge d'énergie sombre qui électrise tes veines, durcit tes nerfs, et décuple ta présence au combat. Ce pouvoir est violent, efficace… mais il brûle tes ressources comme un feu noir.</p>
-                    </div>
-                    
-                    <div class="subsection" style="border-color: var(--blood);">
-                        <h4>Talent — Déferlement des Abysses</h4>
-                        <p><strong>Condition :</strong> activable uniquement lorsque tes points d'énergie de classe sont au maximum.</p>
-                        
-                        <p>Quand tu actives ce talent, une énergie obscure se dégage de toi : tes veines se dessinent, animées d'un éclat électrique bleu sombre, et ton corps entre en résonance avec l'Abîme.</p>
-                        
-                        <p style="margin-top: 15px;"><strong>Effet :</strong></p>
-                        <p>Tant que l'état est actif, tous tes jets suivants sont effectués avec Avantage :</p>
-                        <ul>
-                            <li>jets d'attaque au corps (si tu en as),</li>
-                            <li>jets de maîtrise d'arme,</li>
-                            <li>jets de maîtrise magique.</li>
-                        </ul>
-                        
-                        <p style="margin-top: 15px;"><strong>Coût (brûlure d'énergie) :</strong></p>
-                        <ul>
-                            <li>À chaque tour où tu restes dans cet état, tu perds 2d8 PM/PE (selon ta ressource utilisée).</li>
-                            <li>À chaque tour suivant, le coût augmente de +2d8 cumulatif.<br>(Ex. : tour 1 = 2d8 ; tour 2 = 4d8 ; tour 3 = 6d8, etc.)</li>
-                        </ul>
-                        
-                        <p style="margin-top: 15px;"><strong>Fin de l'effet :</strong></p>
-                        <p>L'état prend fin si :</p>
-                        <ul>
-                            <li>tu n'as plus de PM ou de PE, ou</li>
-                            <li>tu n'as plus ton maximum de points d'énergie de classe (tu n'es plus "au sommet").</li>
-                        </ul>
-                        
-                        <p style="margin-top: 15px;"><strong>Sortie volontaire :</strong></p>
-                        <p>Pour t'extirper de cet état avant la fin, tu dois réussir un jet de Sagesse (DD fixé par le MJ / selon tes règles).</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Maîtrise mineure — Abîme intérieur</h4>
-                        <p>Le porteur s'entraîne à canaliser, contenir et parfois réprimer l'énergie de l'Abîme qui circule en lui. Ce n'est pas une domination totale, mais une discipline : apprendre à laisser passer juste assez… sans se laisser déborder.</p>
-                        <p><strong>Offre la compétence :</strong> Canalisation de l'Abîme +2</p>
-                    </div>
-                    
-                    <h4>Au choix (1)</h4>
-                    
-                    <div class="subsection">
-                        <h4>Option 1 : Traînée de l'Abîme</h4>
-                        <p><strong>Coût d'obtention :</strong> 3 points de talent (si le talent n'est pas pris).</p>
-                        <p>Quand l'Abîme s'insinue dans ton corps et accroche ton âme, il ne reste plus une simple influence : il devient une présence. À chaque mouvement, une vague sombre suit tes frappes, comme une traîne d'encre vivante.</p>
-                        <p><strong>Effet :</strong></p>
-                        <ul>
-                            <li>Tant que ce talent est activé, chaque attaque physique de corps à corps avec une arme inflige +1d6 dégâts magiques d'Abîme (en plus des dégâts normaux).</li>
-                            <li>Cette puissance augmente tous les 5 niveaux du porteur (selon ta progression).</li>
-                        </ul>
-                        <p><strong>Contrecoup :</strong> tant que l'effet est actif, tu consommes 2 × tranche de puissance en PE/PM par tour, en plus du coût normal éventuel.</p>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Option 2 : Chair des Abysses</h4>
-                        <p><strong>Coût d'obtention :</strong> 3 points de talent (si le talent n'est pas pris).</p>
-                        <p>Ton corps rejette une partie des flux magiques ordinaires : l'Abîme perturbe la circulation et "tord" l'énergie qui n'est pas de son ordre.</p>
-                        <p><strong>Effet :</strong></p>
-                        <ul>
-                            <li>1 fois par tour, en consommant 2 points de ta jauge (ton énergie de classe), tu imposes un Désavantage aux jets de dégâts magiques effectués par toi…</li>
-                            <li><strong>Exception :</strong> cela ne s'applique pas aux dégâts Lumière / Ténèbres / Abîme.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="subsection">
-                        <h4>Option 3 : Saut dans le Déferlement des Abysses</h4>
-                        <p><strong>Coût d'obtention :</strong> 3 points de talent (si le talent n'est pas pris).</p>
-                        <p>Tu peux forcer l'ouverture. Pas progressivement — d'un coup. Comme si tu arrachais la porte intérieure pour laisser passer la marée noire.</p>
-                        <p><strong>Effet :</strong></p>
-                        <ul>
-                            <li>À tout moment, tu peux payer 1 Dé de Destin ou 2 points d'Avantage pour :
-                                <ul style="margin-top: 10px;">
-                                    <li>te mettre immédiatement à ton maximum de jauge d'énergie de classe, et</li>
-                                    <li>entrer directement dans l'état de Déferlement des Abysses.</li>
-                                </ul>
-                            </li>
-                            <li><strong>Limite :</strong> 1 fois par session.</li>
-                            <li><strong>Contrecoup :</strong> la consommation de l'état commence dès le 2e tour (au lieu du timing normal).</li>
-                        </ul>
-                    </div>
+
+                <div class="origin-card enfant-chaos">
+                    <h3>🌑 Enfant du Chaos</h3>
+                    <p>La signature de ta Tempête Intérieure entre en résonance avec les Abysses. À son sommet, ton corps peut devenir brièvement le conduit d'une énergie qu'il n'est pas conçu pour supporter.</p>
+                    <div class="subsection"><h4>Maîtrise mineure — Abîme Intérieur</h4><p><strong>Canalisation de l’Abîme +2</strong>.</p></div>                    <div class="subsection"><h4>Déferlement des Abysses</h4><p>À <strong>Ferveur maximale</strong>, au début de ton tour avant tes actions, active le Déferlement <strong>1 fois par combat</strong>. Ta Ferveur tombe à <strong>0</strong> et ne peut plus augmenter pendant l'effet. Durée : <strong>2 tours</strong>.<br>Une fois à chacun de tes tours, les dégâts d'une attaque physique de mêlée réussie ou d'une attaque issue d'une magie maîtrisée bénéficient gratuitement de <strong>Puissance optimale</strong>.<br><strong>Brûlure d'énergie :</strong> à la fin de chacun de ces tours, perds <strong>1d6 PE + 1d6 PM</strong>. Il s'agit d'une consommation interne, pas d'une attaque ennemie. Le Déferlement cesse immédiatement si les PE ou PM atteignent 0 ; tu peux aussi l'arrêter au début du second tour.</p></div>                    <div class="subsection"><h4>Gains</h4><p><strong>CST +3, FOR +2</strong>. Trait au choix : <strong>+1 Puissance, Résilience ou Sang-Froid</strong>.</p></div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Connaissances -->
         <section class="section">
             <h2 class="section-title">📚 Connaissances acquises</h2>
@@ -409,12 +220,26 @@
             </div>
         </section>
 
+        <section class="section">
+            <h2 class="section-title">📚 Connaissances selon l’Origine</h2>
+            <div class="knowledge-list">
+                <div class="knowledge-item"><h4>Amoureux de l'Affrontement — Psychologie de l’Affrontement (Modéré)</h4><p>Reconnaître peur, hésitation, fatigue, frustration ou excès de confiance sous pression, sans lire automatiquement les intentions précises.</p></div>
+                <div class="knowledge-item"><h4>Amoureux de l'Affrontement — Codes du Duel (Moyen)</h4><p>Comprendre défis formels, armes autorisées, témoins, conditions de victoire et règles d’honneur ; les coutumes rares peuvent rester inconnues.</p></div>
+                <div class="knowledge-item"><h4>Né des Terres Indomptées — Faune Sauvage (Modéré)</h4><p>Comprendre territoire, chasse, fuite, reproduction et agressivité de la faune ; les espèces rares ou surnaturelles demandent un savoir spécialisé.</p></div>
+                <div class="knowledge-item"><h4>Né des Terres Indomptées — Pistage et Orientation (Modéré)</h4><p>Interpréter empreintes, odeurs et passages, puis s’orienter grâce au relief, aux astres et aux repères naturels. Les traces altérées restent moins fiables.</p></div>
+                <div class="knowledge-item"><h4>Voie du Mysticisme — Principes de Magie (Modéré)</h4><p>Bases des Sources, de la canalisation, de la dépense et des perturbations magiques ; ne confère aucune maîtrise pratique.</p></div>
+                <div class="knowledge-item"><h4>Voie du Mysticisme — Traditions Spirituelles (Moyen)</h4><p>Reconnaître offrandes, méditations, chants et gestes cérémoniels, sans connaître automatiquement les doctrines secrètes.</p></div>
+                <div class="knowledge-item"><h4>Enfant du Chaos — Domaine des Abysses (Modéré)</h4><p>Reconnaître manifestations et signatures abyssales ; les entités et lois profondes des Abysses restent mystérieuses.</p></div>
+                <div class="knowledge-item"><h4>Enfant du Chaos — Corruptions et Altérations Magiques (Modéré)</h4><p>Identifier contamination, mutation, instabilité ou dégradation persistante ; leur origine et leur suppression peuvent nécessiter une expertise.</p></div>
+            </div>
+        </section>
+
         <!-- Classe d'arme -->
         <section class="section">
             <h2 class="section-title">🗡️ Classe d'Arme</h2>
             <div class="highlight-box">
                 <p style="text-align: center; font-size: 1.2rem; margin: 0;">
-                    <strong>+1 arme au choix (Maîtriser)</strong>
+                    <strong>+1 dans une Classe d’Arme de corps-à-corps au choix</strong>
                 </p>
             </div>
         </section>
@@ -460,7 +285,7 @@
             <div class="highlight-box" style="margin-top: 30px;">
                 <h4 style="margin-bottom: 10px;">Si le départ des Abysses est choisi :</h4>
                 <p><strong>Collier du Précepteur des Abysses</strong></p>
-                <p>Le collier offre une annulation, durant un combat, une fois par jour : annuler le coût de brûlure d'énergie en mode Déferlement des Abysses.</p>
+                <p>1 fois par jour, pendant un Déferlement des Abysses, annule une seule occurrence de la Brûlure d’énergie de fin de tour.</p>
             </div>
         </section>
 

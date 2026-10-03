@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe DLC/Valkyrie skaldar.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="sky-overlay"></div>
@@ -58,8 +59,8 @@
                 <div class="stat-category">
                     <h3>❤️ Base PV / PM / PE</h3>
                     <ul>
-                        <li><strong>PV :</strong> 1d16</li>
-                        <li><strong>PM :</strong> 1d12</li>
+                        <li><strong>PV :</strong> 1d14</li>
+                        <li><strong>PM :</strong> 1d10</li>
                         <li><strong>PE :</strong> 1d14</li>
                     </ul>
                 </div>
@@ -68,11 +69,11 @@
                     <h3>📊 Bonus & Malus</h3>
                     <div class="bonus-grid">
                         <span class="stat-item positive">FOR : +2</span>
-                        <span class="stat-item negative">CST : −2</span>
+                        <span class="stat-item positive">CST : +1</span>
                         <span class="stat-item positive">DEX : +2</span>
                         <span class="stat-item negative">INT : −3</span>
-                        <span class="stat-item positive">SAG : +2</span>
-                        <span class="stat-item positive highlight">PER : +4</span>
+                        <span class="stat-item negative">SAG : −3</span>
+                        <span class="stat-item positive highlight">PER : +3</span>
                         <span class="stat-item negative">CHA : −1</span>
                     </div>
                     <ul class="resistance-list">
@@ -141,14 +142,6 @@
             </div>
 
             <div class="talent-card">
-                <h3>Pas de lune innée</h3>
-                <p>Le vent semble reconnaître ton origine. Par un don lié à l'essence d'Yggdrasil, tu peux créer de brefs jets d'air comprimé sous tes pieds pour enchaîner des petits bonds sur quelques secondes.</p>
-                <p><strong>Coût :</strong> 5 PE (pour l'action).</p>
-                <p><strong>Effet :</strong> tu peux effectuer une suite de petits sauts rapides (propulsions courtes) pour te repositionner ou franchir un obstacle.</p>
-                <p><strong>Limite :</strong> tu ne peux pas rester en stationnaire avec cette faculté : elle sert uniquement à avancer / bondir, pas à flotter sur place.</p>
-            </div>
-
-            <div class="talent-card">
                 <h3>Choix de talent (1 au choix)</h3>
                 <div class="subsection">
                     <h4>Maîtrise mineure de l'Agilité</h4>
@@ -168,80 +161,22 @@
 
         <!-- Passif de classe -->
         <section class="section">
-            <h2 class="section-title">🌀 Passif de classe — Rythme Astral</h2>
+            <h2 class="section-title">🌀 Passif de classe — Lance de Bravoure</h2>
             <div class="content-box">
                 <div class="subsection">
-                    <h4>⭐ Ressource : Points de Bravoure (PB)</h4>
-                    <p><strong>PB : 0 / 6 max</strong></p>
-                    
-                    <h5>✅ Gagner des PB</h5>
+                    <h4>Points de Bravoure (PB)</h4>
+                    <p>La Valkyrie commence le combat à <strong>0 PB</strong> et peut posséder jusqu'à <strong>6 PB</strong>.</p>
                     <ul>
-                        <li>Début de ton tour (sauf 1er tour du combat) : +1 PB</li>
-                        <li>1 fois par tour, si tu réussis une de ces actions : +1 PB
-                            <ul style="margin-left: 20px; margin-top: 5px;">
-                                <li>Parade réussie</li>
-                                <li>Coup critique</li>
-                                <li>Manœuvre acrobatique réussie</li>
-                            </ul>
-                        </li>
+                        <li>+1 PB à la fin de son tour si une Posture Brave ou une Garde Skaldar/Valkyrie est active.</li>
+                        <li>+1 PB une fois par tour après avoir réussi une action de saut.</li>
                     </ul>
                 </div>
-
                 <div class="subsection">
-                    <h4>🛡️ MODE DEFAULT — Stocker & Tenir</h4>
-                    <p><strong>Fréquence :</strong> 1 fois par tour</p>
-                    <p>Tu déclares Default et tu consommes des PA (y compris des PA non utilisées). (Attention : les points consommés sont consommés et non réutilisables durant le tour.)</p>
-                    <h5>Effets (jusqu'au début de ton prochain tour) :</h5>
-                    <ul>
-                        <li>+2 PB (sans dépasser 6)</li>
-                        <li>Réduction de dégâts : –10% par PA consommé</li>
-                        <li>Exemple : 2 PA consommés → –20% dégâts reçus, même s'il pourrait te rester d'autres PA.</li>
-                    </ul>
-                    <p><strong>Attention :</strong> si le lanceur fait une réaction lorsqu'il est en Mode Default, il perd ce mode.</p>
-                </div>
-
-                <div class="subsection">
-                    <h4>⚔️ MODE BRAVE — Enchaîner & Percer</h4>
-                    <p>Pendant ton tour, tu peux consommer des PA et PE pour obtenir des attaques bonus.</p>
-                    <h5>Attaques Brave (bonus)</h5>
-                    <ul>
-                        <li>Chaque 2 PA et 10 PE consommés → +1 Attaque Brave</li>
-                        <li>Attaque Brave = attaque simple uniquement (pas de capacité / pas de sort)</li>
-                        <li>Dégâts d'une Attaque Brave : –50%</li>
-                        <li>Maximum : 3 Attaques Brave bonus par tour</li>
-                    </ul>
-
-                    <h5>⭐ Expertise Brave (par arme)</h5>
-                    <p>Quand tu touches avec une arme de ta Formation (hors multi-coup qui est compté pour 1 point) :</p>
-                    <p><strong>Lance / Hallebarde / Javelot → +1 Point d'Expertise Brave de l'arme utilisée.</strong></p>
-                    <p>Quand l'Expertise Brave atteint le seuil requis, ça permet d'activer des attaques spéciales Brave liées à la catégorie d'arme (Lance / Hallebarde / Javelot).</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Capacité de classe -->
-        <section class="section">
-            <h2 class="section-title">⚡ Capacité de classe</h2>
-            <div class="content-box">
-                <div class="subsection">
-                    <h4>LV 1 — Bond d'Astre-Vent</h4>
-                    <p><strong>Coût :</strong> 1 PA / 26 PE / 2 PB</p>
-                    <p><strong>Portée :</strong> 15 ft / <strong>Durée :</strong> instantané</p>
-                    <p>Tu compresses l'air sous tes appuis : une impulsion nette te projette vers l'avant ou vers le haut, comme si le vent te "portait" une fraction de seconde.</p>
-                    
-                    <h5>Règles :</h5>
-                    <p>Tu te déplaces jusqu'à 15 ft en saut (vertical ou horizontal), en ignorant les terrains difficiles liés au sol (marches, débris, boue, etc.). À la fin du bond, tu peux choisir 1 option :</p>
-                    <ul>
-                        <li><strong>Option A — Atterrissage offensif :</strong> si tu es au contact d'un ennemi (5 ft) et que tu tiens une arme d'hast (lance/hallebarde) ou un javelot, tu peux effectuer 1 attaque simple immédiatement ; cette attaque gagne +10 % dégâts et 5 % en plus sur les chance d'activé l'effet « Perforation »</li>
-                        <li><strong>Option B — Repositionnement pur :</strong> tu termines ton bond sans attaque et tu gagnes +2 au prochain jet de Finesse lié au mouvement avant la fin de ton tour (ex : réception, équilibre, figure simple).</li>
-                    </ul>
-
-                    <h5>Limites :</h5>
-                    <ul>
-                        <li>1 fois par tour.</li>
-                        <li>Ne permet pas de rester en stationnaire.</li>
-                        <li>Si tu es Entravé/Immobilisé (ou effet équivalent), la capacité échoue (le coût est dépensé).</li>
-                    </ul>
+                    <h4>Mode Brave — Default</h4>
+                    <p><strong>Posture :</strong> 1 PR — 8 PM + 8 PE</p>
+                    <p><strong>Prérequis :</strong> manier une lance ou une hallebarde.</p>
+                    <p>Tant que cette posture est active, le lanceur gagne +1 PB à la fin de chacun de ses tours.</p>
+                    <p><strong>Garde de Bravoure :</strong> une fois par tour, lorsqu'il subit une attaque, le lanceur peut dépenser jusqu'à 6 PB pour réduire les dégâts reçus de 10 % par tranche de 2 PB dépensés, jusqu'à 30 % maximum.</p>
                 </div>
             </div>
         </section>
@@ -280,7 +215,7 @@
                     </div>
                     <div class="subsection">
                         <h4>📊 Gains</h4>
-                        <p><strong>FOR +2 • CST de −2 → +1</strong></p>
+                        <p><strong>FOR +2 • CST finale : +1</strong></p>
                         <p><strong>Trait spécifique :</strong> +1 Puissance ou Finesse</p>
                     </div>
                 </div>
@@ -295,7 +230,7 @@
                     <div class="subsection">
                         <h4>🎁 Talents obtenus</h4>
                         <p><strong>Entraînement mineur à la résistance à la peur (mineur) :</strong> La peur perturbe moins l'action : panique et figement deviennent plus rares. Même sous menace, une décision reste possible et le souffle se reprend plus vite. Cela aide à tenir un rôle, protéger un allié ou reculer proprement. Un talent de tenue mentale, pas d'inconscience.</p>
-                        <p><strong>Trait spécifique :</strong> Résistance mentale +1 (Sang-froid)</p>
+                        <p><strong>Trait spécifique :</strong> Résistance à la peur +1 (Sang-froid)</p>
                         <p style="margin-top:12px;"><strong>Appui de l'Égide :</strong> 1 fois par session, le lanceur peut relancer un jet de Constitution lié à la robustesse (le sien ou celui d'un allié) situé à 10 ft maximum.</p>
                     </div>
                     <div class="subsection">
@@ -307,7 +242,7 @@
                     </div>
                     <div class="subsection">
                         <h4>📊 Gains</h4>
-                        <p><strong>CST de −2 → +3 • SAG +2</strong></p>
+                        <p><strong>CST de +1 → +3 • SAG +2</strong></p>
                         <p><strong>Trait spécifique :</strong> +1 Résilience ou Sang-froid</p>
                     </div>
                 </div>
@@ -350,7 +285,9 @@
                     <div class="subsection">
                         <h4>🎁 Talents obtenus</h4>
                         <p><strong>Maîtrise mineure de la magie météorologique :</strong> Cette forme de magie puise dans les filaments magiques de l'environnement et de la nature, transformant cette énergie brute en phénomènes météorologiques puissants (tempêtes, éclairs, vents violents…). En raison de la densité et de la nature instable de cette source magique, les sorts météorologiques nécessitent souvent un temps de canalisation à l'aide d'un réceptacle magique, afin d'éviter que les éléments ne se déchaînent de manière incontrôlée — au risque d'affecter alliés comme ennemis. Tous les jets de canalisation liés à cette magie utilisent principalement l'INT (Intelligence), et parfois aussi la CST (Constitution), selon la nature du sort lancé.</p>
-                        <p style="margin-top:12px;"><strong>Concentration météorologique :</strong> 1 fois par session, le lanceur peut effectuer avec avantage un jet de Canalisation lié à une capacité/sort météorologique nécessitant un temps de canalisation (et non un sort instantané).</p>
+                        <h5>Choix — 1 talent :</h5>
+                        <p><strong>Affinités des Cieux :</strong> choisissez 2 natures élémentaires disponibles, sauf Maudit, Ténèbres, Lumière et Magie pure. Le lanceur obtient une affinité de 10 % avec chacune.</p>
+                        <p><strong>ou Cadence des Tempêtes :</strong> pour les facultés météorologiques de LV1 à LV3 ayant un coût en PB, ce coût est réduit de 1 PB, avec un minimum de 1 PB.</p>
                     </div>
                     <div class="subsection">
                         <h4>📚 Connaissances supplémentaires</h4>
@@ -361,7 +298,7 @@
                     </div>
                     <div class="subsection">
                         <h4>📊 Gains</h4>
-                        <p><strong>INT de −3 → +3 • CST de −2 → +2 • SAG −2</strong></p>
+                        <p><strong>INT de −3 → +3 • CST de +1 → +2 • SAG −2</strong></p>
                         <p><strong>Trait spécifique :</strong> +1 Savoir ou Finesse</p>
                     </div>
                 </div>

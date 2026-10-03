@@ -3,31 +3,39 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 
 // Données de base du Liant (échelle de -4 à +6)
 const baseStats = {
-    FOR: -1,
+    FOR: -2,
     CST: -1,
-    DEX: 1,
-    INT: 0,
-    SAG: 2,
+    DEX: 0,
+    INT: -2,
+    SAG: 3,
     PER: 2,
-    CHA: 4
+    CHA: 3
 };
 
 // Bonus des départs animaliers
 const departBonuses = {
-    'depart-a': { CHA: 3 },
-    'depart-b': { PER: 3 },
-    'depart-c': { CST: 3 },
-    'depart-d': { DEX: 2, FOR: 2 },
-    'depart-e': { INT: 2, SAG: 2 }
+    'depart-a': { CHA: 3, SAG: 2 },
+    'depart-b': { PER: 3, DEX: 2 },
+    'depart-c': { CST: 4, SAG: 2 },
+    'depart-d': { FOR: 5, DEX: 2 }, // FOR -2 devient +3
+    'depart-e': { INT: 5, SAG: 2 }
 };
 
 // Noms des départs pour l'affichage
 const departNames = {
-    'depart-a': 'Compagnon de Longue Route',
-    'depart-b': 'Sillage des Hurons Gris',
-    'depart-c': 'Frontière Indomptée',
-    'depart-d': 'Appel des Montures Oubliées',
-    'depart-e': 'Sillage des Arcaniums'
+    "depart-a": "Compagnon de Longue Route",
+    "depart-b": "Sillage des Hurons Gris",
+    "depart-c": "Frontière Indomptée",
+    "depart-d": "Appel des Montures Oubliées",
+    "depart-e": "Sillage des Arcaniums"
+};
+
+const departDetails = {
+    "depart-a": "Écho de Longue Route ; Entente Instinctive ; +1 Social, Instinct ou Sang-Froid au choix.",
+    "depart-b": "Sillage de la Proie ; Flair de Liance : Puissance optimale 1 fois par combat ; +1 Instinct, Finesse ou Métier au choix.",
+    "depart-c": "Réflexe d’Adaptation : 1 PR, 1 fois par round ; hors combat sans PA, PM/PE divisés par 2 ; Ascendance de Liance ; +1 Résilience, Instinct ou Finesse au choix.",
+    "depart-d": "Conduite de monture +1 ; Égide de Liance : Protection pour 1 PR, 1 fois par round ; +1 Finesse, Puissance ou Instinct au choix.",
+    "depart-e": "PM 1d12 si inférieur, 2 dés de Gain de PM ; Empreinte du Milieu : 10 minutes, une par Lien ; +1 Savoir, Instinct ou Métier au choix."
 };
 
 let currentDepart = null;
@@ -173,9 +181,11 @@ function updateStatsDisplay(depart) {
             bonusText += `${stat} +${bonuses[stat]} `;
         }
         
+        const extraInfo = '<br><strong>Gains :</strong> ' + departDetails[depart];
+
         displayElement.innerHTML = `
             <strong>Départ sélectionné :</strong> ${departNames[depart]}<br>
-            <strong>Bonus appliqués :</strong> ${bonusText}
+            <strong>Bonus appliqués :</strong> ${bonusText}${extraInfo}
         `;
         displayElement.style.display = 'block';
     } else {
@@ -194,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.addEventListener('click', function() {
             const departClass = Array.from(this.classList).find(cls => 
-                ['depart-a', 'depart-b', 'depart-c', 'depart-d', 'depart-e'].includes(cls)
+                Object.keys(departBonuses).includes(cls)
             );
             
             if (departClass) {

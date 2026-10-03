@@ -3,9 +3,9 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 
 // Données de base du Battant de sang (échelle de -4 à +6)
 const baseStats = {
-    FOR: 6,
+    FOR: 3,
     CST: 2,
-    DEX: 2,
+    DEX: 1,
     INT: -3,
     SAG: -2,
     PER: 1,
@@ -13,21 +13,26 @@ const baseStats = {
 };
 
 // Bonus des origines
-// NOTE: Les origines du Battant de sang donnent principalement des talents plutôt que des bonus de stats
-// Si vous souhaitez ajouter des bonus de caractéristiques, modifiez les valeurs ci-dessous
 const origineBonuses = {
-    'amoureux-affrontement': {}, // Aucun bonus de stats (donne +2 max Ferveur et talents)
-    'terres-indomptees': {}, // Aucun bonus de stats (donne talents et compétences)
-    'voie-mysticisme': {}, // Aucun bonus de stats (donne Éveil magique)
-    'enfant-chaos': {} // Aucun bonus de stats (donne talents des Abysses)
+    'amoureux-affrontement': { FOR: 3 },
+    'terres-indomptees': { DEX: 2, PER: 3 },
+    'voie-mysticisme': { INT: 4, SAG: 3 },
+    'enfant-chaos': { CST: 3, FOR: 2 }
 };
 
 // Noms des origines pour l'affichage
 const origineNames = {
-    'amoureux-affrontement': 'Amoureux de l\'affrontement',
-    'terres-indomptees': 'Né des terres indomptées',
-    'voie-mysticisme': 'Voie du mysticisme',
-    'enfant-chaos': 'Enfant du Chaos'
+    "amoureux-affrontement": "Amoureux de l'affrontement",
+    "terres-indomptees": "Né des terres indomptées",
+    "voie-mysticisme": "Voie du mysticisme",
+    "enfant-chaos": "Enfant du Chaos"
+};
+
+const origineDetails = {
+    "amoureux-affrontement": "Réactivité +2 (total +6) ; Départ incandescent +1 Ferveur ; Combativité ; +1 Puissance, Instinct ou Sang-Froid au choix.",
+    "terres-indomptees": "Furie bestiale : 1 Ferveur, 1 fois par tour ; Postures de combat +2 ; un choix utilitaire ; +1 Instinct, Résilience ou Finesse au choix.",
+    "voie-mysticisme": "PM 1d12 si inférieur, 1 dé de Gain de PM ; Départ chamanique ou arcanique ; Impulsion mystique : 1 Ferveur, 1 fois par tour ; +1 Savoir, Métier ou Sang-Froid au choix.",
+    "enfant-chaos": "Canalisation de l’Abîme +2 ; Déferlement : 1 fois par combat, 2 tours, Puissance optimale et brûlure 1d6 PE + 1d6 PM par fin de tour ; +1 Puissance, Résilience ou Sang-Froid au choix."
 };
 
 let currentOrigine = null;
@@ -157,23 +162,14 @@ function updateStatsDisplay(origine) {
     if (!displayElement) return;
 
     if (origine) {
-        const stats = calculateStats(origine);
+        const bonuses = origineBonuses[origine];
+        const bonusText = Object.entries(bonuses).map(([stat, value]) => `${stat} ${value >= 0 ? '+' : ''}${value}`).join(' ; ');
         
-        // Ajouter infos spéciales par origine
-        let extraInfo = '';
-        if (origine === 'amoureux-affrontement') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> +2 maximum Ferveur, Amélioration maîtrise arme, Talent Combativité';
-        } else if (origine === 'terres-indomptees') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Style indompté, Postures combat +2, Sens entraîné +5, Instinct sauvage';
-        } else if (origine === 'voie-mysticisme') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Éveil magique (PM 1d12), Choix Chaman ou Mage';
-        } else if (origine === 'enfant-chaos') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Corps forgé Abysses, Déferlement Abysses (Avantage tous jets), Abîme intérieur +2';
-        }
-        
+        const extraInfo = '<br><strong>Gains :</strong> ' + origineDetails[origine];
+
         displayElement.innerHTML = `
             <strong>Origine sélectionnée :</strong> ${origineNames[origine]}<br>
-            <strong>Note :</strong> Cette origine donne des talents plutôt que des bonus de caractéristiques${extraInfo}
+            <strong>Bonus appliqués :</strong> ${bonusText}${extraInfo}
         `;
         displayElement.style.display = 'block';
     } else {
@@ -192,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.addEventListener('click', function() {
             const origineClass = Array.from(this.classList).find(cls => 
-                ['amoureux-affrontement', 'terres-indomptees', 'voie-mysticisme', 'enfant-chaos'].includes(cls)
+                Object.keys(origineBonuses).includes(cls)
             );
             
             if (origineClass) {

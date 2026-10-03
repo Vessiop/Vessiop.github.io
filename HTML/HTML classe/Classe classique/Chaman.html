@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Chaman.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="parchment-overlay"></div>
@@ -33,11 +34,11 @@
             <div class="content-box">
                 <p>Le Chaman n'est pas un mage qui impose sa volonté : c'est un conducteur. Il puise sa puissance dans ce qui l'entoure — sol, air, eau, végétation, ombres, présence d'un lieu — et transforme l'environnement en réservoir vivant qu'il canalise par des rites courts, des marques et des ancrages. Son art repose sur l'accord du terrain : plus le milieu est riche, chargé ou "cohérent", plus ses manipulations deviennent profondes et flexibles.</p>
                 
-                <p>En dehors du combat, il excelle à lire un endroit, comprendre ce qu'il cache, repérer les déséquilibres, calmer une zone, guider un groupe à travers des territoires hostiles, ou exploiter les ressources naturelles (plantes, toxines, bêtes). Selon son parcours, il devient chasseur invisible, protecteur armé, médiateur des morts, ou praticien d'arts sombres — mais toujours avec la même vérité : le monde autour de lui n'est jamais un décor, c'est une source.</p>
+                <p>En dehors du combat, il excelle à lire un endroit, comprendre ce qu'il cache, repérer les déséquilibres, calmer une zone, guider un groupe à travers des territoires hostiles, ou exploiter les ressources naturelles (plantes, toxines, bêtes). Selon son origine, il s'accorde aux forces du vivant, guide les courants élémentaires, accompagne les essences spirituelles ou pratique les arts sombres — mais toujours avec la même vérité : le monde autour de lui n'est jamais un décor, c'est une source.</p>
                 
                 <div class="highlight-box">
                     <p><strong>🧭 Type de classe :</strong> Magique de communion — contrôle environnemental, perception, soutien polyvalent</p>
-                    <p><strong>🎭 Style de classe :</strong> Magie de zone, invocations naturelles, canalisation lente mais puissante</p>
+                    <p><strong>🎭 Style de classe :</strong> Magie du vivant, des courants élémentaires, des essences spirituelles ou des arts sombres</p>
                 </div>
             </div>
         </section>
@@ -50,7 +51,7 @@
                     <h3>❤️ Base PV / PM / PE</h3>
                     <ul>
                         <li><strong>PV :</strong> 1d12</li>
-                        <li><strong>PM :</strong> <span class="highlight-stat">1d16</span></li>
+                        <li><strong>PM :</strong> <span class="highlight-stat">1d14</span></li>
                         <li><strong>PE :</strong> 1d12</li>
                     </ul>
                 </div>
@@ -60,7 +61,7 @@
                     <div class="bonus-grid">
                         <span class="stat-item negative">FOR : −3</span>
                         <span class="stat-item negative">CST : −2</span>
-                        <span class="stat-item negative">DEX : −1</span>
+                        <span class="stat-item neutral">DEX : 0</span>
                         <span class="stat-item positive">INT : +1</span>
                         <span class="stat-item positive highlight">SAG : +3</span>
                         <span class="stat-item positive">PER : +2</span>
@@ -96,251 +97,77 @@
         </section>
 
         <!-- Talents de base -->
-        <section class="section">
-            <h2 class="section-title">🎓 Talents de base</h2>
-            
-            <div class="talent-card">
-                <h3>Maîtrise mineure de la magie environnementale</h3>
-                <p>La magie environnementale est une force qu'on emprunte à la nature même ; elle réveille les forces endormies des pierres, des eaux, des vents et des forêts, plutôt que de créer ex nihilo. Par ses chants et ses rites, le Chaman écoute les esprits du milieu, apaise les déséquilibres, oriente les saisons intérieures d'un paysage et rend au monde sa mémoire.</p>
-                <p><strong>➡️</strong> Offre la compétence : Magie environnementale +2</p>
-            </div>
+        <section class="section"><h2 class="section-title">🎓 Talents de classe</h2>
+            <div class="talent-card"><h3>Maîtrise mineure — Magie environnementale</h3><p><strong>Magie environnementale +2 (SAG)</strong>. Manipule une matière, une énergie ou un phénomène visible, accessible ou logiquement présent : déplacer, déformer, rassembler, disperser ou modifier légèrement son comportement. Une manipulation simple demande généralement <strong>1 PA</strong>, sans jet si elle est simple et maîtrisée. Un jet peut être demandé si elle est difficile, précise, opposée ou réalisée dans de mauvaises conditions.<br>La maîtrise seule ne crée pas de matière absente, ne cause pas directement de dégâts ni d’effet de combat, ne déplace pas de force une créature et ne produit pas de transformation majeure : ces usages nécessitent des facultés.</p></div>
 
-            <div class="talent-card">
-                <h3>Conducteur d'énergie environnemental — Mineur</h3>
-                <p>1 fois par tour, le lanceur peut lancer un sort de Magie Environnementale de niveau 1 en dépensant 1 Point de Réaction au lieu d'1 Point d'Action.</p>
-                <p><strong>Restrictions :</strong> Ne s'applique pas aux sorts nécessitant une Concentration, ayant un temps d'incantation, ou demandant plus d'1 Point d'Action.</p>
-                <p><strong>Améliorations :</strong> À chaque amélioration, le niveau maximum des sorts augmente de +1.</p>
-            </div>
+            <div class="talent-card"><h3>Conducteur environnemental</h3><p><strong>1 fois par tour, durant ton propre tour</strong>, utilise une faculté de Magie environnementale de niveau 1 coûtant normalement 1 PA en dépensant <strong>1 PR à la place</strong>. Les autres coûts restent inchangés. Exclut les facultés demandant Concentration, temps d’incantation ou plus de 1 PA.</p></div>
 
-            <div class="talent-card">
-                <h3>Domaine de Manipulation de Prédilection</h3>
-                <p>Le lanceur, touché par la Grâce environnementale, possède une capacité naturelle à manipuler les énergies que lui propose l'environnement. Chaque individu développe instinctivement des domaines de préférence : des "natures fétiches".</p>
-                <p><strong>Effet :</strong> Tu obtiens Avantage sur les sorts de Magie Environnementale dont la nature magique appartient à l'un de tes domaines.</p>
-                <p><strong>Choix disponibles :</strong></p>
-                <ul>
-                    <li><strong>Domaine de la Nature :</strong> Végétation, Terre, Eau, Magie pure</li>
-                    <li><strong>Domaine des Tempêtes :</strong> Vent, Foudre, Glace, Feu</li>
-                    <li><strong>Domaine des Profondeurs :</strong> Sang, Toxine, Ombre</li>
-                </ul>
-            </div>
+            <div class="talent-card"><h3>Sens du Milieu</h3><p>Après quelques instants d’observation, reconnais les passages praticables, emplacements de camp, signes probables d’eau ou de ressources, dangers naturels évidents et changements inhabituels du milieu. Aucun jet pour une information normalement observable ; les indices cachés, anciens ou difficiles demandent une compétence ou connaissance appropriée.</p></div>
+
+            <div class="talent-card"><h3>Grâce environnementale</h3><p>Une compréhension instinctive permet de percevoir les Filaments environnementaux comme des courants d’Essence magique et de les guider plutôt que produire soi-même l’énergie. Cette Grâce donne <strong>accès à la Maîtrise mineure — Magie environnementale</strong> ; l’étude seule ne donne pas la perception et la manipulation d’un véritable Chaman.</p></div>
         </section>
-
-        <!-- Parcours -->
-        <section class="section">
-            <h2 class="section-title">🧭 Parcours</h2>
-            <p class="intro-text">Ton parcours forge ton lien avec le monde. Choisis la voie qui définit ton rapport à la nature et aux énergies qui t'entourent.</p>
-            
-            <div class="interactive-hint">
-                💡 <strong>Astuce :</strong> Cliquez sur un Parcours pour voir ses bonus appliqués au graphique des caractéristiques !
-            </div>
-            
+        <section class="section"><h2 class="section-title">🌿 Origines du Chaman — 1 au choix</h2>
             <div class="parcours-grid">
-                <!-- Sage des Forêts -->
                 <div class="parcours-card sage">
-                    <h3>🌲 Sage des Forêts</h3>
-                    <p class="parcours-subtitle">Parcours Naturel — Parcourant des Forêts</p>
-                    <p class="parcours-description">Vous êtes le chaman par excellence : un sage dont l'esprit s'est accordé à la magie du milieu naturel. Vous la ressentez, l'observez, la comprenez avec une finesse rare. En retour, la nature vous accompagne : elle vous avertit, vous guide, et vous ouvre parfois des chemins invisibles aux autres.</p>
-                    
-                    <div class="subsection">
-                        <h4>🎁 Bonus obtenus</h4>
-                        <div class="reward-item">
-                            <p><strong>SAG +3</strong> et <strong>PER +3</strong></p>
-                            <p><strong>RM +1d6</strong> (bonus supplémentaire)</p>
-                            <p><strong>+1 en Savoir</strong> (trait spécifique)</p>
-                        </div>
-                    </div>
+                    <h3>🌲 Enfant des Terres Vivantes</h3><p class="parcours-description">Ton art s’est formé au rythme des forêts, marais, montagnes, de la faune et de la flore. Tu agis avec la nature plutôt qu’à la dominer.</p>
+                    <div class="subsection"><h4>Art du Vivant</h4><p>Branche environnementale utilisant <strong>Magie environnementale (SAG)</strong> : végétation, racines, bois, flore, matières organiques naturelles et interactions avec la faune lorsqu’une faculté le permet. Ne donne pas de contrôle libre d’une créature contre sa volonté ; une faculté appropriée est nécessaire.</p></div>
+                    <div class="subsection"><h4>Passage du Vivant</h4><p>Broussailles, racines et obstacles naturels mineurs ne ralentissent pas inutilement ta progression lorsqu’un passage praticable existe. Tu peux guider ton groupe sur un passage que tu sais emprunter. Les terrains dangereux, magiques ou presque infranchissables suivent les règles normales.</p></div>
+                    <div class="subsection"><h4>Gains</h4><p><strong>SAG +3, PER +2</strong>. Trait au choix : <strong>+1 Instinct, Métier ou Résilience</strong>.</p></div>
                 </div>
 
-                <!-- Rôdeur des Buissons -->
-                <div class="parcours-card rodeur">
-                    <h3>🏹 Rôdeur des Buissons</h3>
-                    <p class="parcours-subtitle">Parcours Naturel — Parcourant des Forêts</p>
-                    <p class="parcours-description">Vous préférez chasser. Vous apprenez à vous fondre dans la nature jusqu'à disparaître dans son décor. Armé d'une arme de tir ou de jet, vous êtes en union avec elle — magique ou physique — au point qu'on pourrait vous confondre avec un simple buisson. Vous lisez les pistes, anticipez les mouvements, frappez vite… puis redevenez invisible.</p>
-                    
-                    <div class="subsection">
-                        <h4>🎁 Bonus obtenus</h4>
-                        <div class="reward-item">
-                            <p><strong>DEX +4</strong> et <strong>PER +4</strong></p>
-                            <p><strong>REA +2</strong></p>
-                            <p><strong>+1 en Finesse</strong> (trait spécifique)</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Option — Transmission de statistique</h5>
-                            <p>Permet de transférer des points de dés de base entre PV, PM ou PE jusqu'à max 4 (en une fois).</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Talent supplémentaire</h5>
-                            <p>Obtient un talent de maîtrise d'arme de tir ou de jet au choix + 1 point de classe d'arme.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Protecteur de la Nature -->
-                <div class="parcours-card protecteur">
-                    <h3>🛡️ Protecteur de la Nature</h3>
-                    <p class="parcours-subtitle">Parcours Naturel — Parcourant des Forêts</p>
-                    <p class="parcours-description">Vous avez choisi de défendre la nature et d'en devenir le bras armé. Vous prenez les armes, apprenez les arts martiaux liés à votre arme de prédilection, et suivez la voie du combattant capable de protéger ce monde vivant autant par la magie que par la force.</p>
-                    
-                    <div class="subsection">
-                        <h4>🎁 Bonus obtenus</h4>
-                        <div class="reward-item">
-                            <p><strong>FOR +6</strong> (le -3 devient +3)</p>
-                            <p><strong>CST +4</strong> (le -2 devient +2)</p>
-                            <p><strong>REA +4</strong></p>
-                            <p><strong>+1 en Puissance ou Résilience</strong> (trait spécifique)</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Option — Transmission de statistique</h5>
-                            <p>Permet de transférer des points de dés de base entre PV, PM ou PE jusqu'à max 4 (en une fois).</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Talent supplémentaire</h5>
-                            <p>Obtient un talent de maîtrise d'arme de corps à corps au choix + 1 point de classe d'arme.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Voie du Spiritisme -->
                 <div class="parcours-card spiritisme">
-                    <h3>🕯️ Voie du Spiritisme</h3>
-                    <p class="parcours-description">La Voie du Spiritisme enseigne au chaman la nature de l'Essence spirituelle. En la pratiquant, il développe un don pour ressentir les traces invisibles, percevoir les présences et comprendre les résonances laissées par les âmes. Il apprend également à communiquer avec les défunts restés liés au plan mortel. Respectueuse et méthodique, cette voie fait du chaman un médiateur entre les vivants et les morts.</p>
-                    
-                    <div class="subsection">
-                        <h4>🎁 Bonus obtenus</h4>
-                        <div class="reward-item">
-                            <p><strong>SAG +3</strong></p>
-                            <p><strong>INT +2</strong> ou <strong>CHA +2</strong></p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Maîtrise mineure — Magie Spirituelle</h5>
-                            <p>La Magie Spirituelle est une magie astrale liée à la nature même des âmes. Elle consiste à employer cette essence de manière modérée pour guider, stabiliser, ou produire des effets liés à l'essence vitale des êtres.</p>
-                            <p><strong>→</strong> Offre la compétence de trait correspondante.</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Vision spirituelle</h5>
-                            <p>Le lanceur peut percevoir les énergies et entités spirituelles, même dissimulées. En cas de camouflage magique, jet de Sagesse (Perception magique) pour détecter.</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Messager des esprits</h5>
-                            <p>Obtient la compétence de trait spécifique <strong>Négociation avec le spiritisme (Social) +1</strong>.</p>
-                        </div>
-                    </div>
+                    <h3>🕯️ Passeur du Voile</h3><p class="parcours-description">Tu étudies les âmes, traces invisibles et Essences spirituelles, servant de médiateur entre vivants, morts et présences du Voile.</p>
+                    <div class="subsection"><h4>Art Spirituel</h4><p>Branche environnementale utilisant <strong>Magie environnementale (SAG)</strong> : âmes, traces spirituelles, énergies du Voile, manifestations et Essence spirituelle libre. Manipuler l’Essence ne donne pas automatiquement le contrôle d’une âme ou d’une entité.</p></div>
+                    <div class="subsection"><h4>Écho Résiduel</h4><p>En touchant un lieu, objet ou être et en te concentrant quelques instants, perçois l’impression spirituelle dominante d’un événement marquant : peur, mort violente, souffrance, présence récente, attachement ou perturbation de l’Essence. Ne révèle pas automatiquement identité, date précise ou déroulement complet.</p></div>
+                    <div class="subsection"><h4>Gains</h4><p><strong>SAG +3, CHA +2</strong>. Trait au choix : <strong>+1 Social, Sang-Froid ou Savoir</strong>.</p></div>
                 </div>
 
-                <!-- Voie de la Sorcellerie -->
+                <div class="parcours-card rodeur">
+                    <h3>🌩️ Guide des Courants</h3><p class="parcours-description">Tu parcours les lieux chargés d’énergies élémentaires. Tu ne crées pas la rivière : tu apprends à guider son cours.</p>
+                    <div class="subsection"><h4>Art des Courants Élémentaires</h4><p>Branche environnementale utilisant <strong>Magie environnementale (SAG)</strong> : Feu, Eau, Vent, Terre, Glace, Foudre et autres Natures compatibles déjà présentes. Tu les guides, canalises, déplaces ou exploites lorsqu’une source adaptée existe, sans les produire spontanément.</p></div>
+                    <div class="subsection"><h4>Équilibre des Courants</h4><p>Hors combat, manipule de petits phénomènes : réduire un départ de feu, dégager de la fumée, détourner un ruissellement, déplacer un peu d’eau, disperser un courant d’air, agir sur une petite formation de glace ou évacuer une charge mineure. Ne supprime pas une catastrophe, une attaque ou une manifestation magique importante.</p></div>
+                    <div class="subsection"><h4>Gains</h4><p><strong>INT +3, SAG +2</strong>. Trait au choix : <strong>+1 Savoir, Instinct ou Métier</strong>.</p></div>
+                </div>
+
                 <div class="parcours-card sorcellerie">
-                    <h3>🌑 Voie de la Sorcellerie</h3>
-                    <p class="parcours-description">La Voie de la Sorcellerie est un chemin mystique et sombre, fondé sur l'usage d'une énergie malsaine et corruptrice : la Magie Maudite. Cette nature gangrène l'environnement et altère les autres énergies magiques par sa simple présence. Les chamans qui empruntent cette voie choisissent de jouer avec des forces plus grandes qu'eux. On les nomme souvent, à juste titre, Sorcier ou Sorcière.</p>
-                    
-                    <div class="subsection">
-                        <h4>🎁 Bonus obtenus</h4>
-                        <div class="reward-item">
-                            <p><strong>INT +4</strong></p>
-                            <p><strong>CST +4</strong> (le -2 devient +2)</p>
-                            <p><strong>SAG -1</strong></p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Maîtrise mineure — Arts occultes</h5>
-                            <p>Au choix : <strong>magie occulte</strong> ou <strong>magie nécromantique maudite</strong>.</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Évolution de classe (niveau 5)</h5>
-                            <p>Possibilité d'obtenir une évolution de classe liée à la voie choisie : <strong>Nécromancie</strong> ou <strong>Occultiste</strong>.</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Dégénérescence</h5>
-                            <p>Obtient une Dégénérescence correspondante : <strong>nécromantique</strong> ou <strong>occulte</strong> (selon la maîtrise choisie).</p>
-                        </div>
-                    </div>
+                    <h3>🌑 Héritier des Arts Sombres</h3><p class="parcours-description">Tu étudies la mort, la corruption et la dégradation. Guider ces forces exige de ne pas se laisser guider par elles.</p>
+                    <div class="subsection"><h4>Art de la Sorcellerie</h4><p>Branche environnementale utilisant <strong>Magie environnementale (SAG)</strong> : énergies maudites, résidus de mort, corruption, phénomènes occultes et essences sombres. Certaines facultés corrompent temporairement une énergie existante ; la corruption seule n’accorde aucun effet, toujours déterminé par la faculté.</p></div>
+                    <div class="subsection"><h4>Sceau de Confinement</h4><p>Après quelques minutes de préparation, isole une faible énergie maudite, occulte, nécromantique ou spirituelle corrompue dans un petit objet, récipient ou une zone restreinte. Un sceau intact peut sécuriser le transport d’un composant, conserver une trace, ralentir une faible souillure ou isoler une petite source dangereuse. Il ne supprime pas la corruption, ne neutralise pas une malédiction active et n’emprisonne pas une créature.</p></div>
+                    <div class="subsection"><h4>Gains</h4><p><strong>INT +3, CST +2</strong>. Trait au choix : <strong>+1 Savoir, Sang-Froid ou Résilience</strong>.</p></div>
                 </div>
             </div>
         </section>
 
         <!-- Connaissances -->
         <section class="section">
-            <h2 class="section-title">📚 Connaissances</h2>
-            
-            <h3 class="subsection-title">Connaissances communes</h3>
-            
+            <h2 class="section-title">📚 Connaissances communes</h2>
             <div class="knowledge-list">
-                <div class="knowledge-item">
-                    <h4>Connaissance du domaine du monde chamanique <span class="level">(Moyen)</span></h4>
-                    <p>Tu connais les bases du monde chamanique : traditions, rôles des chamans, rites courants et façons d'entrer en accord avec un lieu.</p>
-                </div>
-
-                <div class="knowledge-item">
-                    <h4>Connaissance du domaine de la magie environnementale <span class="level">(Moyen)</span></h4>
-                    <p>Tu comprends comment la magie peut être tirée du terrain plutôt que d'une source personnelle : milieux, énergies disponibles, limites et risques.</p>
-                </div>
-
-                <div class="knowledge-item">
-                    <h4>Connaissance du domaine de l'herboristerie <span class="level">(Modéré)</span></h4>
-                    <p>Tu sais identifier des plantes utiles ou dangereuses, et distinguer ce qui soigne de ce qui intoxique.</p>
-                </div>
-
-                <div class="knowledge-item">
-                    <h4>Connaissance du domaine du Bestiaire Animal <span class="level">(Modéré)</span></h4>
-                    <p>Tu connais les comportements typiques des animaux : territoire, chasse, peur, signaux d'agression et habitudes de déplacement.</p>
-                </div>
+                <div class="knowledge-item"><h4>Domaine Chamanique (Moyen)</h4><p>Traditions, rites, catalyseurs, marques et ancrages ; reconnaître les traces d’une pratique chamanique.</p></div>
+                <div class="knowledge-item"><h4>Magie environnementale (Moyen)</h4><p>Supports présents dans un lieu, canalisation, limites et risques ; ne remplace pas la compétence pratique.</p></div>
+                <div class="knowledge-item"><h4>Milieux naturels (Modéré)</h4><p>Lire le terrain, reconnaître dangers et ressources probables dans les forêts, marais, montagnes, plaines et régions arides.</p></div>
+                <div class="knowledge-item"><h4>Herboristerie (Modéré)</h4><p>Identifier plantes utiles, médicinales ou toxiques ; récolte, conservation et préparations de base.</p></div>
+                <div class="knowledge-item"><h4>Bestiaire naturel (Modéré)</h4><p>Habitats, alimentation, territorialité et comportements des animaux et créatures communes ; notions superficielles pour les espèces rares.</p></div>
             </div>
-            
-            <h3 class="subsection-title">📌 Selon le choix du parcours</h3>
-            
-            <div class="parcours-grid" style="margin-top: 30px;">
-                <!-- Connaissances Parcours naturel -->
-                <div class="parcours-card sage">
-                    <h3>🌲 Parcours Naturel</h3>
-                    
-                    <div class="knowledge-item">
-                        <h4>Connaissance du domaine du monde naturel <span class="level">(Modéré)</span></h4>
-                        <p>Tu maîtrises les bases de lecture d'un environnement : climat, sols, reliefs, végétation et dangers naturels.</p>
-                    </div>
-                    
-                    <div class="knowledge-item">
-                        <h4>Connaissance du domaine du Bestiaire naturel <span class="level">(Modéré)</span></h4>
-                        <p>Tu connais les créatures typiques du sauvage et leurs logiques de survie. Tu sais repérer une présence par ses traces.</p>
-                    </div>
-                </div>
-
-                <!-- Connaissances Spiritisme -->
-                <div class="parcours-card spiritisme">
-                    <h3>🕯️ Voie du Spiritisme</h3>
-                    
-                    <div class="knowledge-item">
-                        <h4>Connaissance du domaine spirituel <span class="level">(Modéré)</span></h4>
-                        <p>Tu connais les notions essentielles : âmes, échos, lieux chargés, ancres spirituelles et manifestations invisibles.</p>
-                    </div>
-                    
-                    <div class="knowledge-item">
-                        <h4>Connaissance de la magie spirituelle <span class="level">(Modéré)</span></h4>
-                        <p>Tu comprends comment la magie spirituelle agit par résonance avec l'âme : apaiser, guider, protéger, révéler ou communiquer.</p>
-                    </div>
-                </div>
-
-                <!-- Connaissances Sorcellerie -->
-                <div class="parcours-card sorcellerie">
-                    <h3>🌑 Voie de la Sorcellerie</h3>
-                    
-                    <div class="knowledge-item">
-                        <h4>Connaissance du domaine de la magie maudite <span class="level">(Modéré)</span></h4>
-                        <p>Tu connais les principes de la corruption magique : comment elle gangrène un lieu, tord les filaments et laisse des traces.</p>
-                    </div>
-                    
-                    <div class="knowledge-item">
-                        <h4>Connaissance de la magie occulte ou nécromantique maudite <span class="level">(Modéré)</span></h4>
-                        <p>Selon ton choix, tu connais soit les bases de l'Occulte (sceaux, pactes, rites, entités), soit celles de la Nécromancie maudite.</p>
-                    </div>
-                </div>
+            <h2 class="section-title">📚 Connaissances selon l’Origine</h2>
+            <h3 class="subsection-title">Enfant des Terres Vivantes</h3>
+            <div class="knowledge-list">
+                <div class="knowledge-item"><h4>Cycles naturels (Modéré)</h4><p>Saisons, climat, faune et végétation ; reconnaître l’état et les déséquilibres d’un milieu.</p></div>
+                <div class="knowledge-item"><h4>Survie (Modéré)</h4><p>Eau, campement, itinéraires et précautions de terrain ; ne garantit pas la disponibilité des ressources.</p></div>
+            </div>
+            <h3 class="subsection-title">Passeur du Voile</h3>
+            <div class="knowledge-list">
+                <div class="knowledge-item"><h4>Monde spirituel (Modéré)</h4><p>Âmes, esprits, traces et frontières du Voile ; comprendre les manifestations sans révéler les intentions d’une entité.</p></div>
+                <div class="knowledge-item"><h4>Rites spirituels (Modéré)</h4><p>Honorer les morts, apaiser, préparer un contact et accompagner une Essence ; précautions et symboles courants.</p></div>
+            </div>
+            <h3 class="subsection-title">Guide des Courants</h3>
+            <div class="knowledge-list">
+                <div class="knowledge-item"><h4>Phénomènes élémentaires (Modéré)</h4><p>Comportements, interactions, dangers et signes annonciateurs du feu, vent, eau, glace, terre et foudre.</p></div>
+                <div class="knowledge-item"><h4>Courants magiques (Modéré)</h4><p>Reconnaître zones chargées, appauvries ou instables et comprendre la circulation des énergies ; ne permet pas de les contrôler.</p></div>
+            </div>
+            <h3 class="subsection-title">Héritier des Arts Sombres</h3>
+            <div class="knowledge-list">
+                <div class="knowledge-item"><h4>Corruption magique (Modéré)</h4><p>Reconnaître contamination, altération et dégradation d’un lieu, objet ou être, ainsi que les précautions d’exposition.</p></div>
+                <div class="knowledge-item"><h4>Arts occultes (Modéré)</h4><p>Culture des malédictions, sceaux, rites sombres, résidus nécromantiques et énergies maudites ; ne donne pas accès aux techniques avancées.</p></div>
             </div>
         </section>
 
@@ -381,21 +208,6 @@
                     </div>
                 </div>
 
-                <div class="equipment-item">
-                    <span class="icon">🌿</span>
-                    <div>
-                        <h4>3 paquets d'Herbes médiales (20/20)</h4>
-                        <p>Ressources pour préparations médicinales</p>
-                    </div>
-                </div>
-
-                <div class="equipment-item">
-                    <span class="icon">🥣</span>
-                    <div>
-                        <h4>Mortier & pilon de voyage</h4>
-                        <p>Outils pour préparations d'herboristerie</p>
-                    </div>
-                </div>
             </div>
         </section>
 

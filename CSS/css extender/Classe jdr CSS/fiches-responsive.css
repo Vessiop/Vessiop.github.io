@@ -1,0 +1,13 @@
+/* Keep canvas intrinsic sizes and decorative layers within the viewport. */
+html { overflow-x: clip; }
+.stats-grid { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+.stats-grid > *, .hero-content { min-width: 0; }
+.stats-grid > * { max-width: 100%; }
+.chart-wrapper { min-width: 0; max-width: 100%; }
+.chart-wrapper canvas { max-width: 100%; }
+.hero-image, .hero-image img { max-width: 100%; }
+.talent-card, .origin-card, .origine-card, .vocation-card, .parcours-card { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 768px) {
+    .stats-grid { grid-template-columns: minmax(0, 1fr); }
+    .hero-section, .container { max-width: 100%; }
+}

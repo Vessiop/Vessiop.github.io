@@ -74,7 +74,7 @@ const statsChart = new Chart(ctx, {
         animation: { duration: 700, easing: 'easeInOutQuart' },
         scales: {
             r: {
-                min: 0, max: 10,
+                min: -2, max: 10,
                 backgroundColor: 'rgba(6,8,16,0.6)',
                 ticks: {
                     stepSize: 2,

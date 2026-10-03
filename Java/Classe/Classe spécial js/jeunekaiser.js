@@ -195,13 +195,13 @@ function updateStatsDisplay(origine) {
         // Ajouter infos spéciales
         let extraInfo = '';
         if (origine === 'conquerant') {
-            extraInfo = '<br><strong>Voie :</strong> Conquête • Bannière de guerre • Impulsion d\'Avant-Garde<br><strong>Choix trait :</strong> +1 Instinct/Social/Puissance';
+            extraInfo = '<br><strong>Voie :</strong> Conquête • Bannière de guerre • Fer de Lance<br><strong>Choix trait :</strong> +1 Instinct/Social/Puissance';
         } else if (origine === 'rempart') {
-            extraInfo = '<br><strong>Voie :</strong> Bastion • Bannière de rempart • Ligne inébranlable<br><strong>Choix trait :</strong> +1 Résilience/Sang-Froid/Puissance';
+            extraInfo = '<br><strong>Voie :</strong> Bastion • Bannière de rempart • Formation du Bastion<br><strong>Choix trait :</strong> +1 Résilience/Sang-Froid/Puissance';
         } else if (origine === 'humaniste') {
-            extraInfo = '<br><strong>Voie :</strong> Survie • Bannière médicale • Instinct de survie<br><strong>Choix trait :</strong> +1 Social/Sang-Froid/Savoir';
+            extraInfo = '<br><strong>Voie :</strong> Survie • Bannière médicale • Commandement de Secours<br><strong>Choix trait :</strong> +1 Social/Sang-Froid/Savoir';
         } else if (origine === 'tyran') {
-            extraInfo = '<br><strong>Voie :</strong> Peur • Bannière du tyran • Autorité absolue<br><strong>Choix trait :</strong> +1 Sang-Froid/Social/Puissance';
+            extraInfo = '<br><strong>Voie :</strong> Peur • Bannière du tyran • Autorité Coercitive<br><strong>Choix trait :</strong> +1 Sang-Froid/Social/Puissance';
         } else if (origine === 'tenebres') {
             extraInfo = '<br><strong>Voie :</strong> Kaiser Couronné • Magie Ténèbres +2 • Sceptre Noir<br><strong>Choix trait :</strong> +1 Sang-Froid/Puissance/Savoir';
         }

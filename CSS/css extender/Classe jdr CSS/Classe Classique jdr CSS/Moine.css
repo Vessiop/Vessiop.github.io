@@ -17,6 +17,23 @@
     --ink: #e8ede8;
 }
 
+.chemin-card label {
+    display: grid;
+    gap: 6px;
+    margin: 10px 0;
+}
+
+#pilier-stat {
+    width: 100%;
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid var(--chi-gold);
+    border-radius: 4px;
+    background: var(--stone-dark);
+    color: var(--mist);
+    font: inherit;
+}
+
 * {
     margin: 0;
     padding: 0;

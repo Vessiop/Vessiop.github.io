@@ -6,7 +6,7 @@ const baseStats = {
     FOR: 2,
     CST: 1,
     DEX: 1,
-    INT: -2,
+    INT: -3,
     SAG: -2,
     PER: 0,
     CHA: 0
@@ -14,24 +14,34 @@ const baseStats = {
 
 // Bonus des vocations
 const vocationBonuses = {
-    'forge': { FOR: 3 },
-    'shield': { CST: 3 },
-    'rogue': { DEX: 3 },
-    'magic': { INT: 4 },
-    'agile': { DEX: 2 },
-    'stance': { CST: 2, FOR: 1 },
-    'duel': {} // REA n'est pas dans le graphique
+    'forge': { FOR: 3, CST: 2 },
+    'shield': { CST: 3, FOR: 2 },
+    'rogue': { DEX: 3, PER: 2 },
+    'magic': { INT: 5, SAG: 3 }, // INT -3 devient +2 ; SAG -2 devient +1
+    'agile': { DEX: 3 },
+    'stance': { CST: 3, DEX: 2 },
+    'duel': { DEX: 2 }
 };
 
 // Noms des vocations pour l'affichage
 const vocationNames = {
-    'forge': 'Voie du Forgé-Vif',
-    'shield': 'Voie du Rempart Mobile',
-    'rogue': 'Voie du Coup Bas Tactique',
-    'magic': 'Voie de l\'Éveil Contrôlé',
-    'agile': 'Voie du Corps-Route',
-    'stance': 'Voie de l\'Avant-Garde',
-    'duel': 'Voie du Duelliste'
+    "forge": "Voie du Forgé-Vif",
+    "shield": "Voie du Rempart Mobile",
+    "rogue": "Voie du Coup Bas Tactique",
+    "magic": "Voie de l'Éveil Contrôlé",
+    "agile": "Voie du Corps-Route",
+    "stance": "Voie de l'Avant-Garde",
+    "duel": "Voie du Duelliste"
+};
+
+const vocationDetails = {
+    "forge": "Classe d’Arme +1 cran ; Pic de Puissance Martiale : 1 fois par session, Maîtrise au minimum Avancée ; +1 Puissance, Résilience ou Sang-Froid au choix.",
+    "shield": "Art du Bouclier ; Garde de Renfort : 1 PR, 1 fois par combat, SB doublé jusqu’au prochain tour ; +1 Résilience, Sang-Froid ou Instinct au choix.",
+    "rogue": "Maîtrise d’une arme courte ; Attaques Sournoises ; +1 Finesse, Instinct ou Sang-Froid au choix.",
+    "magic": "PM 1d12 si inférieur, 2 dés de Gain de PM ; Gain de Magie +2 ou Maîtrise élémentaire ; +1 Savoir, Sang-Froid ou Métier au choix.",
+    "agile": "Réactivité +2 (total +5) ; Agilité ou Acrobatie ; Foulée Déliée : 1 fois par session ; +1 Finesse, Instinct ou Résilience au choix.",
+    "stance": "Postures de combat +2 ; Avantgarde : 1 fois par combat ; +1 Finesse, Sang-Froid ou Puissance au choix.",
+    "duel": "Réactivité +3 (total +6) ; Feinte, Riposte ou Parade ; Réactivité au duel +2 ; +1 Finesse, Instinct ou Sang-Froid au choix."
 };
 
 let currentVocation = null;
@@ -177,9 +187,11 @@ function updateStatsDisplay(vocation) {
             bonusText += `${stat} +${bonuses[stat]} `;
         }
         
+        const extraInfo = '<br><strong>Gains :</strong> ' + vocationDetails[vocation];
+
         displayElement.innerHTML = `
             <strong>Vocation sélectionnée :</strong> ${vocationNames[vocation]}<br>
-            <strong>Bonus appliqués :</strong> ${bonusText || 'Aucun bonus de caractéristique (bonus de Réactivité)'}
+            <strong>Bonus appliqués :</strong> ${bonusText}${extraInfo}
         `;
         displayElement.style.display = 'block';
     } else {
@@ -198,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.addEventListener('click', function() {
             const vocationClass = Array.from(this.classList).find(cls => 
-                ['forge', 'shield', 'rogue', 'magic', 'agile', 'stance', 'duel'].includes(cls)
+                Object.keys(vocationBonuses).includes(cls)
             );
             
             if (vocationClass) {

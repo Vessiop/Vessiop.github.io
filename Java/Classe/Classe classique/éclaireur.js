@@ -3,33 +3,33 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 
 // Données de base de l'Éclaireur (échelle de -4 à +6)
 const baseStats = {
-    FOR: -1,
-    CST: -1,
-    DEX: 4,
+    FOR: -2,
+    CST: 0,
+    DEX: 3,
     INT: 0,
     SAG: 1,
-    PER: 4,
+    PER: 3,
     CHA: -3
 };
 
 // Bonus des origines
 const origineBonuses = {
-    'combatif': { FOR: 3, CST: 1 }, // FOR passe de -1 à +2
-    'ombre': { DEX: 2, PER: 2 },
-    'forestier': { SAG: 3, PER: 2 },
-    'magique': { INT: 4, SAG: 2 }, // INT passe de 0 à +3 (donc +4 est correct car c'est le bonus)
-    'draconoide': { FOR: 4, CST: 1, PER: 1 }, // FOR passe de -1 à +3
-    'milicien': { FOR: 1, CST: 4, PER: 2 } // CST passe de -1 à +3
+    reconnaisseur: { PER: 3, SAG: 2 },
+    archer: { DEX: 3, PER: 2 },
+    arbaletrier: { PER: 2, CST: 3 },
+    pistolier: { PER: 3, DEX: 2 },
+    jet: { FOR: 4, DEX: 2 },
+    ombre: { DEX: 3, PER: 2 }
 };
 
 // Noms des origines pour l'affichage
 const origineNames = {
-    'combatif': 'Éclaireur combatif',
-    'ombre': 'Éclaireur de l\'ombre',
-    'forestier': 'Éclaireur forestier',
-    'magique': 'Éclaireur du monde magique',
-    'draconoide': 'Éclaireur des montagnes draconoïdes',
-    'milicien': 'Milicien Éclaireur'
+    reconnaisseur: 'Reconnaisseur',
+    archer: 'Archer de Ligne',
+    arbaletrier: 'Arbalétrier de Guerre',
+    pistolier: 'Pistolier',
+    jet: 'Maître de Jet',
+    ombre: "Guetteur de l'Ombre"
 };
 
 let currentOrigine = null;
@@ -168,21 +168,8 @@ function updateStatsDisplay(origine) {
         }
         
         // Ajouter infos spéciales par origine
-        let extraInfo = '';
-        if (origine === 'combatif') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Maîtrise CàC, Combattant à toute distance, +1 Puissance/Résilience/Instinct';
-        } else if (origine === 'ombre') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Furtivité +2, Observation +2, Tir Fantôme, +1 Finesse/Sang-froid';
-        } else if (origine === 'forestier') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Escalade +1, Survie +2, Guide des sous-bois, +1 Finesse/Instinct';
-        } else if (origine === 'magique') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Éveil magique, Balisage runique, +1 Savoir';
-        } else if (origine === 'draconoide') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Arc Colossal +2, Conduite monture +1, Stabilisation en mouvement, +1 Puissance';
-        } else if (origine === 'milicien') {
-            extraInfo = '<br><strong>Bonus spécial :</strong> Arme d\'Aste +2, Dialecte militaire, Tir de Couverture, +1 Instinct/Sang-froid/Social';
-        }
-        
+        const extraInfo = '<br><strong>Focus :</strong> 5 PF, récupération complète après repos long.';
+
         displayElement.innerHTML = `
             <strong>Origine sélectionnée :</strong> ${origineNames[origine]}<br>
             <strong>Bonus appliqués :</strong> ${bonusText}${extraInfo}
@@ -204,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.addEventListener('click', function() {
             const origineClass = Array.from(this.classList).find(cls => 
-                ['combatif', 'ombre', 'forestier', 'magique', 'draconoide', 'milicien'].includes(cls)
+                ['reconnaisseur', 'archer', 'arbaletrier', 'pistolier', 'jet', 'ombre'].includes(cls)
             );
             
             if (origineClass) {

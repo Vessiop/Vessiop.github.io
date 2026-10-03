@@ -4,20 +4,20 @@ const ctx = document.getElementById('statsChart').getContext('2d');
 // Stats de base Skaldar/Valkyrie
 const baseStats = {
     FOR: 2,
-    CST: -2,
+    CST: 1,
     DEX: 2,
     INT: -3,
-    SAG: 2,
-    PER: 4,
+    SAG: -3,
+    PER: 3,
     CHA: -1
 };
 
 // Bonus par Formation
 const formationBonuses = {
-    'formation-lance':  { FOR: 2, CST: 3 },  // CST: -2 → +1
-    'formation-egide':  { CST: 5, SAG: 2 },  // CST: -2 → +3
+    'formation-lance':  { FOR: 2 },  // CST reste à la valeur finale +1
+    'formation-egide':  { CST: 2, SAG: 2 },  // CST: +1 → +3
     'formation-piquee': { PER: 2, CHA: 3 },  // CHA: -1 → +2
-    'formation-meteo':  { INT: 6, CST: 4, SAG: -2 }  // INT: -3 → +3, CST: -2 → +2
+    'formation-meteo':  { INT: 6, CST: 1, SAG: -2 }  // INT: -3 → +3, CST: +1 → +2
 };
 
 const formationNames = {
@@ -68,7 +68,7 @@ const statsChart = new Chart(ctx, {
         animation: { duration: 700, easing: 'easeInOutQuart' },
         scales: {
             r: {
-                min: 0, max: 10,
+                min: -2, max: 10,
                 backgroundColor: 'rgba(8, 17, 31, 0.6)',
                 ticks: {
                     stepSize: 2,

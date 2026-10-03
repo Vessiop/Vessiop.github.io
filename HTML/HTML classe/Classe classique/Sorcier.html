@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/Classe Classique jdr CSS/Sorcier.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="../../../CSS/css extender/Classe jdr CSS/fiches-responsive.css">
 </head>
 <body>
     <div class="parchment-overlay"></div>
@@ -45,7 +46,7 @@
                     <h3>❤️ Ressources de base</h3>
                     <ul>
                         <li><strong>PV :</strong> 1d12</li>
-                        <li><strong>PM :</strong> <span class="highlight-stat">1d16</span></li>
+                        <li><strong>PM :</strong> <span class="highlight-stat">1d14</span></li>
                         <li><strong>PE :</strong> 1d10</li>
                     </ul>
                 </div>
@@ -53,16 +54,16 @@
                 <div class="stat-category">
                     <h3>📊 Caractéristiques</h3>
                     <div class="bonus-grid">
-                        <span class="stat-item negative">FOR : −4</span>
-                        <span class="stat-item negative">CST : −1</span>
-                        <span class="stat-item positive">DEX : +1</span>
+                        <span class="stat-item negative">FOR : −3</span>
+                        <span class="stat-item negative">CST : −2</span>
+                        <span class="stat-item neutral">DEX : 0</span>
                         <span class="stat-item positive highlight">INT : +4</span>
                         <span class="stat-item positive">SAG : +2</span>
-                        <span class="stat-item neutral">PER : 0</span>
+                        <span class="stat-item positive">PER : +1</span>
                         <span class="stat-item negative">CHA : −2</span>
                     </div>
                     <ul class="resistance-list">
-                        <li><strong>RM :</strong> <span class="highlight-stat">25 + 2d8</span></li>
+                        <li><strong>RM :</strong> <span class="highlight-stat">30 + 2d6</span></li>
                         <li><strong>REA :</strong> +0</li>
                     </ul>
                 </div>
@@ -93,21 +94,8 @@
         <!-- Talents de base -->
         <section class="section">
             <h2 class="section-title">🎓 Talents de base</h2>
-            
-            <div class="talent-card">
-                <h3>Maîtrise des arts magiques maudits</h3>
-                <p>Cette maîtrise représente le premier pas sur la voie des arts interdits : magie touchant à l'âme, à la mort (nécromancie), aux arts occultes et aux autres pratiques proscrites. Le lanceur apprend à saisir les filaments magiques du monde pour les tordre et les corrompre, créant une énergie impure que la magie "conventionnelle" ne peut pas reproduire.</p>
-            </div>
-
-            <div class="talent-card">
-                <h3>Émanations Impies</h3>
-                <p>La Magie Maudite laisse une trace profonde dans le lanceur. Son flux magique se teinte d'une énergie sombre, sinistre, qui altère les filaments magiques qu'il manipule. À partir de ce talent, la magie qu'il projette n'est jamais totalement "neutre" : elle porte en elle une résonance maudite et corrompue.</p>
-            </div>
-
-            <div class="talent-card">
-                <h3>Dégénérescence Maudite</h3>
-                <p>Le lien prolongé avec la Magie Maudite n'affecte pas seulement l'âme : il finit par s'insinuer dans le corps lui-même. Mal contrôlée, cette énergie agit comme un parasite naissant : elle ponctionne peu à peu l'énergie vitale du lanceur et commence à remodeler son corps à l'image de la magie qu'il utilise.</p>
-            </div>
+            <div class="talent-card"><h3>Pacte de la Corruption</h3><p>Rituel, grimoire, contamination, héritage ou contact surnaturel : le Pacte permet à la Source de produire de la Magie Maudite, sans nécessiter un contrat avec une entité. Offre Magie Maudite (N.A) +5, indépendamment de la branche choisie.</p></div>
+            <div class="talent-card"><h3>Dégénérescence Maudite</h3><p>L'énergie maudite laisse une corruption dans le corps. Jauge de Dégénérescence : <strong>0 / 25</strong>.</p></div>
         </section>
 
         <!-- Voies -->
@@ -134,20 +122,10 @@
                             <p><strong>→</strong> Offre la compétence : Magie nécromantique +2.</p>
                         </div>
                         
-                        <div class="reward-item">
-                            <h5>Marqué par l'Écho Mortuaire</h5>
-                            <p>Touché par une grâce mortuaire non purifiée, le lanceur développe une affinité instinctive avec les arts de la Nécromancie Maudite.</p>
-                            <p><strong>Effets :</strong></p>
-                            <ul>
-                                <li>Détection d'énergie maudite (N.A) +5</li>
-                                <li>Résistance à la magie nécromantique (SAG) (N.A) +5</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Toucher la grâce de la Nécrotombe</h5>
-                            <p>Bonus de caractéristique de combat : <strong>INT +2</strong> et transforme le malus de <strong>CST −1 en +3</strong> (soit +4 total).</p>
-                        </div>
+                        <div class="reward-item"><h5>Métamorphose Nécrotique</h5><p>La Dégénérescence transforme progressivement le lanceur entre vie et mort : froid, teint terne, fonctions ralenties et Essence proche des morts, jusqu'à l'incarnation de la mort s'il abandonne son humanité.</p></div>
+                        <div class="reward-item"><h5>Chair Familiarisée au Tombeau</h5><p>10 % de Résistance à la Magie Nécromantique.</p></div>
+                        <div class="reward-item"><h5>Bonus de voie</h5><p>CST −2 → +3 (delta +5), SAG +2 ; +1 au choix en Résilience, Savoir ou Sang-Froid.</p></div>
+                        <div class="reward-item"><h5>Passif — Ancrage Nécrotique</h5><p><strong>PN max = 6 + Mod. INT.</strong> Chaque mort relevé réserve des Points Nécro selon sa puissance tant qu'il reste actif. Après destruction, libération ou fin du lien, les PN sont récupérés à la fin du tour. Exemple : 8 PN, mort coûtant 4 PN, 4 PN disponibles.</p></div>
                     </div>
                 </div>
 
@@ -165,50 +143,22 @@
                             <p><strong>→</strong> Offre la compétence : Magie occulte +2.</p>
                         </div>
                         
+                        <div class="reward-item"><h5>Incarnation Occulte</h5><p>La Dégénérescence imprègne corps et âme de stigmates infernaux selon les pactes et affinités, jusqu'à rapprocher le lanceur des entités concernées.</p></div>
+                        <div class="reward-item"><h5>Empreinte de l'Outremonde</h5><p>10 % de Résistance à la Magie des Ténèbres.</p></div>
                         <div class="reward-item">
-                            <h5>Initiation aux Sceaux Infernaux</h5>
-                            <p>Tu as découvert, consulté et feuilleté des recueils interdits décrivant l'un des Courants Occultes.</p>
-                            
-                            <p><strong>Pactes disponibles :</strong></p>
+                            <h5>Secrets de l'Interdit — 1 Secret permanent au choix</h5>
                             <ul>
-                                <li><strong>Pacte des bêtes démoniaques</strong> — Lien avec les Bêtes + Faim du Pacte (récupération de PV)</li>
-                                <li><strong>Pacte du corps d'ébène</strong> — Lien avec Ossifères Déchus + Os du Tourment (réduction de dégâts)</li>
-                                <li><strong>Pacte de la puissance démoniaque</strong> — Lien avec Para-Démons + Impulsion para-démoniaque (Avantage)</li>
-                                <li><strong>Pacte du miasme</strong> — Lien du Miasme + Présage d'Horreur (Désavantage ennemi)</li>
-                                <li><strong>Pacte du sang ancien</strong> — Lien des Sur-Sangs + Peau de Sur-Sang (réduit Saignement)</li>
+                                <li><strong>Regard derrière le Voile :</strong> Avantage pour détecter une présence ou énergie magique, analyser un objet magique ou identifier la nature générale d'une anomalie magique.</li>
+                                <li><strong>Sceau d'Endiguement :</strong> 1 fois par combat, lorsqu'une faculté fait gagner de la Dégénérescence Maudite, réduit ce gain de 2 points (minimum 0).</li>
+                                <li><strong>Cœur de l'Innommable :</strong> Avantage pour résister à l'Intimidation d'une entité Monstre, Élémentaire ou Maudite. Ne protège pas automatiquement contre Peur, Terreur ou les autres facultés surnaturelles.</li>
+                                <li><strong>Œil de l'Interdit :</strong> les sorts maîtrisés de Magie Élémentaire ou Occulte obtiennent Percée magique 10 %, ignorant 10 % de la protection/résistance magique compatible.</li>
+                                <li><strong>Doctrine du Mage de Guerre Occulte :</strong> +1 au résultat des dés de progression de PV et de PE ; 1 Maîtrise mineure d'arme au choix.</li>
+                                <li><strong>Occultom — Rémanence de l'Outremonde :</strong> 1 fois par jour, matérialise une Rémanence Occulte mineure de 20 PV, imitation temporaire avec profil et capacités selon sa forme. Sans Pacte de famille démoniaque, famille tirée aléatoirement parmi les grandes familles connues. Une seule active à la fois ; disparaît à sa destruction ou à la fin de sa durée, sans cadavre démoniaque. Un futur Pacte pourrait permettre de choisir sa famille.</li>
+                                <li><strong>Savoir qui ne Devrait pas Exister :</strong> 1 fois par scène, Avantage à un jet de Savoir sur un sujet ancien, obscur ou inhabituel (magie ancienne, ruines, civilisations, rites, artefacts, phénomènes occultes, écrits). Uniquement si l'information peut réellement être découverte.</li>
+                                <li><strong>Langues des Royaumes Interdits :</strong> 3 langues ordinaires supplémentaires accessibles à la création, et Compréhension de la Langue Infernale — Légère : mots courants, expressions simples, avertissements, noms, formules ou sens général d'un court texte. Pas de maîtrise courante ni de traduction parfaite des contrats avancés.</li>
                             </ul>
                         </div>
-                        
-                        <div class="reward-item">
-                            <h5>Toucher par la grâce Occulte</h5>
-                            <p>Bonus de caractéristique de combat : <strong>INT +2</strong> et transforme le malus de <strong>CHA −2 en +3</strong> (soit +5 total).</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Voie du Spiritisme -->
-                <div class="voie-card spirit">
-                    <h3>🕯️ Voie du Spiritisme</h3>
-                    <p class="voie-description">La Voie du Spiritisme n'est pas centrée sur la chair, mais sur ce qui demeure lorsque la chair s'arrête : l'écho, la mémoire, le fragment d'âme, la présence. Le Sorcier Maudit y développe une écoute du monde invisible : dialoguer avec des esprits, lire les traces laissées dans un lieu, apaiser ou contraindre une entité errante. Contrairement à la nécromancie brute, cette voie peut être plus subtile — parfois même respectueuse — mais elle reste dangereuse.</p>
-                    
-                    <div class="subsection">
-                        <h4>🎁 Gains obtenus</h4>
-                        
-                        <div class="reward-item">
-                            <h5>Maîtrise mineure — Nécropsie Spirituelle</h5>
-                            <p>Cette magie ne manipule pas la chair, mais l'âme elle-même : elle peut en lire les cicatrices, en forcer les failles, en dégrader la substance, l'amplifier, ou l'implanter dans un corps inerte comme on fixerait une flamme dans une lanterne. Là où la nécromancie joue avec les corps, la Nécropsie Spirituelle dissèque l'essence invisible des êtres.</p>
-                            <p><strong>→</strong> Offre la compétence : Nécropsie Spirituelle +2.</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Vision spirituelle</h5>
-                            <p>Le lanceur est capable de percevoir les énergies et les entités spirituelles, même lorsqu'elles tentent de se dissimuler. Si une présence est cachée par un camouflage magique, le lanceur peut effectuer un jet de Sagesse (Perception magique) afin de détecter la dissimulation.</p>
-                        </div>
-                        
-                        <div class="reward-item">
-                            <h5>Toucher par la grâce — Nécropsie Spirituelle</h5>
-                            <p>Bonus de caractéristique de combat : <strong>INT +1</strong> et <strong>SAG +3</strong>.</p>
-                        </div>
+                        <div class="reward-item"><h5>Bonus de voie</h5><p>CHA −2 → +3 (delta +5), SAG +2 ; +1 au choix en Social, Savoir ou Sang-Froid.</p></div>
                     </div>
                 </div>
 
@@ -226,9 +176,14 @@
                             <p><strong>→</strong> Offre la compétence : Magie psionique +2.</p>
                         </div>
                         
+                        <div class="reward-item"><h5>Fêlure de l'Être Abyssal</h5><p>La Dégénérescence altère perception, pensée et identité, puis le corps, par des manifestations irrationnelles abyssales.</p></div>
+                        <div class="reward-item"><h5>Psyché Marquée par les Abysses</h5><p>10 % de Résistance à la Magie Psychique.</p></div>
+                        <div class="reward-item"><h5>Bonus de voie</h5><p>INT +2, PER +3 ; +1 au choix en Sang-Froid, Instinct ou Savoir.</p></div>
                         <div class="reward-item">
-                            <h5>Toucher par la grâce — Abysses</h5>
-                            <p>Bonus de caractéristique de combat : <strong>INT +3</strong> et offre un bonus de <strong>1d6 + Mod INT de RM supplémentaire</strong>.</p>
+                            <h5>Passif — Réserve PSY de l'Abîme</h5>
+                            <p><strong>PSY max = 4 + Mod. INT + moitié du niveau de Marque de la Fêlure</strong>, arrondie au supérieur.</p>
+                            <p><strong>Fêlure amplifiée :</strong> 1 fois par round, avant le jet concerné, dépense des PSY pour un seul effet sur un sort psionique maîtrisé : Impulsion mentale (1 PSY, +5 au jet de lancement) OU Pression psychique (2 PSY, −10 au jet de RM d'une cible contre ce sort). Un seul effet par sort.</p>
+                            <p><strong>Récupération :</strong> repos court 1 fois par jour : 1d4 PSY ; repos long : totalité ; repos long interrompu : moitié de la réserve maximale.</p>
                         </div>
                     </div>
                 </div>
@@ -306,26 +261,6 @@
                     </div>
                 </div>
 
-                <!-- Connaissances Spiritisme -->
-                <div class="voie-card spirit">
-                    <h3>🕯️ Voie Spirituelle</h3>
-                    
-                    <div class="knowledge-item">
-                        <h4>Connaissance du domaine spirituel <span class="level">(Modéré)</span></h4>
-                        <p>Tu connais les notions de base liées aux esprits : présences, échos, lieux chargés, ancres, et manifestations invisibles.</p>
-                    </div>
-                    
-                    <div class="knowledge-item">
-                        <h4>Connaissance de la magie spirituelle <span class="level">(Modéré)</span></h4>
-                        <p>Tu connais les principes de la magie spirituelle "classique" : perception des âmes, interaction avec les présences, apaisement.</p>
-                    </div>
-                    
-                    <div class="knowledge-item">
-                        <h4>Connaissance de la magie de Nécropsie Spirituelle <span class="level">(Modéré)</span></h4>
-                        <p>Tu connais la variante impie qui ne se contente pas de parler aux esprits : elle les dissèque, les force, et les "recompose" comme une matière.</p>
-                    </div>
-                </div>
-
                 <!-- Connaissances Abysses -->
                 <div class="voie-card abyss">
                     <h3>🕳️ Voie des Abysses</h3>
@@ -348,6 +283,7 @@
             </div>
         </section>
 
+        <section class="section"><h2 class="section-title">🗡️ Classe d’Arme</h2><div class="highlight-box"><p>Aucune.</p></div></section>
         <!-- Équipement -->
         <section class="section">
             <h2 class="section-title">📦 Équipement de départ</h2>
@@ -356,17 +292,16 @@
                 <div class="equipment-item">
                     <span class="icon">🔮</span>
                     <div>
-                        <h4>Catalyseur maudit au choix</h4>
-                        <p>Un objet servant de focus pour ta magie corrompue</p>
+                        <h4>Grimoire maudit au choix</h4>
+                        <p>Grimoire maudit choisi à la création</p>
                     </div>
                 </div>
 
                 <div class="equipment-item">
                     <span class="icon">🧙</span>
                     <div>
-                        <h4>Robe ou Armure du Sorcier Maudit</h4>
-                        <p>Robe : 10% résistance Magie maudite + 10% autre type<br>
-                        Armure légère : protection physique + 10% résistance Magie maudite</p>
+                        <h4>Robe de Sorcier Maudit</h4>
+                        <p>10 % de résistance selon la voie : magie nécromantique (Nécromancie), Ténèbres (Occulte), Psychique et Abysses (Abysses).</p>
                     </div>
                 </div>
 
@@ -374,7 +309,7 @@
                     <span class="icon">🔵</span>
                     <div>
                         <h4>2 potions de magie</h4>
-                        <p>Restaure les points de magie</p>
+                        <p>Tranche de niveau actuelle</p>
                     </div>
                 </div>
 
@@ -382,7 +317,7 @@
                     <span class="icon">❤️</span>
                     <div>
                         <h4>1 potion de vie</h4>
-                        <p>Soin d'urgence</p>
+                        <p>Tranche de niveau actuelle</p>
                     </div>
                 </div>
             </div>
@@ -396,7 +331,7 @@
                 <div class="competence-category">
                     <h3>Compétences de caractéristique</h3>
                     <ul class="competence-list">
-                        <li><strong>Magie maudite (INT)</strong> — Maîtrise de la magie maudite pour lancer des sorts en limitant la surcharge du corps.</li>
+                        <li><strong>Magie maudite (N.A +5)</strong> — Maîtrise de la magie maudite pour lancer des sorts en limitant la surcharge du corps.</li>
                         <li><strong>Canalisation de l'Essence corrompue (SAG)</strong> — Contrôle du flux d'Essence Maudite dans le corps et le catalyseur.</li>
                         <li><strong>Résistance mentale obscure (RM)</strong> — Résister à la folie, aux influences corrompues, aux intrusions mentales.</li>
                         <li><strong>Analyse magique (INT)</strong> — Identifier, étudier et interpréter les objets magiques ou phénomènes arcaniques.</li>
